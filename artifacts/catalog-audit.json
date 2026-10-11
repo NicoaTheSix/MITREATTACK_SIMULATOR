@@ -1,0 +1,179 @@
+{
+  "started_at_utc": "2026-10-11T07:01:51.200941+00:00",
+  "scope": "All downloaded snapshot artifacts and all Enterprise UI mappings/active records",
+  "checks": {
+    "snapshot_artifacts_verified": 5,
+    "source_active_records": 697,
+    "source_parent_relationships": 475,
+    "expected_platform_tactic_technique_mappings": 2285,
+    "procedure_example_counts": {
+      "enterprise-attack": 17136,
+      "mobile-attack": 1478,
+      "ics-attack": 271
+    },
+    "ui_mappings": 2285,
+    "missing_mappings": 0,
+    "extra_mappings": 0,
+    "structural_parent_rows": 12,
+    "platforms": 11,
+    "tactic_branches": 122,
+    "active_record_interactions_verified": 697,
+    "navigation_category_counts": {
+      "Mitigations": 109,
+      "Assets": 18,
+      "Detections": 3155,
+      "Groups": 210,
+      "Software": 974,
+      "Campaigns": 67
+    },
+    "title_description_clipboard_verified": true
+  },
+  "statistics": {
+    "enterprise-attack": {
+      "objects_total": 26086,
+      "object_types": {
+        "attack-pattern": 858,
+        "campaign": 56,
+        "course-of-action": 268,
+        "identity": 1,
+        "intrusion-set": 191,
+        "malware": 733,
+        "marking-definition": 1,
+        "relationship": 21262,
+        "tool": 95,
+        "x-mitre-analytic": 1758,
+        "x-mitre-collection": 1,
+        "x-mitre-data-component": 109,
+        "x-mitre-data-source": 38,
+        "x-mitre-detection-strategy": 699,
+        "x-mitre-matrix": 1,
+        "x-mitre-tactic": 15
+      },
+      "active_tactics": 15,
+      "active_techniques": 222,
+      "active_subtechniques": 475,
+      "active_attack_patterns": 697,
+      "excluded_revoked_or_deprecated_objects": 446,
+      "validation": "JSON, bundle structure, collection version, and technique domains checked; not full STIX schema validation"
+    },
+    "mobile-attack": {
+      "objects_total": 2635,
+      "object_types": {
+        "attack-pattern": 190,
+        "campaign": 3,
+        "course-of-action": 15,
+        "identity": 1,
+        "intrusion-set": 22,
+        "malware": 125,
+        "marking-definition": 1,
+        "relationship": 1889,
+        "tool": 2,
+        "x-mitre-analytic": 211,
+        "x-mitre-collection": 1,
+        "x-mitre-data-component": 29,
+        "x-mitre-data-source": 6,
+        "x-mitre-detection-strategy": 124,
+        "x-mitre-matrix": 2,
+        "x-mitre-tactic": 14
+      },
+      "active_tactics": 12,
+      "active_techniques": 77,
+      "active_subtechniques": 47,
+      "active_attack_patterns": 124,
+      "excluded_revoked_or_deprecated_objects": 80,
+      "validation": "JSON, bundle structure, collection version, and technique domains checked; not full STIX schema validation"
+    },
+    "ics-attack": {
+      "objects_total": 2173,
+      "object_types": {
+        "attack-pattern": 118,
+        "campaign": 9,
+        "course-of-action": 52,
+        "identity": 1,
+        "intrusion-set": 16,
+        "malware": 30,
+        "marking-definition": 1,
+        "relationship": 1667,
+        "x-mitre-analytic": 97,
+        "x-mitre-asset": 18,
+        "x-mitre-collection": 1,
+        "x-mitre-data-component": 36,
+        "x-mitre-data-source": 17,
+        "x-mitre-detection-strategy": 97,
+        "x-mitre-matrix": 1,
+        "x-mitre-tactic": 12
+      },
+      "active_tactics": 12,
+      "active_techniques": 79,
+      "active_subtechniques": 18,
+      "active_attack_patterns": 97,
+      "excluded_revoked_or_deprecated_objects": 48,
+      "validation": "JSON, bundle structure, collection version, and technique domains checked; not full STIX schema validation"
+    }
+  },
+  "scheduled_task_job": [
+    {
+      "id": "T1053.002",
+      "name": "At",
+      "platforms": [
+        "Windows",
+        "Linux",
+        "macOS"
+      ],
+      "windows_execution": true,
+      "actual_ui_occurrences": 9
+    },
+    {
+      "id": "T1053.003",
+      "name": "Cron",
+      "platforms": [
+        "Linux",
+        "macOS",
+        "ESXi"
+      ],
+      "windows_execution": false,
+      "actual_ui_occurrences": 9
+    },
+    {
+      "id": "T1053.005",
+      "name": "Scheduled Task",
+      "platforms": [
+        "Windows"
+      ],
+      "windows_execution": true,
+      "actual_ui_occurrences": 3
+    },
+    {
+      "id": "T1053.006",
+      "name": "Systemd Timers",
+      "platforms": [
+        "Linux"
+      ],
+      "windows_execution": false,
+      "actual_ui_occurrences": 3
+    },
+    {
+      "id": "T1053.007",
+      "name": "Container Orchestration Job",
+      "platforms": [
+        "Containers"
+      ],
+      "windows_execution": false,
+      "actual_ui_occurrences": 3
+    }
+  ],
+  "errors": [],
+  "attack_version": "19.2",
+  "commit_sha": "6cda5ad8462c79e14fbb872f4e09059b18e0cfc4",
+  "inputs": [
+    "D:\\MITREATTACK_SIMULATOR\\data\\attack\\latest.json",
+    "D:\\MITREATTACK_SIMULATOR\\data\\attack\\v19.2\\manifest.json",
+    "D:\\MITREATTACK_SIMULATOR\\data\\attack\\v19.2\\index.json",
+    "D:\\MITREATTACK_SIMULATOR\\data\\attack\\v19.2\\LICENSE.txt",
+    "D:\\MITREATTACK_SIMULATOR\\data\\attack\\v19.2\\enterprise-attack-19.2.json",
+    "D:\\MITREATTACK_SIMULATOR\\data\\attack\\v19.2\\mobile-attack-19.2.json",
+    "D:\\MITREATTACK_SIMULATOR\\data\\attack\\v19.2\\ics-attack-19.2.json"
+  ],
+  "status": "PASS",
+  "completed_at_utc": "2026-10-11T07:02:11.771819+00:00"
+}

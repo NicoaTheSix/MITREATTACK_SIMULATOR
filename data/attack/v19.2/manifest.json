@@ -1,0 +1,125 @@
+{
+  "attack_version": "19.2",
+  "stix_format": "2.1",
+  "repository": "https://github.com/mitre-attack/attack-stix-data",
+  "release_url": "https://github.com/mitre-attack/attack-stix-data/releases/tag/v19.2",
+  "release_published_at": "2026-08-05T22:58:54Z",
+  "commit_sha": "6cda5ad8462c79e14fbb872f4e09059b18e0cfc4",
+  "downloaded_at_utc": "2026-10-09T12:02:50.739505+00:00",
+  "files": [
+    {
+      "filename": "index.json",
+      "url": "https://raw.githubusercontent.com/mitre-attack/attack-stix-data/6cda5ad8462c79e14fbb872f4e09059b18e0cfc4/index.json",
+      "bytes": 32340,
+      "sha256": "470688307ba183e4f8a5031faa43a59eb7a84507d621bc7b0c3192e6875c1c04"
+    },
+    {
+      "filename": "LICENSE.txt",
+      "url": "https://raw.githubusercontent.com/mitre-attack/attack-stix-data/6cda5ad8462c79e14fbb872f4e09059b18e0cfc4/LICENSE.txt",
+      "bytes": 1354,
+      "sha256": "738144f7fb054722a4ef9d3367c51710341dc12fc574c6ac3a41daaaecd8bf5e"
+    },
+    {
+      "filename": "enterprise-attack-19.2.json",
+      "url": "https://raw.githubusercontent.com/mitre-attack/attack-stix-data/6cda5ad8462c79e14fbb872f4e09059b18e0cfc4/enterprise-attack/enterprise-attack-19.2.json",
+      "bytes": 53835637,
+      "sha256": "dc1639caa5501d720e280cf1cbd8fbe009884a0c9b3e6e9ed9d0c25166c3d8f4",
+      "domain": "enterprise-attack",
+      "statistics": {
+        "objects_total": 26086,
+        "object_types": {
+          "attack-pattern": 858,
+          "campaign": 56,
+          "course-of-action": 268,
+          "identity": 1,
+          "intrusion-set": 191,
+          "malware": 733,
+          "marking-definition": 1,
+          "relationship": 21262,
+          "tool": 95,
+          "x-mitre-analytic": 1758,
+          "x-mitre-collection": 1,
+          "x-mitre-data-component": 109,
+          "x-mitre-data-source": 38,
+          "x-mitre-detection-strategy": 699,
+          "x-mitre-matrix": 1,
+          "x-mitre-tactic": 15
+        },
+        "active_tactics": 15,
+        "active_techniques": 222,
+        "active_subtechniques": 475,
+        "active_attack_patterns": 697,
+        "excluded_revoked_or_deprecated_objects": 446,
+        "validation": "JSON, bundle structure, collection version, and technique domains checked; not full STIX schema validation"
+      }
+    },
+    {
+      "filename": "mobile-attack-19.2.json",
+      "url": "https://raw.githubusercontent.com/mitre-attack/attack-stix-data/6cda5ad8462c79e14fbb872f4e09059b18e0cfc4/mobile-attack/mobile-attack-19.2.json",
+      "bytes": 5750325,
+      "sha256": "acfa5ca2d93484476f79bf38590e2b55bb675fc0ce85e76bffa0af2c82dada64",
+      "domain": "mobile-attack",
+      "statistics": {
+        "objects_total": 2635,
+        "object_types": {
+          "attack-pattern": 190,
+          "campaign": 3,
+          "course-of-action": 15,
+          "identity": 1,
+          "intrusion-set": 22,
+          "malware": 125,
+          "marking-definition": 1,
+          "relationship": 1889,
+          "tool": 2,
+          "x-mitre-analytic": 211,
+          "x-mitre-collection": 1,
+          "x-mitre-data-component": 29,
+          "x-mitre-data-source": 6,
+          "x-mitre-detection-strategy": 124,
+          "x-mitre-matrix": 2,
+          "x-mitre-tactic": 14
+        },
+        "active_tactics": 12,
+        "active_techniques": 77,
+        "active_subtechniques": 47,
+        "active_attack_patterns": 124,
+        "excluded_revoked_or_deprecated_objects": 80,
+        "validation": "JSON, bundle structure, collection version, and technique domains checked; not full STIX schema validation"
+      }
+    },
+    {
+      "filename": "ics-attack-19.2.json",
+      "url": "https://raw.githubusercontent.com/mitre-attack/attack-stix-data/6cda5ad8462c79e14fbb872f4e09059b18e0cfc4/ics-attack/ics-attack-19.2.json",
+      "bytes": 4057891,
+      "sha256": "08b83d2cea6b6d6752468ef0e62e2ab2a53c9443ef72c439ecccb07ab9e89da9",
+      "domain": "ics-attack",
+      "statistics": {
+        "objects_total": 2173,
+        "object_types": {
+          "attack-pattern": 118,
+          "campaign": 9,
+          "course-of-action": 52,
+          "identity": 1,
+          "intrusion-set": 16,
+          "malware": 30,
+          "marking-definition": 1,
+          "relationship": 1667,
+          "x-mitre-analytic": 97,
+          "x-mitre-asset": 18,
+          "x-mitre-collection": 1,
+          "x-mitre-data-component": 36,
+          "x-mitre-data-source": 17,
+          "x-mitre-detection-strategy": 97,
+          "x-mitre-matrix": 1,
+          "x-mitre-tactic": 12
+        },
+        "active_tactics": 12,
+        "active_techniques": 79,
+        "active_subtechniques": 18,
+        "active_attack_patterns": 97,
+        "excluded_revoked_or_deprecated_objects": 48,
+        "validation": "JSON, bundle structure, collection version, and technique domains checked; not full STIX schema validation"
+      }
+    }
+  ]
+}

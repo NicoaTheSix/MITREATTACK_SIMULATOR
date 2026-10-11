@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "checks": [
+    "all indexed releases available offline",
+    "index modification date labelled accurately",
+    "offline fallback visibly identified",
+    "cached list retained after failed refresh",
+    "progress finishes after background operation",
+    "finished status does not show stale output paths",
+    "refresh re-enabled after completion",
+    "version search",
+    "downloaded historical version selectable offline",
+    "updated preview saved"
+  ],
+  "offline_refresh_simulated": true
+}
