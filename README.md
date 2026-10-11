@@ -1,121 +1,33 @@
 # MITRE ATT&CK Behavior Structure Simulator
 
-A planned graphical application for cybersecurity research that lets researchers assemble and inspect a simulated malware behavior profile using MITRE ATT&CK techniques and sub-techniques.
+A PySide6 desktop application for cybersecurity research that browses official MITRE ATT&CK data and lets researchers select techniques for a prospective behavior profile.
 
 ## Project Status
 
-A working PySide6 desktop explorer is available in `main.py`, backed by the downloaded Enterprise ATT&CK catalog. It provides a VS Code-inspired interface, a Platform → Tactic → Technique tree, sub-technique nesting, search, descriptions, and synchronized in-memory selections. A far-left navigation rail also provides Mitigations, Assets, Detections, Groups, Software, and Campaigns across the downloaded Enterprise, Mobile, and ICS domains. The environment detector, persisted scenarios, simulation engine, and report export remain planned. The local Python virtual environment is `C:\Users\nick5\MITREATTACK_SIMULATOR`.
+The current application provides a VS Code-inspired workspace, an Enterprise Platform → Tactic → Technique tree with nested sub-techniques, ID/name search, synchronized in-memory selections, technique details, Procedure Examples, and title/description copy actions. The far-left navigation rail provides Mitigations, Assets, Detections, Groups, Software, and Campaigns across available Enterprise, Mobile, and ICS data. The Version picker discovers official Enterprise releases, downloads and validates snapshots, supports offline switching to downloaded versions, and remembers the selected version.
 
-## Research Concept
+This README documents implemented functionality, startup commands, inputs, outputs, progress, and verification. Remaining requirements and future design proposals are maintained in [NOTIMPLEMENTYET.md](NOTIMPLEMENTYET.md), including incomplete portions of otherwise working features.
 
-MITRE ATT&CK is a knowledge base of adversary behavior based on real-world observations. Tactics describe the purpose of an action; techniques and sub-techniques describe how an adversary can achieve that purpose. Its coverage extends beyond malware alone.
+The local Python virtual environment is `C:\Users\nick5\MITREATTACK_SIMULATOR`. The current interface uses English labels and original ATT&CK names. Technique selections are stored in memory; the selected dataset version is saved separately for the next launch.
 
-This project uses that vocabulary to describe the structure of a simulated malware scenario. Researchers should be able to choose individual behaviors, inspect their relationships and prerequisites, and save a reproducible scenario for analysis.
+## Research Context
 
-The proposed first version models behavior through scenario definitions, dry-run previews, and synthetic event records. Any later laboratory execution capability requires a separate design discussion. Selecting a technique does not automatically mean that an executable implementation exists or that it can run on the current machine.
+MITRE ATT&CK describes observed adversary behavior through tactics, techniques, and sub-techniques. The interface presents catalog records and their relationships for inspection and selection. Technique pages explicitly label their current behavior-module support status.
 
-## Initial Requirements
+## Current User Workflow
 
-### Graphical Technique Selection
-
-- Browse Enterprise ATT&CK tactics, techniques, and sub-techniques.
-- Search by technique ID, name, or description.
-- Filter by tactic, target platform, and simulation support.
-- Add or remove techniques from the current scenario.
-- Inspect each technique's description, source link, parameters, and prerequisites.
-- Display an editable execution order; ATT&CK tactics do not impose one universal chronological sequence.
-- Clearly distinguish catalog entries from behaviors supported by the simulator.
-
-### Local Programming Environment Detection
-
-Detect locally available interpreters, runtimes, SDKs, and compilers, then display their absolute executable paths and reported versions.
-
-Candidate environments for the initial detector include:
-
-| Environment | Information to distinguish |
-| --- | --- |
-| Python | Interpreter, version, active environment, and discovered installations |
-| PowerShell | Windows PowerShell and PowerShell installations and versions |
-| JavaScript / Node.js | Node.js runtime and package manager availability |
-| Java | Java runtime and Java compiler availability |
-| .NET / C# | Installed runtimes and SDKs; a runtime alone does not imply build support |
-| Go | Toolchain executable and version |
-| Rust | Compiler and Cargo availability |
-| C / C++ | Discovered compiler toolchains and configuration requirements |
-
-Detection should check PATH and explicitly supported installation locations, with a manual executable-path option. Use bounded version probes and report failures without freezing the interface. Do not install packages or alter the machine during detection.
-
-Results should distinguish available, not discovered, probe failed, and configuration required. An environment not discovered by the detector may still exist outside its search scope. A discovered runtime does not prove that a scenario module's dependencies are satisfied.
-
-The application language and the languages supported by scenario modules are separate choices. Detecting several languages does not require rewriting the interface in each language.
-
-### Visible Progress and Absolute Paths
-
-Every processing stage must provide visible progress in the interface and operational logs. Show the stage name, status, and completed/total count when known; use an activity indicator when the total is unknown.
-
-Before an operation starts, display:
-
-- Absolute paths of all input files used by that operation.
-- Absolute paths of all planned output files, including logs and reports.
-- The output directory and selected scenario configuration.
-- An explicit "No input files" or "No output files" message when applicable.
-
-A selected runtime's absolute executable path should also be shown. Environment probes, catalog loading, scenario validation, simulation, and export should each report progress, completion, cancellation, or failure.
-
-### Reproducible Scenarios and Results
-
-Proposed artifacts include a JSON scenario definition, an environment inventory, a validation report, synthetic event records, and a human-readable summary.
-
-Scenario definitions should record the ATT&CK dataset version, selected technique IDs, module versions, parameters, ordering, and simulation mode. Reports should identify simulated behavior and distinguish it from observed host activity.
-
-## Proposed User Workflow
-
-1. Open the application and inspect the paths and operations planned for initialization.
-2. Detect local programming environments and review their paths, versions, and probe status.
-3. Load an ATT&CK catalog snapshot, showing its source, version, and loading progress.
-4. Create or open a scenario and select techniques from the catalog.
-5. Review the behavior structure, ordering, parameters, and compatibility information.
-6. Validate the scenario and resolve missing prerequisites or unsupported selections.
-7. Review absolute input/output paths and preview the simulation plan.
-8. Run the proposed dry-run simulation with stage progress and an event timeline.
-9. Export the scenario and reports, then display their final absolute paths.
-
-## Interface Proposal for Discussion
-
-A desktop interface is the initial proposal because environment discovery needs access to the local machine.
-
-- **Environment page:** detected toolchains, executable paths, versions, status, and a rescan action.
-- **ATT&CK explorer (implemented):** a searchable Platform → Tactic → Technique tree on the left, with sub-techniques beneath their parent techniques. The center shows technique details and a selected-techniques tab.
-- **Technique details:** descriptions, ATT&CK references, simulation support, and parameter controls.
-- **Preview and results page:** planned file paths, validation results, stage progress, synthetic events, and exported artifacts.
-
-The first builder can use an ordered list of techniques. A graph editor can be considered later if branching or dependencies justify the added complexity.
-
-Python with PySide6 is used for the desktop application. The current shell uses English labels and original ATT&CK names. Interface localization and simulation depth remain open for discussion.
-
-## Proposed Architecture
-
-Keep the interface separate from the ATT&CK catalog, environment detector, scenario model, validator, simulation engine, and exporter. Long-running work should run outside the UI thread and publish structured progress events.
-
-Catalog membership, module support, and local compatibility should be separate states. Technique-to-module mappings should be explicit, rather than assuming that every ATT&CK entry has a simulator implementation.
-
-Use a versioned local ATT&CK snapshot for repeatable research. Dataset updates should be explicit and retain provenance. A module should declare its supported platforms, runtime requirements, parameters, expected simulated events, and output artifacts.
+1. Launch the application and review the absolute catalog input paths and loading progress.
+2. Browse the Enterprise Platform → Tactic → Technique tree or search by ID/name.
+3. Inspect descriptions, the complete sub-technique family, Procedure Examples, and reference links; copy a title or description when needed.
+4. Check or uncheck techniques and review the deduplicated Selected Techniques tab.
+5. Browse the six library categories using their domain/type groups and ID/name search.
+6. Open Version to refresh the official release list, download or select a snapshot, and rebuild the interface with that version's data.
 
 ## Development Documentation Requirements
 
 Whenever a program is added or changed, maintain a README.md in the same directory describing its operation flow, inputs, outputs, execution steps, progress reporting, and failure handling. The repository README should link to those component documents as the project grows.
 
 All programs must display absolute input and output file paths before processing begins and expose progress for every processing stage.
-
-## Initial Milestones
-
-1. Document requirements and discuss interface design — this README.
-2. Build the interface shell and local environment detector.
-3. Add ATT&CK catalog browsing and scenario selection.
-4. Add scenario save/load, compatibility validation, and dry-run preview.
-5. Add synthetic event simulation and report export.
-
-The documentation, official data acquisition, and first desktop explorer are available. Environment discovery, persisted scenario editing, and the simulation workflow remain under development.
 
 ## Desktop Interface: Run and Operation Flow
 
@@ -133,12 +45,12 @@ The interface uses an explicit dark Qt palette and white selected-row text for c
 
 At startup, absolute paths are shown in the terminal and in the Output panel before each input is read:
 
-1. `D:\MITREATTACK_SIMULATOR\data\attack\latest.json` identifies the snapshot.
+1. `D:\MITREATTACK_SIMULATOR\data\attack\active.json` identifies the saved version when present; otherwise `D:\MITREATTACK_SIMULATOR\data\attack\latest.json` identifies the default snapshot. An invalid saved choice falls back to `latest.json` with a visible message.
 2. The resolved snapshot manifest, currently `D:\MITREATTACK_SIMULATOR\data\attack\v19.2\manifest.json`.
 3. The resolved Enterprise bundle, currently `D:\MITREATTACK_SIMULATOR\data\attack\v19.2\enterprise-attack-19.2.json`.
 4. The resolved Mobile and ICS bundles, currently `D:\MITREATTACK_SIMULATOR\data\attack\v19.2\mobile-attack-19.2.json` and `D:\MITREATTACK_SIMULATOR\data\attack\v19.2\ics-attack-19.2.json`.
 
-Paths are resolved from the program location, independently of the working directory. `--data-dir 'ABSOLUTE_DIRECTORY'` selects another data root. The program displays `Output files: None` during normal use. The optional verification command below displays its screenshot output path before loading and saves that file after checks pass.
+Paths are resolved from the program location, independently of the working directory. `--data-dir 'ABSOLUTE_DIRECTORY'` selects another data root. Local browsing displays `Output files: None`. Version discovery, downloads, and switching display their cache and saved-pointer outputs as described in Version Selection Workflow. The optional verification command below displays its screenshot output path before loading and saves that file after checks pass.
 
 ### Processing and Visible Progress
 
@@ -152,7 +64,7 @@ File reading and indexing run in a background Qt thread. Tree construction runs 
 ### Explorer Behavior
 
 - Platform names come directly from active Enterprise records; Windows is displayed first.
-- Tactics follow the official matrix order rather than alphabetical order or numeric ID order.
+- Tactics follow the official matrix order when present. Early versions derive historical phase headings from their own technique mappings, as described in Version Selection Workflow.
 - Techniques are placed using their actual platform and tactic mappings. A technique may appear in multiple branches.
 - Sub-techniques use official parent relationships. If a parent is needed only as a grouping node in a particular branch, its checkbox is omitted.
 - Platform and tactic nodes are navigation groups. Only mapped technique/sub-technique nodes have checkboxes.
@@ -160,7 +72,7 @@ File reading and indexing run in a background Qt thread. Tree construction runs 
 - Search uses literal, case-insensitive ID/name matching, preserves ancestor branches, and expands matches. Descriptions retain source text, including Markdown/citation notation.
 - Checking a technique synchronizes all occurrences of that same STIX ID. Parent and child selection are independent; checking a parent does not automatically select its sub-techniques.
 - The Selected Techniques tab deduplicates IDs across branches and provides a clear action. Clicking a selected entry opens its details.
-- Catalog selection describes a prospective scenario; executable behavior modules are not implemented by this UI.
+- Technique pages show the current behavior-module support status. Remaining scenario and simulation requirements are listed in [NOTIMPLEMENTYET.md](NOTIMPLEMENTYET.md).
 
 ### Verification and Preview
 
@@ -172,7 +84,7 @@ Run a bounded UI verification with an optional screenshot:
 
 The check validates all selectable tree mappings, PowerShell's official parent relationship, recursive ID search and an empty search result, duplicate checkbox synchronization, independent parent/child selection, clearing selections, and detail rendering. It reports four verification stages, saves the preview, and exits. For headless verification, set the process environment variable `QT_QPA_PLATFORM=offscreen`. The normal application does not set this variable. Offscreen previews explicitly load the installed Segoe UI and Consolas font files from the Windows Fonts directory, showing their absolute input paths, because the offscreen backend may not discover system fonts automatically.
 
-Missing files, mismatched versions, hash failures, or malformed catalogs are displayed in the editor and Output panel. The UI remains available for inspecting the error. Verification mode returns nonzero on load/check failure or timeout. The TTP tree covers Enterprise. The six library navigation categories browse Enterprise, Mobile, and ICS with explicit domain grouping. Mobile/ICS TTP matrix views are not implemented.
+Missing files, mismatched versions, hash failures, or malformed catalogs are displayed in the editor and Output panel. The UI remains available for inspecting the error. Verification mode returns nonzero on load/check failure or timeout. The TTP tree covers Enterprise. The six library navigation categories browse Enterprise, Mobile, and ICS with explicit domain grouping.
 
 ### Far-left Navigation Categories
 
@@ -194,7 +106,7 @@ Library sections show active records only. An object that exists in multiple dom
 
 Technique detail pages include a Procedure Examples table with source ID, name, the relationship's procedure description, and available reference links. The index comes from active STIX `uses` relationships whose source is an active group, malware, tool, or campaign and whose target is the exact active technique/sub-technique. Parent techniques do not inherit child examples. Revoked/deprecated sources, targets, and relationships are excluded. A zero-example technique displays an explicit empty-state message.
 
-`attack_catalog.py` indexes these relationships for each loaded domain with visible progress. TTP displays Enterprise examples; the index retains Mobile/ICS examples for future technique views. Each relationship keeps its own ID and references. Clicking an example's source name switches to the correct Groups, Software, or Campaigns domain record.
+`attack_catalog.py` indexes these relationships for each loaded domain with visible progress. TTP displays Enterprise examples; the catalog also indexes relationships for every available Mobile/ICS bundle. Each relationship keeps its own ID and references. Clicking an example's source name switches to the correct Groups, Software, or Campaigns domain record.
 
 Native **Copy** buttons appear beside the record title and Description heading and follow those headings during scrolling/resizing. They are available on technique and library detail pages. Title copies the name alone, excluding the ATT&CK ID. Description copies the complete original description text, retaining source Markdown/citation notation, and excludes metadata, sibling tables, and procedure examples. The button briefly shows **Copied**, and the status bar confirms the action. Empty descriptions have disabled copy actions. Navigation/loading/error pages clear copy contents to prevent stale copies.
 
@@ -224,7 +136,7 @@ Processing reports seven stages:
 
 The current snapshot regression includes all five active T1053 children: At, Cron, Scheduled Task, Systemd Timers, and Container Orchestration Job. Only At and Scheduled Task map to Windows. A shorter Windows branch is expected, rather than missing data. Parent detail pages and child detail pages expose the full active family and current-branch status so this distinction is visible.
 
-The report covers all three downloaded domains at the data level, Enterprise at the TTP UI level, and all six library sections across Enterprise, Mobile, and ICS. Mobile and ICS TTP matrix views are not implemented. Revoked/deprecated records are excluded intentionally. Errors are recorded in the report and return a nonzero exit status; input/load failures are reported with the stage that failed.
+The report covers all three downloaded domains at the data level, Enterprise at the TTP UI level, and all six library sections across Enterprise, Mobile, and ICS. Revoked/deprecated records are excluded intentionally. Errors are recorded in the report and return a nonzero exit status; input/load failures are reported with the stage that failed.
 
 ## Local ATT&CK Data
 
@@ -234,7 +146,7 @@ Run the official-data downloader with the project virtual environment:
 & 'C:\Users\nick5\MITREATTACK_SIMULATOR\Scripts\python.exe' 'D:\MITREATTACK_SIMULATOR\scripts\download_attack_data.py'
 ```
 
-See [scripts/README.md](scripts/README.md) for the complete operation flow, absolute input/output paths, progress stages, and failure handling. Versioned STIX 2.1 snapshots are stored under `data/attack/v<version>` and include Enterprise, Mobile, and ICS. `data/attack/latest.json` identifies the latest successfully downloaded snapshot. The interface should use the Enterprise bundle first.
+See [scripts/README.md](scripts/README.md) for the complete operation flow, absolute input/output paths, progress stages, and failure handling. Versioned STIX 2.1 snapshots are stored under `data/attack/v<version>` and include Enterprise, Mobile, and ICS. `data/attack/latest.json` identifies the latest successfully downloaded snapshot. The TTP tree uses the selected Enterprise bundle.
 
 The downloader queries the official latest stable GitHub release and pins its commit before downloading. Each snapshot preserves the upstream license, catalog index, release metadata, SHA-256 hashes, and active technique statistics. Original bundles retain revoked and deprecated objects; active counts exclude them. See the snapshot README and manifest for the exact version and provenance.
 
@@ -246,16 +158,6 @@ The downloader queries the official latest stable GitHub release and pins its co
 - [Qt for Python / PySide6 Documentation](https://doc.qt.io/qtforpython-6/)
 
 This is an independent research project and is not affiliated with or endorsed by MITRE.
-
-
-
-
-
-
-
-
-
-
 
 ## Version Selection Workflow
 
