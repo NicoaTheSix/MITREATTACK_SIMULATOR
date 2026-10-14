@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 from collections import defaultdict
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 import hashlib
 import json
 from pathlib import Path
@@ -11,6 +11,12 @@ from typing import Callable
 Progress = Callable[[str, int, int], None]
 
 DOMAIN_LABELS = {"enterprise-attack": "Enterprise", "mobile-attack": "Mobile", "ics-attack": "ICS"}
+DOMAIN_KILL_CHAINS = {"enterprise-attack": "mitre-attack", "mobile-attack": "mitre-mobile-attack", "ics-attack": "mitre-ics-attack"}
+
+
+def tactic_phases(record, domain):
+    return {phase["phase_name"] for phase in record.get("kill_chain_phases", [])
+            if phase.get("kill_chain_name") == DOMAIN_KILL_CHAINS[domain]}
 BROWSE_CATEGORIES = {
     "Mitigations": {"course-of-action": "Mitigations"},
     "Assets": {"x-mitre-asset": "Assets"},
@@ -32,6 +38,44 @@ class Catalog:
     parents: dict[str, str]
     objects_by_domain: dict[str, dict[str, dict]]
     procedures_by_domain: dict[str, dict[str, list[dict]]]
+    techniques_by_source: dict[str, dict[str, list[dict]]]
+    parents_by_domain: dict[str, dict[str, str]]
+    domain: str = "enterprise-attack"
+
+    def for_domain(self, domain):
+        """Project one verified domain while retaining cross-domain reference libraries."""
+        if domain not in DOMAIN_LABELS:
+            raise ValueError("Unknown ATT&CK domain")
+        if domain == self.domain:
+            return self
+        objects = self.objects_by_domain[domain]
+        records = {key: obj for key, obj in objects.items() if obj.get("type") == "attack-pattern"
+                   and domain in obj.get("x_mitre_domains", [])}
+        if not records:
+            raise ValueError(f"{DOMAIN_LABELS[domain]} is not available in ATT&CK v{self.version}")
+        tactics = {obj["x_mitre_shortname"]: obj for obj in objects.values()
+                   if obj.get("type") == "x-mitre-tactic"}
+        matrix = next((obj.get("tactic_refs", []) for obj in objects.values()
+                       if obj.get("type") == "x-mitre-matrix"), [])
+        historical_order = ["reconnaissance", "resource-development", "initial-access", "execution", "persistence",
+                            "privilege-escalation", "defense-evasion", "credential-access", "discovery",
+                            "lateral-movement", "collection", "command-and-control", "exfiltration", "impact"]
+        for slug in set().union(*(tactic_phases(obj, domain) for obj in records.values())) - tactics.keys():
+            tactics[slug] = {"id": "historical-phase--" + slug, "type": "x-mitre-tactic",
+                            "x_mitre_shortname": slug, "name": slug.replace("-", " ").title(), "_historical_phase": True}
+        ranks = {ref: number for number, ref in enumerate(matrix)}
+        order = sorted(tactics, key=lambda slug: (ranks.get(tactics[slug]["id"], 999),
+                       historical_order.index(slug) if slug in historical_order and tactics[slug].get("_historical_phase") else 999, slug))
+        groups = defaultdict(lambda: defaultdict(list))
+        for key, obj in records.items():
+            for platform in obj.get("x_mitre_platforms", []) or ["Unspecified Platform"]:
+                for slug in tactic_phases(obj, domain) & tactics.keys():
+                    groups[platform][slug].append(key)
+        plain_groups = {platform: {slug: sorted(groups[platform][slug], key=lambda key: external_id(records[key]))
+                                  for slug in order if slug in groups[platform]}
+                        for platform in sorted(groups, key=lambda value: (value != "Windows", value.casefold()))}
+        return replace(self, domain=domain, records=records, tactics=tactics, tactic_order=order,
+                       groups=plain_groups, parents=self.parents_by_domain[domain])
 
 
 def external_id(record: dict) -> str:
@@ -74,6 +118,35 @@ def index_procedures(objects: list[dict], records: dict[str, dict], notify: Prog
     notify(f"[3/4 Procedures] Complete: {DOMAIN_LABELS[domain]} "
            f"{sum(len(rows) for rows in examples.values())} procedure examples", 1, 1)
     return dict(examples)
+
+def index_source_techniques(objects, records, notify, domain):
+    """Keep exact active mitigates/uses edges, with their original use descriptions."""
+    rows = defaultdict(list)
+    parents = {obj["source_ref"]: obj["target_ref"] for obj in objects
+               if obj.get("type") == "relationship" and obj.get("relationship_type") == "subtechnique-of"
+               and not obj.get("revoked") and not obj.get("x_mitre_deprecated")
+               and obj.get("source_ref") in records and obj.get("target_ref") in records}
+    notify(f"[3/4 Related TTPs] Indexing {DOMAIN_LABELS[domain]}", 0, len(objects))
+    for number, edge in enumerate(objects, 1):
+        if number % 4000 == 0:
+            notify(f"[3/4 Related TTPs] Reading {DOMAIN_LABELS[domain]} relationships", number, len(objects))
+        if edge.get("type") != "relationship" or edge.get("revoked") or edge.get("x_mitre_deprecated"):
+            continue
+        source = records.get(edge.get("source_ref"), {})
+        target = records.get(edge.get("target_ref"), {})
+        expected = "mitigates" if source.get("type") == "course-of-action" else "uses"
+        if (source.get("type") not in {"course-of-action", "intrusion-set", "malware", "tool", "campaign"}
+                or target.get("type") != "attack-pattern" or edge.get("relationship_type") != expected):
+            continue
+        rows[source["id"]].append({"relationship_id": edge["id"], "target_ref": target["id"],
+                                   "description": edge.get("description", ""),
+                                   "references": edge.get("external_references", [])})
+    for entries in rows.values():
+        entries.sort(key=lambda row: (external_id(records[row["target_ref"]]), row["relationship_id"]))
+    notify(f"[3/4 Related TTPs] Complete: {DOMAIN_LABELS[domain]} "
+           f"{sum(map(len, rows.values()))} relationships", 1, 1)
+    return dict(rows), parents
+
 
 def load_catalog(root: Path, notify: Progress, pointer=None) -> Catalog:
     root = root.resolve()
@@ -169,10 +242,15 @@ def load_catalog(root: Path, notify: Progress, pointer=None) -> Catalog:
         and obj.get("type") != "relationship"
     }}
     procedures_by_domain = {"enterprise-attack": index_procedures(objects, objects_by_domain["enterprise-attack"], notify, "enterprise-attack")}
+    source_rows, domain_parents = index_source_techniques(objects, objects_by_domain["enterprise-attack"], notify, "enterprise-attack")
+    techniques_by_source = {"enterprise-attack": source_rows}
+    parents_by_domain = {"enterprise-attack": domain_parents}
     for domain, pointer_key in (("mobile-attack", "mobile_bundle"), ("ics-attack", "ics_bundle")):
         if not pointer.get(pointer_key):
             objects_by_domain[domain] = {}
             procedures_by_domain[domain] = {}
+            techniques_by_source[domain] = {}
+            parents_by_domain[domain] = {}
             notify(f"[3/4 Library] {DOMAIN_LABELS[domain]} is not available in this historical version", 1, 1)
             continue
         path = local_path(root, pointer[pointer_key])
@@ -204,8 +282,11 @@ def load_catalog(root: Path, notify: Progress, pointer=None) -> Catalog:
             and not obj.get("x_mitre_deprecated") and obj.get("type") != "relationship"
         }
         procedures_by_domain[domain] = index_procedures(source["objects"], objects_by_domain[domain], notify, domain)
+        techniques_by_source[domain], parents_by_domain[domain] = index_source_techniques(
+            source["objects"], objects_by_domain[domain], notify, domain)
         notify(f"[3/4 Library] Complete: {DOMAIN_LABELS[domain]}", 1, 1)
     notify("[3/4 Library] Complete: six navigation categories indexed across all three domains", 1, 1)
-    return Catalog(version, records, tactics, order, plain_groups, parents, objects_by_domain, procedures_by_domain)
+    return Catalog(version, records, tactics, order, plain_groups, parents, objects_by_domain, procedures_by_domain,
+                   techniques_by_source, parents_by_domain)
 
 

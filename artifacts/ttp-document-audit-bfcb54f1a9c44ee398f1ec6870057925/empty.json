@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "document_id": "bc4aeb92-2d87-422e-a3db-8e055109f455",
+  "name": "empty",
+  "created_at_utc": "2026-10-12T07:04:20.339852+00:00",
+  "exported_at_utc": "2026-10-12T07:04:20.448312+00:00",
+  "attack": {
+    "domain": "enterprise-attack",
+    "version": "19.2",
+    "source_url": "https://github.com/mitre-attack/attack-stix-data"
+  },
+  "selected_count": 0,
+  "selected_technique_ids": [],
+  "selected_ttps": []
+}

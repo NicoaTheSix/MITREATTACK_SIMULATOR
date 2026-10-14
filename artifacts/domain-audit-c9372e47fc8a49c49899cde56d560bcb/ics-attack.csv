@@ -1,0 +1,2 @@
+﻿schema_version,document_id,document_name,attack_domain,attack_version,created_at_utc,exported_at_utc,selected_count,technique_id,stix_id,name,is_subtechnique,parent_technique_id,parent_technique_name,platforms,tactic_ids,tactic_names,tactic_shortnames
+1.0,aeea5715-6fbd-409e-a580-d98357d8215a,ics-attack,ics-attack,19.2,2026-10-14T03:16:25.539554+00:00,2026-10-14T03:16:32.429220+00:00,1,T1691.001,attack-pattern--15ca2a99-2d3e-457f-b1d7-c52a1d5849c9,Command Message,true,T1691,Block Operational Technology Message,,TA0107,Inhibit Response Function,inhibit-response-function

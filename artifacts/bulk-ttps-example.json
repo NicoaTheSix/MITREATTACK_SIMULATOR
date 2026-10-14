@@ -1,0 +1,1271 @@
+{
+  "schema_version": "1.0",
+  "document_id": "df8aa2aa-ef09-473d-8ca4-e6561a7bbba4",
+  "name": "bulk-ttps-example",
+  "created_at_utc": "2026-10-14T03:17:38.356678+00:00",
+  "exported_at_utc": "2026-10-14T03:17:43.972081+00:00",
+  "attack": {
+    "domain": "enterprise-attack",
+    "version": "19.2",
+    "source_url": "https://github.com/mitre-attack/attack-stix-data"
+  },
+  "selected_count": 57,
+  "selected_technique_ids": [
+    "T1005",
+    "T1027.002",
+    "T1033",
+    "T1036.003",
+    "T1036.006",
+    "T1049",
+    "T1053.003",
+    "T1053.005",
+    "T1055",
+    "T1055.011",
+    "T1056.001",
+    "T1057",
+    "T1059.001",
+    "T1059.003",
+    "T1059.005",
+    "T1070.004",
+    "T1070.006",
+    "T1071.001",
+    "T1082",
+    "T1083",
+    "T1105",
+    "T1106",
+    "T1110",
+    "T1112",
+    "T1115",
+    "T1135",
+    "T1140",
+    "T1189",
+    "T1204.001",
+    "T1204.002",
+    "T1217",
+    "T1218.001",
+    "T1218.005",
+    "T1218.007",
+    "T1218.011",
+    "T1480.002",
+    "T1485",
+    "T1486",
+    "T1505.003",
+    "T1518.001",
+    "T1529",
+    "T1543.003",
+    "T1548.002",
+    "T1553.005",
+    "T1561.002",
+    "T1565.001",
+    "T1565.002",
+    "T1565.003",
+    "T1566.001",
+    "T1569.002",
+    "T1583.001",
+    "T1588.002",
+    "T1685",
+    "T1685.005",
+    "T1686",
+    "T1686.002",
+    "T1690"
+  ],
+  "selected_ttps": [
+    {
+      "technique_id": "T1005",
+      "stix_id": "attack-pattern--3c4a2599-71ee-4405-ba1e-0e28414b4bc5",
+      "name": "Data from Local System",
+      "is_subtechnique": false,
+      "parent_technique_id": null,
+      "parent_technique_name": null,
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0009",
+          "name": "Collection",
+          "shortname": "collection"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1027.002",
+      "stix_id": "attack-pattern--deb98323-e13f-4b0c-8d94-175379069062",
+      "name": "Software Packing",
+      "is_subtechnique": true,
+      "parent_technique_id": "T1027",
+      "parent_technique_name": "Obfuscated Files or Information",
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0005",
+          "name": "Stealth",
+          "shortname": "stealth"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1033",
+      "stix_id": "attack-pattern--03d7999c-1f4c-42cc-8373-e7690d318104",
+      "name": "System Owner/User Discovery",
+      "is_subtechnique": false,
+      "parent_technique_id": null,
+      "parent_technique_name": null,
+      "platforms": [
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0007",
+          "name": "Discovery",
+          "shortname": "discovery"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1036.003",
+      "stix_id": "attack-pattern--bd5b58a4-a52d-4a29-bc0d-3f1d3968eb6b",
+      "name": "Rename Legitimate Utilities",
+      "is_subtechnique": true,
+      "parent_technique_id": "T1036",
+      "parent_technique_name": "Masquerading",
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0005",
+          "name": "Stealth",
+          "shortname": "stealth"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1036.006",
+      "stix_id": "attack-pattern--e51137a5-1cdc-499e-911a-abaedaa5ac86",
+      "name": "Space after Filename",
+      "is_subtechnique": true,
+      "parent_technique_id": "T1036",
+      "parent_technique_name": "Masquerading",
+      "platforms": [
+        "Linux",
+        "macOS"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0005",
+          "name": "Stealth",
+          "shortname": "stealth"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1049",
+      "stix_id": "attack-pattern--7e150503-88e7-4861-866b-ff1ac82c4475",
+      "name": "System Network Connections Discovery",
+      "is_subtechnique": false,
+      "parent_technique_id": null,
+      "parent_technique_name": null,
+      "platforms": [
+        "ESXi",
+        "IaaS",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0007",
+          "name": "Discovery",
+          "shortname": "discovery"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1053.003",
+      "stix_id": "attack-pattern--2acf44aa-542f-4366-b4eb-55ef5747759c",
+      "name": "Cron",
+      "is_subtechnique": true,
+      "parent_technique_id": "T1053",
+      "parent_technique_name": "Scheduled Task/Job",
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "macOS"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0002",
+          "name": "Execution",
+          "shortname": "execution"
+        },
+        {
+          "tactic_id": "TA0003",
+          "name": "Persistence",
+          "shortname": "persistence"
+        },
+        {
+          "tactic_id": "TA0004",
+          "name": "Privilege Escalation",
+          "shortname": "privilege-escalation"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1053.005",
+      "stix_id": "attack-pattern--005a06c6-14bf-4118-afa0-ebcd8aebb0c9",
+      "name": "Scheduled Task",
+      "is_subtechnique": true,
+      "parent_technique_id": "T1053",
+      "parent_technique_name": "Scheduled Task/Job",
+      "platforms": [
+        "Windows"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0002",
+          "name": "Execution",
+          "shortname": "execution"
+        },
+        {
+          "tactic_id": "TA0003",
+          "name": "Persistence",
+          "shortname": "persistence"
+        },
+        {
+          "tactic_id": "TA0004",
+          "name": "Privilege Escalation",
+          "shortname": "privilege-escalation"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1055",
+      "stix_id": "attack-pattern--43e7dc91-05b2-474c-b9ac-2ed4fe101f4d",
+      "name": "Process Injection",
+      "is_subtechnique": false,
+      "parent_technique_id": null,
+      "parent_technique_name": null,
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0004",
+          "name": "Privilege Escalation",
+          "shortname": "privilege-escalation"
+        },
+        {
+          "tactic_id": "TA0005",
+          "name": "Stealth",
+          "shortname": "stealth"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1055.011",
+      "stix_id": "attack-pattern--0042a9f5-f053-4769-b3ef-9ad018dfa298",
+      "name": "Extra Window Memory Injection",
+      "is_subtechnique": true,
+      "parent_technique_id": "T1055",
+      "parent_technique_name": "Process Injection",
+      "platforms": [
+        "Windows"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0004",
+          "name": "Privilege Escalation",
+          "shortname": "privilege-escalation"
+        },
+        {
+          "tactic_id": "TA0005",
+          "name": "Stealth",
+          "shortname": "stealth"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1056.001",
+      "stix_id": "attack-pattern--09a60ea3-a8d1-4ae5-976e-5783248b72a4",
+      "name": "Keylogging",
+      "is_subtechnique": true,
+      "parent_technique_id": "T1056",
+      "parent_technique_name": "Input Capture",
+      "platforms": [
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0006",
+          "name": "Credential Access",
+          "shortname": "credential-access"
+        },
+        {
+          "tactic_id": "TA0009",
+          "name": "Collection",
+          "shortname": "collection"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1057",
+      "stix_id": "attack-pattern--8f4a33ec-8b1f-4b80-a2f6-642b2e479580",
+      "name": "Process Discovery",
+      "is_subtechnique": false,
+      "parent_technique_id": null,
+      "parent_technique_name": null,
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0007",
+          "name": "Discovery",
+          "shortname": "discovery"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1059.001",
+      "stix_id": "attack-pattern--970a3432-3237-47ad-bcca-7d8cbb217736",
+      "name": "PowerShell",
+      "is_subtechnique": true,
+      "parent_technique_id": "T1059",
+      "parent_technique_name": "Command and Scripting Interpreter",
+      "platforms": [
+        "Windows"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0002",
+          "name": "Execution",
+          "shortname": "execution"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1059.003",
+      "stix_id": "attack-pattern--d1fcf083-a721-4223-aedf-bf8960798d62",
+      "name": "Windows Command Shell",
+      "is_subtechnique": true,
+      "parent_technique_id": "T1059",
+      "parent_technique_name": "Command and Scripting Interpreter",
+      "platforms": [
+        "Windows"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0002",
+          "name": "Execution",
+          "shortname": "execution"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1059.005",
+      "stix_id": "attack-pattern--dfd7cc1d-e1d8-4394-a198-97c4cab8aa67",
+      "name": "Visual Basic",
+      "is_subtechnique": true,
+      "parent_technique_id": "T1059",
+      "parent_technique_name": "Command and Scripting Interpreter",
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0002",
+          "name": "Execution",
+          "shortname": "execution"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1070.004",
+      "stix_id": "attack-pattern--d63a3fb8-9452-4e9d-a60a-54be68d5998c",
+      "name": "File Deletion",
+      "is_subtechnique": true,
+      "parent_technique_id": "T1070",
+      "parent_technique_name": "Indicator Removal",
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0005",
+          "name": "Stealth",
+          "shortname": "stealth"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1070.006",
+      "stix_id": "attack-pattern--47f2d673-ca62-47e9-929b-1b0be9657611",
+      "name": "Timestomp",
+      "is_subtechnique": true,
+      "parent_technique_id": "T1070",
+      "parent_technique_name": "Indicator Removal",
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0005",
+          "name": "Stealth",
+          "shortname": "stealth"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1071.001",
+      "stix_id": "attack-pattern--df8b2a25-8bdf-4856-953c-a04372b1c161",
+      "name": "Web Protocols",
+      "is_subtechnique": true,
+      "parent_technique_id": "T1071",
+      "parent_technique_name": "Application Layer Protocol",
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0011",
+          "name": "Command and Control",
+          "shortname": "command-and-control"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1082",
+      "stix_id": "attack-pattern--354a7f88-63fb-41b5-a801-ce3b377b36f1",
+      "name": "System Information Discovery",
+      "is_subtechnique": false,
+      "parent_technique_id": null,
+      "parent_technique_name": null,
+      "platforms": [
+        "ESXi",
+        "IaaS",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0007",
+          "name": "Discovery",
+          "shortname": "discovery"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1083",
+      "stix_id": "attack-pattern--7bc57495-ea59-4380-be31-a64af124ef18",
+      "name": "File and Directory Discovery",
+      "is_subtechnique": false,
+      "parent_technique_id": null,
+      "parent_technique_name": null,
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0007",
+          "name": "Discovery",
+          "shortname": "discovery"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1105",
+      "stix_id": "attack-pattern--e6919abc-99f9-4c6c-95a5-14761e7b2add",
+      "name": "Ingress Tool Transfer",
+      "is_subtechnique": false,
+      "parent_technique_id": null,
+      "parent_technique_name": null,
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0011",
+          "name": "Command and Control",
+          "shortname": "command-and-control"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1106",
+      "stix_id": "attack-pattern--391d824f-0ef1-47a0-b0ee-c59a75e27670",
+      "name": "Native API",
+      "is_subtechnique": false,
+      "parent_technique_id": null,
+      "parent_technique_name": null,
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0002",
+          "name": "Execution",
+          "shortname": "execution"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1110",
+      "stix_id": "attack-pattern--a93494bb-4b80-4ea1-8695-3236a49916fd",
+      "name": "Brute Force",
+      "is_subtechnique": false,
+      "parent_technique_id": null,
+      "parent_technique_name": null,
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "IaaS",
+        "Identity Provider",
+        "Linux",
+        "Network Devices",
+        "Office Suite",
+        "SaaS",
+        "Windows",
+        "macOS"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0006",
+          "name": "Credential Access",
+          "shortname": "credential-access"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1112",
+      "stix_id": "attack-pattern--57340c81-c025-4189-8fa0-fc7ede51bae4",
+      "name": "Modify Registry",
+      "is_subtechnique": false,
+      "parent_technique_id": null,
+      "parent_technique_name": null,
+      "platforms": [
+        "Windows"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0003",
+          "name": "Persistence",
+          "shortname": "persistence"
+        },
+        {
+          "tactic_id": "TA0112",
+          "name": "Defense Impairment",
+          "shortname": "defense-impairment"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1115",
+      "stix_id": "attack-pattern--30973a08-aed9-4edf-8604-9084ce1b5c4f",
+      "name": "Clipboard Data",
+      "is_subtechnique": false,
+      "parent_technique_id": null,
+      "parent_technique_name": null,
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0009",
+          "name": "Collection",
+          "shortname": "collection"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1135",
+      "stix_id": "attack-pattern--3489cfc5-640f-4bb3-a103-9137b97de79f",
+      "name": "Network Share Discovery",
+      "is_subtechnique": false,
+      "parent_technique_id": null,
+      "parent_technique_name": null,
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0007",
+          "name": "Discovery",
+          "shortname": "discovery"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1140",
+      "stix_id": "attack-pattern--3ccef7ae-cb5e-48f6-8302-897105fbf55c",
+      "name": "Deobfuscate/Decode Files or Information",
+      "is_subtechnique": false,
+      "parent_technique_id": null,
+      "parent_technique_name": null,
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0005",
+          "name": "Stealth",
+          "shortname": "stealth"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1189",
+      "stix_id": "attack-pattern--d742a578-d70e-4d0e-96a6-02a9c30204e6",
+      "name": "Drive-by Compromise",
+      "is_subtechnique": false,
+      "parent_technique_id": null,
+      "parent_technique_name": null,
+      "platforms": [
+        "Identity Provider",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0001",
+          "name": "Initial Access",
+          "shortname": "initial-access"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1204.001",
+      "stix_id": "attack-pattern--ef67e13e-5598-4adc-bdb2-998225874fa9",
+      "name": "Malicious Link",
+      "is_subtechnique": true,
+      "parent_technique_id": "T1204",
+      "parent_technique_name": "User Execution",
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0002",
+          "name": "Execution",
+          "shortname": "execution"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1204.002",
+      "stix_id": "attack-pattern--232b7f21-adf9-4b42-b936-b9d6f7df856e",
+      "name": "Malicious File",
+      "is_subtechnique": true,
+      "parent_technique_id": "T1204",
+      "parent_technique_name": "User Execution",
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0002",
+          "name": "Execution",
+          "shortname": "execution"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1217",
+      "stix_id": "attack-pattern--5e4a2073-9643-44cb-a0b5-e7f4048446c7",
+      "name": "Browser Information Discovery",
+      "is_subtechnique": false,
+      "parent_technique_id": null,
+      "parent_technique_name": null,
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0007",
+          "name": "Discovery",
+          "shortname": "discovery"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1218.001",
+      "stix_id": "attack-pattern--a6937325-9321-4e2e-bb2b-3ed2d40b2a9d",
+      "name": "Compiled HTML File",
+      "is_subtechnique": true,
+      "parent_technique_id": "T1218",
+      "parent_technique_name": "System Binary Proxy Execution",
+      "platforms": [
+        "Windows"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0005",
+          "name": "Stealth",
+          "shortname": "stealth"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1218.005",
+      "stix_id": "attack-pattern--840a987a-99bd-4a80-a5c9-0cb2baa6cade",
+      "name": "Mshta",
+      "is_subtechnique": true,
+      "parent_technique_id": "T1218",
+      "parent_technique_name": "System Binary Proxy Execution",
+      "platforms": [
+        "Windows"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0005",
+          "name": "Stealth",
+          "shortname": "stealth"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1218.007",
+      "stix_id": "attack-pattern--365be77f-fc0e-42ee-bac8-4faf806d9336",
+      "name": "Msiexec",
+      "is_subtechnique": true,
+      "parent_technique_id": "T1218",
+      "parent_technique_name": "System Binary Proxy Execution",
+      "platforms": [
+        "Windows"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0005",
+          "name": "Stealth",
+          "shortname": "stealth"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1218.011",
+      "stix_id": "attack-pattern--045d0922-2310-4e60-b5e4-3302302cb3c5",
+      "name": "Rundll32",
+      "is_subtechnique": true,
+      "parent_technique_id": "T1218",
+      "parent_technique_name": "System Binary Proxy Execution",
+      "platforms": [
+        "Windows"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0005",
+          "name": "Stealth",
+          "shortname": "stealth"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1480.002",
+      "stix_id": "attack-pattern--49fca0d2-685d-41eb-8bd4-05451cc3a742",
+      "name": "Mutual Exclusion",
+      "is_subtechnique": true,
+      "parent_technique_id": "T1480",
+      "parent_technique_name": "Execution Guardrails",
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0005",
+          "name": "Stealth",
+          "shortname": "stealth"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1485",
+      "stix_id": "attack-pattern--d45a3d09-b3cf-48f4-9f0f-f521ee5cb05c",
+      "name": "Data Destruction",
+      "is_subtechnique": false,
+      "parent_technique_id": null,
+      "parent_technique_name": null,
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "IaaS",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0040",
+          "name": "Impact",
+          "shortname": "impact"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1486",
+      "stix_id": "attack-pattern--b80d107d-fa0d-4b60-9684-b0433e8bdba0",
+      "name": "Data Encrypted for Impact",
+      "is_subtechnique": false,
+      "parent_technique_id": null,
+      "parent_technique_name": null,
+      "platforms": [
+        "ESXi",
+        "IaaS",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0040",
+          "name": "Impact",
+          "shortname": "impact"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1505.003",
+      "stix_id": "attack-pattern--5d0d3609-d06d-49e1-b9c9-b544e0c618cb",
+      "name": "Web Shell",
+      "is_subtechnique": true,
+      "parent_technique_id": "T1505",
+      "parent_technique_name": "Server Software Component",
+      "platforms": [
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0003",
+          "name": "Persistence",
+          "shortname": "persistence"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1518.001",
+      "stix_id": "attack-pattern--cba37adb-d6fb-4610-b069-dd04c0643384",
+      "name": "Security Software Discovery",
+      "is_subtechnique": true,
+      "parent_technique_id": "T1518",
+      "parent_technique_name": "Software Discovery",
+      "platforms": [
+        "IaaS",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0007",
+          "name": "Discovery",
+          "shortname": "discovery"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1529",
+      "stix_id": "attack-pattern--ff73aa03-0090-4464-83ac-f89e233c02bc",
+      "name": "System Shutdown/Reboot",
+      "is_subtechnique": false,
+      "parent_technique_id": null,
+      "parent_technique_name": null,
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0040",
+          "name": "Impact",
+          "shortname": "impact"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1543.003",
+      "stix_id": "attack-pattern--2959d63f-73fd-46a1-abd2-109d7dcede32",
+      "name": "Windows Service",
+      "is_subtechnique": true,
+      "parent_technique_id": "T1543",
+      "parent_technique_name": "Create or Modify System Process",
+      "platforms": [
+        "Windows"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0003",
+          "name": "Persistence",
+          "shortname": "persistence"
+        },
+        {
+          "tactic_id": "TA0004",
+          "name": "Privilege Escalation",
+          "shortname": "privilege-escalation"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1548.002",
+      "stix_id": "attack-pattern--120d5519-3098-4e1c-9191-2aa61232f073",
+      "name": "Bypass User Account Control",
+      "is_subtechnique": true,
+      "parent_technique_id": "T1548",
+      "parent_technique_name": "Abuse Elevation Control Mechanism",
+      "platforms": [
+        "Windows"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0004",
+          "name": "Privilege Escalation",
+          "shortname": "privilege-escalation"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1553.005",
+      "stix_id": "attack-pattern--7e7c2fba-7cca-486c-9582-4c1bb2851961",
+      "name": "Mark-of-the-Web Bypass",
+      "is_subtechnique": true,
+      "parent_technique_id": "T1553",
+      "parent_technique_name": "Subvert Trust Controls",
+      "platforms": [
+        "Windows"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0112",
+          "name": "Defense Impairment",
+          "shortname": "defense-impairment"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1561.002",
+      "stix_id": "attack-pattern--0af0ca99-357d-4ba1-805f-674fdfb7bef9",
+      "name": "Disk Structure Wipe",
+      "is_subtechnique": true,
+      "parent_technique_id": "T1561",
+      "parent_technique_name": "Disk Wipe",
+      "platforms": [
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0040",
+          "name": "Impact",
+          "shortname": "impact"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1565.001",
+      "stix_id": "attack-pattern--1cfcb312-b8d7-47a4-b560-4b16cc677292",
+      "name": "Stored Data Manipulation",
+      "is_subtechnique": true,
+      "parent_technique_id": "T1565",
+      "parent_technique_name": "Data Manipulation",
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0040",
+          "name": "Impact",
+          "shortname": "impact"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1565.002",
+      "stix_id": "attack-pattern--d0613359-5781-4fd2-b5be-c269270be1f6",
+      "name": "Transmitted Data Manipulation",
+      "is_subtechnique": true,
+      "parent_technique_id": "T1565",
+      "parent_technique_name": "Data Manipulation",
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0040",
+          "name": "Impact",
+          "shortname": "impact"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1565.003",
+      "stix_id": "attack-pattern--32ad5c86-2bcf-47d8-8fdc-d7f3d79a7490",
+      "name": "Runtime Data Manipulation",
+      "is_subtechnique": true,
+      "parent_technique_id": "T1565",
+      "parent_technique_name": "Data Manipulation",
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0040",
+          "name": "Impact",
+          "shortname": "impact"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1566.001",
+      "stix_id": "attack-pattern--2e34237d-8574-43f6-aace-ae2915de8597",
+      "name": "Spearphishing Attachment",
+      "is_subtechnique": true,
+      "parent_technique_id": "T1566",
+      "parent_technique_name": "Phishing",
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0001",
+          "name": "Initial Access",
+          "shortname": "initial-access"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1569.002",
+      "stix_id": "attack-pattern--f1951e8a-500e-4a26-8803-76d95c4554b4",
+      "name": "Service Execution",
+      "is_subtechnique": true,
+      "parent_technique_id": "T1569",
+      "parent_technique_name": "System Services",
+      "platforms": [
+        "Windows"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0002",
+          "name": "Execution",
+          "shortname": "execution"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1583.001",
+      "stix_id": "attack-pattern--40f5caa0-4cb7-4117-89fc-d421bb493df3",
+      "name": "Domains",
+      "is_subtechnique": true,
+      "parent_technique_id": "T1583",
+      "parent_technique_name": "Acquire Infrastructure",
+      "platforms": [
+        "PRE"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0042",
+          "name": "Resource Development",
+          "shortname": "resource-development"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1588.002",
+      "stix_id": "attack-pattern--a2fdce72-04b2-409a-ac10-cc1695f4fce0",
+      "name": "Tool",
+      "is_subtechnique": true,
+      "parent_technique_id": "T1588",
+      "parent_technique_name": "Obtain Capabilities",
+      "platforms": [
+        "PRE"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0042",
+          "name": "Resource Development",
+          "shortname": "resource-development"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1685",
+      "stix_id": "attack-pattern--bbde9781-60aa-4b8a-a911-895b0c1b3872",
+      "name": "Disable or Modify Tools",
+      "is_subtechnique": false,
+      "parent_technique_id": null,
+      "parent_technique_name": null,
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "IaaS",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0112",
+          "name": "Defense Impairment",
+          "shortname": "defense-impairment"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1685.005",
+      "stix_id": "attack-pattern--75b9a4d2-d4e2-4ca1-9aab-1badd9e05fd0",
+      "name": "Clear Windows Event Logs",
+      "is_subtechnique": true,
+      "parent_technique_id": "T1685",
+      "parent_technique_name": "Disable or Modify Tools",
+      "platforms": [
+        "Windows"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0112",
+          "name": "Defense Impairment",
+          "shortname": "defense-impairment"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1686",
+      "stix_id": "attack-pattern--eec096b8-c207-43df-b6c1-11523861e452",
+      "name": "Disable or Modify System Firewall",
+      "is_subtechnique": false,
+      "parent_technique_id": null,
+      "parent_technique_name": null,
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0112",
+          "name": "Defense Impairment",
+          "shortname": "defense-impairment"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1686.002",
+      "stix_id": "attack-pattern--a29aa77c-a88d-4f19-bab9-7751941b2e2d",
+      "name": "Network Device Firewall",
+      "is_subtechnique": true,
+      "parent_technique_id": "T1686",
+      "parent_technique_name": "Disable or Modify System Firewall",
+      "platforms": [
+        "Network Devices"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0112",
+          "name": "Defense Impairment",
+          "shortname": "defense-impairment"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1690",
+      "stix_id": "attack-pattern--b831f51c-d22f-4724-bbab-60d056bd1150",
+      "name": "Prevent Command History Logging",
+      "is_subtechnique": false,
+      "parent_technique_id": null,
+      "parent_technique_name": null,
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0112",
+          "name": "Defense Impairment",
+          "shortname": "defense-impairment"
+        }
+      ]
+    }
+  ]
+}

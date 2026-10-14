@@ -1,0 +1,106 @@
+{
+  "schema_version": "1.0",
+  "document_id": "b76daa15-94f6-4d17-a1c4-36ab45ebc38e",
+  "name": "ics-attack",
+  "created_at_utc": "2026-10-14T03:11:49.908705+00:00",
+  "exported_at_utc": "2026-10-14T03:12:01.944164+00:00",
+  "attack": {
+    "domain": "ics-attack",
+    "version": "19.2",
+    "source_url": "https://github.com/mitre-attack/attack-stix-data"
+  },
+  "selected_count": 1,
+  "selected_technique_ids": [
+    "T1691.001"
+  ],
+  "selected_ttps": [
+    {
+      "technique_id": "T1691.001",
+      "stix_id": "attack-pattern--15ca2a99-2d3e-457f-b1d7-c52a1d5849c9",
+      "name": "Command Message",
+      "is_subtechnique": true,
+      "parent_technique_id": "T1691",
+      "parent_technique_name": "Block Operational Technology Message",
+      "platforms": [],
+      "tactics": [
+        {
+          "tactic_id": "TA0107",
+          "name": "Inhibit Response Function",
+          "shortname": "inhibit-response-function"
+        }
+      ]
+    }
+  ],
+  "navigator_layer": {
+    "name": "mobile-attack.navigator",
+    "domain": "ics-attack",
+    "versions": {
+      "attack": "19.2",
+      "layer": "4.5",
+      "navigator": "5.2.0"
+    },
+    "techniques": [
+      {
+        "techniqueID": "T1691.001",
+        "tactic": "inhibit-response-function",
+        "comment": "ics-attack research",
+        "score": 1.25,
+        "color": "#123456"
+      }
+    ]
+  },
+  "domain_snapshots": {
+    "enterprise-attack": {
+      "version": "19.2",
+      "selected_stix_ids": [
+        "attack-pattern--0042a9f5-f053-4769-b3ef-9ad018dfa298"
+      ],
+      "navigator_layer": {
+        "name": "Untitled-1",
+        "domain": "enterprise-attack",
+        "versions": {
+          "attack": "19.2",
+          "layer": "4.5",
+          "navigator": "5.2.0"
+        },
+        "techniques": [
+          {
+            "techniqueID": "T1055.011",
+            "tactic": "stealth",
+            "comment": "enterprise-attack research",
+            "score": 1.25,
+            "color": "#123456"
+          }
+        ]
+      },
+      "navigator_import_selected": [],
+      "navigator_snapshots": {}
+    },
+    "mobile-attack": {
+      "version": "19.2",
+      "selected_stix_ids": [
+        "attack-pattern--0cdd66ad-26ac-4338-a764-4972a1e17ee3"
+      ],
+      "navigator_layer": {
+        "name": "enterprise-attack.navigator",
+        "domain": "mobile-attack",
+        "versions": {
+          "attack": "19.2",
+          "layer": "4.5",
+          "navigator": "5.2.0"
+        },
+        "techniques": [
+          {
+            "techniqueID": "T1630.001",
+            "tactic": "defense-evasion",
+            "comment": "mobile-attack research",
+            "score": 1.25,
+            "color": "#123456"
+          }
+        ]
+      },
+      "navigator_import_selected": [],
+      "navigator_snapshots": {}
+    }
+  }
+}

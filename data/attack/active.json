@@ -1,7 +1,7 @@
 {
-  "attack_version": "11.3",
-  "manifest": "v11.3/manifest.json",
-  "enterprise_bundle": "v11.3/enterprise-attack-11.3.json",
-  "mobile_bundle": "v11.3/mobile-attack-11.3.json",
-  "ics_bundle": "v11.3/ics-attack-11.3.json"
+  "attack_version": "19.2",
+  "manifest": "v19.2/manifest.json",
+  "enterprise_bundle": "v19.2/enterprise-attack-19.2.json",
+  "mobile_bundle": "v19.2/mobile-attack-19.2.json",
+  "ics_bundle": "v19.2/ics-attack-19.2.json"
 }

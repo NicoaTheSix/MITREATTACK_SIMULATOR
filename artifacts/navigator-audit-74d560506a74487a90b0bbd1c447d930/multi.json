@@ -1,0 +1,128 @@
+[
+  {
+    "name": "Research Layer",
+    "domain": "enterprise-attack",
+    "versions": {
+      "attack": "19.2",
+      "navigator": "5.2.0",
+      "layer": "4.5"
+    },
+    "description": "Unicode research 藍隊",
+    "customDataURL": "https://example.invalid/do-not-fetch.json",
+    "filters": {
+      "platforms": [
+        "Windows"
+      ]
+    },
+    "hideDisabled": true,
+    "legendItems": [
+      {
+        "label": "Research",
+        "color": "#ff7700"
+      }
+    ],
+    "techniques": [
+      {
+        "techniqueID": "T1053.005",
+        "tactic": "execution",
+        "score": 2.5,
+        "color": "#ff7700",
+        "comment": "研究\nquoted \"example\"",
+        "enabled": true,
+        "links": [
+          {
+            "label": "Ref",
+            "url": "https://example.com"
+          }
+        ]
+      },
+      {
+        "techniqueID": "T1053.005",
+        "tactic": "persistence",
+        "score": -3.75,
+        "comment": "disabled scope",
+        "enabled": false
+      },
+      {
+        "techniqueID": "T1059.001",
+        "score": 0,
+        "comment": "unselected annotation",
+        "enabled": false
+      },
+      {
+        "techniqueID": "T9999",
+        "comment": "unresolved annotation",
+        "enabled": true
+      },
+      {
+        "techniqueID": "T1053.002",
+        "tactic": "collection",
+        "comment": "tactic mismatch",
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "name": "Research Layer",
+    "domain": "enterprise-attack",
+    "versions": {
+      "attack": "11.2",
+      "navigator": "5.2.0",
+      "layer": "4.5"
+    },
+    "description": "Unicode research 藍隊",
+    "customDataURL": "https://example.invalid/do-not-fetch.json",
+    "filters": {
+      "platforms": [
+        "Windows"
+      ]
+    },
+    "hideDisabled": true,
+    "legendItems": [
+      {
+        "label": "Research",
+        "color": "#ff7700"
+      }
+    ],
+    "techniques": [
+      {
+        "techniqueID": "T1053.005",
+        "tactic": "execution",
+        "score": 2.5,
+        "color": "#ff7700",
+        "comment": "研究\nquoted \"example\"",
+        "enabled": true,
+        "links": [
+          {
+            "label": "Ref",
+            "url": "https://example.com"
+          }
+        ]
+      },
+      {
+        "techniqueID": "T1053.005",
+        "tactic": "persistence",
+        "score": -3.75,
+        "comment": "disabled scope",
+        "enabled": false
+      },
+      {
+        "techniqueID": "T1059.001",
+        "score": 0,
+        "comment": "unselected annotation",
+        "enabled": false
+      },
+      {
+        "techniqueID": "T9999",
+        "comment": "unresolved annotation",
+        "enabled": true
+      },
+      {
+        "techniqueID": "T1053.002",
+        "tactic": "collection",
+        "comment": "tactic mismatch",
+        "enabled": true
+      }
+    ]
+  }
+]

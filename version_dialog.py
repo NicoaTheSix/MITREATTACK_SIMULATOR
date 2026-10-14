@@ -10,12 +10,13 @@ class VersionWorker(QtCore.QThread):
     completed = QtCore.Signal(object)
     failed = QtCore.Signal(str)
 
-    def __init__(self, root, version=None, discovery=None, parent=None, persist=True):
+    def __init__(self, root, version=None, discovery=None, parent=None, persist=True, domain="enterprise-attack"):
         super().__init__(parent)
         self.root = Path(root).resolve()
         self.version = version
         self.discovery = discovery
         self.persist = persist
+        self.domain = domain
 
     def report(self, message, current=0, total=0):
         if self.isInterruptionRequested():
@@ -29,6 +30,7 @@ class VersionWorker(QtCore.QThread):
                 value = discover_versions(self.root, self.report)
             else:
                 catalog, pointer = prepare_version(self.root, self.version, self.discovery, self.report)
+                catalog = catalog.for_domain(self.domain)
                 self.report("[Version 4/4 Switch] Catalog validated; preparing interface", 1, 1)
                 if self.persist:
                     active = self.root / "active.json"
@@ -45,10 +47,11 @@ class VersionWorker(QtCore.QThread):
 class VersionDialog(QtWidgets.QDialog):
     chosen = QtCore.Signal(object)
 
-    def __init__(self, root, current, parent=None, auto_refresh=True):
+    def __init__(self, root, current, parent=None, auto_refresh=True, domain="enterprise-attack"):
         super().__init__(parent)
         self.root = Path(root).resolve()
         self.current = current
+        self.domain = domain
         self.worker = None
         self.closing = False
         self.setWindowTitle("MITRE ATT&CK Versions")
@@ -121,6 +124,9 @@ class VersionDialog(QtWidgets.QDialog):
             for column, value in enumerate(values):
                 item = QtWidgets.QTableWidgetItem(value)
                 item.setData(QtCore.Qt.ItemDataRole.UserRole, version)
+                item.setData(int(QtCore.Qt.ItemDataRole.UserRole) + 1, self.domain in row["domains"])
+                if self.domain not in row["domains"]:
+                    item.setToolTip("This version has no snapshot for the current document's domain.")
                 self.table.setItem(number, column, item)
             if version == self.current:
                 current_row = number
@@ -140,6 +146,7 @@ class VersionDialog(QtWidgets.QDialog):
         row = self.table.currentRow()
         busy = self.worker is not None and self.worker.isRunning()
         self.switch_button.setEnabled(not busy and row >= 0 and not self.table.isRowHidden(row)
+                                      and self.table.item(row, 0).data(int(QtCore.Qt.ItemDataRole.UserRole) + 1)
                                       and self.table.item(row, 0).data(QtCore.Qt.ItemDataRole.UserRole) != self.current)
 
     def report(self, message, current=0, total=0):
@@ -154,7 +161,7 @@ class VersionDialog(QtWidgets.QDialog):
             return
         if self.worker:
             self.worker.deleteLater()
-        self.worker = VersionWorker(self.root, version, self.discovery, self)
+        self.worker = VersionWorker(self.root, version, self.discovery, self, domain=self.domain)
         self.worker.progress.connect(self.report)
         self.worker.completed.connect(self.populate if version is None else self.switched)
         self.worker.failed.connect(lambda error: self.report(f"Failed: {error}", 1, 1))

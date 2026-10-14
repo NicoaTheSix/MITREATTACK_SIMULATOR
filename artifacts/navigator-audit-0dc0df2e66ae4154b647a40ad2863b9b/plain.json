@@ -1,0 +1,109 @@
+{
+  "schema_version": "1.0",
+  "document_id": "9a7911a8-8731-468e-a7a8-b37e394fd339",
+  "name": "plain",
+  "created_at_utc": "2026-10-14T03:17:36.553600+00:00",
+  "exported_at_utc": "2026-10-14T03:17:36.601156+00:00",
+  "attack": {
+    "domain": "enterprise-attack",
+    "version": "19.2",
+    "source_url": "https://github.com/mitre-attack/attack-stix-data"
+  },
+  "selected_count": 1,
+  "selected_technique_ids": [
+    "T1053.005"
+  ],
+  "selected_ttps": [
+    {
+      "technique_id": "T1053.005",
+      "stix_id": "attack-pattern--005a06c6-14bf-4118-afa0-ebcd8aebb0c9",
+      "name": "Scheduled Task",
+      "is_subtechnique": true,
+      "parent_technique_id": "T1053",
+      "parent_technique_name": "Scheduled Task/Job",
+      "platforms": [
+        "Windows"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0002",
+          "name": "Execution",
+          "shortname": "execution"
+        },
+        {
+          "tactic_id": "TA0003",
+          "name": "Persistence",
+          "shortname": "persistence"
+        },
+        {
+          "tactic_id": "TA0004",
+          "name": "Privilege Escalation",
+          "shortname": "privilege-escalation"
+        }
+      ]
+    }
+  ],
+  "navigator_layer": {
+    "name": "Research Layer",
+    "domain": "enterprise-attack",
+    "versions": {
+      "attack": "19.2",
+      "navigator": "5.2.0",
+      "layer": "4.5"
+    },
+    "description": "Unicode research 藍隊",
+    "customDataURL": "https://example.invalid/do-not-fetch.json",
+    "filters": {
+      "platforms": [
+        "Windows"
+      ]
+    },
+    "hideDisabled": true,
+    "legendItems": [
+      {
+        "label": "Research",
+        "color": "#ff7700"
+      }
+    ],
+    "techniques": [
+      {
+        "techniqueID": "T1053.005",
+        "tactic": "execution",
+        "score": 2.5,
+        "color": "#ff7700",
+        "comment": "研究\nquoted \"example\"",
+        "enabled": true,
+        "links": [
+          {
+            "label": "Ref",
+            "url": "https://example.com"
+          }
+        ]
+      },
+      {
+        "techniqueID": "T1053.005",
+        "tactic": "persistence",
+        "score": -3.75,
+        "comment": "disabled scope",
+        "enabled": false
+      },
+      {
+        "techniqueID": "T1059.001",
+        "score": 0,
+        "comment": "unselected annotation",
+        "enabled": false
+      },
+      {
+        "techniqueID": "T9999",
+        "comment": "unresolved annotation",
+        "enabled": true
+      },
+      {
+        "techniqueID": "T1053.002",
+        "tactic": "collection",
+        "comment": "tactic mismatch",
+        "enabled": true
+      }
+    ]
+  }
+}
