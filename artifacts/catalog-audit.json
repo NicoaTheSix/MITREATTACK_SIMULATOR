@@ -1,5 +1,5 @@
 {
-  "started_at_utc": "2026-10-14T03:17:30.616758+00:00",
+  "started_at_utc": "2026-10-14T12:13:38.092963+00:00",
   "scope": "All downloaded snapshot artifacts and all Enterprise UI mappings/active records",
   "checks": {
     "snapshot_artifacts_verified": 5,
@@ -175,5 +175,5 @@
     "D:\\MITREATTACK_SIMULATOR\\data\\attack\\v19.2\\ics-attack-19.2.json"
   ],
   "status": "PASS",
-  "completed_at_utc": "2026-10-14T03:18:02.211869+00:00"
+  "completed_at_utc": "2026-10-14T12:14:08.327653+00:00"
 }

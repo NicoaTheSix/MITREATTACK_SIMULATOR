@@ -49,18 +49,22 @@ class TTPDocument:
     navigator_snapshots: dict = field(default_factory=dict)
     export_format: str | None = None
     domain_snapshots: dict = field(default_factory=dict)
+    migration_archives: list = field(default_factory=list)
     initial_name: str = field(init=False)
 
     def __post_init__(self):
         self.initial_name = self.name
 
     def fingerprint(self):
-        return (self.name, self.catalog.version, self.catalog.domain, frozenset(self.selected),
+        return (self.name, self.catalog.version, self.catalog.domain, self.catalog.dataset_id, frozenset(self.selected),
                 json.dumps(self.navigator_layer, sort_keys=True, ensure_ascii=False, allow_nan=False),
                 json.dumps(self.navigator_snapshots, sort_keys=True, ensure_ascii=False, allow_nan=False),
-                json.dumps(self.domain_snapshots, sort_keys=True, ensure_ascii=False, allow_nan=False))
+                json.dumps(self.domain_snapshots, sort_keys=True, ensure_ascii=False, allow_nan=False),
+                json.dumps(self.migration_archives, sort_keys=True, ensure_ascii=False, allow_nan=False))
 
     def set_catalog(self, catalog):
+        if catalog.dataset_id != self.catalog.dataset_id:
+            raise ValueError('Open a separate document or use the reviewed upgrade flow to switch datasets.')
         if catalog.domain != self.catalog.domain:
             if self.selected or self.navigator_layer or self.navigator_snapshots:
                 self.domain_snapshots[self.catalog.domain] = {
@@ -97,8 +101,32 @@ class TTPDocument:
     def dirty(self):
         if self.exported_fingerprint is None:
             return (bool(self.selected) or bool(self.navigator_layer) or bool(self.navigator_snapshots)
-                    or bool(self.domain_snapshots) or self.catalog.domain != "enterprise-attack" or self.name != self.initial_name)
+                    or bool(self.domain_snapshots) or bool(self.migration_archives) or self.catalog.domain != "enterprise-attack" or self.name != self.initial_name)
         return self.fingerprint() != self.exported_fingerprint
+
+
+def technique_comments(document: TTPDocument, key):
+    """Project the effective global/scoped comments without changing layer data."""
+    attack_id = external_id(document.catalog.records[key])
+    comments = {row.get('tactic', ''): row.get('comment', '')
+                for row in document.navigator_layer.get('techniques', []) if row['techniqueID'] == attack_id}
+    order = {slug: number for number, slug in enumerate(document.catalog.tactic_order)}
+    scoped = [{'tactic': slug, 'comment': comment}
+              for slug, comment in sorted(comments.items(), key=lambda pair: (order.get(pair[0], len(order)), pair[0]))
+              if slug and comment]
+    return comments.get('', ''), scoped
+
+
+def technique_states(document, key, rows=None):
+    rows = ({(row['techniqueID'], row.get('tactic', '')): row for row in document.navigator_layer.get('techniques', [])}
+            if rows is None else rows)
+    attack_id = external_id(document.catalog.records[key])
+    global_row = rows.get((attack_id, ''), {})
+    enabled = global_row.get('enabled', True)
+    phases = tactic_phases(document.catalog.records[key], document.catalog.domain)
+    scoped = [{'tactic': slug, 'enabled': rows.get((attack_id, slug), global_row).get('enabled', True)}
+              for slug in document.catalog.tactic_order if slug in phases]
+    return enabled, scoped
 
 
 def document_payload(document: TTPDocument, name=None):
@@ -110,6 +138,8 @@ def document_payload(document: TTPDocument, name=None):
     for key in sorted(document.selected, key=lambda key: (external_id(records[key]), key)):
         obj = records[key]
         parent = document.catalog.parents.get(key)
+        comment, tactic_comments = technique_comments(document, key)
+        enabled, tactic_enabled = technique_states(document, key)
         tactic_slugs = tactic_phases(obj, document.catalog.domain) & document.catalog.tactics.keys()
         tactics = [{"tactic_id": external_id(document.catalog.tactics[slug]) or None,
                     "name": document.catalog.tactics[slug]['name'], "shortname": slug}
@@ -118,7 +148,9 @@ def document_payload(document: TTPDocument, name=None):
                      "is_subtechnique": bool(obj.get('x_mitre_is_subtechnique')),
                      "parent_technique_id": external_id(records[parent]) if parent else None,
                      "parent_technique_name": records[parent]['name'] if parent else None,
-                     "platforms": sorted(set(obj.get('x_mitre_platforms', []))), "tactics": tactics})
+                     "platforms": sorted(set(obj.get('x_mitre_platforms', []))), "tactics": tactics,
+                     "comment": comment, "tactic_comments": tactic_comments,
+                     "enabled": enabled, "tactic_enabled": tactic_enabled})
     payload = {"schema_version": "1.0", "document_id": document.document_id,
             "name": name or document.name, "created_at_utc": document.created_at_utc,
             "exported_at_utc": utc_now(),
@@ -128,17 +160,23 @@ def document_payload(document: TTPDocument, name=None):
             "selected_technique_ids": [row['technique_id'] for row in ttps], "selected_ttps": ttps}
     if document.navigator_layer:
         payload["navigator_layer"] = document.navigator_layer
+    if document.catalog.dataset_id:
+        payload['attack'].update(source_url=document.catalog.custom_source, dataset_sha256=document.catalog.dataset_id,
+                                 custom=True)
     if document.navigator_snapshots:
         payload["navigator_snapshots"] = document.navigator_snapshots
     if document.domain_snapshots:
         payload["domain_snapshots"] = document.domain_snapshots
+    if document.migration_archives:
+        payload['migration_archives'] = document.migration_archives
     return payload
 
 
 CSV_FIELDS = ('schema_version', 'document_id', 'document_name', 'attack_domain', 'attack_version',
               'created_at_utc', 'exported_at_utc', 'selected_count', 'technique_id', 'stix_id', 'name',
               'is_subtechnique', 'parent_technique_id', 'parent_technique_name', 'platforms',
-              'tactic_ids', 'tactic_names', 'tactic_shortnames')
+              'tactic_ids', 'tactic_names', 'tactic_shortnames', 'comment', 'tactic_comments',
+              'attack_source_url', 'attack_dataset_sha256', 'enabled', 'tactic_enabled')
 
 
 def csv_content(payload):
@@ -150,6 +188,8 @@ def csv_content(payload):
             'schema_version': payload['schema_version'], 'document_id': payload['document_id'],
             'document_name': payload['name'], 'attack_domain': payload['attack']['domain'],
             'attack_version': payload['attack']['version'], 'created_at_utc': payload['created_at_utc'],
+            'attack_source_url': payload['attack']['source_url'],
+            'attack_dataset_sha256': payload['attack'].get('dataset_sha256', ''),
             'exported_at_utc': payload['exported_at_utc'], 'selected_count': payload['selected_count'],
             'technique_id': row['technique_id'], 'stix_id': row['stix_id'], 'name': row['name'],
             'is_subtechnique': str(row['is_subtechnique']).lower(),
@@ -158,6 +198,10 @@ def csv_content(payload):
             'tactic_ids': '; '.join(tactic['tactic_id'] or '' for tactic in row['tactics']),
             'tactic_names': '; '.join(tactic['name'] for tactic in row['tactics']),
             'tactic_shortnames': '; '.join(tactic['shortname'] for tactic in row['tactics']),
+            'comment': row.get('comment', ''),
+            'tactic_comments': json.dumps(row.get('tactic_comments', []), ensure_ascii=False, allow_nan=False),
+            'enabled': str(row.get('enabled', True)).lower(),
+            'tactic_enabled': json.dumps(row.get('tactic_enabled', []), ensure_ascii=False, allow_nan=False),
         })
     return stream.getvalue()
 
@@ -187,9 +231,9 @@ def _export_document(document: TTPDocument, target: Path, notify, file_format):
     document.name = target.stem
     document.export_path = target
     document.export_format = file_format
-    document.exported_fingerprint = None if file_format == "csv" and (document.navigator_layer or document.navigator_snapshots or document.domain_snapshots) else document.fingerprint()
-    if file_format == "csv" and (document.navigator_layer or document.navigator_snapshots or document.domain_snapshots):
-        notify('[Export] CSV saved the active TTP list; use Studio JSON to preserve all domain/version archives and annotations.', 1, 1)
+    document.exported_fingerprint = None if file_format == "csv" and (document.navigator_layer or document.navigator_snapshots or document.domain_snapshots or document.migration_archives) else document.fingerprint()
+    if file_format == "csv" and (document.navigator_layer or document.navigator_snapshots or document.domain_snapshots or document.migration_archives):
+        notify('[Export] CSV saved active TTPs and their comments; use Studio JSON to preserve complete layer settings, colors/scores and domain/version archives.', 1, 1)
     notify(f'[Export 3/3 Publish] Complete: {target}', 3, 3)
     return target
 

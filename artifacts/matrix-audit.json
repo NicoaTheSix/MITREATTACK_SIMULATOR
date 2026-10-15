@@ -3101,7 +3101,7 @@
     "historical release without sub-techniques renders correctly",
     "other document snapshot preserved",
     "document restores original matrix checkboxes and catalog",
-    "matrix activation opens technique details",
+    "matrix activation opens independent technique details",
     "matrix sidebar entry limited to TTP category",
     "matrix tab returns from library category to TTP context",
     "matrix screenshot saved"

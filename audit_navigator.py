@@ -96,13 +96,20 @@ def main():
     check(preview["selected"] == {task} and preview["unresolved"] == 2, "enabled policy excludes unknown ID and mismatched tactic")
     check(import_preview(layer, catalog, "all")["selected"] == {task, shell}, "all-row policy")
     check(import_preview(layer, catalog, "annotated")["selected"] == {task, shell}, "scored policy includes score zero")
+    expect_error(lambda: imported_document(layer, catalog, 'all'), 'customDataURL cannot silently resolve against official data')
+    check(validate_layer(layer)['customDataURL'] == layer['customDataURL'], 'custom URL retained during validation without fetching')
+    # Remaining cases exercise an official catalog layer. Custom catalog imports
+    # and their complete URL round trips are covered in audit_advanced_navigator.
+    layer = deepcopy(layer)
+    layer.pop('customDataURL')
+    write_json_atomic(layer, TEST / 'fixture.json', log, 'Official audit fixture')
     all_document = imported_document(layer, catalog, "all")
     all_output = document_layer(all_document)
-    check(next(row for row in all_output["techniques"] if row["techniqueID"] == "T1059.001")["enabled"],
-          "all-row import enables an explicitly selected previously disabled TTP")
+    check(shell in all_document.selected and not next(row for row in all_output["techniques"] if row["techniqueID"] == "T1059.001")["enabled"],
+          "all-row import includes a disabled TTP without enabling it")
     all_document.selected.add(lookup["T1053.002"])
     scopes_output = document_layer(all_document)
-    check(any(row["techniqueID"] == "T1053.002" and not row.get("tactic") and row["enabled"]
+    check(any(row["techniqueID"] == "T1053.002" and not row.get("tactic") and row.get("enabled", True)
               for row in scopes_output["techniques"]), "selected ID with only mismatched annotations gains a valid global row")
     check(not next(row for row in scopes_output["techniques"] if row["techniqueID"] == "T1053.002" and row.get("tactic"))["enabled"],
           "mismatched scope remains preserved but disabled")
@@ -141,7 +148,7 @@ def main():
     window.export_current_document(TEST / "roundtrip.json", "navigator")
     log(f"Input file: {TEST / 'roundtrip.json'}")
     exported = read_layers(TEST / "roundtrip.json", log)[0]
-    check(exported["customDataURL"] == layer["customDataURL"] and exported["filters"] == layer["filters"], "layout/filter/extension preservation")
+    check(exported["filters"] == layer["filters"] and exported['description'] == layer['description'], "layout/filter/description preservation")
     check(exported["techniques"][0]["score"] == 2.5 and exported["techniques"][1]["score"] == -3.75,
           "SDK validation does not truncate fractional scores")
     check(exported["techniques"][1]["enabled"] is False, "disabled tactic row preserved")

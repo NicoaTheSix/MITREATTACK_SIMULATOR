@@ -11,9 +11,11 @@ import shutil
 import tempfile
 import uuid
 
-from attack_catalog import external_id, load_catalog, local_path, tactic_phases, DOMAIN_LABELS
+from attack_catalog import external_id, load_catalog, local_path, tactic_phases, DOMAIN_LABELS, catalog_identity, supports_navigator
 from attack_versions import snapshot_pointer
 from ttp_documents import TTPDocument, validate_document_name
+from navigator_visuals import validate_visuals
+from navigator_fields import validate_fields
 
 LAYER_VERSION = "4.5"
 NAVIGATOR_VERSION = "5.2.0"
@@ -36,6 +38,13 @@ def validate_layer(payload):
         raise ValueError("A Navigator layer needs a non-empty name.")
     if payload.get("domain") not in {"enterprise-attack", "mobile-attack", "ics-attack", "mitre-enterprise", "mitre-mobile"}:
         raise ValueError("Unknown Navigator domain.")
+    validate_visuals(payload)
+    validate_fields(payload)
+    if 'customDataURL' in payload and not isinstance(payload['customDataURL'], str):
+        raise ValueError('Custom data source must be a URL/path string.')
+    if 'x_ttp_studio_dataset' in payload and (not isinstance(payload['x_ttp_studio_dataset'], str) or
+                                            not re.fullmatch(r'[0-9a-f]{64}', payload['x_ttp_studio_dataset'])):
+        raise ValueError('Custom dataset identity must be a SHA-256 digest.')
     versions = payload.get("versions", {})
     if not isinstance(versions, dict) or versions.get("layer", payload.get("version", "4.5")) not in SUPPORTED_LAYER_VERSIONS:
         raise ValueError("Unsupported Navigator Layer version; supported: 3.0–4.5.")
@@ -43,6 +52,7 @@ def validate_layer(payload):
     if not isinstance(rows, list) or len(rows) > 20000:
         raise ValueError("Expected at most 20,000 technique rows.")
     for row in rows:
+        validate_fields(row) if isinstance(row, dict) else None
         if not isinstance(row, dict) or not re.fullmatch(r"T\d{4}(?:\.\d{3})?", row.get("techniqueID", "")):
             raise ValueError("Invalid techniqueID in Navigator layer.")
         if "enabled" in row and type(row["enabled"]) is not bool:
@@ -59,6 +69,24 @@ def validate_layer(payload):
     # customDataURL. Validate a copy, then preserve original data for lossless IO.
     probe = deepcopy(payload)
     probe.pop("customDataURL", None)
+    for owner in [probe, *probe.get('techniques', [])]:
+        for field in list(owner):
+            if field.startswith('x_'):
+                owner.pop(field)
+    if 'filters' in probe and not probe['filters'].get('platforms'):
+        # SDK assumes platforms[0] exists. An explicit empty platform selection
+        # is valid for the native matrix and must survive the raw round trip.
+        probe.pop('filters')
+    # The SDK skips Divider objects in metadata even though Layer 4.5 allows them.
+    # Their structure is checked above and retained in the original payload.
+    for owner in [probe, *probe.get('techniques', [])]:
+        for field in ('metadata', 'links'):
+            if field in owner:
+                owner[field] = [entry for entry in owner[field] if entry.get('divider') is not True]
+    if "gradient" in probe:
+        # SDK builds a discrete integer curve. Validate bounded probe data while
+        # retaining the actual decimal bounds and alpha colors in the raw layer.
+        probe["gradient"]["minValue"], probe["gradient"]["maxValue"] = 0, 100
     if Layer(probe).to_dict() is None:
         raise ValueError("The official MITRE SDK rejected the Navigator layer.")
     json.dumps(payload, allow_nan=False)
@@ -132,6 +160,10 @@ def import_preview(layer, catalog, policy="enabled"):
 
 
 def imported_document(layer, catalog, policy="enabled"):
+    if layer.get('x_ttp_studio_dataset') and layer['x_ttp_studio_dataset'] != catalog.dataset_id:
+        raise ValueError('Navigator layer belongs to a different custom dataset.')
+    if layer.get('customDataURL') and not catalog.dataset_id:
+        raise ValueError('Load the matching custom STIX dataset before importing this layer.')
     preview = import_preview(layer, catalog, policy)
     try:
         name = validate_document_name(layer["name"])
@@ -141,8 +173,8 @@ def imported_document(layer, catalog, policy="enabled"):
                        navigator_import_selected={external_id(catalog.records[key]) for key in preview["selected"]})
 
 
-def document_layer(document):
-    if float(document.catalog.version) < 4:
+def document_layer(document, validate=True):
+    if not supports_navigator(document.catalog):
         raise ValueError("Navigator supports ATT&CK v4 and later. Export this historical document as JSON/CSV.")
     layer = deepcopy(document.navigator_layer) if document.navigator_layer else {
         "name": document.name, "domain": document.catalog.domain, "techniques": [],
@@ -155,9 +187,11 @@ def document_layer(document):
         raise ValueError("Annotations belong to another ATT&CK domain.")
     layer["domain"] = document.catalog.domain
     layer["versions"] = {"attack": document.catalog.version, "navigator": NAVIGATOR_VERSION, "layer": LAYER_VERSION}
+    if document.catalog.dataset_id:
+        layer['customDataURL'] = document.catalog.custom_source
+        layer['x_ttp_studio_dataset'] = document.catalog.dataset_id
     selected = {external_id(document.catalog.records[key]) for key in document.selected}
     known = {external_id(obj): obj for obj in document.catalog.records.values()}
-    originally_enabled = {row["techniqueID"] for row in layer.get("techniques", []) if row.get("enabled", True)}
     seen = set()
     for row in layer.get("techniques", []):
         attack_id = row["techniqueID"]
@@ -166,16 +200,110 @@ def document_layer(document):
         valid_scope = attack_id in known and (not row.get("tactic") or row["tactic"] in phases)
         if valid_scope:
             seen.add(attack_id)
-        if attack_id not in document.navigator_import_selected or attack_id not in selected or attack_id not in originally_enabled:
-            row["enabled"] = attack_id in selected
         if not valid_scope:
             row["enabled"] = False
         rows_metadata = [entry for entry in row.get("metadata", []) if entry.get("name") != SELECTION_MARKER]
         row["metadata"] = rows_metadata + [{"name": SELECTION_MARKER, "value": str(attack_id in selected).lower()}]
     for attack_id in sorted(selected - seen):
-        layer.setdefault("techniques", []).append({"techniqueID": attack_id, "enabled": True, "color": "#007acc",
+        layer.setdefault("techniques", []).append({"techniqueID": attack_id,
                                                    "metadata": [{"name": SELECTION_MARKER, "value": "true"}]})
-    return validate_layer(layer)
+    return validate_layer(layer) if validate else layer
+
+
+def prune_empty_annotation_rows(document, candidate, rows):
+    """Drop emptied annotation rows without changing imported enabled scopes."""
+    empty_rows = [row for row in rows if set(row) <= {'techniqueID', 'tactic', 'comment'} and not row.get('comment')]
+    if not empty_rows:
+        return
+    removing = {id(row) for row in empty_rows}
+    remaining = [row for row in candidate['techniques'] if id(row) not in removing]
+    enabled_ids = {row['techniqueID'] for row in remaining if row.get('enabled', True)}
+    disabled_ids = {row['techniqueID'] for row in remaining if row.get('enabled') is False}
+    for row in empty_rows:
+        attack_id = row['techniqueID']
+        if (attack_id in disabled_ids
+                and attack_id not in enabled_ids):
+            # This implicit enabled scope determines how the surviving
+            # imported disabled scopes are interpreted during projection.
+            row['enabled'] = True
+            removing.remove(id(row))
+            enabled_ids.add(attack_id)
+    candidate['techniques'] = [row for row in candidate['techniques'] if id(row) not in removing]
+
+
+def update_technique_fields(document, keys, fields, tactic=None):
+    """Update fields atomically; removing absent fields never synthesizes a row."""
+    if not keys or not set(keys) <= document.catalog.records.keys():
+        raise ValueError("Choose techniques in the active document's domain and version.")
+    candidate = deepcopy(document.navigator_layer) if document.navigator_layer else {
+        "name": document.name, "domain": document.catalog.domain,
+        "versions": {"attack": document.catalog.version, "navigator": NAVIGATOR_VERSION, "layer": LAYER_VERSION},
+        "techniques": [], "selectSubtechniquesWithParent": False}
+    if candidate["domain"] != document.catalog.domain or layer_version(candidate, document.catalog.version) != document.catalog.version:
+        raise ValueError("Annotations belong to another domain or version.")
+    if not set(fields) <= {"color", "score"}:
+        raise ValueError("Unsupported technique field.")
+    removals = {name for name, value in fields.items()
+                if value is None or (name == 'color' and value == '')}
+    assignments = set(fields) - removals
+    changed = False
+    empty_rows = []
+    candidate.setdefault('techniques', [])
+    for key in keys:
+        obj = document.catalog.records[key]
+        if tactic is not None and tactic and tactic not in tactic_phases(obj, document.catalog.domain):
+            raise ValueError("This technique is not mapped to that tactic.")
+        attack_id = external_id(obj)
+        rows = [row for row in candidate["techniques"] if row["techniqueID"] == attack_id
+                and (tactic is None or row.get("tactic", "") == tactic)]
+        # A technique-wide assignment also needs an all-tactic row when the
+        # imported layer only contains specific scopes. Clears never add rows.
+        if assignments and (not rows or (tactic is None and not any(not row.get('tactic') for row in rows))):
+            row = {"techniqueID": attack_id}
+            if tactic:
+                row["tactic"] = tactic
+            candidate["techniques"].append(row)
+            rows.append(row)
+            changed = True
+        for row in rows:
+            removed = False
+            for name, value in fields.items():
+                if name in removals:
+                    # An empty stored color is already clear. Leave its source
+                    # representation untouched so an ineffective clear is a no-op.
+                    if name in row and (name != 'color' or row[name]):
+                        row.pop(name)
+                        changed = True
+                        removed = True
+                elif row.get(name) != value:
+                    row[name] = value
+                    changed = True
+            # A color-only row must disappear after a technique-wide clear.
+            # Keeping just its identity suppresses normal selection styling
+            # and synthesizes a grey disabled cell when unchecked. Preserve
+            # meaningful imported fields and explicitly edited tactic scopes.
+            if removed and tactic is None:
+                empty_rows.append(row)
+    if not changed:
+        return False
+    prune_empty_annotation_rows(document, candidate, empty_rows)
+    validated = validate_layer(candidate)
+    document.navigator_layer = validated
+    return True
+
+
+def export_layers(documents, target, notify):
+    notify("Input files: None (open document layers in memory)", 0, 0)
+    notify(f"Output file: {Path(target).expanduser().resolve()}", 0, 0)
+    if not 1 <= len(documents) <= 20:
+        raise ValueError("Export one to twenty open layers per Navigator bundle.")
+    layers = []
+    for number, document in enumerate(documents, 1):
+        notify("[Layers 1/2] Validating open layers", number - 1, len(documents))
+        layers.append(document_layer(document))
+    result = write_json_atomic(layers, target, notify, "All Layers Export")
+    notify("[Layers 2/2] Complete; document names and save states preserved", 2, 2)
+    return result
 
 
 def write_json_atomic(payload, target, notify, label="Navigator Export"):
@@ -210,13 +338,13 @@ def export_layer(document, target, notify):
     document.name = path.stem
     document.export_path = path
     document.export_format = "navigator"
-    document.exported_fingerprint = None if document.navigator_snapshots or document.domain_snapshots else document.fingerprint()
-    if document.navigator_snapshots or document.domain_snapshots:
+    document.exported_fingerprint = None if document.navigator_snapshots or document.domain_snapshots or document.migration_archives else document.fingerprint()
+    if document.navigator_snapshots or document.domain_snapshots or document.migration_archives:
         notify('[Navigator Export] Other-domain/version data remain in memory; export Studio JSON to preserve all archives.', 1, 1)
     return path
 
 
-def update_annotation(document, key, tactic, comment, score, color):
+def update_annotation(document, key, tactic, comment, score, color, links=None, metadata=None):
     attack_id = external_id(document.catalog.records[key])
     candidate = deepcopy(document.navigator_layer)
     if not candidate:
@@ -228,28 +356,43 @@ def update_annotation(document, key, tactic, comment, score, color):
     rows = candidate.setdefault("techniques", [])
     matches = [row for row in rows if row["techniqueID"] == attack_id and row.get("tactic", "") == tactic]
     if not matches:
-        entry = {"techniqueID": attack_id}
+        global_row = next((row for row in reversed(rows) if row['techniqueID'] == attack_id and not row.get('tactic')), {})
+        entry = deepcopy(global_row) if tactic else {"techniqueID": attack_id}
+        entry['techniqueID'] = attack_id
         if tactic:
             entry["tactic"] = tactic
         rows.append(entry)
         matches = [entry]
     for entry in matches:
-        entry["comment"] = comment
+        for field, value in (('links', links), ('metadata', metadata)):
+            if value is not None:
+                if value:
+                    entry[field] = deepcopy(value)
+                else:
+                    entry.pop(field, None)
+        if comment:
+            entry["comment"] = comment
+        else:
+            entry.pop('comment', None)
         for field, value in (("score", score), ("color", color)):
             if value is None or value == "":
                 entry.pop(field, None)
             else:
                 entry[field] = value
+    if not tactic:
+        prune_empty_annotation_rows(document, candidate, matches)
     validate_layer(candidate)
     document.navigator_layer = candidate
 
 
 def compare_documents(left, right):
+    if left.catalog.dataset_id != right.catalog.dataset_id:
+        raise ValueError('Selection comparison requires the same dataset.')
     if left.catalog.domain != right.catalog.domain:
         raise ValueError("Selection comparison requires matching ATT&CK domains.")
     if left.catalog.version != right.catalog.version:
         raise ValueError("Selection comparison requires matching ATT&CK versions.")
-    if int(left.catalog.version.split(".")[0]) < 4:
+    if not supports_navigator(left.catalog):
         raise ValueError("Navigator comparison requires ATT&CK v4 or later.")
     a, b = set(left.selected), set(right.selected)
     colors = {"Both": "#66bb6a", "Left only": "#42a5f5", "Right only": "#ffa726"}

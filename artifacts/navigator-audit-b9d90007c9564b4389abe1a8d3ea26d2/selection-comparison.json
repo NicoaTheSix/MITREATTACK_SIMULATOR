@@ -1,0 +1,38 @@
+{
+  "name": "annotated vs Untitled-2",
+  "domain": "enterprise-attack",
+  "versions": {
+    "attack": "19.2",
+    "layer": "4.5",
+    "navigator": "5.2.0"
+  },
+  "selectSubtechniquesWithParent": false,
+  "techniques": [
+    {
+      "techniqueID": "T1053.005",
+      "color": "#66bb6a",
+      "comment": "Both",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1059.001",
+      "color": "#ffa726",
+      "comment": "Right only",
+      "enabled": true
+    }
+  ],
+  "legendItems": [
+    {
+      "label": "Both",
+      "color": "#66bb6a"
+    },
+    {
+      "label": "Left only",
+      "color": "#42a5f5"
+    },
+    {
+      "label": "Right only",
+      "color": "#ffa726"
+    }
+  ]
+}

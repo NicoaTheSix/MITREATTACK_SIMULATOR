@@ -1,9 +1,9 @@
 {
   "schema_version": "1.0",
-  "document_id": "4817996f-7b51-462a-8487-eeb5ba216353",
+  "document_id": "c31b278f-085e-44f6-8e5c-1a4410b57f6f",
   "name": "selected-ttps-example",
-  "created_at_utc": "2026-10-14T03:18:34.190713+00:00",
-  "exported_at_utc": "2026-10-14T03:18:35.670919+00:00",
+  "created_at_utc": "2026-10-15T07:29:35.830246+00:00",
+  "exported_at_utc": "2026-10-15T07:29:37.028108+00:00",
   "attack": {
     "domain": "enterprise-attack",
     "version": "19.2",
@@ -41,6 +41,23 @@
           "name": "Privilege Escalation",
           "shortname": "privilege-escalation"
         }
+      ],
+      "comment": "",
+      "tactic_comments": [],
+      "enabled": true,
+      "tactic_enabled": [
+        {
+          "tactic": "execution",
+          "enabled": true
+        },
+        {
+          "tactic": "persistence",
+          "enabled": true
+        },
+        {
+          "tactic": "privilege-escalation",
+          "enabled": true
+        }
       ]
     },
     {
@@ -58,6 +75,15 @@
           "tactic_id": "TA0002",
           "name": "Execution",
           "shortname": "execution"
+        }
+      ],
+      "comment": "",
+      "tactic_comments": [],
+      "enabled": true,
+      "tactic_enabled": [
+        {
+          "tactic": "execution",
+          "enabled": true
         }
       ]
     }

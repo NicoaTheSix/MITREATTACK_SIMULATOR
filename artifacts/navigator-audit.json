@@ -8,7 +8,9 @@
     "enabled policy excludes unknown ID and mismatched tactic",
     "all-row policy",
     "scored policy includes score zero",
-    "all-row import enables an explicitly selected previously disabled TTP",
+    "customDataURL cannot silently resolve against official data",
+    "custom URL retained during validation without fetching",
+    "all-row import includes a disabled TTP without enabling it",
     "selected ID with only mismatched annotations gains a valid global row",
     "mismatched scope remains preserved but disabled",
     "reject invalid score nan",
@@ -25,7 +27,7 @@
     "import creates independent document selection",
     "raw annotations retained and new document marked changed",
     "import synchronizes sidebar duplicates",
-    "layout/filter/extension preservation",
+    "layout/filter/description preservation",
     "SDK validation does not truncate fractional scores",
     "disabled tactic row preserved",
     "own layer round trip restores exact selection",
@@ -65,5 +67,5 @@
     "layer picker invalidates previous snapshot preview"
   ],
   "sdk_version": "6.2.1",
-  "outputs": "D:\\MITREATTACK_SIMULATOR\\artifacts\\navigator-audit-0dc0df2e66ae4154b647a40ad2863b9b"
+  "outputs": "D:\\MITREATTACK_SIMULATOR\\artifacts\\navigator-audit-87251e01acf14a65b5fff603226a8954"
 }

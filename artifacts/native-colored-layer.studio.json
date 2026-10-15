@@ -1,0 +1,132 @@
+{
+  "schema_version": "1.0",
+  "document_id": "c72e2ef5-113d-4bee-b612-163ab5a3d2d0",
+  "name": "native-colored-layer.studio",
+  "created_at_utc": "2026-10-15T07:24:34.827549+00:00",
+  "exported_at_utc": "2026-10-15T07:24:35.312516+00:00",
+  "attack": {
+    "domain": "enterprise-attack",
+    "version": "19.2",
+    "source_url": "https://github.com/mitre-attack/attack-stix-data"
+  },
+  "selected_count": 1,
+  "selected_technique_ids": [
+    "T1053.005"
+  ],
+  "selected_ttps": [
+    {
+      "technique_id": "T1053.005",
+      "stix_id": "attack-pattern--005a06c6-14bf-4118-afa0-ebcd8aebb0c9",
+      "name": "Scheduled Task",
+      "is_subtechnique": true,
+      "parent_technique_id": "T1053",
+      "parent_technique_name": "Scheduled Task/Job",
+      "platforms": [
+        "Windows"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0002",
+          "name": "Execution",
+          "shortname": "execution"
+        },
+        {
+          "tactic_id": "TA0003",
+          "name": "Persistence",
+          "shortname": "persistence"
+        },
+        {
+          "tactic_id": "TA0004",
+          "name": "Privilege Escalation",
+          "shortname": "privilege-escalation"
+        }
+      ],
+      "comment": "global",
+      "tactic_comments": [],
+      "enabled": true,
+      "tactic_enabled": [
+        {
+          "tactic": "execution",
+          "enabled": true
+        },
+        {
+          "tactic": "persistence",
+          "enabled": false
+        },
+        {
+          "tactic": "privilege-escalation",
+          "enabled": true
+        }
+      ]
+    }
+  ],
+  "navigator_layer": {
+    "name": "Coverage layer-copy",
+    "domain": "enterprise-attack",
+    "versions": {
+      "attack": "19.2",
+      "navigator": "5.2.0",
+      "layer": "4.5"
+    },
+    "gradient": {
+      "minValue": 0.25,
+      "maxValue": 100.25,
+      "colors": [
+        "#ff6666",
+        "#ffe766",
+        "#8ec843"
+      ]
+    },
+    "legendItems": [
+      {
+        "label": "<Research>",
+        "color": "#ffffff"
+      },
+      {
+        "label": "Covered",
+        "color": "#8ec843"
+      }
+    ],
+    "techniques": [
+      {
+        "techniqueID": "T1053.005",
+        "score": 25.5,
+        "comment": "global",
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "true"
+          }
+        ],
+        "color": "#42a5f5"
+      },
+      {
+        "techniqueID": "T1053.005",
+        "tactic": "execution",
+        "score": 25.5,
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "true"
+          }
+        ],
+        "color": "#42a5f5"
+      },
+      {
+        "techniqueID": "T1053.005",
+        "tactic": "persistence",
+        "enabled": false,
+        "score": 25.5,
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "true"
+          }
+        ],
+        "color": "#42a5f5"
+      }
+    ],
+    "hideDisabled": false,
+    "description": "Native matrix research annotations"
+  }
+}

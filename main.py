@@ -3,6 +3,8 @@ from __future__ import annotations
 
 import argparse
 import html
+from copy import deepcopy
+import math
 import os
 from pathlib import Path
 import subprocess
@@ -10,13 +12,19 @@ import sys
 
 from PySide6 import QtCore, QtGui, QtWidgets
 
-from attack_catalog import BROWSE_CATEGORIES, DOMAIN_LABELS, Catalog, external_id, load_catalog, tactic_phases
+from attack_catalog import BROWSE_CATEGORIES, DOMAIN_LABELS, Catalog, external_id, load_catalog, tactic_phases, catalog_identity, supports_navigator
 from version_dialog import VersionDialog
-from ttp_documents import TTPDocument, export_document_json, export_document_csv, validate_document_name
+from ttp_documents import TTPDocument, export_document_json, export_document_csv, validate_document_name, technique_comments, technique_states
 from attack_matrix import AttackMatrix
 from windows_taskbar import set_window_taskbar_properties
-from navigator_integration import export_layer
-from navigator_dialogs import ImportLayerDialog, AnnotationDialog, SelectionCompareDialog, VersionCompareDialog
+from navigator_integration import export_layer, document_layer, export_layers, update_technique_fields, validate_layer
+from navigator_dialogs import ImportLayerDialog, AnnotationDialog, LayerSettingsDialog, SelectionCompareDialog, VersionCompareDialog
+from navigator_visuals import DEFAULT_GRADIENT
+from layer_analysis_dialogs import FormulaDialog, MatrixExportDialog
+from navigator_fields import set_presentation
+from source_dialogs import SourceDialog, UpgradeDialog
+from batch_dialogs import BatchEditDialog
+from ttp_operations import batch_patch, annotated_keys, apply_selection, rows_by_scope
 
 ROLE_ID = int(QtCore.Qt.ItemDataRole.UserRole) + 1
 ROLE_CONTEXT = ROLE_ID + 1
@@ -328,6 +336,9 @@ class MainWindow(QtWidgets.QMainWindow):
         self.import_layer_action.setShortcut("Ctrl+O")
         self.import_layer_action.setEnabled(False)
         self.import_layer_action.triggered.connect(lambda: self.import_navigator_layer())
+        self.load_source_action = file_menu.addAction('Load layer URL / custom STIX…')
+        self.load_source_action.setEnabled(False)
+        self.load_source_action.triggered.connect(self.open_source_dialog)
         self.export_layer_action = file_menu.addAction("Export Navigator Layer…")
         self.export_layer_action.setEnabled(False)
         self.export_layer_action.triggered.connect(lambda: self.export_current_document(file_format="navigator"))
@@ -355,6 +366,40 @@ class MainWindow(QtWidgets.QMainWindow):
         self.version_action.triggered.connect(self.open_versions)
 
         navigator_menu = self.menuBar().addMenu("Navigator")
+        self.new_layer_action = navigator_menu.addAction("New layer")
+        self.new_layer_action.triggered.connect(self.new_navigator_layer)
+        self.duplicate_layer_action = navigator_menu.addAction("Duplicate active layer")
+        self.duplicate_layer_action.triggered.connect(self.duplicate_navigator_layer)
+        self.layer_settings_action = navigator_menu.addAction("Layer settings…")
+        self.layer_settings_action.triggered.connect(self.edit_layer_settings)
+        self.export_all_layers_action = navigator_menu.addAction("Export all open layers…")
+        self.export_all_layers_action.triggered.connect(lambda: self.export_all_layers())
+        self.layer_actions = (self.new_layer_action, self.duplicate_layer_action, self.layer_settings_action, self.export_all_layers_action)
+        self.formula_action = navigator_menu.addAction('Create layer from score formula…')
+        self.formula_action.triggered.connect(self.open_formula_dialog)
+        self.matrix_svg_action = navigator_menu.addAction('Export matrix SVG…')
+        self.matrix_svg_action.triggered.connect(lambda: self.export_matrix_view('svg'))
+        self.matrix_excel_action = navigator_menu.addAction('Export matrix Excel…')
+        self.matrix_excel_action.triggered.connect(lambda: self.export_matrix_view('xlsx'))
+        self.layer_actions += (self.formula_action, self.matrix_svg_action, self.matrix_excel_action)
+        self.upgrade_layer_action = navigator_menu.addAction('Review and upgrade layer…')
+        self.upgrade_layer_action.triggered.connect(self.open_upgrade_dialog)
+        self.layer_actions += (self.upgrade_layer_action,)
+        self.batch_edit_action = navigator_menu.addAction('Batch edit selected TTPs…')
+        self.batch_edit_action.triggered.connect(lambda: self.edit_ttp_batch())
+        self.clear_annotations_action = navigator_menu.addAction('Clear selected annotations…')
+        self.clear_annotations_action.triggered.connect(lambda: self.edit_ttp_batch(clear=True))
+        self.enable_selected_action = navigator_menu.addAction('Enable selected TTPs')
+        self.enable_selected_action.triggered.connect(lambda: self.set_technique_states(set(self.selected), True))
+        self.disable_selected_action = navigator_menu.addAction('Disable selected TTPs')
+        self.disable_selected_action.triggered.connect(lambda: self.set_technique_states(set(self.selected), False))
+        selection_tools = navigator_menu.addAction('Batch selection tools')
+        selection_tools.triggered.connect(self.open_matrix)
+        self.batch_actions = (self.batch_edit_action, self.clear_annotations_action, self.enable_selected_action, self.disable_selected_action)
+        self.layer_actions += self.batch_actions
+        for action in self.layer_actions:
+            action.setEnabled(False)
+        navigator_menu.addSeparator()
         self.compare_selections_action = navigator_menu.addAction("Compare open TTP documents…")
         self.compare_selections_action.triggered.connect(self.open_selection_comparison)
         self.compare_versions_action = navigator_menu.addAction("Compare ATT&CK versions…")
@@ -548,15 +593,54 @@ class MainWindow(QtWidgets.QMainWindow):
         selection_layout.addWidget(self.selection_export_button)
         self.selection_list = QtWidgets.QListWidget()
         self.selection_list.itemClicked.connect(self.show_selected)
+        self.selection_list.setContextMenuPolicy(QtCore.Qt.ContextMenuPolicy.CustomContextMenu)
+        self.selection_list.customContextMenuRequested.connect(self.show_selected_context_menu)
         selection_layout.addWidget(self.selection_list)
+        self.selection_annotation_button = QtWidgets.QPushButton("Edit TTP annotation…")
+        self.selection_annotation_button.setEnabled(False)
+        self.selection_annotation_button.clicked.connect(lambda: self.edit_selected_annotation())
+        self.selection_list.currentItemChanged.connect(
+            lambda item, previous: self.selection_annotation_button.setEnabled(bool(item) and self.loaded_ok))
+        selection_layout.addWidget(self.selection_annotation_button)
         clear = QtWidgets.QPushButton("Clear selection")
         clear.clicked.connect(self.clear_selection)
         selection_layout.addWidget(clear)
+        batch_row = QtWidgets.QHBoxLayout()
+        self.selection_batch_button = QtWidgets.QPushButton('Batch edit included TTPs…')
+        self.selection_batch_button.clicked.connect(lambda: self.edit_ttp_batch())
+        batch_row.addWidget(self.selection_batch_button)
+        self.selection_state_button = QtWidgets.QToolButton()
+        self.selection_state_button.setText('Enabled state…')
+        self.selection_state_button.setPopupMode(QtWidgets.QToolButton.ToolButtonPopupMode.InstantPopup)
+        state_menu = QtWidgets.QMenu(self.selection_state_button)
+        for label, state in [('Enable included TTPs', True), ('Disable included TTPs', False), ('Toggle included states', 'toggle')]:
+            state_menu.addAction(label, lambda checked=False, value=state: self.set_technique_states(set(self.selected), value))
+        state_menu.addAction('Clear all included annotations…', lambda: self.edit_ttp_batch(clear=True))
+        self.selection_state_button.setMenu(state_menu)
+        batch_row.addWidget(self.selection_state_button)
+        selection_layout.addLayout(batch_row)
         self.selection_tab_index = self.tabs.addTab(selection_page, "Selected Techniques (0)")
         self.matrix_view = AttackMatrix()
         self.matrix_view.progress.connect(self.operation_report)
         self.matrix_view.selection_requested.connect(self.select_matrix_ttp)
         self.matrix_view.detail_requested.connect(self.show_matrix_detail)
+        self.matrix_view.layer_requested.connect(self.select_navigator_layer)
+        self.matrix_view.overlay_requested.connect(self.toggle_all_layers)
+        self.matrix_view.new_layer_requested.connect(self.new_navigator_layer)
+        self.matrix_view.duplicate_layer_requested.connect(self.duplicate_navigator_layer)
+        self.matrix_view.layer_settings_requested.connect(self.edit_layer_settings)
+        self.matrix_view.color_selected_requested.connect(lambda: self.choose_technique_color(set(self.selected)))
+        self.matrix_view.clear_selected_color_requested.connect(lambda: self.apply_technique_fields(set(self.selected), {'color': ''}, include=False))
+        self.matrix_view.score_selected_requested.connect(self.score_selected_techniques)
+        self.matrix_view.annotation_requested.connect(lambda key, slug: self.edit_navigator_annotation(key, '', True))
+        self.matrix_view.cell_color_requested.connect(lambda key, slug: self.choose_technique_color({key}))
+        self.matrix_view.cell_clear_color_requested.connect(lambda key, slug: self.apply_technique_fields({key}, {'color': ''}, include=False))
+        self.matrix_view.source_requested.connect(self.add_source_ttps)
+        self.matrix_view.presentation_requested.connect(self.change_matrix_presentation)
+        self.matrix_view.bulk_selection_requested.connect(self.select_ttp_batch)
+        self.matrix_view.batch_edit_requested.connect(lambda clear: self.edit_ttp_batch(clear=clear))
+        self.matrix_view.enabled_requested.connect(lambda value: self.set_technique_states(set(self.selected), value))
+        self.matrix_view.cell_enabled_requested.connect(lambda key, slug, value: self.set_technique_states({key}, value, slug or None))
         self.matrix_tab_index = self.tabs.addTab(self.matrix_view, "ATT&CK Matrix")
         self.tabs.setTabEnabled(self.matrix_tab_index, False)
         self.tabs.currentChanged.connect(self.editor_tab_changed)
@@ -631,6 +715,7 @@ class MainWindow(QtWidgets.QMainWindow):
         close.setToolTip("Close details page")
         close.setAutoRaise(True)
         close.setFixedSize(22, 22)
+        close.setStyleSheet("QToolButton {padding:0; background:transparent;} QToolButton:hover {background:#444444;}")
         close.clicked.connect(self.close_details_page)
         self.document_tabs.setTabButton(index, QtWidgets.QTabBar.ButtonPosition.RightSide, close)
         self.document_tabs.blockSignals(False)
@@ -689,6 +774,7 @@ class MainWindow(QtWidgets.QMainWindow):
         if self.active_category != "TTP":
             self.switch_category("TTP")
         self.matrix_view.set_catalog(self.catalog, self.selected)
+        self.refresh_layer_appearance()
         self.show_document_page()
         self.tabs.setCurrentIndex(self.matrix_tab_index)
 
@@ -735,13 +821,295 @@ class MainWindow(QtWidgets.QMainWindow):
         if document:
             self.setWindowTitle(document.name + (" *" if document.dirty else "") + " — TTP Selection Studio")
             self.selection_summary.setText(f"{document.name} · {DOMAIN_LABELS[document.catalog.domain]} · ATT&CK v{document.catalog.version} · {len(document.selected)} selected TTPs")
+        self.matrix_view.update_layers(self.documents, document)
+        for number, candidate in enumerate(self.documents):
+            if candidate.catalog.dataset_id:
+                self.document_tabs.setTabToolTip(number, self.document_tabs.tabToolTip(number) +
+                                                '\nCustom dataset SHA-256: ' + candidate.catalog.dataset_id)
+        supported = self.loaded_ok and bool(document) and supports_navigator(document.catalog)
+        for action in self.layer_actions:
+            action.setEnabled(supported)
+        for action in self.batch_actions:
+            action.setEnabled(supported and bool(self.selected))
+        self.selection_batch_button.setEnabled(supported and bool(self.selected))
+        self.selection_state_button.setEnabled(supported and bool(self.selected))
+        if self.matrix_view.show_all_layers.isChecked():
+            self.refresh_layer_appearance()
+
+    def refresh_layer_appearance(self, report_overlay=False):
+        document = self.current_document
+        supported = document and supports_navigator(document.catalog)
+        active_layer = document_layer(document, validate=False) if supported else {}
+        if supported and self.matrix_view.show_all_layers.isChecked():
+            compatible = [candidate for candidate in self.documents
+                          if catalog_identity(candidate.catalog) == catalog_identity(document.catalog)]
+            layers = []
+            for number, candidate in enumerate(compatible, 1):
+                if report_overlay:
+                    self.operation_report('[Overlay 2/3] Reading compatible layer colors', number - 1, len(compatible))
+                layers.append((candidate.name, document_layer(candidate, validate=False)))
+            scope = f"{DOMAIN_LABELS[document.catalog.domain]} v{document.catalog.version}"
+            self.matrix_view.set_overlay(layers, active_layer, len(self.documents), scope, document.name, document.catalog)
+        else:
+            if report_overlay:
+                self.operation_report('[Overlay 2/3] Restoring active layer colors', 2, 3)
+            self.matrix_view.set_layer(active_layer, document.catalog if document else None)
+
+    def toggle_all_layers(self, enabled):
+        if not self.loaded_ok:
+            return
+        self.operation_report('Input files: None; output files: None (read-only layer color projection)')
+        self.operation_report('[Overlay 1/3] Resolving compatible layers' if enabled else '[Overlay 1/3] Leaving all-layer view', 0, 3)
+        self.sync_active_document()
+        self.refresh_layer_appearance(report_overlay=True)
+        self.operation_report('[Overlay 3/3] Ready; source selections and annotations preserved', 3, 3)
+
+    def select_navigator_layer(self, document_id):
+        if not self.loaded_ok:
+            return
+        index = self.document_index(document_id)
+        if index < 0:
+            return
+        self.layer_matrix_pending = True
+        self.activate_document(index)
+        if self.loaded_ok:
+            self.layer_matrix_pending = False
+            self.open_matrix()
+
+    def new_navigator_layer(self):
+        if not self.loaded_ok or not supports_navigator(self.catalog):
+            return
+        self.operation_report("Input files: None; output files: None (new layer in memory)")
+        self.operation_report("[Layer 1/2] Creating an Enterprise layer", 0, 2)
+        self.new_document()
+        document = self.current_document
+        document.navigator_layer = {'name': document.name, 'domain': document.catalog.domain,
+                                    'versions': {'attack': document.catalog.version, 'navigator': '5.2.0', 'layer': '4.5'},
+                                    'techniques': [], 'gradient': deepcopy(DEFAULT_GRADIENT),
+                                    'legendItems': [], 'selectSubtechniquesWithParent': False}
+        self.update_document_labels()
+        if self.loaded_ok:
+            self.open_matrix()
+        else:
+            self.layer_matrix_pending = True
+        self.operation_report("[Layer 2/2] Created; change domain with the filename context menu", 2, 2)
+
+    def open_formula_dialog(self):
+        if not self.loaded_ok or not supports_navigator(self.catalog):
+            return
+        self.sync_active_document()
+        self.operation_report('Input files: None; output files: None (formula source snapshots in memory)')
+        self.show_integration_dialog(FormulaDialog(self.documents, self.current_document, self))
+
+    def export_matrix_view(self, kind, target=None):
+        if not self.loaded_ok or not supports_navigator(self.catalog):
+            return None
+        if self.integration_dialog and self.integration_dialog.isVisible():
+            self.integration_dialog.raise_()
+            return None
+        self.sync_active_document()
+        self.open_matrix()
+        if target is None:
+            target, _ = QtWidgets.QFileDialog.getSaveFileName(self, 'Export matrix ' + kind.upper(),
+                str(Path.home() / (self.current_document.name + '.' + kind)),
+                'SVG images (*.svg)' if kind == 'svg' else 'Excel workbooks (*.xlsx)')
+        if not target:
+            self.operation_report('[Matrix Export] Cancelled; no output files written', 1, 1)
+            return None
+        matrix = self.matrix_view
+        options = {'platform': matrix.platform_scope(), 'query': matrix.search.text(),
+                   'colors': matrix.show_colors.isChecked(),
+                   'sources': list(self.documents) if matrix.show_all_layers.isChecked() else None}
+        self.operation_report('Input files: None (matrix/layer snapshots in memory)')
+        self.operation_report(f'Output file: {Path(target).expanduser().resolve()}')
+        dialog = MatrixExportDialog(self.current_document, target, kind, options, self)
+        self.show_integration_dialog(dialog)
+        return dialog
+
+    def duplicate_navigator_layer(self):
+        if not self.loaded_ok or not supports_navigator(self.catalog):
+            return
+        self.sync_active_document()
+        source = self.current_document
+        self.operation_report("Input files: None; output files: None (copying active layer in memory)")
+        self.operation_report("[Layer Copy 1/2] Copying selections, annotations and archives", 0, 2)
+        base = source.name[:100] + '-copy'
+        name = base
+        number = 2
+        while any(document.name.casefold() == name.casefold() for document in self.documents):
+            name = base + '-' + str(number)
+            number += 1
+        layer = document_layer(source)
+        layer['name'] = name
+        document = TTPDocument(name, source.catalog, selected=set(source.selected), navigator_layer=layer,
+                               navigator_import_selected=set(source.navigator_import_selected),
+                               navigator_snapshots=deepcopy(source.navigator_snapshots),
+                               domain_snapshots=deepcopy(source.domain_snapshots),
+                               migration_archives=deepcopy(source.migration_archives))
+        self.install_imported_document(document)
+        if self.loaded_ok:
+            self.open_matrix()
+        else:
+            self.layer_matrix_pending = True
+        self.operation_report(f"[Layer Copy 2/2] Created {name} with independent data", 2, 2)
+
+    def edit_layer_settings(self):
+        if not self.loaded_ok or not supports_navigator(self.catalog):
+            return
+        self.sync_active_document()
+        self.operation_report("Input files: None; output files: None (layer settings in memory)")
+        self.operation_report("[Layer Settings 1/2] Editing description, gradient and legend", 0, 2)
+        dialog = LayerSettingsDialog(self.current_document, self)
+        if dialog.exec() != QtWidgets.QDialog.DialogCode.Accepted:
+            self.operation_report("[Layer Settings] Cancelled; document preserved", 1, 1)
+            return
+        self.current_document.navigator_layer = dialog.result_layer
+        self.current_document.name = dialog.result_layer['name']
+        self.refresh_selection()
+        self.operation_report("[Layer Settings 2/2] Saved; native matrix colors updated", 2, 2)
+
+    def choose_technique_color(self, keys, tactic=None):
+        if not self.loaded_ok or not keys:
+            return
+        self.operation_report("Input files: None; output files: None (technique colors in memory)")
+        self.operation_report("[Color 1/2] Choosing a technique color", 0, 2)
+        color = QtWidgets.QColorDialog.getColor(QtGui.QColor('#007acc'), self, 'Technique color')
+        if not color.isValid():
+            self.operation_report("[Color] Cancelled; document preserved", 1, 1)
+            return
+        self.apply_technique_fields(keys, {'color': color.name()}, tactic)
+
+    def score_selected_techniques(self):
+        if not self.loaded_ok or not self.selected:
+            return
+        self.operation_report("Input files: None; output files: None (technique scores in memory)")
+        self.operation_report("[Score 1/2] Editing selected technique scores", 0, 2)
+        text, accepted = QtWidgets.QInputDialog.getText(self, 'Score selected techniques', 'Finite score (blank to clear). Explicit colors override the gradient:')
+        if not accepted:
+            self.operation_report("[Score] Cancelled; document preserved", 1, 1)
+            return
+        try:
+            score = float(text) if text.strip() else None
+            if score is not None and not math.isfinite(score):
+                raise ValueError('Score must be finite.')
+        except ValueError as error:
+            QtWidgets.QMessageBox.warning(self, 'Invalid score', str(error))
+            self.operation_report(f"[Score] Failed: {error}", 1, 1)
+            return
+        self.apply_technique_fields(set(self.selected), {'score': score})
+
+    def apply_technique_fields(self, keys, fields, tactic=None, include=True):
+        if not self.loaded_ok or not keys:
+            return False
+        self.sync_active_document()
+        self.operation_report("Input files: None; output files: None (active layer in memory)")
+        self.operation_report("[Layer Color/Score 1/3] Validating technique annotations", 0, 3)
+        try:
+            changed = update_technique_fields(self.current_document, keys, fields, tactic)
+        except Exception as error:
+            self.operation_report(f"[Layer Color/Score] Failed: {error}", 1, 1)
+            QtWidgets.QMessageBox.warning(self, 'Invalid annotation', str(error))
+            return False
+        self.operation_report("[Layer Color/Score 2/3] Updating selected technique rows", 1, 3)
+        clearing_only = all(value is None or (name == 'color' and value == '') for name, value in fields.items())
+        if clearing_only and not changed:
+            self.operation_report("[Layer Color/Score 3/3] Nothing to clear; layer and selection unchanged", 3, 3)
+            return True
+        if include:
+            self.syncing = True
+            for key in keys:
+                self.selected.add(key)
+                for item in self.items_by_id[key]:
+                    item.setCheckState(QtCore.Qt.CheckState.Checked)
+            self.syncing = False
+        self.refresh_selection()
+        self.operation_report("[Layer Color/Score 3/3] Ready; native colors and exports synchronized", 3, 3)
+        return True
+
+    def set_technique_states(self, keys, value, tactic=None):
+        if not self.loaded_ok or not keys or not supports_navigator(self.catalog):
+            return False
+        self.sync_active_document()
+        try:
+            result = batch_patch(self.current_document, keys, {'enabled': value}, tactic, self.operation_report)
+        except Exception as error:
+            self.operation_report(f'[State] Failed: {error}', 1, 1)
+            return False
+        self.refresh_selection()
+        return result['changed']
+
+    def select_ttp_batch(self, action, scope='platform', tactic=''):
+        matrix = self.matrix_view
+        if not self.loaded_ok or matrix.catalog is not self.catalog or matrix.building:
+            return False
+        self.operation_report('Input files: None; output files: None (selection in memory)')
+        self.operation_report('[Batch Selection 1/3] Resolving platform/search/tactic scope', 0, 3)
+        try:
+            keys = matrix.scope_keys(scope, tactic)
+            annotations = annotated_keys(self.current_document, keys, tactic or None)
+            selected = apply_selection(self.selected, keys, action, annotations)
+        except ValueError as error:
+            self.operation_report(f'[Batch Selection] Failed: {error}', 1, 1)
+            return False
+        self.operation_report('[Batch Selection 2/3] Synchronizing inclusion checkboxes', 1, 3)
+        changed = self.selected ^ selected
+        self.syncing = True
+        try:
+            for key in changed:
+                state = QtCore.Qt.CheckState.Checked if key in selected else QtCore.Qt.CheckState.Unchecked
+                for item in self.items_by_id.get(key, []):
+                    item.setCheckState(state)
+            self.selected = selected
+        finally:
+            self.syncing = False
+        self.refresh_selection()
+        self.operation_report(f'[Batch Selection 3/3] {len(keys)} in scope; {len(selected)} included TTPs; states unchanged', 3, 3)
+        return True
+
+    def edit_ttp_batch(self, clear=False):
+        if not self.loaded_ok or not self.selected or not supports_navigator(self.catalog):
+            return
+        if self.integration_dialog and self.integration_dialog.isVisible():
+            self.integration_dialog.raise_()
+            return
+        self.sync_active_document()
+        document = self.current_document
+        self.operation_report('Input files: None; output files: None (batch editing draft in memory)')
+        dialog = BatchEditDialog(document, set(self.selected), self, clear=clear)
+        self.show_integration_dialog(dialog)
+        if dialog.exec() != QtWidgets.QDialog.DialogCode.Accepted:
+            self.operation_report('[Batch Edit] Cancelled; original document preserved', 1, 1)
+            return
+        if self.current_document is not document or not dialog.result_data:
+            self.operation_report('[Batch Edit] Active document changed; draft was not applied', 1, 1)
+            return
+        if dialog.result_data['changed']:
+            document.navigator_layer = dialog.result_layer
+        self.refresh_selection()
+        self.operation_report('[Batch Edit] Applied; inclusion checkboxes preserved', 3, 3)
+
+    def export_all_layers(self, target=None):
+        if not self.loaded_ok:
+            return None
+        self.sync_active_document()
+        if target is None:
+            target, _ = QtWidgets.QFileDialog.getSaveFileName(self, 'Export all open Navigator layers', str(Path.home() / 'layers.navigator.json'), 'JSON files (*.json)')
+        if not target:
+            self.operation_report('[Layers Export] Cancelled; no output files written', 1, 1)
+            return None
+        try:
+            return export_layers(self.documents, target, self.operation_report)
+        except Exception as error:
+            self.operation_report(f'[Layers Export] Failed: {error}', 1, 1)
+            QtWidgets.QMessageBox.critical(self, 'Layer export failed', str(error))
+            return None
 
     def new_document(self):
         if not self.loaded_ok:
             return
         self.operation_report("[New File 1/2] Input files: None; output files: None (document in memory)", 0, 2)
         self.sync_active_document()
-        index = self.append_document(self.catalog)
+        index = self.append_document(getattr(self, 'official_catalog', self.catalog) if self.catalog.dataset_id else self.catalog)
         self.document_tabs.blockSignals(True)
         self.document_tabs.setCurrentIndex(index)
         self.document_tabs.blockSignals(False)
@@ -981,35 +1349,79 @@ class MainWindow(QtWidgets.QMainWindow):
         self.document_tabs.blockSignals(False)
         self.activate_document(index)
 
+    def open_source_dialog(self):
+        if not self.loaded_ok:
+            return
+        dialog = SourceDialog(self.data_root, self.catalog.version, self)
+        dialog.imported.connect(self.install_imported_document)
+        dialog.layer_ready.connect(lambda path: QtCore.QTimer.singleShot(0, lambda: self.import_navigator_layer(path)))
+        self.show_integration_dialog(dialog)
+
+    def open_upgrade_dialog(self):
+        if not self.loaded_ok or not supports_navigator(self.catalog):
+            return
+        self.sync_active_document()
+        dialog = UpgradeDialog(self.data_root, self.current_document, self.documents, self)
+        dialog.imported.connect(self.install_imported_document)
+        self.show_integration_dialog(dialog)
+
+    def change_matrix_presentation(self, layout, sorting, platforms):
+        if not self.loaded_ok or not supports_navigator(self.catalog):
+            return
+        self.operation_report('Input files: None; output files: None (layer presentation in memory)')
+        self.operation_report('[Presentation 1/2] Saving layout, sorting and platform filters', 1, 2)
+        try:
+            set_presentation(self.current_document, layout, sorting, platforms)
+        except ValueError as error:
+            self.operation_report(f'[Presentation] Failed: {error}', 1, 1)
+            return
+        self.update_document_labels()
+        self.refresh_layer_appearance()
+        self.operation_report('[Presentation 2/2] Saved to the active layer', 2, 2)
+
     def open_selection_comparison(self):
         if self.loaded_ok:
             self.sync_active_document()
             self.show_integration_dialog(SelectionCompareDialog(list(self.documents), self))
 
     def open_version_comparison(self):
+        if self.catalog and self.catalog.dataset_id:
+            self.operation_report('Custom dataset: use Navigator → Review and upgrade layer to compare and migrate to an open custom dataset.', 1, 1)
+            return
         if self.loaded_ok:
             self.sync_active_document()
             self.show_integration_dialog(VersionCompareDialog(self.data_root, self.current_document, self))
 
-    def edit_navigator_annotation(self):
-        if not self.loaded_ok or not self.annotation_context or not self.current_document:
+    def edit_navigator_annotation(self, key=None, tactic=None, return_matrix=False, return_selection=False):
+        key = key if isinstance(key, str) else self.annotation_context
+        if not self.loaded_ok or not key or not self.current_document:
             return
-        key = self.annotation_context
         self.sync_active_document()
         self.operation_report("Input files: None; output files: None (document annotations in memory)")
-        self.operation_report("[Annotation 1/2] Editing technique annotation", 0, 1)
+        self.operation_report("[Annotation 1/2] Editing technique annotation", 0, 2)
         dialog = AnnotationDialog(self.current_document, key, self)
+        if tactic is not None:
+            dialog.scope.setCurrentIndex(dialog.scope.findData(tactic))
         if dialog.exec() != QtWidgets.QDialog.DialogCode.Accepted:
-            self.operation_report("[Annotation] Cancelled", 1, 1)
+            self.operation_report("[Annotation 2/2] Cancelled; document unchanged", 2, 2)
             return
         self.current_document.navigator_layer = dialog.result_layer
         item = self.items_by_id[key][0]
         item.setCheckState(QtCore.Qt.CheckState.Checked if dialog.include.isChecked() else QtCore.Qt.CheckState.Unchecked)
         self.refresh_selection()
-        self.show_record(key, *getattr(self, "detail_context", ("", "")))
-        self.operation_report("[Annotation 2/2] Saved in active document", 1, 1)
+        if return_matrix:
+            self.open_matrix()
+        elif return_selection:
+            self.show_document_page()
+            self.tabs.setCurrentIndex(self.selection_tab_index)
+        else:
+            self.show_record(key, *getattr(self, "detail_context", ("", "")))
+        self.operation_report("[Annotation 2/2] Saved in active document", 2, 2)
 
     def open_versions(self):
+        if self.catalog and self.catalog.dataset_id:
+            self.operation_report('Custom dataset: use File → Load layer URL / custom STIX to open another dataset, or Navigator → Review and upgrade layer to migrate annotations.', 1, 1)
+            return
         if self.version_dialog and self.version_dialog.isVisible():
             self.version_dialog.raise_()
             return
@@ -1032,7 +1444,10 @@ class MainWindow(QtWidgets.QMainWindow):
         self.new_action.setEnabled(False)
         self.export_action.setEnabled(False)
         self.export_csv_action.setEnabled(False)
+        self.load_source_action.setEnabled(False)
         for action in (self.import_layer_action, self.export_layer_action, self.compare_selections_action, self.compare_versions_action):
+            action.setEnabled(False)
+        for action in self.layer_actions:
             action.setEnabled(False)
         self.selection_export_button.setEnabled(False)
         self.document_tabs.setEnabled(False)
@@ -1057,6 +1472,8 @@ class MainWindow(QtWidgets.QMainWindow):
                              "<p>Check data/attack/latest.json and the downloaded snapshot. See README.md.</p>")
 
     def begin_tree(self, catalog):
+        if not catalog.dataset_id:
+            self.official_catalog = catalog
         if self.closing:
             return
         self.restore_details_view = self.workspace.currentWidget() is self.details_page
@@ -1242,6 +1659,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.new_action.setEnabled(True)
         self.export_action.setEnabled(True)
         self.export_csv_action.setEnabled(True)
+        self.load_source_action.setEnabled(True)
         for action in (self.import_layer_action, self.export_layer_action, self.compare_selections_action, self.compare_versions_action):
             action.setEnabled(True)
         self.selection_export_button.setEnabled(True)
@@ -1266,6 +1684,9 @@ class MainWindow(QtWidgets.QMainWindow):
         if getattr(self, "pending_domain_report", False):
             self.pending_domain_report = False
             self.operation_report(f"[Domain 3/3] Ready: {DOMAIN_LABELS[self.catalog.domain]} · {len(self.selected)} selected TTPs", 3, 3)
+        if getattr(self, 'layer_matrix_pending', False):
+            self.layer_matrix_pending = False
+            self.open_matrix()
         self.ready.emit()
 
     def switch_category(self, category):
@@ -1473,6 +1894,7 @@ class MainWindow(QtWidgets.QMainWindow):
     def show_index(self, index, previous=None):
         if not index.isValid() or not self.catalog:
             return
+        self.open_details_page("Technique Details")
         item = self.model.itemFromIndex(self.proxy.mapToSource(index))
         context = item.data(ROLE_CONTEXT)
         key = item.data(ROLE_ID)
@@ -1662,24 +2084,74 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def refresh_selection(self):
         self.sync_active_document()
+        state_rows = rows_by_scope(self.current_document)
+        previous_syncing = self.syncing
+        self.syncing = True
+        for key, items in self.items_by_id.items():
+            attack_id = external_id(self.catalog.records[key])
+            for item in items:
+                context = item.data(ROLE_CONTEXT)
+                slug = context[1] if context else ''
+                enabled = state_rows.get((attack_id, slug), state_rows.get((attack_id, ''), {})).get('enabled', True)
+                item.setForeground(QtGui.QBrush() if enabled else QtGui.QBrush(QtGui.QColor('#858585')))
+        self.syncing = previous_syncing
         self.matrix_view.update_selection(self.selected)
+        self.refresh_layer_appearance()
+        previous = self.selection_list.currentItem()
+        previous_key = previous.data(ROLE_ID) if previous else None
         self.selection_list.clear()
         for key in sorted(self.selected, key=lambda key: external_id(self.catalog.records[key])):
             record = self.catalog.records[key]
             label = f"{external_id(record)}  {record['name']}"
+            enabled, tactic_states = technique_states(self.current_document, key, state_rows)
+            values = {entry['enabled'] for entry in tactic_states} or {enabled}
+            label += '  [' + ('Mixed tactic states' if len(values) > 1 else 'Enabled' if True in values else 'Disabled') + ']'
             parent_key = self.catalog.parents.get(key)
             if parent_key:
                 parent = self.catalog.records[parent_key]
                 label += f"\n    Parent: {external_id(parent)}  {parent['name']}"
+            comment, scoped = technique_comments(self.current_document, key)
+            if comment:
+                preview = ' '.join(comment.split())
+                label += '\n    Comment: ' + (preview[:140] + '…' if len(preview) > 140 else preview)
+            if scoped:
+                label += f"\n    Tactic comments: {len(scoped)}"
             item = QtWidgets.QListWidgetItem(label)
             item.setData(ROLE_ID, key)
+            item.setToolTip('\n\n'.join(([comment] if comment else []) +
+                            [f"{entry['tactic']}: {entry['comment']}" for entry in scoped]))
             self.selection_list.addItem(item)
+            if key == previous_key:
+                self.selection_list.setCurrentItem(item)
+        if self.selection_list.count() and self.selection_list.currentItem() is None:
+            self.selection_list.setCurrentRow(0)
         self.tabs.setTabText(self.selection_tab_index, f"Selected Techniques ({len(self.selected)})")
         self.state.setText(f"Ready  |  {self.current_document.name if self.current_document else 'TTP'}  |  {len(self.selected)} selected")
 
     def show_selected(self, item):
         self.switch_category("TTP")
         self.show_record(item.data(ROLE_ID))
+
+    def show_selected_context_menu(self, position):
+        item = self.selection_list.itemAt(position)
+        if not self.loaded_ok or item is None:
+            return
+        self.selection_list.setCurrentItem(item)
+        key = item.data(ROLE_ID)
+        menu = QtWidgets.QMenu(self.selection_list)
+        menu.addAction("Edit TTP annotation…", lambda: self.edit_selected_annotation(key))
+        self.selected_context_menu = menu
+        menu.aboutToHide.connect(menu.deleteLater)
+        menu.popup(self.selection_list.viewport().mapToGlobal(position))
+
+    def edit_selected_annotation(self, key=None):
+        item = self.selection_list.currentItem()
+        key = key if isinstance(key, str) else item.data(ROLE_ID) if item else None
+        if not self.loaded_ok or key not in self.selected:
+            return
+        self.show_document_page()
+        self.tabs.setCurrentIndex(self.selection_tab_index)
+        self.edit_navigator_annotation(key, '', return_selection=True)
 
     def clear_selection(self):
         self.syncing = True

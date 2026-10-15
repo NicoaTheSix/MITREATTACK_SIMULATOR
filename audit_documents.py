@@ -261,7 +261,7 @@ def main():
     window.items_by_id[powershell][0].setCheckState(QtCore.Qt.CheckState.Checked)
     window.new_document()
     window.document_tabs.setCurrentIndex(0)
-    window.tabs.setCurrentIndex(1)
+    window.tabs.setCurrentIndex(window.selection_tab_index)
     window.output_panel.hide()
     QtTest.QTest.qWait(180)
     position = window.document_tabs.tabRect(0).center()

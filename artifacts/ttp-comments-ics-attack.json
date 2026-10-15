@@ -1,0 +1,108 @@
+{
+  "schema_version": "1.0",
+  "document_id": "bc413301-cd73-4f37-84ff-447542281554",
+  "name": "ttp-comments-ics-attack",
+  "created_at_utc": "2026-10-15T07:30:46.052636+00:00",
+  "exported_at_utc": "2026-10-15T07:30:47.071281+00:00",
+  "attack": {
+    "domain": "ics-attack",
+    "version": "19.2",
+    "source_url": "https://github.com/mitre-attack/attack-stix-data"
+  },
+  "selected_count": 1,
+  "selected_technique_ids": [
+    "T0881"
+  ],
+  "selected_ttps": [
+    {
+      "technique_id": "T0881",
+      "stix_id": "attack-pattern--063b5b92-5361-481a-9c3f-95492ed9a2d8",
+      "name": "Service Stop",
+      "is_subtechnique": false,
+      "parent_technique_id": null,
+      "parent_technique_name": null,
+      "platforms": [
+        "None"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0107",
+          "name": "Inhibit Response Function",
+          "shortname": "inhibit-response-function"
+        }
+      ],
+      "comment": "ics-attack comment\n中文",
+      "tactic_comments": [],
+      "enabled": true,
+      "tactic_enabled": [
+        {
+          "tactic": "inhibit-response-function",
+          "enabled": true
+        }
+      ]
+    }
+  ],
+  "navigator_layer": {
+    "name": "ttp-comments-mobile-attack",
+    "domain": "ics-attack",
+    "versions": {
+      "attack": "19.2",
+      "layer": "4.5",
+      "navigator": "5.2.0"
+    },
+    "techniques": [
+      {
+        "techniqueID": "T0881",
+        "comment": "ics-attack comment\n中文"
+      }
+    ]
+  },
+  "domain_snapshots": {
+    "enterprise-attack": {
+      "version": "19.2",
+      "selected_stix_ids": [
+        "attack-pattern--005a06c6-14bf-4118-afa0-ebcd8aebb0c9"
+      ],
+      "navigator_layer": {
+        "name": "Untitled-2",
+        "domain": "enterprise-attack",
+        "versions": {
+          "attack": "19.2",
+          "layer": "4.5",
+          "navigator": "5.2.0"
+        },
+        "techniques": [
+          {
+            "techniqueID": "T1053.005",
+            "comment": "Second document only"
+          }
+        ]
+      },
+      "navigator_import_selected": [],
+      "navigator_snapshots": {}
+    },
+    "mobile-attack": {
+      "version": "19.2",
+      "selected_stix_ids": [
+        "attack-pattern--00290ac5-551e-44aa-bbd8-c4b913488a6d"
+      ],
+      "navigator_layer": {
+        "name": "Untitled-2",
+        "domain": "mobile-attack",
+        "versions": {
+          "attack": "19.2",
+          "layer": "4.5",
+          "navigator": "5.2.0"
+        },
+        "techniques": [
+          {
+            "techniqueID": "T1603",
+            "comment": "mobile-attack comment\n中文"
+          }
+        ]
+      },
+      "navigator_import_selected": [],
+      "navigator_snapshots": {}
+    }
+  }
+}

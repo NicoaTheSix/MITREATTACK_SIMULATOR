@@ -1,0 +1,312 @@
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\latest.json
+Output report: D:\MITREATTACK_SIMULATOR\artifacts\ttp-document-audit.json
+Output preview: D:\MITREATTACK_SIMULATOR\artifacts\ttp-documents-preview.png
+Output sample: D:\MITREATTACK_SIMULATOR\artifacts\selected-ttps-example.json
+Output CSV sample: D:\MITREATTACK_SIMULATOR\artifacts\selected-ttps-example.csv
+Output test directory: D:\MITREATTACK_SIMULATOR\artifacts\ttp-document-audit-24146d4bc82e462486e981bc681e2773
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\ttp-document-audit-24146d4bc82e462486e981bc681e2773\empty.json
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\ttp-document-audit-24146d4bc82e462486e981bc681e2773\empty.csv
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\ttp-document-audit-24146d4bc82e462486e981bc681e2773\��s���-A.json
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\ttp-document-audit-24146d4bc82e462486e981bc681e2773\��s���-A.csv
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\ttp-document-audit-24146d4bc82e462486e981bc681e2773\parent-only.csv
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\ttp-document-audit-24146d4bc82e462486e981bc681e2773\quoted-names.csv
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\ttp-document-audit-24146d4bc82e462486e981bc681e2773\research-B.json
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\ttp-document-audit-24146d4bc82e462486e981bc681e2773\older-version.json
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\ttp-document-audit-24146d4bc82e462486e981bc681e2773\closed-B.json
+[Application icon 1/2] Input file: D:\MITREATTACK_SIMULATOR\assets\ttp-selection-studio-icon-pixel.png
+[Application icon 1/2] Output files: None (application/window icon in memory)
+[Application icon 2/2] Complete: pixel icon applied to application and windows
+[Preview fonts] Input file: C:\WINDOWS\Fonts\segoeui.ttf
+[Preview fonts] Input file: C:\WINDOWS\Fonts\segoeuib.ttf
+[Preview fonts] Input file: C:\WINDOWS\Fonts\consola.ttf
+[Preview fonts] Input file: C:\WINDOWS\Fonts\msjh.ttc
+[Preview fonts] Input file: C:\WINDOWS\Fonts\msjhbd.ttc
+[Preview fonts] Complete
+[UI settings 1/2] Input file: D:\MITREATTACK_SIMULATOR\data\ui-settings.ini
+[UI settings 1/2] Output files: None (reading preferences)
+[UI settings 2/2] Complete: navigation labels hidden
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\ttp-selection-studio-icon-pixel.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\mitigations.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\assets.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\detections.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\groups.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\software.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\campaigns.png
+[Navigation icons 1/3] Output files: None (button icons in memory)
+[Navigation icons 2/3] Loading TTP (1/7)
+[Navigation icons 2/3] Loading Mitigations (2/7)
+[Navigation icons 2/3] Loading Assets (3/7)
+[Navigation icons 2/3] Loading Detections (4/7)
+[Navigation icons 2/3] Loading Groups (5/7)
+[Navigation icons 2/3] Loading Software (6/7)
+[Navigation icons 2/3] Loading Campaigns (7/7)
+[Navigation icons 3/3] Complete: 7/7 icons ready
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\latest.json
+Output files: None (catalog is loaded into memory)
+[1/4 Resolve] Reading snapshot pointer
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v19.2\manifest.json
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v19.2\enterprise-attack-19.2.json
+[1/4 Resolve] Complete: Enterprise ATT&CK v19.2 (1/1)
+[2/4 Read] Reading and checking bundle (4194304/53835637)
+[2/4 Read] Reading and checking bundle (8388608/53835637)
+[2/4 Read] Reading and checking bundle (12582912/53835637)
+[2/4 Read] Reading and checking bundle (16777216/53835637)
+[2/4 Read] Reading and checking bundle (20971520/53835637)
+[2/4 Read] Reading and checking bundle (25165824/53835637)
+[2/4 Read] Reading and checking bundle (29360128/53835637)
+[2/4 Read] Reading and checking bundle (33554432/53835637)
+[2/4 Read] Reading and checking bundle (37748736/53835637)
+[2/4 Read] Reading and checking bundle (41943040/53835637)
+[2/4 Read] Reading and checking bundle (46137344/53835637)
+[2/4 Read] Reading and checking bundle (50331648/53835637)
+[2/4 Read] Reading and checking bundle (53835637/53835637)
+[2/4 Read] Parsing JSON
+[3/4 Index] Indexing active ATT&CK objects (2000/26086)
+[3/4 Index] Indexing active ATT&CK objects (4000/26086)
+[3/4 Index] Indexing active ATT&CK objects (6000/26086)
+[3/4 Index] Indexing active ATT&CK objects (8000/26086)
+[3/4 Index] Indexing active ATT&CK objects (10000/26086)
+[3/4 Index] Indexing active ATT&CK objects (12000/26086)
+[3/4 Index] Indexing active ATT&CK objects (14000/26086)
+[3/4 Index] Indexing active ATT&CK objects (16000/26086)
+[3/4 Index] Indexing active ATT&CK objects (18000/26086)
+[3/4 Index] Indexing active ATT&CK objects (20000/26086)
+[3/4 Index] Indexing active ATT&CK objects (22000/26086)
+[3/4 Index] Indexing active ATT&CK objects (24000/26086)
+[3/4 Index] Indexing active ATT&CK objects (26000/26086)
+[3/4 Index] Mapping platforms and tactics (100/697)
+[3/4 Index] Mapping platforms and tactics (200/697)
+[3/4 Index] Mapping platforms and tactics (300/697)
+[3/4 Index] Mapping platforms and tactics (400/697)
+[3/4 Index] Mapping platforms and tactics (500/697)
+[3/4 Index] Mapping platforms and tactics (600/697)
+[3/4 Index] Complete: 697 active techniques/sub-techniques, 11 platforms (697/697)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/26086)
+[3/4 Procedures] Reading Enterprise relationships (4000/26086)
+[3/4 Procedures] Reading Enterprise relationships (8000/26086)
+[3/4 Procedures] Reading Enterprise relationships (12000/26086)
+[3/4 Procedures] Reading Enterprise relationships (16000/26086)
+[3/4 Procedures] Reading Enterprise relationships (20000/26086)
+[3/4 Procedures] Reading Enterprise relationships (24000/26086)
+[3/4 Procedures] Complete: Enterprise 17136 procedure examples (1/1)
+[3/4 Related TTPs] Indexing Enterprise (0/26086)
+[3/4 Related TTPs] Reading Enterprise relationships (4000/26086)
+[3/4 Related TTPs] Reading Enterprise relationships (8000/26086)
+[3/4 Related TTPs] Reading Enterprise relationships (12000/26086)
+[3/4 Related TTPs] Reading Enterprise relationships (16000/26086)
+[3/4 Related TTPs] Reading Enterprise relationships (20000/26086)
+[3/4 Related TTPs] Reading Enterprise relationships (24000/26086)
+[3/4 Related TTPs] Complete: Enterprise 18584 relationships (1/1)
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v19.2\mobile-attack-19.2.json
+[3/4 Library] Reading and checking Mobile (4194304/5750325)
+[3/4 Library] Reading and checking Mobile (5750325/5750325)
+[3/4 Library] Parsing Mobile JSON
+[3/4 Procedures] Indexing Mobile procedure examples (0/2635)
+[3/4 Procedures] Complete: Mobile 1478 procedure examples (1/1)
+[3/4 Related TTPs] Indexing Mobile (0/2635)
+[3/4 Related TTPs] Complete: Mobile 1645 relationships (1/1)
+[3/4 Library] Complete: Mobile (1/1)
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v19.2\ics-attack-19.2.json
+[3/4 Library] Reading and checking ICS (4057891/4057891)
+[3/4 Library] Parsing ICS JSON
+[3/4 Procedures] Indexing ICS procedure examples (0/2173)
+[3/4 Procedures] Complete: ICS 271 procedure examples (1/1)
+[3/4 Related TTPs] Indexing ICS (0/2173)
+[3/4 Related TTPs] Complete: ICS 673 relationships (1/1)
+[3/4 Library] Complete: ICS (1/1)
+[3/4 Library] Complete: six navigation categories indexed across all three domains (1/1)
+[4/4 Tree] Complete: 697 unique selectable technique IDs
+[Document audit 1/7] Default document and empty JSON export
+Input files: None (active document and verified catalog in memory)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\ttp-document-audit-24146d4bc82e462486e981bc681e2773\empty.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\artifacts\ttp-document-audit-24146d4bc82e462486e981bc681e2773\empty.json.a42684b32c8349dc95cd6c9d89f87d8a.tmp
+[Export 1/3 Prepare] Validating and serializing selected TTPs (0/3)
+[Export 2/3 Write] Writing 0 selected TTPs (1/3)
+[Export 3/3 Publish] Publishing JSON file (2/3)
+[Export 3/3 Publish] Complete: D:\MITREATTACK_SIMULATOR\artifacts\ttp-document-audit-24146d4bc82e462486e981bc681e2773\empty.json (3/3)
+[Document audit 2/7] File menu export records exact IDs, metadata and duplicate synchronization
+Input files: None (active document and verified catalog in memory)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\ttp-document-audit-24146d4bc82e462486e981bc681e2773\��s���-A.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\artifacts\ttp-document-audit-24146d4bc82e462486e981bc681e2773\��s���-A.json.2f14ea1d7b724e17b660f2f0b0d231c0.tmp
+[Export 1/3 Prepare] Validating and serializing selected TTPs (0/3)
+[Export 2/3 Write] Writing 2 selected TTPs (1/3)
+[Export 3/3 Publish] Publishing JSON file (2/3)
+[Export 3/3 Publish] Complete: D:\MITREATTACK_SIMULATOR\artifacts\ttp-document-audit-24146d4bc82e462486e981bc681e2773\��s���-A.json (3/3)
+[Document audit CSV] CSV menu action, source names, UTF-8 and exact selection parity
+Input files: None (active document and verified catalog in memory)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\ttp-document-audit-24146d4bc82e462486e981bc681e2773\��s���-A.csv
+Temporary output file: D:\MITREATTACK_SIMULATOR\artifacts\ttp-document-audit-24146d4bc82e462486e981bc681e2773\��s���-A.csv.a25c9a77a5994d25b23a25dbaf94af68.tmp
+[Export 1/3 Prepare] Validating and serializing selected TTPs (0/3)
+[Export 2/3 Write] Writing 2 selected TTPs (1/3)
+[Export 3/3 Publish] Publishing CSV file (2/3)
+[Export 3/3 Publish] Complete: D:\MITREATTACK_SIMULATOR\artifacts\ttp-document-audit-24146d4bc82e462486e981bc681e2773\��s���-A.csv (3/3)
+Input files: None (active document and verified catalog in memory)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\ttp-document-audit-24146d4bc82e462486e981bc681e2773\parent-only.csv
+Temporary output file: D:\MITREATTACK_SIMULATOR\artifacts\ttp-document-audit-24146d4bc82e462486e981bc681e2773\parent-only.csv.a4a0bba1d73a48d49a60f97f597bc28f.tmp
+[Export 1/3 Prepare] Validating and serializing selected TTPs (0/3)
+[Export 2/3 Write] Writing 1 selected TTPs (1/3)
+[Export 3/3 Publish] Publishing CSV file (2/3)
+[Export 3/3 Publish] Complete: D:\MITREATTACK_SIMULATOR\artifacts\ttp-document-audit-24146d4bc82e462486e981bc681e2773\parent-only.csv (3/3)
+Input files: None (active document and verified catalog in memory)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\ttp-document-audit-24146d4bc82e462486e981bc681e2773\empty.csv
+Temporary output file: D:\MITREATTACK_SIMULATOR\artifacts\ttp-document-audit-24146d4bc82e462486e981bc681e2773\empty.csv.04389087f9fd4b4da66de66ac6f0c8f8.tmp
+[Export 1/3 Prepare] Validating and serializing selected TTPs (0/3)
+[Export 2/3 Write] Writing 0 selected TTPs (1/3)
+[Export 3/3 Publish] Publishing CSV file (2/3)
+[Export 3/3 Publish] Complete: D:\MITREATTACK_SIMULATOR\artifacts\ttp-document-audit-24146d4bc82e462486e981bc681e2773\empty.csv (3/3)
+Input files: None (active document and verified catalog in memory)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\ttp-document-audit-24146d4bc82e462486e981bc681e2773\quoted-names.csv
+Temporary output file: D:\MITREATTACK_SIMULATOR\artifacts\ttp-document-audit-24146d4bc82e462486e981bc681e2773\quoted-names.csv.7d5a1ce828ef48d18db00b104cc87624.tmp
+[Export 1/3 Prepare] Validating and serializing selected TTPs (0/3)
+[Export 2/3 Write] Writing 1 selected TTPs (1/3)
+[Export 3/3 Publish] Publishing CSV file (2/3)
+[Export 3/3 Publish] Complete: D:\MITREATTACK_SIMULATOR\artifacts\ttp-document-audit-24146d4bc82e462486e981bc681e2773\quoted-names.csv (3/3)
+Input files: None (active document and verified catalog in memory)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\ttp-document-audit-24146d4bc82e462486e981bc681e2773\��s���-A.csv
+Temporary output file: D:\MITREATTACK_SIMULATOR\artifacts\ttp-document-audit-24146d4bc82e462486e981bc681e2773\��s���-A.csv.9db85a87d88644dfb7e7b5714e3408e4.tmp
+[Export 1/3 Prepare] Validating and serializing selected TTPs (0/3)
+[Export 2/3 Write] Writing 2 selected TTPs (1/3)
+[Export 3/3 Publish] Publishing CSV file (2/3)
+[Document audit 3/7] Real Ctrl+N and File New keep independent documents
+[New File 1/2] Input files: None; output files: None (document in memory) (0/2)
+[Document 1/2] Input files: None; output files: None; activating Untitled-2 (0/2)
+[Document 2/2] Ready: Untitled-2; 0 selected TTPs (2/2)
+[New File 2/2] Created Untitled-2 (2/2)
+Input files: None (active document and verified catalog in memory)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\ttp-document-audit-24146d4bc82e462486e981bc681e2773\research-B.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\artifacts\ttp-document-audit-24146d4bc82e462486e981bc681e2773\research-B.json.13d3887adc634a589955f69b2b029a15.tmp
+[Export 1/3 Prepare] Validating and serializing selected TTPs (0/3)
+[Export 2/3 Write] Writing 1 selected TTPs (1/3)
+[Export 3/3 Publish] Publishing JSON file (2/3)
+[Export 3/3 Publish] Complete: D:\MITREATTACK_SIMULATOR\artifacts\ttp-document-audit-24146d4bc82e462486e981bc681e2773\research-B.json (3/3)
+[New File 1/2] Input files: None; output files: None (document in memory) (0/2)
+[Document 1/2] Input files: None; output files: None; activating Untitled-3 (0/2)
+[Document 2/2] Ready: Untitled-3; 0 selected TTPs (2/2)
+[New File 2/2] Created Untitled-3 (2/2)
+[Document 1/2] Input files: None; output files: None; activating ��s���-A (0/2)
+[Document 2/2] Ready: ��s���-A; 2 selected TTPs (2/2)
+[Document audit 4/7] Cancellation, extension handling and atomic failure preservation
+[Export] Cancelled; no output files written (1/1)
+Input files: None (active document and verified catalog in memory)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\ttp-document-audit-24146d4bc82e462486e981bc681e2773\��s���-A.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\artifacts\ttp-document-audit-24146d4bc82e462486e981bc681e2773\��s���-A.json.7b6e710136874e1f8ff6414707cd81ee.tmp
+[Export 1/3 Prepare] Validating and serializing selected TTPs (0/3)
+[Export 2/3 Write] Writing 2 selected TTPs (1/3)
+[Export 3/3 Publish] Publishing JSON file (2/3)
+Input files: None (active document and verified catalog in memory)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\ttp-document-audit-24146d4bc82e462486e981bc681e2773\��s���-A.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\artifacts\ttp-document-audit-24146d4bc82e462486e981bc681e2773\��s���-A.json.973c4d12828b46bfb90ddf1b1f7e36da.tmp
+[Export 1/3 Prepare] Validating and serializing selected TTPs (0/3)
+[Document audit 5/7] Files retain separate ATT&CK snapshots across version changes
+Input pointer: in memory (validated version selection)
+Output files: None (catalog is loaded into memory)
+[1/4 Resolve] Reading snapshot pointer
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v1.0\manifest.json
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v1.0\enterprise-attack-1.0.json
+[1/4 Resolve] Complete: Enterprise ATT&CK v1.0 (1/1)
+[2/4 Read] Reading and checking bundle (4194304/5320883)
+[2/4 Read] Reading and checking bundle (5320883/5320883)
+[2/4 Read] Parsing JSON
+[3/4 Index] Indexing active ATT&CK objects (2000/2781)
+[3/4 Index] Derived 10 historical phase headings from this release (no tactic IDs provided) (1/1)
+[3/4 Index] Mapping platforms and tactics (100/188)
+[3/4 Index] Complete: 188 active techniques/sub-techniques, 3 platforms (188/188)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/2781)
+[3/4 Procedures] Complete: Enterprise 1748 procedure examples (1/1)
+[3/4 Related TTPs] Indexing Enterprise (0/2781)
+[3/4 Related TTPs] Complete: Enterprise 1931 relationships (1/1)
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v1.0\mobile-attack-1.0.json
+[3/4 Library] Reading and checking Mobile (671518/671518)
+[3/4 Library] Parsing Mobile JSON
+[3/4 Procedures] Indexing Mobile procedure examples (0/375)
+[3/4 Procedures] Complete: Mobile 122 procedure examples (1/1)
+[3/4 Related TTPs] Indexing Mobile (0/375)
+[3/4 Related TTPs] Complete: Mobile 244 relationships (1/1)
+[3/4 Library] Complete: Mobile (1/1)
+[3/4 Library] ICS is not available in this historical version (1/1)
+[3/4 Library] Complete: six navigation categories indexed across all three domains (1/1)
+[Document 1/2] Input files: None; output files: None; activating research-B (0/2)
+[Document 2/2] Ready: research-B; 1 selected TTPs (2/2)
+[4/4 Tree] Complete: 188 unique selectable technique IDs
+Input files: None (active document and verified catalog in memory)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\ttp-document-audit-24146d4bc82e462486e981bc681e2773\older-version.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\artifacts\ttp-document-audit-24146d4bc82e462486e981bc681e2773\older-version.json.a5aa5c1103994c0895c1a9b7955b0191.tmp
+[Export 1/3 Prepare] Validating and serializing selected TTPs (0/3)
+[Export 2/3 Write] Writing 1 selected TTPs (1/3)
+[Export 3/3 Publish] Publishing JSON file (2/3)
+[Export 3/3 Publish] Complete: D:\MITREATTACK_SIMULATOR\artifacts\ttp-document-audit-24146d4bc82e462486e981bc681e2773\older-version.json (3/3)
+[Document 1/2] Input files: None; output files: None; activating ��s���-A (0/2)
+[4/4 Tree] Complete: 697 unique selectable technique IDs
+[Document audit 6/7] Selection-page export and visual preview
+Input files: None (active document and verified catalog in memory)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\selected-ttps-example.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\artifacts\selected-ttps-example.json.4b10bef6592f44cdb9b8cf28c9755a27.tmp
+[Export 1/3 Prepare] Validating and serializing selected TTPs (0/3)
+[Export 2/3 Write] Writing 2 selected TTPs (1/3)
+[Export 3/3 Publish] Publishing JSON file (2/3)
+[Export 3/3 Publish] Complete: D:\MITREATTACK_SIMULATOR\artifacts\selected-ttps-example.json (3/3)
+Input files: None (active document and verified catalog in memory)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\selected-ttps-example.csv
+Temporary output file: D:\MITREATTACK_SIMULATOR\artifacts\selected-ttps-example.csv.5ed6bab5ea4347c7aa79d7f080603f1e.tmp
+[Export 1/3 Prepare] Validating and serializing selected TTPs (0/3)
+[Export 2/3 Write] Writing 2 selected TTPs (1/3)
+[Export 3/3 Publish] Publishing CSV file (2/3)
+[Export 3/3 Publish] Complete: D:\MITREATTACK_SIMULATOR\artifacts\selected-ttps-example.csv (3/3)
+[Export] Cancelled; no output files written (1/1)
+[Document audit 7/7] Right-click rename and close target the clicked file
+[Rename 1/2] Input files: None; output files: None (document in memory) (0/2)
+[Rename 2/2] older-version �� Named-B (2/2)
+[Rename 1/2] Input files: None; output files: None (document in memory) (0/2)
+[Rename 2/2] Named-B �� Renamed-B (2/2)
+[Export] Cancelled; no output files written (1/1)
+Input files: None (active document and verified catalog in memory)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\ttp-document-audit-24146d4bc82e462486e981bc681e2773\missing-folder\failed.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\artifacts\ttp-document-audit-24146d4bc82e462486e981bc681e2773\missing-folder\failed.json.8b8a5e15e36b4d38a34afed8385b400d.tmp
+[Export 1/3 Prepare] Validating and serializing selected TTPs (0/3)
+[Export 2/3 Write] Writing 1 selected TTPs (1/3)
+[Export] Failed: FileNotFoundError: [Errno 2] No such file or directory: 'D:\\MITREATTACK_SIMULATOR\\artifacts\\ttp-document-audit-24146d4bc82e462486e981bc681e2773\\missing-folder\\failed.json.8b8a5e15e36b4d38a34afed8385b400d.tmp' (1/1)
+Input files: None (active document and verified catalog in memory)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\ttp-document-audit-24146d4bc82e462486e981bc681e2773\closed-B.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\artifacts\ttp-document-audit-24146d4bc82e462486e981bc681e2773\closed-B.json.cd79e3d6667a48be85578a07c05f348f.tmp
+[Export 1/3 Prepare] Validating and serializing selected TTPs (0/3)
+[Export 2/3 Write] Writing 1 selected TTPs (1/3)
+[Export 3/3 Publish] Publishing JSON file (2/3)
+[Export 3/3 Publish] Complete: D:\MITREATTACK_SIMULATOR\artifacts\ttp-document-audit-24146d4bc82e462486e981bc681e2773\closed-B.json (3/3)
+[Close File 1/2] Input files: None; output files: None (closing in-memory document) (0/2)
+[Close File 2/2] Closed closed-B (2/2)
+[New File 1/2] Input files: None; output files: None (document in memory) (0/2)
+[Document 1/2] Input files: None; output files: None; activating Untitled-4 (0/2)
+[Document 2/2] Ready: Untitled-4; 0 selected TTPs (2/2)
+[New File 2/2] Created Untitled-4 (2/2)
+[Close File 1/2] Input files: None; output files: None (closing in-memory document) (0/2)
+[Close File 2/2] Closed selected-ttps-example (2/2)
+[Close File 1/2] Input files: None; output files: None (closing in-memory document) (0/2)
+[Document 1/2] Input files: None; output files: None; activating Untitled-3 (0/2)
+[Document 2/2] Ready: Untitled-3; 0 selected TTPs (2/2)
+[Close File 2/2] Closed Untitled-4 (2/2)
+[Close File 1/2] Input files: None; output files: None (closing in-memory document) (0/2)
+[New File 1/2] Input files: None; output files: None (document in memory) (0/2)
+[Document 1/2] Input files: None; output files: None; activating Untitled-5 (0/2)
+[Document 2/2] Ready: Untitled-5; 0 selected TTPs (2/2)
+[New File 2/2] Created Untitled-5 (2/2)
+[Close File 2/2] Closed Untitled-3 (2/2)
+[4/4 Tree] Complete: 188 unique selectable technique IDs
+[New File 1/2] Input files: None; output files: None (document in memory) (0/2)
+[Document 1/2] Input files: None; output files: None; activating Untitled-6 (0/2)
+[Document 2/2] Ready: Untitled-6; 0 selected TTPs (2/2)
+[New File 2/2] Created Untitled-6 (2/2)
+[4/4 Tree] Complete: 697 unique selectable technique IDs
+[Close File 1/2] Input files: None; output files: None (closing in-memory document) (0/2)
+[Document 1/2] Input files: None; output files: None; activating Untitled-5 (0/2)
+[Close File 2/2] Closed Untitled-6 (2/2)
+[4/4 Tree] Complete: 188 unique selectable technique IDs
+[4/4 Tree] Complete: 697 unique selectable technique IDs
+[Rename 1/2] Input files: None; output files: None (document in memory) (0/2)
+[Rename 2/2] Untitled-5 �� Research-Profile (2/2)
+[New File 1/2] Input files: None; output files: None (document in memory) (0/2)
+[Document 1/2] Input files: None; output files: None; activating Untitled-7 (0/2)
+[Document 2/2] Ready: Untitled-7; 0 selected TTPs (2/2)
+[New File 2/2] Created Untitled-7 (2/2)
+[Document 1/2] Input files: None; output files: None; activating Research-Profile (0/2)
+[Document 2/2] Ready: Research-Profile; 1 selected TTPs (2/2)
+[Document audit] PASS: 64 checks

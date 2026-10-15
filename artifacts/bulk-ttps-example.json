@@ -1,9 +1,9 @@
 {
   "schema_version": "1.0",
-  "document_id": "df8aa2aa-ef09-473d-8ca4-e6561a7bbba4",
+  "document_id": "ee3da8f0-c010-4a0a-b3d8-4d46c288b57a",
   "name": "bulk-ttps-example",
-  "created_at_utc": "2026-10-14T03:17:38.356678+00:00",
-  "exported_at_utc": "2026-10-14T03:17:43.972081+00:00",
+  "created_at_utc": "2026-10-14T12:51:39.906667+00:00",
+  "exported_at_utc": "2026-10-14T12:51:45.748457+00:00",
   "attack": {
     "domain": "enterprise-attack",
     "version": "19.2",

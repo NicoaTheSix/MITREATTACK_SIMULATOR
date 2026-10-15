@@ -66,7 +66,7 @@
     "close restores adjacent file ATT&CK snapshot",
     "multi-document right-click preview saved"
   ],
-  "test_output_directory": "D:\\MITREATTACK_SIMULATOR\\artifacts\\ttp-document-audit-5240e278d46a4c958120aca23d180ee8",
+  "test_output_directory": "D:\\MITREATTACK_SIMULATOR\\artifacts\\ttp-document-audit-24146d4bc82e462486e981bc681e2773",
   "sample_export": "D:\\MITREATTACK_SIMULATOR\\artifacts\\selected-ttps-example.json",
   "csv_sample_export": "D:\\MITREATTACK_SIMULATOR\\artifacts\\selected-ttps-example.csv",
   "screenshot": "D:\\MITREATTACK_SIMULATOR\\artifacts\\ttp-documents-preview.png"

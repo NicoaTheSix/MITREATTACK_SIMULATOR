@@ -172,6 +172,7 @@ def main():
     log('[Matrix audit 6/7] Independent documents and historical snapshot restoration')
     first = window.current_document
     window.new_document()
+    wait(lambda: not matrix.building, 'new document presentation restored')
     check(not window.selected and first.selected == {task} and not matrix.selected, 'new document clears matrix selection independently')
     matrix.items_by_id[cron][0].setCheckState(0, QtCore.Qt.CheckState.Checked)
     check(window.selected == {cron}, 'new document accepts matrix selection')
@@ -192,10 +193,10 @@ def main():
     check(window.selected == {cron} and all(item.checkState(0) == QtCore.Qt.CheckState.Checked for item in matrix.items_by_id[cron]), 'document restores original matrix checkboxes and catalog')
     item = matrix.items_by_id[cron][0]
     column_for(matrix, item.data(0, MATRIX_ID + 1))['tree'].itemActivated.emit(item, 0)
-    check(window.tabs.currentIndex() == 0 and 'Cron' in window.details.toPlainText(), 'matrix activation opens technique details')
+    check(window.workspace.currentWidget() is window.details_page and 'Cron' in window.details.toPlainText(), 'matrix activation opens independent technique details')
     window.switch_category('Software')
     check(not window.matrix_button.isVisible(), 'matrix sidebar entry limited to TTP category')
-    window.tabs.setCurrentIndex(window.matrix_tab_index)
+    window.open_matrix()
     check(window.active_category == 'TTP' and window.matrix_button.isVisible(), 'matrix tab returns from library category to TTP context')
     log('[Matrix audit 7/7] Capturing tactic columns with expanded child families')
     window.output_panel.hide()

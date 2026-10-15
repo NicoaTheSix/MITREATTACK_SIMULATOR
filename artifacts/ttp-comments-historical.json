@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0",
+  "document_id": "e59a01c4-dc94-4ed0-ba96-9e0ee619b95f",
+  "name": "ttp-comments-historical",
+  "created_at_utc": "2026-10-15T07:30:48.179775+00:00",
+  "exported_at_utc": "2026-10-15T07:30:48.456285+00:00",
+  "attack": {
+    "domain": "enterprise-attack",
+    "version": "1.0",
+    "source_url": "https://github.com/mitre-attack/attack-stix-data"
+  },
+  "selected_count": 1,
+  "selected_technique_ids": [
+    "T1156"
+  ],
+  "selected_ttps": [
+    {
+      "technique_id": "T1156",
+      "stix_id": "attack-pattern--01df3350-ce05-4bdf-bdf8-0a919a66d4a8",
+      "name": ".bash_profile and .bashrc",
+      "is_subtechnique": false,
+      "parent_technique_id": null,
+      "parent_technique_name": null,
+      "platforms": [
+        "Linux",
+        "macOS"
+      ],
+      "tactics": [
+        {
+          "tactic_id": null,
+          "name": "Persistence",
+          "shortname": "persistence"
+        }
+      ],
+      "comment": "Historical editor note\n保留空格 and quotes \"yes\"",
+      "tactic_comments": [],
+      "enabled": true,
+      "tactic_enabled": [
+        {
+          "tactic": "persistence",
+          "enabled": true
+        }
+      ]
+    }
+  ],
+  "navigator_layer": {
+    "name": "Historical notes",
+    "domain": "enterprise-attack",
+    "versions": {
+      "attack": "1.0",
+      "layer": "4.5",
+      "navigator": "5.2.0"
+    },
+    "techniques": [
+      {
+        "techniqueID": "T1156",
+        "comment": "Historical editor note\n保留空格 and quotes \"yes\""
+      }
+    ]
+  }
+}

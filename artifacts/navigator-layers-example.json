@@ -1,0 +1,158 @@
+[
+  {
+    "name": "Coverage layer",
+    "domain": "enterprise-attack",
+    "versions": {
+      "attack": "19.2",
+      "navigator": "5.2.0",
+      "layer": "4.5"
+    },
+    "gradient": {
+      "minValue": 0.25,
+      "maxValue": 100.25,
+      "colors": [
+        "#ff6666",
+        "#ffe766",
+        "#8ec843"
+      ]
+    },
+    "legendItems": [
+      {
+        "label": "<Research>",
+        "color": "#ffffff"
+      },
+      {
+        "label": "Covered",
+        "color": "#8ec843"
+      }
+    ],
+    "techniques": [
+      {
+        "techniqueID": "T1053.005",
+        "score": 25.5,
+        "comment": "global",
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "true"
+          }
+        ]
+      },
+      {
+        "techniqueID": "T1053.005",
+        "tactic": "execution",
+        "score": 25.5,
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "true"
+          }
+        ]
+      },
+      {
+        "techniqueID": "T1053.005",
+        "tactic": "persistence",
+        "enabled": false,
+        "score": 25.5,
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "true"
+          }
+        ]
+      }
+    ],
+    "hideDisabled": false,
+    "description": "Native matrix research annotations"
+  },
+  {
+    "name": "Coverage layer-copy",
+    "domain": "enterprise-attack",
+    "versions": {
+      "attack": "19.2",
+      "navigator": "5.2.0",
+      "layer": "4.5"
+    },
+    "gradient": {
+      "minValue": 0.25,
+      "maxValue": 100.25,
+      "colors": [
+        "#ff6666",
+        "#ffe766",
+        "#8ec843"
+      ]
+    },
+    "legendItems": [
+      {
+        "label": "<Research>",
+        "color": "#ffffff"
+      },
+      {
+        "label": "Covered",
+        "color": "#8ec843"
+      }
+    ],
+    "techniques": [
+      {
+        "techniqueID": "T1053.005",
+        "score": 25.5,
+        "comment": "global",
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "true"
+          }
+        ],
+        "color": "#42a5f5"
+      },
+      {
+        "techniqueID": "T1053.005",
+        "tactic": "execution",
+        "score": 25.5,
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "true"
+          }
+        ],
+        "color": "#42a5f5"
+      },
+      {
+        "techniqueID": "T1053.005",
+        "tactic": "persistence",
+        "enabled": false,
+        "score": 25.5,
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "true"
+          }
+        ],
+        "color": "#42a5f5"
+      }
+    ],
+    "hideDisabled": false,
+    "description": "Native matrix research annotations"
+  },
+  {
+    "name": "Untitled-2",
+    "domain": "enterprise-attack",
+    "versions": {
+      "attack": "19.2",
+      "navigator": "5.2.0",
+      "layer": "4.5"
+    },
+    "techniques": [],
+    "gradient": {
+      "colors": [
+        "#ff6666",
+        "#ffe766",
+        "#8ec843"
+      ],
+      "minValue": 0,
+      "maxValue": 100
+    },
+    "legendItems": [],
+    "selectSubtechniquesWithParent": false
+  }
+]

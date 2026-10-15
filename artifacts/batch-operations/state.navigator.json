@@ -1,0 +1,38 @@
+{
+  "name": "state.navigator",
+  "domain": "enterprise-attack",
+  "versions": {
+    "attack": "19.2",
+    "navigator": "5.2.0",
+    "layer": "4.5"
+  },
+  "techniques": [
+    {
+      "techniqueID": "T1053.005",
+      "comment": "Research note",
+      "score": 5,
+      "color": "#eecc44",
+      "enabled": false,
+      "metadata": [
+        {
+          "name": "TTP Selection Studio selected",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "techniqueID": "T1053.005",
+      "comment": "Research note",
+      "score": 5,
+      "color": "#eecc44",
+      "enabled": false,
+      "tactic": "execution",
+      "metadata": [
+        {
+          "name": "TTP Selection Studio selected",
+          "value": "true"
+        }
+      ]
+    }
+  ]
+}

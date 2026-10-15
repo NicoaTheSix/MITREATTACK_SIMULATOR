@@ -124,7 +124,7 @@
     "ics-attack: mixed-domain comparison explicitly rejected",
     "audit leaves active/latest pointers unchanged"
   ],
-  "outputs": "D:\\MITREATTACK_SIMULATOR\\artifacts\\domain-audit-e5e6c6c53f9347749401ab46d60b05e8",
+  "outputs": "D:\\MITREATTACK_SIMULATOR\\artifacts\\domain-audit-77b67aad2dcf425b9c5407e31d4980f5",
   "domain_technique_counts": {
     "enterprise-attack": 697,
     "mobile-attack": 124,

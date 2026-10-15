@@ -1,0 +1,94 @@
+{
+  "schema_version": "1.0",
+  "document_id": "d9e02fce-4a50-4a5d-b0de-abe74b21f16b",
+  "name": "state.studio",
+  "created_at_utc": "2026-10-15T07:34:22.886107+00:00",
+  "exported_at_utc": "2026-10-15T07:34:25.564947+00:00",
+  "attack": {
+    "domain": "enterprise-attack",
+    "version": "19.2",
+    "source_url": "https://github.com/mitre-attack/attack-stix-data"
+  },
+  "selected_count": 1,
+  "selected_technique_ids": [
+    "T1053.005"
+  ],
+  "selected_ttps": [
+    {
+      "technique_id": "T1053.005",
+      "stix_id": "attack-pattern--005a06c6-14bf-4118-afa0-ebcd8aebb0c9",
+      "name": "Scheduled Task",
+      "is_subtechnique": true,
+      "parent_technique_id": "T1053",
+      "parent_technique_name": "Scheduled Task/Job",
+      "platforms": [
+        "Windows"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0002",
+          "name": "Execution",
+          "shortname": "execution"
+        },
+        {
+          "tactic_id": "TA0003",
+          "name": "Persistence",
+          "shortname": "persistence"
+        },
+        {
+          "tactic_id": "TA0004",
+          "name": "Privilege Escalation",
+          "shortname": "privilege-escalation"
+        }
+      ],
+      "comment": "Research note",
+      "tactic_comments": [
+        {
+          "tactic": "execution",
+          "comment": "Research note"
+        }
+      ],
+      "enabled": false,
+      "tactic_enabled": [
+        {
+          "tactic": "execution",
+          "enabled": false
+        },
+        {
+          "tactic": "persistence",
+          "enabled": false
+        },
+        {
+          "tactic": "privilege-escalation",
+          "enabled": false
+        }
+      ]
+    }
+  ],
+  "navigator_layer": {
+    "name": "Untitled-1",
+    "domain": "enterprise-attack",
+    "versions": {
+      "attack": "19.2",
+      "layer": "4.5",
+      "navigator": "5.2.0"
+    },
+    "techniques": [
+      {
+        "techniqueID": "T1053.005",
+        "comment": "Research note",
+        "score": 5,
+        "color": "#eecc44",
+        "enabled": false
+      },
+      {
+        "techniqueID": "T1053.005",
+        "comment": "Research note",
+        "score": 5,
+        "color": "#eecc44",
+        "enabled": false,
+        "tactic": "execution"
+      }
+    ]
+  }
+}

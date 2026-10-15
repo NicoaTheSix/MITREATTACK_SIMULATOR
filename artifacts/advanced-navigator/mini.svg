@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="268" height="364" viewBox="0 0 268 364"><rect x="0" y="0" width="268" height="364" fill="#1e1e1e" /><text x="18" y="28" fill="#dddddd" font-size="20" font-family="Arial, sans-serif">Advanced example</text><text x="18" y="51" fill="#dddddd" font-size="12" font-family="Arial, sans-serif">Enterprise v19.2 · Windows, Linux</text><text x="18" y="73" fill="#dddddd" font-size="12" font-family="Arial, sans-serif">Active layer · All matching sub-techniques expanded</text><rect x="18" y="88" width="12" height="12" fill="#ff6666" /><text x="36" y="99" fill="#dddddd" font-size="11" font-family="Arial, sans-serif">Gradient 0–100: #ff6666<title>Gradient 0–100: #ff6666</title></text><rect x="18" y="110" width="12" height="12" fill="#ffe766" /><text x="36" y="121" fill="#dddddd" font-size="11" font-family="Arial, sans-serif">Gradient 0–100: #ffe766<title>Gradient 0–100: #ffe766</title></text><rect x="18" y="132" width="12" height="12" fill="#8ec843" /><text x="36" y="143" fill="#dddddd" font-size="11" font-family="Arial, sans-serif">Gradient 0–100: #8ec843<title>Gradient 0–100: #8ec843</title></text><text x="22" y="184" fill="#6caedf" font-size="13" font-family="Arial, sans-serif">Execution</text><rect x="18" y="226" width="30" height="30" fill="#f0c040" stroke="#3794ff"><title>T1000  Alpha
+Score: 8.5
+Selected: True
+Enabled: True
+Parent note
+Owner: Research team
+Updated case: https://example.org/case</title></rect><rect x="56" y="226" width="30" height="30" fill="#4455aa" stroke="#3794ff"><title>&gt; T1000.001  Child
+Score: 2
+Selected: True
+Enabled: True
+Scoped child note</title></rect><rect x="18" y="264" width="30" height="30" fill="#aa4455" stroke="#3794ff"><title>T1002  Legacy
+Score: 4
+Selected: True
+Enabled: True
+Legacy observation</title></rect><rect x="18" y="302" width="30" height="30" fill="#222526" stroke="#3794ff"><title>T1001  Beta
+Selected: True
+Enabled: True</title></rect></svg>

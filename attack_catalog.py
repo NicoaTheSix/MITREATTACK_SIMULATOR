@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 from collections import defaultdict
-from dataclasses import dataclass, replace
+from dataclasses import dataclass, replace, field
 import hashlib
 import json
 from pathlib import Path
@@ -41,6 +41,9 @@ class Catalog:
     techniques_by_source: dict[str, dict[str, list[dict]]]
     parents_by_domain: dict[str, dict[str, str]]
     domain: str = "enterprise-attack"
+    all_objects_by_domain: dict = field(default_factory=dict)
+    dataset_id: str = ''
+    custom_source: str = ''
 
     def for_domain(self, domain):
         """Project one verified domain while retaining cross-domain reference libraries."""
@@ -237,6 +240,7 @@ def load_catalog(root: Path, notify: Progress, pointer=None) -> Catalog:
                               for slug in order if slug in groups[platform]} for platform in ordered_platforms}
     notify(f"[3/4 Index] Complete: {len(records)} active techniques/sub-techniques, "
            f"{len(plain_groups)} platforms", len(records), len(records))
+    all_objects_by_domain = {'enterprise-attack': {obj['id']: obj for obj in objects}}
     objects_by_domain = {"enterprise-attack": {
         obj["id"]: obj for obj in objects if not obj.get("revoked") and not obj.get("x_mitre_deprecated")
         and obj.get("type") != "relationship"
@@ -247,6 +251,7 @@ def load_catalog(root: Path, notify: Progress, pointer=None) -> Catalog:
     parents_by_domain = {"enterprise-attack": domain_parents}
     for domain, pointer_key in (("mobile-attack", "mobile_bundle"), ("ics-attack", "ics_bundle")):
         if not pointer.get(pointer_key):
+            all_objects_by_domain[domain] = {}
             objects_by_domain[domain] = {}
             procedures_by_domain[domain] = {}
             techniques_by_source[domain] = {}
@@ -277,6 +282,7 @@ def load_catalog(root: Path, notify: Progress, pointer=None) -> Catalog:
         collection = next((obj for obj in source["objects"] if obj.get("type") == "x-mitre-collection"), {})
         if collection.get("x_mitre_version") != version:
             raise ValueError(f"{domain} collection version does not match the snapshot")
+        all_objects_by_domain[domain] = {obj['id']: obj for obj in source['objects']}
         objects_by_domain[domain] = {
             obj["id"]: obj for obj in source["objects"] if not obj.get("revoked")
             and not obj.get("x_mitre_deprecated") and obj.get("type") != "relationship"
@@ -287,6 +293,16 @@ def load_catalog(root: Path, notify: Progress, pointer=None) -> Catalog:
         notify(f"[3/4 Library] Complete: {DOMAIN_LABELS[domain]}", 1, 1)
     notify("[3/4 Library] Complete: six navigation categories indexed across all three domains", 1, 1)
     return Catalog(version, records, tactics, order, plain_groups, parents, objects_by_domain, procedures_by_domain,
-                   techniques_by_source, parents_by_domain)
+                   techniques_by_source, parents_by_domain, all_objects_by_domain=all_objects_by_domain)
+
+
+def catalog_identity(catalog):
+    return catalog.domain, catalog.version, catalog.dataset_id
+
+
+def supports_navigator(catalog):
+    # Custom release numbers describe their own modern STIX catalog, not the
+    # historical official ATT&CK format (which predates Navigator before v4).
+    return bool(catalog.dataset_id) or float(catalog.version) >= 4
 
 

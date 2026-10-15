@@ -1,0 +1,25 @@
+{
+  "name": "mobile-attack.navigator",
+  "domain": "mobile-attack",
+  "versions": {
+    "attack": "19.2",
+    "navigator": "5.2.0",
+    "layer": "4.5"
+  },
+  "techniques": [
+    {
+      "techniqueID": "T1630.001",
+      "tactic": "defense-evasion",
+      "comment": "mobile-attack research",
+      "score": 1.25,
+      "color": "#123456",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "TTP Selection Studio selected",
+          "value": "true"
+        }
+      ]
+    }
+  ]
+}

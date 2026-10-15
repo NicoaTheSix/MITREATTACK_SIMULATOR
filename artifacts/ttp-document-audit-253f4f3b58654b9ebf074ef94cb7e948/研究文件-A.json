@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "document_id": "3fc5baf9-ed8a-454c-9b30-1c8a44c14dcf",
+  "name": "研究文件-A",
+  "created_at_utc": "2026-10-14T12:13:44.312923+00:00",
+  "exported_at_utc": "2026-10-14T12:13:44.477562+00:00",
+  "attack": {
+    "domain": "enterprise-attack",
+    "version": "19.2",
+    "source_url": "https://github.com/mitre-attack/attack-stix-data"
+  },
+  "selected_count": 2,
+  "selected_technique_ids": [
+    "T1053.005",
+    "T1059.001"
+  ],
+  "selected_ttps": [
+    {
+      "technique_id": "T1053.005",
+      "stix_id": "attack-pattern--005a06c6-14bf-4118-afa0-ebcd8aebb0c9",
+      "name": "Scheduled Task",
+      "is_subtechnique": true,
+      "parent_technique_id": "T1053",
+      "parent_technique_name": "Scheduled Task/Job",
+      "platforms": [
+        "Windows"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0002",
+          "name": "Execution",
+          "shortname": "execution"
+        },
+        {
+          "tactic_id": "TA0003",
+          "name": "Persistence",
+          "shortname": "persistence"
+        },
+        {
+          "tactic_id": "TA0004",
+          "name": "Privilege Escalation",
+          "shortname": "privilege-escalation"
+        }
+      ]
+    },
+    {
+      "technique_id": "T1059.001",
+      "stix_id": "attack-pattern--970a3432-3237-47ad-bcca-7d8cbb217736",
+      "name": "PowerShell",
+      "is_subtechnique": true,
+      "parent_technique_id": "T1059",
+      "parent_technique_name": "Command and Scripting Interpreter",
+      "platforms": [
+        "Windows"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0002",
+          "name": "Execution",
+          "shortname": "execution"
+        }
+      ]
+    }
+  ]
+}

@@ -1,14 +1,17 @@
 """Native Navigator import, annotations and comparisons. Workflow: README.md."""
-from copy import copy
+from copy import copy, deepcopy
 import math
 from pathlib import Path
 
-from PySide6 import QtCore, QtWidgets
+from PySide6 import QtCore, QtGui, QtWidgets
 
 from attack_catalog import external_id, DOMAIN_LABELS, tactic_phases
 from attack_versions import cached_discovery, local_versions, prepare_version, version_key, snapshot_pointer
 from navigator_integration import (read_layers, layer_version, import_preview, imported_document,
-                                   update_annotation, compare_documents, compare_versions, write_json_atomic)
+                                   update_annotation, compare_documents, compare_versions, write_json_atomic, document_layer, validate_layer)
+from navigator_visuals import DEFAULT_GRADIENT
+from ttp_documents import validate_document_name
+from navigator_field_editor import FieldEditor
 
 
 class IntegrationWorker(QtCore.QThread):
@@ -73,7 +76,7 @@ class IntegrationDialog(QtWidgets.QDialog):
         if self.worker and self.worker.isRunning():
             self.closing = True
             self.worker.requestInterruption()
-            self.status.setText("Cancelling; waiting for the current SDK stage to finish…")
+            self.status.setText("Cancelling; waiting for the current processing stage to finish…")
             return
         super().reject()
 
@@ -156,6 +159,18 @@ class ImportLayerDialog(IntegrationDialog):
             return
         layer = self.layers[self.layer.currentIndex()]
         try:
+            custom_source = layer.get('customDataURL')
+            if custom_source or layer.get('x_ttp_studio_dataset'):
+                candidates = [doc.catalog for doc in getattr(self.parent(), 'documents', [])]
+                candidates.append(self.fallback_catalog)
+                matching = next((catalog for catalog in candidates if catalog.dataset_id and
+                                 (catalog.dataset_id == layer.get('x_ttp_studio_dataset') or
+                                  (not layer.get('x_ttp_studio_dataset') and catalog.custom_source == custom_source))), None)
+                if matching is None:
+                    raise ValueError('This layer uses custom STIX. Load its Bundle using File → Load layer URL / custom STIX first, then import again. Custom URLs are never fetched automatically.')
+                self.fallback_catalog = matching
+            elif self.fallback_catalog.dataset_id:
+                self.fallback_catalog = getattr(self.parent(), 'official_catalog', self.fallback_catalog)
             version = layer_version(layer, self.fallback_catalog.version)
             if self.version.findText(version) < 0:
                 self.version.addItem(version)
@@ -181,6 +196,9 @@ class ImportLayerDialog(IntegrationDialog):
 
     def load_catalog(self):
         if not self.layers or (self.worker and self.worker.isRunning()):
+            return
+        if self.layers[self.layer.currentIndex()].get('customDataURL') or self.layers[self.layer.currentIndex()].get('x_ttp_studio_dataset'):
+            self.report('Custom layer: load the matching custom dataset first. Official snapshots cannot resolve custom layers.', 1, 1)
             return
         version = self.version.currentText()
         self.import_button.setEnabled(False)
@@ -244,7 +262,7 @@ class AnnotationDialog(QtWidgets.QDialog):
         self.document, self.key = document, key
         obj = document.catalog.records[key]
         self.setWindowTitle(f"Navigator annotation — {external_id(obj)} {obj['name']}")
-        self.resize(590, 430)
+        self.resize(720, 700)
         layout = QtWidgets.QFormLayout(self)
         self.scope = QtWidgets.QComboBox()
         self.scope.addItem("All tactics", "")
@@ -260,10 +278,26 @@ class AnnotationDialog(QtWidgets.QDialog):
         layout.addRow("Tactic scope", self.scope)
         layout.addRow("Comment", self.comment)
         layout.addRow("Score", self.score)
-        layout.addRow("Color", self.color)
+        color_row = QtWidgets.QHBoxLayout()
+        color_row.addWidget(self.color)
+        self.pick_color = QtWidgets.QPushButton("Choose…")
+        self.pick_color.clicked.connect(self.choose_color)
+        color_row.addWidget(self.pick_color)
+        self.clear_color = QtWidgets.QPushButton("Clear")
+        self.clear_color.clicked.connect(self.color.clear)
+        color_row.addWidget(self.clear_color)
+        layout.addRow("Color", color_row)
+        self.links = FieldEditor('links')
+        self.metadata = FieldEditor('metadata')
+        self.fields_tabs = QtWidgets.QTabWidget()
+        self.fields_tabs.addTab(self.links, 'Links')
+        self.fields_tabs.addTab(self.metadata, 'Metadata')
+        layout.addRow(self.fields_tabs)
         self.include = QtWidgets.QCheckBox("Include this TTP in the document")
         self.include.setChecked(key in document.selected)
         layout.addRow(self.include)
+        self.enabled = QtWidgets.QCheckBox('Enabled in this layer (independent of inclusion)')
+        layout.addRow(self.enabled)
         self.error = QtWidgets.QLabel()
         self.error.setWordWrap(True)
         layout.addRow(self.error)
@@ -280,12 +314,27 @@ class AnnotationDialog(QtWidgets.QDialog):
         self.load_scope()
 
     def load_scope(self, *_):
-        row = next((entry for entry in self.document.navigator_layer.get("techniques", [])
+        row = next((entry for entry in reversed(self.document.navigator_layer.get("techniques", []))
                     if entry["techniqueID"] == external_id(self.document.catalog.records[self.key])
-                    and entry.get("tactic", "") == self.scope.currentData()), {})
+                    and entry.get("tactic", "") == self.scope.currentData()), None)
+        if row is None:
+            row = next((entry for entry in reversed(self.document.navigator_layer.get('techniques', []))
+                        if entry['techniqueID'] == external_id(self.document.catalog.records[self.key]) and not entry.get('tactic')), {})
+        self.enabled.setChecked(row.get('enabled', True))
+        self.initial_enabled = row.get('enabled', True)
         self.comment.setPlainText(row.get("comment", ""))
         self.score.setText(str(row["score"]) if "score" in row else "")
         self.color.setText(row.get("color", ""))
+        self.links.load(row.get('links', []))
+        self.metadata.load([entry for entry in row.get('metadata', [])
+                            if entry.get('name') != 'TTP Selection Studio selected'])
+        self.reserved_metadata = [entry for entry in row.get('metadata', [])
+                                  if entry.get('name') == 'TTP Selection Studio selected']
+
+    def choose_color(self):
+        color = QtWidgets.QColorDialog.getColor(QtGui.QColor(self.color.text() or '#007acc'), self, 'Technique color')
+        if color.isValid():
+            self.color.setText(color.name())
 
     def save(self):
         try:
@@ -293,11 +342,158 @@ class AnnotationDialog(QtWidgets.QDialog):
             if score is not None and not math.isfinite(score):
                 raise ValueError("Score must be a finite number.")
             candidate = copy(self.document)
-            update_annotation(candidate, self.key, self.scope.currentData(), self.comment.toPlainText(), score, self.color.text().strip())
+            update_annotation(candidate, self.key, self.scope.currentData(), self.comment.toPlainText(), score,
+                              self.color.text().strip(), self.links.values(), self.metadata.values() + self.reserved_metadata)
+            from ttp_operations import batch_patch
+            if self.scope.currentData() and self.enabled.isChecked() != self.initial_enabled:
+                batch_patch(candidate, {self.key}, {'enabled': self.enabled.isChecked()}, self.scope.currentData())
+            elif not self.scope.currentData() and self.enabled.isChecked() != self.initial_enabled:
+                # The single editor edits the global annotation, without replacing
+                # state overrides on other tactic-specific rows.
+                identity = external_id(candidate.catalog.records[self.key])
+                rows = candidate.navigator_layer.setdefault('techniques', [])
+                entry = next((row for row in reversed(rows) if row['techniqueID'] == identity and not row.get('tactic')), None)
+                if entry is None and not self.enabled.isChecked():
+                    entry = {'techniqueID': identity}
+                    rows.append(entry)
+                if entry is not None:
+                    entry['enabled'] = self.enabled.isChecked()
+                validate_layer(candidate.navigator_layer)
         except Exception as error:
             self.error.setText(str(error))
             return
         self.result_layer = candidate.navigator_layer
+        self.accept()
+
+
+class LayerSettingsDialog(QtWidgets.QDialog):
+    """Edit standard Navigator fields without dropping extension metadata."""
+    def __init__(self, document, parent):
+        super().__init__(parent)
+        self.document = document
+        self.result_layer = None
+        self.setWindowTitle("Navigator layer settings")
+        self.resize(680, 640)
+        self.original = document_layer(document, validate=False)
+        layout = QtWidgets.QVBoxLayout(self)
+        form = QtWidgets.QFormLayout()
+        self.name = QtWidgets.QLineEdit(document.name)
+        form.addRow("Layer / document name", self.name)
+        self.description = QtWidgets.QPlainTextEdit(self.original.get('description', ''))
+        self.description.setMaximumHeight(90)
+        form.addRow("Description", self.description)
+        gradient = self.original.get('gradient', DEFAULT_GRADIENT)
+        self.minimum = QtWidgets.QLineEdit(str(gradient['minValue']))
+        self.maximum = QtWidgets.QLineEdit(str(gradient['maxValue']))
+        form.addRow("Minimum score", self.minimum)
+        form.addRow("Maximum score", self.maximum)
+        self.colors = QtWidgets.QLineEdit(', '.join(gradient['colors']))
+        self.colors.setPlaceholderText('#ff6666, #ffe766, #8ec843')
+        stops = QtWidgets.QHBoxLayout()
+        stops.addWidget(self.colors)
+        self.add_stop = QtWidgets.QPushButton("Add color…")
+        self.add_stop.clicked.connect(self.add_color_stop)
+        stops.addWidget(self.add_stop)
+        form.addRow("Gradient stops", stops)
+        self.hide_disabled = QtWidgets.QCheckBox("Hide disabled technique rows")
+        self.hide_disabled.setChecked(self.original.get('hideDisabled', False))
+        form.addRow(self.hide_disabled)
+        aggregate = self.original.get('layout', {})
+        self.show_aggregate = QtWidgets.QCheckBox('Show parent/sub-technique aggregate scores')
+        self.show_aggregate.setChecked(aggregate.get('showAggregateScores', False))
+        form.addRow(self.show_aggregate)
+        self.aggregate_function = QtWidgets.QComboBox()
+        for label, value in (('Average', 'average'), ('Maximum', 'max'), ('Minimum', 'min'), ('Sum', 'sum')):
+            self.aggregate_function.addItem(label, value)
+        self.aggregate_function.setCurrentIndex(self.aggregate_function.findData(aggregate.get('aggregateFunction', 'average')))
+        form.addRow('Aggregate function', self.aggregate_function)
+        self.count_unscored = QtWidgets.QCheckBox('Count enabled unscored family members as zero')
+        self.count_unscored.setChecked(aggregate.get('countUnscored', False))
+        form.addRow(self.count_unscored)
+        self.aggregate_function.setEnabled(self.show_aggregate.isChecked())
+        self.count_unscored.setEnabled(self.show_aggregate.isChecked())
+        self.show_aggregate.toggled.connect(self.aggregate_function.setEnabled)
+        self.show_aggregate.toggled.connect(self.count_unscored.setEnabled)
+        layout.addLayout(form)
+        tabs = QtWidgets.QTabWidget()
+        legend_page = QtWidgets.QWidget()
+        legend_layout = QtWidgets.QVBoxLayout(legend_page)
+        legend_layout.addWidget(QtWidgets.QLabel("Legend · double-click a color cell to choose a color"))
+        self.legend = QtWidgets.QTableWidget(0, 2)
+        self.legend.setHorizontalHeaderLabels(['Label', 'Color'])
+        self.legend.horizontalHeader().setSectionResizeMode(0, QtWidgets.QHeaderView.ResizeMode.Stretch)
+        self.legend.cellDoubleClicked.connect(self.choose_legend_color)
+        for entry in self.original.get('legendItems', []):
+            self.add_legend(entry['label'], entry['color'])
+        legend_layout.addWidget(self.legend, 1)
+        legend_buttons = QtWidgets.QHBoxLayout()
+        self.add_legend_button = QtWidgets.QPushButton('Add legend item')
+        self.add_legend_button.clicked.connect(lambda: self.add_legend('', '#007acc'))
+        legend_buttons.addWidget(self.add_legend_button)
+        self.remove_legend_button = QtWidgets.QPushButton('Remove selected item')
+        self.remove_legend_button.clicked.connect(lambda: self.legend.removeRow(self.legend.currentRow()) if self.legend.currentRow() >= 0 else None)
+        legend_buttons.addWidget(self.remove_legend_button)
+        legend_buttons.addStretch()
+        legend_layout.addLayout(legend_buttons)
+        tabs.addTab(legend_page, 'Legend')
+        self.links = FieldEditor('links')
+        self.links.load(self.original.get('links', []))
+        self.metadata = FieldEditor('metadata')
+        self.metadata.load(self.original.get('metadata', []))
+        tabs.addTab(self.links, 'Layer links')
+        tabs.addTab(self.metadata, 'Layer metadata')
+        layout.addWidget(tabs, 1)
+        self.error = QtWidgets.QLabel()
+        self.error.setWordWrap(True)
+        layout.addWidget(self.error)
+        buttons = QtWidgets.QDialogButtonBox(QtWidgets.QDialogButtonBox.StandardButton.Save | QtWidgets.QDialogButtonBox.StandardButton.Cancel)
+        buttons.accepted.connect(self.save)
+        buttons.rejected.connect(self.reject)
+        layout.addWidget(buttons)
+
+    def add_color_stop(self):
+        color = QtWidgets.QColorDialog.getColor(QtGui.QColor('#007acc'), self, 'Gradient color stop')
+        if color.isValid():
+            self.colors.setText(self.colors.text().rstrip(', ') + ', ' + color.name())
+
+    def add_legend(self, label, color):
+        row = self.legend.rowCount()
+        self.legend.insertRow(row)
+        self.legend.setItem(row, 0, QtWidgets.QTableWidgetItem(label))
+        self.legend.setItem(row, 1, QtWidgets.QTableWidgetItem(color))
+
+    def choose_legend_color(self, row, column):
+        if column != 1:
+            return
+        item = self.legend.item(row, column)
+        color = QtWidgets.QColorDialog.getColor(QtGui.QColor(item.text()), self, 'Legend color')
+        if color.isValid():
+            item.setText(color.name())
+
+    def save(self):
+        try:
+            name = validate_document_name(self.name.text())
+            candidate = deepcopy(self.original)
+            candidate['name'] = name
+            candidate['description'] = self.description.toPlainText()
+            for field, editor in (('links', self.links), ('metadata', self.metadata)):
+                values = editor.values()
+                if values:
+                    candidate[field] = values
+                else:
+                    candidate.pop(field, None)
+            candidate['gradient'] = {'minValue': float(self.minimum.text()), 'maxValue': float(self.maximum.text()),
+                                     'colors': [color.strip() for color in self.colors.text().split(',')]}
+            candidate['legendItems'] = [{'label': self.legend.item(row, 0).text(), 'color': self.legend.item(row, 1).text().strip()}
+                                        for row in range(self.legend.rowCount())]
+            candidate['hideDisabled'] = self.hide_disabled.isChecked()
+            if 'layout' in candidate or self.show_aggregate.isChecked() or self.count_unscored.isChecked():
+                candidate.setdefault('layout', {}).update(showAggregateScores=self.show_aggregate.isChecked(),
+                    countUnscored=self.count_unscored.isChecked(), aggregateFunction=self.aggregate_function.currentData())
+            self.result_layer = validate_layer(candidate)
+        except Exception as error:
+            self.error.setText(str(error))
+            return
         self.accept()
 
 

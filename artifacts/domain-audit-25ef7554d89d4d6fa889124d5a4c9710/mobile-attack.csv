@@ -1,0 +1,2 @@
+﻿schema_version,document_id,document_name,attack_domain,attack_version,created_at_utc,exported_at_utc,selected_count,technique_id,stix_id,name,is_subtechnique,parent_technique_id,parent_technique_name,platforms,tactic_ids,tactic_names,tactic_shortnames
+1.0,62c13d96-ed26-4ab8-bfcc-0069be7c6bef,mobile-attack,mobile-attack,19.2,2026-10-14T12:38:55.051410+00:00,2026-10-14T12:38:59.559171+00:00,1,T1630.001,attack-pattern--0cdd66ad-26ac-4338-a764-4972a1e17ee3,Uninstall Malicious Application,true,T1630,Indicator Removal on Host,Android,TA0030,Defense Evasion,defense-evasion

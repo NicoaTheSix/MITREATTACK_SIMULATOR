@@ -1,0 +1,133 @@
+{
+  "schema_version": "1.0",
+  "document_id": "d9e02fce-4a50-4a5d-b0de-abe74b21f16b",
+  "name": "ics-attack",
+  "created_at_utc": "2026-10-15T07:34:22.886107+00:00",
+  "exported_at_utc": "2026-10-15T07:34:32.235365+00:00",
+  "attack": {
+    "domain": "ics-attack",
+    "version": "19.2",
+    "source_url": "https://github.com/mitre-attack/attack-stix-data"
+  },
+  "selected_count": 1,
+  "selected_technique_ids": [
+    "T0881"
+  ],
+  "selected_ttps": [
+    {
+      "technique_id": "T0881",
+      "stix_id": "attack-pattern--063b5b92-5361-481a-9c3f-95492ed9a2d8",
+      "name": "Service Stop",
+      "is_subtechnique": false,
+      "parent_technique_id": null,
+      "parent_technique_name": null,
+      "platforms": [
+        "None"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0107",
+          "name": "Inhibit Response Function",
+          "shortname": "inhibit-response-function"
+        }
+      ],
+      "comment": "",
+      "tactic_comments": [],
+      "enabled": false,
+      "tactic_enabled": [
+        {
+          "tactic": "inhibit-response-function",
+          "enabled": false
+        }
+      ]
+    }
+  ],
+  "navigator_layer": {
+    "name": "mobile-attack",
+    "domain": "ics-attack",
+    "versions": {
+      "attack": "19.2",
+      "layer": "4.5",
+      "navigator": "5.2.0"
+    },
+    "techniques": [
+      {
+        "techniqueID": "T0881",
+        "enabled": false
+      }
+    ]
+  },
+  "domain_snapshots": {
+    "enterprise-attack": {
+      "version": "19.2",
+      "selected_stix_ids": [
+        "attack-pattern--005a06c6-14bf-4118-afa0-ebcd8aebb0c9"
+      ],
+      "navigator_layer": {
+        "name": "state.navigator",
+        "domain": "enterprise-attack",
+        "techniques": [
+          {
+            "techniqueID": "T1053",
+            "score": 0
+          },
+          {
+            "techniqueID": "T1059",
+            "metadata": [
+              {
+                "name": "TTP Selection Studio selected",
+                "value": "true"
+              }
+            ]
+          },
+          {
+            "techniqueID": "T1053.005",
+            "enabled": false
+          }
+        ],
+        "selectTechniquesAcrossTactics": true,
+        "selectSubtechniquesWithParent": false,
+        "hideDisabled": false,
+        "versions": {
+          "attack": "19.2",
+          "navigator": "5.2.0",
+          "layer": "4.5"
+        },
+        "layout": {
+          "layout": "mini"
+        },
+        "sorting": 0,
+        "filters": {
+          "platforms": [
+            "Windows"
+          ]
+        }
+      },
+      "navigator_import_selected": [],
+      "navigator_snapshots": {}
+    },
+    "mobile-attack": {
+      "version": "19.2",
+      "selected_stix_ids": [
+        "attack-pattern--00290ac5-551e-44aa-bbd8-c4b913488a6d"
+      ],
+      "navigator_layer": {
+        "name": "state.navigator",
+        "domain": "mobile-attack",
+        "versions": {
+          "attack": "19.2",
+          "layer": "4.5",
+          "navigator": "5.2.0"
+        },
+        "techniques": [
+          {
+            "techniqueID": "T1603",
+            "enabled": false
+          }
+        ]
+      },
+      "navigator_import_selected": [],
+      "navigator_snapshots": {}
+    }
+  }
+}

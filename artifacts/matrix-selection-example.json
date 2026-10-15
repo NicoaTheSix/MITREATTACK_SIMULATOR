@@ -1,9 +1,9 @@
 {
   "schema_version": "1.0",
-  "document_id": "8cc7c405-82f6-4e98-8927-a37bc5f383ed",
+  "document_id": "5a6d3b23-1e8d-4c50-b38a-812374455145",
   "name": "matrix-selection-example",
-  "created_at_utc": "2026-10-14T03:17:40.794128+00:00",
-  "exported_at_utc": "2026-10-14T03:17:43.297555+00:00",
+  "created_at_utc": "2026-10-15T07:30:51.311578+00:00",
+  "exported_at_utc": "2026-10-15T07:30:54.516833+00:00",
   "attack": {
     "domain": "enterprise-attack",
     "version": "19.2",
@@ -40,7 +40,46 @@
           "name": "Privilege Escalation",
           "shortname": "privilege-escalation"
         }
+      ],
+      "comment": "",
+      "tactic_comments": [],
+      "enabled": true,
+      "tactic_enabled": [
+        {
+          "tactic": "execution",
+          "enabled": true
+        },
+        {
+          "tactic": "persistence",
+          "enabled": true
+        },
+        {
+          "tactic": "privilege-escalation",
+          "enabled": true
+        }
       ]
     }
-  ]
+  ],
+  "navigator_layer": {
+    "name": "Untitled-1",
+    "domain": "enterprise-attack",
+    "techniques": [],
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false,
+    "hideDisabled": false,
+    "versions": {
+      "attack": "19.2",
+      "navigator": "5.2.0",
+      "layer": "4.5"
+    },
+    "layout": {
+      "layout": "flat"
+    },
+    "sorting": 0,
+    "filters": {
+      "platforms": [
+        "Windows"
+      ]
+    }
+  }
 }

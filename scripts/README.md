@@ -1,14 +1,16 @@
 # ATT&CK Data Download Workflow
 
+Run the commands below from your own project root (the folder containing `main.py`) after creating a project-local `.venv`. Follow [the project setup instructions](../README.md#how-to-open-the-project) first. `<project-root>` denotes the absolute path of your project folder; scripts resolve it at runtime and display the actual absolute input/output paths.
+
 ## Windows Icon Packaging
 
 `build_windows_icon.py` packages the existing application pixel PNG as a multi-size Windows ICO for the taskbar. Run it with the project environment:
 
 ```powershell
-& 'C:\Users\nick5\MITREATTACK_SIMULATOR\Scripts\python.exe' -B 'D:\MITREATTACK_SIMULATOR\scripts\build_windows_icon.py'
+& '.\.venv\Scripts\python.exe' -B '.\scripts\build_windows_icon.py'
 ```
 
-Input: `D:\MITREATTACK_SIMULATOR\assets\ttp-selection-studio-icon-pixel.png`. Output: `D:\MITREATTACK_SIMULATOR\assets\ttp-selection-studio-icon-pixel.ico`. Both absolute paths are printed before processing. **1/3 read** validates the image; **2/3 encode** reports each of the 16/32/48/64/128/256-pixel frames, preserving alpha and using nearest-neighbor scaling; **3/3 publish** writes the ICO directory and PNG payloads and reports completion. Missing/unreadable input, encoding failure or write failure raises an error and exits nonzero. The source PNG remains intact. Regeneration replaces only this ICO. Root README documents how the application reads the ICO into native taskbar properties.
+Input: `<project-root>\assets\ttp-selection-studio-icon-pixel.png`. Output: `<project-root>\assets\ttp-selection-studio-icon-pixel.ico`. Both absolute paths are printed before processing. **1/3 read** validates the image; **2/3 encode** reports each of the 16/32/48/64/128/256-pixel frames, preserving alpha and using nearest-neighbor scaling; **3/3 publish** writes the ICO directory and PNG payloads and reports completion. Missing/unreadable input, encoding failure or write failure raises an error and exits nonzero. The source PNG remains intact. Regeneration replaces only this ICO. Root README documents how the application reads the ICO into native taskbar properties.
 
 ## Official Data Download
 
@@ -16,13 +18,13 @@ Input: `D:\MITREATTACK_SIMULATOR\assets\ttp-selection-studio-icon-pixel.png`. Ou
 
 ## Run
 
-From PowerShell:
+From PowerShell in the project root:
 
 ```powershell
-& 'C:\Users\nick5\MITREATTACK_SIMULATOR\Scripts\python.exe' 'D:\MITREATTACK_SIMULATOR\scripts\download_attack_data.py'
+& '.\.venv\Scripts\python.exe' '.\scripts\download_attack_data.py'
 ```
 
-The default output root is `D:\MITREATTACK_SIMULATOR\data\attack`, resolved relative to the script location, independently of the working directory. Use `--output-dir 'ABSOLUTE_DIRECTORY'` to choose another output root. HTTPS access to `api.github.com` and `raw.githubusercontent.com` is required. No packages are installed and no system configuration is changed.
+The default output root is `<project-root>\data\attack`, resolved relative to the script location, independently of the working directory. Use `--output-dir 'ABSOLUTE_DIRECTORY'` to choose another output root. HTTPS access to `api.github.com` and `raw.githubusercontent.com` is required. No packages are installed and no system configuration is changed.
 
 ## Inputs and Outputs
 

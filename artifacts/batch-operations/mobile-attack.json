@@ -1,0 +1,120 @@
+{
+  "schema_version": "1.0",
+  "document_id": "d9e02fce-4a50-4a5d-b0de-abe74b21f16b",
+  "name": "mobile-attack",
+  "created_at_utc": "2026-10-15T07:34:22.886107+00:00",
+  "exported_at_utc": "2026-10-15T07:34:31.860589+00:00",
+  "attack": {
+    "domain": "mobile-attack",
+    "version": "19.2",
+    "source_url": "https://github.com/mitre-attack/attack-stix-data"
+  },
+  "selected_count": 1,
+  "selected_technique_ids": [
+    "T1603"
+  ],
+  "selected_ttps": [
+    {
+      "technique_id": "T1603",
+      "stix_id": "attack-pattern--00290ac5-551e-44aa-bbd8-c4b913488a6d",
+      "name": "Scheduled Task/Job",
+      "is_subtechnique": false,
+      "parent_technique_id": null,
+      "parent_technique_name": null,
+      "platforms": [
+        "Android",
+        "iOS"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0041",
+          "name": "Execution",
+          "shortname": "execution"
+        },
+        {
+          "tactic_id": "TA0028",
+          "name": "Persistence",
+          "shortname": "persistence"
+        }
+      ],
+      "comment": "",
+      "tactic_comments": [],
+      "enabled": false,
+      "tactic_enabled": [
+        {
+          "tactic": "execution",
+          "enabled": false
+        },
+        {
+          "tactic": "persistence",
+          "enabled": false
+        }
+      ]
+    }
+  ],
+  "navigator_layer": {
+    "name": "state.navigator",
+    "domain": "mobile-attack",
+    "versions": {
+      "attack": "19.2",
+      "layer": "4.5",
+      "navigator": "5.2.0"
+    },
+    "techniques": [
+      {
+        "techniqueID": "T1603",
+        "enabled": false
+      }
+    ]
+  },
+  "domain_snapshots": {
+    "enterprise-attack": {
+      "version": "19.2",
+      "selected_stix_ids": [
+        "attack-pattern--005a06c6-14bf-4118-afa0-ebcd8aebb0c9"
+      ],
+      "navigator_layer": {
+        "name": "state.navigator",
+        "domain": "enterprise-attack",
+        "techniques": [
+          {
+            "techniqueID": "T1053",
+            "score": 0
+          },
+          {
+            "techniqueID": "T1059",
+            "metadata": [
+              {
+                "name": "TTP Selection Studio selected",
+                "value": "true"
+              }
+            ]
+          },
+          {
+            "techniqueID": "T1053.005",
+            "enabled": false
+          }
+        ],
+        "selectTechniquesAcrossTactics": true,
+        "selectSubtechniquesWithParent": false,
+        "hideDisabled": false,
+        "versions": {
+          "attack": "19.2",
+          "navigator": "5.2.0",
+          "layer": "4.5"
+        },
+        "layout": {
+          "layout": "mini"
+        },
+        "sorting": 0,
+        "filters": {
+          "platforms": [
+            "Windows"
+          ]
+        }
+      },
+      "navigator_import_selected": [],
+      "navigator_snapshots": {}
+    }
+  }
+}

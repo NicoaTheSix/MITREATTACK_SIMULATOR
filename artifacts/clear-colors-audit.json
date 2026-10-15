@@ -1,0 +1,39 @@
+{
+  "status": "PASS",
+  "checks": [
+    "original row preview saved",
+    "#ff0000: real painted background follows changed color",
+    "#ffffff: real painted background follows changed color",
+    "#ffff00: real painted background follows changed color",
+    "yellow row preview saved",
+    "cleared unchecked preview saved",
+    "color-only annotation cleared while unchecked restores original neutral style",
+    "unchecked clear restores exact original row pixels including text and border",
+    "unchecked clear removes vacuous color-only row without selecting technique",
+    "cleared color-only technique has no synthetic disabled tooltip",
+    "repeated unchecked clear preserves data and painted neutral row",
+    "#ffff00: bulk clear retains checkbox and restores normal selected style",
+    "#ffff00: selected clear restores exact original selected row pixels",
+    "#000000: bulk clear retains checkbox and restores normal selected style",
+    "#000000: selected clear restores exact original selected row pixels",
+    "#ffffff: bulk clear retains checkbox and restores normal selected style",
+    "#ffffff: selected clear restores exact original selected row pixels",
+    "cleared checked preview saved",
+    "clear explicit color restores exact score gradient and keeps comment/score",
+    "clear prunes empty scoped row and preserves enabled context for genuine imported disabled annotation",
+    "genuine imported disabled scope retains deliberate grey appearance",
+    "clear on disabled annotation with no color is a no-op",
+    "initial red/blue overlap displayed",
+    "cleared unchecked source leaves only other layer red without residual blend",
+    "overlay clear changes only active source and preserves other document",
+    "turning overlay off restores neutral cleared source",
+    "export projection contains no synthetic cleared/disabled technique",
+    "dataset pointers unchanged"
+  ],
+  "previews": {
+    "original": "D:\\MITREATTACK_SIMULATOR\\artifacts\\clear-colors-original.png",
+    "yellow": "D:\\MITREATTACK_SIMULATOR\\artifacts\\clear-colors-yellow.png",
+    "cleared-unchecked": "D:\\MITREATTACK_SIMULATOR\\artifacts\\clear-colors-cleared-unchecked.png",
+    "cleared-checked": "D:\\MITREATTACK_SIMULATOR\\artifacts\\clear-colors-cleared-checked.png"
+  }
+}
