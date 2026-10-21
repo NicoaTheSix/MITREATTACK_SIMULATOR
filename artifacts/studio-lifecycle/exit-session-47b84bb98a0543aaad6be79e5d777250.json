@@ -1,0 +1,160 @@
+{
+  "checksum": "57811572ee0278d64fdb70000cd5158b0318217fcaa316c38c0d9e476e7a19f9",
+  "workspace": {
+    "studio_session_version": "1.0",
+    "updated_at_utc": "2026-10-15T08:49:05.802280+00:00",
+    "clean_exit": true,
+    "documents": [
+      {
+        "document": {
+          "schema_version": "1.0",
+          "document_id": "34859667-79c3-4816-bdfc-2c7feeeb5aa2",
+          "name": "Exit first",
+          "created_at_utc": "2026-10-15T08:49:05.526774+00:00",
+          "exported_at_utc": "2026-10-15T08:49:05.802280+00:00",
+          "attack": {
+            "domain": "enterprise-attack",
+            "version": "19.2",
+            "source_url": "https://github.com/mitre-attack/attack-stix-data"
+          },
+          "selected_count": 1,
+          "selected_technique_ids": [
+            "T1053.005"
+          ],
+          "selected_ttps": [
+            {
+              "technique_id": "T1053.005",
+              "stix_id": "attack-pattern--005a06c6-14bf-4118-afa0-ebcd8aebb0c9",
+              "name": "Scheduled Task",
+              "is_subtechnique": true,
+              "parent_technique_id": "T1053",
+              "parent_technique_name": "Scheduled Task/Job",
+              "platforms": [
+                "Windows"
+              ],
+              "tactics": [
+                {
+                  "tactic_id": "TA0002",
+                  "name": "Execution",
+                  "shortname": "execution"
+                },
+                {
+                  "tactic_id": "TA0003",
+                  "name": "Persistence",
+                  "shortname": "persistence"
+                },
+                {
+                  "tactic_id": "TA0004",
+                  "name": "Privilege Escalation",
+                  "shortname": "privilege-escalation"
+                }
+              ],
+              "comment": "",
+              "tactic_comments": [],
+              "enabled": true,
+              "tactic_enabled": [
+                {
+                  "tactic": "execution",
+                  "enabled": true
+                },
+                {
+                  "tactic": "persistence",
+                  "enabled": true
+                },
+                {
+                  "tactic": "privilege-escalation",
+                  "enabled": true
+                }
+              ]
+            }
+          ],
+          "navigator_import_selected": []
+        },
+        "initial_name": "Untitled-1",
+        "save_path": "D:\\MITREATTACK_SIMULATOR\\artifacts\\studio-lifecycle\\Exit first.json",
+        "saved_fingerprint": "eff1fdb7e009074846e946a2921ccc87b4fa606b43aaf927ada29e1fc8735452",
+        "saved_file_sha256": "436dcb18ca4bba85d01086c79f01d9caa2aae380a3bfa33d3407cece4fd7291e",
+        "dirty": false
+      },
+      {
+        "document": {
+          "schema_version": "1.0",
+          "document_id": "802060ef-66d9-4627-ac75-3e567c012d51",
+          "name": "Exit second",
+          "created_at_utc": "2026-10-15T08:49:05.667210+00:00",
+          "exported_at_utc": "2026-10-15T08:49:05.802280+00:00",
+          "attack": {
+            "domain": "enterprise-attack",
+            "version": "19.2",
+            "source_url": "https://github.com/mitre-attack/attack-stix-data"
+          },
+          "selected_count": 1,
+          "selected_technique_ids": [
+            "T1053.005"
+          ],
+          "selected_ttps": [
+            {
+              "technique_id": "T1053.005",
+              "stix_id": "attack-pattern--005a06c6-14bf-4118-afa0-ebcd8aebb0c9",
+              "name": "Scheduled Task",
+              "is_subtechnique": true,
+              "parent_technique_id": "T1053",
+              "parent_technique_name": "Scheduled Task/Job",
+              "platforms": [
+                "Windows"
+              ],
+              "tactics": [
+                {
+                  "tactic_id": "TA0002",
+                  "name": "Execution",
+                  "shortname": "execution"
+                },
+                {
+                  "tactic_id": "TA0003",
+                  "name": "Persistence",
+                  "shortname": "persistence"
+                },
+                {
+                  "tactic_id": "TA0004",
+                  "name": "Privilege Escalation",
+                  "shortname": "privilege-escalation"
+                }
+              ],
+              "comment": "",
+              "tactic_comments": [],
+              "enabled": true,
+              "tactic_enabled": [
+                {
+                  "tactic": "execution",
+                  "enabled": true
+                },
+                {
+                  "tactic": "persistence",
+                  "enabled": true
+                },
+                {
+                  "tactic": "privilege-escalation",
+                  "enabled": true
+                }
+              ]
+            }
+          ],
+          "navigator_import_selected": []
+        },
+        "initial_name": "Untitled-2",
+        "save_path": "D:\\MITREATTACK_SIMULATOR\\artifacts\\studio-lifecycle\\Exit second.json",
+        "saved_fingerprint": "b557f4749b54d45bdb37d9beabe834a9415ae18eb4737d56934975c48564c458",
+        "saved_file_sha256": "bab4ae31f35cba078420050f031876c733ab85240991f97760255e7751e8456f",
+        "dirty": false
+      }
+    ],
+    "active_index": 1,
+    "view": {
+      "page": "selected",
+      "details_open": true,
+      "category": "TTP",
+      "overlay": false,
+      "show_colors": true
+    }
+  }
+}

@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600px" height="1000px" viewBox="0 0 1600 1000"><rect x="0" y="0" width="1600.0" height="1000.0" fill="#1e1e1e" /><g id="header"><text x="18" y="24" fill="#dddddd" font-size="20" font-family="Georgia, serif">=Research A</text><text x="18" y="50" fill="#dddddd" font-size="12" font-family="Georgia, serif">Worked example for publication.</text><text x="18" y="68" fill="#dddddd" font-size="12" font-family="Georgia, serif">Enterprise v20.0</text><text x="18" y="86" fill="#dddddd" font-size="12" font-family="Georgia, serif">Platforms: All Platforms · Search: scheduled task/job</text><g id="legend"><rect x="18" y="104" width="300.0" height="106" fill="#252526" stroke="#666666" /><rect x="26" y="112" width="10" height="10" fill="#ff6666" /><text x="44" y="122" fill="#dddddd" font-size="11" font-family="Georgia, serif">Gradient 0–100: #ff6666</text><rect x="26" y="133" width="10" height="10" fill="#ffe766" /><text x="44" y="143" fill="#dddddd" font-size="11" font-family="Georgia, serif">Gradient 0–100: #ffe766</text><rect x="26" y="154" width="10" height="10" fill="#8ec843" /><text x="44" y="164" fill="#dddddd" font-size="11" font-family="Georgia, serif">Gradient 0–100: #8ec843</text><rect x="26" y="175" width="10" height="10" fill="#abcdef" /><text x="44" y="185" fill="#dddddd" font-size="11" font-family="Georgia, serif">Assessment evidence</text></g></g><g id="matrix" transform="translate(0 226) scale(2.18579) translate(0 -100)"><text x="22" y="118" fill="#6caedf" font-size="13" font-family="Georgia, serif">Execution</text><rect x="18" y="160" width="224" height="40" fill="#222526" stroke="#ff00aa"><title>T1053  Scheduled Task/Job
+Scheduled Task/Job
+Selected: False
+Enabled: True</title></rect><text x="25" y="178" fill="#6caedf" font-size="12" font-family="Georgia, serif">Scheduled Task/Job</text><rect x="18" y="200" width="224" height="40" fill="#222526" stroke="#ff00aa"><title>T1053.002  At
+&gt; At
+Selected: False
+Enabled: True</title></rect><text x="33" y="218" fill="#6caedf" font-size="12" font-family="Georgia, serif">&gt; At</text><rect x="18" y="240" width="224" height="44" fill="#222526" stroke="#ff00aa"><title>T1053.007  Container Orchestration Job
+&gt; Container Orchestration Job
+Selected: False
+Enabled: True</title></rect><text x="33" y="258" fill="#6caedf" font-size="12" font-family="Georgia, serif">&gt; Container Orchestration</text><text x="33" y="273" fill="#6caedf" font-size="12" font-family="Georgia, serif">Job</text><rect x="18" y="284" width="224" height="40" fill="#222526" stroke="#ff00aa"><title>T1053.003  Cron
+&gt; Cron
+Selected: False
+Enabled: True</title></rect><text x="33" y="302" fill="#6caedf" font-size="12" font-family="Georgia, serif">&gt; Cron</text><rect x="18" y="324" width="224" height="44" fill="#abcdef" stroke="#ff00aa"><title>T1053.005  Scheduled Task
+&gt; Scheduled Task
+Score: 42.5
+Selected: True
+Enabled: True
+Annotation indicators: #ffcc00
+Literal &lt;tag&gt; &amp; 中文 evidence</title></rect><line x1="21" y1="365" x2="239" y2="365" stroke="#ffcc00" stroke-width="2" /><text x="33" y="342" fill="#000000" font-size="12" font-family="Georgia, serif">&gt; Scheduled Task</text><text x="33" y="357" fill="#000000" font-size="12" font-family="Georgia, serif">Score: 42.5</text><rect x="18" y="368" width="224" height="40" fill="#222526" stroke="#ff00aa"><title>T1053.006  Systemd Timers
+&gt; Systemd Timers
+Selected: False
+Enabled: True</title></rect><text x="33" y="386" fill="#6caedf" font-size="12" font-family="Georgia, serif">&gt; Systemd Timers</text><text x="254" y="118" fill="#6caedf" font-size="13" font-family="Georgia, serif">Persistence</text><rect x="250" y="160" width="224" height="40" fill="#222526" stroke="#ff00aa"><title>T1053  Scheduled Task/Job
+Scheduled Task/Job
+Selected: False
+Enabled: True</title></rect><text x="257" y="178" fill="#6caedf" font-size="12" font-family="Georgia, serif">Scheduled Task/Job</text><rect x="250" y="200" width="224" height="40" fill="#222526" stroke="#ff00aa"><title>T1053.002  At
+&gt; At
+Selected: False
+Enabled: True</title></rect><text x="265" y="218" fill="#6caedf" font-size="12" font-family="Georgia, serif">&gt; At</text><rect x="250" y="240" width="224" height="44" fill="#222526" stroke="#ff00aa"><title>T1053.007  Container Orchestration Job
+&gt; Container Orchestration Job
+Selected: False
+Enabled: True</title></rect><text x="265" y="258" fill="#6caedf" font-size="12" font-family="Georgia, serif">&gt; Container Orchestration</text><text x="265" y="273" fill="#6caedf" font-size="12" font-family="Georgia, serif">Job</text><rect x="250" y="284" width="224" height="40" fill="#222526" stroke="#ff00aa"><title>T1053.003  Cron
+&gt; Cron
+Selected: False
+Enabled: True</title></rect><text x="265" y="302" fill="#6caedf" font-size="12" font-family="Georgia, serif">&gt; Cron</text><rect x="250" y="324" width="224" height="40" fill="#222526" stroke="#ff00aa"><title>T1053.005  Scheduled Task
+&gt; Scheduled Task
+Selected: True
+Enabled: True</title></rect><text x="265" y="342" fill="#6caedf" font-size="12" font-family="Georgia, serif">&gt; Scheduled Task</text><rect x="250" y="364" width="224" height="40" fill="#222526" stroke="#ff00aa"><title>T1053.006  Systemd Timers
+&gt; Systemd Timers
+Selected: False
+Enabled: True</title></rect><text x="265" y="382" fill="#6caedf" font-size="12" font-family="Georgia, serif">&gt; Systemd Timers</text><text x="486" y="118" fill="#6caedf" font-size="13" font-family="Georgia, serif">Privilege Escalation</text><rect x="482" y="160" width="224" height="40" fill="#222526" stroke="#ff00aa"><title>T1053  Scheduled Task/Job
+Scheduled Task/Job
+Selected: False
+Enabled: True</title></rect><text x="489" y="178" fill="#6caedf" font-size="12" font-family="Georgia, serif">Scheduled Task/Job</text><rect x="482" y="200" width="224" height="40" fill="#222526" stroke="#ff00aa"><title>T1053.002  At
+&gt; At
+Selected: False
+Enabled: True</title></rect><text x="497" y="218" fill="#6caedf" font-size="12" font-family="Georgia, serif">&gt; At</text><rect x="482" y="240" width="224" height="44" fill="#222526" stroke="#ff00aa"><title>T1053.007  Container Orchestration Job
+&gt; Container Orchestration Job
+Selected: False
+Enabled: True</title></rect><text x="497" y="258" fill="#6caedf" font-size="12" font-family="Georgia, serif">&gt; Container Orchestration</text><text x="497" y="273" fill="#6caedf" font-size="12" font-family="Georgia, serif">Job</text><rect x="482" y="284" width="224" height="40" fill="#222526" stroke="#ff00aa"><title>T1053.003  Cron
+&gt; Cron
+Selected: False
+Enabled: True</title></rect><text x="497" y="302" fill="#6caedf" font-size="12" font-family="Georgia, serif">&gt; Cron</text><rect x="482" y="324" width="224" height="40" fill="#222526" stroke="#ff00aa"><title>T1053.005  Scheduled Task
+&gt; Scheduled Task
+Selected: True
+Enabled: True</title></rect><text x="497" y="342" fill="#6caedf" font-size="12" font-family="Georgia, serif">&gt; Scheduled Task</text><rect x="482" y="364" width="224" height="40" fill="#222526" stroke="#ff00aa"><title>T1053.006  Systemd Timers
+&gt; Systemd Timers
+Selected: False
+Enabled: True</title></rect><text x="497" y="382" fill="#6caedf" font-size="12" font-family="Georgia, serif">&gt; Systemd Timers</text></g><desc>TTP Selection Studio matrix export; theme: dark; sub-techniques: expanded</desc></svg>

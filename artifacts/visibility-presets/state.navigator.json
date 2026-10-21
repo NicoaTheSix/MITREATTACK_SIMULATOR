@@ -1,0 +1,110 @@
+{
+  "name": "Visibility example",
+  "domain": "enterprise-attack",
+  "techniques": [
+    {
+      "techniqueID": "T1000",
+      "metadata": [
+        {
+          "name": "TTP Selection Studio selected",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "techniqueID": "T1000",
+      "metadata": [
+        {
+          "name": "TTP Selection Studio selected",
+          "value": "true"
+        }
+      ],
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T1002",
+      "metadata": [
+        {
+          "name": "TTP Selection Studio selected",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "techniqueID": "T1000.001",
+      "tactic": "execution",
+      "comment": "Keep this note",
+      "score": 0,
+      "metadata": [
+        {
+          "name": "TTP Selection Studio selected",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "techniqueID": "T1000.002",
+      "metadata": [
+        {
+          "name": "TTP Selection Studio selected",
+          "value": "true"
+        }
+      ]
+    }
+  ],
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": true,
+  "hideDisabled": false,
+  "selectVisibleTechniques": true,
+  "x_ttp_studio_search_fields": [
+    "name",
+    "id"
+  ],
+  "versions": {
+    "attack": "19.2",
+    "navigator": "5.2.0",
+    "layer": "4.5"
+  },
+  "customDataURL": "D:\\MITREATTACK_SIMULATOR\\artifacts\\visibility-presets\\fixture.json",
+  "x_ttp_studio_dataset": "a3f9b85bf1c65934dd0cfcdf1ab040038d631778f57f2ceb7ad524981a995cb2",
+  "layout": {
+    "layout": "flat",
+    "expandedSubtechniques": "annotated",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": false,
+    "countUnscored": false,
+    "aggregateFunction": "average"
+  },
+  "sorting": 0,
+  "filters": {
+    "platforms": [
+      "Windows"
+    ]
+  },
+  "description": "",
+  "gradient": {
+    "minValue": -100.0,
+    "maxValue": 100.0,
+    "colors": [
+      "#2166ac",
+      "#ffffff",
+      "#b2182b"
+    ]
+  },
+  "legendItems": [],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "x_ttp_studio_display": {
+    "manual_color": true,
+    "score_color": true,
+    "aggregate_color": true,
+    "comment_indicator": true,
+    "metadata_indicator": true,
+    "link_indicator": true,
+    "legend_visible": true,
+    "comment_color": "#ffcc00",
+    "metadata_color": "#ffcc00",
+    "link_color": "#4daafc"
+  }
+}

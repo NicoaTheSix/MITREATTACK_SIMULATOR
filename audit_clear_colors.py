@@ -9,7 +9,7 @@ from PySide6 import QtCore, QtWidgets, QtTest
 from attack_catalog import external_id
 from attack_matrix import MATRIX_SLUG, MATRIX_STYLE
 from main import MainWindow, configure_application
-from navigator_integration import document_layer
+from navigator_integration import document_layer, SELECTION_MARKER
 
 ROOT = Path(__file__).resolve().parent
 DATA = ROOT / 'data' / 'attack'
@@ -59,7 +59,7 @@ def clear_context(matrix, item):
     tree.scrollToItem(item)
     QtWidgets.QApplication.processEvents()
     matrix.open_cell_menu(tree, tree.visualItemRect(item).center())
-    matrix.cell_menu.actions()[1].trigger()
+    next(action for action in matrix.cell_menu.actions() if action.text() == 'Clear technique color').trigger()
     matrix.cell_menu.close()
 
 
@@ -142,10 +142,13 @@ def main():
     matrix.search.setText('T1053.005')
     matrix.expand_button.click()
     matrix.clear_color_button.click()
+    marker = [{'name': SELECTION_MARKER, 'value': 'true'}]
     check(document.navigator_layer['techniques'] == [
-        {'techniqueID': 'T1053.005', 'enabled': True},
-        {'techniqueID': 'T1053.005', 'tactic': 'persistence', 'enabled': False, 'comment': 'Explicitly disabled'}],
-        'clear prunes empty scoped row and preserves enabled context for genuine imported disabled annotation')
+        {'techniqueID': 'T1053.005', 'metadata': marker},
+        {'techniqueID': 'T1053.005', 'tactic': 'execution', 'metadata': marker},
+        {'techniqueID': 'T1053.005', 'tactic': 'persistence', 'enabled': False,
+         'comment': 'Explicitly disabled', 'metadata': marker}],
+        'clear preserves inclusion markers and genuine imported disabled annotations while removing every color')
     check(cell(matrix, task, 'persistence').background(0).color().name() == '#303436', 'genuine imported disabled scope retains deliberate grey appearance')
     before = document.fingerprint()
     matrix.clear_color_button.click()
@@ -176,6 +179,7 @@ def main():
     projection = document_layer(second)
     check(not projection['techniques'], 'export projection contains no synthetic cleared/disabled technique')
     check(all(path.read_bytes() == data for path, data in pointers.items()), 'dataset pointers unchanged')
+    window.confirm_studio_changes = lambda *_: "discard"
     window.close()
     log('[Clear colors 5/5] Publishing successful report', 4, 5)
     REPORT.write_text(json.dumps({'status': 'PASS', 'checks': checks,

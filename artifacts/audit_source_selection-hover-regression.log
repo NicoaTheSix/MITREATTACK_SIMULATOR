@@ -1,0 +1,558 @@
+Input directory: D:\MITREATTACK_SIMULATOR\data\attack
+Output directory: D:\MITREATTACK_SIMULATOR\artifacts\source-selection
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\source-selection\fixture.json
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\source-selection\settings.ini
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\source-selection\state.studio.json
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\source-selection\session.json
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\source-selection\state.csv
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\source-selection\batch.png
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\source-selection\component.png
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\source-selection\audit.json
+[Source Audit 1/7] Loading isolated multi-domain mappings (0/7)
+Output cache directory: D:\MITREATTACK_SIMULATOR\data\attack\custom
+Input file: D:\MITREATTACK_SIMULATOR\artifacts\source-selection\fixture.json
+Output files: None (source validation in memory)
+[Source 1/4] Reading bounded JSON (0/134217728)
+[Source 1/4] Reading JSON bytes (48065/134217728)
+[Source 2/4] Parsing JSON (1/4)
+Input bundle: validated JSON in memory; output files: None (custom catalog in memory)
+[Source 3/4] Validating ATT&CK-compatible STIX (0/4)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/87)
+[3/4 Procedures] Complete: Enterprise 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/87)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 16 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing Mobile procedure examples (0/87)
+[3/4 Procedures] Complete: Mobile 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Mobile objects in memory)
+[3/4 Related TTPs] Indexing Mobile direct source relationships (0/87)
+[3/4 Related TTPs] Resolving Mobile strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Mobile 16 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing ICS procedure examples (0/87)
+[3/4 Procedures] Complete: ICS 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships (0/87)
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 16 direct/derived mappings (1/1)
+Output file: D:\MITREATTACK_SIMULATOR\data\attack\custom\71e8153632f638081c9a80262cb699fff70ee19dfceebc35a76ee20855421e56.json
+[Source 4/4] Caching validated input (3/4)
+Output temporary file: D:\MITREATTACK_SIMULATOR\data\attack\custom\.source-db50054c03914b73ba100fe4ff7e0dd9.tmp
+[Source 4/4] Validated source cached (4/4)
+[Application icon 1/2] Input file: D:\MITREATTACK_SIMULATOR\assets\ttp-selection-studio-icon-pixel.png
+[Application icon 1/2] Output files: None (application/window icon in memory)
+[Application icon 2/2] Complete: pixel icon applied to application and windows
+[Preview fonts] Input file: C:\WINDOWS\Fonts\segoeui.ttf
+[Preview fonts] Input file: C:\WINDOWS\Fonts\segoeuib.ttf
+[Preview fonts] Input file: C:\WINDOWS\Fonts\consola.ttf
+[Preview fonts] Input file: C:\WINDOWS\Fonts\georgia.ttf
+[Preview fonts] Input file: C:\WINDOWS\Fonts\msjh.ttc
+[Preview fonts] Input file: C:\WINDOWS\Fonts\msjhbd.ttc
+[Preview fonts] Complete
+[UI settings 1/2] Input file: D:\MITREATTACK_SIMULATOR\artifacts\source-selection\settings.ini
+[UI settings 1/2] Output files: None (reading preferences)
+[UI settings 2/2] Complete: navigation labels shown
+[Language 1/2] Input file: D:\MITREATTACK_SIMULATOR\locales\zh_TW.json
+Output files: None (translation catalog in memory)
+[Language 2/2] Ready: 590 Taiwan translations
+Input file: D:\MITREATTACK_SIMULATOR\data\info\attack-release-notes.json
+Output files: None (Info menu in memory)
+[Info history 1/2] Reading offline release introductions
+[Info history 2/2] Complete: 20 official release entries
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\ttp-selection-studio-icon-pixel.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\mitigations.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\assets.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\detections.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\groups.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\software.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\campaigns.png
+[Navigation icons 1/3] Output files: None (button icons in memory)
+[Navigation icons 2/3] Loading TTP (1/7)
+[Navigation icons 2/3] Loading Mitigations (2/7)
+[Navigation icons 2/3] Loading Assets (3/7)
+[Navigation icons 2/3] Loading Detections (4/7)
+[Navigation icons 2/3] Loading Groups (5/7)
+[Navigation icons 2/3] Loading Software (6/7)
+[Navigation icons 2/3] Loading Campaigns (7/7)
+[Navigation icons 3/3] Complete: 7/7 icons ready
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\latest.json
+Output files: None (catalog is loaded into memory)
+[1/4 Resolve] Reading snapshot pointer
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v20.0\manifest.json
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v20.0\enterprise-attack-20.0.json
+[1/4 Resolve] Complete: Enterprise ATT&CK v20.0 (1/1)
+[2/4 Read] Reading and checking bundle (4194304/55271014)
+[2/4 Read] Reading and checking bundle (8388608/55271014)
+[2/4 Read] Reading and checking bundle (12582912/55271014)
+[2/4 Read] Reading and checking bundle (16777216/55271014)
+[2/4 Read] Reading and checking bundle (20971520/55271014)
+[2/4 Read] Reading and checking bundle (25165824/55271014)
+[2/4 Read] Reading and checking bundle (29360128/55271014)
+[2/4 Read] Reading and checking bundle (33554432/55271014)
+[2/4 Read] Reading and checking bundle (37748736/55271014)
+[2/4 Read] Reading and checking bundle (41943040/55271014)
+[2/4 Read] Reading and checking bundle (46137344/55271014)
+[2/4 Read] Reading and checking bundle (50331648/55271014)
+[2/4 Read] Reading and checking bundle (54525952/55271014)
+[2/4 Read] Reading and checking bundle (55271014/55271014)
+[2/4 Read] Parsing JSON
+[3/4 Index] Indexing active ATT&CK objects (2000/26690)
+[3/4 Index] Indexing active ATT&CK objects (4000/26690)
+[3/4 Index] Indexing active ATT&CK objects (6000/26690)
+[3/4 Index] Indexing active ATT&CK objects (8000/26690)
+[3/4 Index] Indexing active ATT&CK objects (10000/26690)
+[3/4 Index] Indexing active ATT&CK objects (12000/26690)
+[3/4 Index] Indexing active ATT&CK objects (14000/26690)
+[3/4 Index] Indexing active ATT&CK objects (16000/26690)
+[3/4 Index] Indexing active ATT&CK objects (18000/26690)
+[3/4 Index] Indexing active ATT&CK objects (20000/26690)
+[3/4 Index] Indexing active ATT&CK objects (22000/26690)
+[3/4 Index] Indexing active ATT&CK objects (24000/26690)
+[3/4 Index] Indexing active ATT&CK objects (26000/26690)
+[3/4 Index] Mapping platforms and tactics (100/706)
+[3/4 Index] Mapping platforms and tactics (200/706)
+[3/4 Index] Mapping platforms and tactics (300/706)
+[3/4 Index] Mapping platforms and tactics (400/706)
+[3/4 Index] Mapping platforms and tactics (500/706)
+[3/4 Index] Mapping platforms and tactics (600/706)
+[3/4 Index] Mapping platforms and tactics (700/706)
+[3/4 Index] Complete: 706 active techniques/sub-techniques, 11 platforms (706/706)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/26690)
+[3/4 Procedures] Reading Enterprise relationships (4000/26690)
+[3/4 Procedures] Reading Enterprise relationships (8000/26690)
+[3/4 Procedures] Reading Enterprise relationships (12000/26690)
+[3/4 Procedures] Reading Enterprise relationships (16000/26690)
+[3/4 Procedures] Reading Enterprise relationships (20000/26690)
+[3/4 Procedures] Reading Enterprise relationships (24000/26690)
+[3/4 Procedures] Complete: Enterprise 17636 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/26690)
+[3/4 Related TTPs] Reading relationships (4000/26690)
+[3/4 Related TTPs] Reading relationships (8000/26690)
+[3/4 Related TTPs] Reading relationships (12000/26690)
+[3/4 Related TTPs] Reading relationships (16000/26690)
+[3/4 Related TTPs] Reading relationships (20000/26690)
+[3/4 Related TTPs] Reading relationships (24000/26690)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 23980 direct/derived mappings (1/1)
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v20.0\mobile-attack-20.0.json
+[3/4 Library] Reading and checking Mobile (4194304/6095145)
+[3/4 Library] Reading and checking Mobile (6095145/6095145)
+[3/4 Library] Parsing Mobile JSON
+[3/4 Procedures] Indexing Mobile procedure examples (0/2684)
+[3/4 Procedures] Complete: Mobile 1522 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Mobile objects in memory)
+[3/4 Related TTPs] Indexing Mobile direct source relationships (0/2684)
+[3/4 Related TTPs] Resolving Mobile strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Mobile 2419 direct/derived mappings (1/1)
+[3/4 Library] Complete: Mobile (1/1)
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v20.0\ics-attack-20.0.json
+[3/4 Library] Reading and checking ICS (4194304/5266683)
+[3/4 Library] Reading and checking ICS (5266683/5266683)
+[3/4 Library] Parsing ICS JSON
+[3/4 Procedures] Indexing ICS procedure examples (0/2566)
+[3/4 Procedures] Complete: ICS 307 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships (0/2566)
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 2185 direct/derived mappings (1/1)
+[3/4 Library] Complete: ICS (1/1)
+[3/4 Library] Complete: six navigation categories indexed across all three domains (1/1)
+[4/4 Tree] Complete: 706 unique selectable technique IDs
+Input files: None (exact domain/version catalog in memory); output files: None
+[Search Index 1/3] Reading legacy data sources and active detection mappings (0/3)
+[Search Index 2/3] Building name/ID/description/data-source/detection-strategy fields (1/3)
+[Search Index 3/3] Ready: 706 techniques in enterprise-attack v20.0 (3/3)
+[Source Audit 2/7] Independent official relationship reference checks (1/7)
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v20.0\enterprise-attack-20.0.json
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v20.0\mobile-attack-20.0.json
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v20.0\ics-attack-20.0.json
+Input pointer: in memory (validated version selection)
+Output files: None (catalog is loaded into memory)
+[1/4 Resolve] Reading snapshot pointer
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v11.3\manifest.json
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v11.3\enterprise-attack-11.3.json
+[1/4 Resolve] Complete: Enterprise ATT&CK v11.3 (1/1)
+[2/4 Read] Reading and checking bundle (4194304/35075701)
+[2/4 Read] Reading and checking bundle (8388608/35075701)
+[2/4 Read] Reading and checking bundle (12582912/35075701)
+[2/4 Read] Reading and checking bundle (16777216/35075701)
+[2/4 Read] Reading and checking bundle (20971520/35075701)
+[2/4 Read] Reading and checking bundle (25165824/35075701)
+[2/4 Read] Reading and checking bundle (29360128/35075701)
+[2/4 Read] Reading and checking bundle (33554432/35075701)
+[2/4 Read] Reading and checking bundle (35075701/35075701)
+[2/4 Read] Parsing JSON
+[3/4 Index] Indexing active ATT&CK objects (2000/17672)
+[3/4 Index] Indexing active ATT&CK objects (4000/17672)
+[3/4 Index] Indexing active ATT&CK objects (6000/17672)
+[3/4 Index] Indexing active ATT&CK objects (8000/17672)
+[3/4 Index] Indexing active ATT&CK objects (10000/17672)
+[3/4 Index] Indexing active ATT&CK objects (12000/17672)
+[3/4 Index] Indexing active ATT&CK objects (14000/17672)
+[3/4 Index] Indexing active ATT&CK objects (16000/17672)
+[3/4 Index] Mapping platforms and tactics (100/576)
+[3/4 Index] Mapping platforms and tactics (200/576)
+[3/4 Index] Mapping platforms and tactics (300/576)
+[3/4 Index] Mapping platforms and tactics (400/576)
+[3/4 Index] Mapping platforms and tactics (500/576)
+[3/4 Index] Complete: 576 active techniques/sub-techniques, 11 platforms (576/576)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/17672)
+[3/4 Procedures] Reading Enterprise relationships (4000/17672)
+[3/4 Procedures] Reading Enterprise relationships (8000/17672)
+[3/4 Procedures] Reading Enterprise relationships (12000/17672)
+[3/4 Procedures] Reading Enterprise relationships (16000/17672)
+[3/4 Procedures] Complete: Enterprise 10359 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/17672)
+[3/4 Related TTPs] Reading relationships (4000/17672)
+[3/4 Related TTPs] Reading relationships (8000/17672)
+[3/4 Related TTPs] Reading relationships (12000/17672)
+[3/4 Related TTPs] Reading relationships (16000/17672)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 14988 direct/derived mappings (1/1)
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v11.3\mobile-attack-11.3.json
+[3/4 Library] Reading and checking Mobile (3203327/3203327)
+[3/4 Library] Parsing Mobile JSON
+[3/4 Procedures] Indexing Mobile procedure examples (0/1699)
+[3/4 Procedures] Complete: Mobile 820 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Mobile objects in memory)
+[3/4 Related TTPs] Indexing Mobile direct source relationships (0/1699)
+[3/4 Related TTPs] Resolving Mobile strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Mobile 962 direct/derived mappings (1/1)
+[3/4 Library] Complete: Mobile (1/1)
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v11.3\ics-attack-11.3.json
+[3/4 Library] Reading and checking ICS (2037495/2037495)
+[3/4 Library] Parsing ICS JSON
+[3/4 Procedures] Indexing ICS procedure examples (0/1106)
+[3/4 Procedures] Complete: ICS 169 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships (0/1106)
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 883 direct/derived mappings (1/1)
+[3/4 Library] Complete: ICS (1/1)
+[3/4 Library] Complete: six navigation categories indexed across all three domains (1/1)
+[Document 1/2] Input files: None; output files: None; activating Source unions (0/2)
+[4/4 Tree] Complete: 5 unique selectable technique IDs
+Input files: None (exact domain/version catalog in memory); output files: None
+[Search Index 1/3] Reading legacy data sources and active detection mappings (0/3)
+[Search Index 2/3] Building name/ID/description/data-source/detection-strategy fields (1/3)
+[Search Index 3/3] Ready: 5 techniques in enterprise-attack v19.2 (3/3)
+[Source Picker 1/2] Input files: None; output files: None (verified catalog in memory) (0/2)
+[Source Picker 2/2] Campaign: 0 entries in Enterprise v19.2 (2/2)
+[Matrix 1/3 Scope] Input files: None; output files: None (verified catalog in memory)
+[Matrix 1/3 Scope] Platform/tactic families resolved (1/1)
+Input files: None; output files: None (selected TTP occurrences in memory)
+[Select TTP 1/2] Resolving tactic/family preferences (0/2)
+[Select TTP 2/2] Ready; enabled states and annotations preserved (2/2)
+[Matrix 2/3 Columns] Building expandable tactic columns (1/2)
+[Matrix 2/3 Columns] Building expandable tactic columns (2/2)
+[Matrix 3/3 Ready] Matrix columns complete (1/1)
+[Source Audit 3/7] Sidebar result unions, overlap and empty queries (2/7)
+Input files: None; output files: None (selected TTP occurrences in memory)
+[Select TTP 1/2] Resolving tactic/family preferences (0/2)
+[Select TTP 2/2] Ready; enabled states and annotations preserved (2/2)
+Input files: None (exact active catalog relationships); output files: None
+[Source Selection 1/3] Resolving source result union and explicit mapping paths (0/3)
+[Source Selection 2/3] Applying deduplicated targets and selection preferences (1/3)
+[Source Selection 3/3] 2 sources; 2 mapped TTPs; 3 tactic occurrences changed; 3 included TTPs; annotations unchanged (3/3)
+Input files: None (exact active catalog relationships); output files: None
+[Source Selection 1/3] Resolving source result union and explicit mapping paths (0/3)
+[Source Selection 2/3] Applying deduplicated targets and selection preferences (1/3)
+[Source Selection 3/3] 2 sources; 2 mapped TTPs; 3 tactic occurrences changed; 1 included TTPs; annotations unchanged (3/3)
+Input files: None (exact active catalog relationships); output files: None
+[Source Selection 1/3] Resolving source result union and explicit mapping paths (0/3)
+[Source Selection 3/3] No mapped results; document preserved (3/3)
+Input files: None (exact active catalog relationships); output files: None
+[Source Selection 1/3] Resolving source result union and explicit mapping paths (0/3)
+[Source Selection] Cancelled: Source results no longer belong to the active catalog or include unsupported entries. (1/1)
+Input files: None; output files: None (per-layer source search preference in memory)
+[Source Search 1/2] Rebuilding source search fields (0/2)
+[Source Picker 1/2] Input files: None; output files: None (verified catalog in memory) (0/2)
+[Source Picker 2/2] Campaign: 0 entries in Enterprise v19.2 (2/2)
+[Source Search 2/2] Ready; source choices and TTP annotations preserved (2/2)
+Input files: None; output files: None (per-layer source search preference in memory)
+[Source Search 1/2] Rebuilding source search fields (0/2)
+[Source Picker 1/2] Input files: None; output files: None (verified catalog in memory) (0/2)
+[Source Picker 2/2] Campaign: 0 entries in Enterprise v19.2 (2/2)
+[Source Search 2/2] Ready; source choices and TTP annotations preserved (2/2)
+Input files: None; output files: None (per-layer source search preference in memory)
+[Source Search 1/2] Rebuilding source search fields (0/2)
+[Source Picker 1/2] Input files: None; output files: None (verified catalog in memory) (0/2)
+[Source Picker 2/2] Campaign: 0 entries in Enterprise v19.2 (2/2)
+[Source Search 2/2] Ready; source choices and TTP annotations preserved (2/2)
+Input files: None; output files: None (per-layer source search preference in memory)
+[Source Search 1/2] Rebuilding source search fields (0/2)
+[Source Picker 1/2] Input files: None; output files: None (verified catalog in memory) (0/2)
+[Source Picker 2/2] Campaign: 0 entries in Enterprise v19.2 (2/2)
+[Source Search 2/2] Ready; source choices and TTP annotations preserved (2/2)
+[Source Audit 4/7] Matrix result batches and per-source details (3/7)
+[Source Picker 1/2] Input files: None; output files: None (verified catalog in memory) (0/2)
+[Source Picker 2/2] Detection Strategy: 3 entries in Enterprise v19.2 (2/2)
+Input files: None (exact active catalog relationships); output files: None
+[Source Selection 1/3] Resolving source result union and explicit mapping paths (0/3)
+[Source Selection 2/3] Applying deduplicated targets and selection preferences (1/3)
+[Source Selection 3/3] 2 sources; 2 mapped TTPs; 3 tactic occurrences changed; 3 included TTPs; annotations unchanged (3/3)
+Input files: None (exact active catalog relationships); output files: None
+[Source Selection 1/3] Resolving source result union and explicit mapping paths (0/3)
+[Source Selection 2/3] Applying deduplicated targets and selection preferences (1/3)
+[Source Selection 3/3] 2 sources; 2 mapped TTPs; 3 tactic occurrences changed; 1 included TTPs; annotations unchanged (3/3)
+[Source Picker 1/2] Input files: None; output files: None (verified catalog in memory) (0/2)
+[Source Picker 2/2] Asset: 1 entries in Enterprise v19.2 (2/2)
+Input files: None (exact active catalog relationships); output files: None
+[Source Selection 1/3] Resolving source result union and explicit mapping paths (0/3)
+[Source Selection 2/3] Applying deduplicated targets and selection preferences (1/3)
+[Source Selection 3/3] 1 sources; 1 mapped TTPs; 2 tactic occurrences changed; 1 included TTPs; annotations unchanged (3/3)
+Input files: None (exact active catalog relationships); output files: None
+[Source Selection 1/3] Resolving source result union and explicit mapping paths (0/3)
+[Source Selection 2/3] Applying deduplicated targets and selection preferences (1/3)
+[Source Selection 3/3] 1 sources; 1 mapped TTPs; 2 tactic occurrences changed; 0 included TTPs; annotations unchanged (3/3)
+Input files: None (related TTPs from the verified in-memory catalog)
+Output files: None (detail page only)
+[Related TTPs 1/2] Rendering A1000 relationships (0/1)
+[Related TTPs 2/2] Ready: 1 relationships (1/1)
+Input files: None (related TTPs from the verified in-memory catalog)
+Output files: None (detail page only)
+[Related TTPs 1/2] Rendering A1000 relationships (0/1)
+[Related TTPs 2/2] Ready: 1 relationships (1/1)
+Input files: None (exact active catalog relationships); output files: None
+[Source Selection 1/3] Resolving source result union and explicit mapping paths (0/3)
+[Source Selection 2/3] Applying deduplicated targets and selection preferences (1/3)
+[Source Selection 3/3] 1 sources; 1 mapped TTPs; 2 tactic occurrences changed; 1 included TTPs; annotations unchanged (3/3)
+Input files: None (exact active catalog relationships); output files: None
+[Source Selection 1/3] Resolving source result union and explicit mapping paths (0/3)
+[Source Selection 2/3] Applying deduplicated targets and selection preferences (1/3)
+[Source Selection 3/3] 1 sources; 1 mapped TTPs; 2 tactic occurrences changed; 0 included TTPs; annotations unchanged (3/3)
+[Source Picker 1/2] Input files: None; output files: None (verified catalog in memory) (0/2)
+[Source Picker 2/2] Detection Strategy: 3 entries in Enterprise v19.2 (2/2)
+Input files: None (exact active catalog relationships); output files: None
+[Source Selection 1/3] Resolving source result union and explicit mapping paths (0/3)
+[Source Selection 2/3] Applying deduplicated targets and selection preferences (1/3)
+[Source Selection 3/3] 1 sources; 1 mapped TTPs; 1 tactic occurrences changed; 1 included TTPs; annotations unchanged (3/3)
+Input files: None (exact active catalog relationships); output files: None
+[Source Selection 1/3] Resolving source result union and explicit mapping paths (0/3)
+[Source Selection 2/3] Applying deduplicated targets and selection preferences (1/3)
+[Source Selection 3/3] 1 sources; 1 mapped TTPs; 1 tactic occurrences changed; 0 included TTPs; annotations unchanged (3/3)
+Input files: None (related TTPs from the verified in-memory catalog)
+Output files: None (detail page only)
+[Related TTPs 1/2] Rendering DET1000 relationships (0/1)
+[Related TTPs 2/2] Ready: 1 relationships (1/1)
+Input files: None (related TTPs from the verified in-memory catalog)
+Output files: None (detail page only)
+[Related TTPs 1/2] Rendering DET1000 relationships (0/1)
+[Related TTPs 2/2] Ready: 1 relationships (1/1)
+Input files: None (exact active catalog relationships); output files: None
+[Source Selection 1/3] Resolving source result union and explicit mapping paths (0/3)
+[Source Selection 2/3] Applying deduplicated targets and selection preferences (1/3)
+[Source Selection 3/3] 1 sources; 1 mapped TTPs; 1 tactic occurrences changed; 1 included TTPs; annotations unchanged (3/3)
+Input files: None (exact active catalog relationships); output files: None
+[Source Selection 1/3] Resolving source result union and explicit mapping paths (0/3)
+[Source Selection 2/3] Applying deduplicated targets and selection preferences (1/3)
+[Source Selection 3/3] 1 sources; 1 mapped TTPs; 1 tactic occurrences changed; 0 included TTPs; annotations unchanged (3/3)
+[Source Picker 1/2] Input files: None; output files: None (verified catalog in memory) (0/2)
+[Source Picker 2/2] Data Component: 2 entries in Enterprise v19.2 (2/2)
+Input files: None (exact active catalog relationships); output files: None
+[Source Selection 1/3] Resolving source result union and explicit mapping paths (0/3)
+[Source Selection 2/3] Applying deduplicated targets and selection preferences (1/3)
+[Source Selection 3/3] 1 sources; 3 mapped TTPs; 4 tactic occurrences changed; 3 included TTPs; annotations unchanged (3/3)
+Input files: None (exact active catalog relationships); output files: None
+[Source Selection 1/3] Resolving source result union and explicit mapping paths (0/3)
+[Source Selection 2/3] Applying deduplicated targets and selection preferences (1/3)
+[Source Selection 3/3] 1 sources; 3 mapped TTPs; 4 tactic occurrences changed; 0 included TTPs; annotations unchanged (3/3)
+Input files: None (related TTPs from the verified in-memory catalog)
+Output files: None (detail page only)
+[Related TTPs 1/2] Rendering DC1000 relationships (0/3)
+[Related TTPs 2/2] Ready: 3 relationships (1/1)
+Input files: None (related TTPs from the verified in-memory catalog)
+Output files: None (detail page only)
+[Related TTPs 1/2] Rendering DC1000 relationships (0/3)
+[Related TTPs 2/2] Ready: 3 relationships (1/1)
+Input files: None (exact active catalog relationships); output files: None
+[Source Selection 1/3] Resolving source result union and explicit mapping paths (0/3)
+[Source Selection 2/3] Applying deduplicated targets and selection preferences (1/3)
+[Source Selection 3/3] 1 sources; 3 mapped TTPs; 4 tactic occurrences changed; 3 included TTPs; annotations unchanged (3/3)
+Input files: None (exact active catalog relationships); output files: None
+[Source Selection 1/3] Resolving source result union and explicit mapping paths (0/3)
+[Source Selection 2/3] Applying deduplicated targets and selection preferences (1/3)
+[Source Selection 3/3] 1 sources; 3 mapped TTPs; 4 tactic occurrences changed; 0 included TTPs; annotations unchanged (3/3)
+[Source Picker 1/2] Input files: None; output files: None (verified catalog in memory) (0/2)
+[Source Picker 2/2] Data Source: 1 entries in Enterprise v19.2 (2/2)
+Input files: None (exact active catalog relationships); output files: None
+[Source Selection 1/3] Resolving source result union and explicit mapping paths (0/3)
+[Source Selection 2/3] Applying deduplicated targets and selection preferences (1/3)
+[Source Selection 3/3] 1 sources; 3 mapped TTPs; 4 tactic occurrences changed; 3 included TTPs; annotations unchanged (3/3)
+Input files: None (exact active catalog relationships); output files: None
+[Source Selection 1/3] Resolving source result union and explicit mapping paths (0/3)
+[Source Selection 2/3] Applying deduplicated targets and selection preferences (1/3)
+[Source Selection 3/3] 1 sources; 3 mapped TTPs; 4 tactic occurrences changed; 0 included TTPs; annotations unchanged (3/3)
+Input files: None (related TTPs from the verified in-memory catalog)
+Output files: None (detail page only)
+[Related TTPs 1/2] Rendering DS1000 relationships (0/3)
+[Related TTPs 2/2] Ready: 3 relationships (1/1)
+Input files: None (related TTPs from the verified in-memory catalog)
+Output files: None (detail page only)
+[Related TTPs 1/2] Rendering DS1000 relationships (0/3)
+[Related TTPs 2/2] Ready: 3 relationships (1/1)
+Input files: None (exact active catalog relationships); output files: None
+[Source Selection 1/3] Resolving source result union and explicit mapping paths (0/3)
+[Source Selection 2/3] Applying deduplicated targets and selection preferences (1/3)
+[Source Selection 3/3] 1 sources; 3 mapped TTPs; 4 tactic occurrences changed; 3 included TTPs; annotations unchanged (3/3)
+Input files: None (exact active catalog relationships); output files: None
+[Source Selection 1/3] Resolving source result union and explicit mapping paths (0/3)
+[Source Selection 2/3] Applying deduplicated targets and selection preferences (1/3)
+[Source Selection 3/3] 1 sources; 3 mapped TTPs; 4 tactic occurrences changed; 0 included TTPs; annotations unchanged (3/3)
+[Source Audit 5/7] Visibility/family preferences and stale UI protection (4/7)
+Input files: None; output files: None (layer presentation in memory)
+[Presentation 1/2] Saving layout, sorting and platform filters (1/2)
+[Presentation 2/2] Saved to the active layer (2/2)
+[Matrix 1/3 Scope] Input files: None; output files: None (verified catalog in memory)
+[Matrix 1/3 Scope] Platform/tactic families resolved (1/1)
+Input files: None; output files: None (selected TTP occurrences in memory)
+[Select TTP 1/2] Resolving tactic/family preferences (0/2)
+[Select TTP 2/2] Ready; enabled states and annotations preserved (2/2)
+[Matrix 2/3 Columns] Building expandable tactic columns (1/2)
+[Matrix 2/3 Columns] Building expandable tactic columns (2/2)
+[Matrix 3/3 Ready] Matrix columns complete (1/1)
+Input files: None; output files: None (layer expansion policy in memory)
+[Expansion 1/2] Resolving the saved expansion policy (0/2)
+Input files: None; output files: None (display settings in memory)
+[Matrix Display 1/2] Validating the active layer display settings (0/2)
+[Matrix Display 2/2] Applied; selection and annotations preserved (2/2)
+[Expansion 2/2] Policy applied; selection unchanged (2/2)
+Input files: None (exact active catalog relationships); output files: None
+[Source Selection 1/3] Resolving source result union and explicit mapping paths (0/3)
+[Source Selection 2/3] Applying deduplicated targets and selection preferences (1/3)
+[Source Selection 3/3] 1 sources; 3 mapped TTPs; 2 tactic occurrences changed; 1 included TTPs; annotations unchanged (3/3)
+Input files: None (exact active catalog relationships); output files: None
+[Source Selection 1/3] Resolving source result union and explicit mapping paths (0/3)
+[Source Selection 2/3] Applying deduplicated targets and selection preferences (1/3)
+[Source Selection 3/3] 1 sources; 3 mapped TTPs; 4 tactic occurrences changed; 3 included TTPs; annotations unchanged (3/3)
+[Source Picker 1/2] Input files: None; output files: None (verified catalog in memory) (0/2)
+[Source Picker 2/2] Asset: 1 entries in Enterprise v19.2 (2/2)
+[Document 1/2] Input files: None; output files: None; activating Other domain (0/2)
+[4/4 Tree] Complete: 5 unique selectable technique IDs
+[Source Picker 1/2] Input files: None; output files: None (verified catalog in memory) (0/2)
+[Source Picker 2/2] Asset: 1 entries in Enterprise v19.2 (2/2)
+Input files: None (exact domain/version catalog in memory); output files: None
+[Search Index 1/3] Reading legacy data sources and active detection mappings (0/3)
+[Search Index 2/3] Building name/ID/description/data-source/detection-strategy fields (1/3)
+[Search Index 3/3] Ready: 5 techniques in ics-attack v19.2 (3/3)
+[Source Picker 1/2] Input files: None; output files: None (verified catalog in memory) (0/2)
+[Source Picker 2/2] Asset: 1 entries in ICS v19.2 (2/2)
+[Matrix 1/3 Scope] Input files: None; output files: None (verified catalog in memory)
+[Matrix 1/3 Scope] Platform/tactic families resolved (1/1)
+[Matrix 2/3 Columns] Building expandable tactic columns (1/2)
+[Matrix 2/3 Columns] Building expandable tactic columns (2/2)
+[Matrix 3/3 Ready] Matrix columns complete (1/1)
+[Document 1/2] Input files: None; output files: None; activating Source unions (0/2)
+[4/4 Tree] Complete: 5 unique selectable technique IDs
+[Source Picker 1/2] Input files: None; output files: None (verified catalog in memory) (0/2)
+[Source Picker 2/2] Asset: 1 entries in ICS v19.2 (2/2)
+[Source Picker 1/2] Input files: None; output files: None (verified catalog in memory) (0/2)
+[Source Picker 2/2] Asset: 1 entries in Enterprise v19.2 (2/2)
+[Matrix 1/3 Scope] Input files: None; output files: None (verified catalog in memory)
+[Matrix 1/3 Scope] Platform/tactic families resolved (1/1)
+Input files: None; output files: None (selected TTP occurrences in memory)
+[Select TTP 1/2] Resolving tactic/family preferences (0/2)
+[Select TTP 2/2] Ready; enabled states and annotations preserved (2/2)
+[Matrix 2/3 Columns] Building expandable tactic columns (1/2)
+[Matrix 2/3 Columns] Building expandable tactic columns (2/2)
+[Matrix 3/3 Ready] Matrix columns complete (1/1)
+[Source Picker 1/2] Input files: None; output files: None (verified catalog in memory) (0/2)
+[Source Picker 2/2] Data Component: 2 entries in Enterprise v19.2 (2/2)
+[Source Audit 6/7] Studio/Navigator/CSV/recovery persistence (5/7)
+Input files: None (document draft in memory)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\source-selection\state.studio.json
+[Studio Save 1/3] Checking saved-file baseline (0/3)
+[Studio Save 2/3] Writing complete document atomically (1/3)
+Input files: None (validated in-memory data)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\source-selection\state.studio.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\artifacts\source-selection\state.studio.json.b4aa9029dec54f3694904d8cac451c0d.tmp
+[Studio Save 1/3] Serializing data (0/3)
+[Studio Save 2/3] Writing UTF-8 JSON (1/3)
+[Studio Save 3/3] Publishing file (2/3)
+[Studio Save 3/3] Complete: D:\MITREATTACK_SIMULATOR\artifacts\source-selection\state.studio.json (3/3)
+[Studio Save 3/3] Complete; source draft unchanged until accepted (3/3)
+Input file: D:\MITREATTACK_SIMULATOR\artifacts\source-selection\state.studio.json
+Output files: None (validated draft in memory)
+[Studio Open 1/4] Reading bounded UTF-8 JSON (0/4)
+[Studio Open 2/4] Resolving exact dataset 19.2 (1/4)
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\custom\71e8153632f638081c9a80262cb699fff70ee19dfceebc35a76ee20855421e56.json
+Output files: None (validated draft in memory)
+[Studio Open 1/4] Reading bounded UTF-8 JSON (0/4)
+Input bundle: validated JSON in memory; output files: None (custom catalog in memory)
+[Source 3/4] Validating ATT&CK-compatible STIX (0/4)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/87)
+[3/4 Procedures] Complete: Enterprise 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/87)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 16 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing Mobile procedure examples (0/87)
+[3/4 Procedures] Complete: Mobile 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Mobile objects in memory)
+[3/4 Related TTPs] Indexing Mobile direct source relationships (0/87)
+[3/4 Related TTPs] Resolving Mobile strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Mobile 16 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing ICS procedure examples (0/87)
+[3/4 Procedures] Complete: ICS 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships (0/87)
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 16 direct/derived mappings (1/1)
+[Studio Open 3/4] Validating annotations and domain/version/migration archives (2/4)
+[Studio Open 4/4] Complete; validated document ready in memory (4/4)
+Input files: None (active document and verified catalog in memory)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\source-selection\state.csv
+Temporary output file: D:\MITREATTACK_SIMULATOR\artifacts\source-selection\state.csv.8970fb0902c74781bc462acce6b5f47d.tmp
+[Export 1/3 Prepare] Validating and serializing selected TTPs (0/3)
+[Export 2/3 Write] Writing 3 selected TTPs (1/3)
+[Export 3/3 Publish] Publishing CSV file (2/3)
+[Export] CSV is an exchange file; use Save / Save As for a complete editable Studio document. (1/1)
+[Export 3/3 Publish] Complete: D:\MITREATTACK_SIMULATOR\artifacts\source-selection\state.csv (3/3)
+Input files: None (immutable workspace snapshot in memory)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\source-selection\session.json
+[Session 1/3] Preparing recovery checkpoint (0/3)
+Input files: None (validated in-memory data)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\source-selection\session.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\artifacts\source-selection\session.json.bb32bc6eda9449fb838fc52a2cbc7b4c.tmp
+[Session 1/3] Serializing data (0/3)
+[Session 2/3] Writing UTF-8 JSON (1/3)
+[Session 3/3] Publishing file (2/3)
+[Session 3/3] Complete: D:\MITREATTACK_SIMULATOR\artifacts\source-selection\session.json (3/3)
+Input file: D:\MITREATTACK_SIMULATOR\artifacts\source-selection\session.json
+Output files: None (validated draft in memory)
+[Studio Open 1/4] Reading bounded UTF-8 JSON (0/4)
+[Studio Open 2/4] Resolving exact dataset 19.2 (1/4)
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\custom\71e8153632f638081c9a80262cb699fff70ee19dfceebc35a76ee20855421e56.json
+Output files: None (validated draft in memory)
+[Studio Open 1/4] Reading bounded UTF-8 JSON (0/4)
+Input bundle: validated JSON in memory; output files: None (custom catalog in memory)
+[Source 3/4] Validating ATT&CK-compatible STIX (0/4)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/87)
+[3/4 Procedures] Complete: Enterprise 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/87)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 16 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing Mobile procedure examples (0/87)
+[3/4 Procedures] Complete: Mobile 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Mobile objects in memory)
+[3/4 Related TTPs] Indexing Mobile direct source relationships (0/87)
+[3/4 Related TTPs] Resolving Mobile strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Mobile 16 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing ICS procedure examples (0/87)
+[3/4 Procedures] Complete: ICS 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships (0/87)
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 16 direct/derived mappings (1/1)
+[Studio Open 3/4] Validating annotations and domain/version/migration archives (2/4)
+[Studio Open 4/4] Complete; validated document ready in memory (4/4)
+[Session 2/3] Validating recoverable documents (1/2)
+[Studio Open 3/4] Validating annotations and domain/version/migration archives (2/4)
+[Studio Open 4/4] Complete; validated document ready in memory (4/4)
+[Session 2/3] Validating recoverable documents (2/2)
+[Session 3/3] All documents validated; workspace ready for atomic restore (3/3)
+[Source Audit 7/7] Pointer preservation and verified report (6/7)
+[Source Audit] PASS: 1219 checks (7/7)

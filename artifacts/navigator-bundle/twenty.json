@@ -1,0 +1,1122 @@
+[
+  {
+    "name": "Shared layer name",
+    "domain": "enterprise-attack",
+    "description": "Keep description enterprise-attack",
+    "techniques": [
+      {
+        "techniqueID": "T1053.005",
+        "enabled": false,
+        "score": 2.75,
+        "color": "#2277aa",
+        "comment": "Keep annotation\nsecond line",
+        "metadata": [
+          {
+            "name": "Owner",
+            "value": "Research"
+          },
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "true"
+          }
+        ],
+        "links": [
+          {
+            "label": "Reference",
+            "url": "https://example.org/"
+          }
+        ],
+        "x_fixture": {
+          "keep": true
+        }
+      },
+      {
+        "techniqueID": "T9999",
+        "comment": "Unresolved row retained",
+        "enabled": false,
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "false"
+          }
+        ]
+      }
+    ],
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false,
+    "selectVisibleTechniques": false,
+    "x_ttp_studio_search_fields": [
+      "name",
+      "id"
+    ],
+    "versions": {
+      "attack": "20.0",
+      "navigator": "5.2.0",
+      "layer": "4.5"
+    }
+  },
+  {
+    "name": "Shared layer name",
+    "domain": "enterprise-attack",
+    "description": "Keep description enterprise-attack",
+    "techniques": [
+      {
+        "techniqueID": "T1053.005",
+        "enabled": false,
+        "score": 2.75,
+        "color": "#2277aa",
+        "comment": "Keep annotation\nsecond line",
+        "metadata": [
+          {
+            "name": "Owner",
+            "value": "Research"
+          },
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "true"
+          }
+        ],
+        "links": [
+          {
+            "label": "Reference",
+            "url": "https://example.org/"
+          }
+        ],
+        "x_fixture": {
+          "keep": true
+        }
+      },
+      {
+        "techniqueID": "T9999",
+        "comment": "Unresolved row retained",
+        "enabled": false,
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "false"
+          }
+        ]
+      }
+    ],
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false,
+    "selectVisibleTechniques": false,
+    "x_ttp_studio_search_fields": [
+      "name",
+      "id"
+    ],
+    "versions": {
+      "attack": "20.0",
+      "navigator": "5.2.0",
+      "layer": "4.5"
+    }
+  },
+  {
+    "name": "Shared layer name",
+    "domain": "enterprise-attack",
+    "description": "Keep description enterprise-attack",
+    "techniques": [
+      {
+        "techniqueID": "T1053.005",
+        "enabled": false,
+        "score": 2.75,
+        "color": "#2277aa",
+        "comment": "Keep annotation\nsecond line",
+        "metadata": [
+          {
+            "name": "Owner",
+            "value": "Research"
+          },
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "true"
+          }
+        ],
+        "links": [
+          {
+            "label": "Reference",
+            "url": "https://example.org/"
+          }
+        ],
+        "x_fixture": {
+          "keep": true
+        }
+      },
+      {
+        "techniqueID": "T9999",
+        "comment": "Unresolved row retained",
+        "enabled": false,
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "false"
+          }
+        ]
+      }
+    ],
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false,
+    "selectVisibleTechniques": false,
+    "x_ttp_studio_search_fields": [
+      "name",
+      "id"
+    ],
+    "versions": {
+      "attack": "20.0",
+      "navigator": "5.2.0",
+      "layer": "4.5"
+    }
+  },
+  {
+    "name": "Shared layer name",
+    "domain": "enterprise-attack",
+    "description": "Keep description enterprise-attack",
+    "techniques": [
+      {
+        "techniqueID": "T1053.005",
+        "enabled": false,
+        "score": 2.75,
+        "color": "#2277aa",
+        "comment": "Keep annotation\nsecond line",
+        "metadata": [
+          {
+            "name": "Owner",
+            "value": "Research"
+          },
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "true"
+          }
+        ],
+        "links": [
+          {
+            "label": "Reference",
+            "url": "https://example.org/"
+          }
+        ],
+        "x_fixture": {
+          "keep": true
+        }
+      },
+      {
+        "techniqueID": "T9999",
+        "comment": "Unresolved row retained",
+        "enabled": false,
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "false"
+          }
+        ]
+      }
+    ],
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false,
+    "selectVisibleTechniques": false,
+    "x_ttp_studio_search_fields": [
+      "name",
+      "id"
+    ],
+    "versions": {
+      "attack": "20.0",
+      "navigator": "5.2.0",
+      "layer": "4.5"
+    }
+  },
+  {
+    "name": "Shared layer name",
+    "domain": "enterprise-attack",
+    "description": "Keep description enterprise-attack",
+    "techniques": [
+      {
+        "techniqueID": "T1053.005",
+        "enabled": false,
+        "score": 2.75,
+        "color": "#2277aa",
+        "comment": "Keep annotation\nsecond line",
+        "metadata": [
+          {
+            "name": "Owner",
+            "value": "Research"
+          },
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "true"
+          }
+        ],
+        "links": [
+          {
+            "label": "Reference",
+            "url": "https://example.org/"
+          }
+        ],
+        "x_fixture": {
+          "keep": true
+        }
+      },
+      {
+        "techniqueID": "T9999",
+        "comment": "Unresolved row retained",
+        "enabled": false,
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "false"
+          }
+        ]
+      }
+    ],
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false,
+    "selectVisibleTechniques": false,
+    "x_ttp_studio_search_fields": [
+      "name",
+      "id"
+    ],
+    "versions": {
+      "attack": "20.0",
+      "navigator": "5.2.0",
+      "layer": "4.5"
+    }
+  },
+  {
+    "name": "Shared layer name",
+    "domain": "enterprise-attack",
+    "description": "Keep description enterprise-attack",
+    "techniques": [
+      {
+        "techniqueID": "T1053.005",
+        "enabled": false,
+        "score": 2.75,
+        "color": "#2277aa",
+        "comment": "Keep annotation\nsecond line",
+        "metadata": [
+          {
+            "name": "Owner",
+            "value": "Research"
+          },
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "true"
+          }
+        ],
+        "links": [
+          {
+            "label": "Reference",
+            "url": "https://example.org/"
+          }
+        ],
+        "x_fixture": {
+          "keep": true
+        }
+      },
+      {
+        "techniqueID": "T9999",
+        "comment": "Unresolved row retained",
+        "enabled": false,
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "false"
+          }
+        ]
+      }
+    ],
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false,
+    "selectVisibleTechniques": false,
+    "x_ttp_studio_search_fields": [
+      "name",
+      "id"
+    ],
+    "versions": {
+      "attack": "20.0",
+      "navigator": "5.2.0",
+      "layer": "4.5"
+    }
+  },
+  {
+    "name": "Shared layer name",
+    "domain": "enterprise-attack",
+    "description": "Keep description enterprise-attack",
+    "techniques": [
+      {
+        "techniqueID": "T1053.005",
+        "enabled": false,
+        "score": 2.75,
+        "color": "#2277aa",
+        "comment": "Keep annotation\nsecond line",
+        "metadata": [
+          {
+            "name": "Owner",
+            "value": "Research"
+          },
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "true"
+          }
+        ],
+        "links": [
+          {
+            "label": "Reference",
+            "url": "https://example.org/"
+          }
+        ],
+        "x_fixture": {
+          "keep": true
+        }
+      },
+      {
+        "techniqueID": "T9999",
+        "comment": "Unresolved row retained",
+        "enabled": false,
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "false"
+          }
+        ]
+      }
+    ],
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false,
+    "selectVisibleTechniques": false,
+    "x_ttp_studio_search_fields": [
+      "name",
+      "id"
+    ],
+    "versions": {
+      "attack": "20.0",
+      "navigator": "5.2.0",
+      "layer": "4.5"
+    }
+  },
+  {
+    "name": "Shared layer name",
+    "domain": "enterprise-attack",
+    "description": "Keep description enterprise-attack",
+    "techniques": [
+      {
+        "techniqueID": "T1053.005",
+        "enabled": false,
+        "score": 2.75,
+        "color": "#2277aa",
+        "comment": "Keep annotation\nsecond line",
+        "metadata": [
+          {
+            "name": "Owner",
+            "value": "Research"
+          },
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "true"
+          }
+        ],
+        "links": [
+          {
+            "label": "Reference",
+            "url": "https://example.org/"
+          }
+        ],
+        "x_fixture": {
+          "keep": true
+        }
+      },
+      {
+        "techniqueID": "T9999",
+        "comment": "Unresolved row retained",
+        "enabled": false,
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "false"
+          }
+        ]
+      }
+    ],
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false,
+    "selectVisibleTechniques": false,
+    "x_ttp_studio_search_fields": [
+      "name",
+      "id"
+    ],
+    "versions": {
+      "attack": "20.0",
+      "navigator": "5.2.0",
+      "layer": "4.5"
+    }
+  },
+  {
+    "name": "Shared layer name",
+    "domain": "enterprise-attack",
+    "description": "Keep description enterprise-attack",
+    "techniques": [
+      {
+        "techniqueID": "T1053.005",
+        "enabled": false,
+        "score": 2.75,
+        "color": "#2277aa",
+        "comment": "Keep annotation\nsecond line",
+        "metadata": [
+          {
+            "name": "Owner",
+            "value": "Research"
+          },
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "true"
+          }
+        ],
+        "links": [
+          {
+            "label": "Reference",
+            "url": "https://example.org/"
+          }
+        ],
+        "x_fixture": {
+          "keep": true
+        }
+      },
+      {
+        "techniqueID": "T9999",
+        "comment": "Unresolved row retained",
+        "enabled": false,
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "false"
+          }
+        ]
+      }
+    ],
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false,
+    "selectVisibleTechniques": false,
+    "x_ttp_studio_search_fields": [
+      "name",
+      "id"
+    ],
+    "versions": {
+      "attack": "20.0",
+      "navigator": "5.2.0",
+      "layer": "4.5"
+    }
+  },
+  {
+    "name": "Shared layer name",
+    "domain": "enterprise-attack",
+    "description": "Keep description enterprise-attack",
+    "techniques": [
+      {
+        "techniqueID": "T1053.005",
+        "enabled": false,
+        "score": 2.75,
+        "color": "#2277aa",
+        "comment": "Keep annotation\nsecond line",
+        "metadata": [
+          {
+            "name": "Owner",
+            "value": "Research"
+          },
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "true"
+          }
+        ],
+        "links": [
+          {
+            "label": "Reference",
+            "url": "https://example.org/"
+          }
+        ],
+        "x_fixture": {
+          "keep": true
+        }
+      },
+      {
+        "techniqueID": "T9999",
+        "comment": "Unresolved row retained",
+        "enabled": false,
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "false"
+          }
+        ]
+      }
+    ],
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false,
+    "selectVisibleTechniques": false,
+    "x_ttp_studio_search_fields": [
+      "name",
+      "id"
+    ],
+    "versions": {
+      "attack": "20.0",
+      "navigator": "5.2.0",
+      "layer": "4.5"
+    }
+  },
+  {
+    "name": "Shared layer name",
+    "domain": "enterprise-attack",
+    "description": "Keep description enterprise-attack",
+    "techniques": [
+      {
+        "techniqueID": "T1053.005",
+        "enabled": false,
+        "score": 2.75,
+        "color": "#2277aa",
+        "comment": "Keep annotation\nsecond line",
+        "metadata": [
+          {
+            "name": "Owner",
+            "value": "Research"
+          },
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "true"
+          }
+        ],
+        "links": [
+          {
+            "label": "Reference",
+            "url": "https://example.org/"
+          }
+        ],
+        "x_fixture": {
+          "keep": true
+        }
+      },
+      {
+        "techniqueID": "T9999",
+        "comment": "Unresolved row retained",
+        "enabled": false,
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "false"
+          }
+        ]
+      }
+    ],
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false,
+    "selectVisibleTechniques": false,
+    "x_ttp_studio_search_fields": [
+      "name",
+      "id"
+    ],
+    "versions": {
+      "attack": "20.0",
+      "navigator": "5.2.0",
+      "layer": "4.5"
+    }
+  },
+  {
+    "name": "Shared layer name",
+    "domain": "enterprise-attack",
+    "description": "Keep description enterprise-attack",
+    "techniques": [
+      {
+        "techniqueID": "T1053.005",
+        "enabled": false,
+        "score": 2.75,
+        "color": "#2277aa",
+        "comment": "Keep annotation\nsecond line",
+        "metadata": [
+          {
+            "name": "Owner",
+            "value": "Research"
+          },
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "true"
+          }
+        ],
+        "links": [
+          {
+            "label": "Reference",
+            "url": "https://example.org/"
+          }
+        ],
+        "x_fixture": {
+          "keep": true
+        }
+      },
+      {
+        "techniqueID": "T9999",
+        "comment": "Unresolved row retained",
+        "enabled": false,
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "false"
+          }
+        ]
+      }
+    ],
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false,
+    "selectVisibleTechniques": false,
+    "x_ttp_studio_search_fields": [
+      "name",
+      "id"
+    ],
+    "versions": {
+      "attack": "20.0",
+      "navigator": "5.2.0",
+      "layer": "4.5"
+    }
+  },
+  {
+    "name": "Shared layer name",
+    "domain": "enterprise-attack",
+    "description": "Keep description enterprise-attack",
+    "techniques": [
+      {
+        "techniqueID": "T1053.005",
+        "enabled": false,
+        "score": 2.75,
+        "color": "#2277aa",
+        "comment": "Keep annotation\nsecond line",
+        "metadata": [
+          {
+            "name": "Owner",
+            "value": "Research"
+          },
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "true"
+          }
+        ],
+        "links": [
+          {
+            "label": "Reference",
+            "url": "https://example.org/"
+          }
+        ],
+        "x_fixture": {
+          "keep": true
+        }
+      },
+      {
+        "techniqueID": "T9999",
+        "comment": "Unresolved row retained",
+        "enabled": false,
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "false"
+          }
+        ]
+      }
+    ],
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false,
+    "selectVisibleTechniques": false,
+    "x_ttp_studio_search_fields": [
+      "name",
+      "id"
+    ],
+    "versions": {
+      "attack": "20.0",
+      "navigator": "5.2.0",
+      "layer": "4.5"
+    }
+  },
+  {
+    "name": "Shared layer name",
+    "domain": "enterprise-attack",
+    "description": "Keep description enterprise-attack",
+    "techniques": [
+      {
+        "techniqueID": "T1053.005",
+        "enabled": false,
+        "score": 2.75,
+        "color": "#2277aa",
+        "comment": "Keep annotation\nsecond line",
+        "metadata": [
+          {
+            "name": "Owner",
+            "value": "Research"
+          },
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "true"
+          }
+        ],
+        "links": [
+          {
+            "label": "Reference",
+            "url": "https://example.org/"
+          }
+        ],
+        "x_fixture": {
+          "keep": true
+        }
+      },
+      {
+        "techniqueID": "T9999",
+        "comment": "Unresolved row retained",
+        "enabled": false,
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "false"
+          }
+        ]
+      }
+    ],
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false,
+    "selectVisibleTechniques": false,
+    "x_ttp_studio_search_fields": [
+      "name",
+      "id"
+    ],
+    "versions": {
+      "attack": "20.0",
+      "navigator": "5.2.0",
+      "layer": "4.5"
+    }
+  },
+  {
+    "name": "Shared layer name",
+    "domain": "enterprise-attack",
+    "description": "Keep description enterprise-attack",
+    "techniques": [
+      {
+        "techniqueID": "T1053.005",
+        "enabled": false,
+        "score": 2.75,
+        "color": "#2277aa",
+        "comment": "Keep annotation\nsecond line",
+        "metadata": [
+          {
+            "name": "Owner",
+            "value": "Research"
+          },
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "true"
+          }
+        ],
+        "links": [
+          {
+            "label": "Reference",
+            "url": "https://example.org/"
+          }
+        ],
+        "x_fixture": {
+          "keep": true
+        }
+      },
+      {
+        "techniqueID": "T9999",
+        "comment": "Unresolved row retained",
+        "enabled": false,
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "false"
+          }
+        ]
+      }
+    ],
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false,
+    "selectVisibleTechniques": false,
+    "x_ttp_studio_search_fields": [
+      "name",
+      "id"
+    ],
+    "versions": {
+      "attack": "20.0",
+      "navigator": "5.2.0",
+      "layer": "4.5"
+    }
+  },
+  {
+    "name": "Shared layer name",
+    "domain": "enterprise-attack",
+    "description": "Keep description enterprise-attack",
+    "techniques": [
+      {
+        "techniqueID": "T1053.005",
+        "enabled": false,
+        "score": 2.75,
+        "color": "#2277aa",
+        "comment": "Keep annotation\nsecond line",
+        "metadata": [
+          {
+            "name": "Owner",
+            "value": "Research"
+          },
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "true"
+          }
+        ],
+        "links": [
+          {
+            "label": "Reference",
+            "url": "https://example.org/"
+          }
+        ],
+        "x_fixture": {
+          "keep": true
+        }
+      },
+      {
+        "techniqueID": "T9999",
+        "comment": "Unresolved row retained",
+        "enabled": false,
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "false"
+          }
+        ]
+      }
+    ],
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false,
+    "selectVisibleTechniques": false,
+    "x_ttp_studio_search_fields": [
+      "name",
+      "id"
+    ],
+    "versions": {
+      "attack": "20.0",
+      "navigator": "5.2.0",
+      "layer": "4.5"
+    }
+  },
+  {
+    "name": "Shared layer name",
+    "domain": "enterprise-attack",
+    "description": "Keep description enterprise-attack",
+    "techniques": [
+      {
+        "techniqueID": "T1053.005",
+        "enabled": false,
+        "score": 2.75,
+        "color": "#2277aa",
+        "comment": "Keep annotation\nsecond line",
+        "metadata": [
+          {
+            "name": "Owner",
+            "value": "Research"
+          },
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "true"
+          }
+        ],
+        "links": [
+          {
+            "label": "Reference",
+            "url": "https://example.org/"
+          }
+        ],
+        "x_fixture": {
+          "keep": true
+        }
+      },
+      {
+        "techniqueID": "T9999",
+        "comment": "Unresolved row retained",
+        "enabled": false,
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "false"
+          }
+        ]
+      }
+    ],
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false,
+    "selectVisibleTechniques": false,
+    "x_ttp_studio_search_fields": [
+      "name",
+      "id"
+    ],
+    "versions": {
+      "attack": "20.0",
+      "navigator": "5.2.0",
+      "layer": "4.5"
+    }
+  },
+  {
+    "name": "Shared layer name",
+    "domain": "enterprise-attack",
+    "description": "Keep description enterprise-attack",
+    "techniques": [
+      {
+        "techniqueID": "T1053.005",
+        "enabled": false,
+        "score": 2.75,
+        "color": "#2277aa",
+        "comment": "Keep annotation\nsecond line",
+        "metadata": [
+          {
+            "name": "Owner",
+            "value": "Research"
+          },
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "true"
+          }
+        ],
+        "links": [
+          {
+            "label": "Reference",
+            "url": "https://example.org/"
+          }
+        ],
+        "x_fixture": {
+          "keep": true
+        }
+      },
+      {
+        "techniqueID": "T9999",
+        "comment": "Unresolved row retained",
+        "enabled": false,
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "false"
+          }
+        ]
+      }
+    ],
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false,
+    "selectVisibleTechniques": false,
+    "x_ttp_studio_search_fields": [
+      "name",
+      "id"
+    ],
+    "versions": {
+      "attack": "20.0",
+      "navigator": "5.2.0",
+      "layer": "4.5"
+    }
+  },
+  {
+    "name": "Shared layer name",
+    "domain": "enterprise-attack",
+    "description": "Keep description enterprise-attack",
+    "techniques": [
+      {
+        "techniqueID": "T1053.005",
+        "enabled": false,
+        "score": 2.75,
+        "color": "#2277aa",
+        "comment": "Keep annotation\nsecond line",
+        "metadata": [
+          {
+            "name": "Owner",
+            "value": "Research"
+          },
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "true"
+          }
+        ],
+        "links": [
+          {
+            "label": "Reference",
+            "url": "https://example.org/"
+          }
+        ],
+        "x_fixture": {
+          "keep": true
+        }
+      },
+      {
+        "techniqueID": "T9999",
+        "comment": "Unresolved row retained",
+        "enabled": false,
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "false"
+          }
+        ]
+      }
+    ],
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false,
+    "selectVisibleTechniques": false,
+    "x_ttp_studio_search_fields": [
+      "name",
+      "id"
+    ],
+    "versions": {
+      "attack": "20.0",
+      "navigator": "5.2.0",
+      "layer": "4.5"
+    }
+  },
+  {
+    "name": "Shared layer name",
+    "domain": "enterprise-attack",
+    "description": "Keep description enterprise-attack",
+    "techniques": [
+      {
+        "techniqueID": "T1053.005",
+        "enabled": false,
+        "score": 2.75,
+        "color": "#2277aa",
+        "comment": "Keep annotation\nsecond line",
+        "metadata": [
+          {
+            "name": "Owner",
+            "value": "Research"
+          },
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "true"
+          }
+        ],
+        "links": [
+          {
+            "label": "Reference",
+            "url": "https://example.org/"
+          }
+        ],
+        "x_fixture": {
+          "keep": true
+        }
+      },
+      {
+        "techniqueID": "T9999",
+        "comment": "Unresolved row retained",
+        "enabled": false,
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "false"
+          }
+        ]
+      }
+    ],
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false,
+    "selectVisibleTechniques": false,
+    "x_ttp_studio_search_fields": [
+      "name",
+      "id"
+    ],
+    "versions": {
+      "attack": "20.0",
+      "navigator": "5.2.0",
+      "layer": "4.5"
+    }
+  }
+]

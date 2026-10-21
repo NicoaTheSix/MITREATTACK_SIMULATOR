@@ -1,0 +1,283 @@
+{
+  "schema_version": "1.0",
+  "document_id": "ec295a5b-761b-49f5-8968-356e2ae5e054",
+  "name": "migration.studio",
+  "created_at_utc": "2026-10-21T02:55:04.794041+00:00",
+  "exported_at_utc": "2026-10-21T02:55:04.795036+00:00",
+  "attack": {
+    "domain": "lab-one",
+    "version": "1.0",
+    "source_url": "D:\\MITREATTACK_SIMULATOR\\artifacts\\custom-domains\\other-bundle.json",
+    "dataset_sha256": "bf09947df647fb735b19ce77cf03808e728d8ed4a6dbc1415257666cb39092f9",
+    "custom": true
+  },
+  "selected_count": 1,
+  "selected_technique_ids": [
+    "LAB-BETA.child"
+  ],
+  "selected_ttps": [
+    {
+      "technique_id": "LAB-BETA.child",
+      "stix_id": "attack-pattern--1094ef0d-cdfa-5e5e-a0d3-d3854f56a09e",
+      "name": "Child",
+      "is_subtechnique": true,
+      "parent_technique_id": "LAB-ALPHA",
+      "parent_technique_name": "Root",
+      "platforms": [
+        "ResearchOS"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TACTIC-execute",
+          "name": "execute",
+          "shortname": "execute"
+        }
+      ],
+      "comment": "",
+      "tactic_comments": [
+        {
+          "tactic": "execute",
+          "comment": "Custom domain note"
+        }
+      ],
+      "enabled": true,
+      "tactic_enabled": [
+        {
+          "tactic": "execute",
+          "enabled": true
+        }
+      ],
+      "selected_tactics": [
+        "execute"
+      ]
+    }
+  ],
+  "navigator_import_selected": [
+    "LAB-BETA.child"
+  ],
+  "selection_scopes": {},
+  "selection_preferences": {
+    "across_tactics": true,
+    "with_family": false,
+    "visible_only": false
+  },
+  "search_fields": [
+    "name",
+    "id"
+  ],
+  "navigator_layer": {
+    "name": "Migrated custom domain",
+    "domain": "lab-one",
+    "versions": {
+      "attack": "1.0",
+      "navigator": "5.2.0",
+      "layer": "4.5"
+    },
+    "techniques": [
+      {
+        "techniqueID": "LAB-BETA.child",
+        "tactic": "execute",
+        "color": "#2255aa",
+        "score": 4.5,
+        "comment": "Custom domain note"
+      }
+    ],
+    "customDataURL": "D:\\MITREATTACK_SIMULATOR\\artifacts\\custom-domains\\other-bundle.json",
+    "x_ttp_studio_dataset": "bf09947df647fb735b19ce77cf03808e728d8ed4a6dbc1415257666cb39092f9",
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false,
+    "selectVisibleTechniques": false,
+    "x_ttp_studio_search_fields": [
+      "name",
+      "id"
+    ],
+    "x_ttp_studio_domain": {
+      "id": "lab-one",
+      "name": "Independent Lab",
+      "kill_chain_name": "independent-chain",
+      "reference_source": "independent-source"
+    },
+    "x_ttp_studio_upgrade": {
+      "source_version": "1.0",
+      "source_dataset": "b81aef8a7c9f34f1ce926015b297cc61711957cac220fc4cf52148228f0d199e",
+      "target_dataset": "bf09947df647fb735b19ce77cf03808e728d8ed4a6dbc1415257666cb39092f9",
+      "decisions": [
+        {
+          "source_id": "LAB-BETA.child",
+          "source_scope": "execute",
+          "status": "Changed",
+          "changed_fields": [
+            "external_references",
+            "kill_chain_phases"
+          ],
+          "action": "Copy",
+          "reviewed": true,
+          "target_id": "LAB-BETA.child",
+          "target_scope": "execute",
+          "targets": [
+            {
+              "target_id": "LAB-BETA.child",
+              "target_scope": "execute",
+              "annotation_patch": {}
+            }
+          ]
+        }
+      ],
+      "review_schema": 2,
+      "technique_reviews": [
+        {
+          "id": "LAB-ALPHA",
+          "category": "Changed",
+          "reviewed": true,
+          "action": "Reviewed",
+          "annotation_rows": [],
+          "selected_scopes": []
+        },
+        {
+          "id": "LAB-BETA.child",
+          "category": "Changed",
+          "reviewed": true,
+          "action": "Reviewed",
+          "annotation_rows": [],
+          "selected_scopes": []
+        },
+        {
+          "id": "LAB-GAMMA",
+          "category": "Changed",
+          "reviewed": true,
+          "action": "Reviewed",
+          "annotation_rows": [],
+          "selected_scopes": []
+        }
+      ],
+      "category_counts": {
+        "Added": 0,
+        "Changed": 3,
+        "Removed": 0,
+        "Replaced": 0,
+        "Unchanged": 0
+      },
+      "conflict_resolutions": [],
+      "final_summary": {
+        "schema": 1,
+        "source": {
+          "domain": "lab-one",
+          "version": "1.0",
+          "dataset_id": "b81aef8a7c9f34f1ce926015b297cc61711957cac220fc4cf52148228f0d199e",
+          "custom_source": "D:\\MITREATTACK_SIMULATOR\\artifacts\\custom-domains\\research-bundle.json"
+        },
+        "target": {
+          "domain": "lab-one",
+          "version": "1.0",
+          "dataset_id": "bf09947df647fb735b19ce77cf03808e728d8ed4a6dbc1415257666cb39092f9",
+          "custom_source": "D:\\MITREATTACK_SIMULATOR\\artifacts\\custom-domains\\other-bundle.json"
+        },
+        "source_name": "custom",
+        "result_name": "Migrated custom domain",
+        "categories": [
+          {
+            "category": "Added",
+            "total": 0,
+            "reviewed": 0,
+            "skipped": 0,
+            "state": "Empty"
+          },
+          {
+            "category": "Changed",
+            "total": 3,
+            "reviewed": 3,
+            "skipped": 0,
+            "state": "Complete"
+          },
+          {
+            "category": "Removed",
+            "total": 0,
+            "reviewed": 0,
+            "skipped": 0,
+            "state": "Empty"
+          },
+          {
+            "category": "Replaced",
+            "total": 0,
+            "reviewed": 0,
+            "skipped": 0,
+            "state": "Empty"
+          },
+          {
+            "category": "Unchanged",
+            "total": 0,
+            "reviewed": 0,
+            "skipped": 0,
+            "state": "Empty"
+          }
+        ],
+        "total": 3,
+        "reviewed": 3,
+        "source_rows": 1,
+        "copy_rows": 1,
+        "drop_rows": 0,
+        "skips": [],
+        "issues": [],
+        "can_submit": true,
+        "output_rows": 1,
+        "selected_techniques": 1,
+        "selected_occurrences": 1,
+        "conflicts": 0,
+        "resolved_conflicts": 0,
+        "input_token": "4ebe92a31d6852a83ac9a39c84aad2c8f89f4e372996dabd04907fd9924c08bd"
+      }
+    }
+  },
+  "migration_archives": [
+    {
+      "domain": "lab-one",
+      "version": "1.0",
+      "dataset_id": "b81aef8a7c9f34f1ce926015b297cc61711957cac220fc4cf52148228f0d199e",
+      "custom_source": "D:\\MITREATTACK_SIMULATOR\\artifacts\\custom-domains\\research-bundle.json",
+      "layer": {
+        "name": "custom",
+        "domain": "lab-one",
+        "versions": {
+          "attack": "1.0",
+          "navigator": "5.2.0",
+          "layer": "4.5"
+        },
+        "techniques": [
+          {
+            "techniqueID": "LAB-BETA.child",
+            "tactic": "execute",
+            "comment": "Custom domain note",
+            "score": 4.5,
+            "color": "#2255aa",
+            "metadata": [
+              {
+                "name": "TTP Selection Studio selected",
+                "value": "true"
+              }
+            ]
+          }
+        ],
+        "customDataURL": "D:\\MITREATTACK_SIMULATOR\\artifacts\\custom-domains\\research-bundle.json",
+        "x_ttp_studio_dataset": "b81aef8a7c9f34f1ce926015b297cc61711957cac220fc4cf52148228f0d199e",
+        "x_ttp_studio_domain": {
+          "id": "lab-one",
+          "name": "Research lab-one",
+          "kill_chain_name": "lab-one-chain",
+          "reference_source": "lab-one-references"
+        },
+        "selectTechniquesAcrossTactics": true,
+        "selectSubtechniquesWithParent": false,
+        "selectVisibleTechniques": false,
+        "x_ttp_studio_search_fields": [
+          "name",
+          "id"
+        ]
+      },
+      "selected_stix_ids": [
+        "attack-pattern--1094ef0d-cdfa-5e5e-a0d3-d3854f56a09e"
+      ],
+      "import_selected": [],
+      "selection_scopes": {}
+    }
+  ]
+}

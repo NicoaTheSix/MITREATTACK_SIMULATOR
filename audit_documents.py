@@ -75,7 +75,7 @@ def main():
         window.export_action.trigger()
     data_a = json.loads(path_a.read_text(encoding='utf-8'))
     check(data_a['selected_technique_ids'] == ['T1053.005', 'T1059.001'] and data_a['selected_count'] == 2, 'exact deduplicated selected IDs')
-    check(data_a['attack']['version'] == '19.2' and data_a['attack']['domain'] == 'enterprise-attack', 'dataset version and domain exported')
+    check(data_a['attack']['version'] == initial.catalog.version and data_a['attack']['domain'] == 'enterprise-attack', 'dataset version and domain exported')
     check(data_a['name'] == '研究文件-A' and initial.name == '研究文件-A' and not initial.dirty, 'Unicode filename renames exported document and clears dirty mark')
     rows = {row['technique_id']: row for row in data_a['selected_ttps']}
     check(rows['T1059.001']['name'] == 'PowerShell' and rows['T1059.001']['parent_technique_id'] == 'T1059', 'technique name and official parent exported')
@@ -97,7 +97,7 @@ def main():
         csv_rows = list(csv.DictReader(stream))
     check([row['technique_id'] for row in csv_rows] == data_a['selected_technique_ids'], 'CSV matches exact JSON selections')
     check(csv_path.read_bytes().startswith(b'\xef\xbb\xbf'), 'CSV uses UTF-8 BOM for Excel')
-    check(all(row['attack_version'] == '19.2' and row['document_id'] == initial.document_id for row in csv_rows), 'CSV records document identity and correct ATT&CK version')
+    check(all(row['attack_version'] == initial.catalog.version and row['document_id'] == initial.document_id for row in csv_rows), 'CSV records document identity and correct ATT&CK version')
     check(csv_rows[1]['parent_technique_id'] == 'T1059' and csv_rows[1]['parent_technique_name'] == 'Command and Scripting Interpreter', 'CSV includes child parent ID/name')
     check(csv_rows[0]['tactic_ids'] == 'TA0002; TA0003; TA0004' and csv_rows[0]['is_subtechnique'] == 'true', 'CSV preserves all tactic IDs and sub-technique flag')
     parent_document = TTPDocument('parent-only', window.catalog, {by_id['T1059']})
@@ -179,14 +179,14 @@ def main():
     window.document_tabs.setCurrentIndex(1)
     window.apply_version((old_catalog, None))
     wait(lambda: window.loaded_ok and window.catalog.version == '1.0', 'historical document catalog')
-    check(second.catalog.version == '1.0' and initial.catalog.version == '19.2', 'changing version affects only active document')
+    check(second.catalog.version == '1.0' and initial.catalog.version == data_a['attack']['version'], 'changing version affects only active document')
     common = next(key for key in old_catalog.records if key in initial.catalog.records)
     window.items_by_id[common][0].setCheckState(QtCore.Qt.CheckState.Checked)
     older = window.export_current_document(TEST / 'older-version.json')
     data_old = json.loads(older.read_text(encoding='utf-8'))
     check(data_old['attack']['version'] == '1.0' and data_old['selected_technique_ids'] == [external_id(old_catalog.records[common])], 'older file exports its actual snapshot and selection')
     window.document_tabs.setCurrentIndex(0)
-    wait(lambda: window.loaded_ok and window.catalog.version == '19.2', 'restore original snapshot')
+    wait(lambda: window.loaded_ok and window.catalog.version == initial.catalog.version, 'restore original snapshot')
     check(window.selected == {powershell, scheduled} and set(window.items_by_id) == set(initial.catalog.records), 'switching file restores its original catalog and tree')
     log('[Document audit 6/7] Selection-page export and visual preview')
     with patch.object(QtWidgets.QFileDialog, 'getSaveFileName', return_value=(str(SAMPLE.with_suffix('')), 'JSON files (*.json)')):
@@ -222,17 +222,17 @@ def main():
     with patch.object(QtWidgets.QMessageBox, 'question', return_value=QtWidgets.QMessageBox.StandardButton.Cancel):
         check(not window.close_document(1) and len(window.documents) == 3, 'cancel preserves dirty document')
     with patch.object(QtWidgets.QMessageBox, 'question', return_value=QtWidgets.QMessageBox.StandardButton.Save), \
-            patch.object(QtWidgets.QFileDialog, 'getSaveFileName', return_value=('', '')):
-        check(not window.close_document(1) and len(window.documents) == 3, 'cancelled pre-close export keeps document open')
+            patch.object(window, 'save_studio_document', return_value=None):
+        check(not window.close_document(1) and len(window.documents) == 3, 'cancelled pre-close Studio save keeps document open')
     with patch.object(QtWidgets.QMessageBox, 'question', return_value=QtWidgets.QMessageBox.StandardButton.Save), \
-            patch.object(QtWidgets.QFileDialog, 'getSaveFileName', return_value=(str(TEST / 'missing-folder' / 'failed.json'), '')), \
+            patch('studio_files.write_json_atomic', side_effect=OSError('Injected Save failure')), \
             patch.object(QtWidgets.QMessageBox, 'critical'):
-        check(not window.close_document(1) and second in window.documents, 'failed pre-close export keeps document open')
-    closed_path = TEST / 'closed-B.json'
+        check(not window.close_document(1) and second in window.documents, 'failed pre-close Studio save keeps document open')
+    closed_path = second.save_path
     with patch.object(QtWidgets.QMessageBox, 'question', return_value=QtWidgets.QMessageBox.StandardButton.Save), \
-            patch.object(QtWidgets.QFileDialog, 'getSaveFileName', return_value=(str(closed_path), '')) as dialog:
-        check(window.close_document(1), 'export and close inactive file')
-        check(dialog.call_args.args[2] == str(TEST / 'Renamed-B.json'), 'renamed file proposes new export name in its previous directory')
+            patch.object(QtWidgets.QFileDialog, 'getSaveFileName') as dialog:
+        check(window.close_document(1), 'save and close inactive file')
+        check(not dialog.called, 'pre-close Save reuses the existing Studio path after rename')
     closed = json.loads(closed_path.read_text(encoding='utf-8'))
     check(closed['attack']['version'] == '1.0' and closed['selected_technique_ids'] == data_old['selected_technique_ids'], 'pre-close export uses clicked file snapshot and selections')
     check(window.current_document is initial and window.selected == {powershell, scheduled}, 'closing inactive file preserves active selection')
@@ -250,12 +250,12 @@ def main():
     wait(lambda: window.loaded_ok and window.catalog.version == '1.0', 'old replacement document')
     window.new_document()
     window.apply_version((initial.catalog, None))
-    wait(lambda: window.loaded_ok and window.catalog.version == '19.2', 'different adjacent snapshot')
+    wait(lambda: window.loaded_ok and window.catalog.version == initial.catalog.version, 'different adjacent snapshot')
     check(window.close_document(1), 'close active file beside different snapshot')
     wait(lambda: window.loaded_ok and window.catalog.version == '1.0', 'adjacent snapshot after close')
     check(window.current_document.catalog.version == '1.0' and not window.selected, 'close restores adjacent file ATT&CK snapshot')
     window.apply_version((initial.catalog, None))
-    wait(lambda: window.loaded_ok and window.catalog.version == '19.2', 'preview snapshot')
+    wait(lambda: window.loaded_ok and window.catalog.version == initial.catalog.version, 'preview snapshot')
     with patch.object(QtWidgets.QInputDialog, 'getText', return_value=('Research-Profile', True)):
         window.rename_document(0)
     window.items_by_id[powershell][0].setCheckState(QtCore.Qt.CheckState.Checked)
@@ -274,6 +274,7 @@ def main():
     painter.end()
     check(preview.save(str(SCREEN)), 'multi-document right-click preview saved')
     menu.close()
+    window.confirm_studio_changes = lambda *_: 'discard'
     window.close()
     write_json(REPORT, {'status': 'PASS', 'checks': checks, 'test_output_directory': str(TEST),
                        'sample_export': str(SAMPLE), 'csv_sample_export': str(CSV_SAMPLE), 'screenshot': str(SCREEN)})

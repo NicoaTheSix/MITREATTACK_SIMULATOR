@@ -22,6 +22,8 @@ class BatchEditDialog(IntegrationDialog):
         self.summary.setWordWrap(True)
         layout.addWidget(self.summary)
         self.scope = QtWidgets.QComboBox()
+        if set(keys) & document.selection_scopes.keys():
+            self.scope.addItem('Selected tactic occurrences only', '__selected__')
         self.scope.addItem('Entire technique · all mapped scopes', None)
         for slug in document.catalog.tactic_order:
             count = sum(slug in tactic_phases(document.catalog.records[key], document.catalog.domain) for key in keys)
@@ -97,14 +99,15 @@ class BatchEditDialog(IntegrationDialog):
         from attack_catalog import external_id
         self.targets.clear()
         scope = self.scope.currentData()
-        eligible = [key for key in self.keys if scope is None or scope in tactic_phases(self.document.catalog.records[key], self.document.catalog.domain)]
+        eligible = [key for key in self.keys if scope in (None,'__selected__') or scope in tactic_phases(self.document.catalog.records[key], self.document.catalog.domain)]
         self.summary.setText(f'{len(self.keys)} included TTPs · {len(eligible)} affected · {len(self.keys) - len(eligible)} unmapped skipped. '
                              'Matrix filters do not remove editing targets. Keep leaves fields unchanged.')
         for key in sorted(eligible, key=lambda value: external_id(self.document.catalog.records[value])):
             record = self.document.catalog.records[key]
-            row = effective_row(self.document, key, scope or '')
+            slugs = self.document.selection_scopes.get(key,[]) if scope == '__selected__' else []
+            row = effective_row(self.document, key, slugs[0] if slugs else scope if scope != '__selected__' else '')
             item = QtWidgets.QListWidgetItem(external_id(record) + '  ' + record['name'], self.targets)
-            item.setToolTip(f"Enabled: {row.get('enabled', True)}\nScore: {row.get('score', 'Unscored')}\n"
+            item.setToolTip(f"Selected tactics: {', '.join(slugs) if slugs else 'All mapped'}\nEnabled: {row.get('enabled', True)}\nScore: {row.get('score', 'Unscored')}\n"
                             f"Color: {row.get('color', '')}\nComment: {row.get('comment', '')}")
 
     def save(self):

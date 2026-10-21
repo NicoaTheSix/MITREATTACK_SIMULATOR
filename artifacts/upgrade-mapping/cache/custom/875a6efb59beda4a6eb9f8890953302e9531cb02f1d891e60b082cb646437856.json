@@ -1,0 +1,218 @@
+{
+  "type": "bundle",
+  "id": "bundle--fixture",
+  "objects": [
+    {
+      "type": "x-mitre-tactic",
+      "id": "x-mitre-tactic--815d4b30-735b-5661-b253-2d2a32d26dcf",
+      "name": "Execution",
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_shortname": "execution"
+    },
+    {
+      "type": "x-mitre-tactic",
+      "id": "x-mitre-tactic--8b749e0a-88d7-5cd9-99e2-580d706114ad",
+      "name": "Initial-Access",
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_shortname": "initial-access"
+    },
+    {
+      "type": "x-mitre-matrix",
+      "id": "x-mitre-matrix--e87f243d-a9b5-5c2d-a0a7-2496ff0891a0",
+      "name": "matrix",
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "tactic_refs": [
+        "x-mitre-tactic--815d4b30-735b-5661-b253-2d2a32d26dcf",
+        "x-mitre-tactic--8b749e0a-88d7-5cd9-99e2-580d706114ad",
+        "x-mitre-tactic--00d22c91-6899-5afa-a84d-439ef3826643"
+      ]
+    },
+    {
+      "type": "x-mitre-collection",
+      "id": "x-mitre-collection--4b07d3a6-ed60-5c8d-8888-9d8cf3226a10",
+      "name": "collection",
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_version": "19.3"
+    },
+    {
+      "type": "attack-pattern",
+      "id": "attack-pattern--c4f9279a-9bbb-54ad-ab31-3fca5363870c",
+      "name": "Alpha changed",
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "mitre-attack",
+          "phase_name": "execution"
+        },
+        {
+          "kill_chain_name": "mitre-attack",
+          "phase_name": "initial-access"
+        },
+        {
+          "kill_chain_name": "mitre-attack",
+          "phase_name": "persistence"
+        }
+      ],
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1000"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "id": "attack-pattern--ed916fd4-fcaf-5dc7-bf2b-7ee009355824",
+      "name": "Child",
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_platforms": [
+        "Windows"
+      ],
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "mitre-attack",
+          "phase_name": "initial-access"
+        }
+      ],
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1000.001"
+        }
+      ],
+      "x_mitre_is_subtechnique": true
+    },
+    {
+      "type": "attack-pattern",
+      "id": "attack-pattern--9fa7e297-5319-5d05-9eca-b9fd7e506764",
+      "name": "Beta",
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_platforms": [
+        "Linux"
+      ],
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "mitre-attack",
+          "phase_name": "execution"
+        }
+      ],
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1001"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "id": "attack-pattern--8c0c75ee-3252-55f2-ad32-a248f5c02029",
+      "name": "Legacy",
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_platforms": [
+        "Windows"
+      ],
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "mitre-attack",
+          "phase_name": "execution"
+        }
+      ],
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1002"
+        }
+      ],
+      "revoked": true
+    },
+    {
+      "type": "attack-pattern",
+      "id": "attack-pattern--cd2c86a9-143d-5c16-9fc5-82287f2f86c4",
+      "name": "Replacement",
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_platforms": [
+        "Windows"
+      ],
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "mitre-attack",
+          "phase_name": "execution"
+        }
+      ],
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1003"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "id": "attack-pattern--eaa33154-ce8e-5654-89c7-630b69fa5cac",
+      "name": "Added",
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_platforms": [
+        "Linux"
+      ],
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "mitre-attack",
+          "phase_name": "execution"
+        }
+      ],
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1004"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--28b34bdd-1d5d-53e9-892f-e1ca0d2363b8",
+      "relationship_type": "subtechnique-of",
+      "source_ref": "attack-pattern--ed916fd4-fcaf-5dc7-bf2b-7ee009355824",
+      "target_ref": "attack-pattern--c4f9279a-9bbb-54ad-ab31-3fca5363870c"
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--da678fe2-c3ee-5bcd-a912-fb128fb14506",
+      "relationship_type": "revoked-by",
+      "source_ref": "attack-pattern--8c0c75ee-3252-55f2-ad32-a248f5c02029",
+      "target_ref": "attack-pattern--cd2c86a9-143d-5c16-9fc5-82287f2f86c4"
+    },
+    {
+      "type": "x-mitre-tactic",
+      "id": "x-mitre-tactic--00d22c91-6899-5afa-a84d-439ef3826643",
+      "name": "Persistence",
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_shortname": "persistence"
+    }
+  ]
+}

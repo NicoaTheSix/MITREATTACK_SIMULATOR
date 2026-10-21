@@ -1,9 +1,9 @@
 {
   "schema_version": "1.0",
-  "document_id": "e59a01c4-dc94-4ed0-ba96-9e0ee619b95f",
+  "document_id": "1e297634-51ca-4bf7-9f8e-4e7ded08c2cb",
   "name": "ttp-comments-historical",
-  "created_at_utc": "2026-10-15T07:30:48.179775+00:00",
-  "exported_at_utc": "2026-10-15T07:30:48.456285+00:00",
+  "created_at_utc": "2026-10-15T10:25:39.170977+00:00",
+  "exported_at_utc": "2026-10-15T10:25:39.687248+00:00",
   "attack": {
     "domain": "enterprise-attack",
     "version": "1.0",
@@ -40,8 +40,21 @@
           "tactic": "persistence",
           "enabled": true
         }
+      ],
+      "selected_tactics": [
+        "persistence"
       ]
     }
+  ],
+  "navigator_import_selected": [],
+  "selection_scopes": {},
+  "selection_preferences": {
+    "across_tactics": true,
+    "with_family": false
+  },
+  "search_fields": [
+    "name",
+    "id"
   ],
   "navigator_layer": {
     "name": "Historical notes",

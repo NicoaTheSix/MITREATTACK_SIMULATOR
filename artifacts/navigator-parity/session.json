@@ -1,0 +1,208 @@
+{
+  "checksum": "fad05038a987df27e9af09e5c1c207b854e2abf9a21120990f2d0c7ba3fecc03",
+  "workspace": {
+    "studio_session_version": "1.0",
+    "updated_at_utc": "2026-10-19T09:48:32.123985+00:00",
+    "clean_exit": false,
+    "documents": [
+      {
+        "document": {
+          "schema_version": "1.0",
+          "document_id": "26ba7a57-6ca1-4b8f-a0d1-06e7c09da2b4",
+          "name": "Parity",
+          "created_at_utc": "2026-10-19T09:48:30.555161+00:00",
+          "exported_at_utc": "2026-10-19T09:48:32.123985+00:00",
+          "attack": {
+            "domain": "enterprise-attack",
+            "version": "19.2",
+            "source_url": "D:\\MITREATTACK_SIMULATOR\\artifacts\\navigator-parity\\fixture.json",
+            "dataset_sha256": "f0457a3f87eaebf7e0cce52db3305029817e11edc08a51b9591ebc5278f246c4",
+            "custom": true
+          },
+          "selected_count": 1,
+          "selected_technique_ids": [
+            "T1000.001"
+          ],
+          "selected_ttps": [
+            {
+              "technique_id": "T1000.001",
+              "stix_id": "attack-pattern--ed916fd4-fcaf-5dc7-bf2b-7ee009355824",
+              "name": "Child",
+              "is_subtechnique": true,
+              "parent_technique_id": "T1000",
+              "parent_technique_name": "Alpha",
+              "platforms": [
+                "Windows"
+              ],
+              "tactics": [
+                {
+                  "tactic_id": "TA0002",
+                  "name": "Execution",
+                  "shortname": "execution"
+                }
+              ],
+              "comment": "Research note",
+              "tactic_comments": [],
+              "enabled": true,
+              "tactic_enabled": [
+                {
+                  "tactic": "execution",
+                  "enabled": true
+                }
+              ],
+              "selected_tactics": [
+                "execution"
+              ]
+            }
+          ],
+          "navigator_import_selected": [],
+          "selection_scopes": {},
+          "selection_preferences": {
+            "across_tactics": true,
+            "with_family": false,
+            "visible_only": false
+          },
+          "search_fields": [
+            "name",
+            "id"
+          ],
+          "navigator_layer": {
+            "name": "Parity",
+            "domain": "enterprise-attack",
+            "techniques": [
+              {
+                "techniqueID": "T1000",
+                "score": 10,
+                "metadata": [
+                  {
+                    "name": "TTP Selection Studio selected",
+                    "value": "false"
+                  }
+                ]
+              },
+              {
+                "techniqueID": "T1000.001",
+                "score": 40,
+                "color": "#123456",
+                "comment": "Research note",
+                "metadata": [
+                  {
+                    "name": "Owner",
+                    "value": "Blue"
+                  },
+                  {
+                    "name": "TTP Selection Studio selected",
+                    "value": "false"
+                  }
+                ],
+                "links": [
+                  {
+                    "label": "Reference",
+                    "url": "https://example.org/"
+                  }
+                ]
+              },
+              {
+                "techniqueID": "T1000",
+                "score": 10,
+                "metadata": [
+                  {
+                    "name": "TTP Selection Studio selected",
+                    "value": "false"
+                  }
+                ],
+                "tactic": "execution",
+                "showSubtechniques": true
+              },
+              {
+                "techniqueID": "T1000",
+                "score": 10,
+                "metadata": [
+                  {
+                    "name": "TTP Selection Studio selected",
+                    "value": "false"
+                  }
+                ],
+                "tactic": "initial-access",
+                "showSubtechniques": false
+              }
+            ],
+            "x_ttp_studio_context_menu": [
+              {
+                "label": "Reference",
+                "url": "https://example.org/{{technique_attackID}}?t={{tactic_attackID}}",
+                "subtechnique_url": "https://example.org/{{parent_technique_attackID}}/{{subtechnique_attackID_suffix}}?name={{subtechnique_name}}"
+              }
+            ],
+            "x_ttp_studio_source_search_fields": [
+              "id",
+              "description"
+            ],
+            "selectTechniquesAcrossTactics": true,
+            "selectSubtechniquesWithParent": false,
+            "selectVisibleTechniques": false,
+            "x_ttp_studio_search_fields": [
+              "name",
+              "id"
+            ],
+            "versions": {
+              "attack": "19.2",
+              "navigator": "5.2.0",
+              "layer": "4.5"
+            },
+            "customDataURL": "D:\\MITREATTACK_SIMULATOR\\artifacts\\navigator-parity\\fixture.json",
+            "x_ttp_studio_dataset": "f0457a3f87eaebf7e0cce52db3305029817e11edc08a51b9591ebc5278f246c4",
+            "description": "",
+            "gradient": {
+              "minValue": 0.0,
+              "maxValue": 100.0,
+              "colors": [
+                "#ff6666",
+                "#ffe766",
+                "#8ec843"
+              ]
+            },
+            "legendItems": [
+              {
+                "label": "Research",
+                "color": "#123456"
+              }
+            ],
+            "hideDisabled": false,
+            "layout": {
+              "showID": false,
+              "showName": true,
+              "showAggregateScores": false,
+              "countUnscored": false,
+              "aggregateFunction": "average",
+              "layout": "mini"
+            },
+            "showTacticRowBackground": false,
+            "tacticRowBackground": "#dddddd",
+            "x_ttp_studio_display": {
+              "manual_color": true,
+              "score_color": true,
+              "aggregate_color": true,
+              "comment_indicator": false,
+              "metadata_indicator": false,
+              "link_indicator": false,
+              "legend_visible": false,
+              "comment_color": "#112233",
+              "metadata_color": "#445566",
+              "link_color": "#778899"
+            },
+            "sorting": 0
+          }
+        },
+        "initial_name": "Parity",
+        "save_path": null,
+        "saved_fingerprint": null,
+        "saved_file_sha256": null,
+        "content_token_version": 2,
+        "dirty": true
+      }
+    ],
+    "active_index": 0,
+    "view": {}
+  }
+}

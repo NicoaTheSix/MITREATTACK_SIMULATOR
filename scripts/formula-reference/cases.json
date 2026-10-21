@@ -1,0 +1,607 @@
+[
+  {
+    "expression": "pi",
+    "category": "constants-and-inputs",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "e",
+    "category": "constants-and-inputs",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "tau",
+    "category": "constants-and-inputs",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "phi",
+    "category": "constants-and-inputs",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "true",
+    "category": "constants-and-inputs",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "false",
+    "category": "constants-and-inputs",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "SIN(PI/2)",
+    "category": "constants-and-inputs",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "COS(0)",
+    "category": "constants-and-inputs",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "TRUE and not FALSE",
+    "category": "constants-and-inputs",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "exp(1)",
+    "category": "constants-and-inputs",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "a+e",
+    "category": "constants-and-inputs",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "a+b",
+    "category": "constants-and-inputs",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "(a+b)/2",
+    "category": "constants-and-inputs",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "a> b ? a : b",
+    "category": "constants-and-inputs",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "sin(pi/6)",
+    "category": "new-functions",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "cos(pi)",
+    "category": "new-functions",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "tan(pi/4)",
+    "category": "new-functions",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "asin(.5)",
+    "category": "new-functions",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "acos(.5)",
+    "category": "new-functions",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "atan(1)",
+    "category": "new-functions",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "atan2(1,0)",
+    "category": "new-functions",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "atan2(0,0)",
+    "category": "new-functions",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "atan2(-1,-1)",
+    "category": "new-functions",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "sinh(1)",
+    "category": "new-functions",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "cosh(1)",
+    "category": "new-functions",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "tanh(1)",
+    "category": "new-functions",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "asinh(-2)",
+    "category": "new-functions",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "acosh(2)",
+    "category": "new-functions",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "atanh(.5)",
+    "category": "new-functions",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "log2(8)",
+    "category": "new-functions",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "log10(1000)",
+    "category": "new-functions",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "log1p(.001)",
+    "category": "new-functions",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "expm1(.001)",
+    "category": "new-functions",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "cbrt(-8)",
+    "category": "new-functions",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "cbrt(0)",
+    "category": "new-functions",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "sign(-3)",
+    "category": "new-functions",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "sign(0)",
+    "category": "new-functions",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "sign(7)",
+    "category": "new-functions",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "fix(-1.234,2)",
+    "category": "new-functions",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "fix(1.234,2)",
+    "category": "new-functions",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "mod(5,-3)",
+    "category": "new-functions",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "mod(-5,3)",
+    "category": "new-functions",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "mod(3,0)",
+    "category": "new-functions",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "mod(.3,.1)",
+    "category": "new-functions",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "abs(-2)",
+    "category": "existing-functions",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "min(a,b,c)",
+    "category": "existing-functions",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "max(a,b,2)",
+    "category": "existing-functions",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "sqrt(9)",
+    "category": "existing-functions",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "pow(2,3)",
+    "category": "existing-functions",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "log(8,2)",
+    "category": "existing-functions",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "exp(0)",
+    "category": "existing-functions",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "2^3^2",
+    "category": "existing-functions",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "-2^2",
+    "category": "existing-functions",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "2^-2",
+    "category": "existing-functions",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "0^0",
+    "category": "existing-functions",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "round(2.5)",
+    "category": "operators-and-boundaries",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "round(-2.5)",
+    "category": "operators-and-boundaries",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "round(1.005,2)",
+    "category": "operators-and-boundaries",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "round(-1.005,2)",
+    "category": "operators-and-boundaries",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "round(2.4999999999999)",
+    "category": "operators-and-boundaries",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "round(1.123456789012345,15)",
+    "category": "operators-and-boundaries",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "floor(2.9999999999999)",
+    "category": "operators-and-boundaries",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "ceil(3.0000000000001)",
+    "category": "operators-and-boundaries",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "floor(-1.231,2)",
+    "category": "operators-and-boundaries",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "ceil(-1.231,2)",
+    "category": "operators-and-boundaries",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "fix(-2.9999999999999)",
+    "category": "operators-and-boundaries",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "5 mod -3",
+    "category": "operators-and-boundaries",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "-5 % 3",
+    "category": "operators-and-boundaries",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "3%0",
+    "category": "operators-and-boundaries",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "3>2>1",
+    "category": "operators-and-boundaries",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "3<2<sqrt(-1)",
+    "category": "operators-and-boundaries",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "3<2<c",
+    "category": "operators-and-boundaries",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "(3>2)>1",
+    "category": "operators-and-boundaries",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "not 0>1",
+    "category": "operators-and-boundaries",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "not 2+3",
+    "category": "operators-and-boundaries",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "0.1+0.2==0.3",
+    "category": "operators-and-boundaries",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "0.1+0.2>0.3",
+    "category": "operators-and-boundaries",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "1e-16==0",
+    "category": "operators-and-boundaries",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "1e-14==0",
+    "category": "operators-and-boundaries",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "a>=b>c",
+    "category": "operators-and-boundaries",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "a<b==c",
+    "category": "operators-and-boundaries",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "a or 1/0",
+    "category": "operators-and-boundaries",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "0 and 1/0",
+    "category": "operators-and-boundaries",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "0 ? 1/0 : 9",
+    "category": "operators-and-boundaries",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "not a xor not b",
+    "category": "operators-and-boundaries",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "asin(2)",
+    "category": "rejected-or-outside-bounds",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "acos(2)",
+    "category": "rejected-or-outside-bounds",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "acosh(.5)",
+    "category": "rejected-or-outside-bounds",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "atanh(1)",
+    "category": "rejected-or-outside-bounds",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "sqrt(-1)",
+    "category": "rejected-or-outside-bounds",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "log(0)",
+    "category": "rejected-or-outside-bounds",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "log(8,1)",
+    "category": "rejected-or-outside-bounds",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "exp(1000)",
+    "category": "rejected-or-outside-bounds",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "log1p(-1)",
+    "category": "rejected-or-outside-bounds",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "log2(0)",
+    "category": "rejected-or-outside-bounds",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "round(2,-1)",
+    "category": "rejected-or-outside-bounds",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "round(2,16)",
+    "category": "rejected-or-outside-bounds",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "round(2,.5)",
+    "category": "rejected-or-outside-bounds",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "floor(2,16)",
+    "category": "rejected-or-outside-bounds",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "ceil(2,-1)",
+    "category": "rejected-or-outside-bounds",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "fix(2,.5)",
+    "category": "rejected-or-outside-bounds",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "mod(1)",
+    "category": "rejected-or-outside-bounds",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "sin()",
+    "category": "rejected-or-outside-bounds",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "atan2(1)",
+    "category": "rejected-or-outside-bounds",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "nthRoot(-8,3)",
+    "category": "rejected-or-outside-bounds",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "nthroot(8,3)",
+    "category": "rejected-or-outside-bounds",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "LN2",
+    "category": "rejected-or-outside-bounds",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "sqrt2",
+    "category": "rejected-or-outside-bounds",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "1/0",
+    "category": "rejected-or-outside-bounds",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "1e301",
+    "category": "rejected-or-outside-bounds",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "10^1000",
+    "category": "rejected-or-outside-bounds",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "2^10001",
+    "category": "rejected-or-outside-bounds",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "pow(2,10001)",
+    "category": "rejected-or-outside-bounds",
+    "syntax": "navigator"
+  },
+  {
+    "expression": "nthRoot(-8,3)",
+    "category": "raw-mathjs-root-extension",
+    "syntax": "studio"
+  },
+  {
+    "expression": "nthRoot(16)",
+    "category": "raw-mathjs-root-extension",
+    "syntax": "studio"
+  },
+  {
+    "expression": "nthRoot(16,-2)",
+    "category": "raw-mathjs-root-extension",
+    "syntax": "studio"
+  },
+  {
+    "expression": "nthRoot(0,3)",
+    "category": "raw-mathjs-root-extension",
+    "syntax": "studio"
+  },
+  {
+    "expression": "nthRoot(-8,-3)",
+    "category": "raw-mathjs-root-extension",
+    "syntax": "studio"
+  },
+  {
+    "expression": "nthRoot(-8,2)",
+    "category": "raw-mathjs-root-extension",
+    "syntax": "studio"
+  },
+  {
+    "expression": "nthRoot(9,0)",
+    "category": "raw-mathjs-root-extension",
+    "syntax": "studio"
+  },
+  {
+    "expression": "nthRoot(0,-2)",
+    "category": "raw-mathjs-root-extension",
+    "syntax": "studio"
+  }
+]

@@ -53,10 +53,10 @@
     "cancelled rename preserves name",
     "invalid Windows names are rejected before a valid rename",
     "cancel preserves dirty document",
-    "cancelled pre-close export keeps document open",
-    "failed pre-close export keeps document open",
-    "export and close inactive file",
-    "renamed file proposes new export name in its previous directory",
+    "cancelled pre-close Studio save keeps document open",
+    "failed pre-close Studio save keeps document open",
+    "save and close inactive file",
+    "pre-close Save reuses the existing Studio path after rename",
     "pre-close export uses clicked file snapshot and selections",
     "closing inactive file preserves active selection",
     "closing earlier tab adjusts active index without changing its document",
@@ -66,7 +66,7 @@
     "close restores adjacent file ATT&CK snapshot",
     "multi-document right-click preview saved"
   ],
-  "test_output_directory": "D:\\MITREATTACK_SIMULATOR\\artifacts\\ttp-document-audit-24146d4bc82e462486e981bc681e2773",
+  "test_output_directory": "D:\\MITREATTACK_SIMULATOR\\artifacts\\ttp-document-audit-d71fa75e8a90411dbe917a763765f989",
   "sample_export": "D:\\MITREATTACK_SIMULATOR\\artifacts\\selected-ttps-example.json",
   "csv_sample_export": "D:\\MITREATTACK_SIMULATOR\\artifacts\\selected-ttps-example.csv",
   "screenshot": "D:\\MITREATTACK_SIMULATOR\\artifacts\\ttp-documents-preview.png"

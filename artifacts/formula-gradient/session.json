@@ -1,0 +1,729 @@
+{
+  "checksum": "965b2b082d9419cd3bfd84cf38e214cb261cb421ad3cc67daedfc59ea2ea29ce",
+  "workspace": {
+    "studio_session_version": "1.0",
+    "updated_at_utc": "2026-10-21T03:31:55.034094+00:00",
+    "clean_exit": false,
+    "documents": [
+      {
+        "document": {
+          "schema_version": "1.0",
+          "document_id": "494f2153-9e10-4d5e-b9c1-2de15d1f3bf5",
+          "name": "binary",
+          "created_at_utc": "2026-10-21T03:31:51.364365+00:00",
+          "exported_at_utc": "2026-10-21T03:31:55.034094+00:00",
+          "attack": {
+            "domain": "formula-lab",
+            "version": "1.0",
+            "source_url": "D:\\MITREATTACK_SIMULATOR\\artifacts\\formula-gradient\\gradient-bundle.json",
+            "dataset_sha256": "12c61b9bd54428db9fcdacc61e3be4ad2291752c37eb4249953b8d4ee255726e",
+            "custom": true
+          },
+          "selected_count": 3,
+          "selected_technique_ids": [
+            "T0001",
+            "T0002",
+            "T0003"
+          ],
+          "selected_ttps": [
+            {
+              "technique_id": "T0001",
+              "stix_id": "attack-pattern--5ec71df9-198d-57a7-ad41-9b4490317aa6",
+              "name": "T0001",
+              "is_subtechnique": false,
+              "parent_technique_id": null,
+              "parent_technique_name": null,
+              "platforms": [
+                "ResearchOS"
+              ],
+              "tactics": [
+                {
+                  "tactic_id": "TACTIC-execution",
+                  "name": "execution",
+                  "shortname": "execution"
+                },
+                {
+                  "tactic_id": "TACTIC-persistence",
+                  "name": "persistence",
+                  "shortname": "persistence"
+                }
+              ],
+              "comment": "",
+              "tactic_comments": [],
+              "enabled": true,
+              "tactic_enabled": [
+                {
+                  "tactic": "execution",
+                  "enabled": true
+                },
+                {
+                  "tactic": "persistence",
+                  "enabled": true
+                }
+              ],
+              "selected_tactics": [
+                "execution",
+                "persistence"
+              ]
+            },
+            {
+              "technique_id": "T0002",
+              "stix_id": "attack-pattern--9d5781d1-55ce-5b0e-afa2-702f4ac1d855",
+              "name": "T0002",
+              "is_subtechnique": false,
+              "parent_technique_id": null,
+              "parent_technique_name": null,
+              "platforms": [
+                "ResearchOS"
+              ],
+              "tactics": [
+                {
+                  "tactic_id": "TACTIC-execution",
+                  "name": "execution",
+                  "shortname": "execution"
+                }
+              ],
+              "comment": "",
+              "tactic_comments": [],
+              "enabled": true,
+              "tactic_enabled": [
+                {
+                  "tactic": "execution",
+                  "enabled": true
+                }
+              ],
+              "selected_tactics": [
+                "execution"
+              ]
+            },
+            {
+              "technique_id": "T0003",
+              "stix_id": "attack-pattern--04813ffa-04c1-5939-b546-2f87cc0e3692",
+              "name": "T0003",
+              "is_subtechnique": false,
+              "parent_technique_id": null,
+              "parent_technique_name": null,
+              "platforms": [
+                "ResearchOS"
+              ],
+              "tactics": [
+                {
+                  "tactic_id": "TACTIC-persistence",
+                  "name": "persistence",
+                  "shortname": "persistence"
+                }
+              ],
+              "comment": "",
+              "tactic_comments": [],
+              "enabled": true,
+              "tactic_enabled": [
+                {
+                  "tactic": "persistence",
+                  "enabled": true
+                }
+              ],
+              "selected_tactics": [
+                "persistence"
+              ]
+            }
+          ],
+          "navigator_import_selected": [
+            "T0001",
+            "T0002",
+            "T0003"
+          ],
+          "selection_scopes": {},
+          "selection_preferences": {
+            "across_tactics": true,
+            "with_family": false,
+            "visible_only": false
+          },
+          "search_fields": [
+            "name",
+            "id"
+          ],
+          "navigator_layer": {
+            "name": "binary",
+            "domain": "formula-lab",
+            "versions": {
+              "attack": "1.0",
+              "layer": "4.5",
+              "navigator": "5.2.0"
+            },
+            "description": "Score expression: a",
+            "techniques": [
+              {
+                "techniqueID": "T0001",
+                "tactic": "execution",
+                "enabled": true,
+                "score": 0
+              },
+              {
+                "techniqueID": "T0001",
+                "tactic": "persistence",
+                "enabled": true,
+                "score": 1
+              },
+              {
+                "techniqueID": "T0002",
+                "tactic": "execution",
+                "enabled": true,
+                "score": 0
+              },
+              {
+                "techniqueID": "T0003",
+                "tactic": "persistence",
+                "enabled": true,
+                "score": 1
+              }
+            ],
+            "gradient": {
+              "colors": [
+                "#ffffff00",
+                "#66b1ffff"
+              ],
+              "minValue": 0,
+              "maxValue": 1
+            },
+            "selectSubtechniquesWithParent": false,
+            "metadata": [
+              {
+                "name": "Score expression",
+                "value": "a"
+              },
+              {
+                "name": "Calculation mode",
+                "value": "navigator"
+              },
+              {
+                "name": "Missing scores",
+                "value": "zero-if-any-score"
+              },
+              {
+                "name": "Calculation scope",
+                "value": "navigator"
+              },
+              {
+                "name": "Source a",
+                "value": "Source a (4821fa22-0269-43ea-b444-fff3a624866c)"
+              }
+            ],
+            "x_ttp_studio_formula": {
+              "expression": "a",
+              "missing": "zero-if-any-score",
+              "scope": "navigator",
+              "inheritance": {},
+              "sources": {
+                "a": {
+                  "name": "Source a",
+                  "document_id": "4821fa22-0269-43ea-b444-fff3a624866c"
+                }
+              },
+              "syntax": "navigator",
+              "mode": "navigator",
+              "gradient_mode": "navigator",
+              "evaluation": "scored-union"
+            },
+            "customDataURL": "D:\\MITREATTACK_SIMULATOR\\artifacts\\formula-gradient\\gradient-bundle.json",
+            "x_ttp_studio_dataset": "12c61b9bd54428db9fcdacc61e3be4ad2291752c37eb4249953b8d4ee255726e",
+            "x_ttp_studio_domain": {
+              "id": "formula-lab",
+              "name": "Formula Lab",
+              "kill_chain_name": "formula-lab-chain",
+              "reference_source": "formula-lab"
+            }
+          }
+        },
+        "initial_name": "binary",
+        "save_path": null,
+        "saved_fingerprint": null,
+        "saved_file_sha256": null,
+        "content_token_version": 2,
+        "dirty": true
+      },
+      {
+        "document": {
+          "schema_version": "1.0",
+          "document_id": "c8a08ff0-050d-4f1f-897b-524d5161636f",
+          "name": "Studio",
+          "created_at_utc": "2026-10-21T03:31:51.513346+00:00",
+          "exported_at_utc": "2026-10-21T03:31:55.034094+00:00",
+          "attack": {
+            "domain": "formula-lab",
+            "version": "1.0",
+            "source_url": "D:\\MITREATTACK_SIMULATOR\\artifacts\\formula-gradient\\gradient-bundle.json",
+            "dataset_sha256": "12c61b9bd54428db9fcdacc61e3be4ad2291752c37eb4249953b8d4ee255726e",
+            "custom": true
+          },
+          "selected_count": 3,
+          "selected_technique_ids": [
+            "T0001",
+            "T0002",
+            "T0003"
+          ],
+          "selected_ttps": [
+            {
+              "technique_id": "T0001",
+              "stix_id": "attack-pattern--5ec71df9-198d-57a7-ad41-9b4490317aa6",
+              "name": "T0001",
+              "is_subtechnique": false,
+              "parent_technique_id": null,
+              "parent_technique_name": null,
+              "platforms": [
+                "ResearchOS"
+              ],
+              "tactics": [
+                {
+                  "tactic_id": "TACTIC-execution",
+                  "name": "execution",
+                  "shortname": "execution"
+                },
+                {
+                  "tactic_id": "TACTIC-persistence",
+                  "name": "persistence",
+                  "shortname": "persistence"
+                }
+              ],
+              "comment": "",
+              "tactic_comments": [],
+              "enabled": true,
+              "tactic_enabled": [
+                {
+                  "tactic": "execution",
+                  "enabled": true
+                },
+                {
+                  "tactic": "persistence",
+                  "enabled": true
+                }
+              ],
+              "selected_tactics": [
+                "execution",
+                "persistence"
+              ]
+            },
+            {
+              "technique_id": "T0002",
+              "stix_id": "attack-pattern--9d5781d1-55ce-5b0e-afa2-702f4ac1d855",
+              "name": "T0002",
+              "is_subtechnique": false,
+              "parent_technique_id": null,
+              "parent_technique_name": null,
+              "platforms": [
+                "ResearchOS"
+              ],
+              "tactics": [
+                {
+                  "tactic_id": "TACTIC-execution",
+                  "name": "execution",
+                  "shortname": "execution"
+                }
+              ],
+              "comment": "",
+              "tactic_comments": [],
+              "enabled": true,
+              "tactic_enabled": [
+                {
+                  "tactic": "execution",
+                  "enabled": true
+                }
+              ],
+              "selected_tactics": [
+                "execution"
+              ]
+            },
+            {
+              "technique_id": "T0003",
+              "stix_id": "attack-pattern--04813ffa-04c1-5939-b546-2f87cc0e3692",
+              "name": "T0003",
+              "is_subtechnique": false,
+              "parent_technique_id": null,
+              "parent_technique_name": null,
+              "platforms": [
+                "ResearchOS"
+              ],
+              "tactics": [
+                {
+                  "tactic_id": "TACTIC-persistence",
+                  "name": "persistence",
+                  "shortname": "persistence"
+                }
+              ],
+              "comment": "",
+              "tactic_comments": [],
+              "enabled": true,
+              "tactic_enabled": [
+                {
+                  "tactic": "persistence",
+                  "enabled": true
+                }
+              ],
+              "selected_tactics": [
+                "persistence"
+              ]
+            }
+          ],
+          "navigator_import_selected": [
+            "T0001",
+            "T0002",
+            "T0003"
+          ],
+          "selection_scopes": {},
+          "selection_preferences": {
+            "across_tactics": true,
+            "with_family": false,
+            "visible_only": false
+          },
+          "search_fields": [
+            "name",
+            "id"
+          ],
+          "navigator_layer": {
+            "name": "Studio",
+            "domain": "formula-lab",
+            "versions": {
+              "attack": "1.0",
+              "layer": "4.5",
+              "navigator": "5.2.0"
+            },
+            "description": "Score expression: a",
+            "techniques": [
+              {
+                "techniqueID": "T0001",
+                "tactic": "execution",
+                "enabled": true,
+                "score": 0
+              },
+              {
+                "techniqueID": "T0001",
+                "tactic": "persistence",
+                "enabled": true,
+                "score": 1
+              },
+              {
+                "techniqueID": "T0002",
+                "tactic": "execution",
+                "enabled": true,
+                "score": 0
+              },
+              {
+                "techniqueID": "T0003",
+                "tactic": "persistence",
+                "enabled": true,
+                "score": 1
+              }
+            ],
+            "gradient": {
+              "colors": [
+                "#551a8b80",
+                "#ff8800ff"
+              ],
+              "minValue": 0,
+              "maxValue": 1
+            },
+            "selectSubtechniquesWithParent": false,
+            "metadata": [
+              {
+                "name": "Score expression",
+                "value": "a"
+              },
+              {
+                "name": "Calculation mode",
+                "value": "studio"
+              },
+              {
+                "name": "Missing scores",
+                "value": "unscored"
+              },
+              {
+                "name": "Calculation scope",
+                "value": "matrix"
+              },
+              {
+                "name": "Source a",
+                "value": "Source a (7d53ca4a-bec3-4b4b-97d5-b8cd6b79b85b)"
+              }
+            ],
+            "x_ttp_studio_formula": {
+              "expression": "a",
+              "missing": "unscored",
+              "scope": "matrix",
+              "inheritance": {},
+              "sources": {
+                "a": {
+                  "name": "Source a",
+                  "document_id": "7d53ca4a-bec3-4b4b-97d5-b8cd6b79b85b"
+                }
+              },
+              "syntax": "studio",
+              "mode": "studio",
+              "gradient_mode": "studio"
+            },
+            "customDataURL": "D:\\MITREATTACK_SIMULATOR\\artifacts\\formula-gradient\\gradient-bundle.json",
+            "x_ttp_studio_dataset": "12c61b9bd54428db9fcdacc61e3be4ad2291752c37eb4249953b8d4ee255726e",
+            "x_ttp_studio_domain": {
+              "id": "formula-lab",
+              "name": "Formula Lab",
+              "kill_chain_name": "formula-lab-chain",
+              "reference_source": "formula-lab"
+            }
+          }
+        },
+        "initial_name": "Studio",
+        "save_path": null,
+        "saved_fingerprint": null,
+        "saved_file_sha256": null,
+        "content_token_version": 2,
+        "dirty": true
+      },
+      {
+        "document": {
+          "schema_version": "1.0",
+          "document_id": "4b36bdfd-ed94-4673-9387-54850021315b",
+          "name": "constant inherited gradient",
+          "created_at_utc": "2026-10-21T03:31:51.496352+00:00",
+          "exported_at_utc": "2026-10-21T03:31:55.034094+00:00",
+          "attack": {
+            "domain": "formula-lab",
+            "version": "1.0",
+            "source_url": "D:\\MITREATTACK_SIMULATOR\\artifacts\\formula-gradient\\gradient-bundle.json",
+            "dataset_sha256": "12c61b9bd54428db9fcdacc61e3be4ad2291752c37eb4249953b8d4ee255726e",
+            "custom": true
+          },
+          "selected_count": 3,
+          "selected_technique_ids": [
+            "T0001",
+            "T0002",
+            "T0003"
+          ],
+          "selected_ttps": [
+            {
+              "technique_id": "T0001",
+              "stix_id": "attack-pattern--5ec71df9-198d-57a7-ad41-9b4490317aa6",
+              "name": "T0001",
+              "is_subtechnique": false,
+              "parent_technique_id": null,
+              "parent_technique_name": null,
+              "platforms": [
+                "ResearchOS"
+              ],
+              "tactics": [
+                {
+                  "tactic_id": "TACTIC-execution",
+                  "name": "execution",
+                  "shortname": "execution"
+                },
+                {
+                  "tactic_id": "TACTIC-persistence",
+                  "name": "persistence",
+                  "shortname": "persistence"
+                }
+              ],
+              "comment": "",
+              "tactic_comments": [],
+              "enabled": true,
+              "tactic_enabled": [
+                {
+                  "tactic": "execution",
+                  "enabled": true
+                },
+                {
+                  "tactic": "persistence",
+                  "enabled": true
+                }
+              ],
+              "selected_tactics": [
+                "execution",
+                "persistence"
+              ]
+            },
+            {
+              "technique_id": "T0002",
+              "stix_id": "attack-pattern--9d5781d1-55ce-5b0e-afa2-702f4ac1d855",
+              "name": "T0002",
+              "is_subtechnique": false,
+              "parent_technique_id": null,
+              "parent_technique_name": null,
+              "platforms": [
+                "ResearchOS"
+              ],
+              "tactics": [
+                {
+                  "tactic_id": "TACTIC-execution",
+                  "name": "execution",
+                  "shortname": "execution"
+                }
+              ],
+              "comment": "",
+              "tactic_comments": [],
+              "enabled": true,
+              "tactic_enabled": [
+                {
+                  "tactic": "execution",
+                  "enabled": true
+                }
+              ],
+              "selected_tactics": [
+                "execution"
+              ]
+            },
+            {
+              "technique_id": "T0003",
+              "stix_id": "attack-pattern--04813ffa-04c1-5939-b546-2f87cc0e3692",
+              "name": "T0003",
+              "is_subtechnique": false,
+              "parent_technique_id": null,
+              "parent_technique_name": null,
+              "platforms": [
+                "ResearchOS"
+              ],
+              "tactics": [
+                {
+                  "tactic_id": "TACTIC-persistence",
+                  "name": "persistence",
+                  "shortname": "persistence"
+                }
+              ],
+              "comment": "",
+              "tactic_comments": [],
+              "enabled": true,
+              "tactic_enabled": [
+                {
+                  "tactic": "persistence",
+                  "enabled": true
+                }
+              ],
+              "selected_tactics": [
+                "persistence"
+              ]
+            }
+          ],
+          "navigator_import_selected": [
+            "T0001",
+            "T0002",
+            "T0003"
+          ],
+          "selection_scopes": {},
+          "selection_preferences": {
+            "across_tactics": true,
+            "with_family": false,
+            "visible_only": false
+          },
+          "search_fields": [
+            "name",
+            "id"
+          ],
+          "navigator_layer": {
+            "name": "constant inherited gradient",
+            "domain": "formula-lab",
+            "versions": {
+              "attack": "1.0",
+              "layer": "4.5",
+              "navigator": "5.2.0"
+            },
+            "description": "Score expression: 200",
+            "techniques": [
+              {
+                "techniqueID": "T0001",
+                "tactic": "execution",
+                "enabled": true,
+                "score": 200.0
+              },
+              {
+                "techniqueID": "T0001",
+                "tactic": "persistence",
+                "enabled": true,
+                "score": 200.0
+              },
+              {
+                "techniqueID": "T0002",
+                "tactic": "execution",
+                "enabled": true,
+                "score": 200.0
+              },
+              {
+                "techniqueID": "T0003",
+                "tactic": "persistence",
+                "enabled": true,
+                "score": 200.0
+              }
+            ],
+            "gradient": {
+              "colors": [
+                "#12345640",
+                "#fedcbaff"
+              ],
+              "minValue": 5,
+              "maxValue": 15
+            },
+            "selectSubtechniquesWithParent": false,
+            "metadata": [
+              {
+                "name": "Score expression",
+                "value": "200"
+              },
+              {
+                "name": "Calculation mode",
+                "value": "navigator"
+              },
+              {
+                "name": "Missing scores",
+                "value": "zero-if-any-score"
+              },
+              {
+                "name": "Calculation scope",
+                "value": "navigator"
+              },
+              {
+                "name": "Source a",
+                "value": "Source a (398f4201-e64f-4f0e-a2cd-3e399afbdc49)"
+              },
+              {
+                "name": "Source b",
+                "value": "Source b (243d88b9-1d02-47b6-b481-19c01a3bd5a8)"
+              }
+            ],
+            "x_ttp_studio_formula": {
+              "expression": "200",
+              "missing": "zero-if-any-score",
+              "scope": "navigator",
+              "inheritance": {
+                "gradient": "b"
+              },
+              "sources": {
+                "a": {
+                  "name": "Source a",
+                  "document_id": "398f4201-e64f-4f0e-a2cd-3e399afbdc49"
+                },
+                "b": {
+                  "name": "Source b",
+                  "document_id": "243d88b9-1d02-47b6-b481-19c01a3bd5a8"
+                }
+              },
+              "syntax": "navigator",
+              "mode": "navigator",
+              "gradient_mode": "navigator",
+              "evaluation": "constant"
+            },
+            "customDataURL": "D:\\MITREATTACK_SIMULATOR\\artifacts\\formula-gradient\\gradient-bundle.json",
+            "x_ttp_studio_dataset": "12c61b9bd54428db9fcdacc61e3be4ad2291752c37eb4249953b8d4ee255726e",
+            "x_ttp_studio_domain": {
+              "id": "formula-lab",
+              "name": "Formula Lab",
+              "kill_chain_name": "formula-lab-chain",
+              "reference_source": "formula-lab"
+            }
+          }
+        },
+        "initial_name": "constant inherited gradient",
+        "save_path": null,
+        "saved_fingerprint": null,
+        "saved_file_sha256": null,
+        "content_token_version": 2,
+        "dirty": true
+      }
+    ],
+    "active_index": 0,
+    "view": {}
+  }
+}

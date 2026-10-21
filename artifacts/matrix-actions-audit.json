@@ -1,10 +1,10 @@
 {
   "status": "PASS",
   "checks": [
-    "all context menu labels describe techniques",
+    "color/comment context menu labels describe techniques",
     "clear uncolored unchecked technique creates no row or dirty change",
     "uncolored unchecked technique display stays unchanged",
-    "selected technique without stored annotation uses selection blue",
+    "selection without stored annotation does not synthesize a color",
     "bulk clear without explicit color preserves default selection display",
     "model reports absent color clear as unchanged",
     "score-only technique clear preserves gradient and source data",
@@ -71,7 +71,7 @@
     "historical source list matches cached historical data",
     "source-picker matrix preview saved",
     "filtered source completion preview saved",
-    "source selection remains exportable without unrelated enabled TTPs",
+    "source selection exports exact inclusion independently of enabled annotations",
     "dataset pointers remain unchanged"
   ],
   "preview": "D:\\MITREATTACK_SIMULATOR\\artifacts\\navigator-source-picker-preview.png",

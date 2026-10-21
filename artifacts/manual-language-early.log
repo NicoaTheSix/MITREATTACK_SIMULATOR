@@ -1,0 +1,158 @@
+Input: D:\MITREATTACK_SIMULATOR\locales\zh_TW.json
+Output: D:\MITREATTACK_SIMULATOR\artifacts\manual-language\early-check.log
+[Application icon 1/2] Input file: D:\MITREATTACK_SIMULATOR\assets\ttp-selection-studio-icon-pixel.png
+[Application icon 1/2] Output files: None (application/window icon in memory)
+[Application icon 2/2] Complete: pixel icon applied to application and windows
+[Preview fonts] Input file: C:\WINDOWS\Fonts\segoeui.ttf
+[Preview fonts] Input file: C:\WINDOWS\Fonts\segoeuib.ttf
+[Preview fonts] Input file: C:\WINDOWS\Fonts\consola.ttf
+[Preview fonts] Input file: C:\WINDOWS\Fonts\georgia.ttf
+[Preview fonts] Input file: C:\WINDOWS\Fonts\msjh.ttc
+[Preview fonts] Input file: C:\WINDOWS\Fonts\msjhbd.ttc
+[Preview fonts] Complete
+[UI settings 1/2] Input file: D:\MITREATTACK_SIMULATOR\artifacts\manual-language\early.ini
+[UI settings 1/2] Output files: None (reading preferences)
+[UI settings 2/2] Complete: navigation labels shown
+[Language 1/2] Input file: D:\MITREATTACK_SIMULATOR\locales\zh_TW.json
+Output files: None (translation catalog in memory)
+[Language 2/2] Ready: 414 Taiwan translations
+Input file: D:\MITREATTACK_SIMULATOR\data\info\attack-release-notes.json
+Output files: None (Info menu in memory)
+[Info history 1/2] Reading offline release introductions
+[Info history 2/2] Complete: 20 official release entries
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\ttp-selection-studio-icon-pixel.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\mitigations.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\assets.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\detections.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\groups.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\software.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\campaigns.png
+[Navigation icons 1/3] Output files: None (button icons in memory)
+[Navigation icons 2/3] Loading TTP (1/7)
+[Navigation icons 2/3] Loading Mitigations (2/7)
+[Navigation icons 2/3] Loading Assets (3/7)
+[Navigation icons 2/3] Loading Detections (4/7)
+[Navigation icons 2/3] Loading Groups (5/7)
+[Navigation icons 2/3] Loading Software (6/7)
+[Navigation icons 2/3] Loading Campaigns (7/7)
+[Navigation icons 3/3] Complete: 7/7 icons ready
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\active.json
+Output files: None (catalog is loaded into memory)
+[1/4 Resolve] Reading snapshot pointer
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v20.0\manifest.json
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v20.0\enterprise-attack-20.0.json
+[1/4 Resolve] Complete: Enterprise ATT&CK v20.0 (1/1)
+[2/4 Read] Reading and checking bundle (4194304/55271014)
+[2/4 Read] Reading and checking bundle (8388608/55271014)
+[2/4 Read] Reading and checking bundle (12582912/55271014)
+[2/4 Read] Reading and checking bundle (16777216/55271014)
+[2/4 Read] Reading and checking bundle (20971520/55271014)
+[2/4 Read] Reading and checking bundle (25165824/55271014)
+[2/4 Read] Reading and checking bundle (29360128/55271014)
+[2/4 Read] Reading and checking bundle (33554432/55271014)
+[2/4 Read] Reading and checking bundle (37748736/55271014)
+[2/4 Read] Reading and checking bundle (41943040/55271014)
+[2/4 Read] Reading and checking bundle (46137344/55271014)
+[2/4 Read] Reading and checking bundle (50331648/55271014)
+[2/4 Read] Reading and checking bundle (54525952/55271014)
+[2/4 Read] Reading and checking bundle (55271014/55271014)
+[2/4 Read] Parsing JSON
+[3/4 Index] Indexing active ATT&CK objects (2000/26690)
+[3/4 Index] Indexing active ATT&CK objects (4000/26690)
+[3/4 Index] Indexing active ATT&CK objects (6000/26690)
+[3/4 Index] Indexing active ATT&CK objects (8000/26690)
+[3/4 Index] Indexing active ATT&CK objects (10000/26690)
+[3/4 Index] Indexing active ATT&CK objects (12000/26690)
+[3/4 Index] Indexing active ATT&CK objects (14000/26690)
+[3/4 Index] Indexing active ATT&CK objects (16000/26690)
+[3/4 Index] Indexing active ATT&CK objects (18000/26690)
+[3/4 Index] Indexing active ATT&CK objects (20000/26690)
+[3/4 Index] Indexing active ATT&CK objects (22000/26690)
+[3/4 Index] Indexing active ATT&CK objects (24000/26690)
+[3/4 Index] Indexing active ATT&CK objects (26000/26690)
+[3/4 Index] Mapping platforms and tactics (100/706)
+[3/4 Index] Mapping platforms and tactics (200/706)
+[3/4 Index] Mapping platforms and tactics (300/706)
+[3/4 Index] Mapping platforms and tactics (400/706)
+[3/4 Index] Mapping platforms and tactics (500/706)
+[3/4 Index] Mapping platforms and tactics (600/706)
+[3/4 Index] Mapping platforms and tactics (700/706)
+[3/4 Index] Complete: 706 active techniques/sub-techniques, 11 platforms (706/706)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/26690)
+[3/4 Procedures] Reading Enterprise relationships (4000/26690)
+[3/4 Procedures] Reading Enterprise relationships (8000/26690)
+[3/4 Procedures] Reading Enterprise relationships (12000/26690)
+[3/4 Procedures] Reading Enterprise relationships (16000/26690)
+[3/4 Procedures] Reading Enterprise relationships (20000/26690)
+[3/4 Procedures] Reading Enterprise relationships (24000/26690)
+[3/4 Procedures] Complete: Enterprise 17636 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/26690)
+[3/4 Related TTPs] Reading relationships (4000/26690)
+[3/4 Related TTPs] Reading relationships (8000/26690)
+[3/4 Related TTPs] Reading relationships (12000/26690)
+[3/4 Related TTPs] Reading relationships (16000/26690)
+[3/4 Related TTPs] Reading relationships (20000/26690)
+[3/4 Related TTPs] Reading relationships (24000/26690)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 23980 direct/derived mappings (1/1)
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v20.0\mobile-attack-20.0.json
+[3/4 Library] Reading and checking Mobile (4194304/6095145)
+[3/4 Library] Reading and checking Mobile (6095145/6095145)
+[3/4 Library] Parsing Mobile JSON
+[3/4 Procedures] Indexing Mobile procedure examples (0/2684)
+[3/4 Procedures] Complete: Mobile 1522 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Mobile objects in memory)
+[3/4 Related TTPs] Indexing Mobile direct source relationships (0/2684)
+[3/4 Related TTPs] Resolving Mobile strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Mobile 2419 direct/derived mappings (1/1)
+[3/4 Library] Complete: Mobile (1/1)
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v20.0\ics-attack-20.0.json
+[3/4 Library] Reading and checking ICS (4194304/5266683)
+[3/4 Library] Reading and checking ICS (5266683/5266683)
+[3/4 Library] Parsing ICS JSON
+[3/4 Procedures] Indexing ICS procedure examples (0/2566)
+[3/4 Procedures] Complete: ICS 307 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships (0/2566)
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 2185 direct/derived mappings (1/1)
+[3/4 Library] Complete: ICS (1/1)
+[3/4 Library] Complete: six navigation categories indexed across all three domains (1/1)
+[4/4 Tree] Complete: 706 unique selectable technique IDs
+Input files: None (exact domain/version catalog in memory); output files: None
+[Search Index 1/3] Reading legacy data sources and active detection mappings (0/3)
+[Search Index 2/3] Building name/ID/description/data-source/detection-strategy fields (1/3)
+[Search Index 3/3] Ready: 706 techniques in enterprise-attack v20.0 (3/3)
+Input file: D:\MITREATTACK_SIMULATOR\manual\in_app_manual_en.md
+Output files: None (manual tab; current TTP document retained)
+[Manual tab 1/2] Opening operating manual (0/2)
+Input file: D:\MITREATTACK_SIMULATOR\manual\in_app_manual_en.md
+Output files: None (read-only manual workspace)
+[Manual 1/3] Reading local guide (0/3)
+[Manual 2/3] Rendering guide and heading outline (1/3)
+[Manual 3/3] Ready: in_app_manual_en.md (3/3)
+[Manual tab 2/2] Ready (2/2)
+Input translation file: D:\MITREATTACK_SIMULATOR\locales\zh_TW.json
+Input/output settings file: D:\MITREATTACK_SIMULATOR\artifacts\manual-language\early.ini
+[Language setting 1/3] Validating requested language (0/3)
+[Language setting 2/3] Saving interface preference (1/3)
+Input file: D:\MITREATTACK_SIMULATOR\manual\in_app_manual+_zh.md
+Output files: None (read-only manual workspace)
+[Manual 1/3] Reading local guide (0/3)
+[Manual 2/3] Rendering guide and heading outline (1/3)
+[Manual 3/3] Ready: in_app_manual+_zh.md (3/3)
+[Language setting 3/3] Interface and manual updated (3/3)
+Input translation file: D:\MITREATTACK_SIMULATOR\locales\zh_TW.json
+Input/output settings file: D:\MITREATTACK_SIMULATOR\artifacts\manual-language\early.ini
+[Language setting 1/3] Validating requested language (0/3)
+[Language setting 2/3] Saving interface preference (1/3)
+Input file: D:\MITREATTACK_SIMULATOR\manual\in_app_manual_en.md
+Output files: None (read-only manual workspace)
+[Manual 1/3] Reading local guide (0/3)
+[Manual 2/3] Rendering guide and heading outline (1/3)
+[Manual 3/3] Ready: in_app_manual_en.md (3/3)
+[Language setting 3/3] Interface and manual updated (3/3)
+Traceback (most recent call last):
+  File "<stdin>", line 23, in <module>
+AssertionError: 資訊

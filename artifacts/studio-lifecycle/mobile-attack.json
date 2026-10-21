@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "document_id": "03509ab5-61f6-4489-bb08-fc8b5de20cbe",
+  "name": "mobile-attack",
+  "created_at_utc": "2026-10-20T15:30:22.417788+00:00",
+  "exported_at_utc": "2026-10-20T15:30:22.418804+00:00",
+  "attack": {
+    "domain": "mobile-attack",
+    "version": "20.0",
+    "source_url": "https://github.com/mitre-attack/attack-stix-data"
+  },
+  "selected_count": 1,
+  "selected_technique_ids": [
+    "T1603"
+  ],
+  "selected_ttps": [
+    {
+      "technique_id": "T1603",
+      "stix_id": "attack-pattern--00290ac5-551e-44aa-bbd8-c4b913488a6d",
+      "name": "Scheduled Task/Job",
+      "is_subtechnique": false,
+      "parent_technique_id": null,
+      "parent_technique_name": null,
+      "platforms": [
+        "Android",
+        "iOS"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0041",
+          "name": "Execution",
+          "shortname": "execution"
+        },
+        {
+          "tactic_id": "TA0028",
+          "name": "Persistence",
+          "shortname": "persistence"
+        }
+      ],
+      "comment": "",
+      "tactic_comments": [],
+      "enabled": true,
+      "tactic_enabled": [
+        {
+          "tactic": "execution",
+          "enabled": true
+        },
+        {
+          "tactic": "persistence",
+          "enabled": true
+        }
+      ],
+      "selected_tactics": [
+        "execution",
+        "persistence"
+      ]
+    }
+  ],
+  "navigator_import_selected": [],
+  "selection_scopes": {},
+  "selection_preferences": {
+    "across_tactics": true,
+    "with_family": false,
+    "visible_only": false
+  },
+  "search_fields": [
+    "name",
+    "id"
+  ]
+}

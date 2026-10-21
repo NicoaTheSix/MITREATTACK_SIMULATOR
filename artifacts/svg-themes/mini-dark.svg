@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1100px" height="1000px" viewBox="0 0 1100 1000"><rect x="0" y="0" width="1100" height="1000" fill="#1e1e1e" /><g id="header"><text x="18" y="24" fill="#dddddd" font-size="20" font-family="Arial, sans-serif">SVG themes &lt;research&gt; 中文</text><text x="18" y="50" fill="#dddddd" font-size="12" font-family="Arial, sans-serif">Publication evidence &amp; annotation &lt;literal&gt;</text><text x="18" y="68" fill="#dddddd" font-size="12" font-family="Arial, sans-serif">Enterprise v19.2</text><text x="18" y="86" fill="#dddddd" font-size="12" font-family="Arial, sans-serif">Platforms: All Platforms</text><g id="legend"><rect x="18" y="104" width="300" height="148" fill="#252526" stroke="#666666" /><rect x="26" y="112" width="10" height="10" fill="#252526" /><text x="44" y="122" fill="#dddddd" font-size="11" font-family="Arial, sans-serif">Gradient 0–100: #ff000000</text><rect x="26" y="133" width="10" height="10" fill="#ff0000" /><text x="44" y="143" fill="#dddddd" font-size="11" font-family="Arial, sans-serif">Gradient 0–100: #ff0000ff</text><rect x="26" y="154" width="10" height="10" fill="#921213" /><text x="44" y="164" fill="#dddddd" font-size="11" font-family="Arial, sans-serif">Transparent red 中文</text><rect x="26" y="175" width="10" height="10" fill="#ffffff" /><text x="44" y="185" fill="#dddddd" font-size="11" font-family="Arial, sans-serif">White</text><rect x="26" y="196" width="10" height="10" fill="#000000" /><text x="44" y="206" fill="#dddddd" font-size="11" font-family="Arial, sans-serif">Black</text><rect x="26" y="217" width="10" height="10" fill="#252526" /><text x="44" y="227" fill="#dddddd" font-size="11" font-family="Arial, sans-serif">Invisible</text></g></g><g id="matrix" transform="translate(0 268) scale(2.09143) translate(0 -100)"><rect x="18" y="100" width="224" height="44" fill="#000000"><title>  Execution</title></rect><rect x="18" y="160" width="30" height="30" fill="#911213" stroke="#41484d"><title>T1000  Alpha
+Alpha
+Score: 50
+Selected: False
+Enabled: True
+Annotation indicators: #ffcc00
+Parent evidence</title></rect><line x1="21" y1="187" x2="45" y2="187" stroke="#ffcc00" stroke-width="2" /><text x="28" y="179" fill="#ffffff" font-size="12" font-family="Arial, sans-serif">i</text><rect x="56" y="160" width="30" height="30" fill="#ffffff" stroke="#3794ff" data-selected="true"><title>T1000.001  Child
+&gt; Child
+Score: 50
+Selected: True
+Enabled: True
+Annotation indicators: #ffcc00
+Child evidence</title></rect><line x1="59" y1="187" x2="83" y2="187" stroke="#ffcc00" stroke-width="2" /><text x="66" y="179" fill="#000000" font-size="12" font-family="Arial, sans-serif">i</text><rect x="18" y="198" width="30" height="30" fill="#303436" stroke="#41484d"><title>T1001  Beta
+Beta
+Score: 100
+Selected: False
+Enabled: False
+Annotation indicators: #ffcc00
+Disabled evidence</title></rect><line x1="21" y1="225" x2="45" y2="225" stroke="#ffcc00" stroke-width="2" /><text x="28" y="217" fill="#aaaaaa" font-size="12" font-family="Arial, sans-serif">x</text><rect x="18" y="236" width="30" height="30" fill="#000000" stroke="#41484d"><title>T1006  Black 中文
+Black 中文
+Selected: False
+Enabled: True
+Annotation indicators: #ffcc00
+Black evidence</title></rect><line x1="21" y1="263" x2="45" y2="263" stroke="#ffcc00" stroke-width="2" /><text x="28" y="255" fill="#ffffff" font-size="12" font-family="Arial, sans-serif">i</text><rect x="18" y="274" width="30" height="30" fill="#222526" stroke="#41484d"><title>T1002  Legacy
+Legacy
+Selected: False
+Enabled: True</title></rect><rect x="18" y="312" width="30" height="30" fill="#222526" stroke="#41484d"><title>T1008  No annotation
+No annotation
+Selected: False
+Enabled: True</title></rect><rect x="18" y="350" width="30" height="30" fill="#222526" stroke="#41484d"><title>T1009  Transparent
+Transparent
+Score: 0
+Selected: False
+Enabled: True</title></rect><rect x="18" y="388" width="30" height="30" fill="#ffffff" stroke="#41484d"><title>T1007  White
+White
+Selected: False
+Enabled: True
+Annotation indicators: #ffcc00
+White evidence</title></rect><line x1="21" y1="415" x2="45" y2="415" stroke="#ffcc00" stroke-width="2" /><text x="28" y="407" fill="#000000" font-size="12" font-family="Arial, sans-serif">i</text></g><desc>TTP Selection Studio matrix export; theme: dark; sub-techniques: all</desc></svg>

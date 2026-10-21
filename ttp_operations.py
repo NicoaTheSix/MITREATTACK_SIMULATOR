@@ -47,6 +47,25 @@ def apply_selection(selected, scope, action, annotated=()):
 
 def batch_patch(document, keys, patch, tactic=None, notify=lambda *args: None):
     """Validate a draft then commit once. None clears a field; absent fields stay intact."""
+    if tactic == '__selected__':
+        from layer_analysis import snapshot_document
+        from ttp_selection import selected_cells
+        draft = snapshot_document(document)
+        keys = set(keys)
+        if not keys or not keys <= document.selected:
+            raise ValueError('Selected-occurrence editing requires included TTPs.')
+        notify('Input files: None; output files: None (immutable selected-occurrence draft)',0,0)
+        whole = keys - document.selection_scopes.keys()
+        if whole:
+            batch_patch(draft,whole,patch,None,notify)
+        for slug in document.catalog.tactic_order:
+            scoped = {key for key in keys - whole if (key,slug) in selected_cells(document)}
+            if scoped:
+                batch_patch(draft,scoped,patch,slug,notify)
+        changed = draft.navigator_layer != document.navigator_layer
+        if changed:
+            document.navigator_layer = draft.navigator_layer
+        return {'changed':changed, 'keys':keys, 'layer':deepcopy(document.navigator_layer)}
     notify('Input files: None; output files: None (active layer draft in memory)', 0, 0)
     notify('[Batch Edit 1/3] Validating targets and requested fields', 0, 3)
     keys = set(keys)
@@ -110,7 +129,7 @@ def batch_patch(document, keys, patch, tactic=None, notify=lambda *args: None):
         if number % 50 == 0 or number == len(eligible):
             notify('[Batch Edit 2/3] Updating technique annotations in the draft', number, len(eligible))
     prune_empty_annotation_rows(document, candidate, prunable)
-    candidate = validate_layer(candidate)
+    candidate = validate_layer(candidate, document.catalog)
     changed = candidate != document.navigator_layer
     # An absent clear must also leave a genuinely empty document unchanged.
     if not document.navigator_layer and not candidate.get('techniques'):

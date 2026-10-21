@@ -1,0 +1,197 @@
+{
+  "checksum": "737a702473c2565dcd356d390b9573c6aa4ebd37baa2e643719b3291cc5d5ac3",
+  "workspace": {
+    "studio_session_version": "1.0",
+    "updated_at_utc": "2026-10-20T15:27:53.595339+00:00",
+    "clean_exit": false,
+    "documents": [
+      {
+        "document": {
+          "schema_version": "1.0",
+          "document_id": "0fdf8d24-444f-4a8e-8ecf-ca12bae82787",
+          "name": "Untitled-1",
+          "created_at_utc": "2026-10-20T15:27:50.426326+00:00",
+          "exported_at_utc": "2026-10-20T15:27:53.595339+00:00",
+          "attack": {
+            "domain": "enterprise-attack",
+            "version": "20.0",
+            "source_url": "https://github.com/mitre-attack/attack-stix-data"
+          },
+          "selected_count": 1,
+          "selected_technique_ids": [
+            "T1053.005"
+          ],
+          "selected_ttps": [
+            {
+              "technique_id": "T1053.005",
+              "stix_id": "attack-pattern--005a06c6-14bf-4118-afa0-ebcd8aebb0c9",
+              "name": "Scheduled Task",
+              "is_subtechnique": true,
+              "parent_technique_id": "T1053",
+              "parent_technique_name": "Scheduled Task/Job",
+              "platforms": [
+                "Windows"
+              ],
+              "tactics": [
+                {
+                  "tactic_id": "TA0002",
+                  "name": "Execution",
+                  "shortname": "execution"
+                },
+                {
+                  "tactic_id": "TA0003",
+                  "name": "Persistence",
+                  "shortname": "persistence"
+                },
+                {
+                  "tactic_id": "TA0004",
+                  "name": "Privilege Escalation",
+                  "shortname": "privilege-escalation"
+                }
+              ],
+              "comment": "",
+              "tactic_comments": [],
+              "enabled": true,
+              "tactic_enabled": [
+                {
+                  "tactic": "execution",
+                  "enabled": true
+                },
+                {
+                  "tactic": "persistence",
+                  "enabled": true
+                },
+                {
+                  "tactic": "privilege-escalation",
+                  "enabled": true
+                }
+              ],
+              "selected_tactics": [
+                "execution",
+                "persistence",
+                "privilege-escalation"
+              ]
+            }
+          ],
+          "navigator_import_selected": [],
+          "selection_scopes": {},
+          "selection_preferences": {
+            "across_tactics": true,
+            "with_family": false,
+            "visible_only": false
+          },
+          "search_fields": [
+            "name",
+            "id"
+          ]
+        },
+        "initial_name": "Untitled-1",
+        "save_path": null,
+        "saved_fingerprint": null,
+        "saved_file_sha256": null,
+        "content_token_version": 2,
+        "dirty": true
+      },
+      {
+        "document": {
+          "schema_version": "1.0",
+          "document_id": "15433f3f-8137-41f2-b277-5ac3715f1592",
+          "name": "Untitled-2",
+          "created_at_utc": "2026-10-20T15:27:51.896584+00:00",
+          "exported_at_utc": "2026-10-20T15:27:53.595339+00:00",
+          "attack": {
+            "domain": "enterprise-attack",
+            "version": "20.0",
+            "source_url": "https://github.com/mitre-attack/attack-stix-data"
+          },
+          "selected_count": 1,
+          "selected_technique_ids": [
+            "T1053.005"
+          ],
+          "selected_ttps": [
+            {
+              "technique_id": "T1053.005",
+              "stix_id": "attack-pattern--005a06c6-14bf-4118-afa0-ebcd8aebb0c9",
+              "name": "Scheduled Task",
+              "is_subtechnique": true,
+              "parent_technique_id": "T1053",
+              "parent_technique_name": "Scheduled Task/Job",
+              "platforms": [
+                "Windows"
+              ],
+              "tactics": [
+                {
+                  "tactic_id": "TA0002",
+                  "name": "Execution",
+                  "shortname": "execution"
+                },
+                {
+                  "tactic_id": "TA0003",
+                  "name": "Persistence",
+                  "shortname": "persistence"
+                },
+                {
+                  "tactic_id": "TA0004",
+                  "name": "Privilege Escalation",
+                  "shortname": "privilege-escalation"
+                }
+              ],
+              "comment": "",
+              "tactic_comments": [],
+              "enabled": true,
+              "tactic_enabled": [
+                {
+                  "tactic": "execution",
+                  "enabled": true
+                },
+                {
+                  "tactic": "persistence",
+                  "enabled": true
+                },
+                {
+                  "tactic": "privilege-escalation",
+                  "enabled": true
+                }
+              ],
+              "selected_tactics": [
+                "execution",
+                "persistence",
+                "privilege-escalation"
+              ]
+            }
+          ],
+          "navigator_import_selected": [],
+          "selection_scopes": {},
+          "selection_preferences": {
+            "across_tactics": true,
+            "with_family": false,
+            "visible_only": false
+          },
+          "search_fields": [
+            "name",
+            "id"
+          ]
+        },
+        "initial_name": "Untitled-2",
+        "save_path": null,
+        "saved_fingerprint": null,
+        "saved_file_sha256": null,
+        "content_token_version": 2,
+        "dirty": true
+      }
+    ],
+    "active_index": 1,
+    "view": {
+      "page": "selected",
+      "details_open": true,
+      "category": "TTP",
+      "overlay": false,
+      "show_colors": true,
+      "matrix_framework": "attack",
+      "attack_matrix_open": true,
+      "atlas_matrix_open": true,
+      "attack_expanded": true,
+      "atlas_expanded": true
+    }
+  }
+}

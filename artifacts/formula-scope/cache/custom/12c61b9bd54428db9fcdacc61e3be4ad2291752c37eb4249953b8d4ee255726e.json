@@ -1,0 +1,129 @@
+{
+  "type": "bundle",
+  "id": "bundle--5c131ed6-20bd-5097-b08f-9bfc31662a01",
+  "x_ttp_studio_domains": [
+    {
+      "id": "formula-lab",
+      "name": "Formula Lab",
+      "kill_chain_name": "formula-lab-chain",
+      "reference_source": "formula-lab"
+    }
+  ],
+  "objects": [
+    {
+      "id": "x-mitre-tactic--36c16fd8-1704-546a-b2bb-15af9188c76a",
+      "type": "x-mitre-tactic",
+      "name": "execution",
+      "x_mitre_domains": [
+        "formula-lab"
+      ],
+      "x_mitre_shortname": "execution",
+      "external_references": [
+        {
+          "source_name": "formula-lab",
+          "external_id": "TACTIC-execution"
+        }
+      ]
+    },
+    {
+      "id": "x-mitre-tactic--ef0eb4cc-b104-5971-a602-884fd7818a79",
+      "type": "x-mitre-tactic",
+      "name": "persistence",
+      "x_mitre_domains": [
+        "formula-lab"
+      ],
+      "x_mitre_shortname": "persistence",
+      "external_references": [
+        {
+          "source_name": "formula-lab",
+          "external_id": "TACTIC-persistence"
+        }
+      ]
+    },
+    {
+      "id": "x-mitre-matrix--8dd45037-87d6-585c-95c5-ab948a677388",
+      "type": "x-mitre-matrix",
+      "name": "Scope Matrix",
+      "x_mitre_domains": [
+        "formula-lab"
+      ],
+      "tactic_refs": [
+        "x-mitre-tactic--36c16fd8-1704-546a-b2bb-15af9188c76a",
+        "x-mitre-tactic--ef0eb4cc-b104-5971-a602-884fd7818a79"
+      ]
+    },
+    {
+      "id": "attack-pattern--5ec71df9-198d-57a7-ad41-9b4490317aa6",
+      "type": "attack-pattern",
+      "name": "T0001",
+      "x_mitre_domains": [
+        "formula-lab"
+      ],
+      "external_references": [
+        {
+          "source_name": "formula-lab",
+          "external_id": "T0001"
+        }
+      ],
+      "x_mitre_platforms": [
+        "ResearchOS"
+      ],
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "formula-lab-chain",
+          "phase_name": "execution"
+        },
+        {
+          "kill_chain_name": "formula-lab-chain",
+          "phase_name": "persistence"
+        }
+      ]
+    },
+    {
+      "id": "attack-pattern--9d5781d1-55ce-5b0e-afa2-702f4ac1d855",
+      "type": "attack-pattern",
+      "name": "T0002",
+      "x_mitre_domains": [
+        "formula-lab"
+      ],
+      "external_references": [
+        {
+          "source_name": "formula-lab",
+          "external_id": "T0002"
+        }
+      ],
+      "x_mitre_platforms": [
+        "ResearchOS"
+      ],
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "formula-lab-chain",
+          "phase_name": "execution"
+        }
+      ]
+    },
+    {
+      "id": "attack-pattern--04813ffa-04c1-5939-b546-2f87cc0e3692",
+      "type": "attack-pattern",
+      "name": "T0003",
+      "x_mitre_domains": [
+        "formula-lab"
+      ],
+      "external_references": [
+        {
+          "source_name": "formula-lab",
+          "external_id": "T0003"
+        }
+      ],
+      "x_mitre_platforms": [
+        "ResearchOS"
+      ],
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "formula-lab-chain",
+          "phase_name": "persistence"
+        }
+      ]
+    }
+  ]
+}

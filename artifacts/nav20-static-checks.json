@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "python_sources": 88,
+  "local_markdown_links": 384,
+  "locale_keys": 660,
+  "translated_gradient_controls": true,
+  "portable_LF_fixtures": true,
+  "reference_dependency_lock": true
+}

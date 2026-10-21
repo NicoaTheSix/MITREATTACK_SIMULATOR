@@ -1,0 +1,8 @@
+/data/workspace-session.json
+/data/workspace-session.json.lock
+/data/workspace-session.json.*.tmp
+/.venv/
+/.venv-linux/
+__pycache__/
+/scripts/formula-reference/node_modules/
+/artifacts/formula-compatibility/npm-cache/

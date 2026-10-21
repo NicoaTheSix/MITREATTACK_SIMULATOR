@@ -63,7 +63,35 @@
       }
     ],
     "hideDisabled": false,
-    "description": "Native matrix research annotations"
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false,
+    "selectVisibleTechniques": false,
+    "x_ttp_studio_search_fields": [
+      "name",
+      "id"
+    ],
+    "description": "Native matrix research annotations",
+    "layout": {
+      "showID": false,
+      "showName": true,
+      "showAggregateScores": false,
+      "countUnscored": false,
+      "aggregateFunction": "average"
+    },
+    "showTacticRowBackground": false,
+    "tacticRowBackground": "#dddddd",
+    "x_ttp_studio_display": {
+      "manual_color": true,
+      "score_color": true,
+      "aggregate_color": true,
+      "comment_indicator": true,
+      "metadata_indicator": true,
+      "link_indicator": true,
+      "legend_visible": true,
+      "comment_color": "#ffcc00",
+      "metadata_color": "#ffcc00",
+      "link_color": "#4daafc"
+    }
   },
   {
     "name": "Coverage layer-copy",
@@ -132,7 +160,35 @@
       }
     ],
     "hideDisabled": false,
-    "description": "Native matrix research annotations"
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false,
+    "selectVisibleTechniques": false,
+    "x_ttp_studio_search_fields": [
+      "name",
+      "id"
+    ],
+    "description": "Native matrix research annotations",
+    "layout": {
+      "showID": false,
+      "showName": true,
+      "showAggregateScores": false,
+      "countUnscored": false,
+      "aggregateFunction": "average"
+    },
+    "showTacticRowBackground": false,
+    "tacticRowBackground": "#dddddd",
+    "x_ttp_studio_display": {
+      "manual_color": true,
+      "score_color": true,
+      "aggregate_color": true,
+      "comment_indicator": true,
+      "metadata_indicator": true,
+      "link_indicator": true,
+      "legend_visible": true,
+      "comment_color": "#ffcc00",
+      "metadata_color": "#ffcc00",
+      "link_color": "#4daafc"
+    }
   },
   {
     "name": "Untitled-2",
@@ -153,6 +209,12 @@
       "maxValue": 100
     },
     "legendItems": [],
-    "selectSubtechniquesWithParent": false
+    "selectSubtechniquesWithParent": false,
+    "selectTechniquesAcrossTactics": true,
+    "selectVisibleTechniques": false,
+    "x_ttp_studio_search_fields": [
+      "name",
+      "id"
+    ]
   }
 ]

@@ -163,7 +163,7 @@ def main():
     check(exported['comment'] == COMMENT and exported['parent_technique_name'] == catalog.records[parent]['name'],
           'selected JSON embeds child comment beside parent context')
     check(payload['navigator_layer']['techniques'] == first.navigator_layer['techniques'], 'Studio JSON retains complete original annotation rows too')
-    check(first.dirty, 'CSV comments do not mark unsaved colors/full layer state saved')
+    check(not first.dirty and first.save_path == JSON_SAMPLE, 'CSV exchange preserves the existing complete Studio saved baseline')
     protected = CSV_SAMPLE.read_bytes()
     before = first.fingerprint(), first.export_path, first.exported_fingerprint
     with patch.object(Path, 'replace', side_effect=PermissionError('audit blocked publication')), patch.object(QtWidgets.QMessageBox, 'critical'):
@@ -230,6 +230,7 @@ def main():
     window.edit_selected_annotation(task)
     check(first.fingerprint() == before, 'stale unselected key cannot invoke selected comment edit')
     check(all(path.read_bytes() == data for path, data in pointers.items()), 'comment workflow leaves dataset pointers unchanged')
+    window.confirm_studio_changes = lambda *_: 'discard'
     window.close()
     log('[Comments 6/6] Publishing successful audit report', 5, 6)
     REPORT.write_text(json.dumps({'status': 'PASS', 'checks': checks, 'preview': str(SCREEN),

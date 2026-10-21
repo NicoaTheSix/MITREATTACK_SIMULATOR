@@ -1,0 +1,84 @@
+{
+  "name": "Display layer",
+  "domain": "enterprise-attack",
+  "versions": {
+    "attack": "19.2",
+    "navigator": "5.2.0",
+    "layer": "4.5"
+  },
+  "techniques": [
+    {
+      "techniqueID": "T1000.001",
+      "tactic": "execution",
+      "links": [
+        {
+          "label": "Evidence",
+          "url": "https://example.com/evidence"
+        }
+      ],
+      "metadata": [
+        {
+          "name": "Analyst",
+          "value": "Team"
+        },
+        {
+          "name": "TTP Selection Studio selected",
+          "value": "true"
+        }
+      ],
+      "comment": "Analyst note",
+      "score": 7,
+      "color": "#113355"
+    },
+    {
+      "techniqueID": "T1001.001",
+      "tactic": "execution",
+      "score": 0,
+      "metadata": [
+        {
+          "name": "TTP Selection Studio selected",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "techniqueID": "T1002",
+      "comment": "Parent annotation only",
+      "metadata": [
+        {
+          "name": "TTP Selection Studio selected",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "techniqueID": "T1000.002",
+      "tactic": "execution",
+      "color": "#113355",
+      "metadata": [
+        {
+          "name": "TTP Selection Studio selected",
+          "value": "false"
+        }
+      ]
+    }
+  ],
+  "customDataURL": "D:\\MITREATTACK_SIMULATOR\\artifacts\\matrix-display\\fixture.json",
+  "x_ttp_studio_dataset": "b26bf9d906620fc230ffb4d5b94ed2023620234dfdce55494f82733864faf58d",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false,
+  "selectVisibleTechniques": false,
+  "x_ttp_studio_search_fields": [
+    "name",
+    "id"
+  ],
+  "layout": {
+    "showID": true,
+    "showName": true,
+    "expandedSubtechniques": "annotated",
+    "layout": "flat"
+  },
+  "showTacticRowBackground": true,
+  "tacticRowBackground": "#f0c040",
+  "sorting": 0
+}

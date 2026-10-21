@@ -1,0 +1,67 @@
+[
+  {
+    "name": "Custom Domain",
+    "domain": "lab-one",
+    "versions": {
+      "attack": "1.0",
+      "navigator": "5.2.0",
+      "layer": "4.5"
+    },
+    "techniques": [
+      {
+        "techniqueID": "LAB-BETA.child",
+        "tactic": "execute",
+        "comment": "Custom domain note",
+        "score": 4.5,
+        "color": "#2255aa",
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "true"
+          }
+        ]
+      }
+    ],
+    "customDataURL": "D:\\MITREATTACK_SIMULATOR\\artifacts\\custom-domains\\research-bundle.json",
+    "x_ttp_studio_dataset": "b81aef8a7c9f34f1ce926015b297cc61711957cac220fc4cf52148228f0d199e",
+    "x_ttp_studio_domain": {
+      "id": "lab-one",
+      "name": "Research lab-one",
+      "kill_chain_name": "lab-one-chain",
+      "reference_source": "lab-one-references"
+    },
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false,
+    "selectVisibleTechniques": false,
+    "x_ttp_studio_search_fields": [
+      "name",
+      "id"
+    ]
+  },
+  {
+    "name": "Second",
+    "domain": "lab-two",
+    "techniques": [],
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false,
+    "hideDisabled": false,
+    "selectVisibleTechniques": false,
+    "x_ttp_studio_search_fields": [
+      "name",
+      "id"
+    ],
+    "versions": {
+      "attack": "1.0",
+      "navigator": "5.2.0",
+      "layer": "4.5"
+    },
+    "customDataURL": "D:\\MITREATTACK_SIMULATOR\\artifacts\\custom-domains\\research-bundle.json",
+    "x_ttp_studio_dataset": "b81aef8a7c9f34f1ce926015b297cc61711957cac220fc4cf52148228f0d199e",
+    "x_ttp_studio_domain": {
+      "id": "lab-two",
+      "name": "Research lab-two",
+      "kill_chain_name": "lab-two-chain",
+      "reference_source": "lab-two-references"
+    }
+  }
+]

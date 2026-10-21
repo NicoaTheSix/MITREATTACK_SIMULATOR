@@ -1,20 +1,30 @@
 """Full matrix SVG/XLSX exports with a shared color/score projection. Flow: README.md."""
 from pathlib import Path
+from app_identity import APP_NAME
 import json
 import textwrap
 import uuid
 from xml.etree import ElementTree as ET
 
-from attack_catalog import DOMAIN_LABELS, external_id, catalog_identity
+from attack_catalog import DOMAIN_LABELS, external_id, catalog_identity, domain_label
 from navigator_fields import sorted_families
 from attack_matrix import ALL_PLATFORMS, matrix_columns
 from navigator_integration import document_layer
 from navigator_visuals import LayerAppearance, OverlayAppearance, display_color
+from ttp_search import matches as search_matches
+from ttp_selection import is_selected
+from matrix_display import display_label, header_color, marker_colors
+from navigator_visuals import foreground_color
+from matrix_expansion import expanded_family
 
 SVG_NS = 'http://www.w3.org/2000/svg'
 
 
-def matrix_scene(document, platform=ALL_PLATFORMS, query='', colors=True, sources=None, notify=lambda *args: None):
+def matrix_scene(document, platform=ALL_PLATFORMS, query='', colors=True, sources=None, notify=lambda *args: None,
+                 subtechniques='all', expanded=None, allow_empty=False):
+    if subtechniques not in ('all', 'expanded', 'none'):
+        raise ValueError('Choose all, expanded or no sub-techniques.')
+    expanded = None if expanded is None else set(expanded)
     catalog = document.catalog
     layer = document_layer(document)
     if sources is not None:
@@ -24,7 +34,7 @@ def matrix_scene(document, platform=ALL_PLATFORMS, query='', colors=True, source
         appearance = LayerAppearance(layer, catalog)
     query = query.strip().casefold()
     columns = []
-    matches = lambda key: query in (external_id(catalog.records[key]) + ' ' + catalog.records[key]['name']).casefold()
+    matches = lambda key: search_matches(catalog,key,query,document.search_fields)
     projected = matrix_columns(catalog, platform)
     for number, (slug, families) in enumerate(projected, 1):
         families = sorted_families(catalog, slug, families, appearance, layer.get('sorting', 0))
@@ -35,6 +45,11 @@ def matrix_scene(document, platform=ALL_PLATFORMS, query='', colors=True, source
             children = [child for child in family['children'] if (root_matches or matches(child))
                         and not appearance.cell(external_id(catalog.records[child]), slug)['hidden']]
             root = appearance.cell(external_id(catalog.records[key]), slug)
+            saved_expanded = expanded_family(appearance,catalog,key,slug,family['children'],layer.get('layout',{}).get('layout')=='mini')
+            show_children = subtechniques == 'all' or (subtechniques == 'expanded' and (
+                (key, slug) in expanded if expanded is not None else saved_expanded))
+            if not show_children:
+                children = []
             if not children and not (root_matches and not root['hidden']):
                 continue
             for target, depth in [(key, 0), *[(child, 1) for child in children]]:
@@ -42,30 +57,36 @@ def matrix_scene(document, platform=ALL_PLATFORMS, query='', colors=True, source
                 style = appearance.cell(external_id(record), slug)
                 parent = catalog.parents.get(target)
                 cells.append({'key': target, 'id': external_id(record), 'name': record['name'], 'depth': depth,
+                              'display':display_label(external_id(record),record['name'],layer),
                               'parent': external_id(catalog.records[parent]) if parent else '',
-                              'selected': target in document.selected, 'style': style,
+                              'selected': is_selected(document.selected,document.selection_scopes,target,slug), 'style': style,
                               'background': style['background'] if colors and style['background'] else '#222526',
                               'foreground': style['foreground'] if colors and style['foreground'] else '#6caedf'})
         if cells:
-            columns.append({'slug': slug, 'name': catalog.tactics[slug]['name'], 'cells': cells})
+            tactic=catalog.tactics[slug]
+            columns.append({'slug': slug, 'name': tactic['name'], 'id':external_id(tactic),
+                            'label':display_label(external_id(tactic),tactic['name'],layer),'cells': cells})
         notify('[Matrix Export 1/4] Projecting tactic columns', number, len(projected))
-    if not columns:
+    if not columns and not allow_empty:
         raise ValueError('No matrix cells match the current platform/search/visibility filters.')
     legend = list(appearance.layer.get('legendItems', [])) if colors else []
     if colors and sources is None and any('score' in row for row in appearance.rows.values()):
         gradient = appearance.gradient
         legend = [{'label': f"Gradient {gradient['minValue']:g}–{gradient['maxValue']:g}: {color}", 'color': color}
                   for color in gradient['colors']] + legend
-    return {'name': document.name, 'scope': f'{DOMAIN_LABELS[catalog.domain]} v{catalog.version}',
+    return {'name': document.name, 'scope': f'{domain_label(catalog.domain, catalog)} v{catalog.version}',
             'platform': ', '.join(platform) if isinstance(platform, (list, tuple, set)) else platform,
             'query': query, 'overlay': sources is not None, 'colors': colors, 'columns': columns, 'legend': legend,
             'metadata': layer.get('metadata', []), 'description': layer.get('description', ''),
-            'layout': layer.get('layout', {})}
+            'links': layer.get('links', []), 'formula': layer.get('x_ttp_studio_formula', {}),
+            'layout': layer.get('layout', {}), 'subtechniques': subtechniques,
+            'tactic_background':header_color(layer)}
 
 
 def cell_label(cell):
     style = cell['style']
-    label = ('> ' if cell['depth'] else '') + cell['id'] + '  ' + cell['name']
+    label=cell.get('display',cell['id']+'  '+cell['name'])
+    label=('> ' if cell['depth'] and label else '')+label
     if style['score'] is not None:
         label += f"\nScore: {style['score']:g}"
     if style.get('aggregateScore') is not None:
@@ -75,7 +96,13 @@ def cell_label(cell):
 
 def cell_note(cell):
     style = cell['style']
-    parts = [cell_label(cell), 'Selected: ' + str(cell['selected']), 'Enabled: ' + str(style['enabled'])]
+    parts = [cell['id']+'  '+cell['name'], cell_label(cell), 'Selected: ' + str(cell['selected']), 'Enabled: ' + str(style['enabled'])]
+    for abstract,content in style.get('sourceNotes',[]):
+        parts.append('Source STIX Note'+(': '+abstract if abstract else '')+'\n'+content)
+    for source in style.get('annotationSources',[]):
+        parts.append('Overlay annotation: '+source['name']+'\n'+source['text'])
+    indicators=marker_colors(style)
+    if indicators: parts.append('Annotation indicators: '+', '.join(indicators))
     if style['comment']:
         parts.append(style['comment'])
     for entry in style.get('metadata', []):
@@ -91,12 +118,21 @@ def cell_note(cell):
     return '\n'.join(parts)
 
 
-def svg_content(scene):
+def svg_content(scene, options=None):
+    if options is not None:
+        from svg_export import render_svg
+        return render_svg(scene, options, svg_content)
+    from svg_themes import palette, project_scene
+    theme_name = scene.get('svg_theme', 'dark')
+    theme = palette(theme_name)
+    scene = project_scene(scene, theme_name)
     mode = scene['layout'].get('layout', 'flat')
     column_width = 464 if mode == 'side' else 232
     width = 36 + len(scene['columns']) * column_width
     legend_height = len(scene['legend']) * 22
-    header = 100 + legend_height
+    description = scene.get('description','')
+    extra = 22 if description else 0
+    header = 100 + legend_height + extra
     positions, tallest = [], header
     for column in scene['columns']:
         y, rows = header + 60, []
@@ -135,34 +171,59 @@ def svg_content(scene):
     root = ET.Element(f'{{{SVG_NS}}}svg', width=str(width), height=str(tallest + 24), viewBox=f'0 0 {width} {tallest + 24}')
     def element(tag, **attrs):
         return ET.SubElement(root, f'{{{SVG_NS}}}{tag}', {key.replace('_', '-'): str(value) for key, value in attrs.items()})
-    def text(x, y, value, color='#dddddd', size=12):
-        item = element('text', x=x, y=y, fill=color, font_size=size, font_family='Arial, sans-serif')
+    def text(x, y, value, color=None, size=12):
+        item = element('text', x=x, y=y, fill=color or theme['text'], font_size=size, font_family='Arial, sans-serif')
         item.text = value
         return item
-    element('rect', x=0, y=0, width=width, height=tallest + 24, fill='#1e1e1e')
+    element('rect', x=0, y=0, width=width, height=tallest + 24, fill=theme['canvas'])
     text(18, 28, scene['name'], size=20)
     text(18, 51, scene['scope'] + ' · ' + scene['platform'])
-    text(18, 73, ('All compatible layers' if scene['overlay'] else 'Active layer') + ' · All matching sub-techniques expanded'
+    if description:
+        short=' '.join(description.split())
+        limit=max(16,(width-36)//6)
+        label=text(18,73,short if len(short)<=limit else short[:limit-1]+'…')
+        ET.SubElement(label,f'{{{SVG_NS}}}title').text=description
+    text(18, 73 + extra, ('All compatible layers' if scene['overlay'] else 'Active layer') + ' · All matching sub-techniques expanded'
          + (' · Colors hidden' if not scene['colors'] else ''))
     for number, entry in enumerate(scene['legend']):
-        x, y = 18, 88 + number * 22
-        element('rect', x=x, y=y, width=12, height=12, fill=display_color(entry['color']))
+        x, y = 18, 88 + extra + number * 22
+        element('rect', x=x, y=y, width=12, height=12, fill=display_color(entry['color'], theme['canvas']))
         limit = max(16, (width - 75) // 6)
         label = entry['label'] if len(entry['label']) <= limit else entry['label'][:limit - 1] + '…'
         item = text(x + 18, y + 11, label, size=11)
         ET.SubElement(item, f'{{{SVG_NS}}}title').text = entry['label']
     for number, (column, rows) in enumerate(positions):
         x = 18 + number * column_width
-        for line_no, line in enumerate(textwrap.wrap(column['name'], width=25)):
-            text(x + 4, header + 18 + line_no * 16, line, '#6caedf', 13)
+        background=scene.get('tactic_background','') if mode!='mini' else theme['mini_header']
+        if background:
+            block=element('rect',x=x,y=header,width=column_width-8,height=44,fill=background)
+            ET.SubElement(block,f'{{{SVG_NS}}}title').text=column.get('id','')+'  '+column['name']
+        if mode!='mini':
+            for line_no, line in enumerate(textwrap.wrap(column.get('label',column['name']), width=25)):
+                text(x + 4, header + 18 + line_no * 16, line, foreground_color(background) if background else theme['link'], 13)
         for cell, y, height, lines, offset, cell_width in rows:
             rect = element('rect', x=x + offset, y=y, width=cell_width, height=height, fill=cell['background'],
                            stroke='#3794ff' if mode == 'mini' and cell['selected'] else '#41484d')
+            if mode == 'mini' and cell['selected']:
+                rect.set('data-selected', 'true')
             title = ET.SubElement(rect, f'{{{SVG_NS}}}title')
             title.text = cell_note(cell)
+            for marker_no,color in enumerate(marker_colors(cell['style'])):
+                marker_y=y+height-3-marker_no*3
+                if theme_name == 'light':
+                    element('line',x1=x+offset+3,y1=marker_y,x2=x+offset+cell_width-3,y2=marker_y,
+                            stroke=foreground_color(cell['background']),stroke_width=4)
+                element('line',x1=x+offset+3,y1=marker_y,x2=x+offset+cell_width-3,y2=marker_y,stroke=color,stroke_width=2)
+            if mode=='mini' and (not cell['style']['enabled'] or marker_colors(cell['style'])):
+                text(x+offset+10,y+19,'x' if not cell['style']['enabled'] else 'i',cell['foreground'])
             for line_no, line in enumerate(lines):
                 text(x + offset + 7 + cell['depth'] * 8, y + 18 + line_no * 15, line, cell['foreground'])
-    return ET.tostring(root, encoding='utf-8', xml_declaration=True)
+    payload=ET.tostring(root, encoding='utf-8', xml_declaration=True)
+    try:
+        ET.fromstring(payload)
+    except ET.ParseError as error:
+        raise ValueError('SVG text contains characters that are invalid in XML; use JSON to preserve them.') from error
+    return payload
 
 
 def save_excel(scene, path, notify):
@@ -198,9 +259,10 @@ def save_excel(scene, path, notify):
     detail_row = 2
     try:
         for col_no, column in enumerate(scene['columns'], 1):
-            cell = value(matrix, 3, col_no, column['name'])
-            cell.fill = PatternFill('solid', fgColor='253A4E')
-            cell.font = Font(color='FFFFFF', bold=True)
+            cell = value(matrix, 3, col_no, column.get('label',column['name']))
+            header_bg=scene.get('tactic_background','')
+            cell.fill = PatternFill('solid', fgColor=header_bg[1:].upper() if header_bg else '253A4E')
+            cell.font = Font(color=foreground_color(header_bg)[1:].upper() if header_bg else 'FFFFFF', bold=True)
             matrix.column_dimensions[get_column_letter(col_no)].width = 36
             matrix.row_dimensions[3].height = 36
             for row_no, data in enumerate(column['cells'], 4):
@@ -209,7 +271,13 @@ def save_excel(scene, path, notify):
                 cell.fill = PatternFill('solid', fgColor=data['background'][1:].upper())
                 cell.font = Font(color=data['foreground'][1:].upper(), size=11)
                 cell.border = border
-                cell.comment = Comment(cell_note(data), 'TTP Selection Studio')
+                if marker_colors(style):
+                    from copy import copy
+                    borders=copy(border)
+                    for side,color in zip(('bottom','right','top'),marker_colors(style)):
+                        setattr(borders,side,Side(style='medium',color=color[1:].upper()))
+                    cell.border=borders
+                cell.comment = Comment(cell_note(data), APP_NAME)
                 matrix.row_dimensions[row_no].height = max(matrix.row_dimensions[row_no].height or 0,
                     20 + 15 * sum(max(1, len(textwrap.wrap(line, 30))) for line in cell_label(data).splitlines()))
                 parts = [column['name'], data['id'], data['name'], data['parent'], data['selected'], style['enabled'],
@@ -246,7 +314,8 @@ def save_excel(scene, path, notify):
         book.close()
 
 
-def export_matrix(document, target, kind, notify, platform=ALL_PLATFORMS, query='', colors=True, sources=None):
+def export_matrix(document, target, kind, notify, platform=ALL_PLATFORMS, query='', colors=True, sources=None,
+                  svg_options=None, expanded=None):
     if kind not in ('svg', 'xlsx'):
         raise ValueError('Choose SVG or XLSX.')
     target = Path(target).expanduser().resolve()
@@ -257,11 +326,16 @@ def export_matrix(document, target, kind, notify, platform=ALL_PLATFORMS, query=
     notify(f'Output file: {target}', 0, 0)
     notify(f'Temporary output file: {temporary}', 0, 0)
     notify('[Matrix Export 1/4] Validating layers and resolving filters', 0, 4)
-    scene = matrix_scene(document, platform, query, colors, sources, notify)
+    if kind == 'svg' and svg_options is not None:
+        from svg_export import validate_svg_options
+        svg_options = validate_svg_options(svg_options)
+    scene = matrix_scene(document, platform, query, colors, sources, notify,
+                         subtechniques=svg_options['subtechniques'] if svg_options else 'all', expanded=expanded)
     try:
-        notify('[Matrix Export 2/4] Rendering complete matrix', 1, 4)
+        notify('[Matrix Export 2/4] Rendering complete matrix' +
+               (' · SVG theme: ' + (svg_options or {}).get('theme', 'dark') if kind == 'svg' else ''), 1, 4)
         if kind == 'svg':
-            payload = svg_content(scene)
+            payload = svg_content(scene, svg_options)
             notify('[Matrix Export 3/4] Writing SVG vector image', 2, 4)
             with temporary.open('xb') as stream:
                 stream.write(payload)

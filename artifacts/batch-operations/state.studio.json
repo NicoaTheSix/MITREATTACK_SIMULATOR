@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0",
-  "document_id": "d9e02fce-4a50-4a5d-b0de-abe74b21f16b",
+  "document_id": "8c684484-0182-47da-bfef-73bdb0e26115",
   "name": "state.studio",
-  "created_at_utc": "2026-10-15T07:34:22.886107+00:00",
-  "exported_at_utc": "2026-10-15T07:34:25.564947+00:00",
+  "created_at_utc": "2026-10-20T02:46:22.220552+00:00",
+  "exported_at_utc": "2026-10-20T02:46:30.539899+00:00",
   "attack": {
     "domain": "enterprise-attack",
-    "version": "19.2",
+    "version": "20.0",
     "source_url": "https://github.com/mitre-attack/attack-stix-data"
   },
   "selected_count": 1,
@@ -62,16 +62,32 @@
           "tactic": "privilege-escalation",
           "enabled": false
         }
+      ],
+      "selected_tactics": [
+        "execution",
+        "persistence",
+        "privilege-escalation"
       ]
     }
+  ],
+  "navigator_import_selected": [],
+  "selection_scopes": {},
+  "selection_preferences": {
+    "across_tactics": true,
+    "with_family": false,
+    "visible_only": false
+  },
+  "search_fields": [
+    "name",
+    "id"
   ],
   "navigator_layer": {
     "name": "Untitled-1",
     "domain": "enterprise-attack",
     "versions": {
-      "attack": "19.2",
-      "layer": "4.5",
-      "navigator": "5.2.0"
+      "attack": "20.0",
+      "navigator": "5.2.0",
+      "layer": "4.5"
     },
     "techniques": [
       {
@@ -79,7 +95,13 @@
         "comment": "Research note",
         "score": 5,
         "color": "#eecc44",
-        "enabled": false
+        "enabled": false,
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "true"
+          }
+        ]
       },
       {
         "techniqueID": "T1053.005",
@@ -87,8 +109,24 @@
         "score": 5,
         "color": "#eecc44",
         "enabled": false,
-        "tactic": "execution"
+        "tactic": "execution",
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "true"
+          }
+        ]
       }
-    ]
+    ],
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false,
+    "selectVisibleTechniques": false,
+    "x_ttp_studio_search_fields": [
+      "name",
+      "id"
+    ],
+    "layout": {
+      "expandedSubtechniques": "all"
+    }
   }
 }

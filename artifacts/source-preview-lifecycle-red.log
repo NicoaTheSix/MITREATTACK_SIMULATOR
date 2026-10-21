@@ -1,0 +1,7 @@
+Input files: None; output files: None (isolated Qt destruction regression)
+[Hover Lifecycle 1/2] Installing a source watcher on a native combo view (0/2)
+[Hover Lifecycle 2/2] Returning for native interpreter/window teardown (2/2)
+Windows fatal exception: access violation
+
+Current thread 0x000079f0 (most recent call first):
+  <no Python frame>

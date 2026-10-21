@@ -1,0 +1,130 @@
+{
+  "schema_version": "1.0",
+  "document_id": "842d7a2a-fd25-462e-9c27-f572a4d94fb9",
+  "name": "selection.studio",
+  "created_at_utc": "2026-10-19T07:53:39.956233+00:00",
+  "exported_at_utc": "2026-10-19T07:53:43.025635+00:00",
+  "attack": {
+    "domain": "enterprise-attack",
+    "version": "19.2",
+    "source_url": "D:\\MITREATTACK_SIMULATOR\\artifacts\\selection-search\\fixture.json",
+    "dataset_sha256": "a97d754d982b0dcdac8b7afef640422a948a99d48d9f3fec88b8cb48ca372024",
+    "custom": true
+  },
+  "selected_count": 1,
+  "selected_technique_ids": [
+    "T1000"
+  ],
+  "selected_ttps": [
+    {
+      "technique_id": "T1000",
+      "stix_id": "attack-pattern--c4f9279a-9bbb-54ad-ab31-3fca5363870c",
+      "name": "Alpha",
+      "is_subtechnique": false,
+      "parent_technique_id": null,
+      "parent_technique_name": null,
+      "platforms": [
+        "Linux",
+        "Windows"
+      ],
+      "tactics": [
+        {
+          "tactic_id": null,
+          "name": "Execution",
+          "shortname": "execution"
+        },
+        {
+          "tactic_id": null,
+          "name": "Initial-Access",
+          "shortname": "initial-access"
+        }
+      ],
+      "comment": "Global fallback",
+      "tactic_comments": [
+        {
+          "tactic": "execution",
+          "comment": "Execution only"
+        }
+      ],
+      "enabled": true,
+      "tactic_enabled": [
+        {
+          "tactic": "execution",
+          "enabled": true
+        },
+        {
+          "tactic": "initial-access",
+          "enabled": true
+        }
+      ],
+      "selected_tactics": [
+        "execution"
+      ]
+    }
+  ],
+  "navigator_import_selected": [],
+  "selection_scopes": {
+    "attack-pattern--c4f9279a-9bbb-54ad-ab31-3fca5363870c": [
+      "execution"
+    ]
+  },
+  "selection_preferences": {
+    "across_tactics": false,
+    "with_family": false,
+    "visible_only": false
+  },
+  "search_fields": [
+    "data_sources"
+  ],
+  "navigator_layer": {
+    "name": "Research fixture",
+    "domain": "enterprise-attack",
+    "techniques": [
+      {
+        "techniqueID": "T1001",
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "true"
+          }
+        ],
+        "comment": "Preserve annotation",
+        "score": 5,
+        "color": "#55aa33"
+      },
+      {
+        "techniqueID": "T1000",
+        "comment": "Global fallback",
+        "score": 4,
+        "color": "#abcdef"
+      },
+      {
+        "techniqueID": "T1000",
+        "comment": "Execution only",
+        "score": 8,
+        "color": "#abcdef",
+        "tactic": "execution",
+        "enabled": true
+      }
+    ],
+    "selectTechniquesAcrossTactics": false,
+    "selectSubtechniquesWithParent": false,
+    "hideDisabled": false,
+    "selectVisibleTechniques": false,
+    "x_ttp_studio_search_fields": [
+      "description",
+      "data_sources"
+    ],
+    "versions": {
+      "attack": "19.2",
+      "navigator": "5.2.0",
+      "layer": "4.5"
+    },
+    "customDataURL": "D:\\MITREATTACK_SIMULATOR\\artifacts\\selection-search\\fixture.json",
+    "x_ttp_studio_dataset": "a97d754d982b0dcdac8b7afef640422a948a99d48d9f3fec88b8cb48ca372024",
+    "layout": {
+      "layout": "mini"
+    },
+    "sorting": 0
+  }
+}

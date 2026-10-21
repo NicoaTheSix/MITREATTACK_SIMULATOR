@@ -1,0 +1,94 @@
+{
+  "studio_frameworks_version": "1.0",
+  "name": "ui-atlas",
+  "document_id": "812605ca-ce20-4e09-9ff5-6b86b7f4119e",
+  "created_at_utc": "2026-10-20T15:30:20.129694+00:00",
+  "frameworks": {
+    "atlas": {
+      "schema_version": "1.0",
+      "document_id": "bf6b7d6a-4def-4125-847f-1baf460d35aa",
+      "name": "ATLAS",
+      "created_at_utc": "2026-10-20T15:30:21.716401+00:00",
+      "exported_at_utc": "2026-10-20T15:30:30.656117+00:00",
+      "attack": {
+        "domain": "atlas-atlas",
+        "version": "2026.09",
+        "source_url": "https://raw.githubusercontent.com/mitre-atlas/atlas-data/3259f388d19cbcca11bacf12a0ef97f4198f711b/dist/v6/ATLAS-2026.09.yaml",
+        "dataset_sha256": "afb2753e405f5b4b370bf585702ffbbe99071af946a4bc60624f373086e0a117",
+        "custom": true
+      },
+      "selected_count": 1,
+      "selected_technique_ids": [
+        "AML.T0000"
+      ],
+      "selected_ttps": [
+        {
+          "technique_id": "AML.T0000",
+          "stix_id": "attack-pattern--c02f812d-59cc-5366-b1aa-7eb05154b772",
+          "name": "Search Open Technical Databases",
+          "is_subtechnique": false,
+          "parent_technique_id": null,
+          "parent_technique_name": null,
+          "platforms": [
+            "Enterprise"
+          ],
+          "tactics": [
+            {
+              "tactic_id": "AML.TA0002",
+              "name": "Reconnaissance",
+              "shortname": "aml-ta0002"
+            }
+          ],
+          "comment": "ATLAS\ncomment",
+          "tactic_comments": [],
+          "enabled": true,
+          "tactic_enabled": [
+            {
+              "tactic": "aml-ta0002",
+              "enabled": true
+            }
+          ],
+          "selected_tactics": [
+            "aml-ta0002"
+          ]
+        }
+      ],
+      "navigator_import_selected": [],
+      "selection_scopes": {},
+      "selection_preferences": {
+        "across_tactics": true,
+        "with_family": false,
+        "visible_only": false
+      },
+      "search_fields": [
+        "name",
+        "id"
+      ],
+      "navigator_layer": {
+        "name": "ATLAS",
+        "domain": "atlas-atlas",
+        "versions": {
+          "attack": "2026.09",
+          "layer": "4.5",
+          "navigator": "5.2.0"
+        },
+        "techniques": [
+          {
+            "techniqueID": "AML.T0000",
+            "comment": "ATLAS\ncomment",
+            "score": 2,
+            "color": "#ffffff"
+          }
+        ],
+        "customDataURL": "https://raw.githubusercontent.com/mitre-atlas/atlas-data/3259f388d19cbcca11bacf12a0ef97f4198f711b/dist/v6/ATLAS-2026.09.yaml",
+        "x_ttp_studio_dataset": "afb2753e405f5b4b370bf585702ffbbe99071af946a4bc60624f373086e0a117",
+        "x_ttp_studio_domain": {
+          "id": "atlas-atlas",
+          "name": "ATLAS",
+          "kill_chain_name": "atlas-atlas",
+          "reference_source": "mitre-atlas"
+        }
+      }
+    }
+  }
+}

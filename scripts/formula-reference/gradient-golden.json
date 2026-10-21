@@ -1,0 +1,1121 @@
+{
+  "versions": {
+    "mathjs": "15.2.0",
+    "typescript": "5.8.3",
+    "tinycolor2": "1.6.0",
+    "tinygradient": "2.0.1"
+  },
+  "inputSHA256": "d36a6899145a65f056fb31b8a1af8e64faeb704bb7e6dddbb1f3a56529c7037e",
+  "upstream": [
+    {
+      "path": "nav-app/src/app/services/viewmodels.service.ts",
+      "sha256": "b973f8ef52435c256f30b32766f4a40811ddf32ea35eced03b172df8e85576e9"
+    },
+    {
+      "path": "nav-app/src/app/classes/gradient.ts",
+      "sha256": "4e48d69a52ffaa221a8aaeedba7c1b3d31948ff14e4af5e0fd15e4e9b0650ec3"
+    }
+  ],
+  "navigator": "https://github.com/mitre-attack/attack-navigator/tree/v5.3.2",
+  "method": "Exact layerOperation and Gradient class transpiled by TypeScript; minimal score/enabled ViewModel/TechniqueVM stubs.",
+  "renderer": "officialRGB is the actual 100-sample RGB renderer output; native continuous RGBA rendering is separately tested, not asserted pixel-identical.",
+  "results": [
+    {
+      "name": "positive",
+      "gradient": {
+        "colors": [
+          "#ff6666ff",
+          "#ffe766ff",
+          "#8ec843ff"
+        ],
+        "minValue": 20,
+        "maxValue": 80
+      },
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": 20,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#ff6666"
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": 40,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#ffbd66"
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": 60,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#d6dc59"
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": 80,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#8ec843"
+        }
+      ]
+    },
+    {
+      "name": "negative",
+      "gradient": {
+        "colors": [
+          "#ff6666ff",
+          "#ffe766ff",
+          "#8ec843ff"
+        ],
+        "minValue": -80,
+        "maxValue": -20
+      },
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": -80,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#ff6666"
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": -60,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#ffbd66"
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": -40,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#d6dc59"
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": -20,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#8ec843"
+        }
+      ]
+    },
+    {
+      "name": "mixed",
+      "gradient": {
+        "colors": [
+          "#ff6666ff",
+          "#ffe766ff",
+          "#8ec843ff"
+        ],
+        "minValue": -10,
+        "maxValue": 20
+      },
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": -10,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#ff6666"
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": 0,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#ffbd66"
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": 5,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#fde665"
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": 20,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#8ec843"
+        }
+      ]
+    },
+    {
+      "name": "binary",
+      "gradient": {
+        "colors": [
+          "#ffffff00",
+          "#66b1ffff"
+        ],
+        "minValue": 0,
+        "maxValue": 1
+      },
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": 0,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#ffffff"
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": 1,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#66b1ff"
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": 0,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#ffffff"
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": 1,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#66b1ff"
+        }
+      ]
+    },
+    {
+      "name": "range zero to one with middle values",
+      "gradient": {
+        "colors": [
+          "#ffffff00",
+          "#66b1ffff"
+        ],
+        "minValue": 0,
+        "maxValue": 1
+      },
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": 0,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#ffffff"
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": 0.25,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#d8ebff"
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": 0.75,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#8bc4ff"
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": 1,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#66b1ff"
+        }
+      ]
+    },
+    {
+      "name": "zero only",
+      "gradient": {
+        "colors": [
+          "#ff6666ff",
+          "#ffe766ff",
+          "#8ec843ff"
+        ],
+        "minValue": 0,
+        "maxValue": 100
+      },
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": 0,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#ff6666"
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": 0,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#ff6666"
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": 0,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#ff6666"
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": 0,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#ff6666"
+        }
+      ]
+    },
+    {
+      "name": "one only",
+      "gradient": {
+        "colors": [
+          "#ff6666ff",
+          "#ffe766ff",
+          "#8ec843ff"
+        ],
+        "minValue": 0,
+        "maxValue": 100
+      },
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": 1,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#ff6966"
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": 1,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#ff6966"
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": 1,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#ff6966"
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": 1,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#ff6966"
+        }
+      ]
+    },
+    {
+      "name": "flat stored scores",
+      "gradient": {
+        "colors": [
+          "#ff6666ff",
+          "#ffe766ff",
+          "#8ec843ff"
+        ],
+        "minValue": 0,
+        "maxValue": 100
+      },
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": 50,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#fde665"
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": 50,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#fde665"
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": 50,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#fde665"
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": 50,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#fde665"
+        }
+      ]
+    },
+    {
+      "name": "single scored cell",
+      "gradient": {
+        "colors": [
+          "#ff6666ff",
+          "#ffe766ff",
+          "#8ec843ff"
+        ],
+        "minValue": 0,
+        "maxValue": 100
+      },
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": 25,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#ffa866"
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": null,
+          "enabled": true,
+          "color": "",
+          "officialRGB": null
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": null,
+          "enabled": true,
+          "color": "",
+          "officialRGB": null
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": null,
+          "enabled": true,
+          "color": "",
+          "officialRGB": null
+        }
+      ]
+    },
+    {
+      "name": "empty",
+      "gradient": {
+        "colors": [
+          "#ff6666ff",
+          "#ffe766ff",
+          "#8ec843ff"
+        ],
+        "minValue": 0,
+        "maxValue": 100
+      },
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": null,
+          "enabled": true,
+          "color": "",
+          "officialRGB": null
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": null,
+          "enabled": true,
+          "color": "",
+          "officialRGB": null
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": null,
+          "enabled": true,
+          "color": "",
+          "officialRGB": null
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": null,
+          "enabled": true,
+          "color": "",
+          "officialRGB": null
+        }
+      ]
+    },
+    {
+      "name": "constant 0",
+      "gradient": {
+        "colors": [
+          "#ff6666ff",
+          "#ffe766ff",
+          "#8ec843ff"
+        ],
+        "minValue": 0,
+        "maxValue": 100
+      },
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": 0,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#ff6666"
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": 0,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#ff6666"
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": 0,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#ff6666"
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": 0,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#ff6666"
+        }
+      ]
+    },
+    {
+      "name": "constant 1",
+      "gradient": {
+        "colors": [
+          "#ff6666ff",
+          "#ffe766ff",
+          "#8ec843ff"
+        ],
+        "minValue": 0,
+        "maxValue": 100
+      },
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": 1,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#ff6966"
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": 1,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#ff6966"
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": 1,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#ff6966"
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": 1,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#ff6966"
+        }
+      ]
+    },
+    {
+      "name": "constant -5",
+      "gradient": {
+        "colors": [
+          "#ff6666ff",
+          "#ffe766ff",
+          "#8ec843ff"
+        ],
+        "minValue": 0,
+        "maxValue": 100
+      },
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": -5,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#ff6666"
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": -5,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#ff6666"
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": -5,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#ff6666"
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": -5,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#ff6666"
+        }
+      ]
+    },
+    {
+      "name": "constant 50",
+      "gradient": {
+        "colors": [
+          "#ff6666ff",
+          "#ffe766ff",
+          "#8ec843ff"
+        ],
+        "minValue": 0,
+        "maxValue": 100
+      },
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": 50,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#fde665"
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": 50,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#fde665"
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": 50,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#fde665"
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": 50,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#fde665"
+        }
+      ]
+    },
+    {
+      "name": "constant 200",
+      "gradient": {
+        "colors": [
+          "#ff6666ff",
+          "#ffe766ff",
+          "#8ec843ff"
+        ],
+        "minValue": 0,
+        "maxValue": 100
+      },
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": 200,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#8ec843"
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": 200,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#8ec843"
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": 200,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#8ec843"
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": 200,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#8ec843"
+        }
+      ]
+    },
+    {
+      "name": "constant 1e+300",
+      "gradient": {
+        "colors": [
+          "#ff6666ff",
+          "#ffe766ff",
+          "#8ec843ff"
+        ],
+        "minValue": 0,
+        "maxValue": 100
+      },
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": 1e+300,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#8ec843"
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": 1e+300,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#8ec843"
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": 1e+300,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#8ec843"
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": 1e+300,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#8ec843"
+        }
+      ]
+    },
+    {
+      "name": "small bounds",
+      "gradient": {
+        "colors": [
+          "#ff6666ff",
+          "#ffe766ff",
+          "#8ec843ff"
+        ],
+        "minValue": 1e-20,
+        "maxValue": 4e-20
+      },
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": 1e-20,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#ff6666"
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": 2e-20,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#ffbd66"
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": 3e-20,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#d6dc59"
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": 4e-20,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#8ec843"
+        }
+      ]
+    },
+    {
+      "name": "extreme finite span",
+      "gradient": {
+        "colors": [
+          "#ff6666ff",
+          "#ffe766ff",
+          "#8ec843ff"
+        ],
+        "minValue": -1e+300,
+        "maxValue": 1e+300
+      },
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": -1e+300,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#ff6666"
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": -1e+299,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#ffdc66"
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": 1e+299,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#f1e362"
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": 1e+300,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#8ec843"
+        }
+      ]
+    },
+    {
+      "name": "near binary is not exact binary",
+      "gradient": {
+        "colors": [
+          "#ff6666ff",
+          "#ffe766ff",
+          "#8ec843ff"
+        ],
+        "minValue": 1e-16,
+        "maxValue": 1
+      },
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": 1e-16,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#ff6666"
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": 1,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#8ec843"
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": null,
+          "enabled": true,
+          "color": "",
+          "officialRGB": null
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": null,
+          "enabled": true,
+          "color": "",
+          "officialRGB": null
+        }
+      ]
+    },
+    {
+      "name": "explicit inherited gradient",
+      "gradient": {
+        "colors": [
+          "#12345640",
+          "#fedcbaff"
+        ],
+        "minValue": 5,
+        "maxValue": 15
+      },
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": 0,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#123456"
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": 1,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#123456"
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": 0,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#123456"
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": 1,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#123456"
+        }
+      ]
+    },
+    {
+      "name": "empty inherited gradient",
+      "gradient": {
+        "colors": [
+          "#12345640",
+          "#fedcbaff"
+        ],
+        "minValue": 5,
+        "maxValue": 15
+      },
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": null,
+          "enabled": true,
+          "color": "",
+          "officialRGB": null
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": null,
+          "enabled": true,
+          "color": "",
+          "officialRGB": null
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": null,
+          "enabled": true,
+          "color": "",
+          "officialRGB": null
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": null,
+          "enabled": true,
+          "color": "",
+          "officialRGB": null
+        }
+      ]
+    },
+    {
+      "name": "constant inherited gradient",
+      "gradient": {
+        "colors": [
+          "#12345640",
+          "#fedcbaff"
+        ],
+        "minValue": 5,
+        "maxValue": 15
+      },
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": 200,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#fedcba"
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": 200,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#fedcba"
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": 200,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#fedcba"
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": 200,
+          "enabled": true,
+          "color": "",
+          "officialRGB": "#fedcba"
+        }
+      ]
+    },
+    {
+      "name": "disabled inherited result still counts",
+      "gradient": {
+        "colors": [
+          "#ffffff00",
+          "#66b1ffff"
+        ],
+        "minValue": 0,
+        "maxValue": 1
+      },
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": 0,
+          "enabled": false,
+          "color": "",
+          "officialRGB": "#ffffff"
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": 1,
+          "enabled": false,
+          "color": "",
+          "officialRGB": "#66b1ff"
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": 0,
+          "enabled": false,
+          "color": "",
+          "officialRGB": "#ffffff"
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": 1,
+          "enabled": false,
+          "color": "",
+          "officialRGB": "#66b1ff"
+        }
+      ]
+    },
+    {
+      "name": "manual color inheritance does not change scale",
+      "gradient": {
+        "colors": [
+          "#ffffff00",
+          "#66b1ffff"
+        ],
+        "minValue": 0,
+        "maxValue": 1
+      },
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": 0,
+          "enabled": true,
+          "color": "#ff00ff",
+          "officialRGB": "#ffffff"
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": 1,
+          "enabled": true,
+          "color": "#ff00ff",
+          "officialRGB": "#66b1ff"
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": 0,
+          "enabled": true,
+          "color": "#ff00ff",
+          "officialRGB": "#ffffff"
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": 1,
+          "enabled": true,
+          "color": "#ff00ff",
+          "officialRGB": "#66b1ff"
+        }
+      ]
+    }
+  ]
+}

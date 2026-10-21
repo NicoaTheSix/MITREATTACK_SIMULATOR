@@ -1,0 +1,1026 @@
+{
+  "matrix": [
+    {
+      "techniqueID": "T0001",
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T0001",
+      "tactic": "persistence"
+    },
+    {
+      "techniqueID": "T0002",
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T0003",
+      "tactic": "persistence"
+    }
+  ],
+  "cases": [
+    {
+      "name": "positive",
+      "expression": "a",
+      "sources": [
+        {
+          "gradient": {
+            "colors": [
+              "#551a8b80",
+              "#ff8800ff"
+            ],
+            "minValue": -20,
+            "maxValue": 20
+          },
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution",
+              "score": 20
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "score": 40
+            },
+            {
+              "techniqueID": "T0002",
+              "tactic": "execution",
+              "score": 60
+            },
+            {
+              "techniqueID": "T0003",
+              "tactic": "persistence",
+              "score": 80
+            }
+          ]
+        },
+        {
+          "gradient": {
+            "colors": [
+              "#12345640",
+              "#fedcbaff"
+            ],
+            "minValue": 5,
+            "maxValue": 15
+          },
+          "rows": []
+        }
+      ],
+      "inheritance": {}
+    },
+    {
+      "name": "negative",
+      "expression": "a",
+      "sources": [
+        {
+          "gradient": {
+            "colors": [
+              "#551a8b80",
+              "#ff8800ff"
+            ],
+            "minValue": -20,
+            "maxValue": 20
+          },
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution",
+              "score": -80
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "score": -60
+            },
+            {
+              "techniqueID": "T0002",
+              "tactic": "execution",
+              "score": -40
+            },
+            {
+              "techniqueID": "T0003",
+              "tactic": "persistence",
+              "score": -20
+            }
+          ]
+        },
+        {
+          "gradient": {
+            "colors": [
+              "#12345640",
+              "#fedcbaff"
+            ],
+            "minValue": 5,
+            "maxValue": 15
+          },
+          "rows": []
+        }
+      ],
+      "inheritance": {}
+    },
+    {
+      "name": "mixed",
+      "expression": "a",
+      "sources": [
+        {
+          "gradient": {
+            "colors": [
+              "#551a8b80",
+              "#ff8800ff"
+            ],
+            "minValue": -20,
+            "maxValue": 20
+          },
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution",
+              "score": -10
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "score": 0
+            },
+            {
+              "techniqueID": "T0002",
+              "tactic": "execution",
+              "score": 5
+            },
+            {
+              "techniqueID": "T0003",
+              "tactic": "persistence",
+              "score": 20
+            }
+          ]
+        },
+        {
+          "gradient": {
+            "colors": [
+              "#12345640",
+              "#fedcbaff"
+            ],
+            "minValue": 5,
+            "maxValue": 15
+          },
+          "rows": []
+        }
+      ],
+      "inheritance": {}
+    },
+    {
+      "name": "binary",
+      "expression": "a",
+      "sources": [
+        {
+          "gradient": {
+            "colors": [
+              "#551a8b80",
+              "#ff8800ff"
+            ],
+            "minValue": -20,
+            "maxValue": 20
+          },
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution",
+              "score": 0
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "score": 1
+            },
+            {
+              "techniqueID": "T0002",
+              "tactic": "execution",
+              "score": 0
+            },
+            {
+              "techniqueID": "T0003",
+              "tactic": "persistence",
+              "score": 1
+            }
+          ]
+        },
+        {
+          "gradient": {
+            "colors": [
+              "#12345640",
+              "#fedcbaff"
+            ],
+            "minValue": 5,
+            "maxValue": 15
+          },
+          "rows": []
+        }
+      ],
+      "inheritance": {}
+    },
+    {
+      "name": "range zero to one with middle values",
+      "expression": "a",
+      "sources": [
+        {
+          "gradient": {
+            "colors": [
+              "#551a8b80",
+              "#ff8800ff"
+            ],
+            "minValue": -20,
+            "maxValue": 20
+          },
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution",
+              "score": 0
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "score": 0.25
+            },
+            {
+              "techniqueID": "T0002",
+              "tactic": "execution",
+              "score": 0.75
+            },
+            {
+              "techniqueID": "T0003",
+              "tactic": "persistence",
+              "score": 1
+            }
+          ]
+        },
+        {
+          "gradient": {
+            "colors": [
+              "#12345640",
+              "#fedcbaff"
+            ],
+            "minValue": 5,
+            "maxValue": 15
+          },
+          "rows": []
+        }
+      ],
+      "inheritance": {}
+    },
+    {
+      "name": "zero only",
+      "expression": "a",
+      "sources": [
+        {
+          "gradient": {
+            "colors": [
+              "#551a8b80",
+              "#ff8800ff"
+            ],
+            "minValue": -20,
+            "maxValue": 20
+          },
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution",
+              "score": 0
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "score": 0
+            },
+            {
+              "techniqueID": "T0002",
+              "tactic": "execution",
+              "score": 0
+            },
+            {
+              "techniqueID": "T0003",
+              "tactic": "persistence",
+              "score": 0
+            }
+          ]
+        },
+        {
+          "gradient": {
+            "colors": [
+              "#12345640",
+              "#fedcbaff"
+            ],
+            "minValue": 5,
+            "maxValue": 15
+          },
+          "rows": []
+        }
+      ],
+      "inheritance": {}
+    },
+    {
+      "name": "one only",
+      "expression": "a",
+      "sources": [
+        {
+          "gradient": {
+            "colors": [
+              "#551a8b80",
+              "#ff8800ff"
+            ],
+            "minValue": -20,
+            "maxValue": 20
+          },
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution",
+              "score": 1
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "score": 1
+            },
+            {
+              "techniqueID": "T0002",
+              "tactic": "execution",
+              "score": 1
+            },
+            {
+              "techniqueID": "T0003",
+              "tactic": "persistence",
+              "score": 1
+            }
+          ]
+        },
+        {
+          "gradient": {
+            "colors": [
+              "#12345640",
+              "#fedcbaff"
+            ],
+            "minValue": 5,
+            "maxValue": 15
+          },
+          "rows": []
+        }
+      ],
+      "inheritance": {}
+    },
+    {
+      "name": "flat stored scores",
+      "expression": "a",
+      "sources": [
+        {
+          "gradient": {
+            "colors": [
+              "#551a8b80",
+              "#ff8800ff"
+            ],
+            "minValue": -20,
+            "maxValue": 20
+          },
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution",
+              "score": 50
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "score": 50
+            },
+            {
+              "techniqueID": "T0002",
+              "tactic": "execution",
+              "score": 50
+            },
+            {
+              "techniqueID": "T0003",
+              "tactic": "persistence",
+              "score": 50
+            }
+          ]
+        },
+        {
+          "gradient": {
+            "colors": [
+              "#12345640",
+              "#fedcbaff"
+            ],
+            "minValue": 5,
+            "maxValue": 15
+          },
+          "rows": []
+        }
+      ],
+      "inheritance": {}
+    },
+    {
+      "name": "single scored cell",
+      "expression": "a",
+      "sources": [
+        {
+          "gradient": {
+            "colors": [
+              "#551a8b80",
+              "#ff8800ff"
+            ],
+            "minValue": -20,
+            "maxValue": 20
+          },
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution",
+              "score": 25
+            }
+          ]
+        },
+        {
+          "gradient": {
+            "colors": [
+              "#12345640",
+              "#fedcbaff"
+            ],
+            "minValue": 5,
+            "maxValue": 15
+          },
+          "rows": []
+        }
+      ],
+      "inheritance": {}
+    },
+    {
+      "name": "empty",
+      "expression": "a",
+      "sources": [
+        {
+          "gradient": {
+            "colors": [
+              "#551a8b80",
+              "#ff8800ff"
+            ],
+            "minValue": -20,
+            "maxValue": 20
+          },
+          "rows": []
+        },
+        {
+          "gradient": {
+            "colors": [
+              "#12345640",
+              "#fedcbaff"
+            ],
+            "minValue": 5,
+            "maxValue": 15
+          },
+          "rows": []
+        }
+      ],
+      "inheritance": {}
+    },
+    {
+      "name": "constant 0",
+      "expression": "0",
+      "sources": [
+        {
+          "gradient": {
+            "colors": [
+              "#551a8b80",
+              "#ff8800ff"
+            ],
+            "minValue": -20,
+            "maxValue": 20
+          },
+          "rows": []
+        },
+        {
+          "gradient": {
+            "colors": [
+              "#12345640",
+              "#fedcbaff"
+            ],
+            "minValue": 5,
+            "maxValue": 15
+          },
+          "rows": []
+        }
+      ],
+      "inheritance": {}
+    },
+    {
+      "name": "constant 1",
+      "expression": "1",
+      "sources": [
+        {
+          "gradient": {
+            "colors": [
+              "#551a8b80",
+              "#ff8800ff"
+            ],
+            "minValue": -20,
+            "maxValue": 20
+          },
+          "rows": []
+        },
+        {
+          "gradient": {
+            "colors": [
+              "#12345640",
+              "#fedcbaff"
+            ],
+            "minValue": 5,
+            "maxValue": 15
+          },
+          "rows": []
+        }
+      ],
+      "inheritance": {}
+    },
+    {
+      "name": "constant -5",
+      "expression": "-5",
+      "sources": [
+        {
+          "gradient": {
+            "colors": [
+              "#551a8b80",
+              "#ff8800ff"
+            ],
+            "minValue": -20,
+            "maxValue": 20
+          },
+          "rows": []
+        },
+        {
+          "gradient": {
+            "colors": [
+              "#12345640",
+              "#fedcbaff"
+            ],
+            "minValue": 5,
+            "maxValue": 15
+          },
+          "rows": []
+        }
+      ],
+      "inheritance": {}
+    },
+    {
+      "name": "constant 50",
+      "expression": "50",
+      "sources": [
+        {
+          "gradient": {
+            "colors": [
+              "#551a8b80",
+              "#ff8800ff"
+            ],
+            "minValue": -20,
+            "maxValue": 20
+          },
+          "rows": []
+        },
+        {
+          "gradient": {
+            "colors": [
+              "#12345640",
+              "#fedcbaff"
+            ],
+            "minValue": 5,
+            "maxValue": 15
+          },
+          "rows": []
+        }
+      ],
+      "inheritance": {}
+    },
+    {
+      "name": "constant 200",
+      "expression": "200",
+      "sources": [
+        {
+          "gradient": {
+            "colors": [
+              "#551a8b80",
+              "#ff8800ff"
+            ],
+            "minValue": -20,
+            "maxValue": 20
+          },
+          "rows": []
+        },
+        {
+          "gradient": {
+            "colors": [
+              "#12345640",
+              "#fedcbaff"
+            ],
+            "minValue": 5,
+            "maxValue": 15
+          },
+          "rows": []
+        }
+      ],
+      "inheritance": {}
+    },
+    {
+      "name": "constant 1e+300",
+      "expression": "1e+300",
+      "sources": [
+        {
+          "gradient": {
+            "colors": [
+              "#551a8b80",
+              "#ff8800ff"
+            ],
+            "minValue": -20,
+            "maxValue": 20
+          },
+          "rows": []
+        },
+        {
+          "gradient": {
+            "colors": [
+              "#12345640",
+              "#fedcbaff"
+            ],
+            "minValue": 5,
+            "maxValue": 15
+          },
+          "rows": []
+        }
+      ],
+      "inheritance": {}
+    },
+    {
+      "name": "small bounds",
+      "expression": "a",
+      "sources": [
+        {
+          "gradient": {
+            "colors": [
+              "#551a8b80",
+              "#ff8800ff"
+            ],
+            "minValue": -20,
+            "maxValue": 20
+          },
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution",
+              "score": 1e-20
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "score": 2e-20
+            },
+            {
+              "techniqueID": "T0002",
+              "tactic": "execution",
+              "score": 3e-20
+            },
+            {
+              "techniqueID": "T0003",
+              "tactic": "persistence",
+              "score": 4e-20
+            }
+          ]
+        },
+        {
+          "gradient": {
+            "colors": [
+              "#12345640",
+              "#fedcbaff"
+            ],
+            "minValue": 5,
+            "maxValue": 15
+          },
+          "rows": []
+        }
+      ],
+      "inheritance": {}
+    },
+    {
+      "name": "extreme finite span",
+      "expression": "a",
+      "sources": [
+        {
+          "gradient": {
+            "colors": [
+              "#551a8b80",
+              "#ff8800ff"
+            ],
+            "minValue": -20,
+            "maxValue": 20
+          },
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution",
+              "score": -1e+300
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "score": -1e+299
+            },
+            {
+              "techniqueID": "T0002",
+              "tactic": "execution",
+              "score": 1e+299
+            },
+            {
+              "techniqueID": "T0003",
+              "tactic": "persistence",
+              "score": 1e+300
+            }
+          ]
+        },
+        {
+          "gradient": {
+            "colors": [
+              "#12345640",
+              "#fedcbaff"
+            ],
+            "minValue": 5,
+            "maxValue": 15
+          },
+          "rows": []
+        }
+      ],
+      "inheritance": {}
+    },
+    {
+      "name": "near binary is not exact binary",
+      "expression": "a",
+      "sources": [
+        {
+          "gradient": {
+            "colors": [
+              "#551a8b80",
+              "#ff8800ff"
+            ],
+            "minValue": -20,
+            "maxValue": 20
+          },
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution",
+              "score": 1e-16
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "score": 1
+            }
+          ]
+        },
+        {
+          "gradient": {
+            "colors": [
+              "#12345640",
+              "#fedcbaff"
+            ],
+            "minValue": 5,
+            "maxValue": 15
+          },
+          "rows": []
+        }
+      ],
+      "inheritance": {}
+    },
+    {
+      "name": "explicit inherited gradient",
+      "expression": "a",
+      "sources": [
+        {
+          "gradient": {
+            "colors": [
+              "#551a8b80",
+              "#ff8800ff"
+            ],
+            "minValue": -20,
+            "maxValue": 20
+          },
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution",
+              "score": 0
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "score": 1
+            },
+            {
+              "techniqueID": "T0002",
+              "tactic": "execution",
+              "score": 0
+            },
+            {
+              "techniqueID": "T0003",
+              "tactic": "persistence",
+              "score": 1
+            }
+          ]
+        },
+        {
+          "gradient": {
+            "colors": [
+              "#12345640",
+              "#fedcbaff"
+            ],
+            "minValue": 5,
+            "maxValue": 15
+          },
+          "rows": []
+        }
+      ],
+      "inheritance": {
+        "gradient": "b"
+      }
+    },
+    {
+      "name": "empty inherited gradient",
+      "expression": "a",
+      "sources": [
+        {
+          "gradient": {
+            "colors": [
+              "#551a8b80",
+              "#ff8800ff"
+            ],
+            "minValue": -20,
+            "maxValue": 20
+          },
+          "rows": []
+        },
+        {
+          "gradient": {
+            "colors": [
+              "#12345640",
+              "#fedcbaff"
+            ],
+            "minValue": 5,
+            "maxValue": 15
+          },
+          "rows": []
+        }
+      ],
+      "inheritance": {
+        "gradient": "b"
+      }
+    },
+    {
+      "name": "constant inherited gradient",
+      "expression": "200",
+      "sources": [
+        {
+          "gradient": {
+            "colors": [
+              "#551a8b80",
+              "#ff8800ff"
+            ],
+            "minValue": -20,
+            "maxValue": 20
+          },
+          "rows": []
+        },
+        {
+          "gradient": {
+            "colors": [
+              "#12345640",
+              "#fedcbaff"
+            ],
+            "minValue": 5,
+            "maxValue": 15
+          },
+          "rows": []
+        }
+      ],
+      "inheritance": {
+        "gradient": "b"
+      }
+    },
+    {
+      "name": "disabled inherited result still counts",
+      "expression": "a",
+      "sources": [
+        {
+          "gradient": {
+            "colors": [
+              "#551a8b80",
+              "#ff8800ff"
+            ],
+            "minValue": -20,
+            "maxValue": 20
+          },
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution",
+              "score": 0,
+              "enabled": false
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "score": 1,
+              "enabled": false
+            },
+            {
+              "techniqueID": "T0002",
+              "tactic": "execution",
+              "score": 0,
+              "enabled": false
+            },
+            {
+              "techniqueID": "T0003",
+              "tactic": "persistence",
+              "score": 1,
+              "enabled": false
+            }
+          ]
+        },
+        {
+          "gradient": {
+            "colors": [
+              "#12345640",
+              "#fedcbaff"
+            ],
+            "minValue": 5,
+            "maxValue": 15
+          },
+          "rows": []
+        }
+      ],
+      "inheritance": {
+        "enabled": "a"
+      }
+    },
+    {
+      "name": "manual color inheritance does not change scale",
+      "expression": "a",
+      "sources": [
+        {
+          "gradient": {
+            "colors": [
+              "#551a8b80",
+              "#ff8800ff"
+            ],
+            "minValue": -20,
+            "maxValue": 20
+          },
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution",
+              "score": 0,
+              "color": "#ff00ff"
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "score": 1,
+              "color": "#ff00ff"
+            },
+            {
+              "techniqueID": "T0002",
+              "tactic": "execution",
+              "score": 0,
+              "color": "#ff00ff"
+            },
+            {
+              "techniqueID": "T0003",
+              "tactic": "persistence",
+              "score": 1,
+              "color": "#ff00ff"
+            }
+          ]
+        },
+        {
+          "gradient": {
+            "colors": [
+              "#12345640",
+              "#fedcbaff"
+            ],
+            "minValue": 5,
+            "maxValue": 15
+          },
+          "rows": []
+        }
+      ],
+      "inheritance": {
+        "color": "a"
+      }
+    }
+  ]
+}

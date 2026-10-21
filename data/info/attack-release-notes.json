@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "source_url": "https://attack.mitre.org/resources/versions/",
+  "checked_at_utc": "2026-10-19T07:53:29.863851+00:00",
+  "releases": [
+    {
+      "version": "20.0",
+      "url": "https://attack.mitre.org/resources/updates/updates-october-2026",
+      "summary": "The October 2026 (v20) ATT&CK release updates Techniques, Groups, Campaigns and Software for Enterprise, Mobile, and ICS. The biggest change in ATT&CK v20 is expanded …"
+    },
+    {
+      "version": "19.2",
+      "url": "https://attack.mitre.org/resources/updates/updates-august-2026",
+      "summary": "Note: This page covers the ATT&CK v19.2 release. For the original ATT&CK v19 release notes, see Updates - April 2026. The August 2026 v19.2 ATT&CK …"
+    },
+    {
+      "version": "18.1",
+      "url": "https://attack.mitre.org/resources/updates/updates-october-2025",
+      "summary": "The October 2025 (v18) ATT&CK release updates Techniques, Groups, Campaigns and Software for Enterprise, Mobile, and ICS. The biggest changes in ATT&CK are related to …"
+    },
+    {
+      "version": "17.1",
+      "url": "https://attack.mitre.org/resources/updates/updates-april-2025",
+      "summary": "The April 2025 (v17) ATT&CK release updates Techniques, Groups, Campaigns and Software for Enterprise, Mobile, and ICS. The biggest changes in ATT&CK v17 are the …"
+    },
+    {
+      "version": "16.1",
+      "url": "https://attack.mitre.org/resources/updates/updates-october-2024",
+      "summary": "The October 2024 (v16) ATT&CK release updates Techniques, Groups, Campaigns and Software for Enterprise. The biggest changes in ATT&CK v16 are a refactoring of Cloud …"
+    },
+    {
+      "version": "15.1",
+      "url": "https://attack.mitre.org/resources/updates/updates-april-2024",
+      "summary": "The April 2024 (v15) ATT&CK release updates Techniques, Groups, Campaigns and Software for Enterprise, Mobile, and ICS. The biggest changes in ATT&CK v15 are a …"
+    },
+    {
+      "version": "14.1",
+      "url": "https://attack.mitre.org/resources/updates/updates-october-2023",
+      "summary": "The October 2023 (v14) ATT&CK release updates Techniques, Groups, Campaigns and Software for Enterprise, Mobile, and ICS. The biggest changes in ATT&CK v14 are a …"
+    },
+    {
+      "version": "13.1",
+      "url": "https://attack.mitre.org/resources/updates/updates-april-2023",
+      "summary": "The April 2023 (v13) ATT&CK release updates Techniques, Groups, Campaigns and Software for Enterprise, Mobile, and ICS. The biggest changes in ATT&CK v13 are the …"
+    },
+    {
+      "version": "12.1",
+      "url": "https://attack.mitre.org/resources/updates/updates-october-2022",
+      "summary": "The October 2022 (v12) ATT&CK release updates Techniques, Groups, and Software for Enterprise, Mobile, and ICS. The biggest changes in ATT&CK v12 are the addition …"
+    },
+    {
+      "version": "11.3",
+      "url": "https://attack.mitre.org/resources/updates/updates-april-2022",
+      "summary": "The April 2022 (v11) ATT&CK release updates Techniques, Groups, and Software for Enterprise, Mobile, and ICS. The biggest changes are the restructuring of Detections, now …"
+    },
+    {
+      "version": "10.1",
+      "url": "https://attack.mitre.org/resources/updates/updates-october-2021",
+      "summary": "The October 2021 (v10) ATT&CK release updates Techniques, Groups, and Software for Enterprise, Mobile, and ICS. The biggest change is the addition of a new …"
+    },
+    {
+      "version": "9.0",
+      "url": "https://attack.mitre.org/resources/updates/updates-april-2021",
+      "summary": "The April 2021 (v9) ATT&CK release updates Techniques, Groups, and Software for Enterprise, Mobile, and ICS. The biggest changes are a change in how we …"
+    },
+    {
+      "version": "8.2",
+      "url": "https://attack.mitre.org/resources/updates/updates-october-2020",
+      "summary": "The October 2020 (v8) ATT&CK release updates Techniques, Groups, and Software for both Enterprise and Mobile. The biggest changes are the deprecation of the PRE-ATT&CK …"
+    },
+    {
+      "version": "7.2",
+      "url": "https://attack.mitre.org/resources/updates/updates-july-2020",
+      "summary": "The July 2020 (v7) ATT&CK release updates Techniques, Groups, and Software for both Enterprise and Mobile. This is the first non-beta release of Enterprise ATT&CK …"
+    },
+    {
+      "version": "6.3",
+      "url": "https://attack.mitre.org/resources/updates/updates-october-2019",
+      "summary": "The October 2019 ATT&CK release updates techniques, Groups, and Software for both Enterprise and Mobile. The biggest change is the addition of cloud-focused techniques."
+    },
+    {
+      "version": "5.2",
+      "url": "https://attack.mitre.org/resources/updates/updates-july-2019",
+      "summary": "The July 2019 release focuses on changes to how Mitigations in ATT&CK for Enterprise are represented and updates the Groups and Software entries. It does …"
+    },
+    {
+      "version": "4.0",
+      "url": "https://attack.mitre.org/resources/updates/updates-april-2019",
+      "summary": "Previous versions of the ATT&CK website are now being saved and displayed here to give a historical reference for prior content releases."
+    },
+    {
+      "version": "3.0",
+      "url": "https://attack.mitre.org/resources/updates/updates-october-2018",
+      "summary": "The MediaWiki version of ATT&CK was moved to attack-old.mitre.org and will remain up until the end of January 2019. The old website will not be …"
+    },
+    {
+      "version": "2.0",
+      "url": "https://attack.mitre.org/resources/updates/updates-april-2018",
+      "summary": "Initial Access was added to ATT&CK and some techniques were added to Execution to cover the Launch and Compromise techniques within PRE-ATT&CK. The techniques were …"
+    },
+    {
+      "version": "1.0",
+      "url": "https://attack.mitre.org/resources/updates/updates-january-2018",
+      "summary": "19 new techniques - Up to 188 from 169: Three techniques renamed DLL Injection -> Process Injection Cron -> Local Job Scheduling Local Port Monitor …"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "document_id": "bae43ac5-83d6-4213-9e68-424cc85f6af2",
+  "name": "Renamed-B",
+  "created_at_utc": "2026-10-15T08:53:51.910976+00:00",
+  "exported_at_utc": "2026-10-15T08:53:52.658613+00:00",
+  "attack": {
+    "domain": "enterprise-attack",
+    "version": "1.0",
+    "source_url": "https://github.com/mitre-attack/attack-stix-data"
+  },
+  "selected_count": 1,
+  "selected_technique_ids": [
+    "T1134"
+  ],
+  "selected_ttps": [
+    {
+      "technique_id": "T1134",
+      "stix_id": "attack-pattern--dcaa092b-7de9-4a21-977f-7fcb77e89c48",
+      "name": "Access Token Manipulation",
+      "is_subtechnique": false,
+      "parent_technique_id": null,
+      "parent_technique_name": null,
+      "platforms": [
+        "Windows"
+      ],
+      "tactics": [
+        {
+          "tactic_id": null,
+          "name": "Privilege Escalation",
+          "shortname": "privilege-escalation"
+        },
+        {
+          "tactic_id": null,
+          "name": "Defense Evasion",
+          "shortname": "defense-evasion"
+        }
+      ],
+      "comment": "",
+      "tactic_comments": [],
+      "enabled": true,
+      "tactic_enabled": [
+        {
+          "tactic": "privilege-escalation",
+          "enabled": true
+        },
+        {
+          "tactic": "defense-evasion",
+          "enabled": true
+        }
+      ]
+    }
+  ],
+  "navigator_import_selected": []
+}

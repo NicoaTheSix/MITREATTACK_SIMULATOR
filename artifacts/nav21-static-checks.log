@@ -1,0 +1,7 @@
+Input source/document root: D:\MITREATTACK_SIMULATOR
+Input translation file: D:\MITREATTACK_SIMULATOR\locales\zh_TW.json
+Output report: D:\MITREATTACK_SIMULATOR\artifacts\nav21-static-checks.json
+[Static 1/3] Compile source files without bytecode
+[Static 2/3] Validate local Markdown targets
+[Static 3/3] Validate unique locale keys and placeholders
+{"passed": true, "python_sources": 99, "local_markdown_links": 501, "locale_keys": 708, "duplicate_keys": false, "placeholders_match": true}

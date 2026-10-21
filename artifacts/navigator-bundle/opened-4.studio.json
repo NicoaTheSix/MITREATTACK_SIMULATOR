@@ -1,0 +1,132 @@
+{
+  "schema_version": "1.0",
+  "document_id": "e42efbf4-73f8-4c88-8a92-3ec2e188b832",
+  "name": "opened-4.studio",
+  "created_at_utc": "2026-10-20T15:28:34.892043+00:00",
+  "exported_at_utc": "2026-10-20T15:28:46.543790+00:00",
+  "attack": {
+    "domain": "mobile-attack",
+    "version": "20.0",
+    "source_url": "D:\\MITREATTACK_SIMULATOR\\artifacts\\navigator-bundle\\custom-b.json",
+    "dataset_sha256": "91bb43611704e1bfced437c3e75969202fb265714bb625de2273298417f5f8c6",
+    "custom": true
+  },
+  "selected_count": 1,
+  "selected_technique_ids": [
+    "T1000"
+  ],
+  "selected_ttps": [
+    {
+      "technique_id": "T1000",
+      "stix_id": "attack-pattern--502ff2f6-ba5a-54eb-820e-8517dfe20d10",
+      "name": "Alpha",
+      "is_subtechnique": false,
+      "parent_technique_id": null,
+      "parent_technique_name": null,
+      "platforms": [
+        "Linux",
+        "Windows"
+      ],
+      "tactics": [
+        {
+          "tactic_id": null,
+          "name": "Execution",
+          "shortname": "execution"
+        },
+        {
+          "tactic_id": null,
+          "name": "Initial-Access",
+          "shortname": "initial-access"
+        }
+      ],
+      "comment": "Keep annotation\nsecond line",
+      "tactic_comments": [],
+      "enabled": false,
+      "tactic_enabled": [
+        {
+          "tactic": "execution",
+          "enabled": false
+        },
+        {
+          "tactic": "initial-access",
+          "enabled": false
+        }
+      ],
+      "selected_tactics": [
+        "execution",
+        "initial-access"
+      ]
+    }
+  ],
+  "navigator_import_selected": [
+    "T1000"
+  ],
+  "selection_scopes": {},
+  "selection_preferences": {
+    "across_tactics": true,
+    "with_family": false,
+    "visible_only": false
+  },
+  "search_fields": [
+    "name",
+    "id"
+  ],
+  "navigator_layer": {
+    "name": "Shared layer name",
+    "domain": "mobile-attack",
+    "description": "Keep description mobile-attack",
+    "techniques": [
+      {
+        "techniqueID": "T1000",
+        "enabled": false,
+        "score": 2.75,
+        "color": "#2277aa",
+        "comment": "Keep annotation\nsecond line",
+        "metadata": [
+          {
+            "name": "Owner",
+            "value": "Research"
+          },
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "true"
+          }
+        ],
+        "links": [
+          {
+            "label": "Reference",
+            "url": "https://example.org/"
+          }
+        ],
+        "x_fixture": {
+          "keep": true
+        }
+      },
+      {
+        "techniqueID": "T9999",
+        "comment": "Unresolved row retained",
+        "enabled": false,
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "false"
+          }
+        ]
+      }
+    ],
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false,
+    "selectVisibleTechniques": false,
+    "x_ttp_studio_search_fields": [
+      "name",
+      "id"
+    ],
+    "versions": {
+      "attack": "20.0",
+      "navigator": "5.2.0",
+      "layer": "4.5"
+    },
+    "customDataURL": "D:\\MITREATTACK_SIMULATOR\\artifacts\\navigator-bundle\\custom-b.json",
+    "x_ttp_studio_dataset": "91bb43611704e1bfced437c3e75969202fb265714bb625de2273298417f5f8c6"
+  }
+}

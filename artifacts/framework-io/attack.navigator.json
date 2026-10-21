@@ -1,0 +1,30 @@
+{
+  "name": "ui-atlas",
+  "domain": "enterprise-attack",
+  "versions": {
+    "attack": "20.0",
+    "navigator": "5.2.0",
+    "layer": "4.5"
+  },
+  "techniques": [
+    {
+      "techniqueID": "T1055.011",
+      "comment": "ATT&CK\ncomment",
+      "score": 1,
+      "color": "#112233",
+      "metadata": [
+        {
+          "name": "TTP Selection Studio selected",
+          "value": "true"
+        }
+      ]
+    }
+  ],
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false,
+  "selectVisibleTechniques": false,
+  "x_ttp_studio_search_fields": [
+    "name",
+    "id"
+  ]
+}

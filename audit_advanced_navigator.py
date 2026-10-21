@@ -11,8 +11,9 @@ import threading
 import time
 import uuid
 from xml.etree import ElementTree as ET
+from unittest.mock import patch
 
-from PySide6 import QtCore, QtWidgets, QtSvg, QtGui
+from PySide6 import QtCore, QtWidgets, QtSvg, QtGui, QtTest
 from attack_catalog import external_id, load_catalog, local_path
 from attack_matrix import AttackMatrix, matrix_columns, MATRIX_ID
 from attack_versions import snapshot_pointer
@@ -167,9 +168,9 @@ def run():
             check(family['toggle'].isChecked(), mode + ' expand all')
             matrix.set_expanded(False)
             check(not family['toggle'].isChecked(), mode + ' collapse all')
-            family['root'].click()
-            check(keys['T1000'] not in document.selected, mode + ' click updates actual document selection')
-            family['root'].click()
+            QtTest.QTest.mouseClick(family['root'],QtCore.Qt.MouseButton.LeftButton,QtCore.Qt.KeyboardModifier.ControlModifier)
+            check(keys['T1000'] not in document.selected, mode + ' Control-click updates actual document selection')
+            QtTest.QTest.mouseClick(family['root'],QtCore.Qt.MouseButton.LeftButton,QtCore.Qt.KeyboardModifier.ControlModifier)
         matrix.set_expanded(True)
         matrix.grab().save(str(OUT / (mode.lower() + '.png')))
     for sorting in range(4):
@@ -324,7 +325,7 @@ def run():
     check(document_layer(doc)['versions']['attack'] == '1.0', 'custom release 1.0 is not treated as historical official ATT&CK')
     check(calculate_layer([doc], 'a+1', 'Custom formula', missing='zero', notify=log).catalog is local_version, 'custom release 1.0 supports native formulas')
     imported = ImportLayerDialog(DATA, url_layer['path'], original, window)
-    wait(lambda: imported.layers and imported.worker and not imported.worker.isRunning(), 'custom Navigator import resolution')
+    wait(lambda: imported.layers and not imported.busy and not imported.pending_resolve and imported.catalog is not None, 'custom Navigator import resolution')
     check(imported.catalog.dataset_id == original.dataset_id and imported.import_button.isEnabled(), 'Navigator importer resolves already loaded custom digest')
     imported.reject()
 
@@ -339,14 +340,15 @@ def run():
     check('T1004' in preview['added'], 'target additions reported separately')
     decisions = [{'action': row['action'], 'target_id': row['target_id'], 'target_scope': row['target_scope'],
                   'reviewed': row['reviewed']} for row in preview['rows']]
-    error(lambda: migrate_layer(document, target, decisions, 'Migrated'), 'unreviewed migration blocked')
+    reviews = [{'id': item['id'], 'reviewed': True} for item in preview['items']]
+    error(lambda: migrate_layer(document, target, decisions, 'Migrated', reviews=reviews), 'unreviewed migration blocked')
     for decision in decisions:
         decision['reviewed'] = True
-    error(lambda: migrate_layer(document, target, decisions, 'Migrated'), 'invalid tactic cannot silently become global')
+    error(lambda: migrate_layer(document, target, decisions, 'Migrated', reviews=reviews), 'invalid tactic cannot silently become global')
     for decision in decisions:
         if decision['target_scope'] is None:
             decision['target_scope'] = 'initial-access'
-    migrated = migrate_layer(document, target, decisions, 'Migrated', log)
+    migrated = migrate_layer(document, target, decisions, 'Migrated', log, reviews=reviews)
     check(document.fingerprint() == before, 'migration preserves source document exactly')
     migrated_row = next(row for row in migrated.navigator_layer['techniques'] if row['techniqueID'] == 'T1003')
     check(migrated_row['comment'] == 'Legacy observation' and migrated_row['score'] == 4 and migrated_row['color'] == '#aa4455', 'replacement preserves annotation fields')
@@ -362,10 +364,10 @@ def run():
     conflict = deepcopy(decisions)
     for d in conflict:
         d.update(target_id='T1000', target_scope='')
-    error(lambda: migrate_layer(document, target, conflict, 'Conflict'), 'conflicting destination scores/colors block migration')
+    error(lambda: migrate_layer(document, target, conflict, 'Conflict', reviews=reviews), 'conflicting destination scores/colors block migration')
     dropped = deepcopy(decisions)
     dropped[0]['action'] = 'Drop'
-    result = migrate_layer(document, target, dropped, 'Dropped', log)
+    result = migrate_layer(document, target, dropped, 'Dropped', log, reviews=reviews)
     check(result.navigator_layer['x_ttp_studio_upgrade']['decisions'][0]['action'] == 'Drop', 'explicit dropped row recorded')
     window.install_imported_document(TTPDocument('Target dataset', target))
     wait(lambda: window.loaded_ok and window.catalog is target, 'target custom document')
@@ -394,10 +396,12 @@ def run():
     update_annotation(old, key, '', 'Historical note', 6, '#556677', [{'label': 'Source', 'url': 'https://example.org/old'}], [{'name': 'Analyst', 'value': 'Research'}])
     preview = upgrade_preview(old, official, log)
     decision = [{'action': 'Copy', 'target_id': row['target_id'], 'target_scope': row['target_scope'], 'reviewed': True} for row in preview['rows']]
-    migrated_official = migrate_layer(old, official, decision, 'Official upgraded', log)
+    migrated_official = migrate_layer(old, official, decision, 'Official upgraded', log,
+                                     reviews=[{'id': item['id'], 'reviewed': True} for item in preview['items']])
     check(migrated_official.navigator_layer['techniques'][0]['comment'] == 'Historical note', 'real official 11.3 to latest annotation migration')
     check(not migrated_official.navigator_layer.get('customDataURL'), 'official result excludes custom source identity')
-    mixed = migrate_layer(document, official, [{**d, 'action': 'Drop'} for d in decisions], 'Custom to official', log)
+    mixed = migrate_layer(document, official, [{**d, 'action': 'Drop'} for d in decisions], 'Custom to official', log,
+                          reviews=[{'id': item['id'], 'reviewed': True} for item in upgrade_preview(document, official)['items']])
     check(not mixed.navigator_snapshots and mixed.migration_archives, 'custom-to-official migration archive excluded from automatic version restoration')
     window.new_document()
     wait(lambda: window.loaded_ok and not window.catalog.dataset_id, 'Ctrl+N equivalent from custom data')
@@ -430,7 +434,8 @@ def run():
     report.write_text(json.dumps({'passed': True, 'assertions': len(CHECKS), 'checks': CHECKS}, indent=2), encoding='utf-8')
     log(f'Advanced Navigator audit passed: {len(CHECKS)} assertions', 6, 6)
     window.closing = True
-    window.close()
+    with patch.object(window, 'confirm_studio_changes', return_value='discard'):
+        window.close()
 
 
 if __name__ == '__main__':

@@ -1,0 +1,12 @@
+{
+  "name": "ttp-studio-formula-reference",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Development-only pinned Navigator formula/gradient references; not application dependencies.",
+  "dependencies": {
+    "mathjs": "15.2.0",
+    "tinycolor2": "1.6.0",
+    "tinygradient": "2.0.1",
+    "typescript": "5.8.3"
+  }
+}

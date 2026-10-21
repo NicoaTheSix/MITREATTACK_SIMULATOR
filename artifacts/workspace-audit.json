@@ -3,7 +3,7 @@
   "checks": [
     "reference tab sits beside filenames in the same tab bar",
     "reference content is a separate workspace page",
-    "document page contains selection/matrix only",
+    "document page contains selection and peer ATT&CK/ATLAS matrices",
     "reference tab uses Technique Details title",
     "closing reference never asks to save a document",
     "close button removes reference tab",

@@ -1,0 +1,128 @@
+{
+  "schema_version": "1.0",
+  "document_id": "7fa393cb-8487-434c-a087-916d801deb8e",
+  "name": "opened-2.studio",
+  "created_at_utc": "2026-10-20T15:28:34.879522+00:00",
+  "exported_at_utc": "2026-10-20T15:28:45.144464+00:00",
+  "attack": {
+    "domain": "mobile-attack",
+    "version": "11.3",
+    "source_url": "https://github.com/mitre-attack/attack-stix-data"
+  },
+  "selected_count": 1,
+  "selected_technique_ids": [
+    "T1603"
+  ],
+  "selected_ttps": [
+    {
+      "technique_id": "T1603",
+      "stix_id": "attack-pattern--00290ac5-551e-44aa-bbd8-c4b913488a6d",
+      "name": "Scheduled Task/Job",
+      "is_subtechnique": false,
+      "parent_technique_id": null,
+      "parent_technique_name": null,
+      "platforms": [
+        "Android",
+        "iOS"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0041",
+          "name": "Execution",
+          "shortname": "execution"
+        },
+        {
+          "tactic_id": "TA0028",
+          "name": "Persistence",
+          "shortname": "persistence"
+        }
+      ],
+      "comment": "Keep annotation\nsecond line",
+      "tactic_comments": [],
+      "enabled": false,
+      "tactic_enabled": [
+        {
+          "tactic": "execution",
+          "enabled": false
+        },
+        {
+          "tactic": "persistence",
+          "enabled": false
+        }
+      ],
+      "selected_tactics": [
+        "execution",
+        "persistence"
+      ]
+    }
+  ],
+  "navigator_import_selected": [
+    "T1603"
+  ],
+  "selection_scopes": {},
+  "selection_preferences": {
+    "across_tactics": true,
+    "with_family": false,
+    "visible_only": false
+  },
+  "search_fields": [
+    "name",
+    "id"
+  ],
+  "navigator_layer": {
+    "name": "Shared layer name",
+    "domain": "mobile-attack",
+    "description": "Keep description mobile-attack",
+    "techniques": [
+      {
+        "techniqueID": "T1603",
+        "enabled": false,
+        "score": 2.75,
+        "color": "#2277aa",
+        "comment": "Keep annotation\nsecond line",
+        "metadata": [
+          {
+            "name": "Owner",
+            "value": "Research"
+          },
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "true"
+          }
+        ],
+        "links": [
+          {
+            "label": "Reference",
+            "url": "https://example.org/"
+          }
+        ],
+        "x_fixture": {
+          "keep": true
+        }
+      },
+      {
+        "techniqueID": "T9999",
+        "comment": "Unresolved row retained",
+        "enabled": false,
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "false"
+          }
+        ]
+      }
+    ],
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false,
+    "selectVisibleTechniques": false,
+    "x_ttp_studio_search_fields": [
+      "name",
+      "id"
+    ],
+    "versions": {
+      "attack": "11.3",
+      "navigator": "5.2.0",
+      "layer": "4.5"
+    }
+  }
+}

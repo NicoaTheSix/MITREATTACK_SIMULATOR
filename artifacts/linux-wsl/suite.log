@@ -1,0 +1,374 @@
+Input project: /home/kali/.local/share/ttp-selection-studio-wsl-test/project
+Input Python: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/.venv/bin/python
+Input dataset pointer: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/active.json
+Output report: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit.json
+Output feature artifacts: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts
+Input audit: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_catalog.py
+Output audit log: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_catalog.py.log
+Input audit: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_documents.py
+Output audit log: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_documents.py.log
+Input audit: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_comments.py
+Output audit log: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_comments.py.log
+Input audit: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_domains.py
+Output audit log: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_domains.py.log
+Input audit: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_workspace.py
+Output audit log: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_workspace.py.log
+Input audit: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_matrix.py
+Output audit log: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_matrix.py.log
+Input audit: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_matrix_actions.py
+Output audit log: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_matrix_actions.py.log
+Input audit: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_layers.py
+Output audit log: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_layers.py.log
+Input audit: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_clear_colors.py
+Output audit log: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_clear_colors.py.log
+Input audit: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_overlay.py
+Output audit log: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_overlay.py.log
+Input audit: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_navigator.py
+Output audit log: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_navigator.py.log
+Input audit: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_navigator_bundle.py
+Output audit log: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_navigator_bundle.py.log
+Input audit: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_custom_domains.py
+Output audit log: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_custom_domains.py.log
+Input audit: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_custom_data_url.py
+Output audit log: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_custom_data_url.py.log
+Input audit: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_related_ttps.py
+Output audit log: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_related_ttps.py.log
+Input audit: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_batch_operations.py
+Output audit log: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_batch_operations.py.log
+Input audit: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_advanced_navigator.py
+Output audit log: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_advanced_navigator.py.log
+Input audit: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_layer_analysis.py
+Output audit log: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_layer_analysis.py.log
+Input audit: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_formula_features.py
+Output audit log: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_formula_features.py.log
+Input audit: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_export_options.py
+Output audit log: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_export_options.py.log
+Input audit: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_json_annotation_export.py
+Output audit log: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_json_annotation_export.py.log
+Input audit: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_matrix_display.py
+Output audit log: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_matrix_display.py.log
+Input audit: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_selection_search.py
+Output audit log: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_selection_search.py.log
+Input audit: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_source_selection.py
+Output audit log: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_source_selection.py.log
+Input audit: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_source_preview.py
+Output audit log: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_source_preview.py.log
+Input audit: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_studio_lifecycle.py
+Output audit log: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_studio_lifecycle.py.log
+Input audit: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_visibility_presets.py
+Output audit log: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_visibility_presets.py.log
+Input audit: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_detection_interaction.py
+Output audit log: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_detection_interaction.py.log
+Input audit: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_navigator_parity.py
+Output audit log: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_navigator_parity.py.log
+Input audit: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_manual_language.py
+Output audit log: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_manual_language.py.log
+Input audit: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_versions.py
+Output audit log: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_versions.py.log
+[Linux audit 1/31] Running audit_catalog.py (offscreen)
+[Linux audit 1/31] PASS: audit_catalog.py (53.68s)
+[Linux audit 2/31] Running audit_documents.py (offscreen)
+[Linux audit 2/31] FAIL: audit_documents.py (5.18s)
+elected TTP occurrences in memory)
+[Select TTP 1/2] Resolving tactic/family preferences (0/2)
+[Select TTP 2/2] Ready; enabled states and annotations preserved (2/2)
+[Document audit 2/7] File menu export records exact IDs, metadata and duplicate synchronization
+Input files: None (active document and verified catalog in memory)
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/ttp-document-audit-948487e8f7304d949b328ab6172adae9/研究文件-A.json
+Temporary output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/ttp-document-audit-948487e8f7304d949b328ab6172adae9/研究文件-A.json.b42a923290e346b58494090c66587781.tmp
+[Export 1/3 Prepare] Validating and serializing selected TTPs (0/3)
+[Export 2/3 Write] Writing 2 selected TTPs (1/3)
+[Export 3/3 Publish] Publishing JSON file (2/3)
+[Export 3/3 Publish] Complete: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/ttp-document-audit-948487e8f7304d949b328ab6172adae9/研究文件-A.json (3/3)
+Traceback (most recent call last):
+  File "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_documents.py", line 285, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_documents.py", line 78, in main
+    check(data_a['attack']['version'] == '19.2' and data_a['attack']['domain'] == 'enterprise-attack', 'dataset version and domain exported')
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_documents.py", line 35, in check
+    raise AssertionError(name)
+AssertionError: dataset version and domain exported
+
+[Linux audit 3/31] Running audit_comments.py (offscreen)
+[Linux audit 3/31] FAIL: audit_comments.py (240.04s)
+: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/ttp-comments-historical.json
+Temporary output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/ttp-comments-historical.json.afed9d8a95dd4754972aef48b95f4285.tmp
+[Export 1/3 Prepare] Validating and serializing selected TTPs (0/3)
+[Export 2/3 Write] Writing 1 selected TTPs (1/3)
+[Export 3/3 Publish] Publishing JSON file (2/3)
+[Export 3/3 Publish] Complete: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/ttp-comments-historical.json (3/3)
+Input files: None (active document and verified catalog in memory)
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/ttp-comments-historical.csv
+Temporary output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/ttp-comments-historical.csv.545de9a8a63d487e9e2d98186c6d1be6.tmp
+[Export 1/3 Prepare] Validating and serializing selected TTPs (0/3)
+[Export 2/3 Write] Writing 1 selected TTPs (1/3)
+[Export 3/3 Publish] Publishing CSV file (2/3)
+[Export] CSV is an exchange file; use Save / Save As for a complete editable Studio document. (1/1)
+[Export 3/3 Publish] Complete: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/ttp-comments-historical.csv (3/3)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/ttp-comments-historical.json
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/ttp-comments-historical.csv
+[Comments 5/6] Preview, empty fields and dataset preservation (4/6)
+[Document 1/2] Input files: None; output files: None; activating ttp-comments-example (0/2)
+[4/4 Tree] Complete: 706 unique selectable technique IDs
+This plugin does not support propagateSizeHints()
+
+[Linux audit 4/31] Running audit_domains.py (offscreen)
+[Linux audit 4/31] FAIL: audit_domains.py (33.6s)
+nnotations preserved (2/2)
+[Matrix 2/3 Columns] Building expandable tactic columns (11/12)
+[Matrix 2/3 Columns] Building expandable tactic columns (12/12)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/domain-audit-c11d041bc0b043959cbcb148b36949b3/mobile-attack.navigator.json
+Output files: None (import preview in memory)
+[Navigator Import 1/4] Reading and validating layer file (0/1)
+[Navigator Import 1/4] Layer validated by mitreattack-python (1/1)
+[Matrix 3/3 Ready] Matrix columns complete (1/1)
+This plugin does not support propagateSizeHints()
+Input files: None (validated layers in memory; exact catalog inputs follow)
+Output files: None (independent layer previews in memory)
+[Layer Batch 2/5] Resolving layer 1: mobile-attack (0/1)
+[Layer Batch 3/5] Layer 1: Ready (1/1)
+[Layer Batch 3/5] Preview complete; no documents have been added (3/5)
+Traceback (most recent call last):
+  File "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_domains.py", line 274, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_domains.py", line 250, in main
+    check(len(window.documents) == count + 1 and window.current_document.catalog.domain == domain and window.selected == {selections[domain]}, f"{domain}: import creates independent domain file")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_domains.py", line 33, in check
+    raise AssertionError(name)
+AssertionError: mobile-attack: import creates independent domain file
+
+[Linux audit 5/31] Running audit_workspace.py (offscreen)
+[Linux audit 5/31] PASS: audit_workspace.py (9.9s)
+[Linux audit 6/31] Running audit_matrix.py (offscreen)
+[Linux audit 6/31] PASS: audit_matrix.py (13.62s)
+[Linux audit 7/31] Running audit_matrix_actions.py (offscreen)
+[Linux audit 7/31] PASS: audit_matrix_actions.py (17.18s)
+[Linux audit 8/31] Running audit_layers.py (offscreen)
+[Linux audit 8/31] FAIL: audit_layers.py (3.68s)
+elated TTPs] Complete: ICS 2185 direct/derived mappings (1/1)
+[3/4 Library] Complete: ICS (1/1)
+[3/4 Library] Complete: six navigation categories indexed across all three domains (1/1)
+[4/4 Tree] Complete: 706 unique selectable technique IDs
+Input files: None (exact domain/version catalog in memory); output files: None
+[Search Index 1/3] Reading legacy data sources and active detection mappings (0/3)
+[Search Index 2/3] Building name/ID/description/data-source/detection-strategy fields (1/3)
+[Search Index 3/3] Ready: 706 techniques in enterprise-attack v20.0 (3/3)
+[Layers audit 2/7] Native row colors and tactic-specific scopes (1/7)
+Traceback (most recent call last):
+  File "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_layers.py", line 302, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_layers.py", line 113, in main
+    window.refresh_selection()
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/main.py", line 2324, in refresh_selection
+    self.refresh_layer_appearance()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/main.py", line 892, in refresh_layer_appearance
+    active_layer = document_layer(document, validate=False) if supported else {}
+                   ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/navigator_integration.py", line 241, in document_layer
+    raise ValueError("Annotations belong to another ATT&CK version. Export before changing the document's version.")
+ValueError: Annotations belong to another ATT&CK version. Export before changing the document's version.
+
+[Linux audit 9/31] Running audit_clear_colors.py (offscreen)
+[Linux audit 9/31] FAIL: audit_clear_colors.py (4.98s)
+hnique annotations (0/3)
+[Layer Color/Score 2/3] Updating selected technique rows (1/3)
+[Layer Color/Score 3/3] Ready; native colors and exports synchronized (3/3)
+Input files: None; output files: None (active layer in memory)
+[Layer Color/Score 1/3] Validating technique annotations (0/3)
+[Layer Color/Score 2/3] Updating selected technique rows (1/3)
+[Layer Color/Score 3/3] Ready; native colors and exports synchronized (3/3)
+Input files: None; output files: None (selected TTP occurrences in memory)
+[Select TTP 1/2] Resolving tactic/family preferences (0/2)
+[Select TTP 2/2] Ready; enabled states and annotations preserved (2/2)
+This plugin does not support raise()
+This plugin does not support grabbing the keyboard
+Input files: None; output files: None (mouse selection in memory)
+[Mouse Selection 1/2] Applying gesture and family/tactic/visibility preferences (0/2)
+[Mouse Selection 2/2] Ready; annotation and enabled state preserved (2/2)
+Traceback (most recent call last):
+  File "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_clear_colors.py", line 189, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_clear_colors.py", line 106, in main
+    check(item.data(0, MATRIX_STYLE) == original_style,
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+          'color-only annotation cleared while unchecked restores original neutral style')
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_clear_colors.py", line 29, in check
+    raise AssertionError(label)
+AssertionError: color-only annotation cleared while unchecked restores original neutral style
+
+[Linux audit 10/31] Running audit_overlay.py (offscreen)
+[Linux audit 10/31] FAIL: audit_overlay.py (3.03s)
+Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 2185 direct/derived mappings (1/1)
+[3/4 Library] Complete: ICS (1/1)
+[3/4 Library] Complete: six navigation categories indexed across all three domains (1/1)
+[4/4 Tree] Complete: 706 unique selectable technique IDs
+Input files: None (exact domain/version catalog in memory); output files: None
+[Search Index 1/3] Reading legacy data sources and active detection mappings (0/3)
+[Search Index 2/3] Building name/ID/description/data-source/detection-strategy fields (1/3)
+[Search Index 3/3] Ready: 706 techniques in enterprise-attack v20.0 (3/3)
+Traceback (most recent call last):
+  File "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_overlay.py", line 255, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_overlay.py", line 114, in main
+    window.refresh_selection()
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/main.py", line 2324, in refresh_selection
+    self.refresh_layer_appearance()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/main.py", line 892, in refresh_layer_appearance
+    active_layer = document_layer(document, validate=False) if supported else {}
+                   ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/navigator_integration.py", line 241, in document_layer
+    raise ValueError("Annotations belong to another ATT&CK version. Export before changing the document's version.")
+ValueError: Annotations belong to another ATT&CK version. Export before changing the document's version.
+
+[Linux audit 11/31] Running audit_navigator.py (offscreen)
+[Linux audit 11/31] FAIL: audit_navigator.py (3.53s)
+acts/navigator-audit-b94657db246349938aed246a2b0ea490/fixture.json
+Temporary output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-b94657db246349938aed246a2b0ea490/fixture.json.ff46cb0329234592abc4c79695b823cc.tmp
+[Audit fixture 1/3] Serializing data (0/3)
+[Audit fixture 2/3] Writing UTF-8 JSON (1/3)
+[Audit fixture 3/3] Publishing file (2/3)
+[Audit fixture 3/3] Complete: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-b94657db246349938aed246a2b0ea490/fixture.json (3/3)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-b94657db246349938aed246a2b0ea490/fixture.json
+Output files: None (import preview in memory)
+[Navigator Import 1/4] Reading and validating layer file (0/1)
+[Navigator Import 1/4] Layer validated by mitreattack-python (1/1)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-b94657db246349938aed246a2b0ea490/fixture-utf16.json
+Output files: None (import preview in memory)
+[Navigator Import 1/4] Reading and validating layer file (0/1)
+[Navigator Import 1/4] Layer validated by mitreattack-python (1/1)
+Traceback (most recent call last):
+  File "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_navigator.py", line 290, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_navigator.py", line 95, in main
+    preview = import_preview(layer, catalog)
+  File "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/navigator_integration.py", line 176, in import_preview
+    raise ValueError("Layer and catalog versions differ.")
+ValueError: Layer and catalog versions differ.
+
+[Linux audit 12/31] Running audit_navigator_bundle.py (offscreen)
+[Linux audit 12/31] PASS: audit_navigator_bundle.py (15.23s)
+[Linux audit 13/31] Running audit_custom_domains.py (offscreen)
+[Linux audit 13/31] PASS: audit_custom_domains.py (4.64s)
+[Linux audit 14/31] Running audit_custom_data_url.py (offscreen)
+[Linux audit 14/31] FAIL: audit_custom_data_url.py (6.59s)
+ Batch 3/5] Layer 2: Ready (2/2)
+[Layer Batch 3/5] Preview complete; no documents have been added (3/5)
+Input cache directory: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/cache/custom
+Output files: None (available cache paths only; contents validated on request)
+This plugin does not support propagateSizeHints()
+Input source: http://127.0.0.1:36065/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/cache/custom/71e8153632f638081c9a80262cb699fff70ee19dfceebc35a76ee20855421e56.json
+Output files: None (custom source review in memory; cache only after acceptance)
+[Custom Data 1/5] Acquiring the selected source (0/5)
+Input URL: http://127.0.0.1:36065/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/cache/custom/71e8153632f638081c9a80262cb699fff70ee19dfceebc35a76ee20855421e56.json
+Output files: None (source validation in memory)
+[Source 1/4] Reading bounded JSON (0/134217728)
+Failed: HTTPError: HTTP Error 404: Not Found (1/1)
+Traceback (most recent call last):
+  File "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_custom_data_url.py", line 296, in <module>
+    main()
+    ~~~~^^
+  File "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_custom_data_url.py", line 233, in main
+    check(picker.candidate is not None and not picker.candidate['changed'], 'cached Bundle gets full validation before use')
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_custom_data_url.py", line 36, in check
+    raise AssertionError(text)
+AssertionError: cached Bundle gets full validation before use
+
+[Linux audit 15/31] Running audit_related_ttps.py (offscreen)
+[Linux audit 15/31] PASS: audit_related_ttps.py (12.91s)
+[Linux audit 16/31] Running audit_batch_operations.py (offscreen)
+[Linux audit 16/31] PASS: audit_batch_operations.py (21.29s)
+[Linux audit 17/31] Running audit_advanced_navigator.py (offscreen)
+[Linux audit 17/31] PASS: audit_advanced_navigator.py (18.64s)
+[Linux audit 18/31] Running audit_layer_analysis.py (offscreen)
+[Linux audit 18/31] PASS: audit_layer_analysis.py (7.49s)
+[Linux audit 19/31] Running audit_formula_features.py (offscreen)
+[Linux audit 19/31] PASS: audit_formula_features.py (3.63s)
+[Linux audit 20/31] Running audit_export_options.py (offscreen)
+[Linux audit 20/31] PASS: audit_export_options.py (19.49s)
+[Linux audit 21/31] Running audit_json_annotation_export.py (offscreen)
+[Linux audit 21/31] PASS: audit_json_annotation_export.py (4.84s)
+[Linux audit 22/31] Running audit_matrix_display.py (offscreen)
+[Linux audit 22/31] PASS: audit_matrix_display.py (4.53s)
+[Linux audit 23/31] Running audit_selection_search.py (offscreen)
+[Linux audit 23/31] FAIL: audit_selection_search.py (98.39s)
+-studio-wsl-test/project/artifacts/selection-search/invalid-scope.navigator.json
+Output files: None (multi-layer import preview in memory)
+[Layer Batch 1/5] Reading and validating every layer in the JSON file (0/5)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/selection-search/invalid-scope.navigator.json
+Output files: None (import preview in memory)
+[Navigator Import 1/4] Reading and validating layer file (0/1)
+[Navigator Import 1/4] Layer validated by mitreattack-python (1/1)
+This plugin does not support propagateSizeHints()
+Input files: None (validated layers in memory; exact catalog inputs follow)
+Output files: None (independent layer previews in memory)
+[Layer Batch 2/5] Resolving layer 1: Research fixture (0/1)
+[Layer Batch 3/5] Layer 1: Partial selection contains an unmapped tactic. (1/1)
+[Layer Batch 3/5] Preview complete; no documents have been added (3/5)
+Traceback (most recent call last):
+  File "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_selection_search.py", line 307, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_selection_search.py", line 271, in main
+    wait(lambda:import_dialog.preview is not None and import_dialog.worker and not import_dialog.worker.isRunning(),'invalid scope preview')
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_selection_search.py", line 55, in wait
+    if time.monotonic()>end: raise TimeoutError(label)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: invalid scope preview
+
+[Linux audit 24/31] Running audit_source_selection.py (offscreen)
+[Linux audit 24/31] PASS: audit_source_selection.py (7.19s)
+[Linux audit 25/31] Running audit_source_preview.py (offscreen)
+[Linux audit 25/31] PASS: audit_source_preview.py (8.24s)
+[Linux audit 26/31] Running audit_studio_lifecycle.py (offscreen)
+[Linux audit 26/31] PASS: audit_studio_lifecycle.py (79.32s)
+[Linux audit 27/31] Running audit_visibility_presets.py (offscreen)
+[Linux audit 27/31] PASS: audit_visibility_presets.py (7.25s)
+[Linux audit 28/31] Running audit_detection_interaction.py (offscreen)
+[Linux audit 28/31] PASS: audit_detection_interaction.py (12.01s)
+[Linux audit 29/31] Running audit_navigator_parity.py (offscreen)
+[Linux audit 29/31] PASS: audit_navigator_parity.py (5.39s)
+[Linux audit 30/31] Running audit_manual_language.py (offscreen)
+[Linux audit 30/31] PASS: audit_manual_language.py (21.21s)
+[Linux audit 31/31] Running audit_versions.py (offscreen)
+[Linux audit 31/31] FAIL: audit_versions.py (1.37s)
+artifacts/version-audit.json
+Output preview: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/version-preview.png
+Output test root: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/version-audit-data-7bd036755df64a3283856ab71766a13f
+[Version audit 1/6] Discovering every official Enterprise release
+[Version 1/4 Discover] Input files: None (official HTTPS metadata)
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/versions-cache.json; temporary: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/versions-cache.json.part
+[Version transfer] Input URL: https://api.github.com/repos/mitre-attack/attack-stix-data/commits/master
+Output file: None (metadata in memory)
+[Version transfer] Complete: 17,883 bytes (1/1)
+[Version transfer] Input URL: https://raw.githubusercontent.com/mitre-attack/attack-stix-data/c2494b29dd268c46a5d0ea0990553e4327cd2253/index.json
+Output file: None (metadata in memory)
+[Version transfer] Complete: 33,164 bytes (1/1)
+[Version 1/4 Discover] Complete: 42 available Enterprise versions (1/1)
+Traceback (most recent call last):
+  File "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_versions.py", line 217, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_versions.py", line 109, in main
+    check(discovery['versions'][0]['version'] == '19.2', 'numeric newest-first sorting')
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_versions.py", line 30, in check
+    raise AssertionError(name)
+AssertionError: numeric newest-first sorting
+
+[Linux audit complete] FAIL: 21/31; /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit.json

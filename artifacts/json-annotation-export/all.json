@@ -1,0 +1,274 @@
+[
+  {
+    "name": "Untitled-1",
+    "domain": "enterprise-attack",
+    "techniques": [],
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false,
+    "hideDisabled": false,
+    "selectVisibleTechniques": false,
+    "x_ttp_studio_search_fields": [
+      "name",
+      "id"
+    ],
+    "versions": {
+      "attack": "20.0",
+      "navigator": "5.2.0",
+      "layer": "4.5"
+    }
+  },
+  {
+    "name": "JSON view example",
+    "domain": "enterprise-attack",
+    "filters": {
+      "platforms": [
+        "Windows"
+      ]
+    },
+    "layout": {
+      "layout": "flat",
+      "expandedSubtechniques": "all"
+    },
+    "metadata": [
+      {
+        "name": "Layer owner",
+        "value": "Keep layer metadata"
+      }
+    ],
+    "techniques": [
+      {
+        "techniqueID": "T1000",
+        "comment": "Global parent",
+        "color": "#112233",
+        "score": 0,
+        "links": [
+          {
+            "label": "Reference",
+            "url": "https://example.org/"
+          }
+        ],
+        "metadata": [
+          {
+            "name": "Owner",
+            "value": "Blue"
+          },
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "true"
+          }
+        ],
+        "x_fixture": "keep extension"
+      },
+      {
+        "techniqueID": "T1000",
+        "tactic": "initial-access",
+        "comment": "Scoped parent",
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "true"
+          }
+        ]
+      },
+      {
+        "techniqueID": "T1000.001",
+        "comment": "Collapsed child",
+        "enabled": false,
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "true"
+          }
+        ]
+      },
+      {
+        "techniqueID": "T1000.002",
+        "color": "#445566",
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "false"
+          }
+        ]
+      },
+      {
+        "techniqueID": "T1001",
+        "showSubtechniques": true,
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "false"
+          }
+        ]
+      },
+      {
+        "techniqueID": "T9999",
+        "comment": "Unknown imported technique",
+        "enabled": false,
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "false"
+          }
+        ]
+      }
+    ],
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false,
+    "selectVisibleTechniques": false,
+    "x_ttp_studio_search_fields": [
+      "name",
+      "id",
+      "description"
+    ],
+    "versions": {
+      "attack": "19.2",
+      "navigator": "5.2.0",
+      "layer": "4.5"
+    },
+    "customDataURL": "D:\\MITREATTACK_SIMULATOR\\artifacts\\json-annotation-export\\fixture.json",
+    "x_ttp_studio_dataset": "71e8153632f638081c9a80262cb699fff70ee19dfceebc35a76ee20855421e56",
+    "sorting": 0,
+    "hideDisabled": false
+  },
+  {
+    "name": "JSON view example",
+    "domain": "mobile-attack",
+    "filters": {
+      "platforms": [
+        "Windows"
+      ]
+    },
+    "layout": {
+      "layout": "flat",
+      "expandedSubtechniques": "none"
+    },
+    "metadata": [
+      {
+        "name": "Layer owner",
+        "value": "Keep layer metadata"
+      }
+    ],
+    "techniques": [
+      {
+        "techniqueID": "T1000",
+        "comment": "Global parent",
+        "color": "#112233",
+        "score": 0,
+        "links": [
+          {
+            "label": "Reference",
+            "url": "https://example.org/"
+          }
+        ],
+        "metadata": [
+          {
+            "name": "Owner",
+            "value": "Blue"
+          },
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "false"
+          }
+        ],
+        "x_fixture": "keep extension"
+      },
+      {
+        "techniqueID": "T1000",
+        "tactic": "initial-access",
+        "comment": "Scoped parent",
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "false"
+          }
+        ]
+      },
+      {
+        "techniqueID": "T1000.001",
+        "comment": "Collapsed child",
+        "enabled": false,
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "true"
+          }
+        ]
+      },
+      {
+        "techniqueID": "T1000.002",
+        "color": "#445566",
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "false"
+          }
+        ]
+      },
+      {
+        "techniqueID": "T1001",
+        "showSubtechniques": true,
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "false"
+          }
+        ]
+      },
+      {
+        "techniqueID": "T9999",
+        "comment": "Unknown imported technique",
+        "enabled": false,
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "false"
+          }
+        ]
+      },
+      {
+        "techniqueID": "T1000",
+        "comment": "Global parent",
+        "color": "#112233",
+        "score": 0,
+        "links": [
+          {
+            "label": "Reference",
+            "url": "https://example.org/"
+          }
+        ],
+        "metadata": [
+          {
+            "name": "Owner",
+            "value": "Blue"
+          },
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "true"
+          }
+        ],
+        "x_fixture": "keep extension",
+        "tactic": "execution"
+      }
+    ],
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false,
+    "selectVisibleTechniques": false,
+    "x_ttp_studio_selection_scopes": {
+      "attack-pattern--502ff2f6-ba5a-54eb-820e-8517dfe20d10": [
+        "execution"
+      ]
+    },
+    "x_ttp_studio_search_fields": [
+      "name",
+      "id"
+    ],
+    "versions": {
+      "attack": "19.2",
+      "navigator": "5.2.0",
+      "layer": "4.5"
+    },
+    "customDataURL": "D:\\MITREATTACK_SIMULATOR\\artifacts\\json-annotation-export\\fixture.json",
+    "x_ttp_studio_dataset": "71e8153632f638081c9a80262cb699fff70ee19dfceebc35a76ee20855421e56"
+  }
+]

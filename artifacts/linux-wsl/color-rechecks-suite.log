@@ -1,0 +1,14 @@
+Input project: /home/kali/.local/share/ttp-selection-studio-wsl-test/project
+Input Python: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/.venv/bin/python
+Input dataset pointer: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/active.json
+Output report: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/color-rechecks/audit.json
+Output feature artifacts: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts
+Input audit: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_clear_colors.py
+Output audit log: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/color-rechecks/audit_clear_colors.py.log
+Input audit: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_overlay.py
+Output audit log: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/color-rechecks/audit_overlay.py.log
+[Linux audit 1/2] Running audit_clear_colors.py (offscreen)
+[Linux audit 1/2] PASS: audit_clear_colors.py (8.5s)
+[Linux audit 2/2] Running audit_overlay.py (offscreen)
+[Linux audit 2/2] PASS: audit_overlay.py (29.53s)
+[Linux audit complete] PASS: 2/2; /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/color-rechecks/audit.json

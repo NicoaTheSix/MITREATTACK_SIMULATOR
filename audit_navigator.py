@@ -75,9 +75,9 @@ def main():
     first = window.current_document
     log("[Navigator audit 1/7] Official SDK validation and fractional/Unicode annotation preservation")
     check(sdk_version() == "6.2.1", "pinned SDK installed")
-    check(window.import_layer_action.shortcut().toString() == "Ctrl+O", "native import shortcut")
+    check(window.import_layer_action.shortcut().toString() == "Ctrl+Alt+O", "native Navigator import shortcut remains distinct from Studio Open")
     layer = {"name": "Research Layer", "domain": "enterprise-attack",
-             "versions": {"attack": "19.2", "navigator": "5.2.0", "layer": "4.5"},
+             "versions": {"attack": catalog.version, "navigator": "5.2.0", "layer": "4.5"},
              "description": "Unicode research 藍隊", "customDataURL": "https://example.invalid/do-not-fetch.json",
              "filters": {"platforms": ["Windows"]}, "hideDisabled": True,
              "legendItems": [{"label": "Research", "color": "#ff7700"}],
@@ -153,17 +153,17 @@ def main():
           "SDK validation does not truncate fractional scores")
     check(exported["techniques"][1]["enabled"] is False, "disabled tactic row preserved")
     check(import_preview(exported, catalog)["selected"] == {task}, "own layer round trip restores exact selection")
-    check(document.export_format == "navigator" and not document.dirty, "Navigator export records format and clean state")
+    check(document.export_format == "navigator" and document.dirty, "Navigator exchange does not replace a complete Studio save")
     window.export_current_document(TEST / "plain.json", "json")
     log(f"Input file: {TEST / 'plain.json'}")
     check(json.loads((TEST / "plain.json").read_text(encoding="utf-8"))["navigator_layer"] == layer, "Studio JSON preserves complete annotations")
     window.export_current_document(TEST / "list.csv", "csv")
     check(document.dirty, "CSV list export cannot mark annotations saved")
     with patch.object(QtWidgets.QMessageBox, "question", return_value=QtWidgets.QMessageBox.StandardButton.Save), \
-         patch.object(QtWidgets.QFileDialog, "getSaveFileName", return_value=(str(TEST / "list.csv"), "CSV files (*.csv)")):
+         patch.object(window, 'save_studio_document', return_value=None):
         closed = window.close_document(window.active_document_index)
     check(not closed and document in window.documents and document.navigator_layer == layer,
-          "pre-close CSV Save retains document with unsaved annotations")
+          "cancelled complete Studio save retains the document and annotations")
     blocked = TEST / "blocked.json"
     log(f"Output directory: {blocked}")
     blocked.mkdir()
@@ -192,6 +192,7 @@ def main():
     expect_error(lambda: update_annotation(document, task, "", "bad", float("nan"), "#112233"), "annotation validation rejects nonfinite score")
     check(document.navigator_layer == original, "invalid annotation does not mutate document")
     with patch.object(QtWidgets.QFileDialog, "getSaveFileName", return_value=(str(TEST / "annotated.json"), "Navigator Layer files (*.json)")):
+        QtCore.QTimer.singleShot(80, lambda: app.activeModalWidget().export_button.click())
         window.export_layer_action.trigger()
     with patch.object(QtWidgets.QFileDialog, "getSaveFileName", return_value=("", "")) as choose:
         window.export_action.trigger()
@@ -213,7 +214,7 @@ def main():
     old = load_catalog(DATA, log, snapshot_pointer(DATA, "11.2"))
     previous_layer = deepcopy(document.navigator_layer)
     document.set_catalog(old)
-    check(not document.navigator_layer and "19.2" in document.navigator_snapshots, "different version archives annotations independently")
+    check(not document.navigator_layer and catalog.version in document.navigator_snapshots, "different version archives annotations independently")
     document.set_catalog(catalog)
     check(document.navigator_layer == previous_layer, "restoring a version restores its exact annotations")
     historical = TTPDocument("Historical", load_catalog(DATA, log, snapshot_pointer(DATA, "1.0")))
@@ -224,8 +225,8 @@ def main():
     write_json_atomic(old_fixture, TEST / "old-layer.json", log)
     window.import_navigator_layer(TEST / "old-layer.json")
     old_dialog = window.integration_dialog
-    wait(lambda: bool(old_dialog.layers) and not old_dialog.worker.isRunning(), "historical layer file")
-    check(not old_dialog.import_button.isEnabled(), "recorded version requires exact snapshot resolution")
+    wait(lambda: bool(old_dialog.layers) and not old_dialog.busy and not old_dialog.pending_resolve and old_dialog.catalog is not None, "historical layer file")
+    check(old_dialog.import_button.isEnabled(), "cached recorded version is automatically resolved before opening")
     old_dialog.load_button.click()
     wait(lambda: old_dialog.catalog is not None and not old_dialog.worker.isRunning(), "historical import catalog")
     check(old_dialog.catalog.version == "11.2" and window.catalog is catalog, "historical preview does not switch active document")
@@ -238,7 +239,7 @@ def main():
     version_dialog = window.integration_dialog
     check(isinstance(version_dialog, VersionCompareDialog), "version menu opens correct comparison dialog")
     check(version_dialog.compare_button.isEnabled(), "version comparison button enabled")
-    version_dialog.old.setCurrentText("19.2")
+    version_dialog.old.setCurrentText(catalog.version)
     version_dialog.new.setCurrentText("11.2")
     version_dialog.compare_button.click()
     check(version_dialog.worker is not None, "version comparison starts worker")
@@ -272,10 +273,12 @@ def main():
     check(len(read_layers(TEST / "multi.json", log)) == 2, "multi-layer array supported")
     window.import_navigator_layer(TEST / "multi.json")
     multi = window.integration_dialog
-    wait(lambda: multi.layer.count() == 2 and not multi.worker.isRunning(), "multiple-layer preview")
+    wait(lambda: multi.layer.count() == 2 and not multi.busy and not multi.pending_resolve and len(multi.results) == 2, "multiple-layer preview")
     multi.layer.setCurrentIndex(1)
-    check(multi.version.currentText() == "11.2" and not multi.import_button.isEnabled(), "layer picker invalidates previous snapshot preview")
+    check(multi.version.currentText() == "11.2" and multi.catalog.version == '11.2' and multi.import_button.isEnabled(),
+          "layer picker restores each resolved snapshot while retaining the complete batch")
     multi.reject()
+    window.confirm_studio_changes = lambda *_: "discard"
     window.close()
     log("[Navigator audit 7/7] Publishing report")
     write_json_atomic({"status": "PASS", "checks": checks, "sdk_version": sdk_version(), "outputs": str(TEST)}, REPORT, log, "Navigator Audit Report")

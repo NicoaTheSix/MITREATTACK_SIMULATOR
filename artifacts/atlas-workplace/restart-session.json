@@ -1,0 +1,22 @@
+{
+  "checksum": "d309c0dffb58feb267d90bb0979c365bce202a7d360d14b44fa2f5c65d7f039d",
+  "workspace": {
+    "studio_session_version": "1.0",
+    "updated_at_utc": "2026-10-20T16:12:18.561773+00:00",
+    "clean_exit": true,
+    "documents": [],
+    "active_index": -1,
+    "view": {
+      "page": "selected",
+      "details_open": false,
+      "category": "Workplace",
+      "overlay": false,
+      "show_colors": true,
+      "matrix_framework": "attack",
+      "attack_matrix_open": false,
+      "atlas_matrix_open": false,
+      "attack_expanded": true,
+      "atlas_expanded": false
+    }
+  }
+}

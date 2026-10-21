@@ -1,0 +1,2 @@
+D:\MITREATTACK_SIMULATOR\json_export_dialog.py:41: SyntaxWarning: 'str' object is not callable; perhaps you missed a comma?
+  self.details.setPlainText('\n'.join(plan.layer['name'] + ' · ' + row['techniqueID'] + ' · '

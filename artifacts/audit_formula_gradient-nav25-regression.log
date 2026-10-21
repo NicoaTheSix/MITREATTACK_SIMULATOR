@@ -1,0 +1,225 @@
+Input file: D:\MITREATTACK_SIMULATOR\scripts\formula-reference\gradient-cases.json
+Input file: D:\MITREATTACK_SIMULATOR\scripts\formula-reference\gradient-golden.json
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\latest.json
+Input directory: D:\MITREATTACK_SIMULATOR\data\attack
+Output cache directory: D:\MITREATTACK_SIMULATOR\artifacts\formula-gradient\cache
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\formula-gradient\audit.json
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\formula-gradient\gradient-bundle.json
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\formula-gradient\navigator.studio.json
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\formula-gradient\session.json
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\formula-gradient\gradient.png
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\formula-gradient\gradient-zh.png
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\formula-gradient\matrix.png
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\formula-gradient\binary.svg
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\formula-gradient\binary.xlsx
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\formula-gradient\binary-preview.png
+[Gradient Audit 1/7] Verify pinned reference and isolated dataset (0/7)
+Output cache directory: D:\MITREATTACK_SIMULATOR\artifacts\formula-gradient\cache\custom
+Input file: D:\MITREATTACK_SIMULATOR\artifacts\formula-gradient\gradient-bundle.json
+Output files: None (source validation in memory)
+[Source 1/4] Reading bounded JSON (0/134217728)
+Input resolved file: D:\MITREATTACK_SIMULATOR\artifacts\formula-gradient\gradient-bundle.json
+[Source 1/4] Reading JSON bytes (3239/134217728)
+[Source 2/4] Parsing JSON (1/4)
+Input bundle: validated JSON in memory; output files: None (custom catalog in memory)
+[Source 3/4] Validating ATT&CK-compatible STIX (0/4)
+[Source 3/4] Resolving dataset-scoped domain definitions and matrices (1/4)
+[3/4 Procedures] Indexing Enterprise procedure examples
+[3/4 Procedures] Complete: Enterprise 0 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 0 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing Mobile procedure examples
+[3/4 Procedures] Complete: Mobile 0 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Mobile objects in memory)
+[3/4 Related TTPs] Indexing Mobile direct source relationships
+[3/4 Related TTPs] Resolving Mobile strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Mobile 0 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing ICS procedure examples
+[3/4 Procedures] Complete: ICS 0 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 0 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing formula-lab procedure examples (0/6)
+[3/4 Procedures] Complete: formula-lab 0 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (formula-lab objects in memory)
+[3/4 Related TTPs] Indexing formula-lab direct source relationships (0/6)
+[3/4 Related TTPs] Resolving formula-lab strategy/analytic/component paths
+[3/4 Related TTPs] Complete: formula-lab 0 direct/derived mappings (1/1)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\formula-gradient\cache\custom\12c61b9bd54428db9fcdacc61e3be4ad2291752c37eb4249953b8d4ee255726e.json
+[Source 4/4] Caching validated input (3/4)
+Output temporary file: D:\MITREATTACK_SIMULATOR\artifacts\formula-gradient\cache\custom\.source-6bc566db6b3944ffa9abef5a2e208b36.tmp
+[Source 4/4] Validated source cached (4/4)
+[Gradient Audit 2/7] Compare configurations, per-tactic scores and inherited states (1/7)
+[Gradient Audit 2/7] Official case (1/24)
+[Gradient Audit 2/7] Official case (2/24)
+[Gradient Audit 2/7] Official case (3/24)
+[Gradient Audit 2/7] Official case (4/24)
+[Gradient Audit 2/7] Official case (5/24)
+[Gradient Audit 2/7] Official case (6/24)
+[Gradient Audit 2/7] Official case (7/24)
+[Gradient Audit 2/7] Official case (8/24)
+[Gradient Audit 2/7] Official case (9/24)
+[Gradient Audit 2/7] Official case (10/24)
+[Gradient Audit 2/7] Official case (11/24)
+[Gradient Audit 2/7] Official case (12/24)
+[Gradient Audit 2/7] Official case (13/24)
+[Gradient Audit 2/7] Official case (14/24)
+[Gradient Audit 2/7] Official case (15/24)
+[Gradient Audit 2/7] Official case (16/24)
+[Gradient Audit 2/7] Official case (17/24)
+[Gradient Audit 2/7] Official case (18/24)
+[Gradient Audit 2/7] Official case (19/24)
+[Gradient Audit 2/7] Official case (20/24)
+[Gradient Audit 2/7] Official case (21/24)
+[Gradient Audit 2/7] Official case (22/24)
+[Gradient Audit 2/7] Official case (23/24)
+[Gradient Audit 2/7] Official case (24/24)
+[Gradient Audit 3/7] Independent policy, explicit precedence and bounded failures (2/7)
+[Gradient Audit 4/7] Studio/Navigator/recovery round trips and historical result preservation (3/7)
+Input files: None (document draft in memory)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\formula-gradient\navigator.studio.json
+[Studio Save 1/3] Checking saved-file baseline (0/3)
+[Studio Save 2/3] Writing complete document atomically (1/3)
+Input files: None (validated in-memory data)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\formula-gradient\navigator.studio.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\artifacts\formula-gradient\navigator.studio.json.361512ac9eba469aba5a60918b96e3bc.tmp
+[Studio Save 1/3] Serializing data (0/3)
+[Studio Save 2/3] Writing UTF-8 JSON (1/3)
+[Studio Save 3/3] Publishing file (2/3)
+[Studio Save 3/3] Complete: D:\MITREATTACK_SIMULATOR\artifacts\formula-gradient\navigator.studio.json (3/3)
+[Studio Save 3/3] Complete; source draft unchanged until accepted (3/3)
+Input file: D:\MITREATTACK_SIMULATOR\artifacts\formula-gradient\navigator.studio.json
+Output files: None (validated draft in memory)
+[Studio Open 1/4] Reading bounded UTF-8 JSON (0/4)
+[Framework Read] ATT&CK=True; ATLAS=True
+[Studio Open 2/4] Resolving exact dataset 1.0 (1/4)
+Input file: D:\MITREATTACK_SIMULATOR\artifacts\formula-gradient\cache\custom\12c61b9bd54428db9fcdacc61e3be4ad2291752c37eb4249953b8d4ee255726e.json
+Output files: None (validated draft in memory)
+[Studio Open 1/4] Reading bounded UTF-8 JSON (0/4)
+Input bundle: validated JSON in memory; output files: None (custom catalog in memory)
+[Source 3/4] Validating ATT&CK-compatible STIX (0/4)
+[Source 3/4] Resolving dataset-scoped domain definitions and matrices (1/4)
+[3/4 Procedures] Indexing Enterprise procedure examples
+[3/4 Procedures] Complete: Enterprise 0 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 0 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing Mobile procedure examples
+[3/4 Procedures] Complete: Mobile 0 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Mobile objects in memory)
+[3/4 Related TTPs] Indexing Mobile direct source relationships
+[3/4 Related TTPs] Resolving Mobile strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Mobile 0 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing ICS procedure examples
+[3/4 Procedures] Complete: ICS 0 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 0 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing formula-lab procedure examples (0/6)
+[3/4 Procedures] Complete: formula-lab 0 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (formula-lab objects in memory)
+[3/4 Related TTPs] Indexing formula-lab direct source relationships (0/6)
+[3/4 Related TTPs] Resolving formula-lab strategy/analytic/component paths
+[3/4 Related TTPs] Complete: formula-lab 0 direct/derived mappings (1/1)
+[Studio Open 3/4] Validating annotations and domain/version/migration archives (2/4)
+[Studio Open 4/4] Complete; validated document ready in memory (4/4)
+Input files: None (immutable workspace snapshot in memory)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\formula-gradient\session.json
+[Session 1/3] Preparing recovery checkpoint (0/3)
+Input files: None (validated in-memory data)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\formula-gradient\session.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\artifacts\formula-gradient\session.json.6470479536e6441b98961af1c4e753cf.tmp
+[Session 1/3] Serializing data (0/3)
+[Session 2/3] Writing UTF-8 JSON (1/3)
+[Session 3/3] Publishing file (2/3)
+[Session 3/3] Complete: D:\MITREATTACK_SIMULATOR\artifacts\formula-gradient\session.json (3/3)
+Input file: D:\MITREATTACK_SIMULATOR\artifacts\formula-gradient\session.json
+Output files: None (validated draft in memory)
+[Studio Open 1/4] Reading bounded UTF-8 JSON (0/4)
+[Studio Open 2/4] Resolving exact dataset 1.0 (1/4)
+Input file: D:\MITREATTACK_SIMULATOR\artifacts\formula-gradient\cache\custom\12c61b9bd54428db9fcdacc61e3be4ad2291752c37eb4249953b8d4ee255726e.json
+Output files: None (validated draft in memory)
+[Studio Open 1/4] Reading bounded UTF-8 JSON (0/4)
+Input bundle: validated JSON in memory; output files: None (custom catalog in memory)
+[Source 3/4] Validating ATT&CK-compatible STIX (0/4)
+[Source 3/4] Resolving dataset-scoped domain definitions and matrices (1/4)
+[3/4 Procedures] Indexing Enterprise procedure examples
+[3/4 Procedures] Complete: Enterprise 0 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 0 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing Mobile procedure examples
+[3/4 Procedures] Complete: Mobile 0 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Mobile objects in memory)
+[3/4 Related TTPs] Indexing Mobile direct source relationships
+[3/4 Related TTPs] Resolving Mobile strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Mobile 0 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing ICS procedure examples
+[3/4 Procedures] Complete: ICS 0 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 0 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing formula-lab procedure examples (0/6)
+[3/4 Procedures] Complete: formula-lab 0 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (formula-lab objects in memory)
+[3/4 Related TTPs] Indexing formula-lab direct source relationships (0/6)
+[3/4 Related TTPs] Resolving formula-lab strategy/analytic/component paths
+[3/4 Related TTPs] Complete: formula-lab 0 direct/derived mappings (1/1)
+[Studio Open 3/4] Validating annotations and domain/version/migration archives (2/4)
+[Studio Open 4/4] Complete; validated document ready in memory (4/4)
+[Session 2/3] Validating recoverable documents (1/3)
+[Studio Open 3/4] Validating annotations and domain/version/migration archives (2/4)
+[Studio Open 4/4] Complete; validated document ready in memory (4/4)
+[Session 2/3] Validating recoverable documents (2/3)
+[Studio Open 3/4] Validating annotations and domain/version/migration archives (2/4)
+[Studio Open 4/4] Complete; validated document ready in memory (4/4)
+[Session 2/3] Validating recoverable documents (3/3)
+[Session 3/3] All documents validated; workspace ready for atomic restore (3/3)
+[Gradient Audit 5/7] Native controls, palette opacity and matrix rendering (4/7)
+[Application icon 1/2] Input file: D:\MITREATTACK_SIMULATOR\assets\ttp-selection-studio-icon-pixel.png
+[Application icon 1/2] Output files: None (application/window icon in memory)
+[Application icon 2/2] Complete: pixel icon applied to application and windows
+[Preview fonts] Input file: C:\WINDOWS\Fonts\segoeui.ttf
+[Preview fonts] Input file: C:\WINDOWS\Fonts\segoeuib.ttf
+[Preview fonts] Input file: C:\WINDOWS\Fonts\consola.ttf
+[Preview fonts] Input file: C:\WINDOWS\Fonts\georgia.ttf
+[Preview fonts] Input file: C:\WINDOWS\Fonts\msjh.ttc
+[Preview fonts] Input file: C:\WINDOWS\Fonts\msjhbd.ttc
+[Preview fonts] Complete
+[Language 1/2] Input file: D:\MITREATTACK_SIMULATOR\locales\zh_TW.json
+Output files: None (translation catalog in memory)
+[Language 2/2] Ready: 810 Taiwan translations
+[Gradient Audit 6/7] Actual SVG and colored Excel with alpha compositing (5/7)
+Input files: None (verified catalogs and layer snapshots in memory)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\formula-gradient\binary.svg
+Temporary output file: D:\MITREATTACK_SIMULATOR\artifacts\formula-gradient\binary.svg.f6e2b0ab34d7411499fcfa00ab0681c9.tmp
+[Matrix Export 1/4] Validating layers and resolving filters (0/4)
+[Matrix Export 1/4] Projecting tactic columns (1/2)
+[Matrix Export 1/4] Projecting tactic columns (2/2)
+[Matrix Export 2/4] Rendering complete matrix · SVG theme: dark (1/4)
+[Matrix Export 3/4] Writing SVG vector image (2/4)
+[Matrix Export 4/4] Publishing output atomically (3/4)
+[Matrix Export 4/4] Complete: D:\MITREATTACK_SIMULATOR\artifacts\formula-gradient\binary.svg (4/4)
+Input files: None (verified catalogs and layer snapshots in memory)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\formula-gradient\binary.xlsx
+Temporary output file: D:\MITREATTACK_SIMULATOR\artifacts\formula-gradient\binary.xlsx.3e7b9fb873a745ac87decf253e2a87ae.tmp
+[Matrix Export 1/4] Validating layers and resolving filters (0/4)
+[Matrix Export 1/4] Projecting tactic columns (1/2)
+[Matrix Export 1/4] Projecting tactic columns (2/2)
+[Matrix Export 2/4] Rendering complete matrix (1/4)
+[Matrix Export 2/4] Rendering Excel columns (1/2)
+[Matrix Export 2/4] Rendering Excel columns (2/2)
+[Matrix Export 3/4] Writing Excel workbook (3/4)
+[Matrix Export 4/4] Publishing output atomically (3/4)
+[Matrix Export 4/4] Complete: D:\MITREATTACK_SIMULATOR\artifacts\formula-gradient\binary.xlsx (4/4)
+Input file: D:\MITREATTACK_SIMULATOR\artifacts\formula-gradient\binary.svg
+Input file: D:\MITREATTACK_SIMULATOR\artifacts\formula-gradient\binary.xlsx
+[Gradient Audit 7/7] Publish report (6/7)
+[Gradient Audit] PASS: 335 checks (7/7)

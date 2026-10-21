@@ -61,7 +61,9 @@ def main():
     window.show_record(key)
     check(window.details_tab_index == len(window.documents), "reference tab sits beside filenames in the same tab bar")
     check(window.workspace.currentWidget() is window.details_page, "reference content is a separate workspace page")
-    check(window.tabs.indexOf(window.details_page) == -1 and window.tabs.count() == 2, "document page contains selection/matrix only")
+    check(window.tabs.indexOf(window.details_page) == -1 and window.tabs.count() == 3
+          and window.tabs.indexOf(window.atlas_matrix) >= 0,
+          "document page contains selection and peer ATT&CK/ATLAS matrices")
     check(window.document_tabs.tabText(window.details_tab_index) == 'Technique Details', "reference tab uses Technique Details title")
     before = fingerprints(window)
     with patch.object(QtWidgets.QMessageBox, 'question') as question:

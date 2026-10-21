@@ -1,0 +1,430 @@
+{
+  "type": "bundle",
+  "id": "bundle--3b7a9a95-1e02-403b-87e1-065ce43ef1e2",
+  "x_ttp_studio_domains": [
+    {
+      "id": "lab-one",
+      "name": "Independent Lab",
+      "kill_chain_name": "independent-chain",
+      "reference_source": "independent-source"
+    },
+    {
+      "id": "lab-two",
+      "name": "Research lab-two",
+      "kill_chain_name": "lab-two-chain",
+      "reference_source": "lab-two-references"
+    }
+  ],
+  "objects": [
+    {
+      "id": "x-mitre-tactic--bade9772-2ede-58ea-8463-895c0e9f5a18",
+      "type": "x-mitre-tactic",
+      "name": "survey",
+      "x_mitre_domains": [
+        "lab-one"
+      ],
+      "x_mitre_shortname": "survey",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1234"
+        },
+        {
+          "source_name": "independent-source",
+          "external_id": "TACTIC-survey"
+        }
+      ]
+    },
+    {
+      "id": "x-mitre-tactic--08b2a125-5cef-5d4f-9fde-99ae7f845834",
+      "type": "x-mitre-tactic",
+      "name": "execute",
+      "x_mitre_domains": [
+        "lab-one"
+      ],
+      "x_mitre_shortname": "execute",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1234"
+        },
+        {
+          "source_name": "independent-source",
+          "external_id": "TACTIC-execute"
+        }
+      ]
+    },
+    {
+      "id": "x-mitre-tactic--caf27ec2-dafc-5520-90a0-53b7c2aaf8ee",
+      "type": "x-mitre-tactic",
+      "name": "observe",
+      "x_mitre_domains": [
+        "lab-one"
+      ],
+      "x_mitre_shortname": "observe",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1234"
+        },
+        {
+          "source_name": "independent-source",
+          "external_id": "TACTIC-observe"
+        }
+      ]
+    },
+    {
+      "id": "attack-pattern--a096fed3-4da4-58cb-aa21-1adfd02beb7d",
+      "type": "attack-pattern",
+      "name": "Root",
+      "x_mitre_domains": [
+        "lab-one"
+      ],
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1234"
+        },
+        {
+          "source_name": "independent-source",
+          "external_id": "LAB-ALPHA"
+        }
+      ],
+      "x_mitre_platforms": [
+        "ResearchOS"
+      ],
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "independent-chain",
+          "phase_name": "survey"
+        }
+      ]
+    },
+    {
+      "id": "attack-pattern--1094ef0d-cdfa-5e5e-a0d3-d3854f56a09e",
+      "type": "attack-pattern",
+      "name": "Child",
+      "x_mitre_domains": [
+        "lab-one"
+      ],
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1234"
+        },
+        {
+          "source_name": "independent-source",
+          "external_id": "LAB-BETA.child"
+        }
+      ],
+      "x_mitre_is_subtechnique": true,
+      "x_mitre_platforms": [
+        "ResearchOS"
+      ],
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "independent-chain",
+          "phase_name": "execute"
+        }
+      ]
+    },
+    {
+      "id": "attack-pattern--ef5afbc5-a96f-5505-b26b-8ced5c80748c",
+      "type": "attack-pattern",
+      "name": "Observer",
+      "x_mitre_domains": [
+        "lab-one"
+      ],
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1234"
+        },
+        {
+          "source_name": "independent-source",
+          "external_id": "LAB-GAMMA"
+        }
+      ],
+      "x_mitre_platforms": [
+        "ResearchOS"
+      ],
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "independent-chain",
+          "phase_name": "observe"
+        }
+      ]
+    },
+    {
+      "id": "intrusion-set--a049962f-3183-5b11-8945-6619ae515016",
+      "type": "intrusion-set",
+      "name": "Research group",
+      "x_mitre_domains": [
+        "lab-one"
+      ],
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1234"
+        },
+        {
+          "source_name": "independent-source",
+          "external_id": "LAB-GROUP"
+        }
+      ],
+      "description": "Research group description"
+    },
+    {
+      "id": "x-mitre-matrix--e1d20d93-1f7b-52b1-8d9b-0b84e5bdbff6",
+      "type": "x-mitre-matrix",
+      "name": "Primary Matrix",
+      "x_mitre_domains": [
+        "lab-one"
+      ],
+      "tactic_refs": [
+        "x-mitre-tactic--08b2a125-5cef-5d4f-9fde-99ae7f845834",
+        "x-mitre-tactic--bade9772-2ede-58ea-8463-895c0e9f5a18"
+      ]
+    },
+    {
+      "id": "x-mitre-matrix--96fabfb6-141a-5605-b293-644fcfbae489",
+      "type": "x-mitre-matrix",
+      "name": "Secondary Matrix",
+      "x_mitre_domains": [
+        "lab-one"
+      ],
+      "tactic_refs": [
+        "x-mitre-tactic--caf27ec2-dafc-5520-90a0-53b7c2aaf8ee",
+        "x-mitre-tactic--bade9772-2ede-58ea-8463-895c0e9f5a18"
+      ]
+    },
+    {
+      "id": "relationship--55a913ef-c07f-5f0f-878e-f668dcc0cf49",
+      "type": "relationship",
+      "name": "parent",
+      "x_mitre_domains": [
+        "lab-one"
+      ],
+      "relationship_type": "subtechnique-of",
+      "source_ref": "attack-pattern--1094ef0d-cdfa-5e5e-a0d3-d3854f56a09e",
+      "target_ref": "attack-pattern--a096fed3-4da4-58cb-aa21-1adfd02beb7d"
+    },
+    {
+      "id": "relationship--29adc10b-63cd-51cc-9565-f1a915b0f26b",
+      "type": "relationship",
+      "name": "uses",
+      "x_mitre_domains": [
+        "lab-one"
+      ],
+      "relationship_type": "uses",
+      "source_ref": "intrusion-set--a049962f-3183-5b11-8945-6619ae515016",
+      "target_ref": "attack-pattern--1094ef0d-cdfa-5e5e-a0d3-d3854f56a09e",
+      "description": "Custom procedure"
+    },
+    {
+      "id": "x-mitre-tactic--082ec04e-4317-5c65-8d8c-1ca8af88d193",
+      "type": "x-mitre-tactic",
+      "name": "survey",
+      "x_mitre_domains": [
+        "lab-two"
+      ],
+      "x_mitre_shortname": "survey",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1234"
+        },
+        {
+          "source_name": "lab-two-references",
+          "external_id": "TACTIC-survey"
+        }
+      ]
+    },
+    {
+      "id": "x-mitre-tactic--309812cd-8b6d-569f-b88b-742ca07556e7",
+      "type": "x-mitre-tactic",
+      "name": "execute",
+      "x_mitre_domains": [
+        "lab-two"
+      ],
+      "x_mitre_shortname": "execute",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1234"
+        },
+        {
+          "source_name": "lab-two-references",
+          "external_id": "TACTIC-execute"
+        }
+      ]
+    },
+    {
+      "id": "x-mitre-tactic--b8bfba13-73e8-5139-8f28-c6c2ca1c8927",
+      "type": "x-mitre-tactic",
+      "name": "observe",
+      "x_mitre_domains": [
+        "lab-two"
+      ],
+      "x_mitre_shortname": "observe",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1234"
+        },
+        {
+          "source_name": "lab-two-references",
+          "external_id": "TACTIC-observe"
+        }
+      ]
+    },
+    {
+      "id": "attack-pattern--3d00d2e5-6059-5bd2-a80d-6a018ff00555",
+      "type": "attack-pattern",
+      "name": "Root",
+      "x_mitre_domains": [
+        "lab-two"
+      ],
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1234"
+        },
+        {
+          "source_name": "lab-two-references",
+          "external_id": "LAB-ALPHA"
+        }
+      ],
+      "x_mitre_platforms": [
+        "ResearchOS"
+      ],
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "lab-two-chain",
+          "phase_name": "survey"
+        }
+      ]
+    },
+    {
+      "id": "attack-pattern--744ac8aa-5ce5-5f3c-a1c7-bdaa4b5401ac",
+      "type": "attack-pattern",
+      "name": "Child",
+      "x_mitre_domains": [
+        "lab-two"
+      ],
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1234"
+        },
+        {
+          "source_name": "lab-two-references",
+          "external_id": "LAB-BETA.child"
+        }
+      ],
+      "x_mitre_is_subtechnique": true,
+      "x_mitre_platforms": [
+        "ResearchOS"
+      ],
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "lab-two-chain",
+          "phase_name": "execute"
+        }
+      ]
+    },
+    {
+      "id": "attack-pattern--c584f429-c1b0-5db4-8136-2c7c7d2d5e35",
+      "type": "attack-pattern",
+      "name": "Observer",
+      "x_mitre_domains": [
+        "lab-two"
+      ],
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1234"
+        },
+        {
+          "source_name": "lab-two-references",
+          "external_id": "LAB-GAMMA"
+        }
+      ],
+      "x_mitre_platforms": [
+        "ResearchOS"
+      ],
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "lab-two-chain",
+          "phase_name": "observe"
+        }
+      ]
+    },
+    {
+      "id": "intrusion-set--8da13fe9-b25e-5831-836c-be2f818fd12d",
+      "type": "intrusion-set",
+      "name": "Research group",
+      "x_mitre_domains": [
+        "lab-two"
+      ],
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1234"
+        },
+        {
+          "source_name": "lab-two-references",
+          "external_id": "LAB-GROUP"
+        }
+      ],
+      "description": "Research group description"
+    },
+    {
+      "id": "x-mitre-matrix--a9f3a5ee-0f45-54ee-aa22-02879d80acf5",
+      "type": "x-mitre-matrix",
+      "name": "Primary Matrix",
+      "x_mitre_domains": [
+        "lab-two"
+      ],
+      "tactic_refs": [
+        "x-mitre-tactic--309812cd-8b6d-569f-b88b-742ca07556e7",
+        "x-mitre-tactic--082ec04e-4317-5c65-8d8c-1ca8af88d193"
+      ]
+    },
+    {
+      "id": "x-mitre-matrix--e57d2729-7b6e-5fe9-a480-4b9784c0fd6a",
+      "type": "x-mitre-matrix",
+      "name": "Secondary Matrix",
+      "x_mitre_domains": [
+        "lab-two"
+      ],
+      "tactic_refs": [
+        "x-mitre-tactic--b8bfba13-73e8-5139-8f28-c6c2ca1c8927",
+        "x-mitre-tactic--082ec04e-4317-5c65-8d8c-1ca8af88d193"
+      ]
+    },
+    {
+      "id": "relationship--689078ed-ecc1-584d-b682-0826563b296a",
+      "type": "relationship",
+      "name": "parent",
+      "x_mitre_domains": [
+        "lab-two"
+      ],
+      "relationship_type": "subtechnique-of",
+      "source_ref": "attack-pattern--744ac8aa-5ce5-5f3c-a1c7-bdaa4b5401ac",
+      "target_ref": "attack-pattern--3d00d2e5-6059-5bd2-a80d-6a018ff00555"
+    },
+    {
+      "id": "relationship--097871f8-f5b5-59d5-aa6c-b9ae3aa2ff03",
+      "type": "relationship",
+      "name": "uses",
+      "x_mitre_domains": [
+        "lab-two"
+      ],
+      "relationship_type": "uses",
+      "source_ref": "intrusion-set--8da13fe9-b25e-5831-836c-be2f818fd12d",
+      "target_ref": "attack-pattern--744ac8aa-5ce5-5f3c-a1c7-bdaa4b5401ac",
+      "description": "Custom procedure"
+    }
+  ]
+}

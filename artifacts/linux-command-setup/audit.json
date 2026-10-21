@@ -1,0 +1,114 @@
+{
+  "status": "PASS",
+  "checks": [
+    "first-install: expected exit code",
+    "user command is executable",
+    ".profile: existing bytes preserved",
+    ".profile: exact original backup",
+    ".profile: single PATH block",
+    ".bashrc: existing bytes preserved",
+    ".bashrc: exact original backup",
+    ".bashrc: single PATH block",
+    ".bash_profile: existing bytes preserved",
+    ".bash_profile: exact original backup",
+    ".bash_profile: single PATH block",
+    ".zprofile: existing bytes preserved",
+    ".zprofile: exact original backup",
+    ".zprofile: single PATH block",
+    ".zshrc: existing bytes preserved",
+    ".zshrc: exact original backup",
+    ".zshrc: single PATH block",
+    "bash-interactive: expected exit code",
+    "bash-interactive: command resolves and reaches the real dependency check",
+    "bash-interactive: no traceback",
+    "bash-login: expected exit code",
+    "bash-login: command resolves and reaches the real dependency check",
+    "bash-login: no traceback",
+    "zsh-interactive: expected exit code",
+    "zsh-interactive: command resolves and reaches the real dependency check",
+    "zsh-interactive: no traceback",
+    "zsh-login: expected exit code",
+    "zsh-login: command resolves and reaches the real dependency check",
+    "zsh-login: no traceback",
+    "repeat-install: expected exit code",
+    "repeat setup preserves installed contents",
+    "repeat setup creates no extra backups",
+    "unmanaged-command: expected exit code",
+    "unrelated command and absent profiles preserved on preflight failure",
+    "edited-managed-block: expected exit code",
+    "edited PATH block is retained without installing a command",
+    "missing-environment: expected exit code",
+    "missing environment fails before user command/profile writes",
+    "quoted-project-install: expected exit code",
+    "quoted-project-command: expected exit code",
+    "project paths with spaces, Unicode and apostrophes are forwarded correctly",
+    "gui-smoke: expected exit code",
+    "real WSLg GUI smoke via the registered bare command"
+  ],
+  "count": 43,
+  "results": [
+    {
+      "case": "first-install",
+      "exit_code": 0,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-command-setup/ac7eaac0ce454b9c8786d7c351ef0c1e/first-install.log"
+    },
+    {
+      "case": "bash-interactive",
+      "exit_code": 0,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-command-setup/ac7eaac0ce454b9c8786d7c351ef0c1e/bash-interactive.log"
+    },
+    {
+      "case": "bash-login",
+      "exit_code": 0,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-command-setup/ac7eaac0ce454b9c8786d7c351ef0c1e/bash-login.log"
+    },
+    {
+      "case": "zsh-interactive",
+      "exit_code": 0,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-command-setup/ac7eaac0ce454b9c8786d7c351ef0c1e/zsh-interactive.log"
+    },
+    {
+      "case": "zsh-login",
+      "exit_code": 0,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-command-setup/ac7eaac0ce454b9c8786d7c351ef0c1e/zsh-login.log"
+    },
+    {
+      "case": "repeat-install",
+      "exit_code": 0,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-command-setup/ac7eaac0ce454b9c8786d7c351ef0c1e/repeat-install.log"
+    },
+    {
+      "case": "unmanaged-command",
+      "exit_code": 1,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-command-setup/ac7eaac0ce454b9c8786d7c351ef0c1e/unmanaged-command.log"
+    },
+    {
+      "case": "edited-managed-block",
+      "exit_code": 1,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-command-setup/ac7eaac0ce454b9c8786d7c351ef0c1e/edited-managed-block.log"
+    },
+    {
+      "case": "missing-environment",
+      "exit_code": 1,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-command-setup/ac7eaac0ce454b9c8786d7c351ef0c1e/missing-environment.log"
+    },
+    {
+      "case": "quoted-project-install",
+      "exit_code": 0,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-command-setup/ac7eaac0ce454b9c8786d7c351ef0c1e/quoted-project-install.log"
+    },
+    {
+      "case": "quoted-project-command",
+      "exit_code": 0,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-command-setup/ac7eaac0ce454b9c8786d7c351ef0c1e/quoted-project-command.log"
+    },
+    {
+      "case": "gui-smoke",
+      "exit_code": 0,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-command-setup/ac7eaac0ce454b9c8786d7c351ef0c1e/gui-smoke.log"
+    }
+  ],
+  "gui_smoke": true,
+  "isolated_home": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-command-setup/ac7eaac0ce454b9c8786d7c351ef0c1e/home with spaces 測試 'quote",
+  "project": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project"
+}

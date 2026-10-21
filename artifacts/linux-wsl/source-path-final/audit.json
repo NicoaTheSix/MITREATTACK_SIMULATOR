@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "started_at_utc": "2026-10-20T03:03:35.546748+00:00",
+  "system": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.42",
+  "python": "3.14.7 (main, Sep  5 2026, 05:55:41) [GCC 16.2.0]",
+  "executable": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/.venv/bin/python",
+  "qt_platform": "offscreen",
+  "project": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project",
+  "packages": {
+    "PySide6": "6.12.0",
+    "mitreattack-python": "6.2.1",
+    "openpyxl": "3.1.5"
+  },
+  "results": [
+    {
+      "audit": "audit_custom_data_url.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 9.3,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/source-path-final/audit_custom_data_url.py.log",
+      "status": "PASS"
+    }
+  ],
+  "official_pointers_unchanged": true,
+  "finished_at_utc": "2026-10-20T03:03:44.860642+00:00"
+}

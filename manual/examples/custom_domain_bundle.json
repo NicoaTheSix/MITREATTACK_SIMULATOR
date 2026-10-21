@@ -1,0 +1,80 @@
+{
+  "type": "bundle",
+  "id": "bundle--982347a8-f35e-49a6-ab71-d5517ddc7da5",
+  "x_ttp_studio_domains": [
+    {
+      "id": "research-lab",
+      "name": "Research Lab",
+      "kill_chain_name": "research-chain",
+      "reference_source": "research-kb"
+    }
+  ],
+  "objects": [
+    {
+      "type": "x-mitre-tactic",
+      "id": "x-mitre-tactic--96746440-bc9e-41f7-a424-6fec417bfada",
+      "name": "Observe",
+      "x_mitre_shortname": "observe",
+      "x_mitre_domains": ["research-lab"],
+      "external_references": [{"source_name": "research-kb", "external_id": "RT-001"}]
+    },
+    {
+      "type": "x-mitre-tactic",
+      "id": "x-mitre-tactic--41bc0bc5-a3f3-4cb4-a59b-6317da7ddff1",
+      "name": "Review",
+      "x_mitre_shortname": "review",
+      "x_mitre_domains": ["research-lab"],
+      "external_references": [{"source_name": "research-kb", "external_id": "RT-002"}]
+    },
+    {
+      "type": "x-mitre-matrix",
+      "id": "x-mitre-matrix--395d974d-cdd1-49d5-80a3-272dfe9368dc",
+      "name": "Observation Matrix",
+      "x_mitre_domains": ["research-lab"],
+      "tactic_refs": ["x-mitre-tactic--96746440-bc9e-41f7-a424-6fec417bfada"]
+    },
+    {
+      "type": "x-mitre-matrix",
+      "id": "x-mitre-matrix--83b1d08a-99ed-4a75-85c2-304561ca62ca",
+      "name": "Review Matrix",
+      "x_mitre_domains": ["research-lab"],
+      "tactic_refs": ["x-mitre-tactic--41bc0bc5-a3f3-4cb4-a59b-6317da7ddff1"]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--13b32ed0-695c-4ca1-8c4c-91b97ecb1071",
+      "created": "2026-10-20T00:00:00.000Z",
+      "modified": "2026-10-20T00:00:00.000Z",
+      "name": "Observe a harmless fixture",
+      "description": "A catalog-only example for selection and annotations. It executes no behavior.",
+      "x_mitre_domains": ["research-lab"],
+      "x_mitre_platforms": ["Lab Platform"],
+      "kill_chain_phases": [{"kill_chain_name": "research-chain", "phase_name": "observe"}],
+      "external_references": [{"source_name": "research-kb", "external_id": "LAB-001"}]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--ddc854ab-30e2-4988-b4c5-012cc8073871",
+      "created": "2026-10-20T00:00:00.000Z",
+      "modified": "2026-10-20T00:00:00.000Z",
+      "name": "Review a fixture note",
+      "x_mitre_is_subtechnique": true,
+      "x_mitre_domains": ["research-lab"],
+      "x_mitre_platforms": ["Lab Platform"],
+      "kill_chain_phases": [{"kill_chain_name": "research-chain", "phase_name": "review"}],
+      "external_references": [{"source_name": "research-kb", "external_id": "LAB-001.child"}]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f6fcc2d8-4576-4244-a96a-04f5e598b51f",
+      "created": "2026-10-20T00:00:00.000Z",
+      "modified": "2026-10-20T00:00:00.000Z",
+      "relationship_type": "subtechnique-of",
+      "source_ref": "attack-pattern--ddc854ab-30e2-4988-b4c5-012cc8073871",
+      "target_ref": "attack-pattern--13b32ed0-695c-4ca1-8c4c-91b97ecb1071"
+    }
+  ]
+}

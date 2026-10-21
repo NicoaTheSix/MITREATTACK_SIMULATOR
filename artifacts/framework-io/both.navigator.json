@@ -1,0 +1,70 @@
+[
+  {
+    "name": "ui-atlas",
+    "domain": "enterprise-attack",
+    "versions": {
+      "attack": "20.0",
+      "navigator": "5.2.0",
+      "layer": "4.5"
+    },
+    "techniques": [
+      {
+        "techniqueID": "T1055.011",
+        "comment": "ATT&CK\ncomment",
+        "score": 1,
+        "color": "#112233",
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "true"
+          }
+        ]
+      }
+    ],
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false,
+    "selectVisibleTechniques": false,
+    "x_ttp_studio_search_fields": [
+      "name",
+      "id"
+    ]
+  },
+  {
+    "name": "ATLAS",
+    "domain": "atlas-atlas",
+    "versions": {
+      "attack": "2026.09",
+      "navigator": "5.2.0",
+      "layer": "4.5"
+    },
+    "techniques": [
+      {
+        "techniqueID": "AML.T0000",
+        "comment": "ATLAS\ncomment",
+        "score": 2,
+        "color": "#ffffff",
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "true"
+          }
+        ]
+      }
+    ],
+    "customDataURL": "https://raw.githubusercontent.com/mitre-atlas/atlas-data/3259f388d19cbcca11bacf12a0ef97f4198f711b/dist/v6/ATLAS-2026.09.yaml",
+    "x_ttp_studio_dataset": "afb2753e405f5b4b370bf585702ffbbe99071af946a4bc60624f373086e0a117",
+    "x_ttp_studio_domain": {
+      "id": "atlas-atlas",
+      "name": "ATLAS",
+      "kill_chain_name": "atlas-atlas",
+      "reference_source": "mitre-atlas"
+    },
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false,
+    "selectVisibleTechniques": false,
+    "x_ttp_studio_search_fields": [
+      "name",
+      "id"
+    ]
+  }
+]

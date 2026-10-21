@@ -59,6 +59,7 @@
     "failed bundle publication preserves previous output",
     "bundle temporary file cleaned after failure",
     "native import preview lists bundle layers",
+    "bundle import opens all checked layers in file order",
     "bundle layer import restores exact style settings",
     "native context color edits chosen technique",
     "technique color applies across tactic columns",

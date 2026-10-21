@@ -35,7 +35,7 @@
     "T1053.005: global/scoped comments survive JSON and CSV readback exactly",
     "selected JSON embeds child comment beside parent context",
     "Studio JSON retains complete original annotation rows too",
-    "CSV comments do not mark unsaved colors/full layer state saved",
+    "CSV exchange preserves the existing complete Studio saved baseline",
     "failed CSV comment publication reported",
     "failed CSV publication preserves existing content and save state",
     "failed CSV temporary file removed",

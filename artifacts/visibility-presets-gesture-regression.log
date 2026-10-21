@@ -1,0 +1,85 @@
+Input directory: D:\MITREATTACK_SIMULATOR\data\attack
+Output directory: D:\MITREATTACK_SIMULATOR\artifacts\visibility-presets
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\visibility-presets\fixture.json
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\visibility-presets\state.studio.json
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\visibility-presets\state.navigator.json
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\visibility-presets\state.csv
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\visibility-presets\session.json
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\visibility-presets\matrix.svg
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\visibility-presets\matrix.xlsx
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\visibility-presets\flat.png
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\visibility-presets\source-search.png
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\visibility-presets\presets.png
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\visibility-presets\audit.json
+[Visibility Audit 1/7] Creating isolated catalog and checking compatibility (0/7)
+Output cache directory: D:\MITREATTACK_SIMULATOR\data\attack\custom
+Input file: D:\MITREATTACK_SIMULATOR\artifacts\visibility-presets\fixture.json
+Output files: None (source validation in memory)
+[Source 1/4] Reading bounded JSON (0/134217728)
+[Source 1/4] Reading JSON bytes (9207/134217728)
+[Source 2/4] Parsing JSON (1/4)
+Input bundle: validated JSON in memory; output files: None (custom catalog in memory)
+[Source 3/4] Validating ATT&CK-compatible STIX (0/4)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/27)
+[3/4 Procedures] Complete: Enterprise 2 procedure examples (1/1)
+[3/4 Related TTPs] Indexing Enterprise (0/27)
+[3/4 Related TTPs] Complete: Enterprise 4 relationships (1/1)
+[3/4 Procedures] Indexing Mobile procedure examples (0/10)
+[3/4 Procedures] Complete: Mobile 0 procedure examples (1/1)
+[3/4 Related TTPs] Indexing Mobile (0/10)
+[3/4 Related TTPs] Complete: Mobile 0 relationships (1/1)
+[3/4 Procedures] Indexing ICS procedure examples (0/10)
+[3/4 Procedures] Complete: ICS 0 procedure examples (1/1)
+[3/4 Related TTPs] Indexing ICS (0/10)
+[3/4 Related TTPs] Complete: ICS 0 relationships (1/1)
+Output file: D:\MITREATTACK_SIMULATOR\data\attack\custom\a3f9b85bf1c65934dd0cfcdf1ab040038d631778f57f2ceb7ad524981a995cb2.json
+[Source 4/4] Caching validated input (3/4)
+Output temporary file: D:\MITREATTACK_SIMULATOR\data\attack\custom\.source-d3fdd0c4077f4d988f0074d955f54d8d.tmp
+[Source 4/4] Validated source cached (4/4)
+[Application icon 1/2] Input file: D:\MITREATTACK_SIMULATOR\assets\ttp-selection-studio-icon-pixel.png
+[Application icon 1/2] Output files: None (application/window icon in memory)
+[Application icon 2/2] Complete: pixel icon applied to application and windows
+[Preview fonts] Input file: C:\WINDOWS\Fonts\segoeui.ttf
+[Preview fonts] Input file: C:\WINDOWS\Fonts\segoeuib.ttf
+[Preview fonts] Input file: C:\WINDOWS\Fonts\consola.ttf
+[Preview fonts] Input file: C:\WINDOWS\Fonts\georgia.ttf
+[Preview fonts] Input file: C:\WINDOWS\Fonts\msjh.ttc
+[Preview fonts] Input file: C:\WINDOWS\Fonts\msjhbd.ttc
+[Preview fonts] Complete
+[UI settings 1/2] Input file: D:\MITREATTACK_SIMULATOR\artifacts\visibility-presets\settings.ini
+[UI settings 1/2] Output files: None (reading preferences)
+[UI settings 2/2] Complete: navigation labels shown
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\ttp-selection-studio-icon-pixel.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\mitigations.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\assets.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\detections.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\groups.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\software.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\campaigns.png
+[Navigation icons 1/3] Output files: None (button icons in memory)
+[Navigation icons 2/3] Loading TTP (1/7)
+[Navigation icons 2/3] Loading Mitigations (2/7)
+[Navigation icons 2/3] Loading Assets (3/7)
+[Navigation icons 2/3] Loading Detections (4/7)
+[Navigation icons 2/3] Loading Groups (5/7)
+[Navigation icons 2/3] Loading Software (6/7)
+[Navigation icons 2/3] Loading Campaigns (7/7)
+[Navigation icons 3/3] Complete: 7/7 icons ready
+Traceback (most recent call last):
+  File "D:\MITREATTACK_SIMULATOR\audit_visibility_presets.py", line 255, in <module>
+    if __name__=='__main__': main()
+                             ^^^^^^
+  File "D:\MITREATTACK_SIMULATOR\audit_visibility_presets.py", line 98, in main
+    w=MainWindow(DATA,settings_path=OUT/'settings.ini');w.resize(1750,1000);w.show()
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\MITREATTACK_SIMULATOR\main.py", line 260, in __init__
+    self.build_ui()
+  File "D:\MITREATTACK_SIMULATOR\main.py", line 596, in build_ui
+    self.object_copy_bar = ObjectCopyBar(self.operation_report,self.details_page)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\MITREATTACK_SIMULATOR\stix_clipboard.py", line 37, in __init__
+    row.addWidget(button)
+  File "D:\MITREATTACK_SIMULATOR\stix_clipboard.py", line 115, in eventFilter
+    elif watched is self.preview:
+                    ^^^^^^^^^^^^
+AttributeError: Error calling Python override of QWidget::eventFilter(): 'ObjectCopyBar' object has no attribute 'preview'

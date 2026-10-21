@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "checks": [
+    "Python syntax",
+    "All home guide paths and anchors",
+    "All home feature links registered",
+    "Outline and search stages"
+  ]
+}

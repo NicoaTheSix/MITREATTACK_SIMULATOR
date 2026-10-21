@@ -1,0 +1,3 @@
+# Keep fixture hashes stable across Windows/Linux checkouts.
+*.json text eol=lf
+*.cjs text eol=lf

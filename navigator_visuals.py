@@ -3,12 +3,23 @@ from copy import deepcopy
 import math
 import re
 from attack_catalog import external_id, tactic_phases
+from matrix_display import annotation_flags, source_notes
+from navigator_preferences import display_preferences, indicator_style, validate_preferences
 
 DEFAULT_GRADIENT = {"colors": ["#ff6666", "#ffe766", "#8ec843"], "minValue": 0, "maxValue": 100}
+GRADIENT_PRESETS = (
+    ('Red / Yellow / Green', ('#ff6666', '#ffe766', '#8ec843'), 0, 100),
+    ('Green / Yellow / Red', ('#8ec843', '#ffe766', '#ff6666'), 0, 100),
+    ('White / Blue', ('#ffffff', '#007acc'), 0, 100),
+    ('Blue / White / Red', ('#2166ac', '#ffffff', '#b2182b'), -100, 100),
+    ('Purple / White / Orange', ('#762a83', '#ffffff', '#e66101'), -100, 100),
+    ('Transparent / Blue', ('#007acc00', '#007accff'), 0, 100),
+)
 COLOR = re.compile(r"#[0-9a-fA-F]{6}(?:[0-9a-fA-F]{2})?")
 
 
 def validate_visuals(layer):
+    validate_preferences(layer)
     gradient = layer.get("gradient", DEFAULT_GRADIENT)
     if not isinstance(gradient, dict):
         raise ValueError("Gradient must be an object.")
@@ -32,13 +43,20 @@ def validate_visuals(layer):
     layout = layer.get('layout', {})
     if not isinstance(layout, dict):
         raise ValueError('Layout must be an object.')
-    for field in ('showAggregateScores', 'countUnscored'):
+    for field in ('showAggregateScores', 'countUnscored', 'showID', 'showName'):
         if field in layout and type(layout[field]) is not bool:
             raise ValueError(field + ' must be a boolean.')
+    if 'showTacticRowBackground' in layer and type(layer['showTacticRowBackground']) is not bool:
+        raise ValueError('showTacticRowBackground must be a boolean.')
+    if 'tacticRowBackground' in layer and (not isinstance(layer['tacticRowBackground'],str) or
+            not re.fullmatch(r'#[0-9a-fA-F]{6}',layer['tacticRowBackground'])):
+        raise ValueError('Tactic background must be #RRGGBB.')
     if layout.get('aggregateFunction', 'average') not in ('average', 'min', 'max', 'sum'):
         raise ValueError('Aggregate function must be average, min, max or sum.')
     if layout.get('layout', 'flat') not in ('side', 'flat', 'mini'):
         raise ValueError('Layout must be side, flat or mini.')
+    if layout.get('expandedSubtechniques', 'none') not in ('none', 'all', 'annotated'):
+        raise ValueError('Expanded sub-techniques must be none, all or annotated.')
     if type(layer.get('sorting', 0)) is not int or layer.get('sorting', 0) not in range(4):
         raise ValueError('Sorting must be 0, 1, 2 or 3.')
     filters = layer.get('filters', {})
@@ -84,10 +102,12 @@ class LayerAppearance:
     def __init__(self, layer=None, catalog=None):
         self.layer = deepcopy(layer or {})
         validate_visuals(self.layer)
+        self.preferences = display_preferences(self.layer)
         self.gradient = self.layer.get("gradient", DEFAULT_GRADIENT)
         self.rows = {(row["techniqueID"], row.get("tactic", "")): row for row in self.layer.get("techniques", [])}
         self.families = {}
         self.aggregate_cache = {}
+        self.notes = source_notes(catalog)
         if catalog is not None and self.layer.get('layout', {}).get('showAggregateScores', False):
             records_by_id = {external_id(obj): obj for obj in catalog.records.values()}
             for child, parent in catalog.parents.items():
@@ -135,12 +155,18 @@ class LayerAppearance:
         score = row.get("score")
         aggregate = self.aggregate(technique_id, tactic)
         display_score = aggregate if aggregate is not None else score
-        raw_color = color or (gradient_color(display_score, self.gradient, raw=True) if display_score is not None else '')
+        if not self.preferences['aggregate_color']:
+            display_score = score
+        if aggregate is None or not self.preferences['aggregate_color']:
+            if not self.preferences['score_color']: display_score = None
+        raw_color = (color if self.preferences['manual_color'] else '') or (gradient_color(display_score, self.gradient, raw=True) if display_score is not None else '')
         background = display_color(raw_color) if raw_color else ''
         if not enabled:
             background = "#303436"
-        return {"background": background,
-                "opacity": rgba(raw_color)[3] / 255 if raw_color else 0,
+        notes=self.notes.get(technique_id,[])
+        flags = annotation_flags(row,notes)
+        return {"background": background, **flags, **indicator_style(flags,self.preferences), 'sourceNotes':list(notes),
+                "opacity": rgba(raw_color)[3] / 255 if raw_color else 0, 'rawColor': raw_color,
                 "foreground": foreground_color(background) if enabled and background else "#999999" if not enabled else "",
                 "enabled": enabled, "hidden": not enabled and self.layer.get("hideDisabled", False),
                 "score": score, "comment": row.get("comment", ""),
@@ -187,10 +213,23 @@ class OverlayAppearance:
                 cell = appearance.cell(technique_id, tactic)
                 expand |= cell['showSubtechniques']
                 if cell['enabled'] and cell['background'] and cell['opacity'] > 0:
-                    contributions.append({'name': name, 'color': cell['background'],
+                    contributions.append({'name': name, 'color': cell['background'], 'rawColor': cell['rawColor'],
                                           'score': cell['score'], 'comment': cell['comment'],
                                           'aggregateScore': cell.get('aggregateScore')})
             result = self.active.cell(technique_id, tactic)
+            # Overlay annotations remain discoverable even when they have no color.
+            styles=[appearance.cell(technique_id,tactic) for _,appearance in self.appearances]
+            details=[]
+            for (name,_),style in zip(self.appearances,styles):
+                text=[style['comment']] if style.get('comment') else []
+                text += [entry['name']+': '+entry['value'] for entry in style.get('metadata',[])
+                         if 'name' in entry and entry['name']!='TTP Selection Studio selected']
+                text += [entry['label']+': '+entry['url'] for entry in style.get('links',[]) if 'label' in entry]
+                if text: details.append({'name':name,'text':'\n'.join(text)})
+            result['annotationSources']=details
+            for field in ('commentPresent','metadataPresent','linkPresent','annotated'):
+                result[field]=result.get(field,False) or any(style.get(field,False) for style in styles)
+            result.update(indicator_style(result,self.active.preferences))
             result['activeEnabled'] = result['enabled']
             if contributions:
                 background = blend_colors([source['color'] for source in contributions])

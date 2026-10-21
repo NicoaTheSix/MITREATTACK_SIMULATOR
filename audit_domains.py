@@ -246,7 +246,8 @@ def main():
         check(dialog.catalog.domain == domain and dialog.preview['selected'] == {selections[domain]}, f"{domain}: import preview resolves layer domain")
         count = len(window.documents)
         dialog.import_button.click()
-        wait(lambda: window.loaded_ok, "import tree")
+        wait(lambda: len(window.documents) == count + 1 and window.loaded_ok
+             and window.current_document.catalog.domain == domain, "import tree")
         check(len(window.documents) == count + 1 and window.current_document.catalog.domain == domain and window.selected == {selections[domain]}, f"{domain}: import creates independent domain file")
         left = window.current_document
         right = TTPDocument("same-domain", left.catalog, selected=set(left.selected))
@@ -260,6 +261,7 @@ def main():
             raise AssertionError("mixed domains accepted")
         log("[Domain audit 6/6] Native import verified", number, 2)
     check(all(path.read_bytes() == content for path, content in pointers.items()), "audit leaves active/latest pointers unchanged")
+    window.confirm_studio_changes = lambda *_: "discard"
     window.close()
     report = {"status": "PASS", "checks": checks, "outputs": str(OUTPUT),
               "domain_technique_counts": {domain: len(catalog.for_domain(domain).records) for domain in DOMAIN_LABELS}}

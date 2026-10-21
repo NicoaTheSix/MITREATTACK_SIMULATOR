@@ -11,7 +11,7 @@ from attack_catalog import external_id, load_catalog
 from attack_versions import snapshot_pointer
 from attack_matrix import MATRIX_SLUG, MATRIX_STYLE
 from main import MainWindow, configure_application
-from navigator_integration import document_layer, update_technique_fields
+from navigator_integration import document_layer, update_technique_fields, selection_flag
 from ttp_documents import TTPDocument
 
 ROOT = Path(__file__).resolve().parent
@@ -80,16 +80,17 @@ def main():
     before = first.fingerprint()
     neutral = deepcopy(cell(matrix, task, 'execution').data(0, MATRIX_STYLE))
     menu = context(matrix, task)
-    check(all('technique' in action.text().lower() and 'tactic' not in action.text().lower()
-              for action in menu.actions()), 'all context menu labels describe techniques')
-    menu.actions()[1].trigger()
+    editing = {action.text():action for action in menu.actions()}
+    check(all(label in editing for label in ('Set technique color…','Clear technique color','Edit technique annotation…')),
+          'color/comment context menu labels describe techniques')
+    editing['Clear technique color'].trigger()
     menu.close()
     check(first.fingerprint() == before and not first.navigator_layer, 'clear uncolored unchecked technique creates no row or dirty change')
     check(cell(matrix, task, 'execution').data(0, MATRIX_STYLE) == neutral, 'uncolored unchecked technique display stays unchanged')
     window.select_matrix_ttp(task, True)
     before = first.fingerprint()
     blue = cell(matrix, task, 'execution').background(0).color().name()
-    check(blue == '#007acc', 'selected technique without stored annotation uses selection blue')
+    check(not cell(matrix,task,'execution').data(0,MATRIX_STYLE)['background'], 'selection without stored annotation does not synthesize a color')
     matrix.clear_color_button.click()
     check(first.fingerprint() == before and cell(matrix, task, 'execution').background(0).color().name() == blue,
           'bulk clear without explicit color preserves default selection display')
@@ -111,7 +112,7 @@ def main():
     window.refresh_selection()
     menu = context(matrix, task)
     with patch.object(QtWidgets.QColorDialog, 'getColor', return_value=QtGui.QColor('#ffffff')):
-        menu.actions()[0].trigger()
+        next(action for action in menu.actions() if action.text()=='Set technique color…').trigger()
     menu.close()
     check(all(cell(matrix, task, slug).background(0).color().name() == '#ffffff'
               for slug in ('execution', 'privilege-escalation')), 'context assignment colors every enabled tactic occurrence')
@@ -120,7 +121,7 @@ def main():
           'sub-technique context color does not select or color parent')
     original = deepcopy(first.navigator_layer)
     menu = context(matrix, task)
-    menu.actions()[1].trigger()
+    next(action for action in menu.actions() if action.text()=='Clear technique color').trigger()
     menu.close()
     expected = deepcopy(original)
     for row in expected['techniques']:
@@ -132,7 +133,7 @@ def main():
     check(first.fingerprint() == before, 'repeated clear is a no-op')
     menu = context(matrix, task)
     with patch.object(window, 'edit_navigator_annotation') as editor:
-        menu.actions()[2].trigger()
+        next(action for action in menu.actions() if action.text()=='Edit technique annotation…').trigger()
         check(editor.call_args.args == (task, '', True), 'context annotation editor defaults to all-tactic technique scope')
     menu.close()
 
@@ -244,9 +245,10 @@ def main():
     check(matrix.source_completer.popup().grab().save(str(POPUP)), 'filtered source completion preview saved')
     matrix.source_completer.popup().hide()
     projected = document_layer(first)
-    check({r['techniqueID'] for r in projected['techniques'] if r.get('enabled', True)} <=
-          {external_id(first.catalog.records[k]) for k in first.selected}, 'source selection remains exportable without unrelated enabled TTPs')
+    check({r['techniqueID'] for r in projected['techniques'] if selection_flag(r)} ==
+          {external_id(first.catalog.records[k]) for k in first.selected}, 'source selection exports exact inclusion independently of enabled annotations')
     check(all(path.read_bytes() == content for path, content in pointers.items()), 'dataset pointers remain unchanged')
+    window.confirm_studio_changes = lambda *_: "discard"
     window.close()
     log('[Matrix actions 6/6] Writing successful audit report', 5, 6)
     REPORT.write_text(json.dumps({'status': 'PASS', 'checks': checks, 'preview': str(SCREEN), 'search_preview': str(POPUP)}, indent=2) + '\n', encoding='utf-8')

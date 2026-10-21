@@ -187,6 +187,8 @@ def main():
     note = '=SUM(1,2)\n中文 <tag> & details'
     update_annotation(calculated, task, 'execution', note, 120, '#abcdef')
     window.refresh_selection()
+    # This export fixture intentionally checks labels containing both identities and names.
+    window.change_matrix_display({'showID':True,'showName':True})
     matrix.platform.setCurrentText('Windows')
     wait(lambda: not matrix.building, 'Windows export scope')
     matrix.search.setText('Scheduled Task/Job')
@@ -289,6 +291,7 @@ def main():
     window.output_panel.hide()
     QtWidgets.QApplication.processEvents()
     check(window.grab().save(str(UI_SCREEN)), 'native formula/aggregate matrix screenshot saved')
+    window.confirm_studio_changes = lambda *_: "discard"
     window.close()
     log('[Analysis 7/7] Publishing report', 6, 7)
     REPORT.write_text(json.dumps({'status': 'PASS', 'checks': checks, 'svg': str(SVG), 'excel': str(EXCEL),

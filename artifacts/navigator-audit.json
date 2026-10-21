@@ -2,7 +2,7 @@
   "status": "PASS",
   "checks": [
     "pinned SDK installed",
-    "native import shortcut",
+    "native Navigator import shortcut remains distinct from Studio Open",
     "lossless UTF-8 read including decimal scores",
     "UTF-16 SDK-exported input supported",
     "enabled policy excludes unknown ID and mismatched tactic",
@@ -31,10 +31,10 @@
     "SDK validation does not truncate fractional scores",
     "disabled tactic row preserved",
     "own layer round trip restores exact selection",
-    "Navigator export records format and clean state",
+    "Navigator exchange does not replace a complete Studio save",
     "Studio JSON preserves complete annotations",
     "CSV list export cannot mark annotations saved",
-    "pre-close CSV Save retains document with unsaved annotations",
+    "cancelled complete Studio save retains the document and annotations",
     "failed atomic publishing",
     "failed export preserves document state and cleans temporary file",
     "technique detail exposes annotation action",
@@ -49,7 +49,7 @@
     "restoring a version restores its exact annotations",
     "historical versions below v4 reject Navigator export",
     "comparison refuses mixed versions",
-    "recorded version requires exact snapshot resolution",
+    "cached recorded version is automatically resolved before opening",
     "historical preview does not switch active document",
     "version menu opens correct comparison dialog",
     "version comparison button enabled",
@@ -64,8 +64,8 @@
     "unknown domain import rejected",
     "invalid UI import leaves documents intact",
     "multi-layer array supported",
-    "layer picker invalidates previous snapshot preview"
+    "layer picker restores each resolved snapshot while retaining the complete batch"
   ],
   "sdk_version": "6.2.1",
-  "outputs": "D:\\MITREATTACK_SIMULATOR\\artifacts\\navigator-audit-87251e01acf14a65b5fff603226a8954"
+  "outputs": "D:\\MITREATTACK_SIMULATOR\\artifacts\\navigator-audit-1dbf2a53060a4a4088977a8acd424552"
 }

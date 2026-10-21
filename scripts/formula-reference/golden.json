@@ -1,0 +1,5112 @@
+{
+  "runtime": "mathjs",
+  "version": "15.2.0",
+  "navigator": "https://github.com/mitre-attack/attack-navigator/tree/v5.3.2",
+  "pipeline": "Navigator lowercases the complete expression before math.evaluate; studio root cases use raw mathjs.",
+  "upstream": [
+    {
+      "url": "https://raw.githubusercontent.com/mitre-attack/attack-navigator/v5.3.2/nav-app/package.json",
+      "sha256": "3e24d79d482f628d7ab706afae6d56e52b3c2f695acd4280604193c4d89ae3c9"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/mitre-attack/attack-navigator/v5.3.2/nav-app/src/app/services/viewmodels.service.ts",
+      "sha256": "b973f8ef52435c256f30b32766f4a40811ddf32ea35eced03b172df8e85576e9"
+    }
+  ],
+  "inputSHA256": "f3780f760370411694e7c470cf3fb8f12caca5f6d61d108bfaa54f408ba55862",
+  "config": {
+    "relTol": 1e-12,
+    "absTol": 1e-15,
+    "matrix": "Matrix",
+    "number": "number",
+    "numberFallback": "number",
+    "precision": 64,
+    "predictable": false,
+    "randomSeed": null,
+    "legacySubset": false
+  },
+  "results": [
+    {
+      "expression": "pi",
+      "category": "constants-and-inputs",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 3.141592653589793
+      }
+    },
+    {
+      "expression": "pi",
+      "category": "constants-and-inputs",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 3.141592653589793
+      }
+    },
+    {
+      "expression": "pi",
+      "category": "constants-and-inputs",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 3.141592653589793
+      }
+    },
+    {
+      "expression": "e",
+      "category": "constants-and-inputs",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 2.718281828459045
+      }
+    },
+    {
+      "expression": "e",
+      "category": "constants-and-inputs",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 2.718281828459045
+      }
+    },
+    {
+      "expression": "e",
+      "category": "constants-and-inputs",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 2.718281828459045
+      }
+    },
+    {
+      "expression": "tau",
+      "category": "constants-and-inputs",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 6.283185307179586
+      }
+    },
+    {
+      "expression": "tau",
+      "category": "constants-and-inputs",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 6.283185307179586
+      }
+    },
+    {
+      "expression": "tau",
+      "category": "constants-and-inputs",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 6.283185307179586
+      }
+    },
+    {
+      "expression": "phi",
+      "category": "constants-and-inputs",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1.618033988749895
+      }
+    },
+    {
+      "expression": "phi",
+      "category": "constants-and-inputs",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1.618033988749895
+      }
+    },
+    {
+      "expression": "phi",
+      "category": "constants-and-inputs",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1.618033988749895
+      }
+    },
+    {
+      "expression": "true",
+      "category": "constants-and-inputs",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1
+      }
+    },
+    {
+      "expression": "true",
+      "category": "constants-and-inputs",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1
+      }
+    },
+    {
+      "expression": "true",
+      "category": "constants-and-inputs",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1
+      }
+    },
+    {
+      "expression": "false",
+      "category": "constants-and-inputs",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0
+      }
+    },
+    {
+      "expression": "false",
+      "category": "constants-and-inputs",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0
+      }
+    },
+    {
+      "expression": "false",
+      "category": "constants-and-inputs",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0
+      }
+    },
+    {
+      "expression": "SIN(PI/2)",
+      "category": "constants-and-inputs",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1
+      }
+    },
+    {
+      "expression": "SIN(PI/2)",
+      "category": "constants-and-inputs",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1
+      }
+    },
+    {
+      "expression": "SIN(PI/2)",
+      "category": "constants-and-inputs",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1
+      }
+    },
+    {
+      "expression": "COS(0)",
+      "category": "constants-and-inputs",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1
+      }
+    },
+    {
+      "expression": "COS(0)",
+      "category": "constants-and-inputs",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1
+      }
+    },
+    {
+      "expression": "COS(0)",
+      "category": "constants-and-inputs",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1
+      }
+    },
+    {
+      "expression": "TRUE and not FALSE",
+      "category": "constants-and-inputs",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1
+      }
+    },
+    {
+      "expression": "TRUE and not FALSE",
+      "category": "constants-and-inputs",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1
+      }
+    },
+    {
+      "expression": "TRUE and not FALSE",
+      "category": "constants-and-inputs",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1
+      }
+    },
+    {
+      "expression": "exp(1)",
+      "category": "constants-and-inputs",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 2.718281828459045
+      }
+    },
+    {
+      "expression": "exp(1)",
+      "category": "constants-and-inputs",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 2.718281828459045
+      }
+    },
+    {
+      "expression": "exp(1)",
+      "category": "constants-and-inputs",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 2.718281828459045
+      }
+    },
+    {
+      "expression": "a+e",
+      "category": "constants-and-inputs",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 82.71828182845904
+      }
+    },
+    {
+      "expression": "a+e",
+      "category": "constants-and-inputs",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0.2182818284590451
+      }
+    },
+    {
+      "expression": "a+e",
+      "category": "constants-and-inputs",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 2.818281828459045
+      }
+    },
+    {
+      "expression": "a+b",
+      "category": "constants-and-inputs",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 140
+      }
+    },
+    {
+      "expression": "a+b",
+      "category": "constants-and-inputs",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": -2.5
+      }
+    },
+    {
+      "expression": "a+b",
+      "category": "constants-and-inputs",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0.30000000000000004
+      }
+    },
+    {
+      "expression": "(a+b)/2",
+      "category": "constants-and-inputs",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 70
+      }
+    },
+    {
+      "expression": "(a+b)/2",
+      "category": "constants-and-inputs",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": -1.25
+      }
+    },
+    {
+      "expression": "(a+b)/2",
+      "category": "constants-and-inputs",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0.15000000000000002
+      }
+    },
+    {
+      "expression": "a> b ? a : b",
+      "category": "constants-and-inputs",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 80
+      }
+    },
+    {
+      "expression": "a> b ? a : b",
+      "category": "constants-and-inputs",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0
+      }
+    },
+    {
+      "expression": "a> b ? a : b",
+      "category": "constants-and-inputs",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0.2
+      }
+    },
+    {
+      "expression": "sin(pi/6)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0.49999999999999994
+      }
+    },
+    {
+      "expression": "sin(pi/6)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0.49999999999999994
+      }
+    },
+    {
+      "expression": "sin(pi/6)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0.49999999999999994
+      }
+    },
+    {
+      "expression": "cos(pi)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": -1
+      }
+    },
+    {
+      "expression": "cos(pi)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": -1
+      }
+    },
+    {
+      "expression": "cos(pi)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": -1
+      }
+    },
+    {
+      "expression": "tan(pi/4)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0.9999999999999999
+      }
+    },
+    {
+      "expression": "tan(pi/4)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0.9999999999999999
+      }
+    },
+    {
+      "expression": "tan(pi/4)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0.9999999999999999
+      }
+    },
+    {
+      "expression": "asin(.5)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0.5235987755982989
+      }
+    },
+    {
+      "expression": "asin(.5)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0.5235987755982989
+      }
+    },
+    {
+      "expression": "asin(.5)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0.5235987755982989
+      }
+    },
+    {
+      "expression": "acos(.5)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1.0471975511965979
+      }
+    },
+    {
+      "expression": "acos(.5)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1.0471975511965979
+      }
+    },
+    {
+      "expression": "acos(.5)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1.0471975511965979
+      }
+    },
+    {
+      "expression": "atan(1)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0.7853981633974483
+      }
+    },
+    {
+      "expression": "atan(1)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0.7853981633974483
+      }
+    },
+    {
+      "expression": "atan(1)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0.7853981633974483
+      }
+    },
+    {
+      "expression": "atan2(1,0)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1.5707963267948966
+      }
+    },
+    {
+      "expression": "atan2(1,0)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1.5707963267948966
+      }
+    },
+    {
+      "expression": "atan2(1,0)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1.5707963267948966
+      }
+    },
+    {
+      "expression": "atan2(0,0)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0
+      }
+    },
+    {
+      "expression": "atan2(0,0)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0
+      }
+    },
+    {
+      "expression": "atan2(0,0)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0
+      }
+    },
+    {
+      "expression": "atan2(-1,-1)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": -2.356194490192345
+      }
+    },
+    {
+      "expression": "atan2(-1,-1)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": -2.356194490192345
+      }
+    },
+    {
+      "expression": "atan2(-1,-1)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": -2.356194490192345
+      }
+    },
+    {
+      "expression": "sinh(1)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1.1752011936438014
+      }
+    },
+    {
+      "expression": "sinh(1)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1.1752011936438014
+      }
+    },
+    {
+      "expression": "sinh(1)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1.1752011936438014
+      }
+    },
+    {
+      "expression": "cosh(1)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1.5430806348152437
+      }
+    },
+    {
+      "expression": "cosh(1)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1.5430806348152437
+      }
+    },
+    {
+      "expression": "cosh(1)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1.5430806348152437
+      }
+    },
+    {
+      "expression": "tanh(1)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0.7615941559557649
+      }
+    },
+    {
+      "expression": "tanh(1)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0.7615941559557649
+      }
+    },
+    {
+      "expression": "tanh(1)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0.7615941559557649
+      }
+    },
+    {
+      "expression": "asinh(-2)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": -1.4436354751788103
+      }
+    },
+    {
+      "expression": "asinh(-2)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": -1.4436354751788103
+      }
+    },
+    {
+      "expression": "asinh(-2)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": -1.4436354751788103
+      }
+    },
+    {
+      "expression": "acosh(2)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1.3169578969248166
+      }
+    },
+    {
+      "expression": "acosh(2)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1.3169578969248166
+      }
+    },
+    {
+      "expression": "acosh(2)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1.3169578969248166
+      }
+    },
+    {
+      "expression": "atanh(.5)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0.5493061443340548
+      }
+    },
+    {
+      "expression": "atanh(.5)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0.5493061443340548
+      }
+    },
+    {
+      "expression": "atanh(.5)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0.5493061443340548
+      }
+    },
+    {
+      "expression": "log2(8)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 3
+      }
+    },
+    {
+      "expression": "log2(8)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 3
+      }
+    },
+    {
+      "expression": "log2(8)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 3
+      }
+    },
+    {
+      "expression": "log10(1000)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 3
+      }
+    },
+    {
+      "expression": "log10(1000)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 3
+      }
+    },
+    {
+      "expression": "log10(1000)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 3
+      }
+    },
+    {
+      "expression": "log1p(.001)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0.0009995003330835331
+      }
+    },
+    {
+      "expression": "log1p(.001)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0.0009995003330835331
+      }
+    },
+    {
+      "expression": "log1p(.001)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0.0009995003330835331
+      }
+    },
+    {
+      "expression": "expm1(.001)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0.0010005001667083417
+      }
+    },
+    {
+      "expression": "expm1(.001)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0.0010005001667083417
+      }
+    },
+    {
+      "expression": "expm1(.001)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0.0010005001667083417
+      }
+    },
+    {
+      "expression": "cbrt(-8)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": -2
+      }
+    },
+    {
+      "expression": "cbrt(-8)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": -2
+      }
+    },
+    {
+      "expression": "cbrt(-8)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": -2
+      }
+    },
+    {
+      "expression": "cbrt(0)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0
+      }
+    },
+    {
+      "expression": "cbrt(0)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0
+      }
+    },
+    {
+      "expression": "cbrt(0)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0
+      }
+    },
+    {
+      "expression": "sign(-3)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": -1
+      }
+    },
+    {
+      "expression": "sign(-3)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": -1
+      }
+    },
+    {
+      "expression": "sign(-3)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": -1
+      }
+    },
+    {
+      "expression": "sign(0)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0
+      }
+    },
+    {
+      "expression": "sign(0)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0
+      }
+    },
+    {
+      "expression": "sign(0)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0
+      }
+    },
+    {
+      "expression": "sign(7)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1
+      }
+    },
+    {
+      "expression": "sign(7)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1
+      }
+    },
+    {
+      "expression": "sign(7)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1
+      }
+    },
+    {
+      "expression": "fix(-1.234,2)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": -1.23
+      }
+    },
+    {
+      "expression": "fix(-1.234,2)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": -1.23
+      }
+    },
+    {
+      "expression": "fix(-1.234,2)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": -1.23
+      }
+    },
+    {
+      "expression": "fix(1.234,2)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1.23
+      }
+    },
+    {
+      "expression": "fix(1.234,2)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1.23
+      }
+    },
+    {
+      "expression": "fix(1.234,2)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1.23
+      }
+    },
+    {
+      "expression": "mod(5,-3)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": -1
+      }
+    },
+    {
+      "expression": "mod(5,-3)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": -1
+      }
+    },
+    {
+      "expression": "mod(5,-3)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": -1
+      }
+    },
+    {
+      "expression": "mod(-5,3)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1
+      }
+    },
+    {
+      "expression": "mod(-5,3)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1
+      }
+    },
+    {
+      "expression": "mod(-5,3)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1
+      }
+    },
+    {
+      "expression": "mod(3,0)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 3
+      }
+    },
+    {
+      "expression": "mod(3,0)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 3
+      }
+    },
+    {
+      "expression": "mod(3,0)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 3
+      }
+    },
+    {
+      "expression": "mod(.3,.1)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": -5.551115123125783e-17
+      }
+    },
+    {
+      "expression": "mod(.3,.1)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": -5.551115123125783e-17
+      }
+    },
+    {
+      "expression": "mod(.3,.1)",
+      "category": "new-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": -5.551115123125783e-17
+      }
+    },
+    {
+      "expression": "abs(-2)",
+      "category": "existing-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 2
+      }
+    },
+    {
+      "expression": "abs(-2)",
+      "category": "existing-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 2
+      }
+    },
+    {
+      "expression": "abs(-2)",
+      "category": "existing-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 2
+      }
+    },
+    {
+      "expression": "min(a,b,c)",
+      "category": "existing-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0
+      }
+    },
+    {
+      "expression": "min(a,b,c)",
+      "category": "existing-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": -2.5
+      }
+    },
+    {
+      "expression": "min(a,b,c)",
+      "category": "existing-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0.1
+      }
+    },
+    {
+      "expression": "max(a,b,2)",
+      "category": "existing-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 80
+      }
+    },
+    {
+      "expression": "max(a,b,2)",
+      "category": "existing-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 2
+      }
+    },
+    {
+      "expression": "max(a,b,2)",
+      "category": "existing-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 2
+      }
+    },
+    {
+      "expression": "sqrt(9)",
+      "category": "existing-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 3
+      }
+    },
+    {
+      "expression": "sqrt(9)",
+      "category": "existing-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 3
+      }
+    },
+    {
+      "expression": "sqrt(9)",
+      "category": "existing-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 3
+      }
+    },
+    {
+      "expression": "pow(2,3)",
+      "category": "existing-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 8
+      }
+    },
+    {
+      "expression": "pow(2,3)",
+      "category": "existing-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 8
+      }
+    },
+    {
+      "expression": "pow(2,3)",
+      "category": "existing-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 8
+      }
+    },
+    {
+      "expression": "log(8,2)",
+      "category": "existing-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 3
+      }
+    },
+    {
+      "expression": "log(8,2)",
+      "category": "existing-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 3
+      }
+    },
+    {
+      "expression": "log(8,2)",
+      "category": "existing-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 3
+      }
+    },
+    {
+      "expression": "exp(0)",
+      "category": "existing-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1
+      }
+    },
+    {
+      "expression": "exp(0)",
+      "category": "existing-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1
+      }
+    },
+    {
+      "expression": "exp(0)",
+      "category": "existing-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1
+      }
+    },
+    {
+      "expression": "2^3^2",
+      "category": "existing-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 512
+      }
+    },
+    {
+      "expression": "2^3^2",
+      "category": "existing-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 512
+      }
+    },
+    {
+      "expression": "2^3^2",
+      "category": "existing-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 512
+      }
+    },
+    {
+      "expression": "-2^2",
+      "category": "existing-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": -4
+      }
+    },
+    {
+      "expression": "-2^2",
+      "category": "existing-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": -4
+      }
+    },
+    {
+      "expression": "-2^2",
+      "category": "existing-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": -4
+      }
+    },
+    {
+      "expression": "2^-2",
+      "category": "existing-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0.25
+      }
+    },
+    {
+      "expression": "2^-2",
+      "category": "existing-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0.25
+      }
+    },
+    {
+      "expression": "2^-2",
+      "category": "existing-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0.25
+      }
+    },
+    {
+      "expression": "0^0",
+      "category": "existing-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1
+      }
+    },
+    {
+      "expression": "0^0",
+      "category": "existing-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1
+      }
+    },
+    {
+      "expression": "0^0",
+      "category": "existing-functions",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1
+      }
+    },
+    {
+      "expression": "round(2.5)",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 3
+      }
+    },
+    {
+      "expression": "round(2.5)",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 3
+      }
+    },
+    {
+      "expression": "round(2.5)",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 3
+      }
+    },
+    {
+      "expression": "round(-2.5)",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": -3
+      }
+    },
+    {
+      "expression": "round(-2.5)",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": -3
+      }
+    },
+    {
+      "expression": "round(-2.5)",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": -3
+      }
+    },
+    {
+      "expression": "round(1.005,2)",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1.01
+      }
+    },
+    {
+      "expression": "round(1.005,2)",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1.01
+      }
+    },
+    {
+      "expression": "round(1.005,2)",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1.01
+      }
+    },
+    {
+      "expression": "round(-1.005,2)",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": -1.01
+      }
+    },
+    {
+      "expression": "round(-1.005,2)",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": -1.01
+      }
+    },
+    {
+      "expression": "round(-1.005,2)",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": -1.01
+      }
+    },
+    {
+      "expression": "round(2.4999999999999)",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 3
+      }
+    },
+    {
+      "expression": "round(2.4999999999999)",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 3
+      }
+    },
+    {
+      "expression": "round(2.4999999999999)",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 3
+      }
+    },
+    {
+      "expression": "round(1.123456789012345,15)",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1.123456789012345
+      }
+    },
+    {
+      "expression": "round(1.123456789012345,15)",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1.123456789012345
+      }
+    },
+    {
+      "expression": "round(1.123456789012345,15)",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1.123456789012345
+      }
+    },
+    {
+      "expression": "floor(2.9999999999999)",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 3
+      }
+    },
+    {
+      "expression": "floor(2.9999999999999)",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 3
+      }
+    },
+    {
+      "expression": "floor(2.9999999999999)",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 3
+      }
+    },
+    {
+      "expression": "ceil(3.0000000000001)",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 3
+      }
+    },
+    {
+      "expression": "ceil(3.0000000000001)",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 3
+      }
+    },
+    {
+      "expression": "ceil(3.0000000000001)",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 3
+      }
+    },
+    {
+      "expression": "floor(-1.231,2)",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": -1.24
+      }
+    },
+    {
+      "expression": "floor(-1.231,2)",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": -1.24
+      }
+    },
+    {
+      "expression": "floor(-1.231,2)",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": -1.24
+      }
+    },
+    {
+      "expression": "ceil(-1.231,2)",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": -1.23
+      }
+    },
+    {
+      "expression": "ceil(-1.231,2)",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": -1.23
+      }
+    },
+    {
+      "expression": "ceil(-1.231,2)",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": -1.23
+      }
+    },
+    {
+      "expression": "fix(-2.9999999999999)",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": -3
+      }
+    },
+    {
+      "expression": "fix(-2.9999999999999)",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": -3
+      }
+    },
+    {
+      "expression": "fix(-2.9999999999999)",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": -3
+      }
+    },
+    {
+      "expression": "5 mod -3",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": -1
+      }
+    },
+    {
+      "expression": "5 mod -3",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": -1
+      }
+    },
+    {
+      "expression": "5 mod -3",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": -1
+      }
+    },
+    {
+      "expression": "-5 % 3",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1
+      }
+    },
+    {
+      "expression": "-5 % 3",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1
+      }
+    },
+    {
+      "expression": "-5 % 3",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1
+      }
+    },
+    {
+      "expression": "3%0",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 3
+      }
+    },
+    {
+      "expression": "3%0",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 3
+      }
+    },
+    {
+      "expression": "3%0",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 3
+      }
+    },
+    {
+      "expression": "3>2>1",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1
+      }
+    },
+    {
+      "expression": "3>2>1",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1
+      }
+    },
+    {
+      "expression": "3>2>1",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1
+      }
+    },
+    {
+      "expression": "3<2<sqrt(-1)",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0
+      }
+    },
+    {
+      "expression": "3<2<sqrt(-1)",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0
+      }
+    },
+    {
+      "expression": "3<2<sqrt(-1)",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0
+      }
+    },
+    {
+      "expression": "3<2<c",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0
+      }
+    },
+    {
+      "expression": "3<2<c",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0
+      }
+    },
+    {
+      "expression": "3<2<c",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0
+      }
+    },
+    {
+      "expression": "(3>2)>1",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0
+      }
+    },
+    {
+      "expression": "(3>2)>1",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0
+      }
+    },
+    {
+      "expression": "(3>2)>1",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0
+      }
+    },
+    {
+      "expression": "not 0>1",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0
+      }
+    },
+    {
+      "expression": "not 0>1",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0
+      }
+    },
+    {
+      "expression": "not 0>1",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0
+      }
+    },
+    {
+      "expression": "not 2+3",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 3
+      }
+    },
+    {
+      "expression": "not 2+3",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 3
+      }
+    },
+    {
+      "expression": "not 2+3",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 3
+      }
+    },
+    {
+      "expression": "0.1+0.2==0.3",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1
+      }
+    },
+    {
+      "expression": "0.1+0.2==0.3",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1
+      }
+    },
+    {
+      "expression": "0.1+0.2==0.3",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1
+      }
+    },
+    {
+      "expression": "0.1+0.2>0.3",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0
+      }
+    },
+    {
+      "expression": "0.1+0.2>0.3",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0
+      }
+    },
+    {
+      "expression": "0.1+0.2>0.3",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0
+      }
+    },
+    {
+      "expression": "1e-16==0",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1
+      }
+    },
+    {
+      "expression": "1e-16==0",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1
+      }
+    },
+    {
+      "expression": "1e-16==0",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1
+      }
+    },
+    {
+      "expression": "1e-14==0",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0
+      }
+    },
+    {
+      "expression": "1e-14==0",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0
+      }
+    },
+    {
+      "expression": "1e-14==0",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0
+      }
+    },
+    {
+      "expression": "a>=b>c",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1
+      }
+    },
+    {
+      "expression": "a>=b>c",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0
+      }
+    },
+    {
+      "expression": "a>=b>c",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0
+      }
+    },
+    {
+      "expression": "a<b==c",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0
+      }
+    },
+    {
+      "expression": "a<b==c",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0
+      }
+    },
+    {
+      "expression": "a<b==c",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0
+      }
+    },
+    {
+      "expression": "a or 1/0",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1
+      }
+    },
+    {
+      "expression": "a or 1/0",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1
+      }
+    },
+    {
+      "expression": "a or 1/0",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1
+      }
+    },
+    {
+      "expression": "0 and 1/0",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0
+      }
+    },
+    {
+      "expression": "0 and 1/0",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0
+      }
+    },
+    {
+      "expression": "0 and 1/0",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0
+      }
+    },
+    {
+      "expression": "0 ? 1/0 : 9",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 9
+      }
+    },
+    {
+      "expression": "0 ? 1/0 : 9",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 9
+      }
+    },
+    {
+      "expression": "0 ? 1/0 : 9",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 9
+      }
+    },
+    {
+      "expression": "not a xor not b",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0
+      }
+    },
+    {
+      "expression": "not a xor not b",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 1
+      }
+    },
+    {
+      "expression": "not a xor not b",
+      "category": "operators-and-boundaries",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0
+      }
+    },
+    {
+      "expression": "asin(2)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "outside",
+        "type": "Complex"
+      }
+    },
+    {
+      "expression": "asin(2)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "outside",
+        "type": "Complex"
+      }
+    },
+    {
+      "expression": "asin(2)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "outside",
+        "type": "Complex"
+      }
+    },
+    {
+      "expression": "acos(2)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "outside",
+        "type": "Complex"
+      }
+    },
+    {
+      "expression": "acos(2)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "outside",
+        "type": "Complex"
+      }
+    },
+    {
+      "expression": "acos(2)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "outside",
+        "type": "Complex"
+      }
+    },
+    {
+      "expression": "acosh(.5)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "outside",
+        "type": "Complex"
+      }
+    },
+    {
+      "expression": "acosh(.5)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "outside",
+        "type": "Complex"
+      }
+    },
+    {
+      "expression": "acosh(.5)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "outside",
+        "type": "Complex"
+      }
+    },
+    {
+      "expression": "atanh(1)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "outside",
+        "type": "number"
+      }
+    },
+    {
+      "expression": "atanh(1)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "outside",
+        "type": "number"
+      }
+    },
+    {
+      "expression": "atanh(1)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "outside",
+        "type": "number"
+      }
+    },
+    {
+      "expression": "sqrt(-1)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "outside",
+        "type": "Complex"
+      }
+    },
+    {
+      "expression": "sqrt(-1)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "outside",
+        "type": "Complex"
+      }
+    },
+    {
+      "expression": "sqrt(-1)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "outside",
+        "type": "Complex"
+      }
+    },
+    {
+      "expression": "log(0)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "outside",
+        "type": "number"
+      }
+    },
+    {
+      "expression": "log(0)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "outside",
+        "type": "number"
+      }
+    },
+    {
+      "expression": "log(0)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "outside",
+        "type": "number"
+      }
+    },
+    {
+      "expression": "log(8,1)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "outside",
+        "type": "number"
+      }
+    },
+    {
+      "expression": "log(8,1)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "outside",
+        "type": "number"
+      }
+    },
+    {
+      "expression": "log(8,1)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "outside",
+        "type": "number"
+      }
+    },
+    {
+      "expression": "exp(1000)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "outside",
+        "type": "number"
+      }
+    },
+    {
+      "expression": "exp(1000)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "outside",
+        "type": "number"
+      }
+    },
+    {
+      "expression": "exp(1000)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "outside",
+        "type": "number"
+      }
+    },
+    {
+      "expression": "log1p(-1)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "outside",
+        "type": "number"
+      }
+    },
+    {
+      "expression": "log1p(-1)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "outside",
+        "type": "number"
+      }
+    },
+    {
+      "expression": "log1p(-1)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "outside",
+        "type": "number"
+      }
+    },
+    {
+      "expression": "log2(0)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "outside",
+        "type": "number"
+      }
+    },
+    {
+      "expression": "log2(0)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "outside",
+        "type": "number"
+      }
+    },
+    {
+      "expression": "log2(0)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "outside",
+        "type": "number"
+      }
+    },
+    {
+      "expression": "round(2,-1)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "error",
+        "message": "Number of decimals in function round must be an integer from 0 to 15 inclusive"
+      }
+    },
+    {
+      "expression": "round(2,-1)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "error",
+        "message": "Number of decimals in function round must be an integer from 0 to 15 inclusive"
+      }
+    },
+    {
+      "expression": "round(2,-1)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "error",
+        "message": "Number of decimals in function round must be an integer from 0 to 15 inclusive"
+      }
+    },
+    {
+      "expression": "round(2,16)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "error",
+        "message": "Number of decimals in function round must be an integer from 0 to 15 inclusive"
+      }
+    },
+    {
+      "expression": "round(2,16)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "error",
+        "message": "Number of decimals in function round must be an integer from 0 to 15 inclusive"
+      }
+    },
+    {
+      "expression": "round(2,16)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "error",
+        "message": "Number of decimals in function round must be an integer from 0 to 15 inclusive"
+      }
+    },
+    {
+      "expression": "round(2,.5)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "error",
+        "message": "Number of decimals in function round must be an integer from 0 to 15 inclusive"
+      }
+    },
+    {
+      "expression": "round(2,.5)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "error",
+        "message": "Number of decimals in function round must be an integer from 0 to 15 inclusive"
+      }
+    },
+    {
+      "expression": "round(2,.5)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "error",
+        "message": "Number of decimals in function round must be an integer from 0 to 15 inclusive"
+      }
+    },
+    {
+      "expression": "floor(2,16)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "error",
+        "message": "number of decimals in floor number must be in range 0 - 15"
+      }
+    },
+    {
+      "expression": "floor(2,16)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "error",
+        "message": "number of decimals in floor number must be in range 0 - 15"
+      }
+    },
+    {
+      "expression": "floor(2,16)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "error",
+        "message": "number of decimals in floor number must be in range 0 - 15"
+      }
+    },
+    {
+      "expression": "ceil(2,-1)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "error",
+        "message": "number of decimals in ceil number must be in range 0-15"
+      }
+    },
+    {
+      "expression": "ceil(2,-1)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "error",
+        "message": "number of decimals in ceil number must be in range 0-15"
+      }
+    },
+    {
+      "expression": "ceil(2,-1)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "error",
+        "message": "number of decimals in ceil number must be in range 0-15"
+      }
+    },
+    {
+      "expression": "fix(2,.5)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "error",
+        "message": "number of decimals in function floor must be an integer"
+      }
+    },
+    {
+      "expression": "fix(2,.5)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "error",
+        "message": "number of decimals in function floor must be an integer"
+      }
+    },
+    {
+      "expression": "fix(2,.5)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "error",
+        "message": "number of decimals in function floor must be an integer"
+      }
+    },
+    {
+      "expression": "mod(1)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "error",
+        "message": "Too few arguments in function mod (expected: number or BigNumber or bigint or Fraction or string or boolean or Array or DenseMatrix or SparseMatrix or Matrix, index: 1)"
+      }
+    },
+    {
+      "expression": "mod(1)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "error",
+        "message": "Too few arguments in function mod (expected: number or BigNumber or bigint or Fraction or string or boolean or Array or DenseMatrix or SparseMatrix or Matrix, index: 1)"
+      }
+    },
+    {
+      "expression": "mod(1)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "error",
+        "message": "Too few arguments in function mod (expected: number or BigNumber or bigint or Fraction or string or boolean or Array or DenseMatrix or SparseMatrix or Matrix, index: 1)"
+      }
+    },
+    {
+      "expression": "sin()",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "error",
+        "message": "Too few arguments in function sin (expected: number or Complex or BigNumber or Unit or bigint or Fraction or string or boolean, index: 0)"
+      }
+    },
+    {
+      "expression": "sin()",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "error",
+        "message": "Too few arguments in function sin (expected: number or Complex or BigNumber or Unit or bigint or Fraction or string or boolean, index: 0)"
+      }
+    },
+    {
+      "expression": "sin()",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "error",
+        "message": "Too few arguments in function sin (expected: number or Complex or BigNumber or Unit or bigint or Fraction or string or boolean, index: 0)"
+      }
+    },
+    {
+      "expression": "atan2(1)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "error",
+        "message": "Too few arguments in function atan2 (expected: number or Array or DenseMatrix or SparseMatrix or BigNumber or bigint or string or Matrix or boolean or Fraction, index: 1)"
+      }
+    },
+    {
+      "expression": "atan2(1)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "error",
+        "message": "Too few arguments in function atan2 (expected: number or Array or DenseMatrix or SparseMatrix or BigNumber or bigint or string or Matrix or boolean or Fraction, index: 1)"
+      }
+    },
+    {
+      "expression": "atan2(1)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "error",
+        "message": "Too few arguments in function atan2 (expected: number or Array or DenseMatrix or SparseMatrix or BigNumber or bigint or string or Matrix or boolean or Fraction, index: 1)"
+      }
+    },
+    {
+      "expression": "nthRoot(-8,3)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "error",
+        "message": "Undefined function nthroot"
+      }
+    },
+    {
+      "expression": "nthRoot(-8,3)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "error",
+        "message": "Undefined function nthroot"
+      }
+    },
+    {
+      "expression": "nthRoot(-8,3)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "error",
+        "message": "Undefined function nthroot"
+      }
+    },
+    {
+      "expression": "nthroot(8,3)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "error",
+        "message": "Undefined function nthroot"
+      }
+    },
+    {
+      "expression": "nthroot(8,3)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "error",
+        "message": "Undefined function nthroot"
+      }
+    },
+    {
+      "expression": "nthroot(8,3)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "error",
+        "message": "Undefined function nthroot"
+      }
+    },
+    {
+      "expression": "LN2",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "error",
+        "message": "Undefined symbol ln2"
+      }
+    },
+    {
+      "expression": "LN2",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "error",
+        "message": "Undefined symbol ln2"
+      }
+    },
+    {
+      "expression": "LN2",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "error",
+        "message": "Undefined symbol ln2"
+      }
+    },
+    {
+      "expression": "sqrt2",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "error",
+        "message": "Undefined symbol sqrt2"
+      }
+    },
+    {
+      "expression": "sqrt2",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "error",
+        "message": "Undefined symbol sqrt2"
+      }
+    },
+    {
+      "expression": "sqrt2",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "error",
+        "message": "Undefined symbol sqrt2"
+      }
+    },
+    {
+      "expression": "1/0",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "outside",
+        "type": "number"
+      }
+    },
+    {
+      "expression": "1/0",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "outside",
+        "type": "number"
+      }
+    },
+    {
+      "expression": "1/0",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "outside",
+        "type": "number"
+      }
+    },
+    {
+      "expression": "1e301",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "outside",
+        "type": "number"
+      }
+    },
+    {
+      "expression": "1e301",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "outside",
+        "type": "number"
+      }
+    },
+    {
+      "expression": "1e301",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "outside",
+        "type": "number"
+      }
+    },
+    {
+      "expression": "10^1000",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "outside",
+        "type": "number"
+      }
+    },
+    {
+      "expression": "10^1000",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "outside",
+        "type": "number"
+      }
+    },
+    {
+      "expression": "10^1000",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "outside",
+        "type": "number"
+      }
+    },
+    {
+      "expression": "2^10001",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "outside",
+        "type": "number"
+      }
+    },
+    {
+      "expression": "2^10001",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "outside",
+        "type": "number"
+      }
+    },
+    {
+      "expression": "2^10001",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "outside",
+        "type": "number"
+      }
+    },
+    {
+      "expression": "pow(2,10001)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "outside",
+        "type": "number"
+      }
+    },
+    {
+      "expression": "pow(2,10001)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "outside",
+        "type": "number"
+      }
+    },
+    {
+      "expression": "pow(2,10001)",
+      "category": "rejected-or-outside-bounds",
+      "syntax": "navigator",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "outside",
+        "type": "number"
+      }
+    },
+    {
+      "expression": "nthRoot(-8,3)",
+      "category": "raw-mathjs-root-extension",
+      "syntax": "studio",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": -2
+      }
+    },
+    {
+      "expression": "nthRoot(-8,3)",
+      "category": "raw-mathjs-root-extension",
+      "syntax": "studio",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": -2
+      }
+    },
+    {
+      "expression": "nthRoot(-8,3)",
+      "category": "raw-mathjs-root-extension",
+      "syntax": "studio",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": -2
+      }
+    },
+    {
+      "expression": "nthRoot(16)",
+      "category": "raw-mathjs-root-extension",
+      "syntax": "studio",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 4
+      }
+    },
+    {
+      "expression": "nthRoot(16)",
+      "category": "raw-mathjs-root-extension",
+      "syntax": "studio",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 4
+      }
+    },
+    {
+      "expression": "nthRoot(16)",
+      "category": "raw-mathjs-root-extension",
+      "syntax": "studio",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 4
+      }
+    },
+    {
+      "expression": "nthRoot(16,-2)",
+      "category": "raw-mathjs-root-extension",
+      "syntax": "studio",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0.25
+      }
+    },
+    {
+      "expression": "nthRoot(16,-2)",
+      "category": "raw-mathjs-root-extension",
+      "syntax": "studio",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0.25
+      }
+    },
+    {
+      "expression": "nthRoot(16,-2)",
+      "category": "raw-mathjs-root-extension",
+      "syntax": "studio",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0.25
+      }
+    },
+    {
+      "expression": "nthRoot(0,3)",
+      "category": "raw-mathjs-root-extension",
+      "syntax": "studio",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0
+      }
+    },
+    {
+      "expression": "nthRoot(0,3)",
+      "category": "raw-mathjs-root-extension",
+      "syntax": "studio",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0
+      }
+    },
+    {
+      "expression": "nthRoot(0,3)",
+      "category": "raw-mathjs-root-extension",
+      "syntax": "studio",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": 0
+      }
+    },
+    {
+      "expression": "nthRoot(-8,-3)",
+      "category": "raw-mathjs-root-extension",
+      "syntax": "studio",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "finite",
+        "value": -0.5
+      }
+    },
+    {
+      "expression": "nthRoot(-8,-3)",
+      "category": "raw-mathjs-root-extension",
+      "syntax": "studio",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "finite",
+        "value": -0.5
+      }
+    },
+    {
+      "expression": "nthRoot(-8,-3)",
+      "category": "raw-mathjs-root-extension",
+      "syntax": "studio",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "finite",
+        "value": -0.5
+      }
+    },
+    {
+      "expression": "nthRoot(-8,2)",
+      "category": "raw-mathjs-root-extension",
+      "syntax": "studio",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "error",
+        "message": "Root must be odd when a is negative."
+      }
+    },
+    {
+      "expression": "nthRoot(-8,2)",
+      "category": "raw-mathjs-root-extension",
+      "syntax": "studio",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "error",
+        "message": "Root must be odd when a is negative."
+      }
+    },
+    {
+      "expression": "nthRoot(-8,2)",
+      "category": "raw-mathjs-root-extension",
+      "syntax": "studio",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "error",
+        "message": "Root must be odd when a is negative."
+      }
+    },
+    {
+      "expression": "nthRoot(9,0)",
+      "category": "raw-mathjs-root-extension",
+      "syntax": "studio",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "error",
+        "message": "Root must be non-zero"
+      }
+    },
+    {
+      "expression": "nthRoot(9,0)",
+      "category": "raw-mathjs-root-extension",
+      "syntax": "studio",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "error",
+        "message": "Root must be non-zero"
+      }
+    },
+    {
+      "expression": "nthRoot(9,0)",
+      "category": "raw-mathjs-root-extension",
+      "syntax": "studio",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "error",
+        "message": "Root must be non-zero"
+      }
+    },
+    {
+      "expression": "nthRoot(0,-2)",
+      "category": "raw-mathjs-root-extension",
+      "syntax": "studio",
+      "scores": {
+        "a": 80,
+        "b": 60,
+        "c": 0
+      },
+      "result": {
+        "kind": "outside",
+        "type": "number"
+      }
+    },
+    {
+      "expression": "nthRoot(0,-2)",
+      "category": "raw-mathjs-root-extension",
+      "syntax": "studio",
+      "scores": {
+        "a": -2.5,
+        "b": 0,
+        "c": 3
+      },
+      "result": {
+        "kind": "outside",
+        "type": "number"
+      }
+    },
+    {
+      "expression": "nthRoot(0,-2)",
+      "category": "raw-mathjs-root-extension",
+      "syntax": "studio",
+      "scores": {
+        "a": 0.1,
+        "b": 0.2,
+        "c": 0.3
+      },
+      "result": {
+        "kind": "outside",
+        "type": "number"
+      }
+    }
+  ]
+}

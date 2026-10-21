@@ -1,0 +1,99 @@
+{
+  "status": "PASS",
+  "attack_version": "20.0",
+  "commit_sha": "c2494b29dd268c46a5d0ea0990553e4327cd2253",
+  "statistics": {
+    "enterprise-attack": {
+      "objects_total": 26690,
+      "object_types": {
+        "attack-pattern": 867,
+        "campaign": 57,
+        "course-of-action": 268,
+        "identity": 1,
+        "intrusion-set": 193,
+        "malware": 750,
+        "marking-definition": 1,
+        "relationship": 21819,
+        "tool": 95,
+        "x-mitre-analytic": 1770,
+        "x-mitre-collection": 1,
+        "x-mitre-data-component": 109,
+        "x-mitre-data-source": 38,
+        "x-mitre-detection-strategy": 705,
+        "x-mitre-matrix": 1,
+        "x-mitre-tactic": 15
+      },
+      "active_tactics": 15,
+      "active_techniques": 227,
+      "active_subtechniques": 479,
+      "active_attack_patterns": 706,
+      "excluded_revoked_or_deprecated_objects": 446,
+      "validation": "JSON, bundle structure, collection version, and technique domains checked; not full STIX schema validation"
+    },
+    "mobile-attack": {
+      "objects_total": 2684,
+      "object_types": {
+        "attack-pattern": 190,
+        "campaign": 3,
+        "course-of-action": 15,
+        "identity": 1,
+        "intrusion-set": 22,
+        "malware": 127,
+        "marking-definition": 1,
+        "relationship": 1936,
+        "tool": 2,
+        "x-mitre-analytic": 211,
+        "x-mitre-collection": 1,
+        "x-mitre-data-component": 29,
+        "x-mitre-data-source": 6,
+        "x-mitre-detection-strategy": 124,
+        "x-mitre-matrix": 2,
+        "x-mitre-tactic": 14
+      },
+      "active_tactics": 12,
+      "active_techniques": 78,
+      "active_subtechniques": 47,
+      "active_attack_patterns": 125,
+      "excluded_revoked_or_deprecated_objects": 79,
+      "validation": "JSON, bundle structure, collection version, and technique domains checked; not full STIX schema validation"
+    },
+    "ics-attack": {
+      "objects_total": 2566,
+      "object_types": {
+        "attack-pattern": 127,
+        "campaign": 11,
+        "course-of-action": 53,
+        "identity": 1,
+        "intrusion-set": 16,
+        "malware": 32,
+        "marking-definition": 1,
+        "relationship": 1832,
+        "x-mitre-analytic": 302,
+        "x-mitre-asset": 18,
+        "x-mitre-collection": 1,
+        "x-mitre-data-component": 36,
+        "x-mitre-data-source": 17,
+        "x-mitre-detection-strategy": 106,
+        "x-mitre-matrix": 1,
+        "x-mitre-tactic": 12
+      },
+      "active_tactics": 12,
+      "active_techniques": 78,
+      "active_subtechniques": 26,
+      "active_attack_patterns": 104,
+      "excluded_revoked_or_deprecated_objects": 50,
+      "validation": "JSON, bundle structure, collection version, and technique domains checked; not full STIX schema validation"
+    }
+  },
+  "release_entries": 20,
+  "checks": [
+    "Three-domain hashes and sizes",
+    "Default v20 GUI startup",
+    "Actual hover opens right submenu",
+    "Author message and GitHub URL",
+    "Official introductions",
+    "All 20 release dialogs",
+    "Website opens only on explicit link activation",
+    "Data pointers unchanged by Info actions"
+  ]
+}

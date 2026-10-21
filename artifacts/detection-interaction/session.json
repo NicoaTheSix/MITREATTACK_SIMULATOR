@@ -1,0 +1,145 @@
+{
+  "checksum": "cd84ec11b7af14ba26b0ec11ae20d07ebb2803e16142de85990fdb0ccb5f6e8e",
+  "workspace": {
+    "studio_session_version": "1.0",
+    "updated_at_utc": "2026-10-19T07:58:18.317616+00:00",
+    "clean_exit": false,
+    "documents": [
+      {
+        "document": {
+          "schema_version": "1.0",
+          "document_id": "b8cad44f-05e5-4e36-90ac-94dbf1ede77d",
+          "name": "state.studio",
+          "created_at_utc": "2026-10-19T07:58:04.741005+00:00",
+          "exported_at_utc": "2026-10-19T07:58:18.316616+00:00",
+          "attack": {
+            "domain": "enterprise-attack",
+            "version": "19.2",
+            "source_url": "D:\\MITREATTACK_SIMULATOR\\artifacts\\detection-interaction\\fixture.json",
+            "dataset_sha256": "f0c75ca50ba8b4c5bfb0a14029ba12ff4e97e6e0b33e2b55326c08c86a4baee3",
+            "custom": true
+          },
+          "selected_count": 0,
+          "selected_technique_ids": [],
+          "selected_ttps": [],
+          "navigator_import_selected": [],
+          "selection_scopes": {},
+          "selection_preferences": {
+            "across_tactics": true,
+            "with_family": false,
+            "visible_only": false
+          },
+          "search_fields": [
+            "detection_strategies"
+          ],
+          "navigator_layer": {
+            "name": "Interaction example",
+            "domain": "enterprise-attack",
+            "versions": {
+              "attack": "19.2",
+              "navigator": "5.2.0",
+              "layer": "4.5"
+            },
+            "techniques": [
+              {
+                "techniqueID": "T1000",
+                "comment": "Preserve parent annotation",
+                "score": 7,
+                "color": "#123456",
+                "metadata": [
+                  {
+                    "name": "TTP Selection Studio selected",
+                    "value": "false"
+                  }
+                ]
+              },
+              {
+                "techniqueID": "T1000.001",
+                "tactic": "execution",
+                "comment": "Child annotation",
+                "score": 0,
+                "metadata": [
+                  {
+                    "name": "TTP Selection Studio selected",
+                    "value": "false"
+                  }
+                ]
+              },
+              {
+                "techniqueID": "T1001",
+                "metadata": [
+                  {
+                    "name": "TTP Selection Studio selected",
+                    "value": "false"
+                  }
+                ]
+              },
+              {
+                "techniqueID": "T1002",
+                "metadata": [
+                  {
+                    "name": "TTP Selection Studio selected",
+                    "value": "false"
+                  }
+                ]
+              },
+              {
+                "techniqueID": "T1000",
+                "comment": "Preserve parent annotation",
+                "score": 7,
+                "color": "#123456",
+                "metadata": [
+                  {
+                    "name": "TTP Selection Studio selected",
+                    "value": "false"
+                  }
+                ],
+                "tactic": "execution",
+                "showSubtechniques": false
+              },
+              {
+                "techniqueID": "T1000",
+                "comment": "Preserve parent annotation",
+                "score": 7,
+                "color": "#123456",
+                "metadata": [
+                  {
+                    "name": "TTP Selection Studio selected",
+                    "value": "false"
+                  }
+                ],
+                "tactic": "initial-access",
+                "showSubtechniques": true
+              }
+            ],
+            "selectTechniquesAcrossTactics": true,
+            "selectSubtechniquesWithParent": false,
+            "selectVisibleTechniques": false,
+            "x_ttp_studio_search_fields": [
+              "detection_strategies"
+            ],
+            "customDataURL": "D:\\MITREATTACK_SIMULATOR\\artifacts\\detection-interaction\\fixture.json",
+            "x_ttp_studio_dataset": "f0c75ca50ba8b4c5bfb0a14029ba12ff4e97e6e0b33e2b55326c08c86a4baee3",
+            "layout": {
+              "layout": "flat"
+            },
+            "sorting": 0,
+            "filters": {
+              "platforms": [
+                "Windows"
+              ]
+            }
+          }
+        },
+        "initial_name": "Interaction example",
+        "save_path": "D:\\MITREATTACK_SIMULATOR\\artifacts\\detection-interaction\\state.studio.json",
+        "saved_fingerprint": "d5f96b85ebf18ff67816eeb9a2ed93498e127ed14796043749a4002bd0b48351",
+        "saved_file_sha256": "db5d44928b95fd38db7734c907dcb7e1ee3f55803b020e30c1125a053cd2f828",
+        "content_token_version": 2,
+        "dirty": false
+      }
+    ],
+    "active_index": 0,
+    "view": {}
+  }
+}

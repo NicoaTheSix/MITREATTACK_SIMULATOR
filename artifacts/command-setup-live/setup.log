@@ -1,0 +1,24 @@
+Input project: D:\MITREATTACK_SIMULATOR
+Input launcher: D:\MITREATTACK_SIMULATOR\scripts\Start-TtpSelector.ps1
+Input command: D:\MITREATTACK_SIMULATOR\ttpselecter.cmd
+Input command: D:\MITREATTACK_SIMULATOR\ttpselector.cmd
+Input/output setting: HKEY_CURRENT_USER\Environment\Path
+Output files: None (register existing command files in the user PATH)
+[Command setup 1/4] Checking downloaded project files
+[Command setup 2/4] Checking the installed Python environment and dataset pointer
+Input program: D:\MITREATTACK_SIMULATOR\main.py
+Input Python: D:\MITREATTACK_SIMULATOR\.venv\Scripts\pythonw.exe
+Input dataset pointer: D:\MITREATTACK_SIMULATOR\data\attack\active.json
+Input/output settings: D:\MITREATTACK_SIMULATOR\data\ui-settings.ini
+Input/output session: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+Output files: None (launcher check only)
+[ttpselector 1/3] Checking application, environment and dataset paths
+[ttpselector 2/3] Checking desktop dependencies without opening a window
+[ttpselector 3/3] Ready; run ttpselector to open TTP Selection Studio
+[Command setup 3/4] Registering the project in the current-user PATH
+Project directory is already registered; no duplicate PATH entry added.
+[Command setup 4/4] Verifying the saved registration
+Setup complete. Close and reopen PowerShell or cmd (restart Windows Terminal if used).
+Run ttpselecter from any directory to open TTP Selection Studio.
+The ttpselector spelling also works. Use ttpselecter -Check to check without opening a window.
+

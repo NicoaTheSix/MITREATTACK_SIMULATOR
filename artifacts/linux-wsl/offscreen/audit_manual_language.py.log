@@ -1,0 +1,957 @@
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/active.json
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/locales/zh_TW.json
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual_en.md
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/manual-language/run-ea0f29cc7dc9485d8e0887f7f6634506/settings.ini
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/manual-language/run-ea0f29cc7dc9485d8e0887f7f6634506/source.navigator.json
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/manual-language/audit.json
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/manual-language/untranslated.json
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/manual-language/manual-en.png
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/manual-language/manual-zh-TW.png
+[Manual/language audit 1/6] Starting isolated workspace
+[Application icon 1/2] Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/assets/ttp-selection-studio-icon-pixel.png
+[Application icon 1/2] Output files: None (application/window icon in memory)
+[Application icon 2/2] Complete: pixel icon applied to application and windows
+[Preview fonts] Complete
+[UI settings 1/2] Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/manual-language/run-ea0f29cc7dc9485d8e0887f7f6634506/settings.ini
+[UI settings 1/2] Output files: None (reading preferences)
+[UI settings 2/2] Complete: navigation labels shown
+[Language 1/2] Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/locales/zh_TW.json
+Output files: None (translation catalog in memory)
+[Language 2/2] Ready: 644 Taiwan translations
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/info/attack-release-notes.json
+Output files: None (Info menu in memory)
+[Info history 1/2] Reading offline release introductions
+[Info history 2/2] Complete: 20 official release entries
+[Navigation icons 1/3] Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/assets/ttp-selection-studio-icon-pixel.png
+[Navigation icons 1/3] Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/assets/navigation/mitigations.png
+[Navigation icons 1/3] Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/assets/navigation/assets.png
+[Navigation icons 1/3] Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/assets/navigation/detections.png
+[Navigation icons 1/3] Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/assets/navigation/groups.png
+[Navigation icons 1/3] Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/assets/navigation/software.png
+[Navigation icons 1/3] Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/assets/navigation/campaigns.png
+[Navigation icons 1/3] Output files: None (button icons in memory)
+[Navigation icons 2/3] Loading TTP (1/7)
+[Navigation icons 2/3] Loading Mitigations (2/7)
+[Navigation icons 2/3] Loading Assets (3/7)
+[Navigation icons 2/3] Loading Detections (4/7)
+[Navigation icons 2/3] Loading Groups (5/7)
+[Navigation icons 2/3] Loading Software (6/7)
+[Navigation icons 2/3] Loading Campaigns (7/7)
+[Navigation icons 3/3] Complete: 7/7 icons ready
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/active.json
+Output files: None (catalog is loaded into memory)
+[1/4 Resolve] Reading snapshot pointer
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/v20.0/manifest.json
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/v20.0/enterprise-attack-20.0.json
+[1/4 Resolve] Complete: Enterprise ATT&CK v20.0 (1/1)
+[2/4 Read] Reading and checking bundle (4194304/55271014)
+[2/4 Read] Reading and checking bundle (8388608/55271014)
+[2/4 Read] Reading and checking bundle (12582912/55271014)
+[2/4 Read] Reading and checking bundle (16777216/55271014)
+[2/4 Read] Reading and checking bundle (20971520/55271014)
+[2/4 Read] Reading and checking bundle (25165824/55271014)
+[2/4 Read] Reading and checking bundle (29360128/55271014)
+[2/4 Read] Reading and checking bundle (33554432/55271014)
+[2/4 Read] Reading and checking bundle (37748736/55271014)
+[2/4 Read] Reading and checking bundle (41943040/55271014)
+[2/4 Read] Reading and checking bundle (46137344/55271014)
+[2/4 Read] Reading and checking bundle (50331648/55271014)
+[2/4 Read] Reading and checking bundle (54525952/55271014)
+[2/4 Read] Reading and checking bundle (55271014/55271014)
+[2/4 Read] Parsing JSON
+[3/4 Index] Indexing active ATT&CK objects (2000/26690)
+[3/4 Index] Indexing active ATT&CK objects (4000/26690)
+[3/4 Index] Indexing active ATT&CK objects (6000/26690)
+[3/4 Index] Indexing active ATT&CK objects (8000/26690)
+[3/4 Index] Indexing active ATT&CK objects (10000/26690)
+[3/4 Index] Indexing active ATT&CK objects (12000/26690)
+[3/4 Index] Indexing active ATT&CK objects (14000/26690)
+[3/4 Index] Indexing active ATT&CK objects (16000/26690)
+[3/4 Index] Indexing active ATT&CK objects (18000/26690)
+[3/4 Index] Indexing active ATT&CK objects (20000/26690)
+[3/4 Index] Indexing active ATT&CK objects (22000/26690)
+[3/4 Index] Indexing active ATT&CK objects (24000/26690)
+[3/4 Index] Indexing active ATT&CK objects (26000/26690)
+[3/4 Index] Mapping platforms and tactics (100/706)
+[3/4 Index] Mapping platforms and tactics (200/706)
+[3/4 Index] Mapping platforms and tactics (300/706)
+[3/4 Index] Mapping platforms and tactics (400/706)
+[3/4 Index] Mapping platforms and tactics (500/706)
+[3/4 Index] Mapping platforms and tactics (600/706)
+[3/4 Index] Mapping platforms and tactics (700/706)
+[3/4 Index] Complete: 706 active techniques/sub-techniques, 11 platforms (706/706)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/26690)
+[3/4 Procedures] Reading Enterprise relationships (4000/26690)
+[3/4 Procedures] Reading Enterprise relationships (8000/26690)
+[3/4 Procedures] Reading Enterprise relationships (12000/26690)
+[3/4 Procedures] Reading Enterprise relationships (16000/26690)
+[3/4 Procedures] Reading Enterprise relationships (20000/26690)
+[3/4 Procedures] Reading Enterprise relationships (24000/26690)
+[3/4 Procedures] Complete: Enterprise 17636 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/26690)
+[3/4 Related TTPs] Reading relationships (4000/26690)
+[3/4 Related TTPs] Reading relationships (8000/26690)
+[3/4 Related TTPs] Reading relationships (12000/26690)
+[3/4 Related TTPs] Reading relationships (16000/26690)
+[3/4 Related TTPs] Reading relationships (20000/26690)
+[3/4 Related TTPs] Reading relationships (24000/26690)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 23980 direct/derived mappings (1/1)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/v20.0/mobile-attack-20.0.json
+[3/4 Library] Reading and checking Mobile (4194304/6095145)
+[3/4 Library] Reading and checking Mobile (6095145/6095145)
+[3/4 Library] Parsing Mobile JSON
+[3/4 Procedures] Indexing Mobile procedure examples (0/2684)
+[3/4 Procedures] Complete: Mobile 1522 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Mobile objects in memory)
+[3/4 Related TTPs] Indexing Mobile direct source relationships (0/2684)
+[3/4 Related TTPs] Resolving Mobile strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Mobile 2419 direct/derived mappings (1/1)
+[3/4 Library] Complete: Mobile (1/1)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/v20.0/ics-attack-20.0.json
+[3/4 Library] Reading and checking ICS (4194304/5266683)
+[3/4 Library] Reading and checking ICS (5266683/5266683)
+[3/4 Library] Parsing ICS JSON
+[3/4 Procedures] Indexing ICS procedure examples (0/2566)
+[3/4 Procedures] Complete: ICS 307 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships (0/2566)
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 2185 direct/derived mappings (1/1)
+[3/4 Library] Complete: ICS (1/1)
+[3/4 Library] Complete: six navigation categories indexed across all three domains (1/1)
+[4/4 Tree] Complete: 706 unique selectable technique IDs
+Input files: None (exact domain/version catalog in memory); output files: None
+[Search Index 1/3] Reading legacy data sources and active detection mappings (0/3)
+[Search Index 2/3] Building name/ID/description/data-source/detection-strategy fields (1/3)
+[Search Index 3/3] Ready: 706 techniques in enterprise-attack v20.0 (3/3)
+[New File 1/2] Input files: None; output files: None (document in memory) (0/2)
+[Document 1/2] Input files: None; output files: None; activating Untitled-2 (0/2)
+[Document 2/2] Ready: Untitled-2; 0 selected TTPs (2/2)
+[New File 2/2] Created Untitled-2 (2/2)
+Input files: None; output files: None (selected TTP occurrences in memory)
+[Select TTP 1/2] Resolving tactic/family preferences (0/2)
+[Select TTP 2/2] Ready; enabled states and annotations preserved (2/2)
+Input files: None (document and annotation data in memory)
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/manual-language/run-ea0f29cc7dc9485d8e0887f7f6634506/source.navigator.json
+[Navigator Export Prepare] Validating with the official SDK
+Input files: None (document/catalog and matrix visibility in memory)
+Output files: None (immutable JSON export preview)
+[JSON Preview 1/3] Validating complete annotations
+[JSON Preview 2/3] Resolving technique / tactic annotations
+[JSON Preview 2/3] Resolving technique / tactic annotations
+[JSON Preview 2/3] Resolving technique / tactic annotations
+[JSON Preview 2/3] Resolving technique / tactic annotations
+[JSON Preview 2/3] Resolving technique / tactic annotations
+[JSON Preview 2/3] Resolving technique / tactic annotations
+[JSON Preview 2/3] Resolving technique / tactic annotations
+[JSON Preview 2/3] Resolving technique / tactic annotations
+[JSON Preview 3/3] Hidden modified annotation cells: 2
+[Navigator Export] Hidden modified annotation cells: 2; preserving all annotations
+Input files: None (validated in-memory data)
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/manual-language/run-ea0f29cc7dc9485d8e0887f7f6634506/source.navigator.json
+Temporary output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/manual-language/run-ea0f29cc7dc9485d8e0887f7f6634506/source.navigator.json.cc689173707448bd849c934599e7bd8d.tmp
+[Navigator Export 1/3] Serializing data
+[Navigator Export 2/3] Writing UTF-8 JSON
+[Navigator Export 3/3] Publishing file
+[Navigator Export 3/3] Complete: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/manual-language/run-ea0f29cc7dc9485d8e0887f7f6634506/source.navigator.json
+[Navigator Export] Exchange file written; use Save / Save As to mark the complete Studio document saved.
+[Manual/language audit 2/6] Clicking every feature in English and zh_TW
+Input translation file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/locales/zh_TW.json
+Input/output settings file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/manual-language/run-ea0f29cc7dc9485d8e0887f7f6634506/settings.ini
+[Language setting 1/3] Validating requested language (0/3)
+[Language setting 2/3] Saving interface preference (1/3)
+[Language setting 3/3] Interface and manual updated (3/3)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual_en.md
+Output files: None (manual tab; current TTP document retained)
+[Manual tab 1/2] Opening operating manual (0/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual_en.md
+Output files: None (read-only manual workspace)
+[Manual 1/3] Reading local guide (0/3)
+[Manual 2/3] Rendering guide and heading outline (1/3)
+[Manual 3/3] Ready: in_app_manual_en.md (3/3)
+[Manual tab 2/2] Ready (2/2)
+[Manual/language audit 2/6] en open-file (1/15)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual_en.md
+Output files: None (manual tab; current TTP document retained)
+[Manual tab 1/2] Opening operating manual (0/2)
+[Manual tab 2/2] Ready (2/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual_en.md
+Output files: None (read-only manual workspace)
+[Manual 1/3] Reading local guide (0/3)
+[Manual 2/3] Rendering guide and heading outline (1/3)
+[Manual 3/3] Ready: in_app_manual_en.md (3/3)
+Input files: None (explicit manual feature link); output files: None
+[Manual feature 1/2] Resolving open-file (0/2)
+[Manual feature 2/2] Opening open-file (2/2)
+This plugin does not support propagateSizeHints()
+[Studio Open] Cancelled; workspace unchanged (1/1)
+[Manual/language audit 2/6] en batch-edit (2/15)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual_en.md
+Output files: None (manual tab; current TTP document retained)
+[Manual tab 1/2] Opening operating manual (0/2)
+[Manual tab 2/2] Ready (2/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual_en.md
+Output files: None (read-only manual workspace)
+[Manual 1/3] Reading local guide (0/3)
+[Manual 2/3] Rendering guide and heading outline (1/3)
+[Manual 3/3] Ready: in_app_manual_en.md (3/3)
+Input files: None (explicit manual feature link); output files: None
+[Manual feature 1/2] Resolving batch-edit (0/2)
+[Manual feature 2/2] Opening batch-edit (2/2)
+Input files: None; output files: None (batch editing draft in memory)
+This plugin does not support propagateSizeHints()
+[Batch Edit] Cancelled; original document preserved (1/1)
+[Manual/language audit 2/6] en matrix (3/15)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual_en.md
+Output files: None (manual tab; current TTP document retained)
+[Manual tab 1/2] Opening operating manual (0/2)
+[Manual tab 2/2] Ready (2/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual_en.md
+Output files: None (read-only manual workspace)
+[Manual 1/3] Reading local guide (0/3)
+[Manual 2/3] Rendering guide and heading outline (1/3)
+[Manual 3/3] Ready: in_app_manual_en.md (3/3)
+Input files: None (explicit manual feature link); output files: None
+[Manual feature 1/2] Resolving matrix (0/2)
+[Manual feature 2/2] Opening matrix (2/2)
+[Source Picker 1/2] Input files: None; output files: None (verified catalog in memory) (0/2)
+[Source Picker 2/2] Campaign: 57 entries in Enterprise v20.0 (2/2)
+[Matrix 1/3 Scope] Input files: None; output files: None (verified catalog in memory)
+[Matrix 1/3 Scope] Platform/tactic families resolved (1/1)
+[Matrix 2/3 Columns] Building expandable tactic columns (1/15)
+[Matrix 2/3 Columns] Building expandable tactic columns (2/15)
+[Matrix 2/3 Columns] Building expandable tactic columns (3/15)
+[Manual/language audit 2/6] en search (4/15)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual_en.md
+Output files: None (manual tab; current TTP document retained)
+[Manual tab 1/2] Opening operating manual (0/2)
+[Manual tab 2/2] Ready (2/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual_en.md
+Output files: None (read-only manual workspace)
+[Manual 1/3] Reading local guide (0/3)
+[Manual 2/3] Rendering guide and heading outline (1/3)
+[Manual 3/3] Ready: in_app_manual_en.md (3/3)
+[Matrix 2/3 Columns] Building expandable tactic columns (4/15)
+[Matrix 2/3 Columns] Building expandable tactic columns (5/15)
+Input files: None (explicit manual feature link); output files: None
+[Manual feature 1/2] Resolving search (0/2)
+[Manual feature 2/2] Opening search (2/2)
+Input files: None; output files: None (selected TTP occurrences in memory)
+[Select TTP 1/2] Resolving tactic/family preferences (0/2)
+[Select TTP 2/2] Ready; enabled states and annotations preserved (2/2)
+[Matrix 2/3 Columns] Building expandable tactic columns (6/15)
+Input files: None; output files: None (selected TTP occurrences in memory)
+[Select TTP 1/2] Resolving tactic/family preferences (0/2)
+[Select TTP 2/2] Ready; enabled states and annotations preserved (2/2)
+[Matrix 2/3 Columns] Building expandable tactic columns (7/15)
+[Manual/language audit 2/6] en selected (5/15)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual_en.md
+Output files: None (manual tab; current TTP document retained)
+[Manual tab 1/2] Opening operating manual (0/2)
+[Manual tab 2/2] Ready (2/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual_en.md
+Output files: None (read-only manual workspace)
+[Manual 1/3] Reading local guide (0/3)
+[Manual 2/3] Rendering guide and heading outline (1/3)
+[Manual 3/3] Ready: in_app_manual_en.md (3/3)
+[Matrix 2/3 Columns] Building expandable tactic columns (8/15)
+[Matrix 2/3 Columns] Building expandable tactic columns (9/15)
+Input files: None (explicit manual feature link); output files: None
+[Manual feature 1/2] Resolving selected (0/2)
+[Manual feature 2/2] Opening selected (2/2)
+[Matrix 2/3 Columns] Building expandable tactic columns (10/15)
+[Matrix 2/3 Columns] Building expandable tactic columns (11/15)
+[Matrix 2/3 Columns] Building expandable tactic columns (12/15)
+[Matrix 2/3 Columns] Building expandable tactic columns (13/15)
+[Manual/language audit 2/6] en versions (6/15)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual_en.md
+Output files: None (manual tab; current TTP document retained)
+[Manual tab 1/2] Opening operating manual (0/2)
+[Manual tab 2/2] Ready (2/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual_en.md
+Output files: None (read-only manual workspace)
+[Manual 1/3] Reading local guide (0/3)
+[Manual 2/3] Rendering guide and heading outline (1/3)
+[Manual 3/3] Ready: in_app_manual_en.md (3/3)
+[Matrix 2/3 Columns] Building expandable tactic columns (14/15)
+[Matrix 2/3 Columns] Building expandable tactic columns (15/15)
+Input files: None (explicit manual feature link); output files: None
+[Manual feature 1/2] Resolving versions (0/2)
+[Manual feature 2/2] Opening versions (2/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/versions-cache.json
+This plugin does not support propagateSizeHints()
+[Matrix 3/3 Ready] Matrix columns complete (1/1)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/versions-cache.json
+[Manual/language audit 2/6] en layer-settings (7/15)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual_en.md
+Output files: None (manual tab; current TTP document retained)
+[Manual tab 1/2] Opening operating manual (0/2)
+[Manual tab 2/2] Ready (2/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual_en.md
+Output files: None (read-only manual workspace)
+[Manual 1/3] Reading local guide (0/3)
+[Manual 2/3] Rendering guide and heading outline (1/3)
+[Manual 3/3] Ready: in_app_manual_en.md (3/3)
+Input files: None (explicit manual feature link); output files: None
+[Manual feature 1/2] Resolving layer-settings (0/2)
+[Manual feature 2/2] Opening layer-settings (2/2)
+Input files: None; output files: None (layer settings in memory)
+[Layer Settings 1/2] Editing description, gradient and legend (0/2)
+This plugin does not support propagateSizeHints()
+[Layer Settings] Cancelled; document preserved (1/1)
+[Manual/language audit 2/6] en formula (8/15)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual_en.md
+Output files: None (manual tab; current TTP document retained)
+[Manual tab 1/2] Opening operating manual (0/2)
+[Manual tab 2/2] Ready (2/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual_en.md
+Output files: None (read-only manual workspace)
+[Manual 1/3] Reading local guide (0/3)
+[Manual 2/3] Rendering guide and heading outline (1/3)
+[Manual 3/3] Ready: in_app_manual_en.md (3/3)
+Input files: None (explicit manual feature link); output files: None
+[Manual feature 1/2] Resolving formula (0/2)
+[Manual feature 2/2] Opening formula (2/2)
+Input files: None; output files: None (formula source snapshots in memory)
+This plugin does not support propagateSizeHints()
+[Manual/language audit 2/6] en compare (9/15)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual_en.md
+Output files: None (manual tab; current TTP document retained)
+[Manual tab 1/2] Opening operating manual (0/2)
+[Manual tab 2/2] Ready (2/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual_en.md
+Output files: None (read-only manual workspace)
+[Manual 1/3] Reading local guide (0/3)
+[Manual 2/3] Rendering guide and heading outline (1/3)
+[Manual 3/3] Ready: in_app_manual_en.md (3/3)
+Input files: None (explicit manual feature link); output files: None
+[Manual feature 1/2] Resolving compare (0/2)
+[Manual feature 2/2] Opening compare (2/2)
+Input files: None; output files: None (open documents in memory)
+[Selection Compare 1/2] Comparing selected TTPs (0/1)
+[Selection Compare 2/2] Both: 0; Left only: 0; Right only: 1 (1/1)
+This plugin does not support propagateSizeHints()
+[Manual/language audit 2/6] en compare-versions (10/15)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual_en.md
+Output files: None (manual tab; current TTP document retained)
+[Manual tab 1/2] Opening operating manual (0/2)
+[Manual tab 2/2] Ready (2/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual_en.md
+Output files: None (read-only manual workspace)
+[Manual 1/3] Reading local guide (0/3)
+[Manual 2/3] Rendering guide and heading outline (1/3)
+[Manual 3/3] Ready: in_app_manual_en.md (3/3)
+Input files: None (explicit manual feature link); output files: None
+[Manual feature 1/2] Resolving compare-versions (0/2)
+[Manual feature 2/2] Opening compare-versions (2/2)
+This plugin does not support propagateSizeHints()
+[Manual/language audit 2/6] en import-layer (11/15)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual_en.md
+Output files: None (manual tab; current TTP document retained)
+[Manual tab 1/2] Opening operating manual (0/2)
+[Manual tab 2/2] Ready (2/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual_en.md
+Output files: None (read-only manual workspace)
+[Manual 1/3] Reading local guide (0/3)
+[Manual 2/3] Rendering guide and heading outline (1/3)
+[Manual 3/3] Ready: in_app_manual_en.md (3/3)
+Input files: None (explicit manual feature link); output files: None
+[Manual feature 1/2] Resolving import-layer (0/2)
+[Manual feature 2/2] Opening import-layer (2/2)
+This plugin does not support propagateSizeHints()
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/versions-cache.json
+This plugin does not support propagateSizeHints()
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/manual-language/run-ea0f29cc7dc9485d8e0887f7f6634506/source.navigator.json
+Output files: None (multi-layer import preview in memory)
+[Layer Batch 1/5] Reading and validating every layer in the JSON file (0/5)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/manual-language/run-ea0f29cc7dc9485d8e0887f7f6634506/source.navigator.json
+Output files: None (import preview in memory)
+[Navigator Import 1/4] Reading and validating layer file (0/1)
+[Navigator Import 1/4] Layer validated by mitreattack-python (1/1)
+[Manual/language audit 2/6] en sources (12/15)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual_en.md
+Output files: None (manual tab; current TTP document retained)
+[Manual tab 1/2] Opening operating manual (0/2)
+[Manual tab 2/2] Ready (2/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual_en.md
+Output files: None (read-only manual workspace)
+[Manual 1/3] Reading local guide (0/3)
+[Manual 2/3] Rendering guide and heading outline (1/3)
+[Manual 3/3] Ready: in_app_manual_en.md (3/3)
+Input files: None (explicit manual feature link); output files: None
+[Manual feature 1/2] Resolving sources (0/2)
+[Manual feature 2/2] Opening sources (2/2)
+This plugin does not support propagateSizeHints()
+[Manual/language audit 2/6] en upgrade (13/15)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual_en.md
+Output files: None (manual tab; current TTP document retained)
+[Manual tab 1/2] Opening operating manual (0/2)
+[Manual tab 2/2] Ready (2/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual_en.md
+Output files: None (read-only manual workspace)
+[Manual 1/3] Reading local guide (0/3)
+[Manual 2/3] Rendering guide and heading outline (1/3)
+[Manual 3/3] Ready: in_app_manual_en.md (3/3)
+Input files: None (explicit manual feature link); output files: None
+[Manual feature 1/2] Resolving upgrade (0/2)
+[Manual feature 2/2] Opening upgrade (2/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/versions-cache.json
+This plugin does not support propagateSizeHints()
+[Manual/language audit 2/6] en export-svg (14/15)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual_en.md
+Output files: None (manual tab; current TTP document retained)
+[Manual tab 1/2] Opening operating manual (0/2)
+[Manual tab 2/2] Ready (2/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual_en.md
+Output files: None (read-only manual workspace)
+[Manual 1/3] Reading local guide (0/3)
+[Manual 2/3] Rendering guide and heading outline (1/3)
+[Manual 3/3] Ready: in_app_manual_en.md (3/3)
+Input files: None (explicit manual feature link); output files: None
+[Manual feature 1/2] Resolving export-svg (0/2)
+[Manual feature 2/2] Opening export-svg (2/2)
+This plugin does not support propagateSizeHints()
+Input files: None (matrix/layer snapshots in memory)
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/manual-language/run-ea0f29cc7dc9485d8e0887f7f6634506/preview.svg
+This plugin does not support propagateSizeHints()
+[Manual/language audit 2/6] en export-excel (15/15)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual_en.md
+Output files: None (manual tab; current TTP document retained)
+[Manual tab 1/2] Opening operating manual (0/2)
+[Manual tab 2/2] Ready (2/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual_en.md
+Output files: None (read-only manual workspace)
+[Manual 1/3] Reading local guide (0/3)
+[Manual 2/3] Rendering guide and heading outline (1/3)
+[Manual 3/3] Ready: in_app_manual_en.md (3/3)
+Input files: None (explicit manual feature link); output files: None
+[Manual feature 1/2] Resolving export-excel (0/2)
+[Manual feature 2/2] Opening export-excel (2/2)
+This plugin does not support propagateSizeHints()
+Input files: None (matrix/layer snapshots in memory)
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/manual-language/run-ea0f29cc7dc9485d8e0887f7f6634506/preview.xlsx
+This plugin does not support propagateSizeHints()
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual_en.md
+Output files: None (manual tab; current TTP document retained)
+[Manual tab 1/2] Opening operating manual (0/2)
+[Manual tab 2/2] Ready (2/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual_en.md
+Output files: None (read-only manual workspace)
+[Manual 1/3] Reading local guide (0/3)
+[Manual 2/3] Rendering guide and heading outline (1/3)
+[Manual 3/3] Ready: in_app_manual_en.md (3/3)
+Input translation file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/locales/zh_TW.json
+Input/output settings file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/manual-language/run-ea0f29cc7dc9485d8e0887f7f6634506/settings.ini
+[Language setting 1/3] Validating requested language (0/3)
+[Language setting 2/3] Saving interface preference (1/3)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual+_zh.md
+Output files: None (read-only manual workspace)
+[Manual 1/3] Reading local guide (0/3)
+[Manual 2/3] Rendering guide and heading outline (1/3)
+[Manual 3/3] Ready: in_app_manual+_zh.md (3/3)
+[Language setting 3/3] Interface and manual updated (3/3)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual+_zh.md
+Output files: None (manual tab; current TTP document retained)
+[Manual tab 1/2] Opening operating manual (0/2)
+[Manual tab 2/2] Ready (2/2)
+[Manual/language audit 2/6] zh_TW open-file (1/15)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual+_zh.md
+Output files: None (manual tab; current TTP document retained)
+[Manual tab 1/2] Opening operating manual (0/2)
+[Manual tab 2/2] Ready (2/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual+_zh.md
+Output files: None (read-only manual workspace)
+[Manual 1/3] Reading local guide (0/3)
+[Manual 2/3] Rendering guide and heading outline (1/3)
+[Manual 3/3] Ready: in_app_manual+_zh.md (3/3)
+Input files: None (explicit manual feature link); output files: None
+[Manual feature 1/2] Resolving open-file (0/2)
+[Manual feature 2/2] Opening open-file (2/2)
+This plugin does not support propagateSizeHints()
+This plugin does not support propagateSizeHints()
+[Studio Open] Cancelled; workspace unchanged (1/1)
+[Manual/language audit 2/6] zh_TW batch-edit (2/15)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual+_zh.md
+Output files: None (manual tab; current TTP document retained)
+[Manual tab 1/2] Opening operating manual (0/2)
+[Manual tab 2/2] Ready (2/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual+_zh.md
+Output files: None (read-only manual workspace)
+[Manual 1/3] Reading local guide (0/3)
+[Manual 2/3] Rendering guide and heading outline (1/3)
+[Manual 3/3] Ready: in_app_manual+_zh.md (3/3)
+Input files: None (explicit manual feature link); output files: None
+[Manual feature 1/2] Resolving batch-edit (0/2)
+[Manual feature 2/2] Opening batch-edit (2/2)
+Input files: None; output files: None (batch editing draft in memory)
+This plugin does not support propagateSizeHints()
+This plugin does not support propagateSizeHints()
+[Batch Edit] Cancelled; original document preserved (1/1)
+[Manual/language audit 2/6] zh_TW matrix (3/15)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual+_zh.md
+Output files: None (manual tab; current TTP document retained)
+[Manual tab 1/2] Opening operating manual (0/2)
+[Manual tab 2/2] Ready (2/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual+_zh.md
+Output files: None (read-only manual workspace)
+[Manual 1/3] Reading local guide (0/3)
+[Manual 2/3] Rendering guide and heading outline (1/3)
+[Manual 3/3] Ready: in_app_manual+_zh.md (3/3)
+Input files: None (explicit manual feature link); output files: None
+[Manual feature 1/2] Resolving matrix (0/2)
+[Manual feature 2/2] Opening matrix (2/2)
+[Manual/language audit 2/6] zh_TW search (4/15)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual+_zh.md
+Output files: None (manual tab; current TTP document retained)
+[Manual tab 1/2] Opening operating manual (0/2)
+[Manual tab 2/2] Ready (2/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual+_zh.md
+Output files: None (read-only manual workspace)
+[Manual 1/3] Reading local guide (0/3)
+[Manual 2/3] Rendering guide and heading outline (1/3)
+[Manual 3/3] Ready: in_app_manual+_zh.md (3/3)
+Input files: None (explicit manual feature link); output files: None
+[Manual feature 1/2] Resolving search (0/2)
+[Manual feature 2/2] Opening search (2/2)
+[Manual/language audit 2/6] zh_TW selected (5/15)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual+_zh.md
+Output files: None (manual tab; current TTP document retained)
+[Manual tab 1/2] Opening operating manual (0/2)
+[Manual tab 2/2] Ready (2/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual+_zh.md
+Output files: None (read-only manual workspace)
+[Manual 1/3] Reading local guide (0/3)
+[Manual 2/3] Rendering guide and heading outline (1/3)
+[Manual 3/3] Ready: in_app_manual+_zh.md (3/3)
+Input files: None (explicit manual feature link); output files: None
+[Manual feature 1/2] Resolving selected (0/2)
+[Manual feature 2/2] Opening selected (2/2)
+[Manual/language audit 2/6] zh_TW versions (6/15)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual+_zh.md
+Output files: None (manual tab; current TTP document retained)
+[Manual tab 1/2] Opening operating manual (0/2)
+[Manual tab 2/2] Ready (2/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual+_zh.md
+Output files: None (read-only manual workspace)
+[Manual 1/3] Reading local guide (0/3)
+[Manual 2/3] Rendering guide and heading outline (1/3)
+[Manual 3/3] Ready: in_app_manual+_zh.md (3/3)
+Input files: None (explicit manual feature link); output files: None
+[Manual feature 1/2] Resolving versions (0/2)
+[Manual feature 2/2] Opening versions (2/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/versions-cache.json
+This plugin does not support propagateSizeHints()
+This plugin does not support propagateSizeHints()
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/versions-cache.json
+This plugin does not support propagateSizeHints()
+This plugin does not support propagateSizeHints()
+[Manual/language audit 2/6] zh_TW layer-settings (7/15)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual+_zh.md
+Output files: None (manual tab; current TTP document retained)
+[Manual tab 1/2] Opening operating manual (0/2)
+[Manual tab 2/2] Ready (2/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual+_zh.md
+Output files: None (read-only manual workspace)
+[Manual 1/3] Reading local guide (0/3)
+[Manual 2/3] Rendering guide and heading outline (1/3)
+[Manual 3/3] Ready: in_app_manual+_zh.md (3/3)
+Input files: None (explicit manual feature link); output files: None
+[Manual feature 1/2] Resolving layer-settings (0/2)
+[Manual feature 2/2] Opening layer-settings (2/2)
+Input files: None; output files: None (layer settings in memory)
+[Layer Settings 1/2] Editing description, gradient and legend (0/2)
+This plugin does not support propagateSizeHints()
+This plugin does not support propagateSizeHints()
+[Layer Settings] Cancelled; document preserved (1/1)
+[Manual/language audit 2/6] zh_TW formula (8/15)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual+_zh.md
+Output files: None (manual tab; current TTP document retained)
+[Manual tab 1/2] Opening operating manual (0/2)
+[Manual tab 2/2] Ready (2/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual+_zh.md
+Output files: None (read-only manual workspace)
+[Manual 1/3] Reading local guide (0/3)
+[Manual 2/3] Rendering guide and heading outline (1/3)
+[Manual 3/3] Ready: in_app_manual+_zh.md (3/3)
+Input files: None (explicit manual feature link); output files: None
+[Manual feature 1/2] Resolving formula (0/2)
+[Manual feature 2/2] Opening formula (2/2)
+Input files: None; output files: None (formula source snapshots in memory)
+This plugin does not support propagateSizeHints()
+This plugin does not support propagateSizeHints()
+[Manual/language audit 2/6] zh_TW compare (9/15)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual+_zh.md
+Output files: None (manual tab; current TTP document retained)
+[Manual tab 1/2] Opening operating manual (0/2)
+[Manual tab 2/2] Ready (2/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual+_zh.md
+Output files: None (read-only manual workspace)
+[Manual 1/3] Reading local guide (0/3)
+[Manual 2/3] Rendering guide and heading outline (1/3)
+[Manual 3/3] Ready: in_app_manual+_zh.md (3/3)
+Input files: None (explicit manual feature link); output files: None
+[Manual feature 1/2] Resolving compare (0/2)
+[Manual feature 2/2] Opening compare (2/2)
+Input files: None; output files: None (open documents in memory)
+[Selection Compare 1/2] Comparing selected TTPs (0/1)
+[Selection Compare 2/2] Both: 0; Left only: 0; Right only: 1 (1/1)
+This plugin does not support propagateSizeHints()
+This plugin does not support propagateSizeHints()
+[Manual/language audit 2/6] zh_TW compare-versions (10/15)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual+_zh.md
+Output files: None (manual tab; current TTP document retained)
+[Manual tab 1/2] Opening operating manual (0/2)
+[Manual tab 2/2] Ready (2/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual+_zh.md
+Output files: None (read-only manual workspace)
+[Manual 1/3] Reading local guide (0/3)
+[Manual 2/3] Rendering guide and heading outline (1/3)
+[Manual 3/3] Ready: in_app_manual+_zh.md (3/3)
+Input files: None (explicit manual feature link); output files: None
+[Manual feature 1/2] Resolving compare-versions (0/2)
+[Manual feature 2/2] Opening compare-versions (2/2)
+This plugin does not support propagateSizeHints()
+This plugin does not support propagateSizeHints()
+[Manual/language audit 2/6] zh_TW import-layer (11/15)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual+_zh.md
+Output files: None (manual tab; current TTP document retained)
+[Manual tab 1/2] Opening operating manual (0/2)
+[Manual tab 2/2] Ready (2/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual+_zh.md
+Output files: None (read-only manual workspace)
+[Manual 1/3] Reading local guide (0/3)
+[Manual 2/3] Rendering guide and heading outline (1/3)
+[Manual 3/3] Ready: in_app_manual+_zh.md (3/3)
+Input files: None (explicit manual feature link); output files: None
+[Manual feature 1/2] Resolving import-layer (0/2)
+[Manual feature 2/2] Opening import-layer (2/2)
+This plugin does not support propagateSizeHints()
+This plugin does not support propagateSizeHints()
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/versions-cache.json
+This plugin does not support propagateSizeHints()
+This plugin does not support propagateSizeHints()
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/manual-language/run-ea0f29cc7dc9485d8e0887f7f6634506/source.navigator.json
+Output files: None (multi-layer import preview in memory)
+[Layer Batch 1/5] Reading and validating every layer in the JSON file (0/5)
+This plugin does not support propagateSizeHints()
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/manual-language/run-ea0f29cc7dc9485d8e0887f7f6634506/source.navigator.json
+Output files: None (import preview in memory)
+[Navigator Import 1/4] Reading and validating layer file (0/1)
+[Navigator Import 1/4] Layer validated by mitreattack-python (1/1)
+[Manual/language audit 2/6] zh_TW sources (12/15)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual+_zh.md
+Output files: None (manual tab; current TTP document retained)
+[Manual tab 1/2] Opening operating manual (0/2)
+[Manual tab 2/2] Ready (2/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual+_zh.md
+Output files: None (read-only manual workspace)
+[Manual 1/3] Reading local guide (0/3)
+[Manual 2/3] Rendering guide and heading outline (1/3)
+[Manual 3/3] Ready: in_app_manual+_zh.md (3/3)
+Input files: None (explicit manual feature link); output files: None
+[Manual feature 1/2] Resolving sources (0/2)
+[Manual feature 2/2] Opening sources (2/2)
+This plugin does not support propagateSizeHints()
+This plugin does not support propagateSizeHints()
+[Manual/language audit 2/6] zh_TW upgrade (13/15)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual+_zh.md
+Output files: None (manual tab; current TTP document retained)
+[Manual tab 1/2] Opening operating manual (0/2)
+[Manual tab 2/2] Ready (2/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual+_zh.md
+Output files: None (read-only manual workspace)
+[Manual 1/3] Reading local guide (0/3)
+[Manual 2/3] Rendering guide and heading outline (1/3)
+[Manual 3/3] Ready: in_app_manual+_zh.md (3/3)
+Input files: None (explicit manual feature link); output files: None
+[Manual feature 1/2] Resolving upgrade (0/2)
+[Manual feature 2/2] Opening upgrade (2/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/versions-cache.json
+This plugin does not support propagateSizeHints()
+This plugin does not support propagateSizeHints()
+[Manual/language audit 2/6] zh_TW export-svg (14/15)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual+_zh.md
+Output files: None (manual tab; current TTP document retained)
+[Manual tab 1/2] Opening operating manual (0/2)
+[Manual tab 2/2] Ready (2/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual+_zh.md
+Output files: None (read-only manual workspace)
+[Manual 1/3] Reading local guide (0/3)
+[Manual 2/3] Rendering guide and heading outline (1/3)
+[Manual 3/3] Ready: in_app_manual+_zh.md (3/3)
+Input files: None (explicit manual feature link); output files: None
+[Manual feature 1/2] Resolving export-svg (0/2)
+[Manual feature 2/2] Opening export-svg (2/2)
+This plugin does not support propagateSizeHints()
+This plugin does not support propagateSizeHints()
+Input files: None (matrix/layer snapshots in memory)
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/manual-language/run-ea0f29cc7dc9485d8e0887f7f6634506/preview.svg
+This plugin does not support propagateSizeHints()
+This plugin does not support propagateSizeHints()
+[Manual/language audit 2/6] zh_TW export-excel (15/15)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual+_zh.md
+Output files: None (manual tab; current TTP document retained)
+[Manual tab 1/2] Opening operating manual (0/2)
+[Manual tab 2/2] Ready (2/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual+_zh.md
+Output files: None (read-only manual workspace)
+[Manual 1/3] Reading local guide (0/3)
+[Manual 2/3] Rendering guide and heading outline (1/3)
+[Manual 3/3] Ready: in_app_manual+_zh.md (3/3)
+Input files: None (explicit manual feature link); output files: None
+[Manual feature 1/2] Resolving export-excel (0/2)
+[Manual feature 2/2] Opening export-excel (2/2)
+This plugin does not support propagateSizeHints()
+This plugin does not support propagateSizeHints()
+Input files: None (matrix/layer snapshots in memory)
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/manual-language/run-ea0f29cc7dc9485d8e0887f7f6634506/preview.xlsx
+This plugin does not support propagateSizeHints()
+This plugin does not support propagateSizeHints()
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual+_zh.md
+Output files: None (manual tab; current TTP document retained)
+[Manual tab 1/2] Opening operating manual (0/2)
+[Manual tab 2/2] Ready (2/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual+_zh.md
+Output files: None (read-only manual workspace)
+[Manual 1/3] Reading local guide (0/3)
+[Manual 2/3] Rendering guide and heading outline (1/3)
+[Manual 3/3] Ready: in_app_manual+_zh.md (3/3)
+[Manual/language audit 3/6] Repeated manual switching, closing and reopening
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual+_zh.md
+Output files: None (manual tab; current TTP document retained)
+[Manual tab 1/2] Opening operating manual (0/2)
+[Manual tab 2/2] Ready (2/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual+_zh.md
+Output files: None (manual tab; current TTP document retained)
+[Manual tab 1/2] Opening operating manual (0/2)
+[Manual tab 2/2] Ready (2/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual+_zh.md
+Output files: None (manual tab; current TTP document retained)
+[Manual tab 1/2] Opening operating manual (0/2)
+[Manual tab 2/2] Ready (2/2)
+Input files: None; output files: None (close manual tab)
+[Manual tab 1/2] Closing manual (0/2)
+[Manual tab 2/2] Closed (2/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual+_zh.md
+Output files: None (manual tab; current TTP document retained)
+[Manual tab 1/2] Opening operating manual (0/2)
+[Manual tab 2/2] Ready (2/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual+_zh.md
+Output files: None (manual tab; current TTP document retained)
+[Manual tab 1/2] Opening operating manual (0/2)
+[Manual tab 2/2] Ready (2/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual+_zh.md
+Output files: None (manual tab; current TTP document retained)
+[Manual tab 1/2] Opening operating manual (0/2)
+[Manual tab 2/2] Ready (2/2)
+Input files: None; output files: None (close manual tab)
+[Manual tab 1/2] Closing manual (0/2)
+[Manual tab 2/2] Closed (2/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual+_zh.md
+Output files: None (manual tab; current TTP document retained)
+[Manual tab 1/2] Opening operating manual (0/2)
+[Manual tab 2/2] Ready (2/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual+_zh.md
+Output files: None (manual tab; current TTP document retained)
+[Manual tab 1/2] Opening operating manual (0/2)
+[Manual tab 2/2] Ready (2/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual+_zh.md
+Output files: None (manual tab; current TTP document retained)
+[Manual tab 1/2] Opening operating manual (0/2)
+[Manual tab 2/2] Ready (2/2)
+Input files: None; output files: None (close manual tab)
+[Manual tab 1/2] Closing manual (0/2)
+[Manual tab 2/2] Closed (2/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual+_zh.md
+Output files: None (manual tab; current TTP document retained)
+[Manual tab 1/2] Opening operating manual (0/2)
+[Manual tab 2/2] Ready (2/2)
+[Document 1/2] Input files: None; output files: None; activating Untitled-1 (0/2)
+[Document 2/2] Ready: Untitled-1; 0 selected TTPs (2/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual+_zh.md
+Output files: None (manual tab; current TTP document retained)
+[Manual tab 1/2] Opening operating manual (0/2)
+[Manual tab 2/2] Ready (2/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual+_zh.md
+Output files: None (read-only manual workspace)
+[Manual 1/3] Reading local guide (0/3)
+[Manual 2/3] Rendering guide and heading outline (1/3)
+[Manual 3/3] Ready: in_app_manual+_zh.md (3/3)
+Input files: None (explicit manual feature link); output files: None
+[Manual feature 1/2] Resolving batch-edit (0/2)
+[Manual feature 2/2] Unavailable for the current workspace (2/2)
+Input files: None; output files: None (close manual tab)
+[Manual tab 1/2] Closing manual (0/2)
+[Manual tab 2/2] Closed (2/2)
+[Document 1/2] Input files: None; output files: None; activating Manual (0/2)
+[Document 2/2] Ready: Manual; 1 selected TTPs (2/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual+_zh.md
+Output files: None (manual tab; current TTP document retained)
+[Manual tab 1/2] Opening operating manual (0/2)
+[Manual tab 2/2] Ready (2/2)
+[Manual/language audit 4/6] Preserving source values, headers and every preference round trip
+Input translation file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/locales/zh_TW.json
+Input/output settings file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/manual-language/run-ea0f29cc7dc9485d8e0887f7f6634506/settings.ini
+[Language setting 1/3] Validating requested language (0/3)
+[Language setting 2/3] Saving interface preference (1/3)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual_en.md
+Output files: None (read-only manual workspace)
+[Manual 1/3] Reading local guide (0/3)
+[Manual 2/3] Rendering guide and heading outline (1/3)
+[Manual 3/3] Ready: in_app_manual_en.md (3/3)
+[Language setting 3/3] Interface and manual updated (3/3)
+Input translation file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/locales/zh_TW.json
+Input/output settings file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/manual-language/run-ea0f29cc7dc9485d8e0887f7f6634506/settings.ini
+[Language setting 1/3] Validating requested language (0/3)
+[Language setting 2/3] Saving interface preference (1/3)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual+_zh.md
+Output files: None (read-only manual workspace)
+[Manual 1/3] Reading local guide (0/3)
+[Manual 2/3] Rendering guide and heading outline (1/3)
+[Manual 3/3] Ready: in_app_manual+_zh.md (3/3)
+[Language setting 3/3] Interface and manual updated (3/3)
+Input translation file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/locales/zh_TW.json
+Input/output settings file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/manual-language/run-ea0f29cc7dc9485d8e0887f7f6634506/settings.ini
+[Language setting 1/3] Validating requested language (0/3)
+[Language setting 2/3] Saving interface preference (1/3)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual_en.md
+Output files: None (read-only manual workspace)
+[Manual 1/3] Reading local guide (0/3)
+[Manual 2/3] Rendering guide and heading outline (1/3)
+[Manual 3/3] Ready: in_app_manual_en.md (3/3)
+[Language setting 3/3] Interface and manual updated (3/3)
+Input translation file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/locales/zh_TW.json
+Input/output settings file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/manual-language/run-ea0f29cc7dc9485d8e0887f7f6634506/settings.ini
+[Language setting 1/3] Validating requested language (0/3)
+[Language setting 2/3] Saving interface preference (1/3)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual+_zh.md
+Output files: None (read-only manual workspace)
+[Manual 1/3] Reading local guide (0/3)
+[Manual 2/3] Rendering guide and heading outline (1/3)
+[Manual 3/3] Ready: in_app_manual+_zh.md (3/3)
+[Language setting 3/3] Interface and manual updated (3/3)
+[Manual/language audit 5/6] Restoring preference in a fresh window
+[UI settings 1/2] Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/manual-language/run-ea0f29cc7dc9485d8e0887f7f6634506/settings.ini
+[UI settings 1/2] Output files: None (reading preferences)
+[UI settings 2/2] Complete: navigation labels shown
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/info/attack-release-notes.json
+Output files: None (Info menu in memory)
+[Info history 1/2] Reading offline release introductions
+[Info history 2/2] Complete: 20 official release entries
+[Navigation icons 1/3] Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/assets/ttp-selection-studio-icon-pixel.png
+[Navigation icons 1/3] Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/assets/navigation/mitigations.png
+[Navigation icons 1/3] Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/assets/navigation/assets.png
+[Navigation icons 1/3] Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/assets/navigation/detections.png
+[Navigation icons 1/3] Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/assets/navigation/groups.png
+[Navigation icons 1/3] Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/assets/navigation/software.png
+[Navigation icons 1/3] Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/assets/navigation/campaigns.png
+[Navigation icons 1/3] Output files: None (button icons in memory)
+[Navigation icons 2/3] Loading TTP (1/7)
+[Navigation icons 2/3] Loading Mitigations (2/7)
+[Navigation icons 2/3] Loading Assets (3/7)
+[Navigation icons 2/3] Loading Detections (4/7)
+[Navigation icons 2/3] Loading Groups (5/7)
+[Navigation icons 2/3] Loading Software (6/7)
+[Navigation icons 2/3] Loading Campaigns (7/7)
+[Navigation icons 3/3] Complete: 7/7 icons ready
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/active.json
+Output files: None (catalog is loaded into memory)
+[1/4 Resolve] Reading snapshot pointer
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/v20.0/manifest.json
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/v20.0/enterprise-attack-20.0.json
+[1/4 Resolve] Complete: Enterprise ATT&CK v20.0 (1/1)
+[2/4 Read] Reading and checking bundle (4194304/55271014)
+[2/4 Read] Reading and checking bundle (8388608/55271014)
+[2/4 Read] Reading and checking bundle (12582912/55271014)
+[2/4 Read] Reading and checking bundle (16777216/55271014)
+[2/4 Read] Reading and checking bundle (20971520/55271014)
+[2/4 Read] Reading and checking bundle (25165824/55271014)
+[2/4 Read] Reading and checking bundle (29360128/55271014)
+[2/4 Read] Reading and checking bundle (33554432/55271014)
+[2/4 Read] Reading and checking bundle (37748736/55271014)
+[2/4 Read] Reading and checking bundle (41943040/55271014)
+[2/4 Read] Reading and checking bundle (46137344/55271014)
+[2/4 Read] Reading and checking bundle (50331648/55271014)
+[2/4 Read] Reading and checking bundle (54525952/55271014)
+[2/4 Read] Reading and checking bundle (55271014/55271014)
+[2/4 Read] Parsing JSON
+[3/4 Index] Indexing active ATT&CK objects (2000/26690)
+[3/4 Index] Indexing active ATT&CK objects (4000/26690)
+[3/4 Index] Indexing active ATT&CK objects (6000/26690)
+[3/4 Index] Indexing active ATT&CK objects (8000/26690)
+[3/4 Index] Indexing active ATT&CK objects (10000/26690)
+[3/4 Index] Indexing active ATT&CK objects (12000/26690)
+[3/4 Index] Indexing active ATT&CK objects (14000/26690)
+[3/4 Index] Indexing active ATT&CK objects (16000/26690)
+[3/4 Index] Indexing active ATT&CK objects (18000/26690)
+[3/4 Index] Indexing active ATT&CK objects (20000/26690)
+[3/4 Index] Indexing active ATT&CK objects (22000/26690)
+[3/4 Index] Indexing active ATT&CK objects (24000/26690)
+[3/4 Index] Indexing active ATT&CK objects (26000/26690)
+[3/4 Index] Mapping platforms and tactics (100/706)
+[3/4 Index] Mapping platforms and tactics (200/706)
+[3/4 Index] Mapping platforms and tactics (300/706)
+[3/4 Index] Mapping platforms and tactics (400/706)
+[3/4 Index] Mapping platforms and tactics (500/706)
+[3/4 Index] Mapping platforms and tactics (600/706)
+[3/4 Index] Mapping platforms and tactics (700/706)
+[3/4 Index] Complete: 706 active techniques/sub-techniques, 11 platforms (706/706)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/26690)
+[3/4 Procedures] Reading Enterprise relationships (4000/26690)
+[3/4 Procedures] Reading Enterprise relationships (8000/26690)
+[3/4 Procedures] Reading Enterprise relationships (12000/26690)
+[3/4 Procedures] Reading Enterprise relationships (16000/26690)
+[3/4 Procedures] Reading Enterprise relationships (20000/26690)
+[3/4 Procedures] Reading Enterprise relationships (24000/26690)
+[3/4 Procedures] Complete: Enterprise 17636 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/26690)
+[3/4 Related TTPs] Reading relationships (4000/26690)
+[3/4 Related TTPs] Reading relationships (8000/26690)
+[3/4 Related TTPs] Reading relationships (12000/26690)
+[3/4 Related TTPs] Reading relationships (16000/26690)
+[3/4 Related TTPs] Reading relationships (20000/26690)
+[3/4 Related TTPs] Reading relationships (24000/26690)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 23980 direct/derived mappings (1/1)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/v20.0/mobile-attack-20.0.json
+[3/4 Library] Reading and checking Mobile (4194304/6095145)
+[3/4 Library] Reading and checking Mobile (6095145/6095145)
+[3/4 Library] Parsing Mobile JSON
+[3/4 Procedures] Indexing Mobile procedure examples (0/2684)
+[3/4 Procedures] Complete: Mobile 1522 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Mobile objects in memory)
+[3/4 Related TTPs] Indexing Mobile direct source relationships (0/2684)
+[3/4 Related TTPs] Resolving Mobile strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Mobile 2419 direct/derived mappings (1/1)
+[3/4 Library] Complete: Mobile (1/1)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/v20.0/ics-attack-20.0.json
+[3/4 Library] Reading and checking ICS (4194304/5266683)
+[3/4 Library] Reading and checking ICS (5266683/5266683)
+[3/4 Library] Parsing ICS JSON
+[3/4 Procedures] Indexing ICS procedure examples (0/2566)
+[3/4 Procedures] Complete: ICS 307 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships (0/2566)
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 2185 direct/derived mappings (1/1)
+[3/4 Library] Complete: ICS (1/1)
+[3/4 Library] Complete: six navigation categories indexed across all three domains (1/1)
+[4/4 Tree] Complete: 706 unique selectable technique IDs
+Input files: None (exact domain/version catalog in memory); output files: None
+[Search Index 1/3] Reading legacy data sources and active detection mappings (0/3)
+[Search Index 2/3] Building name/ID/description/data-source/detection-strategy fields (1/3)
+[Search Index 3/3] Ready: 706 techniques in enterprise-attack v20.0 (3/3)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual+_zh.md
+Output files: None (manual tab; current TTP document retained)
+[Manual tab 1/2] Opening operating manual (0/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/manual/in_app_manual+_zh.md
+Output files: None (read-only manual workspace)
+[Manual 1/3] Reading local guide (0/3)
+[Manual 2/3] Rendering guide and heading outline (1/3)
+[Manual 3/3] Ready: in_app_manual+_zh.md (3/3)
+[Manual tab 2/2] Ready (2/2)
+[Manual/language audit 6/6] Publishing results
+[Manual/language audit] PASS: 30 feature/language cases

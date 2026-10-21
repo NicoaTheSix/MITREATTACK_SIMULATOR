@@ -1,0 +1,143 @@
+{
+  "schema_version": "1.0",
+  "document_id": "8f767f44-7532-4302-a780-eb9c566f9208",
+  "name": "state.studio",
+  "created_at_utc": "2026-10-19T08:47:07.809202+00:00",
+  "exported_at_utc": "2026-10-19T08:47:14.714571+00:00",
+  "attack": {
+    "domain": "enterprise-attack",
+    "version": "19.2",
+    "source_url": "D:\\MITREATTACK_SIMULATOR\\artifacts\\source-preview\\fixture.json",
+    "dataset_sha256": "f7c37f28a1b0ba906bf4d12a93b3bcc40fa9e949aac9c030b53a8186bc765516",
+    "custom": true
+  },
+  "selected_count": 1,
+  "selected_technique_ids": [
+    "T1000"
+  ],
+  "selected_ttps": [
+    {
+      "technique_id": "T1000",
+      "stix_id": "attack-pattern--c4f9279a-9bbb-54ad-ab31-3fca5363870c",
+      "name": "Alpha",
+      "is_subtechnique": false,
+      "parent_technique_id": null,
+      "parent_technique_name": null,
+      "platforms": [
+        "Linux",
+        "Windows"
+      ],
+      "tactics": [
+        {
+          "tactic_id": null,
+          "name": "Execution",
+          "shortname": "execution"
+        },
+        {
+          "tactic_id": null,
+          "name": "Initial-Access",
+          "shortname": "initial-access"
+        }
+      ],
+      "comment": "Keep parent note",
+      "tactic_comments": [],
+      "enabled": true,
+      "tactic_enabled": [
+        {
+          "tactic": "execution",
+          "enabled": true
+        },
+        {
+          "tactic": "initial-access",
+          "enabled": true
+        }
+      ],
+      "selected_tactics": [
+        "execution",
+        "initial-access"
+      ]
+    }
+  ],
+  "navigator_import_selected": [],
+  "selection_scopes": {},
+  "selection_preferences": {
+    "across_tactics": false,
+    "with_family": true,
+    "visible_only": true
+  },
+  "search_fields": [
+    "name",
+    "id"
+  ],
+  "navigator_layer": {
+    "name": "Hover example",
+    "domain": "enterprise-attack",
+    "techniques": [
+      {
+        "techniqueID": "T1000",
+        "color": "#cc5522",
+        "score": 8,
+        "comment": "Keep parent note",
+        "metadata": [
+          {
+            "name": "Owner",
+            "value": "Blue"
+          },
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "true"
+          }
+        ],
+        "links": [
+          {
+            "label": "Reference",
+            "url": "https://example.org/"
+          }
+        ]
+      },
+      {
+        "techniqueID": "T1000.001",
+        "color": "#11aa33",
+        "enabled": false,
+        "score": 0,
+        "comment": "Disabled child",
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "false"
+          }
+        ]
+      },
+      {
+        "techniqueID": "T1001",
+        "color": "#334455",
+        "score": 4,
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "false"
+          }
+        ]
+      }
+    ],
+    "selectTechniquesAcrossTactics": false,
+    "selectSubtechniquesWithParent": true,
+    "selectVisibleTechniques": true,
+    "x_ttp_studio_search_fields": [
+      "name",
+      "id"
+    ],
+    "versions": {
+      "attack": "19.2",
+      "navigator": "5.2.0",
+      "layer": "4.5"
+    },
+    "customDataURL": "D:\\MITREATTACK_SIMULATOR\\artifacts\\source-preview\\fixture.json",
+    "x_ttp_studio_dataset": "f7c37f28a1b0ba906bf4d12a93b3bcc40fa9e949aac9c030b53a8186bc765516",
+    "layout": {
+      "expandedSubtechniques": "none",
+      "layout": "mini"
+    },
+    "sorting": 0
+  }
+}

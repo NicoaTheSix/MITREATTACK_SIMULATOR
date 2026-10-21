@@ -1,0 +1,641 @@
+Python executable: D:\MITREATTACK_SIMULATOR\.venv\Scripts\pythonw.exe
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\active.json
+Output files: None (in-memory UI)
+[Windows taskbar 1/2] Input files: None (application identity in memory)
+[Windows taskbar 1/2] Output files: None (current process identity)
+[Windows taskbar 2/2] Complete: TTPSelectionStudio.Desktop
+[Application icon 1/2] Input file: D:\MITREATTACK_SIMULATOR\assets\ttp-selection-studio-icon-pixel.png
+[Application icon 1/2] Output files: None (application/window icon in memory)
+[Application icon 2/2] Complete: pixel icon applied to application and windows
+[UI settings 1/2] Input file: D:\MITREATTACK_SIMULATOR\data\ui-settings.ini
+[UI settings 1/2] Output files: None (reading preferences)
+[UI settings 2/2] Complete: navigation labels hidden
+[Language 1/2] Input file: D:\MITREATTACK_SIMULATOR\locales\zh_TW.json
+Output files: None (translation catalog in memory)
+[Language 2/2] Ready: 605 Taiwan translations
+Input file: D:\MITREATTACK_SIMULATOR\data\info\attack-release-notes.json
+Output files: None (Info menu in memory)
+[Info history 1/2] Reading offline release introductions
+[Info history 2/2] Complete: 20 official release entries
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\ttp-selection-studio-icon-pixel.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\mitigations.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\assets.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\detections.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\groups.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\software.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\campaigns.png
+[Navigation icons 1/3] Output files: None (button icons in memory)
+[Navigation icons 2/3] Loading TTP (1/7)
+[Navigation icons 2/3] Loading Mitigations (2/7)
+[Navigation icons 2/3] Loading Assets (3/7)
+[Navigation icons 2/3] Loading Detections (4/7)
+[Navigation icons 2/3] Loading Groups (5/7)
+[Navigation icons 2/3] Loading Software (6/7)
+[Navigation icons 2/3] Loading Campaigns (7/7)
+[Navigation icons 3/3] Complete: 7/7 icons ready
+Input files: None (recovery ownership check)
+Output session file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+Output lock file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json.lock
+[Taskbar window 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\ttp-selection-studio-icon-pixel.ico
+[Taskbar window 1/3] Output files: None (Windows window properties in memory)
+[Taskbar window 2/3] Setting property 2 (1/4)
+[Taskbar window 2/3] Setting property 4 (2/4)
+[Taskbar window 2/3] Setting property 3 (3/4)
+[Taskbar window 2/3] Setting property 5 (4/4)
+[Taskbar window 3/3] Complete: window identity and pixel relaunch icon verified
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\active.json
+Output files: None (catalog is loaded into memory)
+[1/4 Resolve] Reading snapshot pointer
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v20.0\manifest.json
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v20.0\enterprise-attack-20.0.json
+[1/4 Resolve] Complete: Enterprise ATT&CK v20.0 (1/1)
+[2/4 Read] Reading and checking bundle (4194304/55271014)
+[2/4 Read] Reading and checking bundle (8388608/55271014)
+[2/4 Read] Reading and checking bundle (12582912/55271014)
+[2/4 Read] Reading and checking bundle (16777216/55271014)
+[2/4 Read] Reading and checking bundle (20971520/55271014)
+[2/4 Read] Reading and checking bundle (25165824/55271014)
+[2/4 Read] Reading and checking bundle (29360128/55271014)
+[2/4 Read] Reading and checking bundle (33554432/55271014)
+[2/4 Read] Reading and checking bundle (37748736/55271014)
+[2/4 Read] Reading and checking bundle (41943040/55271014)
+[2/4 Read] Reading and checking bundle (46137344/55271014)
+[2/4 Read] Reading and checking bundle (50331648/55271014)
+[2/4 Read] Reading and checking bundle (54525952/55271014)
+[2/4 Read] Reading and checking bundle (55271014/55271014)
+[2/4 Read] Parsing JSON
+[3/4 Index] Indexing active ATT&CK objects (2000/26690)
+[3/4 Index] Indexing active ATT&CK objects (4000/26690)
+[3/4 Index] Indexing active ATT&CK objects (6000/26690)
+[3/4 Index] Indexing active ATT&CK objects (8000/26690)
+[3/4 Index] Indexing active ATT&CK objects (10000/26690)
+[3/4 Index] Indexing active ATT&CK objects (12000/26690)
+[3/4 Index] Indexing active ATT&CK objects (14000/26690)
+[3/4 Index] Indexing active ATT&CK objects (16000/26690)
+[3/4 Index] Indexing active ATT&CK objects (18000/26690)
+[3/4 Index] Indexing active ATT&CK objects (20000/26690)
+[3/4 Index] Indexing active ATT&CK objects (22000/26690)
+[3/4 Index] Indexing active ATT&CK objects (24000/26690)
+[3/4 Index] Indexing active ATT&CK objects (26000/26690)
+[3/4 Index] Mapping platforms and tactics (100/706)
+[3/4 Index] Mapping platforms and tactics (200/706)
+[3/4 Index] Mapping platforms and tactics (300/706)
+[3/4 Index] Mapping platforms and tactics (400/706)
+[3/4 Index] Mapping platforms and tactics (500/706)
+[3/4 Index] Mapping platforms and tactics (600/706)
+[3/4 Index] Mapping platforms and tactics (700/706)
+[3/4 Index] Complete: 706 active techniques/sub-techniques, 11 platforms (706/706)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/26690)
+[3/4 Procedures] Reading Enterprise relationships (4000/26690)
+[3/4 Procedures] Reading Enterprise relationships (8000/26690)
+[3/4 Procedures] Reading Enterprise relationships (12000/26690)
+[3/4 Procedures] Reading Enterprise relationships (16000/26690)
+[3/4 Procedures] Reading Enterprise relationships (20000/26690)
+[3/4 Procedures] Reading Enterprise relationships (24000/26690)
+[3/4 Procedures] Complete: Enterprise 17636 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/26690)
+[3/4 Related TTPs] Reading relationships (4000/26690)
+[3/4 Related TTPs] Reading relationships (8000/26690)
+[3/4 Related TTPs] Reading relationships (12000/26690)
+[3/4 Related TTPs] Reading relationships (16000/26690)
+[3/4 Related TTPs] Reading relationships (20000/26690)
+[3/4 Related TTPs] Reading relationships (24000/26690)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 23980 direct/derived mappings (1/1)
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v20.0\mobile-attack-20.0.json
+[3/4 Library] Reading and checking Mobile (4194304/6095145)
+[3/4 Library] Reading and checking Mobile (6095145/6095145)
+[3/4 Library] Parsing Mobile JSON
+[3/4 Procedures] Indexing Mobile procedure examples (0/2684)
+[3/4 Procedures] Complete: Mobile 1522 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Mobile objects in memory)
+[3/4 Related TTPs] Indexing Mobile direct source relationships (0/2684)
+[3/4 Related TTPs] Resolving Mobile strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Mobile 2419 direct/derived mappings (1/1)
+[3/4 Library] Complete: Mobile (1/1)
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v20.0\ics-attack-20.0.json
+[3/4 Library] Reading and checking ICS (4194304/5266683)
+[3/4 Library] Reading and checking ICS (5266683/5266683)
+[3/4 Library] Parsing ICS JSON
+[3/4 Procedures] Indexing ICS procedure examples (0/2566)
+[3/4 Procedures] Complete: ICS 307 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships (0/2566)
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 2185 direct/derived mappings (1/1)
+[3/4 Library] Complete: ICS (1/1)
+[3/4 Library] Complete: six navigation categories indexed across all three domains (1/1)
+[4/4 Tree] Complete: 706 unique selectable technique IDs
+Input files: None (exact domain/version catalog in memory); output files: None
+[Search Index 1/3] Reading legacy data sources and active detection mappings (0/3)
+[Search Index 2/3] Building name/ID/description/data-source/detection-strategy fields (1/3)
+[Search Index 3/3] Ready: 706 techniques in enterprise-attack v20.0 (3/3)
+Input file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+Output files: None (validated draft in memory)
+[Studio Open 1/4] Reading bounded UTF-8 JSON (0/4)
+[Studio Open 2/4] Resolving exact dataset 20.0 (1/4)
+Input pointer: in memory (validated version selection)
+Output files: None (catalog is loaded into memory)
+[1/4 Resolve] Reading snapshot pointer
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v20.0\manifest.json
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v20.0\enterprise-attack-20.0.json
+[1/4 Resolve] Complete: Enterprise ATT&CK v20.0 (1/1)
+[2/4 Read] Reading and checking bundle (4194304/55271014)
+[2/4 Read] Reading and checking bundle (8388608/55271014)
+[2/4 Read] Reading and checking bundle (12582912/55271014)
+[2/4 Read] Reading and checking bundle (16777216/55271014)
+[2/4 Read] Reading and checking bundle (20971520/55271014)
+[2/4 Read] Reading and checking bundle (25165824/55271014)
+[2/4 Read] Reading and checking bundle (29360128/55271014)
+[2/4 Read] Reading and checking bundle (33554432/55271014)
+[2/4 Read] Reading and checking bundle (37748736/55271014)
+[2/4 Read] Reading and checking bundle (41943040/55271014)
+[2/4 Read] Reading and checking bundle (46137344/55271014)
+[2/4 Read] Reading and checking bundle (50331648/55271014)
+[2/4 Read] Reading and checking bundle (54525952/55271014)
+[2/4 Read] Reading and checking bundle (55271014/55271014)
+[2/4 Read] Parsing JSON
+[3/4 Index] Indexing active ATT&CK objects (2000/26690)
+[3/4 Index] Indexing active ATT&CK objects (4000/26690)
+[3/4 Index] Indexing active ATT&CK objects (6000/26690)
+[3/4 Index] Indexing active ATT&CK objects (8000/26690)
+[3/4 Index] Indexing active ATT&CK objects (10000/26690)
+[3/4 Index] Indexing active ATT&CK objects (12000/26690)
+[3/4 Index] Indexing active ATT&CK objects (14000/26690)
+[3/4 Index] Indexing active ATT&CK objects (16000/26690)
+[3/4 Index] Indexing active ATT&CK objects (18000/26690)
+[3/4 Index] Indexing active ATT&CK objects (20000/26690)
+[3/4 Index] Indexing active ATT&CK objects (22000/26690)
+[3/4 Index] Indexing active ATT&CK objects (24000/26690)
+[3/4 Index] Indexing active ATT&CK objects (26000/26690)
+[3/4 Index] Mapping platforms and tactics (100/706)
+[3/4 Index] Mapping platforms and tactics (200/706)
+[3/4 Index] Mapping platforms and tactics (300/706)
+[3/4 Index] Mapping platforms and tactics (400/706)
+[3/4 Index] Mapping platforms and tactics (500/706)
+[3/4 Index] Mapping platforms and tactics (600/706)
+[3/4 Index] Mapping platforms and tactics (700/706)
+[3/4 Index] Complete: 706 active techniques/sub-techniques, 11 platforms (706/706)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/26690)
+[3/4 Procedures] Reading Enterprise relationships (4000/26690)
+[3/4 Procedures] Reading Enterprise relationships (8000/26690)
+[3/4 Procedures] Reading Enterprise relationships (12000/26690)
+[3/4 Procedures] Reading Enterprise relationships (16000/26690)
+[3/4 Procedures] Reading Enterprise relationships (20000/26690)
+[3/4 Procedures] Reading Enterprise relationships (24000/26690)
+[3/4 Procedures] Complete: Enterprise 17636 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/26690)
+[3/4 Related TTPs] Reading relationships (4000/26690)
+[3/4 Related TTPs] Reading relationships (8000/26690)
+[3/4 Related TTPs] Reading relationships (12000/26690)
+[3/4 Related TTPs] Reading relationships (16000/26690)
+[3/4 Related TTPs] Reading relationships (20000/26690)
+[3/4 Related TTPs] Reading relationships (24000/26690)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 23980 direct/derived mappings (1/1)
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v20.0\mobile-attack-20.0.json
+[3/4 Library] Reading and checking Mobile (4194304/6095145)
+[3/4 Library] Reading and checking Mobile (6095145/6095145)
+[3/4 Library] Parsing Mobile JSON
+[3/4 Procedures] Indexing Mobile procedure examples (0/2684)
+[3/4 Procedures] Complete: Mobile 1522 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Mobile objects in memory)
+[3/4 Related TTPs] Indexing Mobile direct source relationships (0/2684)
+[3/4 Related TTPs] Resolving Mobile strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Mobile 2419 direct/derived mappings (1/1)
+[3/4 Library] Complete: Mobile (1/1)
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v20.0\ics-attack-20.0.json
+[3/4 Library] Reading and checking ICS (4194304/5266683)
+[3/4 Library] Reading and checking ICS (5266683/5266683)
+[3/4 Library] Parsing ICS JSON
+[3/4 Procedures] Indexing ICS procedure examples (0/2566)
+[3/4 Procedures] Complete: ICS 307 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships (0/2566)
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 2185 direct/derived mappings (1/1)
+[3/4 Library] Complete: ICS (1/1)
+[3/4 Library] Complete: six navigation categories indexed across all three domains (1/1)
+[Studio Open 3/4] Validating annotations and domain/version/migration archives (2/4)
+[Studio Open 4/4] Complete; validated document ready in memory (4/4)
+[Session 2/3] Validating recoverable documents (1/1)
+[Session 3/3] All documents validated; workspace ready for atomic restore (3/3)
+Input files: None; output files: None (closing reference page)
+[Details 1/2] Closing reference tab (0/2)
+[Details 2/2] Closed; document and selected TTPs preserved (2/2)
+[Session] Installing all validated tabs; original checkpoint retained until the next successful checkpoint (1/1)
+[4/4 Tree] Complete: 706 unique selectable technique IDs
+Input files: None (exact domain/version catalog in memory); output files: None
+[Search Index 1/3] Reading legacy data sources and active detection mappings (0/3)
+[Search Index 2/3] Building name/ID/description/data-source/detection-strategy fields (1/3)
+[Search Index 3/3] Ready: 706 techniques in enterprise-attack v20.0 (3/3)
+Input files: None; output files: None (reference page in memory)
+[Details 1/2] Reopening reference page (0/2)
+[Details 2/2] Ready; active document selections preserved (2/2)
+Input files: None (immutable workspace snapshot in memory)
+Output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+[Session 1/3] Preparing recovery checkpoint (0/3)
+Input files: None (validated in-memory data)
+Output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json.8500b5fd295f46abaf529ff9b2a31c18.tmp
+[Session 1/3] Serializing data (0/3)
+[Session 2/3] Writing UTF-8 JSON (1/3)
+[Session 3/3] Publishing file (2/3)
+[Session 3/3] Complete: D:\MITREATTACK_SIMULATOR\data\workspace-session.json (3/3)
+Input files: None (immutable workspace snapshot in memory)
+Output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+[Session 1/3] Preparing recovery checkpoint (0/3)
+Input files: None (validated in-memory data)
+Output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json.46dd9fb0d58d48469dcd78705435e7c9.tmp
+[Session 1/3] Serializing data (0/3)
+[Session 2/3] Writing UTF-8 JSON (1/3)
+[Session 3/3] Publishing file (2/3)
+[Session 3/3] Complete: D:\MITREATTACK_SIMULATOR\data\workspace-session.json (3/3)
+Input files: None; output files: None (source sidebar / matrix view in memory)
+[Source Matrix 1/2] Opening matrix while retaining the source category/query (0/2)
+[Source Picker 1/2] Input files: None; output files: None (verified catalog in memory) (0/2)
+[Source Picker 2/2] Campaign: 57 entries in Enterprise v20.0 (2/2)
+[Matrix 1/3 Scope] Input files: None; output files: None (verified catalog in memory)
+[Matrix 1/3 Scope] Platform/tactic families resolved (1/1)
+[Source Matrix 2/2] Opened; hover source results once matrix columns are ready (2/2)
+[Matrix 2/3 Columns] Building expandable tactic columns (1/15)
+[Matrix 2/3 Columns] Building expandable tactic columns (2/15)
+[Matrix 2/3 Columns] Building expandable tactic columns (3/15)
+[Matrix 2/3 Columns] Building expandable tactic columns (4/15)
+[Matrix 2/3 Columns] Building expandable tactic columns (5/15)
+[Matrix 2/3 Columns] Building expandable tactic columns (6/15)
+[Matrix 2/3 Columns] Building expandable tactic columns (7/15)
+[Matrix 2/3 Columns] Building expandable tactic columns (8/15)
+[Matrix 2/3 Columns] Building expandable tactic columns (9/15)
+[Matrix 2/3 Columns] Building expandable tactic columns (10/15)
+[Matrix 2/3 Columns] Building expandable tactic columns (11/15)
+[Matrix 2/3 Columns] Building expandable tactic columns (12/15)
+[Matrix 2/3 Columns] Building expandable tactic columns (13/15)
+[Matrix 2/3 Columns] Building expandable tactic columns (14/15)
+[Matrix 2/3 Columns] Building expandable tactic columns (15/15)
+[Matrix 3/3 Ready] Matrix columns complete (1/1)
+Input files: None (immutable workspace snapshot in memory)
+Output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+[Session 1/3] Preparing recovery checkpoint (0/3)
+Input files: None (validated in-memory data)
+Output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json.4ffbdaa2979c4c7980eede358cc20fba.tmp
+[Session 1/3] Serializing data (0/3)
+[Session 2/3] Writing UTF-8 JSON (1/3)
+[Session 3/3] Publishing file (2/3)
+[Session 3/3] Complete: D:\MITREATTACK_SIMULATOR\data\workspace-session.json (3/3)
+Input files: None; output files: None (mouse selection in memory)
+[Mouse Selection 1/2] Applying gesture and family/tactic/visibility preferences (0/2)
+[Mouse Selection 2/2] Ready; annotation and enabled state preserved (2/2)
+Input files: None; output files: None (mouse selection in memory)
+[Mouse Selection 1/2] Applying gesture and family/tactic/visibility preferences (0/2)
+[Mouse Selection 2/2] Ready; annotation and enabled state preserved (2/2)
+Input files: None (immutable workspace snapshot in memory)
+Output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+[Session 1/3] Preparing recovery checkpoint (0/3)
+Input files: None (validated in-memory data)
+Output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json.3c2cae7bad634803be3c763cdcf1c631.tmp
+[Session 1/3] Serializing data (0/3)
+[Session 2/3] Writing UTF-8 JSON (1/3)
+[Session 3/3] Publishing file (2/3)
+[Session 3/3] Complete: D:\MITREATTACK_SIMULATOR\data\workspace-session.json (3/3)
+Input files: None; output files: None (selected TTP occurrences in memory)
+[Select TTP 1/2] Resolving tactic/family preferences (0/2)
+[Select TTP 2/2] Ready; enabled states and annotations preserved (2/2)
+Input files: None (immutable workspace snapshot in memory)
+Output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+[Session 1/3] Preparing recovery checkpoint (0/3)
+Input files: None (validated in-memory data)
+Output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json.f131d17a41d0422eab8932888c861f2c.tmp
+[Session 1/3] Serializing data (0/3)
+[Session 2/3] Writing UTF-8 JSON (1/3)
+[Session 3/3] Publishing file (2/3)
+[Session 3/3] Complete: D:\MITREATTACK_SIMULATOR\data\workspace-session.json (3/3)
+Input files: None (immutable workspace snapshot in memory)
+Output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+[Session 1/3] Preparing recovery checkpoint (0/3)
+Input files: None (validated in-memory data)
+Output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json.8f9402241fff4a3599bb12908896e3c1.tmp
+[Session 1/3] Serializing data (0/3)
+[Session 2/3] Writing UTF-8 JSON (1/3)
+[Session 3/3] Publishing file (2/3)
+[Session 3/3] Complete: D:\MITREATTACK_SIMULATOR\data\workspace-session.json (3/3)
+Input file: D:\MITREATTACK_SIMULATOR\manual\in_app_manual_en.md
+Output files: None (manual tab; current TTP document retained)
+[Manual tab 1/2] Opening operating manual (0/2)
+Input file: D:\MITREATTACK_SIMULATOR\manual\in_app_manual_en.md
+Output files: None (read-only manual workspace)
+[Manual 1/3] Reading local guide (0/3)
+[Manual 2/3] Rendering guide and heading outline (1/3)
+[Manual 3/3] Ready: in_app_manual_en.md (3/3)
+[Manual tab 2/2] Ready (2/2)
+Input files: None (immutable workspace snapshot in memory)
+Output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+[Session 1/3] Preparing recovery checkpoint (0/3)
+Input files: None (validated in-memory data)
+Output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json.42756b3a4c08411faf30f7b12f19e735.tmp
+[Session 1/3] Serializing data (0/3)
+[Session 2/3] Writing UTF-8 JSON (1/3)
+[Session 3/3] Publishing file (2/3)
+[Session 3/3] Complete: D:\MITREATTACK_SIMULATOR\data\workspace-session.json (3/3)
+Input file: D:\MITREATTACK_SIMULATOR\manual\in_app_index_en.md
+Output files: None (read-only manual workspace)
+[Manual 1/3] Reading local guide (0/3)
+[Manual 2/3] Rendering guide and heading outline (1/3)
+[Manual 3/3] Ready: in_app_index_en.md (3/3)
+Input translation file: D:\MITREATTACK_SIMULATOR\locales\zh_TW.json
+Input/output settings file: D:\MITREATTACK_SIMULATOR\data\ui-settings.ini
+[Language setting 1/3] Validating requested language (0/3)
+[Language setting 2/3] Saving interface preference (1/3)
+Input file: D:\MITREATTACK_SIMULATOR\manual\in_app_index+_zh.md
+Output files: None (read-only manual workspace)
+[Manual 1/3] Reading local guide (0/3)
+[Manual 2/3] Rendering guide and heading outline (1/3)
+[Manual 3/3] Ready: in_app_index+_zh.md (3/3)
+[Language setting 3/3] Interface and manual updated (3/3)
+Input files: None; output files: None (manual heading in memory)
+[Manual outline 1/2] Resolving heading (0/2)
+[Manual outline 2/2] Ready: 文件與復原 (2/2)
+Input files: None; output files: None (manual heading in memory)
+[Manual outline 1/2] Resolving heading (0/2)
+[Manual outline 2/2] Ready: 操作指南索引 (2/2)
+Input file: D:\MITREATTACK_SIMULATOR\manual\in_app_manual+_zh.md
+Output files: None (read-only manual workspace)
+[Manual 1/3] Reading local guide (0/3)
+[Manual 2/3] Rendering guide and heading outline (1/3)
+[Manual 3/3] Ready: in_app_manual+_zh.md (3/3)
+Input files: None; output files: None (manual heading in memory)
+[Manual outline 1/2] Resolving heading (0/2)
+[Manual outline 2/2] Ready: 7. 公式分析、聚合與比較 (2/2)
+Input files: None; output files: None (manual heading in memory)
+[Manual outline 1/2] Resolving heading (0/2)
+[Manual outline 2/2] Ready: 8. Navigator、自訂資料與版本遷移 (2/2)
+Input files: None; output files: None (manual heading in memory)
+[Manual outline 1/2] Resolving heading (0/2)
+[Manual outline 2/2] Ready: 8. Navigator、自訂資料與版本遷移 (2/2)
+Input files: None (explicit manual feature link); output files: None
+[Manual feature 1/2] Resolving import-layer (0/2)
+[Manual feature 2/2] Opening import-layer (2/2)
+[Navigator Import] Cancelled; no output files written (1/1)
+Input files: None (explicit manual feature link); output files: None
+[Manual feature 1/2] Resolving sources (0/2)
+[Manual feature 2/2] Opening sources (2/2)
+Enter a URL or custom STIX file path. (1/1)
+Input files: None; output files: None (manual heading in memory)
+[Manual outline 1/2] Resolving heading (0/2)
+[Manual outline 2/2] Ready: 9. 匯出與分享 (2/2)
+Input files: None; output files: None (manual heading in memory)
+[Manual outline 1/2] Resolving heading (0/2)
+[Manual outline 2/2] Ready: 11. 作者與官方資源 (2/2)
+Input files: None; output files: None (manual heading in memory)
+[Manual outline 1/2] Resolving heading (0/2)
+[Manual outline 2/2] Ready: 10. 進度、錯誤與復原 (2/2)
+Input files: None; output files: None (manual heading in memory)
+[Manual outline 1/2] Resolving heading (0/2)
+[Manual outline 2/2] Ready: 6. 註記、分數與批次編輯 (2/2)
+Input files: None; output files: None (search rendered manual text)
+[Manual search 1/2] Finding text (0/2)
+[Manual search 2/2] No match (2/2)
+Input files: None; output files: None (search rendered manual text)
+[Manual search 1/2] Finding text (0/2)
+[Manual search 2/2] No match (2/2)
+Input files: None; output files: None (manual heading in memory)
+[Manual outline 1/2] Resolving heading (0/2)
+[Manual outline 2/2] Ready: 4. 瀏覽組織、軟體與偵測資料 (2/2)
+Input files: None (immutable workspace snapshot in memory)
+Output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+[Session 1/3] Preparing recovery checkpoint (0/3)
+Input files: None (validated in-memory data)
+Output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json.8e85afb6d4264a50af669b1700aa5cb7.tmp
+[Session 1/3] Serializing data (0/3)
+[Session 2/3] Writing UTF-8 JSON (1/3)
+[Session 3/3] Publishing file (2/3)
+[Session 3/3] Complete: D:\MITREATTACK_SIMULATOR\data\workspace-session.json (3/3)
+Input files: None; output files: None (source sidebar / matrix view in memory)
+[Source Matrix 1/2] Opening matrix while retaining the source category/query (0/2)
+[Source Matrix 2/2] Opened; hover source results once matrix columns are ready (2/2)
+Input files: None (immutable workspace snapshot in memory)
+Output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+[Session 1/3] Preparing recovery checkpoint (0/3)
+Input files: None (validated in-memory data)
+Output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json.5ddc0765cd5c4f5aa3bba5fa74e4ba03.tmp
+[Session 1/3] Serializing data (0/3)
+[Session 2/3] Writing UTF-8 JSON (1/3)
+[Session 3/3] Publishing file (2/3)
+[Session 3/3] Complete: D:\MITREATTACK_SIMULATOR\data\workspace-session.json (3/3)
+Input files: None (related TTPs from the verified in-memory catalog)
+Output files: None (detail page only)
+[Related TTPs 1/2] Rendering A0001 relationships (0/58)
+[Related TTPs 2/2] Ready: 58 relationships (1/1)
+Input files: None (related TTPs from the verified in-memory catalog)
+Output files: None (detail page only)
+[Related TTPs 1/2] Rendering A0001 relationships (0/58)
+[Related TTPs 2/2] Ready: 58 relationships (1/1)
+Input files: None (immutable workspace snapshot in memory)
+Output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+[Session 1/3] Preparing recovery checkpoint (0/3)
+Input files: None (validated in-memory data)
+Output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json.0b2ebebd6ca745d596512fd28005453c.tmp
+[Session 1/3] Serializing data (0/3)
+[Session 2/3] Writing UTF-8 JSON (1/3)
+[Session 3/3] Publishing file (2/3)
+[Session 3/3] Complete: D:\MITREATTACK_SIMULATOR\data\workspace-session.json (3/3)
+Input files: None (related TTPs from the verified in-memory catalog)
+Output files: None (detail page only)
+[Related TTPs 1/2] Rendering G0002 relationships (0/1)
+[Related TTPs 2/2] Ready: 1 relationships (1/1)
+Input files: None (related TTPs from the verified in-memory catalog)
+Output files: None (detail page only)
+[Related TTPs 1/2] Rendering G0002 relationships (0/1)
+[Related TTPs 2/2] Ready: 1 relationships (1/1)
+Input files: None (immutable workspace snapshot in memory)
+Output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+[Session 1/3] Preparing recovery checkpoint (0/3)
+Input files: None (validated in-memory data)
+Output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json.2a2ed108425040a5ae444bc12a4fc6c8.tmp
+[Session 1/3] Serializing data (0/3)
+[Session 2/3] Writing UTF-8 JSON (1/3)
+[Session 3/3] Publishing file (2/3)
+[Session 3/3] Complete: D:\MITREATTACK_SIMULATOR\data\workspace-session.json (3/3)
+Input files: None (related TTPs from the verified in-memory catalog)
+Output files: None (detail page only)
+[Related TTPs 1/2] Rendering G0001 relationships (0/16)
+[Related TTPs 2/2] Ready: 16 relationships (1/1)
+Input files: None (related TTPs from the verified in-memory catalog)
+Output files: None (detail page only)
+[Related TTPs 1/2] Rendering G0001 relationships (0/16)
+[Related TTPs 2/2] Ready: 16 relationships (1/1)
+Input files: None (related TTPs from the verified in-memory catalog)
+Output files: None (detail page only)
+[Related TTPs 1/2] Rendering G0002 relationships (0/1)
+[Related TTPs 2/2] Ready: 1 relationships (1/1)
+Input files: None (related TTPs from the verified in-memory catalog)
+Output files: None (detail page only)
+[Related TTPs 1/2] Rendering G0002 relationships (0/1)
+[Related TTPs 2/2] Ready: 1 relationships (1/1)
+Input files: None (exact active catalog relationships); output files: None
+[Source Selection 1/3] Resolving source result union and explicit mapping paths (0/3)
+[Source Selection 2/3] Applying deduplicated targets and selection preferences (1/3)
+[Source Selection 3/3] 1 sources; 1 mapped TTPs; 1 tactic occurrences changed; 3 included TTPs; annotations unchanged (3/3)
+Input files: None (immutable workspace snapshot in memory)
+Output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+[Session 1/3] Preparing recovery checkpoint (0/3)
+Input files: None (validated in-memory data)
+Output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json.23ce58e47e2c4732afac8f850978ca74.tmp
+[Session 1/3] Serializing data (0/3)
+[Session 2/3] Writing UTF-8 JSON (1/3)
+[Session 3/3] Publishing file (2/3)
+[Session 3/3] Complete: D:\MITREATTACK_SIMULATOR\data\workspace-session.json (3/3)
+Input files: None (exact active catalog relationships); output files: None
+[Source Selection 1/3] Resolving source result union and explicit mapping paths (0/3)
+[Source Selection 2/3] Applying deduplicated targets and selection preferences (1/3)
+[Source Selection 3/3] 178 sources; 515 mapped TTPs; 622 tactic occurrences changed; 515 included TTPs; annotations unchanged (3/3)
+Input files: None (immutable workspace snapshot in memory)
+Output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+[Session 1/3] Preparing recovery checkpoint (0/3)
+Input files: None (validated in-memory data)
+Output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json.d8d4b1350c0c49308867932162a1eb58.tmp
+[Session 1/3] Serializing data (0/3)
+[Session 2/3] Writing UTF-8 JSON (1/3)
+[Session 3/3] Publishing file (2/3)
+[Session 3/3] Complete: D:\MITREATTACK_SIMULATOR\data\workspace-session.json (3/3)
+Input files: None (related TTPs from the verified in-memory catalog)
+Output files: None (detail page only)
+[Related TTPs 1/2] Rendering G0011 relationships (0/2)
+[Related TTPs 2/2] Ready: 2 relationships (1/1)
+Input files: None (related TTPs from the verified in-memory catalog)
+Output files: None (detail page only)
+[Related TTPs 1/2] Rendering G0011 relationships (0/2)
+[Related TTPs 2/2] Ready: 2 relationships (1/1)
+Input files: None (related TTPs from the verified in-memory catalog)
+Output files: None (detail page only)
+[Related TTPs 1/2] Rendering G0019 relationships (0/14)
+[Related TTPs 2/2] Ready: 14 relationships (1/1)
+Input files: None (related TTPs from the verified in-memory catalog)
+Output files: None (detail page only)
+[Related TTPs 1/2] Rendering G0019 relationships (0/14)
+[Related TTPs 2/2] Ready: 14 relationships (1/1)
+Input files: None (source object in memory); output files: None (hover preview)
+[Object Preview 1/2] Preparing read-only JSON (0/2)
+[Object Preview 2/2] Ready; scroll to inspect or click to copy complete JSON (2/2)
+Input files: None (exact active catalog relationships); output files: None
+[Source Selection 1/3] Resolving source result union and explicit mapping paths (0/3)
+[Source Selection 2/3] Applying deduplicated targets and selection preferences (1/3)
+[Source Selection 3/3] 1 sources; 14 mapped TTPs; 0 tactic occurrences changed; 515 included TTPs; annotations unchanged (3/3)
+Input files: None (immutable workspace snapshot in memory)
+Output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+[Session 1/3] Preparing recovery checkpoint (0/3)
+Input files: None (validated in-memory data)
+Output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json.d8e56fb9a3ff40c9800845feedda1caa.tmp
+[Session 1/3] Serializing data (0/3)
+[Session 2/3] Writing UTF-8 JSON (1/3)
+[Session 3/3] Publishing file (2/3)
+[Session 3/3] Complete: D:\MITREATTACK_SIMULATOR\data\workspace-session.json (3/3)
+Input files: None (immutable workspace snapshot in memory)
+Output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+[Session 1/3] Preparing recovery checkpoint (0/3)
+Input files: None (validated in-memory data)
+Output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json.0948d4557b894e898353c30e58cc76a8.tmp
+[Session 1/3] Serializing data (0/3)
+[Session 2/3] Writing UTF-8 JSON (1/3)
+[Session 3/3] Publishing file (2/3)
+[Session 3/3] Complete: D:\MITREATTACK_SIMULATOR\data\workspace-session.json (3/3)
+Input files: None (exact active catalog relationships); output files: None
+[Source Selection 1/3] Resolving source result union and explicit mapping paths (0/3)
+[Source Selection 2/3] Applying deduplicated targets and selection preferences (1/3)
+[Source Selection 3/3] 178 sources; 515 mapped TTPs; 0 tactic occurrences changed; 515 included TTPs; annotations unchanged (3/3)
+Input files: None (exact active catalog relationships); output files: None
+[Source Selection 1/3] Resolving source result union and explicit mapping paths (0/3)
+[Source Selection 2/3] Applying deduplicated targets and selection preferences (1/3)
+[Source Selection 3/3] 178 sources; 515 mapped TTPs; 625 tactic occurrences changed; 0 included TTPs; annotations unchanged (3/3)
+Input files: None (immutable workspace snapshot in memory)
+Output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+[Session 1/3] Preparing recovery checkpoint (0/3)
+Input files: None (validated in-memory data)
+Output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json.6f17a0699b20464b8042746aeca524eb.tmp
+[Session 1/3] Serializing data (0/3)
+[Session 2/3] Writing UTF-8 JSON (1/3)
+[Session 3/3] Publishing file (2/3)
+[Session 3/3] Complete: D:\MITREATTACK_SIMULATOR\data\workspace-session.json (3/3)
+Input files: None (related TTPs from the verified in-memory catalog)
+Output files: None (detail page only)
+[Related TTPs 1/2] Rendering G0013 relationships (0/2)
+[Related TTPs 2/2] Ready: 2 relationships (1/1)
+Input files: None (related TTPs from the verified in-memory catalog)
+Output files: None (detail page only)
+[Related TTPs 1/2] Rendering G0013 relationships (0/2)
+[Related TTPs 2/2] Ready: 2 relationships (1/1)
+Input files: None (immutable workspace snapshot in memory)
+Output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+[Session 1/3] Preparing recovery checkpoint (0/3)
+Input files: None (validated in-memory data)
+Output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json.9039cabd02344b648529e51e26893f3c.tmp
+[Session 1/3] Serializing data (0/3)
+[Session 2/3] Writing UTF-8 JSON (1/3)
+[Session 3/3] Publishing file (2/3)
+[Session 3/3] Complete: D:\MITREATTACK_SIMULATOR\data\workspace-session.json (3/3)
+Input files: None (exact active catalog relationships); output files: None
+[Source Selection 1/3] Resolving source result union and explicit mapping paths (0/3)
+[Source Selection 2/3] Applying deduplicated targets and selection preferences (1/3)
+[Source Selection 3/3] 178 sources; 515 mapped TTPs; 625 tactic occurrences changed; 515 included TTPs; annotations unchanged (3/3)
+Input files: None (immutable workspace snapshot in memory)
+Output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+[Session 1/3] Preparing recovery checkpoint (0/3)
+Input files: None (validated in-memory data)
+Output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json.a4895db293b343d5b030a632cd9419e5.tmp
+[Session 1/3] Serializing data (0/3)
+[Session 2/3] Writing UTF-8 JSON (1/3)
+[Session 3/3] Publishing file (2/3)
+[Session 3/3] Complete: D:\MITREATTACK_SIMULATOR\data\workspace-session.json (3/3)
+Input files: None (immutable workspace snapshot in memory)
+Output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+[Session 1/3] Preparing recovery checkpoint (0/3)
+Input files: None (validated in-memory data)
+Output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json.02cb3b723d9a4b23a6b7f60a57ae3aaf.tmp
+[Session 1/3] Serializing data (0/3)
+[Session 2/3] Writing UTF-8 JSON (1/3)
+[Session 3/3] Publishing file (2/3)
+[Session 3/3] Complete: D:\MITREATTACK_SIMULATOR\data\workspace-session.json (3/3)
+Input files: None (exact active catalog relationships); output files: None
+[Source Selection 1/3] Resolving source result union and explicit mapping paths (0/3)
+[Source Selection 2/3] Applying deduplicated targets and selection preferences (1/3)
+[Source Selection 3/3] 178 sources; 515 mapped TTPs; 625 tactic occurrences changed; 0 included TTPs; annotations unchanged (3/3)
+Input files: None (immutable workspace snapshot in memory)
+Output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+[Session 1/3] Preparing recovery checkpoint (0/3)
+Input files: None (validated in-memory data)
+Output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json.2846261c840a4163b1d5f8de9cfa05c3.tmp
+[Session 1/3] Serializing data (0/3)
+[Session 2/3] Writing UTF-8 JSON (1/3)
+[Session 3/3] Publishing file (2/3)
+[Session 3/3] Complete: D:\MITREATTACK_SIMULATOR\data\workspace-session.json (3/3)
+Input files: None (immutable workspace snapshot in memory)
+Output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+[Session 1/3] Preparing recovery checkpoint (0/3)
+Input files: None (validated in-memory data)
+Output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json.945cc6591e574845bfd4acf028ed07e7.tmp
+[Session 1/3] Serializing data (0/3)
+[Session 2/3] Writing UTF-8 JSON (1/3)
+[Session 3/3] Publishing file (2/3)
+[Session 3/3] Complete: D:\MITREATTACK_SIMULATOR\data\workspace-session.json (3/3)

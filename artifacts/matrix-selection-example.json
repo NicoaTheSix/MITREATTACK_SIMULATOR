@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0",
-  "document_id": "5a6d3b23-1e8d-4c50-b38a-812374455145",
+  "document_id": "13c58a7f-4644-47aa-991c-a486a8b41391",
   "name": "matrix-selection-example",
-  "created_at_utc": "2026-10-15T07:30:51.311578+00:00",
-  "exported_at_utc": "2026-10-15T07:30:54.516833+00:00",
+  "created_at_utc": "2026-10-19T08:42:03.540744+00:00",
+  "exported_at_utc": "2026-10-19T08:42:10.273155+00:00",
   "attack": {
     "domain": "enterprise-attack",
-    "version": "19.2",
+    "version": "20.0",
     "source_url": "https://github.com/mitre-attack/attack-stix-data"
   },
   "selected_count": 1,
@@ -57,18 +57,51 @@
           "tactic": "privilege-escalation",
           "enabled": true
         }
+      ],
+      "selected_tactics": [
+        "execution",
+        "persistence",
+        "privilege-escalation"
       ]
     }
+  ],
+  "navigator_import_selected": [],
+  "selection_scopes": {},
+  "selection_preferences": {
+    "across_tactics": true,
+    "with_family": false,
+    "visible_only": false
+  },
+  "search_fields": [
+    "name",
+    "id"
   ],
   "navigator_layer": {
     "name": "Untitled-1",
     "domain": "enterprise-attack",
-    "techniques": [],
+    "techniques": [
+      {
+        "techniqueID": "T1053",
+        "tactic": "execution",
+        "showSubtechniques": true,
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "false"
+          }
+        ]
+      }
+    ],
     "selectTechniquesAcrossTactics": true,
     "selectSubtechniquesWithParent": false,
     "hideDisabled": false,
+    "selectVisibleTechniques": false,
+    "x_ttp_studio_search_fields": [
+      "name",
+      "id"
+    ],
     "versions": {
-      "attack": "19.2",
+      "attack": "20.0",
       "navigator": "5.2.0",
       "layer": "4.5"
     },

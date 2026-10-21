@@ -1,0 +1,192 @@
+{
+  "status": "PASS",
+  "features": [
+    {
+      "language": "en",
+      "feature": "open-file",
+      "target": "file-picker",
+      "status": "PASS"
+    },
+    {
+      "language": "en",
+      "feature": "batch-edit",
+      "target": "BatchEditDialog",
+      "status": "PASS"
+    },
+    {
+      "language": "en",
+      "feature": "matrix",
+      "target": "matrix",
+      "status": "PASS"
+    },
+    {
+      "language": "en",
+      "feature": "search",
+      "target": "search",
+      "status": "PASS"
+    },
+    {
+      "language": "en",
+      "feature": "selected",
+      "target": "selection",
+      "status": "PASS"
+    },
+    {
+      "language": "en",
+      "feature": "versions",
+      "target": "VersionDialog",
+      "status": "PASS"
+    },
+    {
+      "language": "en",
+      "feature": "layer-settings",
+      "target": "LayerSettingsDialog",
+      "status": "PASS"
+    },
+    {
+      "language": "en",
+      "feature": "formula",
+      "target": "FormulaDialog",
+      "status": "PASS"
+    },
+    {
+      "language": "en",
+      "feature": "compare",
+      "target": "SelectionCompareDialog",
+      "status": "PASS"
+    },
+    {
+      "language": "en",
+      "feature": "compare-versions",
+      "target": "VersionCompareDialog",
+      "status": "PASS"
+    },
+    {
+      "language": "en",
+      "feature": "import-layer",
+      "target": "ImportLayerDialog",
+      "status": "PASS"
+    },
+    {
+      "language": "en",
+      "feature": "sources",
+      "target": "SourceDialog",
+      "status": "PASS"
+    },
+    {
+      "language": "en",
+      "feature": "upgrade",
+      "target": "UpgradeDialog",
+      "status": "PASS"
+    },
+    {
+      "language": "en",
+      "feature": "export-svg",
+      "target": "MatrixExportDialog",
+      "status": "PASS"
+    },
+    {
+      "language": "en",
+      "feature": "export-excel",
+      "target": "MatrixExportDialog",
+      "status": "PASS"
+    },
+    {
+      "language": "zh_TW",
+      "feature": "open-file",
+      "target": "file-picker",
+      "status": "PASS"
+    },
+    {
+      "language": "zh_TW",
+      "feature": "batch-edit",
+      "target": "BatchEditDialog",
+      "status": "PASS"
+    },
+    {
+      "language": "zh_TW",
+      "feature": "matrix",
+      "target": "matrix",
+      "status": "PASS"
+    },
+    {
+      "language": "zh_TW",
+      "feature": "search",
+      "target": "search",
+      "status": "PASS"
+    },
+    {
+      "language": "zh_TW",
+      "feature": "selected",
+      "target": "selection",
+      "status": "PASS"
+    },
+    {
+      "language": "zh_TW",
+      "feature": "versions",
+      "target": "VersionDialog",
+      "status": "PASS"
+    },
+    {
+      "language": "zh_TW",
+      "feature": "layer-settings",
+      "target": "LayerSettingsDialog",
+      "status": "PASS"
+    },
+    {
+      "language": "zh_TW",
+      "feature": "formula",
+      "target": "FormulaDialog",
+      "status": "PASS"
+    },
+    {
+      "language": "zh_TW",
+      "feature": "compare",
+      "target": "SelectionCompareDialog",
+      "status": "PASS"
+    },
+    {
+      "language": "zh_TW",
+      "feature": "compare-versions",
+      "target": "VersionCompareDialog",
+      "status": "PASS"
+    },
+    {
+      "language": "zh_TW",
+      "feature": "import-layer",
+      "target": "ImportLayerDialog",
+      "status": "PASS"
+    },
+    {
+      "language": "zh_TW",
+      "feature": "sources",
+      "target": "SourceDialog",
+      "status": "PASS"
+    },
+    {
+      "language": "zh_TW",
+      "feature": "upgrade",
+      "target": "UpgradeDialog",
+      "status": "PASS"
+    },
+    {
+      "language": "zh_TW",
+      "feature": "export-svg",
+      "target": "MatrixExportDialog",
+      "status": "PASS"
+    },
+    {
+      "language": "zh_TW",
+      "feature": "export-excel",
+      "target": "MatrixExportDialog",
+      "status": "PASS"
+    }
+  ],
+  "fixture_directory": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/manual-language/run-3dcb8e0f56ba4dbab5c732ccc05ed092",
+  "source_data_modified": false,
+  "documents_modified_by_manual_or_language": false,
+  "preference_restored": true,
+  "canonical_combo_values_preserved": true,
+  "file_picker_boundary": "real Qt file pickers in an isolated fixture directory; cancelled or fixture selected; real downstream dialogs exercised",
+  "untranslated_candidates": 3
+}

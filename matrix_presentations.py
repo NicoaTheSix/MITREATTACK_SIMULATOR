@@ -1,6 +1,8 @@
 """Side and Mini matrix widgets, sharing the existing technique actions. Flow: README.md."""
-from PySide6 import QtCore, QtWidgets
+from PySide6 import QtCore, QtGui, QtWidgets
 from attack_catalog import external_id
+from matrix_display import display_label, marker_colors
+from source_preview import draw_source_preview
 
 
 class TechniqueCell(QtWidgets.QPushButton):
@@ -8,12 +10,15 @@ class TechniqueCell(QtWidgets.QPushButton):
         super().__init__()
         self.owner, self.key, self.slug, self.mini = owner, key, slug, mini
         self.selectable = selectable
+        self.family_children = []
+        self.family_child_widgets = []
+        self.family_expanded = False
         obj = owner.catalog.records[key]
         self.label = obj['name']
         self.attack_id = external_id(obj)
         self.setCheckable(selectable)
-        self.setChecked(key in owner.selected)
-        self.clicked.connect(lambda checked: owner.selection_requested.emit(key, checked) if selectable else None)
+        self.setChecked(owner.cell_selected(key, slug))
+        self.clicked.connect(lambda checked: owner.request_mouse_selection(key,slug,QtWidgets.QApplication.keyboardModifiers()) if selectable else None)
         self.setContextMenuPolicy(QtCore.Qt.ContextMenuPolicy.CustomContextMenu)
         self.customContextMenuRequested.connect(lambda pos: owner.technique_menu(key, slug, self, self.mapToGlobal(pos)) if selectable else None)
         if mini:
@@ -32,7 +37,7 @@ class TechniqueCell(QtWidgets.QPushButton):
         self.projection = style
         notes = [self.attack_id + '  ' + self.label]
         notes.append('Active layer state: ' + ('Enabled' if style.get('activeEnabled', style['enabled']) else 'Disabled'))
-        notes.append('Included in export: ' + str(self.key in self.owner.selected))
+        notes.append('Included in this tactic: ' + str(self.owner.cell_selected(self.key, self.slug)))
         for label, field in [('Score', 'score'), ('Aggregate score', 'aggregateScore'), ('Comment', 'comment')]:
             if style.get(field) is not None and style.get(field) != '':
                 notes.append(f'{label}: {style[field]}')
@@ -46,21 +51,41 @@ class TechniqueCell(QtWidgets.QPushButton):
             notes.append(f"{entry['name']}: {entry['color']} · score {entry.get('score')}")
         if not self.selectable:
             notes.append('Grouping only; parent is not mapped to this scope')
+        for abstract,content in style.get('sourceNotes',[]):
+            notes.append('Source STIX Note'+(': '+abstract if abstract else '')+'\n'+content)
+        for source in style.get('annotationSources',[]):
+            notes.append('Overlay annotation: '+source['name']+'\n'+source['text'])
+        if self.family_children:
+            count=sum(bool(self.owner.appearance.cell(external_id(self.owner.catalog.records[key]),self.slug).get('annotated')) for key in self.family_children)
+            notes.append(f'{count} annotated / {len(self.family_children)} sub-techniques in this platform/tactic')
         self.setToolTip('\n'.join(notes))
         bg = style['background'] if self.owner.show_colors.isChecked() else ''
         fg = style['foreground'] if self.owner.show_colors.isChecked() else '' if style['enabled'] else '#999999'
         self.setStyleSheet('QPushButton {background:' + (bg or '#222526') + ';color:' + (fg or '#6caedf') +
                            ';border:1px solid #555;padding:3px;} QPushButton:checked {border:3px solid #3794ff;}')
-        mark = 'i' if style.get('comment') or style.get('metadata') or style.get('links') else ''
+        mark = 'i' if style.get('noteIndicator') or style.get('linkIndicator') else ''
         if self.mini:
             self.setText(('+' if self.isChecked() else mark) if style['enabled'] else 'x')
         else:
             # QPushButton has no word wrapping; explicit line breaks keep names visible.
             import textwrap
             prefix = '[x] ' if self.isChecked() else '[ ] ' if self.selectable else ''
-            lines = textwrap.wrap(prefix + self.label, 20)
+            label=self.owner.family_label(self.key,self.slug,self.family_children,self.family_expanded)
+            lines = textwrap.wrap(prefix + label, 20) or ['']
             self.setText('\n'.join(lines))
             self.setFixedHeight(len(lines) * (self.fontMetrics().height() + 3) + 10)
+
+    def paintEvent(self,event):
+        super().paintEvent(event)
+        painter=QtGui.QPainter(self)
+        children=[child.key for child in self.family_child_widgets if not child.isHidden()]
+        kind=self.owner.source_preview_kind(self.key,self.slug,children,self.family_expanded)
+        draw_source_preview(painter,self.rect(),kind)
+        for number,color in enumerate(marker_colors(self.projection)):
+            painter.setPen(QtGui.QPen(QtGui.QColor(color),2))
+            y=self.height()-5-number*3
+            painter.drawLine(4,y,self.width()-5,y)
+        painter.end()
 
 
 class FamilyView(QtWidgets.QWidget):
@@ -105,15 +130,25 @@ class FamilyView(QtWidgets.QWidget):
             row.addStretch()
             layout.addWidget(frame)
             self.families.append({'frame': frame, 'root': root, 'children': children, 'panel': child_panel, 'toggle': toggle})
-            toggle.setChecked(mini or root.projection.get('showSubtechniques', False))
+            root.family_children = [child.key for child in children]
+            root.family_child_widgets = children
+            def refresh_root(checked, root=root):
+                root.family_expanded = checked
+                root.refresh()
+            toggle.toggled.connect(refresh_root)
+            from matrix_expansion import expanded_family
+            toggle.setChecked(expanded_family(owner.appearance,owner.catalog,root.key,slug,[child.key for child in children],mini))
             child_panel.setVisible(toggle.isChecked() and bool(children))
+            root.family_expanded = toggle.isChecked()
+            root.refresh()
+            toggle.toggled.connect(lambda checked,key=root.key:owner.manual_expansion(key,slug,checked))
         layout.addStretch()
 
     def refresh(self):
         for family in self.families:
             for cell in [family['root'], *family['children']]:
                 cell.blockSignals(True)
-                cell.setChecked(cell.key in self.owner.selected)
+                cell.setChecked(self.owner.cell_selected(cell.key, cell.slug))
                 cell.blockSignals(False)
                 cell.refresh()
 
@@ -121,10 +156,10 @@ class FamilyView(QtWidgets.QWidget):
         count = 0
         for family in self.families:
             root = family['root']
-            match = query in (root.attack_id + ' ' + root.label).casefold()
+            match = self.owner.record_matches(root.key, query)
             child_visible = False
             for child in family['children']:
-                visible = (match or query in (child.attack_id + ' ' + child.label).casefold()) and not child.projection['hidden']
+                visible = (match or self.owner.record_matches(child.key, query)) and not child.projection['hidden']
                 child.setVisible(visible)
                 child_visible |= visible
             visible = (match and not root.projection['hidden']) or child_visible

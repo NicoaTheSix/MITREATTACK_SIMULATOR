@@ -1,0 +1,30 @@
+{
+  "name": "source.navigator",
+  "domain": "enterprise-attack",
+  "versions": {
+    "attack": "20.0",
+    "navigator": "5.2.0",
+    "layer": "4.5"
+  },
+  "techniques": [
+    {
+      "techniqueID": "T1055.011",
+      "comment": "User note: Save / Name / 中文",
+      "score": 17,
+      "color": "#123456",
+      "metadata": [
+        {
+          "name": "TTP Selection Studio selected",
+          "value": "true"
+        }
+      ]
+    }
+  ],
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false,
+  "selectVisibleTechniques": false,
+  "x_ttp_studio_search_fields": [
+    "name",
+    "id"
+  ]
+}

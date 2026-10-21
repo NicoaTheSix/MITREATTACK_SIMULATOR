@@ -1,0 +1,23 @@
+{
+  "processes": [],
+  "files": [
+    {
+      "hash": "0306799A437CECA23DD8962A00F8E58A87156DBF8FD25EEBBBE33A7504E95E80",
+      "path": "D:\\MITREATTACK_SIMULATOR\\data\\workspace-session.json"
+    },
+    {
+      "hash": "2FF9451D63359CABA444A2BEEFA29E713A672BB339DF5606E272AFE370CECAA8",
+      "path": "D:\\MITREATTACK_SIMULATOR\\data\\ui-settings.ini"
+    },
+    {
+      "hash": "6B8E6E47710EE2D79FA4FB6E08D53AF6CD084927E3A74AFB29441CCB487E0831",
+      "path": "D:\\MITREATTACK_SIMULATOR\\data\\attack\\active.json"
+    },
+    {
+      "hash": "6B8E6E47710EE2D79FA4FB6E08D53AF6CD084927E3A74AFB29441CCB487E0831",
+      "path": "D:\\MITREATTACK_SIMULATOR\\data\\attack\\latest.json"
+    }
+  ],
+  "date": "2026-10-19T17:56:10.6414051+08:00",
+  "userPath": "C:\\Users\\nick5\\AppData\\Local\\activestate\\bin;C:\\Users\\nick5\\AppData\\Local\\ActiveState\\StateTool\\release\\bin;C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\java8path;C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\VMware\\VMware Workstation\\bin\\;C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.6\\bin;C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.6\\libnvvp;C:\\Program Files\\ImageMagick-7.1.1-Q16-HDRI;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Microsoft SQL Server\\150\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\;C:\\Program Files\\dotnet\\;C:\\Program Files\\MATLAB\\R2022b\\runtime\\win64;C:\\Program Files\\MATLAB\\R2022b\\bin;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\MinGW\\bin;C:\\Program Files\\Git\\cmd;C:\\Users\\nick5\\AppData\\Local\\Programs\\Python\\Python311\\Scripts;C:\\Users\\nick5\\AppData\\Local\\Programs\\Python\\Python311;C:\\Program Files\\NVIDIA Corporation\\Nsight Compute 2024.3.0\\;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\Program Files\\Go\\bin;C:\\Program Files\\Docker\\Docker\\resources\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\chocolatey\\bin;C:\\Users\\nick5\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\nick5\\.dotnet\\tools;C:\\Users\\nick5\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\nick5\\AppData\\Local\\GitHubDesktop\\bin;C:\\Program Files\\radare2\\bin;C:\\Users\\nick5\\AppData\\Local\\Programs\\Ollama;C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12,6\\bin;C:\\Users\\nick5\\go\\bin;C:\\Users\\nick5\\AppData\\Roaming\\npm;;C:\\Program Files\\MySQL\\MySQL Server 9.7\\bin;D:\\MITREATTACK_SIMULATOR"
+}

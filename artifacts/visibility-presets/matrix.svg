@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="500px" height="435px" viewBox="0 0 500 435"><rect x="0" y="0" width="500.0" height="435.0" fill="#1e1e1e" /><g id="header"><text x="18" y="24" fill="#dddddd" font-size="20" font-family="Arial, sans-serif">Visibility example</text><text x="18" y="50" fill="#dddddd" font-size="12" font-family="Arial, sans-serif">Enterprise v19.2</text><text x="18" y="68" fill="#dddddd" font-size="12" font-family="Arial, sans-serif">Platforms: All Platforms</text><g id="legend"><rect x="18" y="86" width="300" height="85" fill="#252526" stroke="#666666" /><rect x="26" y="94" width="10" height="10" fill="#2166ac" /><text x="44" y="104" fill="#dddddd" font-size="11" font-family="Arial, sans-serif">Gradient -100–100: #2166ac</text><rect x="26" y="115" width="10" height="10" fill="#ffffff" /><text x="44" y="125" fill="#dddddd" font-size="11" font-family="Arial, sans-serif">Gradient -100–100: #ffffff</text><rect x="26" y="136" width="10" height="10" fill="#b2182b" /><text x="44" y="146" fill="#dddddd" font-size="11" font-family="Arial, sans-serif">Gradient -100–100: #b2182b</text></g></g><g id="matrix" transform="translate(0 187) scale(1) translate(0 -100)"><text x="22" y="118" fill="#6caedf" font-size="13" font-family="Arial, sans-serif">Execution</text><rect x="18" y="160" width="224" height="40" fill="#222526" stroke="#41484d"><title>T1000  Alpha
+Alpha
+Selected: True
+Enabled: True</title></rect><text x="25" y="178" fill="#6caedf" font-size="12" font-family="Arial, sans-serif">Alpha</text><rect x="18" y="200" width="224" height="44" fill="#ffffff" stroke="#41484d"><title>T1000.001  Child
+&gt; Child
+Score: 0
+Selected: True
+Enabled: True
+Annotation indicators: #ffcc00
+Keep this note</title></rect><line x1="21" y1="241" x2="239" y2="241" stroke="#ffcc00" stroke-width="2" /><text x="33" y="218" fill="#000000" font-size="12" font-family="Arial, sans-serif">&gt; Child</text><text x="33" y="233" fill="#000000" font-size="12" font-family="Arial, sans-serif">Score: 0</text><rect x="18" y="244" width="224" height="40" fill="#222526" stroke="#41484d"><title>T1001  Beta
+Beta
+Selected: False
+Enabled: True</title></rect><text x="25" y="262" fill="#6caedf" font-size="12" font-family="Arial, sans-serif">Beta</text><rect x="18" y="284" width="224" height="40" fill="#222526" stroke="#41484d"><title>T1002  Legacy
+Legacy
+Selected: False
+Enabled: True</title></rect><text x="25" y="302" fill="#6caedf" font-size="12" font-family="Arial, sans-serif">Legacy</text><text x="254" y="118" fill="#6caedf" font-size="13" font-family="Arial, sans-serif">Initial-Access</text><rect x="250" y="160" width="224" height="40" fill="#222526" stroke="#41484d"><title>T1000  Alpha
+Alpha
+Selected: True
+Enabled: True</title></rect><text x="257" y="178" fill="#6caedf" font-size="12" font-family="Arial, sans-serif">Alpha</text></g><desc>TTP Selection Studio matrix export; sub-techniques: expanded</desc></svg>

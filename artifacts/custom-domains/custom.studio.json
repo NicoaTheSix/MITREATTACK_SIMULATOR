@@ -1,0 +1,104 @@
+{
+  "schema_version": "1.0",
+  "document_id": "2b4be648-7a4c-4fd2-926e-0dbc8bdef4c0",
+  "name": "custom.studio",
+  "created_at_utc": "2026-10-21T02:55:04.453199+00:00",
+  "exported_at_utc": "2026-10-21T02:55:04.465204+00:00",
+  "attack": {
+    "domain": "lab-one",
+    "version": "1.0",
+    "source_url": "D:\\MITREATTACK_SIMULATOR\\artifacts\\custom-domains\\research-bundle.json",
+    "dataset_sha256": "b81aef8a7c9f34f1ce926015b297cc61711957cac220fc4cf52148228f0d199e",
+    "custom": true
+  },
+  "selected_count": 1,
+  "selected_technique_ids": [
+    "LAB-BETA.child"
+  ],
+  "selected_ttps": [
+    {
+      "technique_id": "LAB-BETA.child",
+      "stix_id": "attack-pattern--1094ef0d-cdfa-5e5e-a0d3-d3854f56a09e",
+      "name": "Child",
+      "is_subtechnique": true,
+      "parent_technique_id": "LAB-ALPHA",
+      "parent_technique_name": "Root",
+      "platforms": [
+        "ResearchOS"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TACTIC-execute",
+          "name": "execute",
+          "shortname": "execute"
+        }
+      ],
+      "comment": "",
+      "tactic_comments": [
+        {
+          "tactic": "execute",
+          "comment": "Custom domain note"
+        }
+      ],
+      "enabled": true,
+      "tactic_enabled": [
+        {
+          "tactic": "execute",
+          "enabled": true
+        }
+      ],
+      "selected_tactics": [
+        "execute"
+      ]
+    }
+  ],
+  "navigator_import_selected": [],
+  "selection_scopes": {},
+  "selection_preferences": {
+    "across_tactics": true,
+    "with_family": false,
+    "visible_only": false
+  },
+  "search_fields": [
+    "name",
+    "id"
+  ],
+  "navigator_layer": {
+    "name": "Custom Domain",
+    "domain": "lab-one",
+    "versions": {
+      "attack": "1.0",
+      "layer": "4.5",
+      "navigator": "5.2.0"
+    },
+    "techniques": [
+      {
+        "techniqueID": "LAB-BETA.child",
+        "tactic": "execute",
+        "comment": "Custom domain note",
+        "score": 4.5,
+        "color": "#2255aa"
+      }
+    ],
+    "customDataURL": "D:\\MITREATTACK_SIMULATOR\\artifacts\\custom-domains\\research-bundle.json",
+    "x_ttp_studio_dataset": "b81aef8a7c9f34f1ce926015b297cc61711957cac220fc4cf52148228f0d199e",
+    "x_ttp_studio_domain": {
+      "id": "lab-one",
+      "name": "Research lab-one",
+      "kill_chain_name": "lab-one-chain",
+      "reference_source": "lab-one-references"
+    }
+  },
+  "domain_snapshots": {
+    "lab-two": {
+      "version": "1.0",
+      "selected_stix_ids": [
+        "attack-pattern--c584f429-c1b0-5db4-8136-2c7c7d2d5e35"
+      ],
+      "navigator_layer": {},
+      "navigator_import_selected": [],
+      "selection_scopes": {},
+      "navigator_snapshots": {}
+    }
+  }
+}

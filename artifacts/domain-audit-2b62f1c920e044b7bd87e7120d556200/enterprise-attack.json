@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0",
+  "document_id": "1f921d7d-ee38-4c54-879f-659f8b12b8bb",
+  "name": "enterprise-attack",
+  "created_at_utc": "2026-10-15T10:21:15.316588+00:00",
+  "exported_at_utc": "2026-10-15T10:21:25.157835+00:00",
+  "attack": {
+    "domain": "enterprise-attack",
+    "version": "19.2",
+    "source_url": "https://github.com/mitre-attack/attack-stix-data"
+  },
+  "selected_count": 1,
+  "selected_technique_ids": [
+    "T1055.011"
+  ],
+  "selected_ttps": [
+    {
+      "technique_id": "T1055.011",
+      "stix_id": "attack-pattern--0042a9f5-f053-4769-b3ef-9ad018dfa298",
+      "name": "Extra Window Memory Injection",
+      "is_subtechnique": true,
+      "parent_technique_id": "T1055",
+      "parent_technique_name": "Process Injection",
+      "platforms": [
+        "Windows"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0004",
+          "name": "Privilege Escalation",
+          "shortname": "privilege-escalation"
+        },
+        {
+          "tactic_id": "TA0005",
+          "name": "Stealth",
+          "shortname": "stealth"
+        }
+      ],
+      "comment": "",
+      "tactic_comments": [
+        {
+          "tactic": "privilege-escalation",
+          "comment": "enterprise-attack research"
+        }
+      ],
+      "enabled": true,
+      "tactic_enabled": [
+        {
+          "tactic": "privilege-escalation",
+          "enabled": true
+        },
+        {
+          "tactic": "stealth",
+          "enabled": true
+        }
+      ],
+      "selected_tactics": [
+        "privilege-escalation",
+        "stealth"
+      ]
+    }
+  ],
+  "navigator_import_selected": [],
+  "selection_scopes": {},
+  "selection_preferences": {
+    "across_tactics": true,
+    "with_family": false
+  },
+  "search_fields": [
+    "name",
+    "id"
+  ],
+  "navigator_layer": {
+    "name": "Untitled-1",
+    "domain": "enterprise-attack",
+    "versions": {
+      "attack": "19.2",
+      "layer": "4.5",
+      "navigator": "5.2.0"
+    },
+    "techniques": [
+      {
+        "techniqueID": "T1055.011",
+        "tactic": "privilege-escalation",
+        "comment": "enterprise-attack research",
+        "score": 1.25,
+        "color": "#123456"
+      }
+    ]
+  }
+}

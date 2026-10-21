@@ -1,0 +1,923 @@
+{
+  "runtime": "mathjs",
+  "version": "15.2.0",
+  "serviceURL": "https://raw.githubusercontent.com/mitre-attack/attack-navigator/v5.3.2/nav-app/src/app/services/viewmodels.service.ts",
+  "serviceSHA256": "b973f8ef52435c256f30b32766f4a40811ddf32ea35eced03b172df8e85576e9",
+  "inputSHA256": "ca5ed0ee09ab0938f0e1bf2f6a9fc256a8a4e46ed496e231f4544f63ef76717f",
+  "contextSources": [
+    {
+      "path": "nav-app/src/app/classes/view-model.ts",
+      "sha256": "baa172f70e3a5b481870d6e75f3f98e09c3be4d0c8d3b970cffb2bcb85ba109c"
+    },
+    {
+      "path": "nav-app/src/app/classes/technique-vm.ts",
+      "sha256": "aea171b201e287efdf92233902ffeb2321a090c2862d4bc6cb308c4579062030"
+    },
+    {
+      "path": "nav-app/src/app/tabs/tabs.component.ts",
+      "sha256": "b5ff7b9830fd200c0cef9ab50060644b1b036fad6eab995d46238afb15dad55a"
+    }
+  ],
+  "method": "Exact layerOperation with TypeScript annotations removed; score/enabled model stubs, post-load constant initialization.",
+  "results": [
+    {
+      "name": "a+b",
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": 80,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": 60,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": 20,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": -5,
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "name": "a-b",
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": 80,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": -60,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": -20,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": -5,
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "name": "a*b",
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": 0,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": 0,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": 0,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": 0,
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "name": "(a+b)/2",
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": 40,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": 30,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": 10,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": -2.5,
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "name": "a>b",
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": 1,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": 0,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": 0,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": 0,
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "name": "a==0",
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": 0,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": null,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": 1,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": 0,
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "name": "a>0 ? a : b",
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": 80,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": 60,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": 20,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": 0,
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "name": "a and b",
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": 0,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": 0,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": 0,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": 0,
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "name": "max(a,b)",
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": 80,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": 60,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": 20,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": 0,
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "name": "sin(pi/2)*a+b",
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": 80,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": 60,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": 20,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": -5,
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "name": "a/(b+1)",
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": 80,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": 0,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": 0,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": -5,
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "name": "a-a",
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": 0,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": null,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": 0,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": 0,
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "name": "a^2",
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": 6400,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": null,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": 0,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": 25,
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "name": "round(a/3,2)",
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": 26.67,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": null,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": 0,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": -1.67,
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "name": "0 ? a : 50",
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": 50,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": 50,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": 50,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": 50,
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "name": "1 or a",
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": 1,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": 1,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": 1,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": 1,
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "name": "0 and a",
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": 0,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": 0,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": 0,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": 0,
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "name": "true",
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": 1,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": 1,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": 1,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": 1,
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "name": "50",
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": 50,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": 50,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": 50,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": 50,
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "name": "0",
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": 0,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": 0,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": 0,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": 0,
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "name": "e",
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": 2.718281828459045,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": 2.718281828459045,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": 2.718281828459045,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": 2.718281828459045,
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "name": "e+a",
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": 80,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": null,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": 0,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": -5,
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "name": "a>0 ? 25 : b",
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": 25,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": 60,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": 20,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": 0,
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "name": "all missing",
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": null,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": null,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": null,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": null,
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "name": "unused source does not expand scope",
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": null,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": null,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": null,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": null,
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "name": "empty-scoped constant shadows source e",
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": 2.718281828459045,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": 2.718281828459045,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": 2.718281828459045,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": 2.718281828459045,
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "name": "e is source only after empty probe fails",
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": 179,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": 99,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": 0,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": -5,
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "name": "global followed by missing exact row",
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": null,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": 69,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": 20,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": null,
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "name": "global later replaces exact row",
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": 4,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": 64,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": 20,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": null,
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "name": "constant with empty sources",
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": 50,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": 50,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": 50,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": 50,
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "name": "keep all-missing cells enabled by default",
+      "cells": [
+        {
+          "techniqueID": "T0001",
+          "tactic": "execution",
+          "score": null,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0001",
+          "tactic": "persistence",
+          "score": null,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0002",
+          "tactic": "execution",
+          "score": null,
+          "enabled": true
+        },
+        {
+          "techniqueID": "T0003",
+          "tactic": "persistence",
+          "score": null,
+          "enabled": true
+        }
+      ]
+    }
+  ]
+}

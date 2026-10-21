@@ -332,6 +332,7 @@ def run():
     report.write_text(json.dumps({'passed': True, 'assertions': len(CHECKS), 'checks': CHECKS}, indent=2), encoding='utf-8')
     log(f'Batch operations audit passed: {len(CHECKS)} assertions', 6, 6)
     window.closing = True
+    window.confirm_studio_changes = lambda *_: "discard"
     window.close()
 
 

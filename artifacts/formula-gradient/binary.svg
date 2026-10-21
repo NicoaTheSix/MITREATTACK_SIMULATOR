@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="338" viewBox="0 0 500 338"><rect x="0" y="0" width="500" height="338" fill="#1e1e1e" /><text x="18" y="28" fill="#dddddd" font-size="20" font-family="Arial, sans-serif">binary</text><text x="18" y="51" fill="#dddddd" font-size="12" font-family="Arial, sans-serif">Formula Lab v1.0 · All Platforms</text><text x="18" y="73" fill="#dddddd" font-size="12" font-family="Arial, sans-serif">Score expression: a<title>Score expression: a</title></text><text x="18" y="95" fill="#dddddd" font-size="12" font-family="Arial, sans-serif">Active layer · All matching sub-techniques expanded</text><rect x="18" y="110" width="12" height="12" fill="#1e1e1e" /><text x="36" y="121" fill="#dddddd" font-size="11" font-family="Arial, sans-serif">Gradient 0–1: #ffffff00<title>Gradient 0–1: #ffffff00</title></text><rect x="18" y="132" width="12" height="12" fill="#66b1ff" /><text x="36" y="143" fill="#dddddd" font-size="11" font-family="Arial, sans-serif">Gradient 0–1: #66b1ffff<title>Gradient 0–1: #66b1ffff</title></text><text x="22" y="184" fill="#6caedf" font-size="13" font-family="Arial, sans-serif">execution</text><rect x="18" y="226" width="224" height="44" fill="#222526" stroke="#41484d"><title>T0001  T0001
+T0001
+Score: 0
+Selected: True
+Enabled: True</title></rect><text x="25" y="244" fill="#ffffff" font-size="12" font-family="Arial, sans-serif">T0001</text><text x="25" y="259" fill="#ffffff" font-size="12" font-family="Arial, sans-serif">Score: 0</text><rect x="18" y="270" width="224" height="44" fill="#222526" stroke="#41484d"><title>T0002  T0002
+T0002
+Score: 0
+Selected: True
+Enabled: True</title></rect><text x="25" y="288" fill="#ffffff" font-size="12" font-family="Arial, sans-serif">T0002</text><text x="25" y="303" fill="#ffffff" font-size="12" font-family="Arial, sans-serif">Score: 0</text><text x="254" y="184" fill="#6caedf" font-size="13" font-family="Arial, sans-serif">persistence</text><rect x="250" y="226" width="224" height="44" fill="#66b1ff" stroke="#41484d"><title>T0001  T0001
+T0001
+Score: 1
+Selected: True
+Enabled: True</title></rect><text x="257" y="244" fill="#000000" font-size="12" font-family="Arial, sans-serif">T0001</text><text x="257" y="259" fill="#000000" font-size="12" font-family="Arial, sans-serif">Score: 1</text><rect x="250" y="270" width="224" height="44" fill="#66b1ff" stroke="#41484d"><title>T0003  T0003
+T0003
+Score: 1
+Selected: True
+Enabled: True</title></rect><text x="257" y="288" fill="#000000" font-size="12" font-family="Arial, sans-serif">T0003</text><text x="257" y="303" fill="#000000" font-size="12" font-family="Arial, sans-serif">Score: 1</text></svg>

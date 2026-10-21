@@ -1,0 +1,766 @@
+Input: cached v19.2 catalog and manifest
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-nav15-v19.2-pointer.json
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\latest.json
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit.json
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-import-preview.png
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-version-comparison-preview.png
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\fixture.json
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\fixture-utf16.json
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\roundtrip.json
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\plain.json
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\list.csv
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\annotated.json
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\selection-comparison.json
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\version-comparison.json
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\invalid.json
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\multi.json
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\old-layer.json
+[Application icon 1/2] Input file: D:\MITREATTACK_SIMULATOR\assets\ttp-selection-studio-icon-pixel.png
+[Application icon 1/2] Output files: None (application/window icon in memory)
+[Application icon 2/2] Complete: pixel icon applied to application and windows
+[Preview fonts] Input file: C:\WINDOWS\Fonts\segoeui.ttf
+[Preview fonts] Input file: C:\WINDOWS\Fonts\segoeuib.ttf
+[Preview fonts] Input file: C:\WINDOWS\Fonts\consola.ttf
+[Preview fonts] Input file: C:\WINDOWS\Fonts\georgia.ttf
+[Preview fonts] Input file: C:\WINDOWS\Fonts\msjh.ttc
+[Preview fonts] Input file: C:\WINDOWS\Fonts\msjhbd.ttc
+[Preview fonts] Complete
+[UI settings 1/2] Input file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-nav15-settings.ini
+[UI settings 1/2] Output files: None (reading preferences)
+[UI settings 2/2] Complete: navigation labels shown
+[Language 1/2] Input file: D:\MITREATTACK_SIMULATOR\locales\zh_TW.json
+Output files: None (translation catalog in memory)
+[Language 2/2] Ready: 629 Taiwan translations
+Input file: D:\MITREATTACK_SIMULATOR\data\info\attack-release-notes.json
+Output files: None (Info menu in memory)
+[Info history 1/2] Reading offline release introductions
+[Info history 2/2] Complete: 20 official release entries
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\ttp-selection-studio-icon-pixel.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\mitigations.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\assets.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\detections.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\groups.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\software.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\campaigns.png
+[Navigation icons 1/3] Output files: None (button icons in memory)
+[Navigation icons 2/3] Loading TTP (1/7)
+[Navigation icons 2/3] Loading Mitigations (2/7)
+[Navigation icons 2/3] Loading Assets (3/7)
+[Navigation icons 2/3] Loading Detections (4/7)
+[Navigation icons 2/3] Loading Groups (5/7)
+[Navigation icons 2/3] Loading Software (6/7)
+[Navigation icons 2/3] Loading Campaigns (7/7)
+[Navigation icons 3/3] Complete: 7/7 icons ready
+Input file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-nav15-v19.2-pointer.json
+Output files: None (catalog is loaded into memory)
+[1/4 Resolve] Reading snapshot pointer
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v19.2\manifest.json
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v19.2\enterprise-attack-19.2.json
+[1/4 Resolve] Complete: Enterprise ATT&CK v19.2 (1/1)
+[2/4 Read] Reading and checking bundle (4194304/53835637)
+[2/4 Read] Reading and checking bundle (8388608/53835637)
+[2/4 Read] Reading and checking bundle (12582912/53835637)
+[2/4 Read] Reading and checking bundle (16777216/53835637)
+[2/4 Read] Reading and checking bundle (20971520/53835637)
+[2/4 Read] Reading and checking bundle (25165824/53835637)
+[2/4 Read] Reading and checking bundle (29360128/53835637)
+[2/4 Read] Reading and checking bundle (33554432/53835637)
+[2/4 Read] Reading and checking bundle (37748736/53835637)
+[2/4 Read] Reading and checking bundle (41943040/53835637)
+[2/4 Read] Reading and checking bundle (46137344/53835637)
+[2/4 Read] Reading and checking bundle (50331648/53835637)
+[2/4 Read] Reading and checking bundle (53835637/53835637)
+[2/4 Read] Parsing JSON
+[3/4 Index] Indexing active ATT&CK objects (2000/26086)
+[3/4 Index] Indexing active ATT&CK objects (4000/26086)
+[3/4 Index] Indexing active ATT&CK objects (6000/26086)
+[3/4 Index] Indexing active ATT&CK objects (8000/26086)
+[3/4 Index] Indexing active ATT&CK objects (10000/26086)
+[3/4 Index] Indexing active ATT&CK objects (12000/26086)
+[3/4 Index] Indexing active ATT&CK objects (14000/26086)
+[3/4 Index] Indexing active ATT&CK objects (16000/26086)
+[3/4 Index] Indexing active ATT&CK objects (18000/26086)
+[3/4 Index] Indexing active ATT&CK objects (20000/26086)
+[3/4 Index] Indexing active ATT&CK objects (22000/26086)
+[3/4 Index] Indexing active ATT&CK objects (24000/26086)
+[3/4 Index] Indexing active ATT&CK objects (26000/26086)
+[3/4 Index] Mapping platforms and tactics (100/697)
+[3/4 Index] Mapping platforms and tactics (200/697)
+[3/4 Index] Mapping platforms and tactics (300/697)
+[3/4 Index] Mapping platforms and tactics (400/697)
+[3/4 Index] Mapping platforms and tactics (500/697)
+[3/4 Index] Mapping platforms and tactics (600/697)
+[3/4 Index] Complete: 697 active techniques/sub-techniques, 11 platforms (697/697)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/26086)
+[3/4 Procedures] Reading Enterprise relationships (4000/26086)
+[3/4 Procedures] Reading Enterprise relationships (8000/26086)
+[3/4 Procedures] Reading Enterprise relationships (12000/26086)
+[3/4 Procedures] Reading Enterprise relationships (16000/26086)
+[3/4 Procedures] Reading Enterprise relationships (20000/26086)
+[3/4 Procedures] Reading Enterprise relationships (24000/26086)
+[3/4 Procedures] Complete: Enterprise 17136 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/26086)
+[3/4 Related TTPs] Reading relationships (4000/26086)
+[3/4 Related TTPs] Reading relationships (8000/26086)
+[3/4 Related TTPs] Reading relationships (12000/26086)
+[3/4 Related TTPs] Reading relationships (16000/26086)
+[3/4 Related TTPs] Reading relationships (20000/26086)
+[3/4 Related TTPs] Reading relationships (24000/26086)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 23429 direct/derived mappings (1/1)
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v19.2\mobile-attack-19.2.json
+[3/4 Library] Reading and checking Mobile (4194304/5750325)
+[3/4 Library] Reading and checking Mobile (5750325/5750325)
+[3/4 Library] Parsing Mobile JSON
+[3/4 Procedures] Indexing Mobile procedure examples (0/2635)
+[3/4 Procedures] Complete: Mobile 1478 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Mobile objects in memory)
+[3/4 Related TTPs] Indexing Mobile direct source relationships (0/2635)
+[3/4 Related TTPs] Resolving Mobile strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Mobile 2278 direct/derived mappings (1/1)
+[3/4 Library] Complete: Mobile (1/1)
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v19.2\ics-attack-19.2.json
+[3/4 Library] Reading and checking ICS (4057891/4057891)
+[3/4 Library] Parsing ICS JSON
+[3/4 Procedures] Indexing ICS procedure examples (0/2173)
+[3/4 Procedures] Complete: ICS 271 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships (0/2173)
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 1899 direct/derived mappings (1/1)
+[3/4 Library] Complete: ICS (1/1)
+[3/4 Library] Complete: six navigation categories indexed across all three domains (1/1)
+[4/4 Tree] Complete: 697 unique selectable technique IDs
+Input files: None (exact domain/version catalog in memory); output files: None
+[Search Index 1/3] Reading legacy data sources and active detection mappings (0/3)
+[Search Index 2/3] Building name/ID/description/data-source/detection-strategy fields (1/3)
+[Search Index 3/3] Ready: 697 techniques in enterprise-attack v19.2 (3/3)
+[Navigator audit 1/7] Official SDK validation and fractional/Unicode annotation preservation
+Input files: None (validated in-memory data)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\fixture.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\fixture.json.fefdbffb8aab46ceb69329b7a880c3b5.tmp
+[Audit fixture 1/3] Serializing data (0/3)
+[Audit fixture 2/3] Writing UTF-8 JSON (1/3)
+[Audit fixture 3/3] Publishing file (2/3)
+[Audit fixture 3/3] Complete: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\fixture.json (3/3)
+Input file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\fixture.json
+Output files: None (import preview in memory)
+[Navigator Import 1/4] Reading and validating layer file (0/1)
+[Navigator Import 1/4] Layer validated by mitreattack-python (1/1)
+Input file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\fixture-utf16.json
+Output files: None (import preview in memory)
+[Navigator Import 1/4] Reading and validating layer file (0/1)
+[Navigator Import 1/4] Layer validated by mitreattack-python (1/1)
+Input files: None (validated in-memory data)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\fixture.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\fixture.json.e13191a8f7814c25b39ca5a041a6b831.tmp
+[Official audit fixture 1/3] Serializing data (0/3)
+[Official audit fixture 2/3] Writing UTF-8 JSON (1/3)
+[Official audit fixture 3/3] Publishing file (2/3)
+[Official audit fixture 3/3] Complete: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\fixture.json (3/3)
+[Navigator audit 2/7] Native import preview, cancellation and independent documents
+[Navigator Import] Cancelled; no output files written (1/1)
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\versions-cache.json
+Input file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\fixture.json
+Output files: None (import preview in memory)
+[Navigator Import 1/4] Reading and validating layer file (0/1)
+[Navigator Import 1/4] Layer validated by mitreattack-python (1/1)
+Input files: None (validated layers in memory; exact catalog inputs follow)
+Output files: None (independent layer previews in memory)
+[Layer Batch 2/5] Resolving layer 1: Research Layer (0/1)
+[Layer Batch 3/5] Layer 1: Ready (1/1)
+[Layer Batch 3/5] Preview complete; no documents have been added (3/5)
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\versions-cache.json
+Input file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\fixture.json
+Output files: None (import preview in memory)
+[Navigator Import 1/4] Reading and validating layer file (0/1)
+[Navigator Import 1/4] Layer validated by mitreattack-python (1/1)
+Input files: None (validated layers in memory; exact catalog inputs follow)
+Output files: None (independent layer previews in memory)
+[Layer Batch 2/5] Resolving layer 1: Research Layer (0/1)
+[Layer Batch 3/5] Layer 1: Ready (1/1)
+[Layer Batch 3/5] Preview complete; no documents have been added (3/5)
+Input files: None; output files: None (selected Navigator layers in memory)
+[Layer Batch 4/5] Validating complete draft 1/1 (0/1)
+[Layer Batch 4/5] All selected drafts validated; no workspace changes yet (1/1)
+Input files: None; output files: None (validated Navigator drafts in memory)
+[Layer Batch 5/5] Installed all validated documents in file order (1/1)
+[Document 1/2] Input files: None; output files: None; activating Research Layer (0/2)
+[Document 2/2] Ready: Research Layer; 1 selected TTPs (2/2)
+[Layer Batch 5/5] All selected layers opened as independent documents (1/1)
+Input files: None (document and matrix visibility in memory)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\roundtrip.json
+Input files: None (document and annotation data in memory)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\roundtrip.json
+[Navigator Export Prepare] Validating with the official SDK (0/1)
+Input files: None (document/catalog and matrix visibility in memory)
+Output files: None (immutable JSON export preview)
+[JSON Preview 1/3] Validating complete annotations (0/3)
+[JSON Preview 2/3] Resolving technique / tactic annotations (100/697)
+[JSON Preview 2/3] Resolving technique / tactic annotations (200/697)
+[JSON Preview 2/3] Resolving technique / tactic annotations (300/697)
+[JSON Preview 2/3] Resolving technique / tactic annotations (400/697)
+[JSON Preview 2/3] Resolving technique / tactic annotations (500/697)
+[JSON Preview 2/3] Resolving technique / tactic annotations (600/697)
+[JSON Preview 2/3] Resolving technique / tactic annotations (697/697)
+[JSON Preview 3/3] Hidden modified annotation cells: 5 (3/3)
+[Navigator Export] Hidden modified annotation cells: 5; preserving all annotations (1/1)
+Input files: None (validated in-memory data)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\roundtrip.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\roundtrip.json.65823c8d22c747d8b123282e2c18fbfd.tmp
+[Navigator Export 1/3] Serializing data (0/3)
+[Navigator Export 2/3] Writing UTF-8 JSON (1/3)
+[Navigator Export 3/3] Publishing file (2/3)
+[Navigator Export 3/3] Complete: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\roundtrip.json (3/3)
+[Navigator Export] Exchange file written; use Save / Save As to mark the complete Studio document saved. (1/1)
+Input file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\roundtrip.json
+Input file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\roundtrip.json
+Output files: None (import preview in memory)
+[Navigator Import 1/4] Reading and validating layer file (0/1)
+[Navigator Import 1/4] Layer validated by mitreattack-python (1/1)
+Input files: None (active document and verified catalog in memory)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\plain.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\plain.json.623665f6998e422ba5b3eb209afe6866.tmp
+[Export 1/3 Prepare] Validating and serializing selected TTPs (0/3)
+[Export 2/3 Write] Writing 1 selected TTPs (1/3)
+[Export 3/3 Publish] Publishing JSON file (2/3)
+[Export 3/3 Publish] Complete: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\plain.json (3/3)
+Input file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\plain.json
+Input files: None (active document and verified catalog in memory)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\list.csv
+Temporary output file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\list.csv.d615a55c9848432a9afc798bfcd6f33a.tmp
+[Export 1/3 Prepare] Validating and serializing selected TTPs (0/3)
+[Export 2/3 Write] Writing 1 selected TTPs (1/3)
+[Export 3/3 Publish] Publishing CSV file (2/3)
+[Export] CSV is an exchange file; use Save / Save As for a complete editable Studio document. (1/1)
+[Export 3/3 Publish] Complete: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\list.csv (3/3)
+Output directory: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\blocked.json
+Input files: None (document and annotation data in memory)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\blocked.json
+[Navigator Export Prepare] Validating with the official SDK (0/1)
+Input files: None (document/catalog and matrix visibility in memory)
+Output files: None (immutable JSON export preview)
+[JSON Preview 1/3] Validating complete annotations (0/3)
+[JSON Preview 2/3] Resolving technique / tactic annotations (100/697)
+[JSON Preview 2/3] Resolving technique / tactic annotations (200/697)
+[JSON Preview 2/3] Resolving technique / tactic annotations (300/697)
+[JSON Preview 2/3] Resolving technique / tactic annotations (400/697)
+[JSON Preview 2/3] Resolving technique / tactic annotations (500/697)
+[JSON Preview 2/3] Resolving technique / tactic annotations (600/697)
+[JSON Preview 2/3] Resolving technique / tactic annotations (697/697)
+[JSON Preview 3/3] Hidden modified annotation cells: 5 (3/3)
+[Navigator Export] Hidden modified annotation cells: 5; preserving all annotations (1/1)
+Input files: None (validated in-memory data)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\blocked.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\blocked.json.14fef667edaf41d4a08b0d817516cc94.tmp
+[Navigator Export 1/3] Serializing data (0/3)
+[Navigator Export 2/3] Writing UTF-8 JSON (1/3)
+[Navigator Export 3/3] Publishing file (2/3)
+[Navigator audit 3/7] Native annotation editor and saved-format default
+Input files: None; output files: None (document annotations in memory)
+[Annotation 1/2] Editing technique annotation (0/2)
+[Annotation 2/2] Saved in active document (2/2)
+Input files: None (document and matrix visibility in memory)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\annotated.json
+Input files: None (open layers and matrix visibility in memory)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\annotated.json
+Input files: None (document/catalog and matrix visibility in memory)
+Output files: None (immutable JSON export preview)
+[JSON Preview 1/3] Validating complete annotations (0/3)
+[JSON Preview 2/3] Resolving technique / tactic annotations (100/697)
+[JSON Preview 2/3] Resolving technique / tactic annotations (200/697)
+[JSON Preview 2/3] Resolving technique / tactic annotations (300/697)
+[JSON Preview 2/3] Resolving technique / tactic annotations (400/697)
+[JSON Preview 2/3] Resolving technique / tactic annotations (500/697)
+[JSON Preview 2/3] Resolving technique / tactic annotations (600/697)
+[JSON Preview 2/3] Resolving technique / tactic annotations (697/697)
+[JSON Preview 3/3] Hidden modified annotation cells: 6 (3/3)
+Input files: None (document and annotation data in memory)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\annotated.json
+[Navigator Export Prepare] Validating with the official SDK (0/1)
+Input files: None (document/catalog and matrix visibility in memory)
+Output files: None (immutable JSON export preview)
+[JSON Preview 1/3] Validating complete annotations (0/3)
+[JSON Preview 2/3] Resolving technique / tactic annotations (100/697)
+[JSON Preview 2/3] Resolving technique / tactic annotations (200/697)
+[JSON Preview 2/3] Resolving technique / tactic annotations (300/697)
+[JSON Preview 2/3] Resolving technique / tactic annotations (400/697)
+[JSON Preview 2/3] Resolving technique / tactic annotations (500/697)
+[JSON Preview 2/3] Resolving technique / tactic annotations (600/697)
+[JSON Preview 2/3] Resolving technique / tactic annotations (697/697)
+[JSON Preview 3/3] Hidden modified annotation cells: 6 (3/3)
+[Navigator Export] Hidden modified annotation cells: 6; preserving all annotations (1/1)
+Input files: None (validated in-memory data)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\annotated.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\annotated.json.104345e745754c3384f09c38f11fc25d.tmp
+[Navigator Export 1/3] Serializing data (0/3)
+[Navigator Export 2/3] Writing UTF-8 JSON (1/3)
+[Navigator Export 3/3] Publishing file (2/3)
+[Navigator Export 3/3] Complete: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\annotated.json (3/3)
+[Navigator Export] Exchange file written; use Save / Save As to mark the complete Studio document saved. (1/1)
+[Export] Cancelled; no output files written (1/1)
+[Navigator audit 4/7] Selection comparison and exact version isolation
+[New File 1/2] Input files: None; output files: None (document in memory) (0/2)
+[Document 1/2] Input files: None; output files: None; activating Untitled-2 (0/2)
+[Document 2/2] Ready: Untitled-2; 0 selected TTPs (2/2)
+[New File 2/2] Created Untitled-2 (2/2)
+Input files: None; output files: None (selected TTP occurrences in memory)
+[Select TTP 1/2] Resolving tactic/family preferences (0/2)
+[Select TTP 2/2] Ready; enabled states and annotations preserved (2/2)
+Input files: None; output files: None (selected TTP occurrences in memory)
+[Select TTP 1/2] Resolving tactic/family preferences (0/2)
+[Select TTP 2/2] Ready; enabled states and annotations preserved (2/2)
+Input files: None (validated in-memory data)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\selection-comparison.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\selection-comparison.json.7ad33591359a47d6bc32dbb76a86b738.tmp
+[Navigator Export 1/3] Serializing data (0/3)
+[Navigator Export 2/3] Writing UTF-8 JSON (1/3)
+[Navigator Export 3/3] Publishing file (2/3)
+[Navigator Export 3/3] Complete: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\selection-comparison.json (3/3)
+Input files: None; output files: None (open documents in memory)
+[Selection Compare 1/2] Comparing selected TTPs (0/1)
+[Selection Compare 2/2] Both: 0; Left only: 0; Right only: 1 (1/1)
+Input files: None; output files: None (open documents in memory)
+[Selection Compare 1/2] Comparing selected TTPs (0/1)
+[Selection Compare 2/2] Both: 1; Left only: 0; Right only: 0 (1/1)
+Input files: None; output files: None (open documents in memory)
+[Selection Compare 1/2] Comparing selected TTPs (0/1)
+[Selection Compare 2/2] Both: 1; Left only: 0; Right only: 1 (1/1)
+Input pointer: in memory (validated version selection)
+Output files: None (catalog is loaded into memory)
+[1/4 Resolve] Reading snapshot pointer
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v11.2\manifest.json
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v11.2\enterprise-attack-11.2.json
+[1/4 Resolve] Complete: Enterprise ATT&CK v11.2 (1/1)
+[2/4 Read] Reading and checking bundle (4194304/35075701)
+[2/4 Read] Reading and checking bundle (8388608/35075701)
+[2/4 Read] Reading and checking bundle (12582912/35075701)
+[2/4 Read] Reading and checking bundle (16777216/35075701)
+[2/4 Read] Reading and checking bundle (20971520/35075701)
+[2/4 Read] Reading and checking bundle (25165824/35075701)
+[2/4 Read] Reading and checking bundle (29360128/35075701)
+[2/4 Read] Reading and checking bundle (33554432/35075701)
+[2/4 Read] Reading and checking bundle (35075701/35075701)
+[2/4 Read] Parsing JSON
+[3/4 Index] Indexing active ATT&CK objects (2000/17672)
+[3/4 Index] Indexing active ATT&CK objects (4000/17672)
+[3/4 Index] Indexing active ATT&CK objects (6000/17672)
+[3/4 Index] Indexing active ATT&CK objects (8000/17672)
+[3/4 Index] Indexing active ATT&CK objects (10000/17672)
+[3/4 Index] Indexing active ATT&CK objects (12000/17672)
+[3/4 Index] Indexing active ATT&CK objects (14000/17672)
+[3/4 Index] Indexing active ATT&CK objects (16000/17672)
+[3/4 Index] Mapping platforms and tactics (100/576)
+[3/4 Index] Mapping platforms and tactics (200/576)
+[3/4 Index] Mapping platforms and tactics (300/576)
+[3/4 Index] Mapping platforms and tactics (400/576)
+[3/4 Index] Mapping platforms and tactics (500/576)
+[3/4 Index] Complete: 576 active techniques/sub-techniques, 11 platforms (576/576)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/17672)
+[3/4 Procedures] Reading Enterprise relationships (4000/17672)
+[3/4 Procedures] Reading Enterprise relationships (8000/17672)
+[3/4 Procedures] Reading Enterprise relationships (12000/17672)
+[3/4 Procedures] Reading Enterprise relationships (16000/17672)
+[3/4 Procedures] Complete: Enterprise 10359 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/17672)
+[3/4 Related TTPs] Reading relationships (4000/17672)
+[3/4 Related TTPs] Reading relationships (8000/17672)
+[3/4 Related TTPs] Reading relationships (12000/17672)
+[3/4 Related TTPs] Reading relationships (16000/17672)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 14988 direct/derived mappings (1/1)
+[3/4 Library] Mobile is not available in this historical version (1/1)
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v11.2\ics-attack-11.2.json
+[3/4 Library] Reading and checking ICS (2037451/2037451)
+[3/4 Library] Parsing ICS JSON
+[3/4 Procedures] Indexing ICS procedure examples (0/1106)
+[3/4 Procedures] Complete: ICS 169 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships (0/1106)
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 883 direct/derived mappings (1/1)
+[3/4 Library] Complete: ICS (1/1)
+[3/4 Library] Complete: six navigation categories indexed across all three domains (1/1)
+Input pointer: in memory (validated version selection)
+Output files: None (catalog is loaded into memory)
+[1/4 Resolve] Reading snapshot pointer
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v1.0\manifest.json
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v1.0\enterprise-attack-1.0.json
+[1/4 Resolve] Complete: Enterprise ATT&CK v1.0 (1/1)
+[2/4 Read] Reading and checking bundle (4194304/5320883)
+[2/4 Read] Reading and checking bundle (5320883/5320883)
+[2/4 Read] Parsing JSON
+[3/4 Index] Indexing active ATT&CK objects (2000/2781)
+[3/4 Index] Derived 10 historical phase headings from this release (no tactic IDs provided) (1/1)
+[3/4 Index] Mapping platforms and tactics (100/188)
+[3/4 Index] Complete: 188 active techniques/sub-techniques, 3 platforms (188/188)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/2781)
+[3/4 Procedures] Complete: Enterprise 1748 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/2781)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 1931 direct/derived mappings (1/1)
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v1.0\mobile-attack-1.0.json
+[3/4 Library] Reading and checking Mobile (671518/671518)
+[3/4 Library] Parsing Mobile JSON
+[3/4 Procedures] Indexing Mobile procedure examples (0/375)
+[3/4 Procedures] Complete: Mobile 122 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Mobile objects in memory)
+[3/4 Related TTPs] Indexing Mobile direct source relationships (0/375)
+[3/4 Related TTPs] Resolving Mobile strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Mobile 244 direct/derived mappings (1/1)
+[3/4 Library] Complete: Mobile (1/1)
+[3/4 Library] ICS is not available in this historical version (1/1)
+[3/4 Library] Complete: six navigation categories indexed across all three domains (1/1)
+Input files: None (validated in-memory data)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\old-layer.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\old-layer.json.f3526fd791604a30b026112a4dd55de9.tmp
+[Navigator Export 1/3] Serializing data (0/3)
+[Navigator Export 2/3] Writing UTF-8 JSON (1/3)
+[Navigator Export 3/3] Publishing file (2/3)
+[Navigator Export 3/3] Complete: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\old-layer.json (3/3)
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\versions-cache.json
+Input file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\old-layer.json
+Output files: None (import preview in memory)
+[Navigator Import 1/4] Reading and validating layer file (0/1)
+[Navigator Import 1/4] Layer validated by mitreattack-python (1/1)
+Input files: None (validated layers in memory; exact catalog inputs follow)
+Output files: None (independent layer previews in memory)
+[Layer Batch 2/5] Resolving layer 1: Research Layer (0/1)
+[Studio Open 2/4] Resolving exact dataset 11.2 (1/4)
+Input pointer: in memory (validated version selection)
+Output files: None (catalog is loaded into memory)
+[1/4 Resolve] Reading snapshot pointer
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v11.2\manifest.json
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v11.2\enterprise-attack-11.2.json
+[1/4 Resolve] Complete: Enterprise ATT&CK v11.2 (1/1)
+[2/4 Read] Reading and checking bundle (4194304/35075701)
+[2/4 Read] Reading and checking bundle (8388608/35075701)
+[2/4 Read] Reading and checking bundle (12582912/35075701)
+[2/4 Read] Reading and checking bundle (16777216/35075701)
+[2/4 Read] Reading and checking bundle (20971520/35075701)
+[2/4 Read] Reading and checking bundle (25165824/35075701)
+[2/4 Read] Reading and checking bundle (29360128/35075701)
+[2/4 Read] Reading and checking bundle (33554432/35075701)
+[2/4 Read] Reading and checking bundle (35075701/35075701)
+[2/4 Read] Parsing JSON
+[3/4 Index] Indexing active ATT&CK objects (2000/17672)
+[3/4 Index] Indexing active ATT&CK objects (4000/17672)
+[3/4 Index] Indexing active ATT&CK objects (6000/17672)
+[3/4 Index] Indexing active ATT&CK objects (8000/17672)
+[3/4 Index] Indexing active ATT&CK objects (10000/17672)
+[3/4 Index] Indexing active ATT&CK objects (12000/17672)
+[3/4 Index] Indexing active ATT&CK objects (14000/17672)
+[3/4 Index] Indexing active ATT&CK objects (16000/17672)
+[3/4 Index] Mapping platforms and tactics (100/576)
+[3/4 Index] Mapping platforms and tactics (200/576)
+[3/4 Index] Mapping platforms and tactics (300/576)
+[3/4 Index] Mapping platforms and tactics (400/576)
+[3/4 Index] Mapping platforms and tactics (500/576)
+[3/4 Index] Complete: 576 active techniques/sub-techniques, 11 platforms (576/576)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/17672)
+[3/4 Procedures] Reading Enterprise relationships (4000/17672)
+[3/4 Procedures] Reading Enterprise relationships (8000/17672)
+[3/4 Procedures] Reading Enterprise relationships (12000/17672)
+[3/4 Procedures] Reading Enterprise relationships (16000/17672)
+[3/4 Procedures] Complete: Enterprise 10359 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/17672)
+[3/4 Related TTPs] Reading relationships (4000/17672)
+[3/4 Related TTPs] Reading relationships (8000/17672)
+[3/4 Related TTPs] Reading relationships (12000/17672)
+[3/4 Related TTPs] Reading relationships (16000/17672)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 14988 direct/derived mappings (1/1)
+[3/4 Library] Mobile is not available in this historical version (1/1)
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v11.2\ics-attack-11.2.json
+[3/4 Library] Reading and checking ICS (2037451/2037451)
+[3/4 Library] Parsing ICS JSON
+[3/4 Procedures] Indexing ICS procedure examples (0/1106)
+[3/4 Procedures] Complete: ICS 169 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships (0/1106)
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 883 direct/derived mappings (1/1)
+[3/4 Library] Complete: ICS (1/1)
+[3/4 Library] Complete: six navigation categories indexed across all three domains (1/1)
+[Layer Batch 3/5] Layer 1: Ready (1/1)
+[Layer Batch 3/5] Preview complete; no documents have been added (3/5)
+[Navigator audit 5/7] Official SDK STIX 2.1 version comparison in background
+Input files: None; output files: None (selected TTP occurrences in memory)
+[Select TTP 1/2] Resolving tactic/family preferences (0/2)
+[Select TTP 2/2] Ready; enabled states and annotations preserved (2/2)
+Input files: None; output files: None (SDK initialization)
+[Version Compare Prepare] Loading official SDK (0/1)
+Input files: None (validated layers in memory; exact catalog inputs follow)
+Output files: None (independent layer previews in memory)
+[Layer Batch 2/5] Resolving layer 1: Research Layer (0/1)
+[Layer Batch 3/5] Layer 1: Ready (1/1)
+Output files: None (report in memory; SDK staging files are temporary)
+[Version Compare 1/4] Verifying both local snapshots (0/2)
+Input pointer: in memory (validated version selection)
+Output files: None (catalog is loaded into memory)
+[1/4 Resolve] Reading snapshot pointer
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v19.2\manifest.json
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v19.2\enterprise-attack-19.2.json
+[1/4 Resolve] Complete: Enterprise ATT&CK v19.2 (1/1)
+[2/4 Read] Reading and checking bundle (4194304/53835637)
+[2/4 Read] Reading and checking bundle (8388608/53835637)
+[2/4 Read] Reading and checking bundle (12582912/53835637)
+[2/4 Read] Reading and checking bundle (16777216/53835637)
+[2/4 Read] Reading and checking bundle (20971520/53835637)
+[2/4 Read] Reading and checking bundle (25165824/53835637)
+[2/4 Read] Reading and checking bundle (29360128/53835637)
+[2/4 Read] Reading and checking bundle (33554432/53835637)
+[2/4 Read] Reading and checking bundle (37748736/53835637)
+[2/4 Read] Reading and checking bundle (41943040/53835637)
+[2/4 Read] Reading and checking bundle (46137344/53835637)
+[2/4 Read] Reading and checking bundle (50331648/53835637)
+[2/4 Read] Reading and checking bundle (53835637/53835637)
+[2/4 Read] Parsing JSON
+[3/4 Index] Indexing active ATT&CK objects (2000/26086)
+[3/4 Index] Indexing active ATT&CK objects (4000/26086)
+[3/4 Index] Indexing active ATT&CK objects (6000/26086)
+[3/4 Index] Indexing active ATT&CK objects (8000/26086)
+[3/4 Index] Indexing active ATT&CK objects (10000/26086)
+[3/4 Index] Indexing active ATT&CK objects (12000/26086)
+[3/4 Index] Indexing active ATT&CK objects (14000/26086)
+[3/4 Index] Indexing active ATT&CK objects (16000/26086)
+[3/4 Index] Indexing active ATT&CK objects (18000/26086)
+[3/4 Index] Indexing active ATT&CK objects (20000/26086)
+[3/4 Index] Indexing active ATT&CK objects (22000/26086)
+[3/4 Index] Indexing active ATT&CK objects (24000/26086)
+[3/4 Index] Indexing active ATT&CK objects (26000/26086)
+[3/4 Index] Mapping platforms and tactics (100/697)
+[3/4 Index] Mapping platforms and tactics (200/697)
+[3/4 Index] Mapping platforms and tactics (300/697)
+[3/4 Index] Mapping platforms and tactics (400/697)
+[3/4 Index] Mapping platforms and tactics (500/697)
+[3/4 Index] Mapping platforms and tactics (600/697)
+[3/4 Index] Complete: 697 active techniques/sub-techniques, 11 platforms (697/697)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/26086)
+[3/4 Procedures] Reading Enterprise relationships (4000/26086)
+[3/4 Procedures] Reading Enterprise relationships (8000/26086)
+[3/4 Procedures] Reading Enterprise relationships (12000/26086)
+[3/4 Procedures] Reading Enterprise relationships (16000/26086)
+[3/4 Procedures] Reading Enterprise relationships (20000/26086)
+[3/4 Procedures] Reading Enterprise relationships (24000/26086)
+[3/4 Procedures] Complete: Enterprise 17136 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/26086)
+[3/4 Related TTPs] Reading relationships (4000/26086)
+[3/4 Related TTPs] Reading relationships (8000/26086)
+[3/4 Related TTPs] Reading relationships (12000/26086)
+[3/4 Related TTPs] Reading relationships (16000/26086)
+[3/4 Related TTPs] Reading relationships (20000/26086)
+[3/4 Related TTPs] Reading relationships (24000/26086)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 23429 direct/derived mappings (1/1)
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v19.2\mobile-attack-19.2.json
+[3/4 Library] Reading and checking Mobile (4194304/5750325)
+[3/4 Library] Reading and checking Mobile (5750325/5750325)
+[3/4 Library] Parsing Mobile JSON
+[3/4 Procedures] Indexing Mobile procedure examples (0/2635)
+[3/4 Procedures] Complete: Mobile 1478 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Mobile objects in memory)
+[3/4 Related TTPs] Indexing Mobile direct source relationships (0/2635)
+[3/4 Related TTPs] Resolving Mobile strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Mobile 2278 direct/derived mappings (1/1)
+[3/4 Library] Complete: Mobile (1/1)
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v19.2\ics-attack-19.2.json
+[3/4 Library] Reading and checking ICS (4057891/4057891)
+[3/4 Library] Parsing ICS JSON
+[3/4 Procedures] Indexing ICS procedure examples (0/2173)
+[3/4 Procedures] Complete: ICS 271 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships (0/2173)
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 1899 direct/derived mappings (1/1)
+[3/4 Library] Complete: ICS (1/1)
+[3/4 Library] Complete: six navigation categories indexed across all three domains (1/1)
+[Version Compare 1/4] Snapshot verified (1/2)
+Input pointer: in memory (validated version selection)
+Output files: None (catalog is loaded into memory)
+[1/4 Resolve] Reading snapshot pointer
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v11.2\manifest.json
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v11.2\enterprise-attack-11.2.json
+[1/4 Resolve] Complete: Enterprise ATT&CK v11.2 (1/1)
+[2/4 Read] Reading and checking bundle (4194304/35075701)
+[2/4 Read] Reading and checking bundle (8388608/35075701)
+[2/4 Read] Reading and checking bundle (12582912/35075701)
+[2/4 Read] Reading and checking bundle (16777216/35075701)
+[2/4 Read] Reading and checking bundle (20971520/35075701)
+[2/4 Read] Reading and checking bundle (25165824/35075701)
+[2/4 Read] Reading and checking bundle (29360128/35075701)
+[2/4 Read] Reading and checking bundle (33554432/35075701)
+[2/4 Read] Reading and checking bundle (35075701/35075701)
+[2/4 Read] Parsing JSON
+[3/4 Index] Indexing active ATT&CK objects (2000/17672)
+[3/4 Index] Indexing active ATT&CK objects (4000/17672)
+[3/4 Index] Indexing active ATT&CK objects (6000/17672)
+[3/4 Index] Indexing active ATT&CK objects (8000/17672)
+[3/4 Index] Indexing active ATT&CK objects (10000/17672)
+[3/4 Index] Indexing active ATT&CK objects (12000/17672)
+[3/4 Index] Indexing active ATT&CK objects (14000/17672)
+[3/4 Index] Indexing active ATT&CK objects (16000/17672)
+[3/4 Index] Mapping platforms and tactics (100/576)
+[3/4 Index] Mapping platforms and tactics (200/576)
+[3/4 Index] Mapping platforms and tactics (300/576)
+[3/4 Index] Mapping platforms and tactics (400/576)
+[3/4 Index] Mapping platforms and tactics (500/576)
+[3/4 Index] Complete: 576 active techniques/sub-techniques, 11 platforms (576/576)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/17672)
+[3/4 Procedures] Reading Enterprise relationships (4000/17672)
+[3/4 Procedures] Reading Enterprise relationships (8000/17672)
+[3/4 Procedures] Reading Enterprise relationships (12000/17672)
+[3/4 Procedures] Reading Enterprise relationships (16000/17672)
+[3/4 Procedures] Complete: Enterprise 10359 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/17672)
+[3/4 Related TTPs] Reading relationships (4000/17672)
+[3/4 Related TTPs] Reading relationships (8000/17672)
+[3/4 Related TTPs] Reading relationships (12000/17672)
+[3/4 Related TTPs] Reading relationships (16000/17672)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 14988 direct/derived mappings (1/1)
+[3/4 Library] Mobile is not available in this historical version (1/1)
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v11.2\ics-attack-11.2.json
+[3/4 Library] Reading and checking ICS (2037451/2037451)
+[3/4 Library] Parsing ICS JSON
+[3/4 Procedures] Indexing ICS procedure examples (0/1106)
+[3/4 Procedures] Complete: ICS 169 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships (0/1106)
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 883 direct/derived mappings (1/1)
+[3/4 Library] Complete: ICS (1/1)
+[3/4 Library] Complete: six navigation categories indexed across all three domains (1/1)
+[Version Compare 1/4] Snapshot verified (2/2)
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v19.2\enterprise-attack-19.2.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\artifacts\sdk-diff-l3x6nf2f\old\enterprise-attack.json
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v11.2\enterprise-attack-11.2.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\artifacts\sdk-diff-l3x6nf2f\new\enterprise-attack.json
+[Version Compare 2/4] Official SDK comparing STIX 2.1 bundles
+2026-10-20 09:31:17.955 | WARNING  | mitreattack.release_info:get_attack_version:330 - Unknown ATT&CK version for file: D:\MITREATTACK_SIMULATOR\artifacts\sdk-diff-l3x6nf2f\old\enterprise-attack.json
+2026-10-20 09:31:31.563 | WARNING  | mitreattack.release_info:get_attack_version:330 - Unknown ATT&CK version for file: D:\MITREATTACK_SIMULATOR\artifacts\sdk-diff-l3x6nf2f\new\enterprise-attack.json
+Loading domains ---------------------------------------- 100% 0:00:21
+Finding changes by domain ---------------------------------------- 100% 0:00:11
+[Version Compare 3/4] Building report and selection impact (0/1)
+[Version Compare 4/4] Complete; temporary files removed (1/1)
+Input files: None (validated in-memory data)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\version-comparison.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\version-comparison.json.c6c9905631744bf294f215281392ec05.tmp
+[Version Compare Export 1/3] Serializing data (0/3)
+[Version Compare Export 2/3] Writing UTF-8 JSON (1/3)
+[Version Compare Export 3/3] Publishing file (2/3)
+[Version Compare Export 3/3] Complete: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\version-comparison.json (3/3)
+[Navigator audit 6/7] Invalid and multiple-layer inputs
+Input files: None (validated in-memory data)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\invalid.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\invalid.json.2f67e8ccf6244096a0a6d2a109f35e80.tmp
+[Navigator Export 1/3] Serializing data (0/3)
+[Navigator Export 2/3] Writing UTF-8 JSON (1/3)
+[Navigator Export 3/3] Publishing file (2/3)
+[Navigator Export 3/3] Complete: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\invalid.json (3/3)
+Input file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\invalid.json
+Output files: None (import preview in memory)
+[Navigator Import 1/4] Reading and validating layer file (0/1)
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\versions-cache.json
+Input files: None (validated in-memory data)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\multi.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\multi.json.bc39560a484a4910aef82a35126f378b.tmp
+[Navigator Export 1/3] Serializing data (0/3)
+[Navigator Export 2/3] Writing UTF-8 JSON (1/3)
+[Navigator Export 3/3] Publishing file (2/3)
+[Navigator Export 3/3] Complete: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\multi.json (3/3)
+Input file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\multi.json
+Output files: None (import preview in memory)
+[Navigator Import 1/4] Reading and validating layer file (0/1)
+[Navigator Import 1/4] Layer validated by mitreattack-python (1/2)
+[Navigator Import 1/4] Layer validated by mitreattack-python (2/2)
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\versions-cache.json
+Input file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\invalid.json
+Output files: None (import preview in memory)
+[Navigator Import 1/4] Reading and validating layer file (0/1)
+Failed: ValueError: Unknown Navigator domain. (1/1)
+Input file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit-19adfed0ce394daeb3aeb4ce3d8e751b\multi.json
+Output files: None (import preview in memory)
+[Navigator Import 1/4] Reading and validating layer file (0/1)
+[Navigator Import 1/4] Layer validated by mitreattack-python (1/2)
+[Navigator Import 1/4] Layer validated by mitreattack-python (2/2)
+Input files: None (validated layers in memory; exact catalog inputs follow)
+Output files: None (independent layer previews in memory)
+[Layer Batch 2/5] Resolving layer 1: Research Layer (0/2)
+[Layer Batch 3/5] Layer 1: Ready (1/2)
+[Layer Batch 2/5] Resolving layer 2: Research Layer (1/2)
+[Studio Open 2/4] Resolving exact dataset 11.2 (1/4)
+Input pointer: in memory (validated version selection)
+Output files: None (catalog is loaded into memory)
+[1/4 Resolve] Reading snapshot pointer
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v11.2\manifest.json
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v11.2\enterprise-attack-11.2.json
+[1/4 Resolve] Complete: Enterprise ATT&CK v11.2 (1/1)
+[2/4 Read] Reading and checking bundle (4194304/35075701)
+[2/4 Read] Reading and checking bundle (8388608/35075701)
+[2/4 Read] Reading and checking bundle (12582912/35075701)
+[2/4 Read] Reading and checking bundle (16777216/35075701)
+[2/4 Read] Reading and checking bundle (20971520/35075701)
+[2/4 Read] Reading and checking bundle (25165824/35075701)
+[2/4 Read] Reading and checking bundle (29360128/35075701)
+[2/4 Read] Reading and checking bundle (33554432/35075701)
+[2/4 Read] Reading and checking bundle (35075701/35075701)
+[2/4 Read] Parsing JSON
+[3/4 Index] Indexing active ATT&CK objects (2000/17672)
+[3/4 Index] Indexing active ATT&CK objects (4000/17672)
+[3/4 Index] Indexing active ATT&CK objects (6000/17672)
+[3/4 Index] Indexing active ATT&CK objects (8000/17672)
+[3/4 Index] Indexing active ATT&CK objects (10000/17672)
+[3/4 Index] Indexing active ATT&CK objects (12000/17672)
+[3/4 Index] Indexing active ATT&CK objects (14000/17672)
+[3/4 Index] Indexing active ATT&CK objects (16000/17672)
+[3/4 Index] Mapping platforms and tactics (100/576)
+[3/4 Index] Mapping platforms and tactics (200/576)
+[3/4 Index] Mapping platforms and tactics (300/576)
+[3/4 Index] Mapping platforms and tactics (400/576)
+[3/4 Index] Mapping platforms and tactics (500/576)
+[3/4 Index] Complete: 576 active techniques/sub-techniques, 11 platforms (576/576)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/17672)
+[3/4 Procedures] Reading Enterprise relationships (4000/17672)
+[3/4 Procedures] Reading Enterprise relationships (8000/17672)
+[3/4 Procedures] Reading Enterprise relationships (12000/17672)
+[3/4 Procedures] Reading Enterprise relationships (16000/17672)
+[3/4 Procedures] Complete: Enterprise 10359 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/17672)
+[3/4 Related TTPs] Reading relationships (4000/17672)
+[3/4 Related TTPs] Reading relationships (8000/17672)
+[3/4 Related TTPs] Reading relationships (12000/17672)
+[3/4 Related TTPs] Reading relationships (16000/17672)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 14988 direct/derived mappings (1/1)
+[3/4 Library] Mobile is not available in this historical version (1/1)
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v11.2\ics-attack-11.2.json
+[3/4 Library] Reading and checking ICS (2037451/2037451)
+[3/4 Library] Parsing ICS JSON
+[3/4 Procedures] Indexing ICS procedure examples (0/1106)
+[3/4 Procedures] Complete: ICS 169 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships (0/1106)
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 883 direct/derived mappings (1/1)
+[3/4 Library] Complete: ICS (1/1)
+[3/4 Library] Complete: six navigation categories indexed across all three domains (1/1)
+[Layer Batch 3/5] Layer 2: Ready (2/2)
+[Layer Batch 3/5] Preview complete; no documents have been added (3/5)
+[Navigator audit 7/7] Publishing report
+Input files: None (validated in-memory data)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit.json.2876f235410d45a98c30fc774156a4ff.tmp
+[Navigator Audit Report 1/3] Serializing data (0/3)
+[Navigator Audit Report 2/3] Writing UTF-8 JSON (1/3)
+[Navigator Audit Report 3/3] Publishing file (2/3)
+[Navigator Audit Report 3/3] Complete: D:\MITREATTACK_SIMULATOR\artifacts\navigator-audit.json (3/3)
+[Navigator audit] PASS: 64 checks

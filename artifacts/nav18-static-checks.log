@@ -1,0 +1,22 @@
+Input directories: D:\MITREATTACK_SIMULATOR D:\MITREATTACK_SIMULATOR\manual D:\MITREATTACK_SIMULATOR\scripts
+Input file: D:\MITREATTACK_SIMULATOR\locales\zh_TW.json
+Input file: D:\MITREATTACK_SIMULATOR\artifacts\formula-compatibility\navigator.studio.json
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\nav18-static-checks.json
+[Static 1/4] Parse Python sources
+[Static 2/4] Check local Markdown links and fixtures
+[Static 3/4] Check unique locale keys and placeholders
+[Static 4/4] Verify translated Formula syntax delegates and labels
+[Application icon 1/2] Input file: D:\MITREATTACK_SIMULATOR\assets\ttp-selection-studio-icon-pixel.png
+[Application icon 1/2] Output files: None (application/window icon in memory)
+[Application icon 2/2] Complete: pixel icon applied to application and windows
+[Preview fonts] Input file: C:\WINDOWS\Fonts\segoeui.ttf
+[Preview fonts] Input file: C:\WINDOWS\Fonts\segoeuib.ttf
+[Preview fonts] Input file: C:\WINDOWS\Fonts\consola.ttf
+[Preview fonts] Input file: C:\WINDOWS\Fonts\georgia.ttf
+[Preview fonts] Input file: C:\WINDOWS\Fonts\msjh.ttc
+[Preview fonts] Input file: C:\WINDOWS\Fonts\msjhbd.ttc
+[Preview fonts] Complete
+[Language 1/2] Input file: D:\MITREATTACK_SIMULATOR\locales\zh_TW.json
+Output files: None (translation catalog in memory)
+[Language 2/2] Ready: 648 Taiwan translations
+[Static] PASS {'passed': True, 'python_sources': 84, 'local_markdown_links': 372, 'locale_keys': 648, 'translated_formula_controls': True}

@@ -1,0 +1,1393 @@
+{
+  "matrix": [
+    {
+      "techniqueID": "T0001",
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T0001",
+      "tactic": "persistence"
+    },
+    {
+      "techniqueID": "T0002",
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T0003",
+      "tactic": "persistence"
+    }
+  ],
+  "cases": [
+    {
+      "name": "a+b",
+      "expression": "a+b",
+      "sources": [
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution",
+              "score": 80,
+              "enabled": false
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "comment": "unscored"
+            },
+            {
+              "techniqueID": "T0002",
+              "score": 0
+            },
+            {
+              "techniqueID": "T0003",
+              "tactic": "persistence",
+              "score": -5
+            }
+          ]
+        },
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution"
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "score": 60
+            },
+            {
+              "techniqueID": "T0002",
+              "tactic": "execution",
+              "score": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "a-b",
+      "expression": "a-b",
+      "sources": [
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution",
+              "score": 80,
+              "enabled": false
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "comment": "unscored"
+            },
+            {
+              "techniqueID": "T0002",
+              "score": 0
+            },
+            {
+              "techniqueID": "T0003",
+              "tactic": "persistence",
+              "score": -5
+            }
+          ]
+        },
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution"
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "score": 60
+            },
+            {
+              "techniqueID": "T0002",
+              "tactic": "execution",
+              "score": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "a*b",
+      "expression": "a*b",
+      "sources": [
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution",
+              "score": 80,
+              "enabled": false
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "comment": "unscored"
+            },
+            {
+              "techniqueID": "T0002",
+              "score": 0
+            },
+            {
+              "techniqueID": "T0003",
+              "tactic": "persistence",
+              "score": -5
+            }
+          ]
+        },
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution"
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "score": 60
+            },
+            {
+              "techniqueID": "T0002",
+              "tactic": "execution",
+              "score": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "(a+b)/2",
+      "expression": "(a+b)/2",
+      "sources": [
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution",
+              "score": 80,
+              "enabled": false
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "comment": "unscored"
+            },
+            {
+              "techniqueID": "T0002",
+              "score": 0
+            },
+            {
+              "techniqueID": "T0003",
+              "tactic": "persistence",
+              "score": -5
+            }
+          ]
+        },
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution"
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "score": 60
+            },
+            {
+              "techniqueID": "T0002",
+              "tactic": "execution",
+              "score": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "a>b",
+      "expression": "a>b",
+      "sources": [
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution",
+              "score": 80,
+              "enabled": false
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "comment": "unscored"
+            },
+            {
+              "techniqueID": "T0002",
+              "score": 0
+            },
+            {
+              "techniqueID": "T0003",
+              "tactic": "persistence",
+              "score": -5
+            }
+          ]
+        },
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution"
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "score": 60
+            },
+            {
+              "techniqueID": "T0002",
+              "tactic": "execution",
+              "score": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "a==0",
+      "expression": "a==0",
+      "sources": [
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution",
+              "score": 80,
+              "enabled": false
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "comment": "unscored"
+            },
+            {
+              "techniqueID": "T0002",
+              "score": 0
+            },
+            {
+              "techniqueID": "T0003",
+              "tactic": "persistence",
+              "score": -5
+            }
+          ]
+        },
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution"
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "score": 60
+            },
+            {
+              "techniqueID": "T0002",
+              "tactic": "execution",
+              "score": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "a>0 ? a : b",
+      "expression": "a>0 ? a : b",
+      "sources": [
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution",
+              "score": 80,
+              "enabled": false
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "comment": "unscored"
+            },
+            {
+              "techniqueID": "T0002",
+              "score": 0
+            },
+            {
+              "techniqueID": "T0003",
+              "tactic": "persistence",
+              "score": -5
+            }
+          ]
+        },
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution"
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "score": 60
+            },
+            {
+              "techniqueID": "T0002",
+              "tactic": "execution",
+              "score": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "a and b",
+      "expression": "a and b",
+      "sources": [
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution",
+              "score": 80,
+              "enabled": false
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "comment": "unscored"
+            },
+            {
+              "techniqueID": "T0002",
+              "score": 0
+            },
+            {
+              "techniqueID": "T0003",
+              "tactic": "persistence",
+              "score": -5
+            }
+          ]
+        },
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution"
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "score": 60
+            },
+            {
+              "techniqueID": "T0002",
+              "tactic": "execution",
+              "score": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "max(a,b)",
+      "expression": "max(a,b)",
+      "sources": [
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution",
+              "score": 80,
+              "enabled": false
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "comment": "unscored"
+            },
+            {
+              "techniqueID": "T0002",
+              "score": 0
+            },
+            {
+              "techniqueID": "T0003",
+              "tactic": "persistence",
+              "score": -5
+            }
+          ]
+        },
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution"
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "score": 60
+            },
+            {
+              "techniqueID": "T0002",
+              "tactic": "execution",
+              "score": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "sin(pi/2)*a+b",
+      "expression": "sin(pi/2)*a+b",
+      "sources": [
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution",
+              "score": 80,
+              "enabled": false
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "comment": "unscored"
+            },
+            {
+              "techniqueID": "T0002",
+              "score": 0
+            },
+            {
+              "techniqueID": "T0003",
+              "tactic": "persistence",
+              "score": -5
+            }
+          ]
+        },
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution"
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "score": 60
+            },
+            {
+              "techniqueID": "T0002",
+              "tactic": "execution",
+              "score": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "a/(b+1)",
+      "expression": "a/(b+1)",
+      "sources": [
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution",
+              "score": 80,
+              "enabled": false
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "comment": "unscored"
+            },
+            {
+              "techniqueID": "T0002",
+              "score": 0
+            },
+            {
+              "techniqueID": "T0003",
+              "tactic": "persistence",
+              "score": -5
+            }
+          ]
+        },
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution"
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "score": 60
+            },
+            {
+              "techniqueID": "T0002",
+              "tactic": "execution",
+              "score": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "a-a",
+      "expression": "a-a",
+      "sources": [
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution",
+              "score": 80,
+              "enabled": false
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "comment": "unscored"
+            },
+            {
+              "techniqueID": "T0002",
+              "score": 0
+            },
+            {
+              "techniqueID": "T0003",
+              "tactic": "persistence",
+              "score": -5
+            }
+          ]
+        },
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution"
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "score": 60
+            },
+            {
+              "techniqueID": "T0002",
+              "tactic": "execution",
+              "score": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "a^2",
+      "expression": "a^2",
+      "sources": [
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution",
+              "score": 80,
+              "enabled": false
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "comment": "unscored"
+            },
+            {
+              "techniqueID": "T0002",
+              "score": 0
+            },
+            {
+              "techniqueID": "T0003",
+              "tactic": "persistence",
+              "score": -5
+            }
+          ]
+        },
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution"
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "score": 60
+            },
+            {
+              "techniqueID": "T0002",
+              "tactic": "execution",
+              "score": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "round(a/3,2)",
+      "expression": "round(a/3,2)",
+      "sources": [
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution",
+              "score": 80,
+              "enabled": false
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "comment": "unscored"
+            },
+            {
+              "techniqueID": "T0002",
+              "score": 0
+            },
+            {
+              "techniqueID": "T0003",
+              "tactic": "persistence",
+              "score": -5
+            }
+          ]
+        },
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution"
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "score": 60
+            },
+            {
+              "techniqueID": "T0002",
+              "tactic": "execution",
+              "score": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "0 ? a : 50",
+      "expression": "0 ? a : 50",
+      "sources": [
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution",
+              "score": 80,
+              "enabled": false
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "comment": "unscored"
+            },
+            {
+              "techniqueID": "T0002",
+              "score": 0
+            },
+            {
+              "techniqueID": "T0003",
+              "tactic": "persistence",
+              "score": -5
+            }
+          ]
+        },
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution"
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "score": 60
+            },
+            {
+              "techniqueID": "T0002",
+              "tactic": "execution",
+              "score": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "1 or a",
+      "expression": "1 or a",
+      "sources": [
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution",
+              "score": 80,
+              "enabled": false
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "comment": "unscored"
+            },
+            {
+              "techniqueID": "T0002",
+              "score": 0
+            },
+            {
+              "techniqueID": "T0003",
+              "tactic": "persistence",
+              "score": -5
+            }
+          ]
+        },
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution"
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "score": 60
+            },
+            {
+              "techniqueID": "T0002",
+              "tactic": "execution",
+              "score": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "0 and a",
+      "expression": "0 and a",
+      "sources": [
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution",
+              "score": 80,
+              "enabled": false
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "comment": "unscored"
+            },
+            {
+              "techniqueID": "T0002",
+              "score": 0
+            },
+            {
+              "techniqueID": "T0003",
+              "tactic": "persistence",
+              "score": -5
+            }
+          ]
+        },
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution"
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "score": 60
+            },
+            {
+              "techniqueID": "T0002",
+              "tactic": "execution",
+              "score": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "true",
+      "expression": "true",
+      "sources": [
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution",
+              "score": 80,
+              "enabled": false
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "comment": "unscored"
+            },
+            {
+              "techniqueID": "T0002",
+              "score": 0
+            },
+            {
+              "techniqueID": "T0003",
+              "tactic": "persistence",
+              "score": -5
+            }
+          ]
+        },
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution"
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "score": 60
+            },
+            {
+              "techniqueID": "T0002",
+              "tactic": "execution",
+              "score": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "50",
+      "expression": "50",
+      "sources": [
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution",
+              "score": 80,
+              "enabled": false
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "comment": "unscored"
+            },
+            {
+              "techniqueID": "T0002",
+              "score": 0
+            },
+            {
+              "techniqueID": "T0003",
+              "tactic": "persistence",
+              "score": -5
+            }
+          ]
+        },
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution"
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "score": 60
+            },
+            {
+              "techniqueID": "T0002",
+              "tactic": "execution",
+              "score": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "0",
+      "expression": "0",
+      "sources": [
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution",
+              "score": 80,
+              "enabled": false
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "comment": "unscored"
+            },
+            {
+              "techniqueID": "T0002",
+              "score": 0
+            },
+            {
+              "techniqueID": "T0003",
+              "tactic": "persistence",
+              "score": -5
+            }
+          ]
+        },
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution"
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "score": 60
+            },
+            {
+              "techniqueID": "T0002",
+              "tactic": "execution",
+              "score": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "e",
+      "expression": "e",
+      "sources": [
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution",
+              "score": 80,
+              "enabled": false
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "comment": "unscored"
+            },
+            {
+              "techniqueID": "T0002",
+              "score": 0
+            },
+            {
+              "techniqueID": "T0003",
+              "tactic": "persistence",
+              "score": -5
+            }
+          ]
+        },
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution"
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "score": 60
+            },
+            {
+              "techniqueID": "T0002",
+              "tactic": "execution",
+              "score": 20
+            }
+          ]
+        },
+        {
+          "rows": []
+        },
+        {
+          "rows": []
+        },
+        {
+          "rows": []
+        }
+      ]
+    },
+    {
+      "name": "e+a",
+      "expression": "e+a",
+      "sources": [
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution",
+              "score": 80,
+              "enabled": false
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "comment": "unscored"
+            },
+            {
+              "techniqueID": "T0002",
+              "score": 0
+            },
+            {
+              "techniqueID": "T0003",
+              "tactic": "persistence",
+              "score": -5
+            }
+          ]
+        },
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution"
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "score": 60
+            },
+            {
+              "techniqueID": "T0002",
+              "tactic": "execution",
+              "score": 20
+            }
+          ]
+        },
+        {
+          "rows": []
+        },
+        {
+          "rows": []
+        },
+        {
+          "rows": []
+        }
+      ]
+    },
+    {
+      "name": "a>0 ? 25 : b",
+      "expression": "a>0 ? 25 : b",
+      "sources": [
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution",
+              "score": 80,
+              "enabled": false
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "comment": "unscored"
+            },
+            {
+              "techniqueID": "T0002",
+              "score": 0
+            },
+            {
+              "techniqueID": "T0003",
+              "tactic": "persistence",
+              "score": -5
+            }
+          ]
+        },
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution"
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "score": 60
+            },
+            {
+              "techniqueID": "T0002",
+              "tactic": "execution",
+              "score": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "all missing",
+      "expression": "a+b",
+      "sources": [
+        {
+          "rows": []
+        },
+        {
+          "rows": []
+        }
+      ]
+    },
+    {
+      "name": "unused source does not expand scope",
+      "expression": "a",
+      "sources": [
+        {
+          "rows": []
+        },
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution"
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "score": 60
+            },
+            {
+              "techniqueID": "T0002",
+              "tactic": "execution",
+              "score": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "empty-scoped constant shadows source e",
+      "expression": "e",
+      "sources": [
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution",
+              "score": 80,
+              "enabled": false
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "comment": "unscored"
+            },
+            {
+              "techniqueID": "T0002",
+              "score": 0
+            },
+            {
+              "techniqueID": "T0003",
+              "tactic": "persistence",
+              "score": -5
+            }
+          ]
+        },
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution"
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "score": 60
+            },
+            {
+              "techniqueID": "T0002",
+              "tactic": "execution",
+              "score": 20
+            }
+          ]
+        },
+        {
+          "rows": []
+        },
+        {
+          "rows": []
+        },
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "score": 99
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "e is source only after empty probe fails",
+      "expression": "e+a",
+      "sources": [
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution",
+              "score": 80,
+              "enabled": false
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "comment": "unscored"
+            },
+            {
+              "techniqueID": "T0002",
+              "score": 0
+            },
+            {
+              "techniqueID": "T0003",
+              "tactic": "persistence",
+              "score": -5
+            }
+          ]
+        },
+        {
+          "rows": []
+        },
+        {
+          "rows": []
+        },
+        {
+          "rows": []
+        },
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "score": 99
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "global followed by missing exact row",
+      "expression": "a+b",
+      "sources": [
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "score": 9
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution",
+              "comment": "cleared"
+            }
+          ]
+        },
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution"
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "score": 60
+            },
+            {
+              "techniqueID": "T0002",
+              "tactic": "execution",
+              "score": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "global later replaces exact row",
+      "expression": "a+b",
+      "sources": [
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution",
+              "score": 9
+            },
+            {
+              "techniqueID": "T0001",
+              "score": 4
+            }
+          ]
+        },
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution"
+            },
+            {
+              "techniqueID": "T0001",
+              "tactic": "persistence",
+              "score": 60
+            },
+            {
+              "techniqueID": "T0002",
+              "tactic": "execution",
+              "score": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "constant with empty sources",
+      "expression": "50",
+      "sources": [
+        {
+          "rows": []
+        }
+      ]
+    },
+    {
+      "name": "keep all-missing cells enabled by default",
+      "expression": "a+b",
+      "sources": [
+        {
+          "rows": [
+            {
+              "techniqueID": "T0001",
+              "tactic": "execution",
+              "enabled": false
+            }
+          ]
+        },
+        {
+          "rows": []
+        }
+      ]
+    }
+  ]
+}

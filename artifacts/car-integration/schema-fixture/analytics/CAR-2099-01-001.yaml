@@ -1,0 +1,9 @@
+description: Read-only
+id: CAR-2099-01-001
+title: Minimal optional record
+unknown_extension:
+  a:
+  - 1
+  - 2
+
+# changed

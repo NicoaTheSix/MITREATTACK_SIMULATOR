@@ -104,6 +104,8 @@ def main():
     window.show()
     wait(lambda: window.loaded_ok and not window.loader.isRunning(), 'startup')
     catalog = window.catalog
+    for layer in (red, blue, empty, disabled):
+        layer['versions']['attack'] = catalog.version
     lookup = {external_id(obj): key for key, obj in catalog.records.items()}
     task, at, parent = lookup['T1053.005'], lookup['T1053.002'], lookup['T1053']
     first = window.current_document
@@ -157,6 +159,9 @@ def main():
     QtWidgets.QApplication.processEvents()
     rect = tree.visualItemRect(item)
     check(tree.viewport().grab().toImage().pixelColor(rect.right() - 3, rect.top() + 3).name() == '#800080', 'actual selected-row painted pixel retains blended fill')
+    # Expanding families is now a saved layer preference; compare color-only
+    # view changes against the state after that deliberate edit.
+    before = states(window.documents)
     matrix.show_colors.setChecked(False)
     check(not item.data(0, MATRIX_STYLE)['background'], 'color hiding works in overlay view')
     matrix.show_colors.setChecked(True)
@@ -244,6 +249,7 @@ def main():
     QtWidgets.QApplication.processEvents()
     check(window.grab().save(str(SCREEN)), 'all-layer color preview saved')
     check(all(path.read_bytes() == content for path, content in pointers.items()), 'overlay workflow leaves dataset pointers unchanged')
+    window.confirm_studio_changes = lambda *_: "discard"
     window.close()
     REPORT.write_text(json.dumps({'status': 'PASS', 'checks': checks, 'preview': str(SCREEN)}, indent=2) + '\n', encoding='utf-8')
     log(f'[Overlay audit] PASS: {len(checks)} checks', 6, 6)

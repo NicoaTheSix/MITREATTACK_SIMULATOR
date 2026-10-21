@@ -1,0 +1,129 @@
+[Application icon 1/2] Input file: D:\MITREATTACK_SIMULATOR\assets\ttp-selection-studio-icon-pixel.png
+[Application icon 1/2] Output files: None (application/window icon in memory)
+[Application icon 2/2] Complete: pixel icon applied to application and windows
+[Preview fonts] Input file: C:\WINDOWS\Fonts\segoeui.ttf
+[Preview fonts] Input file: C:\WINDOWS\Fonts\segoeuib.ttf
+[Preview fonts] Input file: C:\WINDOWS\Fonts\consola.ttf
+[Preview fonts] Input file: C:\WINDOWS\Fonts\msjh.ttc
+[Preview fonts] Input file: C:\WINDOWS\Fonts\msjhbd.ttc
+[Preview fonts] Complete
+[UI settings 1/2] Input file: D:\MITREATTACK_SIMULATOR\artifacts\studio-lifecycle\ui.ini
+[UI settings 1/2] Output files: None (reading preferences)
+[UI settings 2/2] Complete: navigation labels shown
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\ttp-selection-studio-icon-pixel.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\mitigations.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\assets.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\detections.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\groups.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\software.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\campaigns.png
+[Navigation icons 1/3] Output files: None (button icons in memory)
+[Navigation icons 2/3] Loading TTP (1/7)
+[Navigation icons 2/3] Loading Mitigations (2/7)
+[Navigation icons 2/3] Loading Assets (3/7)
+[Navigation icons 2/3] Loading Detections (4/7)
+[Navigation icons 2/3] Loading Groups (5/7)
+[Navigation icons 2/3] Loading Software (6/7)
+[Navigation icons 2/3] Loading Campaigns (7/7)
+[Navigation icons 3/3] Complete: 7/7 icons ready
+Input files: None (recovery ownership check)
+Output session file: D:\MITREATTACK_SIMULATOR\artifacts\studio-lifecycle\gui-session.json
+Output lock file: D:\MITREATTACK_SIMULATOR\artifacts\studio-lifecycle\gui-session.json.lock
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\active.json
+Output files: None (catalog is loaded into memory)
+[1/4 Resolve] Reading snapshot pointer
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v19.2\manifest.json
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v19.2\enterprise-attack-19.2.json
+[1/4 Resolve] Complete: Enterprise ATT&CK v19.2 (1/1)
+[2/4 Read] Reading and checking bundle (4194304/53835637)
+[2/4 Read] Reading and checking bundle (8388608/53835637)
+[2/4 Read] Reading and checking bundle (12582912/53835637)
+[2/4 Read] Reading and checking bundle (16777216/53835637)
+[2/4 Read] Reading and checking bundle (20971520/53835637)
+[2/4 Read] Reading and checking bundle (25165824/53835637)
+[2/4 Read] Reading and checking bundle (29360128/53835637)
+[2/4 Read] Reading and checking bundle (33554432/53835637)
+[2/4 Read] Reading and checking bundle (37748736/53835637)
+[2/4 Read] Reading and checking bundle (41943040/53835637)
+[2/4 Read] Reading and checking bundle (46137344/53835637)
+[2/4 Read] Reading and checking bundle (50331648/53835637)
+[2/4 Read] Reading and checking bundle (53835637/53835637)
+[2/4 Read] Parsing JSON
+[3/4 Index] Indexing active ATT&CK objects (2000/26086)
+[3/4 Index] Indexing active ATT&CK objects (4000/26086)
+[3/4 Index] Indexing active ATT&CK objects (6000/26086)
+[3/4 Index] Indexing active ATT&CK objects (8000/26086)
+[3/4 Index] Indexing active ATT&CK objects (10000/26086)
+[3/4 Index] Indexing active ATT&CK objects (12000/26086)
+[3/4 Index] Indexing active ATT&CK objects (14000/26086)
+[3/4 Index] Indexing active ATT&CK objects (16000/26086)
+[3/4 Index] Indexing active ATT&CK objects (18000/26086)
+[3/4 Index] Indexing active ATT&CK objects (20000/26086)
+[3/4 Index] Indexing active ATT&CK objects (22000/26086)
+[3/4 Index] Indexing active ATT&CK objects (24000/26086)
+[3/4 Index] Indexing active ATT&CK objects (26000/26086)
+[3/4 Index] Mapping platforms and tactics (100/697)
+[3/4 Index] Mapping platforms and tactics (200/697)
+[3/4 Index] Mapping platforms and tactics (300/697)
+[3/4 Index] Mapping platforms and tactics (400/697)
+[3/4 Index] Mapping platforms and tactics (500/697)
+[3/4 Index] Mapping platforms and tactics (600/697)
+[3/4 Index] Complete: 697 active techniques/sub-techniques, 11 platforms (697/697)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/26086)
+[3/4 Procedures] Reading Enterprise relationships (4000/26086)
+[3/4 Procedures] Reading Enterprise relationships (8000/26086)
+[3/4 Procedures] Reading Enterprise relationships (12000/26086)
+[3/4 Procedures] Reading Enterprise relationships (16000/26086)
+[3/4 Procedures] Reading Enterprise relationships (20000/26086)
+[3/4 Procedures] Reading Enterprise relationships (24000/26086)
+[3/4 Procedures] Complete: Enterprise 17136 procedure examples (1/1)
+[3/4 Related TTPs] Indexing Enterprise (0/26086)
+[3/4 Related TTPs] Reading Enterprise relationships (4000/26086)
+[3/4 Related TTPs] Reading Enterprise relationships (8000/26086)
+[3/4 Related TTPs] Reading Enterprise relationships (12000/26086)
+[3/4 Related TTPs] Reading Enterprise relationships (16000/26086)
+[3/4 Related TTPs] Reading Enterprise relationships (20000/26086)
+[3/4 Related TTPs] Reading Enterprise relationships (24000/26086)
+[3/4 Related TTPs] Complete: Enterprise 18584 relationships (1/1)
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v19.2\mobile-attack-19.2.json
+[3/4 Library] Reading and checking Mobile (4194304/5750325)
+[3/4 Library] Reading and checking Mobile (5750325/5750325)
+[3/4 Library] Parsing Mobile JSON
+[3/4 Procedures] Indexing Mobile procedure examples (0/2635)
+[3/4 Procedures] Complete: Mobile 1478 procedure examples (1/1)
+[3/4 Related TTPs] Indexing Mobile (0/2635)
+[3/4 Related TTPs] Complete: Mobile 1645 relationships (1/1)
+[3/4 Library] Complete: Mobile (1/1)
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v19.2\ics-attack-19.2.json
+[3/4 Library] Reading and checking ICS (4057891/4057891)
+[3/4 Library] Parsing ICS JSON
+[3/4 Procedures] Indexing ICS procedure examples (0/2173)
+[3/4 Procedures] Complete: ICS 271 procedure examples (1/1)
+[3/4 Related TTPs] Indexing ICS (0/2173)
+[3/4 Related TTPs] Complete: ICS 673 relationships (1/1)
+[3/4 Library] Complete: ICS (1/1)
+[3/4 Library] Complete: six navigation categories indexed across all three domains (1/1)
+[4/4 Tree] Complete: 697 unique selectable technique IDs
+Input files: None (document draft in memory)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\studio-lifecycle\Gui.json
+[Studio Save 1/3] Checking saved-file baseline (0/3)
+[Studio Save 2/3] Writing complete document atomically (1/3)
+Input files: None (validated in-memory data)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\studio-lifecycle\Gui.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\artifacts\studio-lifecycle\Gui.json.14f65fe1f8744bd897b1ea4f21c5beb0.tmp
+[Studio Save 1/3] Serializing data (0/3)
+[Studio Save 2/3] Writing UTF-8 JSON (1/3)
+[Studio Save 3/3] Publishing file (2/3)
+[Studio Save 3/3] Complete: D:\MITREATTACK_SIMULATOR\artifacts\studio-lifecycle\Gui.json (3/3)
+[Studio Save 3/3] Complete; source draft unchanged until accepted (3/3)
+Input files: None (immutable workspace snapshot in memory)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\studio-lifecycle\gui-session.json
+[Session 1/3] Preparing recovery checkpoint (0/3)
+Input files: None (validated in-memory data)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\studio-lifecycle\gui-session.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\artifacts\studio-lifecycle\gui-session.json.bcbe1553a7c04cff9b0a3824393a31bb.tmp
+[Session 1/3] Serializing data (0/3)
+[Session 2/3] Writing UTF-8 JSON (1/3)
+[Session 3/3] Publishing file (2/3)
+[Session 3/3] Complete: D:\MITREATTACK_SIMULATOR\artifacts\studio-lifecycle\gui-session.json (3/3)
+GUI PASS

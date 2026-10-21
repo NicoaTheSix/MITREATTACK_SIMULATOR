@@ -1,0 +1,11 @@
+D:\MITREATTACK_SIMULATOR\ttpselecter.cmd
+Input program: D:\MITREATTACK_SIMULATOR\main.py
+Input Python: D:\MITREATTACK_SIMULATOR\.venv\Scripts\pythonw.exe
+Input dataset pointer: D:\MITREATTACK_SIMULATOR\data\attack\active.json
+Input/output settings: D:\MITREATTACK_SIMULATOR\data\ui-settings.ini
+Input/output session: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+Output log: D:\MITREATTACK_SIMULATOR\artifacts\launch\20261019-233122-205-14792.log
+Output errors: D:\MITREATTACK_SIMULATOR\artifacts\launch\20261019-233122-205-14792-errors.log
+[ttpselector 1/3] Checking application, environment and dataset paths
+[ttpselector 2/3] Opening TTP Selection Studio
+[ttpselector 3/3] Launch requested (PID 9656); the window may take a moment to load

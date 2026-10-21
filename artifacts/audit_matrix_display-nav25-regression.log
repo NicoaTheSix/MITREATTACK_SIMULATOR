@@ -1,0 +1,462 @@
+Input directory: D:\MITREATTACK_SIMULATOR\data\attack
+Output directory: D:\MITREATTACK_SIMULATOR\artifacts\matrix-display
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\matrix-display\fixture.json
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\matrix-display\state.studio.json
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\matrix-display\state.navigator.json
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\matrix-display\state.csv
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\matrix-display\session.json
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\matrix-display\matrix.svg
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\matrix-display\matrix.xlsx
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\matrix-display\all-layers.xlsx
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\matrix-display\flat.png
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\matrix-display\side.png
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\matrix-display\mini.png
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\matrix-display\audit.json
+Output cache directory: D:\MITREATTACK_SIMULATOR\data\attack\custom
+Input file: D:\MITREATTACK_SIMULATOR\artifacts\matrix-display\fixture.json
+Output files: None (source validation in memory)
+[Source 1/4] Reading bounded JSON (0/134217728)
+Input resolved file: D:\MITREATTACK_SIMULATOR\artifacts\matrix-display\fixture.json
+[Source 1/4] Reading JSON bytes (5696/134217728)
+[Source 2/4] Parsing JSON (1/4)
+Input bundle: validated JSON in memory; output files: None (custom catalog in memory)
+[Source 3/4] Validating ATT&CK-compatible STIX (0/4)
+[Source 3/4] Resolving dataset-scoped domain definitions and matrices (1/4)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/17)
+[3/4 Procedures] Complete: Enterprise 0 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/17)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 0 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing Mobile procedure examples (0/4)
+[3/4 Procedures] Complete: Mobile 0 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Mobile objects in memory)
+[3/4 Related TTPs] Indexing Mobile direct source relationships (0/4)
+[3/4 Related TTPs] Resolving Mobile strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Mobile 0 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing ICS procedure examples (0/4)
+[3/4 Procedures] Complete: ICS 0 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships (0/4)
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 0 direct/derived mappings (1/1)
+Output file: D:\MITREATTACK_SIMULATOR\data\attack\custom\b26bf9d906620fc230ffb4d5b94ed2023620234dfdce55494f82733864faf58d.json
+[Source 4/4] Caching validated input (3/4)
+Output temporary file: D:\MITREATTACK_SIMULATOR\data\attack\custom\.source-d62d960186f94551aa72448a7ced7139.tmp
+[Source 4/4] Validated source cached (4/4)
+[Display Audit 1/7] Standard field validation and exact annotation scopes (0/7)
+[Display Audit 2/7] Native label toggles, header color and annotated-only family expansion (1/7)
+[Application icon 1/2] Input file: D:\MITREATTACK_SIMULATOR\assets\ttp-selection-studio-icon-pixel.png
+[Application icon 1/2] Output files: None (application/window icon in memory)
+[Application icon 2/2] Complete: pixel icon applied to application and windows
+[Preview fonts] Input file: C:\WINDOWS\Fonts\segoeui.ttf
+[Preview fonts] Input file: C:\WINDOWS\Fonts\segoeuib.ttf
+[Preview fonts] Input file: C:\WINDOWS\Fonts\consola.ttf
+[Preview fonts] Input file: C:\WINDOWS\Fonts\georgia.ttf
+[Preview fonts] Input file: C:\WINDOWS\Fonts\msjh.ttc
+[Preview fonts] Input file: C:\WINDOWS\Fonts\msjhbd.ttc
+[Preview fonts] Complete
+[UI settings 1/2] Input file: D:\MITREATTACK_SIMULATOR\data\ui-settings.ini
+[UI settings 1/2] Output files: None (reading preferences)
+[UI settings 2/2] Complete: navigation labels hidden
+[Language 1/2] Input file: D:\MITREATTACK_SIMULATOR\locales\zh_TW.json
+Output files: None (translation catalog in memory)
+[Language 2/2] Ready: 810 Taiwan translations
+Input file: D:\MITREATTACK_SIMULATOR\data\info\attack-release-notes.json
+Output files: None (Info menu in memory)
+[Info history 1/2] Reading offline release introductions
+[Info history 2/2] Complete: 20 official release entries
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\workplace.svg
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\atlas.svg
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\atlas-mitigations.svg
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\atlas-cases.svg
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\ttp-selection-studio-icon-pixel.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\mitigations.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\assets.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\detections.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\groups.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\software.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\campaigns.png
+[Navigation icons 1/3] Output files: None (button icons in memory)
+[Navigation icons 2/3] Loading Workplace (1/11)
+[Navigation icons 2/3] Loading ATLAS TTP (2/11)
+[Navigation icons 2/3] Loading ATLAS Mitigations (3/11)
+[Navigation icons 2/3] Loading ATLAS Case Studies (4/11)
+[Navigation icons 2/3] Loading TTP (5/11)
+[Navigation icons 2/3] Loading Mitigations (6/11)
+[Navigation icons 2/3] Loading Assets (7/11)
+[Navigation icons 2/3] Loading Detections (8/11)
+[Navigation icons 2/3] Loading Groups (9/11)
+[Navigation icons 2/3] Loading Software (10/11)
+[Navigation icons 2/3] Loading Campaigns (11/11)
+[Navigation icons 3/3] Complete: 11/11 icons ready
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\latest.json
+Output files: None (catalog is loaded into memory)
+[1/4 Resolve] Reading snapshot pointer
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v20.0\manifest.json
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v20.0\enterprise-attack-20.0.json
+[1/4 Resolve] Complete: Enterprise ATT&CK v20.0 (1/1)
+[2/4 Read] Reading and checking bundle (4194304/55271014)
+[2/4 Read] Reading and checking bundle (8388608/55271014)
+[2/4 Read] Reading and checking bundle (12582912/55271014)
+[2/4 Read] Reading and checking bundle (16777216/55271014)
+[2/4 Read] Reading and checking bundle (20971520/55271014)
+[2/4 Read] Reading and checking bundle (25165824/55271014)
+[2/4 Read] Reading and checking bundle (29360128/55271014)
+[2/4 Read] Reading and checking bundle (33554432/55271014)
+[2/4 Read] Reading and checking bundle (37748736/55271014)
+[2/4 Read] Reading and checking bundle (41943040/55271014)
+[2/4 Read] Reading and checking bundle (46137344/55271014)
+[2/4 Read] Reading and checking bundle (50331648/55271014)
+[2/4 Read] Reading and checking bundle (54525952/55271014)
+[2/4 Read] Reading and checking bundle (55271014/55271014)
+[2/4 Read] Parsing JSON
+[3/4 Index] Indexing active ATT&CK objects (2000/26690)
+[3/4 Index] Indexing active ATT&CK objects (4000/26690)
+[3/4 Index] Indexing active ATT&CK objects (6000/26690)
+[3/4 Index] Indexing active ATT&CK objects (8000/26690)
+[3/4 Index] Indexing active ATT&CK objects (10000/26690)
+[3/4 Index] Indexing active ATT&CK objects (12000/26690)
+[3/4 Index] Indexing active ATT&CK objects (14000/26690)
+[3/4 Index] Indexing active ATT&CK objects (16000/26690)
+[3/4 Index] Indexing active ATT&CK objects (18000/26690)
+[3/4 Index] Indexing active ATT&CK objects (20000/26690)
+[3/4 Index] Indexing active ATT&CK objects (22000/26690)
+[3/4 Index] Indexing active ATT&CK objects (24000/26690)
+[3/4 Index] Indexing active ATT&CK objects (26000/26690)
+[3/4 Index] Mapping platforms and tactics (100/706)
+[3/4 Index] Mapping platforms and tactics (200/706)
+[3/4 Index] Mapping platforms and tactics (300/706)
+[3/4 Index] Mapping platforms and tactics (400/706)
+[3/4 Index] Mapping platforms and tactics (500/706)
+[3/4 Index] Mapping platforms and tactics (600/706)
+[3/4 Index] Mapping platforms and tactics (700/706)
+[3/4 Index] Complete: 706 active techniques/sub-techniques, 11 platforms (706/706)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/26690)
+[3/4 Procedures] Reading Enterprise relationships (4000/26690)
+[3/4 Procedures] Reading Enterprise relationships (8000/26690)
+[3/4 Procedures] Reading Enterprise relationships (12000/26690)
+[3/4 Procedures] Reading Enterprise relationships (16000/26690)
+[3/4 Procedures] Reading Enterprise relationships (20000/26690)
+[3/4 Procedures] Reading Enterprise relationships (24000/26690)
+[3/4 Procedures] Complete: Enterprise 17636 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/26690)
+[3/4 Related TTPs] Reading relationships (4000/26690)
+[3/4 Related TTPs] Reading relationships (8000/26690)
+[3/4 Related TTPs] Reading relationships (12000/26690)
+[3/4 Related TTPs] Reading relationships (16000/26690)
+[3/4 Related TTPs] Reading relationships (20000/26690)
+[3/4 Related TTPs] Reading relationships (24000/26690)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 23980 direct/derived mappings (1/1)
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v20.0\mobile-attack-20.0.json
+[3/4 Library] Reading and checking Mobile (4194304/6095145)
+[3/4 Library] Reading and checking Mobile (6095145/6095145)
+[3/4 Library] Parsing Mobile JSON
+[3/4 Procedures] Indexing Mobile procedure examples (0/2684)
+[3/4 Procedures] Complete: Mobile 1522 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Mobile objects in memory)
+[3/4 Related TTPs] Indexing Mobile direct source relationships (0/2684)
+[3/4 Related TTPs] Resolving Mobile strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Mobile 2419 direct/derived mappings (1/1)
+[3/4 Library] Complete: Mobile (1/1)
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v20.0\ics-attack-20.0.json
+[3/4 Library] Reading and checking ICS (4194304/5266683)
+[3/4 Library] Reading and checking ICS (5266683/5266683)
+[3/4 Library] Parsing ICS JSON
+[3/4 Procedures] Indexing ICS procedure examples (0/2566)
+[3/4 Procedures] Complete: ICS 307 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships (0/2566)
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 2185 direct/derived mappings (1/1)
+[3/4 Library] Complete: ICS (1/1)
+[3/4 Library] Complete: six navigation categories indexed across all three domains (1/1)
+Input file: D:\MITREATTACK_SIMULATOR\data\atlas\ATLAS-2026.09.yaml
+Input provenance: D:\MITREATTACK_SIMULATOR\data\atlas\source.json
+Output cache directory: D:\MITREATTACK_SIMULATOR\data\attack\custom
+[ATLAS 1/3] Verifying pinned source checksum (0/3)
+[ATLAS 2/3] Reading native tactics, techniques, mitigations and case studies (1/3)
+Input bundle: validated JSON in memory; output files: None (custom catalog in memory)
+[Source 3/4] Validating ATT&CK-compatible STIX (0/4)
+[Source 3/4] Resolving dataset-scoped domain definitions and matrices (1/4)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/449)
+[3/4 Procedures] Complete: Enterprise 0 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/449)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 0 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing Mobile procedure examples (0/449)
+[3/4 Procedures] Complete: Mobile 0 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Mobile objects in memory)
+[3/4 Related TTPs] Indexing Mobile direct source relationships (0/449)
+[3/4 Related TTPs] Resolving Mobile strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Mobile 0 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing ICS procedure examples (0/449)
+[3/4 Procedures] Complete: ICS 0 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships (0/449)
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 0 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing atlas-atlas procedure examples (0/787)
+[3/4 Procedures] Complete: atlas-atlas 0 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (atlas-atlas objects in memory)
+[3/4 Related TTPs] Indexing atlas-atlas direct source relationships (0/787)
+[3/4 Related TTPs] Resolving atlas-atlas strategy/analytic/component paths
+[3/4 Related TTPs] Complete: atlas-atlas 361 direct/derived mappings (1/1)
+Output file: D:\MITREATTACK_SIMULATOR\data\attack\custom\afb2753e405f5b4b370bf585702ffbbe99071af946a4bc60624f373086e0a117.json
+[ATLAS 3/3] Ready: native metadata preserved; matrix projection cached (3/3)
+[4/4 Tree] Complete: 706 unique selectable technique IDs
+Input files: None (exact domain/version catalog in memory); output files: None
+[Search Index 1/3] Reading legacy data sources and active detection mappings (0/3)
+[Search Index 2/3] Building name/ID/description/data-source/detection-strategy fields (1/3)
+[Search Index 3/3] Ready: 706 techniques in enterprise-attack v20.0 (3/3)
+Input files: None; output files: None (verified ATLAS catalog in memory)
+[ATLAS matrix 1/2] Building tactic columns (0/16)
+[ATLAS matrix 1/2] Building tactic columns (1/16)
+[ATLAS matrix 1/2] Building tactic columns (2/16)
+[ATLAS matrix 1/2] Building tactic columns (3/16)
+[ATLAS matrix 1/2] Building tactic columns (4/16)
+[ATLAS matrix 1/2] Building tactic columns (5/16)
+[ATLAS matrix 1/2] Building tactic columns (6/16)
+[ATLAS matrix 1/2] Building tactic columns (7/16)
+[ATLAS matrix 1/2] Building tactic columns (8/16)
+[ATLAS matrix 1/2] Building tactic columns (9/16)
+[ATLAS matrix 1/2] Building tactic columns (10/16)
+[ATLAS matrix 1/2] Building tactic columns (11/16)
+[ATLAS matrix 1/2] Building tactic columns (12/16)
+[ATLAS matrix 1/2] Building tactic columns (13/16)
+[ATLAS matrix 1/2] Building tactic columns (14/16)
+[ATLAS matrix 1/2] Building tactic columns (15/16)
+[ATLAS matrix 1/2] Building tactic columns (16/16)
+[ATLAS matrix 2/2] Ready; double-click a technique for details (2/2)
+Input files: None; output files: None (validated Navigator drafts in memory)
+[Layer Batch 5/5] Installed all validated documents in file order (1/1)
+[Document 1/2] Input files: None; output files: None; activating Display layer (0/2)
+[4/4 Tree] Complete: 7 unique selectable technique IDs
+Input files: None (exact domain/version catalog in memory); output files: None
+[Search Index 1/3] Reading legacy data sources and active detection mappings (0/3)
+[Search Index 2/3] Building name/ID/description/data-source/detection-strategy fields (1/3)
+[Search Index 3/3] Ready: 7 techniques in enterprise-attack v19.2 (3/3)
+[Source Picker 1/2] Input files: None; output files: None (verified catalog in memory) (0/2)
+[Source Picker 2/2] Campaign: 0 entries in Enterprise v19.2 (2/2)
+[Matrix 1/3 Scope] Input files: None; output files: None (verified catalog in memory)
+[Matrix 1/3 Scope] Platform/tactic families resolved (1/1)
+Input files: None; output files: None (selected TTP occurrences in memory)
+[Select TTP 1/2] Resolving tactic/family preferences (0/2)
+[Select TTP 2/2] Ready; enabled states and annotations preserved (2/2)
+[Matrix 2/3 Columns] Building expandable tactic columns (1/2)
+Input files: None; output files: None (selected TTP occurrences in memory)
+[Select TTP 1/2] Resolving tactic/family preferences (0/2)
+[Select TTP 2/2] Ready; enabled states and annotations preserved (2/2)
+[Matrix 2/3 Columns] Building expandable tactic columns (2/2)
+[Matrix 3/3 Ready] Matrix columns complete (1/1)
+Input files: None; output files: None (display settings in memory)
+[Matrix Display 1/2] Validating the active layer display settings (0/2)
+[Matrix Display 2/2] Applied; selection and annotations preserved (2/2)
+Input files: None; output files: None (display settings in memory)
+[Matrix Display 1/2] Validating the active layer display settings (0/2)
+[Matrix Display 2/2] Applied; selection and annotations preserved (2/2)
+Input files: None; output files: None (display settings in memory)
+[Matrix Display 1/2] Validating the active layer display settings (0/2)
+[Matrix Display 2/2] Applied; selection and annotations preserved (2/2)
+Input files: None; output files: None (display settings in memory)
+[Matrix Display 1/2] Validating the active layer display settings (0/2)
+[Matrix Display 2/2] Applied; selection and annotations preserved (2/2)
+Input files: None; output files: None (layer expansion policy in memory)
+[Expansion 1/2] Resolving the saved expansion policy (0/2)
+Input files: None; output files: None (display settings in memory)
+[Matrix Display 1/2] Validating the active layer display settings (0/2)
+[Matrix Display 2/2] Applied; selection and annotations preserved (2/2)
+[Expansion 2/2] Policy applied; selection unchanged (2/2)
+[Display Audit 3/7] Painted indicators, clearing, Mini and Side behavior (2/7)
+Input files: None; output files: None (layer presentation in memory)
+[Presentation 1/2] Saving layout, sorting and platform filters (1/2)
+[Presentation 2/2] Saved to the active layer (2/2)
+[Matrix 1/3 Scope] Input files: None; output files: None (verified catalog in memory)
+[Matrix 1/3 Scope] Platform/tactic families resolved (1/1)
+[Matrix 2/3 Columns] Building side tactic columns (1/2)
+[Matrix 2/3 Columns] Building side tactic columns (2/2)
+[Matrix 3/3 Ready] Matrix columns complete (1/1)
+Input files: None; output files: None (layer expansion policy in memory)
+[Expansion 1/2] Resolving the saved expansion policy (0/2)
+Input files: None; output files: None (display settings in memory)
+[Matrix Display 1/2] Validating the active layer display settings (0/2)
+[Matrix Display 2/2] Applied; selection and annotations preserved (2/2)
+[Expansion 2/2] Policy applied; selection unchanged (2/2)
+Input files: None; output files: None (layer presentation in memory)
+[Presentation 1/2] Saving layout, sorting and platform filters (1/2)
+[Presentation 2/2] Saved to the active layer (2/2)
+[Matrix 1/3 Scope] Input files: None; output files: None (verified catalog in memory)
+[Matrix 1/3 Scope] Platform/tactic families resolved (1/1)
+[Matrix 2/3 Columns] Building mini tactic columns (1/2)
+[Matrix 2/3 Columns] Building mini tactic columns (2/2)
+[Matrix 3/3 Ready] Matrix columns complete (1/1)
+Input files: None; output files: None (layer expansion policy in memory)
+[Expansion 1/2] Resolving the saved expansion policy (0/2)
+Input files: None; output files: None (display settings in memory)
+[Matrix Display 1/2] Validating the active layer display settings (0/2)
+[Matrix Display 2/2] Applied; selection and annotations preserved (2/2)
+[Expansion 2/2] Policy applied; selection unchanged (2/2)
+Input files: None; output files: None (layer presentation in memory)
+[Presentation 1/2] Saving layout, sorting and platform filters (1/2)
+[Presentation 2/2] Saved to the active layer (2/2)
+[Matrix 1/3 Scope] Input files: None; output files: None (verified catalog in memory)
+[Matrix 1/3 Scope] Platform/tactic families resolved (1/1)
+[Matrix 2/3 Columns] Building expandable tactic columns (1/2)
+[Matrix 2/3 Columns] Building expandable tactic columns (2/2)
+[Matrix 3/3 Ready] Matrix columns complete (1/1)
+[Display Audit 4/7] Per-layer switching, Studio/Navigator/session persistence (3/7)
+Input files: None; output files: None (validated Navigator drafts in memory)
+[Layer Batch 5/5] Installed all validated documents in file order (1/1)
+[Document 1/2] Input files: None; output files: None; activating Other labels (0/2)
+[Document 2/2] Ready: Other labels; 0 selected TTPs (2/2)
+[Document 1/2] Input files: None; output files: None; activating Display layer (0/2)
+[Document 2/2] Ready: Display layer; 1 selected TTPs (2/2)
+Input files: None (document draft in memory)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\matrix-display\state.studio.json
+[Studio Save 1/3] Checking saved-file baseline (0/3)
+[Studio Save 2/3] Writing complete document atomically (1/3)
+Input files: None (validated in-memory data)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\matrix-display\state.studio.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\artifacts\matrix-display\state.studio.json.f26a77988bef45819fcfbc652f67b132.tmp
+[Studio Save 1/3] Serializing data (0/3)
+[Studio Save 2/3] Writing UTF-8 JSON (1/3)
+[Studio Save 3/3] Publishing file (2/3)
+[Studio Save 3/3] Complete: D:\MITREATTACK_SIMULATOR\artifacts\matrix-display\state.studio.json (3/3)
+[Studio Save 3/3] Complete; source draft unchanged until accepted (3/3)
+Input file: D:\MITREATTACK_SIMULATOR\artifacts\matrix-display\state.studio.json
+Output files: None (validated draft in memory)
+[Studio Open 1/4] Reading bounded UTF-8 JSON (0/4)
+[Framework Read] ATT&CK=True; ATLAS=True
+[Studio Open 2/4] Resolving exact dataset 19.2 (1/4)
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\custom\b26bf9d906620fc230ffb4d5b94ed2023620234dfdce55494f82733864faf58d.json
+Output files: None (validated draft in memory)
+[Studio Open 1/4] Reading bounded UTF-8 JSON (0/4)
+Input bundle: validated JSON in memory; output files: None (custom catalog in memory)
+[Source 3/4] Validating ATT&CK-compatible STIX (0/4)
+[Source 3/4] Resolving dataset-scoped domain definitions and matrices (1/4)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/17)
+[3/4 Procedures] Complete: Enterprise 0 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/17)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 0 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing Mobile procedure examples (0/4)
+[3/4 Procedures] Complete: Mobile 0 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Mobile objects in memory)
+[3/4 Related TTPs] Indexing Mobile direct source relationships (0/4)
+[3/4 Related TTPs] Resolving Mobile strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Mobile 0 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing ICS procedure examples (0/4)
+[3/4 Procedures] Complete: ICS 0 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships (0/4)
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 0 direct/derived mappings (1/1)
+[Studio Open 3/4] Validating annotations and domain/version/migration archives (2/4)
+[Studio Open 4/4] Complete; validated document ready in memory (4/4)
+Input files: None (validated in-memory data)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\matrix-display\state.navigator.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\artifacts\matrix-display\state.navigator.json.eca6b77c12e94953b4e241c9ed4e38a9.tmp
+[Navigator Export 1/3] Serializing data (0/3)
+[Navigator Export 2/3] Writing UTF-8 JSON (1/3)
+[Navigator Export 3/3] Publishing file (2/3)
+[Navigator Export 3/3] Complete: D:\MITREATTACK_SIMULATOR\artifacts\matrix-display\state.navigator.json (3/3)
+Input files: None (immutable workspace snapshot in memory)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\matrix-display\session.json
+[Session 1/3] Preparing recovery checkpoint (0/3)
+Input files: None (validated in-memory data)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\matrix-display\session.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\artifacts\matrix-display\session.json.2c63b4069cc1438da306b46eabfee9ab.tmp
+[Session 1/3] Serializing data (0/3)
+[Session 2/3] Writing UTF-8 JSON (1/3)
+[Session 3/3] Publishing file (2/3)
+[Session 3/3] Complete: D:\MITREATTACK_SIMULATOR\artifacts\matrix-display\session.json (3/3)
+Input file: D:\MITREATTACK_SIMULATOR\artifacts\matrix-display\session.json
+Output files: None (validated draft in memory)
+[Studio Open 1/4] Reading bounded UTF-8 JSON (0/4)
+[Studio Open 2/4] Resolving exact dataset 19.2 (1/4)
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\custom\b26bf9d906620fc230ffb4d5b94ed2023620234dfdce55494f82733864faf58d.json
+Output files: None (validated draft in memory)
+[Studio Open 1/4] Reading bounded UTF-8 JSON (0/4)
+Input bundle: validated JSON in memory; output files: None (custom catalog in memory)
+[Source 3/4] Validating ATT&CK-compatible STIX (0/4)
+[Source 3/4] Resolving dataset-scoped domain definitions and matrices (1/4)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/17)
+[3/4 Procedures] Complete: Enterprise 0 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/17)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 0 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing Mobile procedure examples (0/4)
+[3/4 Procedures] Complete: Mobile 0 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Mobile objects in memory)
+[3/4 Related TTPs] Indexing Mobile direct source relationships (0/4)
+[3/4 Related TTPs] Resolving Mobile strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Mobile 0 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing ICS procedure examples (0/4)
+[3/4 Procedures] Complete: ICS 0 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships (0/4)
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 0 direct/derived mappings (1/1)
+[Studio Open 3/4] Validating annotations and domain/version/migration archives (2/4)
+[Studio Open 4/4] Complete; validated document ready in memory (4/4)
+[Session 2/3] Validating recoverable documents (1/2)
+[Studio Open 3/4] Validating annotations and domain/version/migration archives (2/4)
+[Studio Open 4/4] Complete; validated document ready in memory (4/4)
+[Session 2/3] Validating recoverable documents (2/2)
+[Session 3/3] All documents validated; workspace ready for atomic restore (3/3)
+Input files: None (active document and verified catalog in memory)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\matrix-display\state.csv
+Temporary output file: D:\MITREATTACK_SIMULATOR\artifacts\matrix-display\state.csv.09d3bb095dcb4be189e5d587f1ca2e5f.tmp
+[Export 1/3 Prepare] Validating and serializing selected TTPs (0/3)
+[Export 2/3 Write] Writing 1 selected TTPs (ATT&CK=True; ATLAS=True) (1/3)
+[Export 3/3 Publish] Publishing CSV file (2/3)
+[Export] CSV is an exchange file; use Save / Save As for a complete editable Studio document. (1/1)
+[Export 3/3 Publish] Complete: D:\MITREATTACK_SIMULATOR\artifacts\matrix-display\state.csv (3/3)
+[Display Audit 5/7] SVG and colored Excel use the same labels/header/indicator projection (4/7)
+Input files: None (verified catalogs and layer snapshots in memory)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\matrix-display\matrix.svg
+Temporary output file: D:\MITREATTACK_SIMULATOR\artifacts\matrix-display\matrix.svg.02695b1680784e3eae0881d1ec10a05f.tmp
+[Matrix Export 1/4] Validating layers and resolving filters (0/4)
+[Matrix Export 1/4] Projecting tactic columns (1/2)
+[Matrix Export 1/4] Projecting tactic columns (2/2)
+[Matrix Export 2/4] Rendering complete matrix · SVG theme: dark (1/4)
+[Matrix Export 3/4] Writing SVG vector image (2/4)
+[Matrix Export 4/4] Publishing output atomically (3/4)
+[Matrix Export 4/4] Complete: D:\MITREATTACK_SIMULATOR\artifacts\matrix-display\matrix.svg (4/4)
+Input files: None (verified catalogs and layer snapshots in memory)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\matrix-display\matrix.xlsx
+Temporary output file: D:\MITREATTACK_SIMULATOR\artifacts\matrix-display\matrix.xlsx.20a8279a22fe4d3b87fa16228da9708b.tmp
+[Matrix Export 1/4] Validating layers and resolving filters (0/4)
+[Matrix Export 1/4] Projecting tactic columns (1/2)
+[Matrix Export 1/4] Projecting tactic columns (2/2)
+[Matrix Export 2/4] Rendering complete matrix (1/4)
+[Matrix Export 2/4] Rendering Excel columns (1/2)
+[Matrix Export 2/4] Rendering Excel columns (2/2)
+[Matrix Export 3/4] Writing Excel workbook (3/4)
+[Matrix Export 4/4] Publishing output atomically (3/4)
+[Matrix Export 4/4] Complete: D:\MITREATTACK_SIMULATOR\artifacts\matrix-display\matrix.xlsx (4/4)
+Input files: None (immutable snapshots of every open layer)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\matrix-display\all-layers.xlsx
+Temporary output file: D:\MITREATTACK_SIMULATOR\artifacts\matrix-display\all-layers.xlsx.ef6d22b309f9444cbf0b6c6d80d6d386.tmp
+[Workbook 1/4] Validating all open layer snapshots (0/4)
+[Workbook 2/4] Layer 1/2: state (0/2)
+[Matrix Export 1/4] Projecting tactic columns (1/2)
+[Matrix Export 1/4] Projecting tactic columns (2/2)
+[Workbook 2/4] Rendering tactic columns (1/2)
+[Workbook 2/4] Rendering tactic columns (2/2)
+[Workbook 2/4] Layer 2/2: Other labels (1/2)
+[Matrix Export 1/4] Projecting tactic columns (1/2)
+[Matrix Export 1/4] Projecting tactic columns (2/2)
+[Workbook 2/4] Rendering tactic columns (1/2)
+[Workbook 2/4] Rendering tactic columns (2/2)
+[Workbook 3/4] Writing the complete workbook (2/4)
+[Workbook 4/4] Publishing output atomically (3/4)
+[Workbook 4/4] Complete: 2 layers; D:\MITREATTACK_SIMULATOR\artifacts\matrix-display\all-layers.xlsx (4/4)
+[Display Audit 6/7] Source, pointer and selection preservation (5/7)
+[Display Audit 7/7] Publishing report (6/7)
+[Display Audit] PASS: 74 checks (7/7)

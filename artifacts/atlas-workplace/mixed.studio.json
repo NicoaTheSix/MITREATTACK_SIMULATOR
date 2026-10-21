@@ -1,0 +1,155 @@
+{
+  "schema_version": "1.0",
+  "document_id": "2c88ec4d-47d4-40f5-8342-31d48a322d5f",
+  "name": "mixed.studio",
+  "created_at_utc": "2026-10-20T16:11:50.768806+00:00",
+  "exported_at_utc": "2026-10-20T16:12:00.386454+00:00",
+  "attack": {
+    "domain": "enterprise-attack",
+    "version": "20.0",
+    "source_url": "https://github.com/mitre-attack/attack-stix-data"
+  },
+  "selected_count": 1,
+  "selected_technique_ids": [
+    "T1055.011"
+  ],
+  "selected_ttps": [
+    {
+      "technique_id": "T1055.011",
+      "stix_id": "attack-pattern--0042a9f5-f053-4769-b3ef-9ad018dfa298",
+      "name": "Extra Window Memory Injection",
+      "is_subtechnique": true,
+      "parent_technique_id": "T1055",
+      "parent_technique_name": "Process Injection",
+      "platforms": [
+        "Windows"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0004",
+          "name": "Privilege Escalation",
+          "shortname": "privilege-escalation"
+        },
+        {
+          "tactic_id": "TA0005",
+          "name": "Stealth",
+          "shortname": "stealth"
+        }
+      ],
+      "comment": "",
+      "tactic_comments": [],
+      "enabled": true,
+      "tactic_enabled": [
+        {
+          "tactic": "privilege-escalation",
+          "enabled": true
+        },
+        {
+          "tactic": "stealth",
+          "enabled": true
+        }
+      ],
+      "selected_tactics": [
+        "privilege-escalation",
+        "stealth"
+      ]
+    }
+  ],
+  "navigator_import_selected": [],
+  "selection_scopes": {},
+  "selection_preferences": {
+    "across_tactics": true,
+    "with_family": false,
+    "visible_only": false
+  },
+  "search_fields": [
+    "name",
+    "id"
+  ],
+  "atlas_workspace": {
+    "schema_version": "1.0",
+    "document_id": "3f49cd9d-357d-4682-9bf5-ee3fe2ccbe87",
+    "name": "ATLAS",
+    "created_at_utc": "2026-10-20T16:11:52.260068+00:00",
+    "exported_at_utc": "2026-10-20T16:12:00.386454+00:00",
+    "attack": {
+      "domain": "atlas-atlas",
+      "version": "2026.09",
+      "source_url": "https://raw.githubusercontent.com/mitre-atlas/atlas-data/3259f388d19cbcca11bacf12a0ef97f4198f711b/dist/v6/ATLAS-2026.09.yaml",
+      "dataset_sha256": "afb2753e405f5b4b370bf585702ffbbe99071af946a4bc60624f373086e0a117",
+      "custom": true
+    },
+    "selected_count": 1,
+    "selected_technique_ids": [
+      "AML.T0000.001"
+    ],
+    "selected_ttps": [
+      {
+        "technique_id": "AML.T0000.001",
+        "stix_id": "attack-pattern--02ea7626-0eec-5a4b-98ff-b3f21733b783",
+        "name": "Pre-Print Repositories",
+        "is_subtechnique": true,
+        "parent_technique_id": "AML.T0000",
+        "parent_technique_name": "Search Open Technical Databases",
+        "platforms": [
+          "Enterprise"
+        ],
+        "tactics": [
+          {
+            "tactic_id": "AML.TA0002",
+            "name": "Reconnaissance",
+            "shortname": "aml-ta0002"
+          }
+        ],
+        "comment": "ATLAS line 1\nline 2",
+        "tactic_comments": [],
+        "enabled": true,
+        "tactic_enabled": [
+          {
+            "tactic": "aml-ta0002",
+            "enabled": true
+          }
+        ],
+        "selected_tactics": [
+          "aml-ta0002"
+        ]
+      }
+    ],
+    "navigator_import_selected": [],
+    "selection_scopes": {},
+    "selection_preferences": {
+      "across_tactics": true,
+      "with_family": false,
+      "visible_only": false
+    },
+    "search_fields": [
+      "name",
+      "id"
+    ],
+    "navigator_layer": {
+      "name": "ATLAS",
+      "domain": "atlas-atlas",
+      "versions": {
+        "attack": "2026.09",
+        "layer": "4.5",
+        "navigator": "5.2.0"
+      },
+      "techniques": [
+        {
+          "techniqueID": "AML.T0000.001",
+          "comment": "ATLAS line 1\nline 2",
+          "score": 2.5,
+          "color": "#ffffff"
+        }
+      ],
+      "customDataURL": "https://raw.githubusercontent.com/mitre-atlas/atlas-data/3259f388d19cbcca11bacf12a0ef97f4198f711b/dist/v6/ATLAS-2026.09.yaml",
+      "x_ttp_studio_dataset": "afb2753e405f5b4b370bf585702ffbbe99071af946a4bc60624f373086e0a117",
+      "x_ttp_studio_domain": {
+        "id": "atlas-atlas",
+        "name": "ATLAS",
+        "kill_chain_name": "atlas-atlas",
+        "reference_source": "mitre-atlas"
+      }
+    }
+  }
+}

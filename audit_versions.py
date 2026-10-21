@@ -7,7 +7,7 @@ import time
 import uuid
 from PySide6 import QtCore, QtTest, QtWidgets
 from attack_catalog import external_id
-from attack_versions import cached_discovery, discover_versions, parse_versions, prepare_version, snapshot_pointer
+from attack_versions import cached_discovery, discover_versions, parse_versions, prepare_version, snapshot_pointer, version_key
 from main import MainWindow, configure_application
 from version_dialog import VersionDialog, VersionWorker
 from scripts.download_attack_data import write_json
@@ -64,7 +64,8 @@ def audit_picker():
     configure_application(app)
     picker = VersionDialog(DATA, '19.2', auto_refresh=False)
     picker.show()
-    check(picker.table.rowCount() == 41, 'all indexed releases available offline')
+    expected_count = len(cached_discovery(DATA, report)['versions'])
+    check(expected_count >= 41 and picker.table.rowCount() == expected_count, 'all indexed releases available offline')
     check(picker.table.horizontalHeaderItem(2).text() == 'Updated (UTC)', 'index modification date labelled accurately')
     report('[Picker audit 2/3] Offline refresh preserves cached list and finishes progress')
     fetch = attack_versions.fetch
@@ -76,7 +77,7 @@ def audit_picker():
         wait(lambda: not picker.worker.isRunning(), 'offline refresh')
         QtWidgets.QApplication.processEvents()
         check('Offline / refresh failed' in picker.source.text(), 'offline fallback visibly identified')
-        check(picker.table.rowCount() == 41, 'cached list retained after failed refresh')
+        check(picker.table.rowCount() == expected_count, 'cached list retained after failed refresh')
         check(picker.progress.maximum() == 1 and picker.progress.value() == 1, 'progress finishes after background operation')
         check(picker.status.text().startswith('Ready'), 'finished status does not show stale output paths')
         check(picker.refresh_button.isEnabled(), 'refresh re-enabled after completion')
@@ -106,7 +107,7 @@ def main():
     discovery = discover_versions(DATA, report)
     check(bool(discovery.get('commit_sha')), 'discovery pinned commit')
     check(len(discovery['versions']) >= 41, 'complete historical release list')
-    check(discovery['versions'][0]['version'] == '19.2', 'numeric newest-first sorting')
+    check(discovery['versions'][0]['version'] == max((row['version'] for row in discovery['versions']), key=version_key), 'numeric newest-first sorting')
     check(discovery['versions'][-1]['version'] == '1.0', 'oldest version included')
     versions = {row['version']: row for row in discovery['versions']}
     check('ics-attack' not in versions['1.0']['domains'], 'missing historical domain shown accurately')

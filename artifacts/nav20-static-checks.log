@@ -1,0 +1,23 @@
+Input directories: D:\MITREATTACK_SIMULATOR D:\MITREATTACK_SIMULATOR\manual D:\MITREATTACK_SIMULATOR\scripts
+Input file: D:\MITREATTACK_SIMULATOR\locales\zh_TW.json
+Input file: D:\MITREATTACK_SIMULATOR\artifacts\formula-gradient\navigator.studio.json
+Input file: D:\MITREATTACK_SIMULATOR\scripts\formula-reference\package-lock.json
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\nav20-static-checks.json
+[Static 1/4] Parse project and script Python sources
+[Static 2/4] Check local Markdown links, LF fixtures and reference dependency lock
+[Static 3/4] Check unique translation keys and placeholders
+[Static 4/4] Verify translated gradient controls and source override
+[Application icon 1/2] Input file: D:\MITREATTACK_SIMULATOR\assets\ttp-selection-studio-icon-pixel.png
+[Application icon 1/2] Output files: None (application/window icon in memory)
+[Application icon 2/2] Complete: pixel icon applied to application and windows
+[Preview fonts] Input file: C:\WINDOWS\Fonts\segoeui.ttf
+[Preview fonts] Input file: C:\WINDOWS\Fonts\segoeuib.ttf
+[Preview fonts] Input file: C:\WINDOWS\Fonts\consola.ttf
+[Preview fonts] Input file: C:\WINDOWS\Fonts\georgia.ttf
+[Preview fonts] Input file: C:\WINDOWS\Fonts\msjh.ttc
+[Preview fonts] Input file: C:\WINDOWS\Fonts\msjhbd.ttc
+[Preview fonts] Complete
+[Language 1/2] Input file: D:\MITREATTACK_SIMULATOR\locales\zh_TW.json
+Output files: None (translation catalog in memory)
+[Language 2/2] Ready: 660 Taiwan translations
+[Static] PASS {'passed': True, 'python_sources': 88, 'local_markdown_links': 384, 'locale_keys': 660, 'translated_gradient_controls': True, 'portable_LF_fixtures': True, 'reference_dependency_lock': True}

@@ -1,0 +1,98 @@
+{
+  "name": "Interaction example",
+  "domain": "enterprise-attack",
+  "versions": {
+    "attack": "19.2",
+    "navigator": "5.2.0",
+    "layer": "4.5"
+  },
+  "techniques": [
+    {
+      "techniqueID": "T1000",
+      "comment": "Preserve parent annotation",
+      "score": 7,
+      "color": "#123456",
+      "metadata": [
+        {
+          "name": "TTP Selection Studio selected",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "techniqueID": "T1000.001",
+      "tactic": "execution",
+      "comment": "Child annotation",
+      "score": 0,
+      "metadata": [
+        {
+          "name": "TTP Selection Studio selected",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "techniqueID": "T1001",
+      "metadata": [
+        {
+          "name": "TTP Selection Studio selected",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "techniqueID": "T1002",
+      "metadata": [
+        {
+          "name": "TTP Selection Studio selected",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "techniqueID": "T1000",
+      "comment": "Preserve parent annotation",
+      "score": 7,
+      "color": "#123456",
+      "metadata": [
+        {
+          "name": "TTP Selection Studio selected",
+          "value": "false"
+        }
+      ],
+      "tactic": "execution",
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1000",
+      "comment": "Preserve parent annotation",
+      "score": 7,
+      "color": "#123456",
+      "metadata": [
+        {
+          "name": "TTP Selection Studio selected",
+          "value": "false"
+        }
+      ],
+      "tactic": "initial-access",
+      "showSubtechniques": true
+    }
+  ],
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false,
+  "selectVisibleTechniques": false,
+  "x_ttp_studio_search_fields": [
+    "detection_strategies"
+  ],
+  "customDataURL": "D:\\MITREATTACK_SIMULATOR\\artifacts\\detection-interaction\\fixture.json",
+  "x_ttp_studio_dataset": "f0c75ca50ba8b4c5bfb0a14029ba12ff4e97e6e0b33e2b55326c08c86a4baee3",
+  "layout": {
+    "layout": "flat"
+  },
+  "sorting": 0,
+  "filters": {
+    "platforms": [
+      "Windows"
+    ]
+  }
+}

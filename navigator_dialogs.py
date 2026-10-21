@@ -4,14 +4,17 @@ import math
 from pathlib import Path
 
 from PySide6 import QtCore, QtGui, QtWidgets
+from navigator_visuals import GRADIENT_PRESETS
 
-from attack_catalog import external_id, DOMAIN_LABELS, tactic_phases
+from attack_catalog import external_id, DOMAIN_LABELS, tactic_phases, domain_label
 from attack_versions import cached_discovery, local_versions, prepare_version, version_key, snapshot_pointer
 from navigator_integration import (read_layers, layer_version, import_preview, imported_document,
                                    update_annotation, compare_documents, compare_versions, write_json_atomic, document_layer, validate_layer)
 from navigator_visuals import DEFAULT_GRADIENT
 from ttp_documents import validate_document_name
 from navigator_field_editor import FieldEditor
+from navigator_preferences import DISPLAY_KEY, display_editor, editor_values
+from context_templates import CONTEXT_KEY, ContextEditor
 
 
 class IntegrationWorker(QtCore.QThread):
@@ -68,6 +71,9 @@ class IntegrationDialog(QtWidgets.QDialog):
         self.worker.finished.connect(self.task_finished)
         self.worker.start()
 
+    def running_worker(self):
+        return next((worker for worker in self.findChildren(IntegrationWorker) if worker.isRunning()), None)
+
     def task_finished(self):
         if self.closing:
             super().reject()
@@ -81,7 +87,7 @@ class IntegrationDialog(QtWidgets.QDialog):
         super().reject()
 
     def closeEvent(self, event):
-        if self.worker and self.worker.isRunning():
+        if self.running_worker():
             self.reject()
             event.ignore()
         else:
@@ -90,34 +96,87 @@ class IntegrationDialog(QtWidgets.QDialog):
 
 class ImportLayerDialog(IntegrationDialog):
     imported = QtCore.Signal(object)
+    imported_many = QtCore.Signal(object)
 
-    def __init__(self, root, path, catalog, parent):
+    def __init__(self, root, path, catalog, parent, install=None, origin=''):
         super().__init__(parent)
-        self.root, self.path, self.fallback_catalog = Path(root), Path(path), catalog
-        self.catalog = None
-        self.layers = []
-        self.preview = None
+        from navigator_import import LayerImportResolver
+        self.root, self.path, self.fallback_catalog = Path(root).resolve(), Path(path).expanduser().resolve(), catalog
+        self.install = install
+        self.origin = origin
+        self.source_dialog = None
+        candidates = [doc.catalog for doc in getattr(parent, 'documents', [])]
+        official = getattr(parent, 'official_catalog', None)
+        if official is not None:
+            candidates.append(official)
+        candidates.append(catalog)
+        atlas = getattr(parent, 'current_atlas_catalog', None)
+        if atlas is not None:
+            candidates.append(atlas)
+        self.resolver = LayerImportResolver(self.root, candidates)
+        self.catalog = self.preview = None
+        self.layers, self.results, self.versions, self.policies = [], {}, {}, {}
+        self.pending_resolve = False
+        self.busy = True
         self.setWindowTitle("Import Navigator Layer")
-        self.resize(1050, 650)
+        self.resize(1100, 800)
         layout = QtWidgets.QVBoxLayout(self)
-        layout.addWidget(QtWidgets.QLabel(str(self.path.resolve())))
+        path_label = QtWidgets.QLabel(str(self.path))
+        path_label.setTextFormat(QtCore.Qt.TextFormat.PlainText)
+        path_label.setWordWrap(True)
+        layout.addWidget(path_label)
+        hint = QtWidgets.QLabel('Check the layers to open. All are checked by default; each uses its own domain, version and dataset. '
+            'Every checked layer must be ready before the whole batch opens. Existing documents stay open.')
+        hint.setWordWrap(True)
+        layout.addWidget(hint)
+        framework_row = QtWidgets.QHBoxLayout()
+        self.read_attack = QtWidgets.QCheckBox('Read ATT&CK')
+        self.read_atlas = QtWidgets.QCheckBox('Read ATLAS')
+        for box in (self.read_attack, self.read_atlas):
+            box.setChecked(True)
+            framework_row.addWidget(box)
+            box.toggled.connect(self.framework_choices_changed)
+        framework_row.addStretch()
+        layout.addLayout(framework_row)
+        choices = QtWidgets.QHBoxLayout()
+        self.select_all_button = QtWidgets.QPushButton('Select all layers')
+        self.select_none_button = QtWidgets.QPushButton('Deselect all layers')
+        self.select_all_button.clicked.connect(lambda: self.check_layers(True))
+        self.select_none_button.clicked.connect(lambda: self.check_layers(False))
+        choices.addWidget(self.select_all_button)
+        choices.addWidget(self.select_none_button)
+        choices.addStretch()
+        layout.addLayout(choices)
+        self.layers_table = QtWidgets.QTableWidget(0, 5)
+        self.layers_table.setHorizontalHeaderLabels(['Open', 'Layer', 'Domain / version', 'Dataset', 'Status'])
+        self.layers_table.setEditTriggers(QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers)
+        self.layers_table.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectionBehavior.SelectRows)
+        self.layers_table.horizontalHeader().setSectionResizeMode(QtWidgets.QHeaderView.ResizeMode.ResizeToContents)
+        self.layers_table.horizontalHeader().setSectionResizeMode(1, QtWidgets.QHeaderView.ResizeMode.Stretch)
+        self.layers_table.horizontalHeader().setSectionResizeMode(4, QtWidgets.QHeaderView.ResizeMode.Stretch)
+        self.layers_table.setMaximumHeight(220)
+        self.layers_table.itemChanged.connect(self.checked_changed)
+        self.layers_table.cellClicked.connect(lambda row, column: self.layer.setCurrentIndex(row))
+        layout.addWidget(self.layers_table)
         form = QtWidgets.QFormLayout()
         self.layer = QtWidgets.QComboBox()
         self.version = QtWidgets.QComboBox()
         self.discovery = cached_discovery(self.root, self.report)
-        versions = local_versions(self.root) | {row["version"] for row in self.discovery.get("versions", [])}
-        versions.add(catalog.version)
+        versions = local_versions(self.root) | {row["version"] for row in self.discovery.get("versions", [])} | {catalog.version}
         self.version.addItems(sorted(versions, key=version_key, reverse=True))
         self.policy = QtWidgets.QComboBox()
         for label, value in (("Enabled rows / saved Studio selection", "enabled"),
                              ("All listed rows", "all"), ("Rows with a score or color", "annotated")):
             self.policy.addItem(label, value)
-        form.addRow("Layer", self.layer)
+        form.addRow("Layer preview", self.layer)
         form.addRow("ATT&CK version", self.version)
         form.addRow("Select techniques", self.policy)
         layout.addLayout(form)
-        self.load_button = QtWidgets.QPushButton("Load version / Preview")
+        self.load_button = QtWidgets.QPushButton("Load selected versions / Preview")
         layout.addWidget(self.load_button)
+        self.custom_button = QtWidgets.QPushButton('Resolve custom data…')
+        self.custom_button.clicked.connect(self.open_custom_data)
+        layout.addWidget(self.custom_button)
         self.table = QtWidgets.QTableWidget(0, 7)
         self.table.setHorizontalHeaderLabels(["ID", "Name", "Tactic", "Enabled", "Score", "Comment", "Resolution"])
         self.table.setEditTriggers(QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers)
@@ -125,135 +184,313 @@ class ImportLayerDialog(IntegrationDialog):
         self.table.horizontalHeader().setSectionResizeMode(5, QtWidgets.QHeaderView.ResizeMode.Stretch)
         self.table.setColumnWidth(6, 155)
         layout.addWidget(self.table, 1)
-        self.summary = QtWidgets.QLabel("Choose a layer/version and review the techniques before importing.")
+        self.preview_summary = QtWidgets.QLabel()
+        self.preview_summary.setWordWrap(True)
+        layout.addWidget(self.preview_summary)
+        self.summary = QtWidgets.QLabel("Choose layers and review their techniques before opening the batch.")
         self.summary.setWordWrap(True)
         layout.addWidget(self.summary)
         layout.addWidget(self.status)
         layout.addWidget(self.progress)
         buttons = QtWidgets.QDialogButtonBox(QtWidgets.QDialogButtonBox.StandardButton.Cancel)
-        self.import_button = buttons.addButton("Import as new document", QtWidgets.QDialogButtonBox.ButtonRole.AcceptRole)
-        self.import_button.setEnabled(False)
+        self.import_button = buttons.addButton("Open selected layers", QtWidgets.QDialogButtonBox.ButtonRole.AcceptRole)
         buttons.rejected.connect(self.reject)
         self.import_button.clicked.connect(self.commit)
         layout.addWidget(buttons)
         self.layer.currentIndexChanged.connect(self.layer_changed)
         self.version.currentTextChanged.connect(self.version_changed)
-        self.policy.currentIndexChanged.connect(self.update_preview)
+        self.policy.currentIndexChanged.connect(self.policy_changed)
         self.load_button.clicked.connect(self.load_catalog)
-        QtCore.QTimer.singleShot(0, lambda: self.start_task(lambda notify: read_layers(self.path, notify), self.file_loaded))
+        self.set_busy(True)
+        QtCore.QTimer.singleShot(0, self.read_file)
+
+    def read_file(self):
+        if not self.closing:
+            self.report(f'Input file: {self.path}', 0, 0)
+            self.report('Output files: None (multi-layer import preview in memory)', 0, 0)
+            self.report('[Layer Batch 1/5] Reading and validating every layer in the JSON file', 0, 5)
+            self.start_task(lambda notify: read_layers(self.path, notify), self.file_loaded)
+
+    def selected_indices(self):
+        return [i for i in range(len(self.layers))
+                if self.layers_table.item(i, 0).checkState() == QtCore.Qt.CheckState.Checked
+                and (self.read_atlas.isChecked() if self.layers[i]['domain'] == 'atlas-atlas' else self.read_attack.isChecked())]
+
+    def framework_choices_changed(self):
+        if not hasattr(self, 'layers_table'):
+            return
+        self.layers_table.blockSignals(True)
+        for i, layer in enumerate(self.layers):
+            allowed = self.read_atlas.isChecked() if layer['domain'] == 'atlas-atlas' else self.read_attack.isChecked()
+            item = self.layers_table.item(i, 0)
+            item.setFlags(QtCore.Qt.ItemFlag.ItemIsEnabled | QtCore.Qt.ItemFlag.ItemIsUserCheckable
+                          if allowed else QtCore.Qt.ItemFlag.NoItemFlags)
+        self.layers_table.blockSignals(False)
+        self.checked_changed()
+
+    def set_busy(self, value):
+        self.busy = value
+        for control in (self.layer, self.layers_table, self.policy, self.load_button,
+                        self.select_all_button, self.select_none_button, self.read_attack, self.read_atlas):
+            control.setEnabled(not value and bool(self.layers))
+        index = self.layer.currentIndex()
+        self.version.setEnabled(not value and index >= 0 and bool(self.layers)
+                                and 'attack' not in self.layers[index].get('versions', {}))
+        self.refresh_batch_state()
 
     def file_loaded(self, layers):
         self.layers = layers
+        self.results.clear()
         self.layer.blockSignals(True)
+        self.layers_table.blockSignals(True)
         self.layer.clear()
-        for layer in layers:
-            self.layer.addItem(f"{layer['name']} — {DOMAIN_LABELS[layer['domain']]}")
+        self.layers_table.setRowCount(len(layers))
+        for index, layer in enumerate(layers):
+            try:
+                self.versions[index] = layer_version(layer, self.fallback_catalog.version)
+            except ValueError:
+                self.versions[index] = self.fallback_catalog.version
+            self.policies[index] = 'enabled'
+            self.layer.addItem(f"{index + 1}. {layer['name']} — {self.layer_domain_label(index)}")
+            item = QtWidgets.QTableWidgetItem()
+            item.setFlags(QtCore.Qt.ItemFlag.ItemIsEnabled | QtCore.Qt.ItemFlag.ItemIsUserCheckable)
+            item.setCheckState(QtCore.Qt.CheckState.Checked)
+            self.layers_table.setItem(index, 0, item)
+            self.layers_table.setItem(index, 1, QtWidgets.QTableWidgetItem(layer['name']))
+        self.layers_table.blockSignals(False)
         self.layer.blockSignals(False)
+        self.pending_resolve = True
         self.layer_changed()
+        self.refresh_batch_state()
 
     def layer_changed(self, *_):
-        self.catalog = None
-        self.import_button.setEnabled(False)
+        index = self.layer.currentIndex()
+        self.catalog = self.preview = None
         self.table.setRowCount(0)
-        if not self.layers:
+        if index < 0 or not self.layers:
             return
-        layer = self.layers[self.layer.currentIndex()]
-        try:
-            custom_source = layer.get('customDataURL')
-            if custom_source or layer.get('x_ttp_studio_dataset'):
-                candidates = [doc.catalog for doc in getattr(self.parent(), 'documents', [])]
-                candidates.append(self.fallback_catalog)
-                matching = next((catalog for catalog in candidates if catalog.dataset_id and
-                                 (catalog.dataset_id == layer.get('x_ttp_studio_dataset') or
-                                  (not layer.get('x_ttp_studio_dataset') and catalog.custom_source == custom_source))), None)
-                if matching is None:
-                    raise ValueError('This layer uses custom STIX. Load its Bundle using File → Load layer URL / custom STIX first, then import again. Custom URLs are never fetched automatically.')
-                self.fallback_catalog = matching
-            elif self.fallback_catalog.dataset_id:
-                self.fallback_catalog = getattr(self.parent(), 'official_catalog', self.fallback_catalog)
-            version = layer_version(layer, self.fallback_catalog.version)
-            if self.version.findText(version) < 0:
-                self.version.addItem(version)
-            self.version.setCurrentText(version)
-            self.version.setEnabled("attack" not in layer.get("versions", {}))
-            self.summary.setText("Recorded version will be used." if not self.version.isEnabled() else
-                                 "No ATT&CK version recorded: choose the snapshot to use for ID resolution.")
-        except ValueError as error:
-            self.report(str(error), 1, 1)
-            self.load_button.setEnabled(False)
-            return
-        self.load_button.setEnabled(True)
-        if version == self.fallback_catalog.version:
-            try:
-                self.catalog = self.fallback_catalog.for_domain(layer["domain"])
-                self.update_preview()
-            except ValueError as error:
-                self.report(str(error), 1, 1)
+        version = self.versions[index]
+        self.version.blockSignals(True)
+        if self.version.findText(version) < 0:
+            self.version.addItem(version)
+        self.version.setCurrentText(version)
+        self.version.blockSignals(False)
+        self.version.setEnabled(not self.busy and 'attack' not in self.layers[index].get('versions', {}))
+        self.policy.blockSignals(True)
+        self.policy.setCurrentIndex(self.policy.findData(self.policies[index]))
+        self.policy.blockSignals(False)
+        result = self.results.get(index, {})
+        self.catalog, self.preview = result.get('catalog'), result.get('preview')
+        self.render_preview()
+        self.refresh_batch_state()
 
     def version_changed(self, *_):
-        self.catalog = None
-        self.import_button.setEnabled(False)
+        index = self.layer.currentIndex()
+        if index < 0 or not self.layers:
+            return
+        self.versions[index] = self.version.currentText()
+        self.results.pop(index, None)
+        self.catalog = self.preview = None
+        self.table.setRowCount(0)
+        self.refresh_batch_state()
+
+    def policy_changed(self, *_):
+        index = self.layer.currentIndex()
+        if index < 0 or not self.layers:
+            return
+        self.policies[index] = self.policy.currentData()
+        self.update_preview()
+
+    def check_layers(self, checked):
+        if self.busy:
+            return
+        self.layers_table.blockSignals(True)
+        for index in range(len(self.layers)):
+            self.layers_table.item(index, 0).setCheckState(
+                QtCore.Qt.CheckState.Checked if checked else QtCore.Qt.CheckState.Unchecked)
+        self.layers_table.blockSignals(False)
+        self.checked_changed()
+
+    def checked_changed(self, *_):
+        if self.busy:
+            return
+        self.refresh_batch_state()
+        if any(index not in self.results for index in self.selected_indices()):
+            self.resolve_selected()
+
+    def refresh_batch_state(self):
+        if not hasattr(self, 'import_button'):
+            return
+        from localization import tr
+        selected = self.selected_indices()
+        ready = sum(bool(self.results.get(index, {}).get('catalog')) for index in selected)
+        self.import_button.setEnabled(not self.busy and bool(selected) and ready == len(selected))
+        self.load_button.setEnabled(not self.busy and bool(selected))
+        index = self.layer.currentIndex()
+        custom = index >= 0 and bool(self.layers) and bool(self.layers[index].get('customDataURL')
+                                                       or self.layers[index].get('x_ttp_studio_dataset'))
+        self.custom_button.setVisible(bool(custom))
+        self.custom_button.setEnabled(bool(custom) and not self.busy and not self.closing)
+        for index, layer in enumerate(self.layers):
+            data = self.results.get(index, {})
+            status = data.get('error') or (('Ready' if 'attack' in layer.get('versions', {}) else
+                     'Ready (version chosen in preview)') if data.get('catalog') else 'Needs preview')
+            dataset = layer.get('x_ttp_studio_dataset') or layer.get('customDataURL') or tr('Official ATT&CK')
+            for column, value in ((2, f"{self.layer_domain_label(index)} v{self.versions[index]}"),
+                                  (3, dataset), (4, status)):
+                item = QtWidgets.QTableWidgetItem(value)
+                item.setToolTip(value)
+                self.layers_table.blockSignals(True)
+                self.layers_table.setItem(index, column, item)
+                self.layers_table.blockSignals(False)
+        if hasattr(self, 'summary'):
+            self.summary.setText(tr('{selected} layers checked; {ready} ready. All checked layers open together in file order.').format(
+                selected=len(selected), ready=ready))
+
+    def layer_domain_label(self, index):
+        layer = self.layers[index]
+        catalog = self.results.get(index, {}).get('catalog')
+        return (domain_label(layer['domain'], catalog) if catalog is not None else
+                layer.get('x_ttp_studio_domain', {}).get('name', domain_label(layer['domain'])))
+
+    def resolve_selected(self, download=False):
+        if self.closing or self.busy or not self.layers:
+            return
+        indices = self.selected_indices()
+        if not indices:
+            return
+        versions, policies = dict(self.versions), dict(self.policies)
+        self.set_busy(True)
+        self.start_task(lambda notify: self.resolver.preview(self.layers, indices, versions, policies, notify,
+                        download=download, discovery=self.discovery), self.previews_loaded)
 
     def load_catalog(self):
-        if not self.layers or (self.worker and self.worker.isRunning()):
-            return
-        if self.layers[self.layer.currentIndex()].get('customDataURL') or self.layers[self.layer.currentIndex()].get('x_ttp_studio_dataset'):
-            self.report('Custom layer: load the matching custom dataset first. Official snapshots cannot resolve custom layers.', 1, 1)
-            return
-        version = self.version.currentText()
-        self.import_button.setEnabled(False)
-        self.layer.setEnabled(False)
-        self.version.setEnabled(False)
-        self.load_button.setEnabled(False)
-        self.start_task(lambda notify: prepare_version(self.root, version, self.discovery, notify), self.catalog_loaded)
+        self.resolve_selected(download=True)
 
-    def catalog_loaded(self, value):
-        try:
-            self.catalog = value[0].for_domain(self.layers[self.layer.currentIndex()]["domain"])
-            self.update_preview()
-        except ValueError as error:
-            self.catalog = None
-            self.report(str(error), 1, 1)
+    def operation_report(self, message, current=0, total=0):
+        self.report(message, current, total)
+
+    def open_custom_data(self):
+        if self.busy or self.closing or not self.custom_button.isEnabled():
+            return
+        if self.source_dialog and self.source_dialog.isVisible():
+            self.source_dialog.raise_()
+            return
+        from custom_data_dialog import CustomDataDialog
+        index = self.layer.currentIndex()
+        layer = deepcopy(self.layers[index])
+        current = self.results.get(index, {}).get('catalog')
+        if current is not None and current.dataset_id and not layer.get('x_ttp_studio_dataset'):
+            layer['x_ttp_studio_dataset'] = current.dataset_id
+        dialog = CustomDataDialog(self.root, layer, self.versions[index], self.policies[index],
+                                  self.path, self, self.origin)
+        self.source_dialog = dialog
+        dialog.source_accepted.connect(lambda result: self.bind_custom_data(index, result))
+        dialog.show()
+
+    def bind_custom_data(self, index, result):
+        if self.closing:
+            return
+        # The child is modal: the version/policy and focused layer cannot change while reviewing.
+        self.layers[index] = result['layer']
+        catalog = result['catalog']
+        self.resolver.catalogs[(catalog.dataset_id, catalog.version)] = catalog
+        self.results[index] = {'catalog': catalog, 'preview': result['preview'], 'error': ''}
+        self.layer_changed()
+        self.report('[Custom Data 5/5] Verified Bundle bound to this layer preview', 5, 5)
+
+    def previews_loaded(self, results):
+        if self.closing:
+            return
+        self.results.update(results)
+        self.layer_changed()
+        self.report('[Layer Batch 3/5] Preview complete; no documents have been added', 3, 5)
 
     def task_finished(self):
-        self.layer.setEnabled(bool(self.layers))
-        self.load_button.setEnabled(bool(self.layers))
-        if self.layers:
-            self.version.setEnabled("attack" not in self.layers[self.layer.currentIndex()].get("versions", {}))
+        self.set_busy(False)
+        if self.pending_resolve and not self.closing:
+            self.pending_resolve = False
+            QtCore.QTimer.singleShot(0, self.resolve_selected)
         super().task_finished()
 
     def update_preview(self, *_):
-        if not self.catalog or not self.layers:
+        index = self.layer.currentIndex()
+        if self.catalog is None or index < 0:
+            self.refresh_batch_state()
             return
-        layer = self.layers[self.layer.currentIndex()]
         try:
-            self.preview = import_preview(layer, self.catalog, self.policy.currentData())
-        except Exception as error:
-            self.report(str(error), 1, 1)
-            self.import_button.setEnabled(False)
+            # Validate extension/selection policies as well as the visible table.
+            imported_document(self.layers[index], self.catalog, self.policies[index])
+            self.preview = import_preview(self.layers[index], self.catalog, self.policies[index])
+            self.results[index] = {'catalog': self.catalog, 'preview': self.preview, 'error': ''}
+        except (ValueError, TypeError, KeyError) as error:
+            self.results[index] = {'catalog': None, 'preview': None, 'error': str(error)}
+            self.catalog = self.preview = None
+        self.render_preview()
+        self.refresh_batch_state()
+
+    def render_preview(self):
+        self.table.setRowCount(0)
+        if self.preview is None:
+            self.preview_summary.setText(self.results.get(self.layer.currentIndex(), {}).get('error', 'Choose a layer to preview.'))
             return
-        self.report("[Navigator Import 2/4] Resolving rows against the chosen snapshot", 0, len(self.preview["rows"]))
-        self.table.setRowCount(len(self.preview["rows"]))
-        for number, row in enumerate(self.preview["rows"]):
-            entry = row["entry"]
-            values = [entry["techniqueID"], row["name"], entry.get("tactic", "All tactics"),
-                      str(entry.get("enabled", True)), str(entry.get("score", "")), entry.get("comment", ""), row["status"]]
+        from localization import tr
+        self.preview_summary.setText(tr('{selected} unique TTPs selected; {unresolved} unresolved rows remain as annotations and are not selected.').format(
+            selected=len(self.preview['selected']), unresolved=self.preview['unresolved']))
+        self.table.setRowCount(len(self.preview['rows']))
+        for number, row in enumerate(self.preview['rows']):
+            entry = row['entry']
+            values = [entry['techniqueID'], row['name'], entry.get('tactic', 'All tactics'),
+                      str(entry.get('enabled', True)), str(entry.get('score', '')), entry.get('comment', ''), row['status']]
             for column, value in enumerate(values):
                 item = QtWidgets.QTableWidgetItem(value)
                 item.setToolTip(value)
                 self.table.setItem(number, column, item)
-        self.summary.setText(f"{len(self.preview['selected'])} unique TTPs selected; {self.preview['unresolved']} unresolved rows "
-                             "will remain as annotations and will not be selected. Import creates a separate document.")
-        self.report("[Navigator Import 3/4] Preview ready; review before importing", 1, 1)
-        self.import_button.setEnabled(True)
+        self.table.setToolTip(f"{len(self.preview['selected'])} unique TTPs selected; {self.preview['unresolved']} unresolved rows "
+                              "will remain as annotations and will not be selected.")
 
     def commit(self):
-        if not self.catalog or not self.preview or (self.worker and self.worker.isRunning()):
+        if not self.import_button.isEnabled() or self.busy:
             return
-        document = imported_document(self.layers[self.layer.currentIndex()], self.catalog, self.policy.currentData())
-        self.imported.emit(document)
-        self.report("[Navigator Import 4/4] Imported as a new document", 1, 1)
+        indices = self.selected_indices()
+        if len(getattr(self.parent(), 'documents', [])) + len(indices) > 50:
+            self.report('Opening this batch would exceed 50 documents. Close some files and retry; no layers were added.', 1, 1)
+            return
+        from navigator_import import build_import_documents
+        layers, versions, policies = deepcopy(self.layers), dict(self.versions), dict(self.policies)
+        catalogs = {index: self.results[index]['catalog'] for index in indices}
+        self.set_busy(True)
+        self.start_task(lambda notify: build_import_documents(layers, indices, versions, policies, catalogs, notify),
+                        self.documents_built)
+
+    def documents_built(self, documents):
+        if self.closing:
+            return
+        try:
+            if self.install is not None:
+                if not self.install(documents):
+                    self.report('[Layer Batch] Installation failed; no layers were added', 1, 1)
+                    return
+            elif len(documents) == 1:
+                self.imported.emit(documents[0])
+            else:
+                self.imported_many.emit(documents)
+        except (ValueError, TypeError, RuntimeError) as error:
+            self.report('[Layer Batch] Installation failed: ' + str(error), 1, 1)
+            return
+        self.report('[Layer Batch 5/5] All selected layers opened as independent documents', len(documents), len(documents))
         self.accept()
+
+    def reject(self):
+        self.pending_resolve = False
+        self.closing = True
+        if self.source_dialog and (self.source_dialog.isVisible() or self.source_dialog.running_worker()):
+            self.source_dialog.reject()
+            if self.source_dialog.running_worker():
+                self.source_dialog.finished.connect(lambda _: self.reject(), QtCore.Qt.ConnectionType.SingleShotConnection)
+                return
+        super().reject()
+
 
 
 class AnnotationDialog(QtWidgets.QDialog):
@@ -383,6 +620,10 @@ class LayerSettingsDialog(QtWidgets.QDialog):
         self.description.setMaximumHeight(90)
         form.addRow("Description", self.description)
         gradient = self.original.get('gradient', DEFAULT_GRADIENT)
+        self.gradient_preset = QtWidgets.QComboBox()
+        self.gradient_preset.addItem('Custom · keep current settings')
+        self.gradient_preset.addItems([entry[0] for entry in GRADIENT_PRESETS])
+        form.addRow('Gradient preset', self.gradient_preset)
         self.minimum = QtWidgets.QLineEdit(str(gradient['minValue']))
         self.maximum = QtWidgets.QLineEdit(str(gradient['maxValue']))
         form.addRow("Minimum score", self.minimum)
@@ -395,6 +636,9 @@ class LayerSettingsDialog(QtWidgets.QDialog):
         self.add_stop.clicked.connect(self.add_color_stop)
         stops.addWidget(self.add_stop)
         form.addRow("Gradient stops", stops)
+        self.gradient_preset.activated.connect(self.apply_gradient_preset)
+        for editor in (self.colors,self.minimum,self.maximum):
+            editor.textEdited.connect(lambda *_:self.gradient_preset.setCurrentIndex(0))
         self.hide_disabled = QtWidgets.QCheckBox("Hide disabled technique rows")
         self.hide_disabled.setChecked(self.original.get('hideDisabled', False))
         form.addRow(self.hide_disabled)
@@ -433,9 +677,42 @@ class LayerSettingsDialog(QtWidgets.QDialog):
         self.remove_legend_button = QtWidgets.QPushButton('Remove selected item')
         self.remove_legend_button.clicked.connect(lambda: self.legend.removeRow(self.legend.currentRow()) if self.legend.currentRow() >= 0 else None)
         legend_buttons.addWidget(self.remove_legend_button)
+        self.clear_legend_button = QtWidgets.QPushButton('Clear all legend items')
+        self.clear_legend_button.clicked.connect(lambda:self.legend.setRowCount(0))
+        self.clear_legend_button.setToolTip('Clears the draft. Save applies; Cancel restores the original legend.')
+        legend_buttons.addWidget(self.clear_legend_button)
         legend_buttons.addStretch()
         legend_layout.addLayout(legend_buttons)
         tabs.addTab(legend_page, 'Legend')
+        display_page=QtWidgets.QWidget()
+        display_form=QtWidgets.QFormLayout(display_page)
+        self.show_names=QtWidgets.QCheckBox('Show technique and tactic names')
+        self.show_names.setChecked(aggregate.get('showName',True))
+        self.show_ids=QtWidgets.QCheckBox('Show technique and tactic IDs')
+        self.show_ids.setChecked(aggregate.get('showID',False))
+        self.show_tactic_background=QtWidgets.QCheckBox('Show tactic header background · Flat / Side')
+        self.show_tactic_background.setChecked(self.original.get('showTacticRowBackground',False))
+        self.tactic_background=QtWidgets.QLineEdit(self.original.get('tacticRowBackground','#dddddd'))
+        for control in (self.show_names,self.show_ids,self.show_tactic_background): display_form.addRow(control)
+        color_row=QtWidgets.QHBoxLayout()
+        color_row.addWidget(self.tactic_background)
+        color_button=QtWidgets.QPushButton('Choose color…')
+        def choose_background():
+            color=QtWidgets.QColorDialog.getColor(QtGui.QColor(self.tactic_background.text()),self,'Tactic header background')
+            if color.isValid(): self.tactic_background.setText(color.name())
+        color_button.clicked.connect(choose_background)
+        color_row.addWidget(color_button)
+        display_form.addRow('Header color · #RRGGBB',color_row)
+        hint=QtWidgets.QLabel('Name and ID controls are independent. Mini hides labels and custom header color without changing these settings. '
+                              'Yellow indicators identify comments, metadata or source Notes; blue identifies links. '
+                              'Selection metadata alone does not create an annotation indicator.')
+        hint.setWordWrap(True)
+        display_form.addRow(hint)
+        tabs.addTab(display_page,'Display')
+        effects, self.effect_controls = display_editor(self.original)
+        tabs.addTab(effects, 'Colors / indicators')
+        self.context_editor = ContextEditor(self.original)
+        tabs.addTab(self.context_editor.page, 'Context actions')
         self.links = FieldEditor('links')
         self.links.load(self.original.get('links', []))
         self.metadata = FieldEditor('metadata')
@@ -451,9 +728,24 @@ class LayerSettingsDialog(QtWidgets.QDialog):
         buttons.rejected.connect(self.reject)
         layout.addWidget(buttons)
 
+    def apply_gradient_preset(self, index):
+        if index <= 0: return
+        self.document_parent_report('Input files: None; output files: None (gradient draft in memory)',0,0)
+        self.document_parent_report('[Gradient Preset 1/2] Loading colors and score bounds',0,2)
+        _,colors,low,high = GRADIENT_PRESETS[index-1]
+        self.colors.setText(', '.join(colors))
+        self.minimum.setText(str(low))
+        self.maximum.setText(str(high))
+        self.document_parent_report('[Gradient Preset 2/2] Draft ready; Save applies, Cancel discards',2,2)
+
+    def document_parent_report(self, text, current, total):
+        notify = getattr(self.parent(), 'operation_report', None)
+        if notify: notify(text,current,total)
+
     def add_color_stop(self):
         color = QtWidgets.QColorDialog.getColor(QtGui.QColor('#007acc'), self, 'Gradient color stop')
         if color.isValid():
+            self.gradient_preset.setCurrentIndex(0)
             self.colors.setText(self.colors.text().rstrip(', ') + ', ' + color.name())
 
     def add_legend(self, label, color):
@@ -487,6 +779,13 @@ class LayerSettingsDialog(QtWidgets.QDialog):
             candidate['legendItems'] = [{'label': self.legend.item(row, 0).text(), 'color': self.legend.item(row, 1).text().strip()}
                                         for row in range(self.legend.rowCount())]
             candidate['hideDisabled'] = self.hide_disabled.isChecked()
+            candidate.setdefault('layout',{}).update(showID=self.show_ids.isChecked(),showName=self.show_names.isChecked())
+            candidate['showTacticRowBackground']=self.show_tactic_background.isChecked()
+            candidate['tacticRowBackground']=self.tactic_background.text().strip()
+            candidate[DISPLAY_KEY] = editor_values(self.effect_controls)
+            actions = self.context_editor.values()
+            if actions: candidate[CONTEXT_KEY] = actions
+            else: candidate.pop(CONTEXT_KEY, None)
             if 'layout' in candidate or self.show_aggregate.isChecked() or self.count_unscored.isChecked():
                 candidate.setdefault('layout', {}).update(showAggregateScores=self.show_aggregate.isChecked(),
                     countUnscored=self.count_unscored.isChecked(), aggregateFunction=self.aggregate_function.currentData())
@@ -507,7 +806,7 @@ class SelectionCompareDialog(IntegrationDialog):
         layout = QtWidgets.QVBoxLayout(self)
         self.left, self.right = QtWidgets.QComboBox(), QtWidgets.QComboBox()
         for document in documents:
-            label = f"{document.name} — {DOMAIN_LABELS[document.catalog.domain]} v{document.catalog.version}"
+            label = f"{document.name} — {domain_label(document.catalog.domain, document.catalog)} v{document.catalog.version}"
             self.left.addItem(label)
             self.right.addItem(label)
         if len(documents) > 1:
@@ -577,7 +876,7 @@ class VersionCompareDialog(IntegrationDialog):
         form.addRow("From version", self.old)
         form.addRow("To version", self.new)
         layout.addLayout(form)
-        layout.addWidget(QtWidgets.QLabel(f"Compare downloaded {DOMAIN_LABELS[self.domain]} snapshots. Download other versions using Version first."))
+        layout.addWidget(QtWidgets.QLabel(f"Compare downloaded {domain_label(self.domain)} snapshots. Download other versions using Version first."))
         self.compare_button = QtWidgets.QPushButton("Compare versions")
         self.compare_button.clicked.connect(self.compare)
         layout.addWidget(self.compare_button)

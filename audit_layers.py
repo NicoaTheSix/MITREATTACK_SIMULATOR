@@ -105,6 +105,7 @@ def main():
     task, parent, at = lookup['T1053.005'], lookup['T1053'], lookup['T1053.002']
     log('[Layers audit 2/7] Native row colors and tactic-specific scopes', 1, 7)
     first.name = 'Detection coverage'
+    probe['versions']['attack'] = window.catalog.version
     first.navigator_layer = deepcopy(probe)
     first.navigator_layer['hideDisabled'] = False
     first.selected = {task}
@@ -238,8 +239,10 @@ def main():
     wait(lambda: dialog.import_button.isEnabled(), 'layer array preview')
     check(dialog.layer.count() == len(layers), 'native import preview lists bundle layers')
     dialog.layer.setCurrentIndex(0)
+    prior_count = len(window.documents)
     dialog.import_button.click()
-    wait(lambda: window.loaded_ok, 'layer array commit')
+    wait(lambda: window.loaded_ok and len(window.documents) == prior_count + len(layers) and not dialog.worker.isRunning(), 'layer array commit')
+    check([doc.navigator_layer for doc in window.documents[prior_count:]] == layers, 'bundle import opens all checked layers in file order')
     check(window.current_document.navigator_layer['gradient'] == layers[0]['gradient'], 'bundle layer import restores exact style settings')
     log('[Layers audit 6/7] Technique context menu and all-domain color isolation', 5, 7)
     window.open_matrix()
@@ -252,7 +255,7 @@ def main():
     QtWidgets.QApplication.processEvents()
     matrix.open_cell_menu(tree, tree.visualItemRect(item).center())
     with patch.object(QtWidgets.QColorDialog, 'getColor', return_value=QtGui.QColor('#ffffff')):
-        matrix.cell_menu.actions()[0].trigger()
+        next(action for action in matrix.cell_menu.actions() if action.text() == 'Set technique color…').trigger()
     matrix.cell_menu.close()
     check(cell(matrix, task, 'execution').background(0).color().name() == '#ffffff', 'native context color edits chosen technique')
     check(cell(matrix, task, 'privilege-escalation').background(0).color().name() == '#ffffff', 'technique color applies across tactic columns')
@@ -289,6 +292,7 @@ def main():
     check(settings.grab().save(str(SETTINGS_SCREEN)), 'layer settings screenshot')
     settings.reject()
     check(all(path.read_bytes() == content for path, content in pointer_bytes.items()), 'layer audit leaves dataset pointers unchanged')
+    window.confirm_studio_changes = lambda *_: "discard"
     window.close()
     REPORT.write_text(json.dumps({'status': 'PASS', 'checks': checks, 'preview': str(SCREEN), 'bundle': str(BUNDLE)}, indent=2) + '\n', encoding='utf-8')
     log(f'[Layers audit] PASS: {len(checks)} checks', 7, 7)

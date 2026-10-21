@@ -1,0 +1,24 @@
+Input root: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack
+Output report: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/version-audit.json
+Output preview: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/version-preview.png
+Output test root: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/version-audit-data-7bd036755df64a3283856ab71766a13f
+[Version audit 1/6] Discovering every official Enterprise release
+[Version 1/4 Discover] Input files: None (official HTTPS metadata)
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/versions-cache.json; temporary: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/versions-cache.json.part
+[Version transfer] Input URL: https://api.github.com/repos/mitre-attack/attack-stix-data/commits/master
+Output file: None (metadata in memory)
+[Version transfer] Complete: 17,883 bytes (1/1)
+[Version transfer] Input URL: https://raw.githubusercontent.com/mitre-attack/attack-stix-data/c2494b29dd268c46a5d0ea0990553e4327cd2253/index.json
+Output file: None (metadata in memory)
+[Version transfer] Complete: 33,164 bytes (1/1)
+[Version 1/4 Discover] Complete: 42 available Enterprise versions (1/1)
+Traceback (most recent call last):
+  File "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_versions.py", line 217, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_versions.py", line 109, in main
+    check(discovery['versions'][0]['version'] == '19.2', 'numeric newest-first sorting')
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_versions.py", line 30, in check
+    raise AssertionError(name)
+AssertionError: numeric newest-first sorting

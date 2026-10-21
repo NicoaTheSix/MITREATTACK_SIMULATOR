@@ -1,0 +1,442 @@
+{
+  "checksum": "c5ab0380ac822511694427463c6e8e18641d9e52762a2dff26c38a40a16fa0c0",
+  "workspace": {
+    "studio_session_version": "1.0",
+    "updated_at_utc": "2026-10-20T15:30:28.745302+00:00",
+    "clean_exit": false,
+    "documents": [
+      {
+        "document": {
+          "schema_version": "1.0",
+          "document_id": "2202b99b-2bd4-443f-87e4-6c130fdd265e",
+          "name": "New Name",
+          "created_at_utc": "2026-10-20T15:30:17.128369+00:00",
+          "exported_at_utc": "2026-10-20T15:30:28.745302+00:00",
+          "attack": {
+            "domain": "enterprise-attack",
+            "version": "20.0",
+            "source_url": "https://github.com/mitre-attack/attack-stix-data"
+          },
+          "selected_count": 1,
+          "selected_technique_ids": [
+            "T1053.005"
+          ],
+          "selected_ttps": [
+            {
+              "technique_id": "T1053.005",
+              "stix_id": "attack-pattern--005a06c6-14bf-4118-afa0-ebcd8aebb0c9",
+              "name": "Scheduled Task",
+              "is_subtechnique": true,
+              "parent_technique_id": "T1053",
+              "parent_technique_name": "Scheduled Task/Job",
+              "platforms": [
+                "Windows"
+              ],
+              "tactics": [
+                {
+                  "tactic_id": "TA0002",
+                  "name": "Execution",
+                  "shortname": "execution"
+                },
+                {
+                  "tactic_id": "TA0003",
+                  "name": "Persistence",
+                  "shortname": "persistence"
+                },
+                {
+                  "tactic_id": "TA0004",
+                  "name": "Privilege Escalation",
+                  "shortname": "privilege-escalation"
+                }
+              ],
+              "comment": "Multiline\n註解",
+              "tactic_comments": [],
+              "enabled": false,
+              "tactic_enabled": [
+                {
+                  "tactic": "execution",
+                  "enabled": false
+                },
+                {
+                  "tactic": "persistence",
+                  "enabled": false
+                },
+                {
+                  "tactic": "privilege-escalation",
+                  "enabled": false
+                }
+              ],
+              "selected_tactics": [
+                "execution",
+                "persistence",
+                "privilege-escalation"
+              ]
+            }
+          ],
+          "navigator_import_selected": [
+            "T1053.005"
+          ],
+          "selection_scopes": {},
+          "selection_preferences": {
+            "across_tactics": true,
+            "with_family": false,
+            "visible_only": false
+          },
+          "search_fields": [
+            "name",
+            "id"
+          ],
+          "navigator_layer": {
+            "name": "Research 中文",
+            "domain": "enterprise-attack",
+            "versions": {
+              "attack": "20.0",
+              "layer": "4.5",
+              "navigator": "5.2.0"
+            },
+            "techniques": [
+              {
+                "techniqueID": "T1053.005",
+                "links": [
+                  {
+                    "label": "Reference",
+                    "url": "https://example.org/ttp"
+                  },
+                  {
+                    "divider": true
+                  }
+                ],
+                "metadata": [
+                  {
+                    "name": "Analyst",
+                    "value": "研究員"
+                  },
+                  {
+                    "divider": true
+                  }
+                ],
+                "comment": "Multiline\n註解",
+                "score": 2.75,
+                "color": "#aabbcc",
+                "enabled": false,
+                "x_lab": {
+                  "keep": [
+                    0,
+                    false,
+                    "資料"
+                  ]
+                }
+              }
+            ],
+            "x_lab": {
+              "keep": true
+            }
+          },
+          "navigator_snapshots": {
+            "11.3": {
+              "layer": {
+                "name": "Research 中文",
+                "domain": "enterprise-attack",
+                "versions": {
+                  "attack": "11.3",
+                  "layer": "4.5",
+                  "navigator": "5.2.0"
+                },
+                "techniques": [
+                  {
+                    "techniqueID": "T1053.005",
+                    "comment": "Historical",
+                    "score": 0
+                  }
+                ]
+              },
+              "import_selected": [],
+              "selection_scopes": {}
+            }
+          },
+          "domain_snapshots": {
+            "mobile-attack": {
+              "version": "20.0",
+              "selected_stix_ids": [
+                "attack-pattern--00290ac5-551e-44aa-bbd8-c4b913488a6d"
+              ],
+              "navigator_layer": {},
+              "navigator_import_selected": [],
+              "selection_scopes": {},
+              "navigator_snapshots": {
+                "11.3": {
+                  "layer": {
+                    "name": "Research 中文",
+                    "domain": "mobile-attack",
+                    "versions": {
+                      "attack": "11.3",
+                      "layer": "4.5",
+                      "navigator": "5.2.0"
+                    },
+                    "techniques": [
+                      {
+                        "techniqueID": "T1603",
+                        "comment": "Mobile archive",
+                        "score": 3,
+                        "color": "#55aa66"
+                      }
+                    ]
+                  },
+                  "import_selected": [],
+                  "selection_scopes": {}
+                }
+              }
+            }
+          },
+          "migration_archives": [
+            {
+              "domain": "enterprise-attack",
+              "version": "11.3",
+              "dataset_id": "",
+              "custom_source": "",
+              "layer": {
+                "name": "Archive",
+                "domain": "enterprise-attack",
+                "techniques": [
+                  {
+                    "techniqueID": "T1053.005",
+                    "metadata": [
+                      {
+                        "name": "TTP Selection Studio selected",
+                        "value": "true"
+                      }
+                    ]
+                  }
+                ],
+                "selectTechniquesAcrossTactics": true,
+                "selectSubtechniquesWithParent": false,
+                "hideDisabled": false,
+                "selectVisibleTechniques": false,
+                "x_ttp_studio_search_fields": [
+                  "name",
+                  "id"
+                ],
+                "versions": {
+                  "attack": "11.3",
+                  "navigator": "5.2.0",
+                  "layer": "4.5"
+                }
+              },
+              "selected_stix_ids": [
+                "attack-pattern--005a06c6-14bf-4118-afa0-ebcd8aebb0c9"
+              ],
+              "import_selected": [
+                "T1053.005"
+              ]
+            }
+          ]
+        },
+        "initial_name": "Research 中文",
+        "save_path": "D:\\MITREATTACK_SIMULATOR\\artifacts\\studio-lifecycle\\New Name.json",
+        "saved_fingerprint": "07f852d9c98454f1cb0fd1dd99e7a58316fb05b676458c6a468df7b2ffe91e91",
+        "saved_file_sha256": "5e62d7fb0aa0dc4845728ba672990fe34dd5c0731349e86da404367338a0da4a",
+        "content_token_version": 2,
+        "dirty": false
+      },
+      {
+        "document": {
+          "schema_version": "1.0",
+          "document_id": "991d7911-c257-42ec-a0f5-bf46e3a5b9c1",
+          "name": "New unsaved",
+          "created_at_utc": "2026-10-20T15:30:28.745302+00:00",
+          "exported_at_utc": "2026-10-20T15:30:28.745302+00:00",
+          "attack": {
+            "domain": "enterprise-attack",
+            "version": "20.0",
+            "source_url": "https://github.com/mitre-attack/attack-stix-data"
+          },
+          "selected_count": 1,
+          "selected_technique_ids": [
+            "T1053.005"
+          ],
+          "selected_ttps": [
+            {
+              "technique_id": "T1053.005",
+              "stix_id": "attack-pattern--005a06c6-14bf-4118-afa0-ebcd8aebb0c9",
+              "name": "Scheduled Task",
+              "is_subtechnique": true,
+              "parent_technique_id": "T1053",
+              "parent_technique_name": "Scheduled Task/Job",
+              "platforms": [
+                "Windows"
+              ],
+              "tactics": [
+                {
+                  "tactic_id": "TA0002",
+                  "name": "Execution",
+                  "shortname": "execution"
+                },
+                {
+                  "tactic_id": "TA0003",
+                  "name": "Persistence",
+                  "shortname": "persistence"
+                },
+                {
+                  "tactic_id": "TA0004",
+                  "name": "Privilege Escalation",
+                  "shortname": "privilege-escalation"
+                }
+              ],
+              "comment": "",
+              "tactic_comments": [],
+              "enabled": true,
+              "tactic_enabled": [
+                {
+                  "tactic": "execution",
+                  "enabled": true
+                },
+                {
+                  "tactic": "persistence",
+                  "enabled": true
+                },
+                {
+                  "tactic": "privilege-escalation",
+                  "enabled": true
+                }
+              ],
+              "selected_tactics": [
+                "execution",
+                "persistence",
+                "privilege-escalation"
+              ]
+            }
+          ],
+          "navigator_import_selected": [],
+          "selection_scopes": {},
+          "selection_preferences": {
+            "across_tactics": true,
+            "with_family": false,
+            "visible_only": false
+          },
+          "search_fields": [
+            "name",
+            "id"
+          ]
+        },
+        "initial_name": "New unsaved",
+        "save_path": null,
+        "saved_fingerprint": null,
+        "saved_file_sha256": null,
+        "content_token_version": 2,
+        "dirty": true
+      },
+      {
+        "document": {
+          "schema_version": "1.0",
+          "document_id": "183ba98e-b948-4b52-b87f-aa9e01678db0",
+          "name": "Untitled-9",
+          "created_at_utc": "2026-10-20T15:30:28.745302+00:00",
+          "exported_at_utc": "2026-10-20T15:30:28.745302+00:00",
+          "attack": {
+            "domain": "enterprise-attack",
+            "version": "20.0",
+            "source_url": "https://github.com/mitre-attack/attack-stix-data"
+          },
+          "selected_count": 0,
+          "selected_technique_ids": [],
+          "selected_ttps": [],
+          "navigator_import_selected": [],
+          "selection_scopes": {},
+          "selection_preferences": {
+            "across_tactics": true,
+            "with_family": false,
+            "visible_only": false
+          },
+          "search_fields": [
+            "name",
+            "id"
+          ]
+        },
+        "initial_name": "Untitled-9",
+        "save_path": null,
+        "saved_fingerprint": null,
+        "saved_file_sha256": null,
+        "content_token_version": 2,
+        "dirty": false
+      },
+      {
+        "document": {
+          "schema_version": "1.0",
+          "document_id": "93c59df0-0efc-478b-8831-41b243375663",
+          "name": "custom",
+          "created_at_utc": "2026-10-20T15:30:26.008691+00:00",
+          "exported_at_utc": "2026-10-20T15:30:28.745302+00:00",
+          "attack": {
+            "domain": "enterprise-attack",
+            "version": "19.2",
+            "source_url": "D:\\MITREATTACK_SIMULATOR\\artifacts\\studio-lifecycle\\custom-bundle.json",
+            "dataset_sha256": "b61d5562207f037e83a3b46ba863b493a965a4445863fdf8b7b2c8755fe85048",
+            "custom": true
+          },
+          "selected_count": 1,
+          "selected_technique_ids": [
+            "T1000"
+          ],
+          "selected_ttps": [
+            {
+              "technique_id": "T1000",
+              "stix_id": "attack-pattern--c4f9279a-9bbb-54ad-ab31-3fca5363870c",
+              "name": "Alpha",
+              "is_subtechnique": false,
+              "parent_technique_id": null,
+              "parent_technique_name": null,
+              "platforms": [
+                "Linux",
+                "Windows"
+              ],
+              "tactics": [
+                {
+                  "tactic_id": null,
+                  "name": "Execution",
+                  "shortname": "execution"
+                }
+              ],
+              "comment": "",
+              "tactic_comments": [],
+              "enabled": true,
+              "tactic_enabled": [
+                {
+                  "tactic": "execution",
+                  "enabled": true
+                }
+              ],
+              "selected_tactics": [
+                "execution"
+              ]
+            }
+          ],
+          "navigator_import_selected": [],
+          "selection_scopes": {},
+          "selection_preferences": {
+            "across_tactics": true,
+            "with_family": false,
+            "visible_only": false
+          },
+          "search_fields": [
+            "name",
+            "id"
+          ]
+        },
+        "initial_name": "Custom",
+        "save_path": "D:\\MITREATTACK_SIMULATOR\\artifacts\\studio-lifecycle\\custom.json",
+        "saved_fingerprint": "1c55ffa66fa9449d5edd82de3fefe30d658c316d9680584610f134829c2859b8",
+        "saved_file_sha256": "138aee27938f227fec87b1d9c38a5adb537c64caf6c8a4d7506576c2f8a72ca5",
+        "content_token_version": 2,
+        "dirty": false
+      }
+    ],
+    "active_index": 1,
+    "view": {
+      "page": "matrix",
+      "details_open": false,
+      "category": "TTP",
+      "overlay": true,
+      "show_colors": false
+    }
+  }
+}

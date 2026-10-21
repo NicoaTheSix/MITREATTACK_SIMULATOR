@@ -185,7 +185,7 @@ def main():
     check(window.tabs.currentIndex() == window.matrix_tab_index and matrix.catalog.version == '1.0', 'visible matrix restores with selected historical release')
     check(all(column['tree'].topLevelItem(number).childCount() == 0 for column in matrix.columns
               for number in range(column['tree'].topLevelItemCount())), 'historical release without sub-techniques renders correctly')
-    check(second.catalog.version == '19.2', 'other document snapshot preserved')
+    check(second.catalog.version == catalog.version, 'other document snapshot preserved')
     window.document_tabs.setCurrentIndex(1)
     wait(lambda: window.loaded_ok and not matrix.building and matrix.catalog is catalog, 'modern matrix restoration')
     matrix.platform.setCurrentText('Linux')
@@ -212,6 +212,7 @@ def main():
     matrix.scroll.horizontalScrollBar().setValue(0)
     QtTest.QTest.qWait(180)
     check(window.grab().save(str(SCREEN)), 'matrix screenshot saved')
+    window.confirm_studio_changes = lambda *_: "discard"
     window.close()
     write_json(REPORT, {'status': 'PASS', 'checks': checks, 'projection_family_rows': total_rows,
                         'platform_scopes': len(catalog.groups) + 1, 'screenshot': str(SCREEN),

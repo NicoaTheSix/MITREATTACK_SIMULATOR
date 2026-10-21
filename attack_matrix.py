@@ -4,16 +4,34 @@ from __future__ import annotations
 import html
 from PySide6 import QtCore, QtGui, QtWidgets
 
-from attack_catalog import external_id, DOMAIN_LABELS, supports_navigator
+from attack_catalog import external_id, DOMAIN_LABELS, supports_navigator, tactic_phases, domain_label
 from navigator_visuals import LayerAppearance, OverlayAppearance, display_color
 from navigator_fields import presentation, sorted_families, web_url
 from matrix_presentations import FamilyView
+from ttp_search import matches as search_matches, DEFAULT_SEARCH_FIELDS
+from ttp_selection import is_selected
+from matrix_display import display_label, labels, header_color, marker_colors
+from navigator_visuals import foreground_color
+from matrix_expansion import expanded_family
+from ttp_sources import SOURCE_KINDS, source_choices, resolve_sources, source_cells
+from source_preview import SourceResultHover, draw_source_preview
 
 MATRIX_ID = int(QtCore.Qt.ItemDataRole.UserRole) + 1
 MATRIX_SLUG = MATRIX_ID + 1
 MATRIX_STYLE = MATRIX_SLUG + 1
 MATRIX_TOOLTIP = MATRIX_STYLE + 1
+MATRIX_CHILDREN = MATRIX_TOOLTIP + 1
 ALL_PLATFORMS = "All Platforms"
+SOURCE_SEARCH = MATRIX_CHILDREN + 1
+
+
+class SourceCompleter(QtWidgets.QCompleter):
+    def splitPath(self, path):
+        return [path.strip()]
+
+    def pathFromIndex(self, index):
+        # Search a separate role while completing only the short identity label.
+        return index.data(QtCore.Qt.ItemDataRole.DisplayRole) or ''
 
 
 def matrix_columns(catalog, platform=ALL_PLATFORMS):
@@ -63,6 +81,8 @@ class MatrixDelegate(QtWidgets.QStyledItemDelegate):
         appearance = index.data(MATRIX_STYLE) or {}
         if not appearance.get("background") and appearance.get('enabled', True):
             super().paint(painter, wrapped, index)
+            self.paint_source_preview(painter,wrapped.rect,index)
+            self.paint_markers(painter,wrapped.rect,appearance)
             return
         # Draw the annotation fill explicitly: stylesheet item colors would
         # otherwise replace BackgroundRole, especially for the selected row.
@@ -86,10 +106,69 @@ class MatrixDelegate(QtWidgets.QStyledItemDelegate):
         painter.drawText(text_rect, QtCore.Qt.TextFlag.TextWordWrap | QtCore.Qt.AlignmentFlag.AlignLeft
                          | QtCore.Qt.AlignmentFlag.AlignVCenter, wrapped.text)
         painter.restore()
+        self.paint_source_preview(painter,wrapped.rect,index)
+        self.paint_markers(painter,wrapped.rect,appearance)
+
+    def paint_source_preview(self,painter,rect,index):
+        tree = self.parent()
+        children = []
+        if not tree.isExpanded(index):
+            children = [tree.model().index(i,0,index) for i in range(tree.model().rowCount(index))]
+        keys = [child.data(MATRIX_ID) for child in children if not tree.isRowHidden(child.row(),index)]
+        kind = tree.owner.source_preview_kind(index.data(MATRIX_ID),index.data(MATRIX_SLUG),keys,tree.isExpanded(index))
+        draw_source_preview(painter,rect,kind)
+
+    @staticmethod
+    def paint_markers(painter,rect,appearance):
+        painter.save()
+        for number,color in enumerate(marker_colors(appearance)):
+            painter.setPen(QtGui.QPen(QtGui.QColor(color),2))
+            y=rect.bottom()-3-number*3
+            painter.drawLine(rect.left()+4,y,rect.right()-4,y)
+        painter.restore()
+
+
+class TechniqueTree(QtWidgets.QTreeWidget):
+    """Retain additive checkbox clicks; labels use Navigator modifier gestures."""
+    def __init__(self, owner, slug):
+        super().__init__()
+        self.owner, self.slug = owner, slug
+        self.gesture_press = False
+
+    def mousePressEvent(self, event):
+        self.gesture_press = False
+        item = self.itemAt(event.position().toPoint())
+        if event.button() == QtCore.Qt.MouseButton.LeftButton and item and item.flags() & QtCore.Qt.ItemFlag.ItemIsUserCheckable:
+            rect = self.visualItemRect(item)
+            # The branch arrow lies to the left of the item's visual rect.
+            if event.position().x() >= rect.left():
+                option = QtWidgets.QStyleOptionViewItem()
+                option.initFrom(self)
+                option.rect = rect
+                self.itemDelegate().initStyleOption(option,self.indexFromItem(item))
+                indicator = self.style().subElementRect(QtWidgets.QStyle.SubElement.SE_ItemViewItemCheckIndicator,option,self)
+                modified = self.owner.selection_modifiers(event.modifiers())
+                if modified or not indicator.contains(event.position().toPoint()):
+                    self.setCurrentItem(item)
+                    self.gesture_press = True
+                    self.owner.request_mouse_selection(item.data(0,MATRIX_ID),self.slug,event.modifiers())
+                    event.accept()
+                    return
+        super().mousePressEvent(event)
+
+    def mouseReleaseEvent(self, event):
+        if self.gesture_press:
+            self.gesture_press = False
+            event.accept()
+            return
+        super().mouseReleaseEvent(event)
 
 
 class AttackMatrix(QtWidgets.QWidget):
     selection_requested = QtCore.Signal(str, bool)
+    scoped_selection_requested = QtCore.Signal(str, str, bool)
+    mouse_selection_requested = QtCore.Signal(str, str, str)
+    family_expansion_requested = QtCore.Signal(str, str, bool, object)
     detail_requested = QtCore.Signal(str, str)
     progress = QtCore.Signal(str, int, int)
     ready = QtCore.Signal()
@@ -105,7 +184,11 @@ class AttackMatrix(QtWidgets.QWidget):
     cell_color_requested = QtCore.Signal(str, str)
     cell_clear_color_requested = QtCore.Signal(str, str)
     source_requested = QtCore.Signal(str, str)
+    source_operation_requested = QtCore.Signal(str, str, str)
+    source_batch_requested = QtCore.Signal(object, object, str)
+    source_detail_requested = QtCore.Signal(str, str)
     presentation_requested = QtCore.Signal(str, int, object)
+    display_requested = QtCore.Signal(object)
     bulk_selection_requested = QtCore.Signal(str, str, str)
     batch_edit_requested = QtCore.Signal(bool)
     enabled_requested = QtCore.Signal(object)
@@ -115,13 +198,21 @@ class AttackMatrix(QtWidgets.QWidget):
         super().__init__(parent)
         self.catalog = None
         self.selected = set()
+        self.selection_scopes = {}
+        self.search_fields = list(DEFAULT_SEARCH_FIELDS)
         self.columns = []
         self.items_by_id = {}
         self.queue = []
         self.build_index = 0
         self.building = False
+        self.expansion_mode = None
+        self.expansion_syncing = False
+        self.expansion_document_id = None
+        self.restore_expansion = False
         self.syncing = False
         self.appearance = LayerAppearance()
+        self.source_preview_cells = frozenset()
+        self.source_preview_context = None
         self.source_catalog = None
         self.source_entries = {}
         self.selected_platforms = None
@@ -175,10 +266,35 @@ class AttackMatrix(QtWidgets.QWidget):
         self.collapse_button.clicked.connect(lambda: self.set_expanded(False))
         toolbar.addWidget(self.collapse_button)
         layout.addLayout(toolbar)
+        display_bar=QtWidgets.QHBoxLayout()
+        self.show_names=QtWidgets.QCheckBox('Show names')
+        self.show_ids=QtWidgets.QCheckBox('Show IDs')
+        self.show_tactic_background=QtWidgets.QCheckBox('Tactic background')
+        for control in (self.show_names,self.show_ids,self.show_tactic_background):
+            display_bar.addWidget(control)
+        self.tactic_color_button=QtWidgets.QPushButton('Header color…')
+        display_bar.addWidget(self.tactic_color_button)
+        self.expand_annotated_button=QtWidgets.QPushButton('Expand annotated')
+        self.expand_annotated_button.setToolTip('Expand families containing annotated children; siblings remain visible. Selection is unchanged.')
+        self.expand_annotated_button.clicked.connect(self.expand_annotated)
+        display_bar.addWidget(self.expand_annotated_button)
+        self.expansion_mode_picker = QtWidgets.QComboBox()
+        for title, value in [('Per-technique · saved', None), ('Collapse all · saved', 'none'),
+                             ('Expand all · saved', 'all'), ('Annotated · saved', 'annotated')]:
+            self.expansion_mode_picker.addItem(title, value)
+        self.expansion_mode_picker.setToolTip('Expansion policy saved with the layer. Search may temporarily open matching families.')
+        self.expansion_mode_picker.activated.connect(lambda index:self.choose_expansion(self.expansion_mode_picker.itemData(index)))
+        display_bar.addWidget(self.expansion_mode_picker)
+        display_bar.addStretch()
+        layout.addLayout(display_bar)
+        self.show_names.toggled.connect(lambda value:self.request_display({'showName':value}))
+        self.show_ids.toggled.connect(lambda value:self.request_display({'showID':value}))
+        self.show_tactic_background.toggled.connect(lambda value:self.request_display({'showTacticRowBackground':value}))
+        self.tactic_color_button.clicked.connect(self.choose_tactic_color)
         sources = QtWidgets.QHBoxLayout()
-        sources.addWidget(QtWidgets.QLabel("Add from"))
+        sources.addWidget(QtWidgets.QLabel("TTPs from"))
         self.source_kind = QtWidgets.QComboBox()
-        self.source_kind.addItems(['Campaign', 'Software', 'Group'])
+        self.source_kind.addItems(list(SOURCE_KINDS))
         self.source_kind.currentTextChanged.connect(self.populate_sources)
         sources.addWidget(self.source_kind)
         self.source_picker = QtWidgets.QComboBox()
@@ -188,18 +304,39 @@ class AttackMatrix(QtWidgets.QWidget):
         self.source_picker.setMinimumContentsLength(20)
         self.source_picker.setMaxVisibleItems(15)
         self.source_picker.lineEdit().setClearButtonEnabled(True)
-        self.source_completer = QtWidgets.QCompleter(self.source_picker.model(), self.source_picker)
+        self.source_completer = SourceCompleter(self.source_picker.model(), self.source_picker)
+        self.source_completer.setCompletionRole(SOURCE_SEARCH)
         self.source_completer.setCaseSensitivity(QtCore.Qt.CaseSensitivity.CaseInsensitive)
         self.source_completer.setFilterMode(QtCore.Qt.MatchFlag.MatchContains)
         self.source_completer.setCompletionMode(QtWidgets.QCompleter.CompletionMode.PopupCompletion)
         self.source_picker.setCompleter(self.source_completer)
+        self.source_hover_filters = [SourceResultHover(view,self.preview_source_index,self.clear_source_preview)
+                                     for view in (self.source_picker.view(),self.source_completer.popup())]
+        self.source_picker.editTextChanged.connect(lambda *_:self.clear_source_preview())
         self.source_completer.activated[str].connect(self.choose_source_completion)
         self.source_picker.editTextChanged.connect(self.update_source_state)
         sources.addWidget(self.source_picker, 1)
         self.add_source_button = QtWidgets.QPushButton("Add techniques")
         self.add_source_button.clicked.connect(self.add_source)
         sources.addWidget(self.add_source_button)
+        self.remove_source_button = QtWidgets.QPushButton('Remove techniques')
+        self.remove_source_button.clicked.connect(lambda: self.add_source('remove'))
+        sources.addWidget(self.remove_source_button)
+        self.source_details_button = QtWidgets.QPushButton('View source')
+        self.source_details_button.clicked.connect(self.view_source_details)
+        sources.addWidget(self.source_details_button)
         layout.addLayout(sources)
+        results = QtWidgets.QHBoxLayout()
+        self.source_results_summary = QtWidgets.QLabel()
+        self.source_results_summary.setWordWrap(True)
+        results.addWidget(self.source_results_summary,1)
+        self.add_source_results_button = QtWidgets.QPushButton('Add all results')
+        self.remove_source_results_button = QtWidgets.QPushButton('Remove all results')
+        self.add_source_results_button.clicked.connect(lambda:self.change_source_results('add'))
+        self.remove_source_results_button.clicked.connect(lambda:self.change_source_results('remove'))
+        results.addWidget(self.add_source_results_button)
+        results.addWidget(self.remove_source_results_button)
+        layout.addLayout(results)
         self.populate_sources()
         colors = QtWidgets.QHBoxLayout()
         for name, text, signal in (("color_button", "Color selected…", self.color_selected_requested),
@@ -281,16 +418,20 @@ class AttackMatrix(QtWidgets.QWidget):
         self.column_layout.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeft)
         self.scroll.setWidget(self.content)
         layout.addWidget(self.scroll, 1)
-        hint = QtWidgets.QLabel("Expand with the arrow · Check to include · Double-click for details · Right-click to edit color/annotation")
+        hint = QtWidgets.QLabel("Expand with the arrow · Check to include · Double-click for details · Right-click to edit color/annotation\n"
+                               "Source hover: cyan outline = related technique; dashed outline = related collapsed child")
         hint.setWordWrap(True)
         layout.addWidget(hint)
         self.timer = QtCore.QTimer(self)
         self.timer.timeout.connect(self.build_column)
 
     def invalidate(self):
+        self.clear_source_preview()
+        self.source_picker.hidePopup()
+        self.source_completer.popup().hide()
         self.timer.stop()
         self.catalog = None
-        self.add_source_button.setEnabled(False)
+        self.update_source_state()
         self.building = False
         self.syncing = True
         while self.column_layout.count():
@@ -351,10 +492,12 @@ class AttackMatrix(QtWidgets.QWidget):
 
     def make_item(self, key, slug, selectable, children=0):
         record = self.catalog.records[key]
-        name = record['name'] + (f" ({children})" if children else "")
+        name = display_label(external_id(record),record['name'],self.display_layer())
+        name += f" ({children})" if children and name else ''
         item = QtWidgets.QTreeWidgetItem([name])
         item.setData(0, MATRIX_ID, key)
         item.setData(0, MATRIX_SLUG, slug)
+        item.setData(0,MATRIX_CHILDREN,children)
         item.setToolTip(0, f"{external_id(record)}  {record['name']}"
                           + (f"\n{children} sub-techniques in this platform/tactic" if children else "")
                           + ("" if selectable else "\nGrouping only; parent is not mapped to this platform/tactic"))
@@ -362,7 +505,7 @@ class AttackMatrix(QtWidgets.QWidget):
         flags = QtCore.Qt.ItemFlag.ItemIsEnabled | QtCore.Qt.ItemFlag.ItemIsSelectable
         if selectable:
             flags |= QtCore.Qt.ItemFlag.ItemIsUserCheckable
-            item.setCheckState(0, QtCore.Qt.CheckState.Checked if key in self.selected else QtCore.Qt.CheckState.Unchecked)
+            item.setCheckState(0, QtCore.Qt.CheckState.Checked if self.cell_selected(key, slug) else QtCore.Qt.CheckState.Unchecked)
             self.items_by_id.setdefault(key, []).append(item)
         item.setFlags(flags)
         self.apply_item_appearance(item)
@@ -396,6 +539,7 @@ class AttackMatrix(QtWidgets.QWidget):
         title.setToolTip(external_id(self.catalog.tactics[slug]) or "Historical phase heading")
         title.setContextMenuPolicy(QtCore.Qt.ContextMenuPolicy.CustomContextMenu)
         title.customContextMenuRequested.connect(lambda pos, label=title, tactic=slug: self.tactic_menu(label, tactic, pos))
+        self.apply_header(title,slug)
         column.addWidget(title)
         count = QtWidgets.QLabel(f"{len(families)} techniques")
         count.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
@@ -407,13 +551,14 @@ class AttackMatrix(QtWidgets.QWidget):
             scroller.setWidgetResizable(True)
             scroller.setWidget(view)
             column.addWidget(scroller, 1)
-            self.columns.append({'slug': slug, 'frame': frame, 'view': view, 'count': count, 'total': len(families)})
+            self.columns.append({'slug': slug, 'frame': frame, 'view': view, 'title':title, 'count': count, 'total': len(families)})
             self.column_layout.addWidget(frame)
             self.build_index += 1
             self.filter_items()
             self.progress.emit('[Matrix 2/3 Columns] Building ' + mode + ' tactic columns', self.build_index, len(self.queue))
             return
-        tree = QtWidgets.QTreeWidget()
+        tree = TechniqueTree(self,slug)
+        tree.setExpandsOnDoubleClick(False)
         tree.setHeaderHidden(True)
         tree.setColumnCount(1)
         tree.setIndentation(14)
@@ -435,11 +580,13 @@ class AttackMatrix(QtWidgets.QWidget):
                 root.setExpanded(True)
         self.syncing = False
         tree.itemChanged.connect(self.item_changed)
+        tree.itemExpanded.connect(lambda item:self.manual_expansion(item.data(0,MATRIX_ID),slug,True))
+        tree.itemCollapsed.connect(lambda item:self.manual_expansion(item.data(0,MATRIX_ID),slug,False))
         tree.itemActivated.connect(lambda item, column, tactic=slug: self.detail_requested.emit(item.data(0, MATRIX_ID), tactic))
         tree.setContextMenuPolicy(QtCore.Qt.ContextMenuPolicy.CustomContextMenu)
         tree.customContextMenuRequested.connect(lambda position, view=tree: self.open_cell_menu(view, position))
         column.addWidget(tree, 1)
-        self.columns.append({"slug": slug, "frame": frame, "tree": tree, "count": count, "total": len(families)})
+        self.columns.append({"slug": slug, "frame": frame, "tree": tree, 'title':title, "count": count, "total": len(families)})
         self.column_layout.addWidget(frame)
         self.build_index += 1
         self.filter_items()
@@ -448,23 +595,60 @@ class AttackMatrix(QtWidgets.QWidget):
     def item_changed(self, item, _column):
         if self.syncing or not item.flags() & QtCore.Qt.ItemFlag.ItemIsUserCheckable:
             return
-        self.selection_requested.emit(item.data(0, MATRIX_ID), item.checkState(0) == QtCore.Qt.CheckState.Checked)
+        self.request_selection(item.data(0, MATRIX_ID), item.data(0, MATRIX_SLUG), item.checkState(0) == QtCore.Qt.CheckState.Checked)
 
-    def update_selection(self, selected):
+    def request_selection(self, key, slug, checked):
+        self.selection_requested.emit(key, checked)
+        self.scoped_selection_requested.emit(key, slug, checked)
+
+    @staticmethod
+    def selection_modifiers(modifiers):
+        return bool(modifiers & (QtCore.Qt.KeyboardModifier.ControlModifier | QtCore.Qt.KeyboardModifier.MetaModifier |
+                                 QtCore.Qt.KeyboardModifier.ShiftModifier))
+
+    def request_mouse_selection(self, key, slug, modifiers):
+        if not self.building:
+            action = ('remove' if self.cell_selected(key,slug) else 'add') if self.selection_modifiers(modifiers) else 'replace'
+            self.mouse_selection_requested.emit(key,slug,action)
+
+    def manual_expansion(self, key, slug, expanded):
+        if self.building or self.syncing or self.expansion_syncing or self.presentation_syncing or not self.catalog:
+            return
+        # Ignore native expansion signals for leaves.
+        if not any(parent==key and slug in tactic_phases(self.catalog.records[child],self.catalog.domain)
+                   for child,parent in self.catalog.parents.items()):
+            return
+        observed = {}
+        if not self.search.text().strip():
+            opened = self.expansion_snapshot()
+            for column in self.columns:
+                if 'view' in column:
+                    roots = [family['root'].key for family in column['view'].families if family['children']]
+                else:
+                    tree = column['tree']
+                    roots = [tree.topLevelItem(i).data(0,MATRIX_ID) for i in range(tree.topLevelItemCount()) if tree.topLevelItem(i).childCount()]
+                observed.update({(root,column['slug']):(root,column['slug']) in opened for root in roots})
+        self.family_expansion_requested.emit(key,slug,expanded,observed)
+
+    def cell_selected(self, key, slug):
+        return is_selected(self.selected, self.selection_scopes, key, slug)
+
+    def update_selection(self, selected, scopes=None):
         self.selected = set(selected)
+        if scopes is not None:
+            self.selection_scopes = {key:list(value) for key, value in scopes.items()}
         for column in self.columns:
             if 'view' in column:
                 column['view'].refresh()
         self.syncing = True
         for key, items in self.items_by_id.items():
-            state = QtCore.Qt.CheckState.Checked if key in self.selected else QtCore.Qt.CheckState.Unchecked
             for item in items:
-                item.setCheckState(0, state)
+                item.setCheckState(0, QtCore.Qt.CheckState.Checked if self.cell_selected(key, item.data(0, MATRIX_SLUG)) else QtCore.Qt.CheckState.Unchecked)
         self.syncing = False
         if self.catalog:
             scope = ', '.join(self.selected_platforms) if self.selected_platforms is not None else self.platform.currentText()
             source = f' · Custom {self.catalog.dataset_id[:8]}' if self.catalog.dataset_id else ''
-            self.summary.setText(f"{DOMAIN_LABELS[self.catalog.domain]} v{self.catalog.version}{source} · {scope or 'No platforms'} · {len(self.selected)} selected TTPs")
+            self.summary.setText(f"{domain_label(self.catalog.domain, self.catalog)} v{self.catalog.version}{source} · {scope or 'No platforms'} · {len(self.selected)} selected TTPs")
         editable = bool(self.catalog) and supports_navigator(self.catalog) and bool(self.selected)
         self.color_button.setEnabled(editable)
         self.clear_color_button.setEnabled(editable)
@@ -474,11 +658,21 @@ class AttackMatrix(QtWidgets.QWidget):
         self.bulk_select_button.setEnabled(bool(self.catalog) and not self.building)
 
     def update_layers(self, documents, current):
+        identity = current.document_id if current else None
+        if identity != self.expansion_document_id:
+            self.clear_source_preview()
+            self.source_picker.hidePopup()
+            self.source_completer.popup().hide()
+            self.expansion_document_id = identity
+            self.restore_expansion = True
+        if current:
+            self.selection_scopes = {key:list(value) for key, value in current.selection_scopes.items()}
+            self.search_fields = list(current.search_fields)
         self.layer_selector.blockSignals(True)
         self.layer_selector.clear()
         for document in documents:
             source = ' · Custom' if document.catalog.dataset_id else ''
-            self.layer_selector.addItem(f"{document.name} · {DOMAIN_LABELS[document.catalog.domain]} v{document.catalog.version}{source}", document.document_id)
+            self.layer_selector.addItem(f"{document.name} · {domain_label(document.catalog.domain, document.catalog)} v{document.catalog.version}{source}", document.document_id)
         self.layer_selector.setCurrentIndex(next((index for index, document in enumerate(documents) if document is current), -1))
         self.layer_selector.blockSignals(False)
         supported = bool(current) and supports_navigator(current.catalog)
@@ -515,14 +709,26 @@ class AttackMatrix(QtWidgets.QWidget):
     def apply_item_appearance(self, item):
         key, slug = item.data(0, MATRIX_ID), item.data(0, MATRIX_SLUG)
         appearance = self.appearance.cell(external_id(self.catalog.records[key]), slug)
+        record=self.catalog.records[key]
+        text=display_label(external_id(record),record['name'],self.display_layer())
+        children=[item.child(i).data(0,MATRIX_ID) for i in range(item.childCount())]
+        count=item.data(0,MATRIX_CHILDREN) or item.childCount()
+        item.setText(0,self.family_label(key,slug,children,item.isExpanded(),count))
         tooltip = item.data(0, MATRIX_TOOLTIP)
-        tooltip += '\nIncluded in export: ' + str(key in self.selected)
+        if children:
+            annotated = sum(bool(self.appearance.cell(external_id(self.catalog.records[child]),slug).get('annotated')) for child in children)
+            tooltip += f'\n{annotated} annotated / {len(children)} sub-techniques in this platform/tactic'
+        tooltip += '\nIncluded in this tactic: ' + str(self.cell_selected(key, slug))
         if appearance["score"] is not None:
             tooltip += f"\nScore: {appearance['score']}"
         if appearance.get('aggregateScore') is not None:
             tooltip += f"\nAggregate score: {appearance['aggregateScore']:g}"
         if appearance["comment"]:
             tooltip += f"\nComment: {appearance['comment']}"
+        for abstract,content in appearance.get('sourceNotes',[]):
+            tooltip+='\nSource STIX Note'+(': '+abstract if abstract else '')+'\n'+content
+        for source in appearance.get('annotationSources',[]):
+            tooltip+='\nOverlay annotation: '+source['name']+'\n'+source['text']
         for entry in appearance.get('metadata', []):
             if 'name' in entry and entry['name'] != 'TTP Selection Studio selected':
                 tooltip += f"\n{entry['name']}: {entry['value']}"
@@ -555,6 +761,8 @@ class AttackMatrix(QtWidgets.QWidget):
         previous = self.syncing
         self.syncing = True
         for column in self.columns:
+            if 'title' in column:
+                self.apply_header(column['title'],column['slug'])
             if 'view' in column:
                 column['view'].refresh()
                 continue
@@ -573,8 +781,16 @@ class AttackMatrix(QtWidgets.QWidget):
             pieces.append(f"Score {gradient['minValue']}: " + ' → '.join(swatch(color) for color in gradient['colors']) + f" : {gradient['maxValue']}")
         pieces.extend(swatch(entry['color']) + ' ' + html.escape(entry['label']) for entry in self.appearance.layer.get('legendItems', []))
         self.legend.setText(' &nbsp; | &nbsp; '.join(pieces))
-        self.legend.setVisible(bool(pieces) and self.show_colors.isChecked())
+        from navigator_preferences import display_preferences
+        self.legend.setVisible(bool(pieces) and self.show_colors.isChecked() and display_preferences(self.display_layer())['legend_visible'])
         self.filter_items()
+
+    def family_label(self, key, slug, children, expanded, total=None):
+        record = self.catalog.records[key]
+        text = display_label(external_id(record),record['name'],self.display_layer())
+        count = len(children) if total is None else total
+        annotated = sum(bool(self.appearance.cell(external_id(self.catalog.records[child]),slug).get('annotated')) for child in children)
+        return text + (f' [{annotated} annotated]' if text and annotated and not expanded else '') + (f' ({count})' if text and count else '')
 
     def open_cell_menu(self, tree, position):
         item = tree.itemAt(position)
@@ -587,6 +803,36 @@ class AttackMatrix(QtWidgets.QWidget):
         if not supports_navigator(self.catalog):
             return
         menu = QtWidgets.QMenu(widget)
+        menu.addAction('View technique details', lambda: self.detail_requested.emit(key, slug))
+        for text,action in [('Select this technique','add'),('Deselect this technique','remove'),
+                            ('Select only this technique','replace')]:
+            menu.addAction(text,lambda checked=False,action=action:self.mouse_selection_requested.emit(key,slug,action))
+        menu.addAction('Invert this technique', lambda:self.mouse_selection_requested.emit(key,slug,'remove' if self.cell_selected(key,slug) else 'add'))
+        menu.addAction('Select this tactic',lambda:self.bulk_selection_requested.emit('add','platform',slug))
+        menu.addAction('Deselect this tactic',lambda:self.bulk_selection_requested.emit('remove','platform',slug))
+        selections = menu.addMenu('Matrix selection')
+        for text,action in [('Select all','add'),('Deselect all','remove'),('Invert selection','invert'),
+                            ('Select annotated','annotated'),('Select unannotated','unannotated')]:
+            selections.addAction(text,lambda checked=False,action=action:self.bulk_selection_requested.emit(action,'platform',''))
+        for text,obj in [('Open technique reference',self.catalog.records[key]),('Open tactic reference',self.catalog.tactics.get(slug,{}))]:
+            for ref in obj.get('external_references',[]):
+                if ref.get('source_name') in ('mitre-attack','mitre-mobile-attack','mitre-ics-attack') and ref.get('url'):
+                    try: url=web_url(ref['url'])
+                    except ValueError: continue
+                    menu.addAction(text,lambda checked=False,url=url:self.open_context_url(url))
+                    break
+        from context_templates import CONTEXT_KEY, resolve_context
+        entries = self.display_layer().get(CONTEXT_KEY,[])
+        if entries:
+            custom = menu.addMenu('Custom actions')
+            for entry in entries:
+                try: url = resolve_context(entry,self.catalog,key,slug)
+                except ValueError: continue
+                action = custom.addAction(entry['label'])
+                action.setEnabled(bool(url))
+                action.setToolTip(url or 'Required parent/sub-technique or tactic data is unavailable.')
+                if url: action.triggered.connect(lambda checked=False,url=url:self.open_context_url(url))
+        menu.addSeparator()
         menu.addAction("Set technique color…", lambda: self.cell_color_requested.emit(key, slug))
         menu.addAction("Clear technique color", lambda: self.cell_clear_color_requested.emit(key, slug))
         menu.addAction("Edit technique annotation…", lambda: self.annotation_requested.emit(key, slug))
@@ -610,24 +856,34 @@ class AttackMatrix(QtWidgets.QWidget):
         menu.aboutToHide.connect(menu.deleteLater)
         menu.popup(position)
 
+    def open_context_url(self,url):
+        web_url(url)
+        self.progress.emit('Input files: None; output files: None (opening a user-selected reference URL)',0,0)
+        self.progress.emit('[Reference 1/2] Opening URL in the system browser',0,2)
+        opened = QtGui.QDesktopServices.openUrl(QtCore.QUrl(url))
+        self.progress.emit('[Reference 2/2] '+('Opened' if opened else 'Could not open the system browser'),2,2)
+
     def populate_sources(self, *_):
         """List active source objects from this layer's exact domain/version."""
+        self.clear_source_preview()
         catalog = self.source_catalog
         kind = self.source_kind.currentText()
-        types = {'Campaign': {'campaign'}, 'Software': {'malware', 'tool'}, 'Group': {'intrusion-set'}}[kind]
         self.source_entries = {}
+        self.source_search_index = {}
         self.source_picker.blockSignals(True)
         self.source_picker.clear()
-        self.source_picker.lineEdit().setPlaceholderText(f"Search {kind.lower()} name or ID…")
+        fields = getattr(self,'source_search_fields',['name','id','description'])
+        self.source_picker.lineEdit().setPlaceholderText(f"Search {kind.lower()} · {', '.join(fields)}…")
         if catalog is not None:
             self.progress.emit("[Source Picker 1/2] Input files: None; output files: None (verified catalog in memory)", 0, 2)
-            objects = [obj for obj in catalog.objects_by_domain[catalog.domain].values() if obj.get('type') in types]
-            objects.sort(key=lambda obj: (external_id(obj), obj['name'].casefold()))
-            for obj in objects:
-                label = f"{external_id(obj)}  {obj['name']}"
-                self.source_entries[label] = obj['id']
-                self.source_picker.addItem(label, obj['id'])
-            self.progress.emit(f"[Source Picker 2/2] {kind}: {len(objects)} entries in {DOMAIN_LABELS[catalog.domain]} v{catalog.version}", 2, 2)
+            choices = source_choices(catalog,kind,fields)
+            for row in choices:
+                self.source_entries[row['label']] = row['key']
+                self.source_search_index[row['key']] = row['search'].casefold()
+                self.source_picker.addItem(row['label'], row['key'])
+                self.source_picker.setItemData(self.source_picker.count()-1, row['search'], SOURCE_SEARCH)
+                self.source_picker.setItemData(self.source_picker.count()-1, row['label']+'\n'+row['description'], QtCore.Qt.ItemDataRole.ToolTipRole)
+            self.progress.emit(f"[Source Picker 2/2] {kind}: {len(choices)} entries in {domain_label(catalog.domain, catalog)} v{catalog.version}", 2, 2)
         self.source_picker.setCurrentIndex(-1)
         self.source_picker.setEditText('')
         self.source_picker.setEnabled(bool(self.source_entries))
@@ -647,28 +903,116 @@ class AttackMatrix(QtWidgets.QWidget):
         catalog = self.catalog
         if not key or catalog is None or catalog is not self.source_catalog:
             return None, set()
-        keys = {row['target_ref'] for row in catalog.techniques_by_source[catalog.domain].get(key, [])}
-        return key, keys.intersection(catalog.records)
+        return key, resolve_sources(catalog,{key})
 
     def update_source_state(self, *_):
         key, keys = self.source_selection()
         self.add_source_button.setEnabled(bool(key and keys) and not self.building)
         self.add_source_button.setText(f"Add techniques ({len(keys)})" if key else "Add techniques")
-        self.add_source_button.setToolTip("Adds the source's directly mapped techniques to the active layer; keeps existing selections."
+        self.remove_source_button.setEnabled(bool(key and keys) and not self.building)
+        self.remove_source_button.setText(f"Remove techniques ({len(keys)})" if key else "Remove techniques")
+        self.add_source_button.setToolTip("Adds exact direct/explicit-path techniques to the active layer; keeps existing selections."
                                          if keys else "Choose an entry with active technique relationships in this domain/version.")
+        self.source_details_button.setEnabled(bool(key) and not self.building)
+        results = self.source_result_keys()
+        cells = source_cells(self.catalog,results) if self.catalog else set()
+        target_count = len({key for key,slug in cells})
+        self.source_results_summary.setText(f'Results: {len(results)} sources · {target_count} mapped TTPs · {len(cells)} tactic occurrences')
+        self.source_results_summary.setToolTip('Union of the current source kind/query. Blank query means all entries. '
+            'Counts are direct/explicit-path mappings before family/visibility preferences. Add/Remove applies immediately and preserves annotations.')
+        for button in (self.add_source_results_button,self.remove_source_results_button):
+            button.setEnabled(bool(cells) and not self.building)
 
-    def add_source(self):
+    def source_result_keys(self):
+        if not self.catalog or self.catalog is not self.source_catalog: return set()
+        query = self.source_picker.currentText().strip().casefold()
+        chosen = self.source_entries.get(self.source_picker.currentText())
+        if chosen: return {chosen}
+        return {key for key,text in self.source_search_index.items() if not query or query in text}
+
+    def change_source_results(self,action):
+        if not self.building and self.catalog:
+            keys = self.source_result_keys()
+            if keys: self.source_batch_requested.emit(self.catalog,keys,action)
+
+    def view_source_details(self):
+        key,_ = self.source_selection()
+        if key and not self.building: self.source_detail_requested.emit(self.catalog.domain,key)
+
+    def add_source(self, action='add'):
+        action = 'add' if isinstance(action, bool) else action
         key, keys = self.source_selection()
         if key and keys and not self.building:
-            self.source_requested.emit(self.catalog.domain, key)
+            if action == 'add':
+                self.source_requested.emit(self.catalog.domain, key)
+            self.source_operation_requested.emit(self.catalog.domain, key, action)
+
+    def record_matches(self, key, query):
+        return search_matches(self.catalog, key, query, self.search_fields)
+
+    def preview_source_index(self,index,owner):
+        key = index.data(QtCore.Qt.ItemDataRole.UserRole)
+        return self.preview_source(self.source_catalog,key,owner)
+
+    def preview_source(self,catalog,key,owner):
+        if not catalog or catalog is not self.catalog or self.building or not self.isVisible():
+            self.clear_source_preview()
+            return False
+        context = (id(catalog),key,owner)
+        if context == self.source_preview_context: return True
+        self.progress.emit('Input files: None; output files: None (temporary source preview in memory)',0,0)
+        self.progress.emit('[Source Preview 1/2] Resolving exact mapped technique/tactic occurrences',0,2)
+        try:
+            cells = frozenset(source_cells(catalog,{key}) & self.scope_cells('platform'))
+        except (ValueError,TypeError):
+            self.clear_source_preview()
+            self.progress.emit('[Source Preview 2/2] No supported source in the active dataset',2,2)
+            return False
+        self.source_preview_context = context
+        self.source_preview_cells = cells
+        self.repaint_source_preview()
+        self.progress.emit(f'[Source Preview 2/2] {len(cells)} platform-mapped occurrences; preview only, document unchanged',2,2)
+        return True
+
+    def clear_source_preview(self,owner=None):
+        if owner is not None and self.source_preview_context and self.source_preview_context[2] is not owner: return
+        if not self.source_preview_context and not self.source_preview_cells: return
+        self.source_preview_context = None
+        self.source_preview_cells = frozenset()
+        self.repaint_source_preview()
+        self.progress.emit('Input files: None; output files: None (restoring source preview)',0,0)
+        self.progress.emit('[Source Preview] Restored; selection, annotation colors and expansion unchanged',1,1)
+
+    def repaint_source_preview(self):
+        for column in self.columns:
+            if 'tree' in column: column['tree'].viewport().update()
+            else:
+                for family in column['view'].families:
+                    for cell in [family['root'],*family['children']]: cell.update()
+
+    def source_preview_kind(self,key,slug,children=(),expanded=True):
+        if (key,slug) in self.source_preview_cells: return 'direct'
+        if not expanded and any((child,slug) in self.source_preview_cells for child in children): return 'family'
+        return ''
+
+    def hideEvent(self,event):
+        self.clear_source_preview()
+        super().hideEvent(event)
 
     def matches(self, item, query):
         record = self.catalog.records[item.data(0, MATRIX_ID)]
-        return query in (external_id(record) + ' ' + record['name']).casefold()
+        return self.record_matches(record['id'], query)
 
     def filter_items(self, *_):
+        previous, self.expansion_syncing = self.expansion_syncing, True
+        try: self._filter_items()
+        finally: self.expansion_syncing = previous
+
+    def _filter_items(self):
         if self.catalog is None:
             return
+        self.clear_source_preview()
+        self.apply_expansion_mode()
         query = self.search.text().strip().casefold()
         shown = 0
         for column in self.columns:
@@ -695,20 +1039,90 @@ class AttackMatrix(QtWidgets.QWidget):
                 count += int(visible)
                 if query and child_matches:
                     root.setExpanded(True)
+                root.setText(0,self.family_label(root.data(0,MATRIX_ID),column['slug'],
+                    [root.child(i).data(0,MATRIX_ID) for i in range(root.childCount())],root.isExpanded()))
             column['count'].setText(f"{count}/{column['total']} techniques" if query else f"{count} techniques")
             column['frame'].setVisible(count > 0)
             shown += count
         self.empty.setVisible(not shown and not self.building)
 
-    def set_expanded(self, expanded):
+    def expansion_snapshot(self):
+        """Capture actual per-tactic UI expansion without changing stored layer annotations."""
+        expanded=set()
         for column in self.columns:
+            slug=column['slug']
             if 'view' in column:
-                column['view'].set_expanded(expanded)
-                continue
-            if expanded:
-                column['tree'].expandAll()
+                for family in column['view'].families:
+                    if family['toggle'].isChecked():
+                        expanded.add((family['root'].key,slug))
             else:
-                column['tree'].collapseAll()
+                tree=column['tree']
+                for index in range(tree.topLevelItemCount()):
+                    item=tree.topLevelItem(index)
+                    if item.isExpanded():
+                        expanded.add((item.data(0,MATRIX_ID),slug))
+        return expanded
+
+    def display_layer(self):
+        return getattr(self.appearance,'active',self.appearance).layer
+
+    def apply_header(self,title,slug):
+        obj=self.catalog.tactics[slug]
+        mini=self.view_layout.currentText()=='Mini'
+        title.setText(display_label(external_id(obj),obj['name'],self.display_layer(),mini))
+        background=header_color(self.display_layer(),mini)
+        foreground=foreground_color(background) if background else '#6caedf'
+        title.setStyleSheet('font-weight:600;font-size:13px;color:'+foreground+';background:'+
+                           (background or '#000000' if mini else background or 'transparent')+';')
+        title.setToolTip((external_id(obj)+'  '+obj['name']).strip())
+
+    def request_display(self,fields):
+        if not self.presentation_syncing and self.catalog:
+            self.display_requested.emit(fields)
+
+    def choose_tactic_color(self):
+        color=QtWidgets.QColorDialog.getColor(QtGui.QColor(self.display_layer().get('tacticRowBackground','#dddddd')),self,'Tactic header color')
+        if color.isValid():
+            self.request_display({'tacticRowBackground':color.name(),'showTacticRowBackground':True})
+
+    def expand_annotated(self):
+        self.choose_expansion('annotated')
+
+    def choose_expansion(self, mode):
+        if not self.catalog or self.building: return
+        self.progress.emit('Input files: None; output files: None (layer expansion policy in memory)',0,0)
+        self.progress.emit('[Expansion 1/2] Resolving the saved expansion policy',0,2)
+        self.expansion_mode = mode
+        layout = self.display_layer().setdefault('layout',{})
+        if mode is None: layout.pop('expandedSubtechniques',None)
+        else: layout['expandedSubtechniques'] = mode
+        self.apply_expansion_mode(force_legacy=mode is None)
+        self.request_display({'expandedSubtechniques':mode})
+        self.progress.emit('[Expansion 2/2] Policy applied; selection unchanged',2,2)
+
+    def apply_expansion_mode(self, force_legacy=False):
+        previous, self.expansion_syncing = self.expansion_syncing, True
+        try: self._apply_expansion_mode()
+        finally: self.expansion_syncing = previous
+
+    def _apply_expansion_mode(self):
+        if not self.catalog: return
+        mini = self.view_layout.currentText() == 'Mini'
+        for column in self.columns:
+            slug=column['slug']
+            if 'view' in column:
+                for family in column['view'].families:
+                    family['toggle'].setChecked(expanded_family(self.appearance,self.catalog,family['root'].key,slug,
+                                                               [child.key for child in family['children']],mini))
+            else:
+                tree=column['tree']
+                for index in range(tree.topLevelItemCount()):
+                    root=tree.topLevelItem(index)
+                    root.setExpanded(expanded_family(self.appearance,self.catalog,root.data(0,MATRIX_ID),slug,
+                                                    [root.child(i).data(0,MATRIX_ID) for i in range(root.childCount())]))
+
+    def set_expanded(self, expanded):
+        self.choose_expansion('all' if expanded else 'none')
 
     def platform_scope(self):
         return [p for p in self.selected_platforms if p in self.catalog.groups] if self.selected_platforms is not None else (self.platform.currentText() or ALL_PLATFORMS)
@@ -716,7 +1130,7 @@ class AttackMatrix(QtWidgets.QWidget):
     def score_signature(self):
         source = getattr(self.appearance, 'active', self.appearance)
         return ([(key, row.get('score'), row.get('enabled')) for key, row in source.rows.items()],
-                source.layer.get('layout', {}))
+                {key:source.layer.get('layout',{}).get(key) for key in ('showAggregateScores','countUnscored','aggregateFunction')})
 
     def single_platform_changed(self, text):
         if self.presentation_syncing:
@@ -735,6 +1149,18 @@ class AttackMatrix(QtWidgets.QWidget):
         platforms = None if platforms is None else list(platforms)
         old = (self.view_layout.currentText().lower(), self.sorting.currentIndex(), self.selected_platforms)
         self.presentation_syncing = True
+        previous_expansion = self.expansion_mode
+        self.expansion_mode = layer.get('layout',{}).get('expandedSubtechniques')
+        if previous_expansion != self.expansion_mode or self.restore_expansion:
+            self.apply_expansion_mode(force_legacy=True)
+            self.restore_expansion = False
+        self.expansion_mode_picker.setCurrentIndex(max(0,self.expansion_mode_picker.findData(self.expansion_mode)))
+        show_id,show_name=labels(layer)
+        self.show_names.setChecked(show_name)
+        self.show_ids.setChecked(show_id)
+        self.show_tactic_background.setChecked(layer.get('showTacticRowBackground',False))
+        for control in (self.show_names,self.show_ids,self.show_tactic_background,self.tactic_color_button):
+            control.setEnabled(mode!='mini')
         self.view_layout.setCurrentText(mode.title())
         self.sorting.setCurrentIndex(sorting)
         self.selected_platforms = platforms
@@ -818,8 +1244,12 @@ class AttackMatrix(QtWidgets.QWidget):
             for family in families:
                 for key in ([family['key']] if family['selectable'] else []) + family['children']:
                     record = self.catalog.records[key]
-                    if scope == 'search' and (query not in (external_id(record) + ' ' + record['name']).casefold()
+                    if scope == 'search' and (not self.record_matches(key, query)
                                               or self.appearance.cell(external_id(record), slug)['hidden']):
                         continue
                     result.add(key)
         return result
+
+    def scope_cells(self, scope='platform', tactic=''):
+        return {(key, slug) for slug in self.catalog.tactic_order if not tactic or tactic == slug
+                for key in self.scope_keys(scope, slug)} if self.catalog else set()

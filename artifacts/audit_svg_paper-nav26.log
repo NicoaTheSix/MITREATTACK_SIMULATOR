@@ -1,0 +1,120 @@
+Input cached catalog metadata: D:\MITREATTACK_SIMULATOR\data\attack
+Output isolated cache: D:\MITREATTACK_SIMULATOR\artifacts\svg-paper\cache
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\svg-paper\fixture.json
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\svg-paper\native.svg
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\svg-paper\cancelled.svg
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\svg-paper\audit.json
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\svg-paper\settings-en.png
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\svg-paper\settings-zh.png
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\svg-paper\preview.png
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\svg-paper\letter-portrait-px.svg
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\svg-paper\letter-portrait-cm.svg
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\svg-paper\letter-portrait-in.svg
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\svg-paper\letter-landscape-px.svg
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\svg-paper\letter-landscape-cm.svg
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\svg-paper\letter-landscape-in.svg
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\svg-paper\legal-portrait-px.svg
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\svg-paper\legal-portrait-cm.svg
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\svg-paper\legal-portrait-in.svg
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\svg-paper\legal-landscape-px.svg
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\svg-paper\legal-landscape-cm.svg
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\svg-paper\legal-landscape-in.svg
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\svg-paper\small-portrait-px.svg
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\svg-paper\small-portrait-cm.svg
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\svg-paper\small-portrait-in.svg
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\svg-paper\small-landscape-px.svg
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\svg-paper\small-landscape-cm.svg
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\svg-paper\small-landscape-in.svg
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\svg-paper\medium-portrait-px.svg
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\svg-paper\medium-portrait-cm.svg
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\svg-paper\medium-portrait-in.svg
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\svg-paper\medium-landscape-px.svg
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\svg-paper\medium-landscape-cm.svg
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\svg-paper\medium-landscape-in.svg
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\svg-paper\large-portrait-px.svg
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\svg-paper\large-portrait-cm.svg
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\svg-paper\large-portrait-in.svg
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\svg-paper\large-landscape-px.svg
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\svg-paper\large-landscape-cm.svg
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\svg-paper\large-landscape-in.svg
+[Paper Audit 1/7] Prepare stable source and validate preset schema (0/7)
+Output cache directory: D:\MITREATTACK_SIMULATOR\artifacts\svg-paper\cache\custom
+Input file: D:\MITREATTACK_SIMULATOR\artifacts\svg-paper\fixture.json
+Output files: None (source validation in memory)
+[Source 1/4] Reading bounded JSON (0/134217728)
+Input resolved file: D:\MITREATTACK_SIMULATOR\artifacts\svg-paper\fixture.json
+[Source 1/4] Reading JSON bytes (2644/134217728)
+[Source 2/4] Parsing JSON (1/4)
+Input bundle: validated JSON in memory; output files: None (custom catalog in memory)
+[Source 3/4] Validating ATT&CK-compatible STIX (0/4)
+[Source 3/4] Resolving dataset-scoped domain definitions and matrices (1/4)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/9)
+[3/4 Procedures] Complete: Enterprise 0 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/9)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 0 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing Mobile procedure examples (0/1)
+[3/4 Procedures] Complete: Mobile 0 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Mobile objects in memory)
+[3/4 Related TTPs] Indexing Mobile direct source relationships (0/1)
+[3/4 Related TTPs] Resolving Mobile strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Mobile 0 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing ICS procedure examples (0/1)
+[3/4 Procedures] Complete: ICS 0 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships (0/1)
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 0 direct/derived mappings (1/1)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\svg-paper\cache\custom\0494eff29d694122327190dc4226f5f97f076aba0d86940587e187b851ce36c2.json
+[Source 4/4] Caching validated input (3/4)
+Output temporary file: D:\MITREATTACK_SIMULATOR\artifacts\svg-paper\cache\custom\.source-dda5d97d536148e7a22cb668fe08f189.tmp
+[Source 4/4] Validated source cached (4/4)
+[Paper Audit 2/7] Every preset/orientation/unit produces exact physical SVG (1/7)
+[Application icon 1/2] Input file: D:\MITREATTACK_SIMULATOR\assets\ttp-selection-studio-icon-pixel.png
+[Application icon 1/2] Output files: None (application/window icon in memory)
+[Application icon 2/2] Complete: pixel icon applied to application and windows
+[Preview fonts] Input file: C:\WINDOWS\Fonts\segoeui.ttf
+[Preview fonts] Input file: C:\WINDOWS\Fonts\segoeuib.ttf
+[Preview fonts] Input file: C:\WINDOWS\Fonts\consola.ttf
+[Preview fonts] Input file: C:\WINDOWS\Fonts\georgia.ttf
+[Preview fonts] Input file: C:\WINDOWS\Fonts\msjh.ttc
+[Preview fonts] Input file: C:\WINDOWS\Fonts\msjhbd.ttc
+[Preview fonts] Complete
+[Paper Audit 3/7] Custom dimensions, automatic axes, header/legend and layout compatibility (2/7)
+[Paper Audit 4/7] Native preset locking, unit round trips and Custom draft restoration (3/7)
+[Language 1/2] Input file: D:\MITREATTACK_SIMULATOR\locales\zh_TW.json
+Output files: None (translation catalog in memory)
+[Language 2/2] Ready: 825 Taiwan translations
+[Paper Audit 5/7] Native bilingual controls, exact preview/export and cancellation (4/7)
+Input files: None (captured matrix/layer snapshots)
+Output files: None (SVG preview in memory)
+[SVG Preview 1/3] Validating settings (0/3)
+[Matrix Export 1/4] Projecting tactic columns (1/1)
+[SVG Preview 2/3] Rendering vector preview · SVG theme: dark (1/3)
+[SVG Preview 3/3] Complete (3/3)
+Input files: None (verified catalogs and layer snapshots in memory)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\svg-paper\native.svg
+Temporary output file: D:\MITREATTACK_SIMULATOR\artifacts\svg-paper\native.svg.132786424ab64ca1b26d591eb93378b4.tmp
+[Matrix Export 1/4] Validating layers and resolving filters (0/4)
+[Matrix Export 1/4] Projecting tactic columns (1/1)
+[Matrix Export 2/4] Rendering complete matrix · SVG theme: dark (1/4)
+[Matrix Export 3/4] Writing SVG vector image (2/4)
+[Matrix Export 4/4] Publishing output atomically (3/4)
+[Matrix Export 4/4] Complete: D:\MITREATTACK_SIMULATOR\artifacts\svg-paper\native.svg (4/4)
+Complete: D:\MITREATTACK_SIMULATOR\artifacts\svg-paper\native.svg (4/4)
+[Paper Audit 6/7] Atomic errors, cancellation and immutable source (5/7)
+Input files: None (verified catalogs and layer snapshots in memory)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\svg-paper\native.svg
+Temporary output file: D:\MITREATTACK_SIMULATOR\artifacts\svg-paper\native.svg.0c10555418e941839792834f37542c53.tmp
+[Matrix Export 1/4] Validating layers and resolving filters (0/4)
+Input files: None (verified catalogs and layer snapshots in memory)
+Output file: D:\MITREATTACK_SIMULATOR\artifacts\svg-paper\native.svg
+Temporary output file: D:\MITREATTACK_SIMULATOR\artifacts\svg-paper\native.svg.41897da32dee498fa11c395452ea258a.tmp
+[Matrix Export 1/4] Validating layers and resolving filters (0/4)
+[Matrix Export 1/4] Projecting tactic columns (1/1)
+[Matrix Export 2/4] Rendering complete matrix · SVG theme: dark (1/4)
+[Matrix Export 3/4] Writing SVG vector image (2/4)
+[Matrix Export 4/4] Publishing output atomically (3/4)
+[Paper Audit 7/7] Publish reproducible result (6/7)
+[Paper Audit] PASS: 266 checks (7/7)

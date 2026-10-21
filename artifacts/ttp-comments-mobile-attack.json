@@ -1,9 +1,9 @@
 {
   "schema_version": "1.0",
-  "document_id": "bc413301-cd73-4f37-84ff-447542281554",
+  "document_id": "3a711a94-a25c-4a09-87d2-d9af2124ba01",
   "name": "ttp-comments-mobile-attack",
-  "created_at_utc": "2026-10-15T07:30:46.052636+00:00",
-  "exported_at_utc": "2026-10-15T07:30:46.601340+00:00",
+  "created_at_utc": "2026-10-15T10:25:34.365944+00:00",
+  "exported_at_utc": "2026-10-15T10:25:35.406960+00:00",
   "attack": {
     "domain": "mobile-attack",
     "version": "19.2",
@@ -49,8 +49,22 @@
           "tactic": "persistence",
           "enabled": true
         }
+      ],
+      "selected_tactics": [
+        "execution",
+        "persistence"
       ]
     }
+  ],
+  "navigator_import_selected": [],
+  "selection_scopes": {},
+  "selection_preferences": {
+    "across_tactics": true,
+    "with_family": false
+  },
+  "search_fields": [
+    "name",
+    "id"
   ],
   "navigator_layer": {
     "name": "Untitled-2",
@@ -89,6 +103,7 @@
         ]
       },
       "navigator_import_selected": [],
+      "selection_scopes": {},
       "navigator_snapshots": {}
     }
   }

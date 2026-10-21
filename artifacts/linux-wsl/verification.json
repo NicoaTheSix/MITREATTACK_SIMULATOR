@@ -1,0 +1,812 @@
+{
+  "status": "PASS",
+  "verified_on": "2026-10-20",
+  "environment": {
+    "distribution": "Kali GNU/Linux 2026.2 on WSL2 x86_64",
+    "system": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.42",
+    "python": "3.14.7 (main, Sep  5 2026, 05:55:41) [GCC 16.2.0]",
+    "packages": {
+      "PySide6": "6.12.0",
+      "mitreattack-python": "6.2.1",
+      "openpyxl": "3.1.5"
+    },
+    "workspace": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project"
+  },
+  "feature_audit_programs": 31,
+  "results": [
+    {
+      "audit": "audit_advanced_navigator.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 18.64,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_advanced_navigator.py.log",
+      "status": "PASS",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_advanced_navigator.py.log"
+    },
+    {
+      "audit": "audit_batch_operations.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 21.29,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_batch_operations.py.log",
+      "status": "PASS",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_batch_operations.py.log"
+    },
+    {
+      "audit": "audit_catalog.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 53.68,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_catalog.py.log",
+      "status": "PASS",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_catalog.py.log"
+    },
+    {
+      "audit": "audit_clear_colors.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 8.5,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/color-rechecks/audit_clear_colors.py.log",
+      "status": "PASS",
+      "run": "color-rechecks",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\color-rechecks\\audit_clear_colors.py.log"
+    },
+    {
+      "audit": "audit_comments.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 10.0,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/rechecks/audit_comments.py.log",
+      "status": "PASS",
+      "run": "rechecks",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\rechecks\\audit_comments.py.log"
+    },
+    {
+      "audit": "audit_custom_data_url.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 9.3,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/source-path-final/audit_custom_data_url.py.log",
+      "status": "PASS",
+      "run": "source-path-final",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\source-path-final\\audit_custom_data_url.py.log"
+    },
+    {
+      "audit": "audit_custom_domains.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 4.64,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_custom_domains.py.log",
+      "status": "PASS",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_custom_domains.py.log"
+    },
+    {
+      "audit": "audit_detection_interaction.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 12.01,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_detection_interaction.py.log",
+      "status": "PASS",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_detection_interaction.py.log"
+    },
+    {
+      "audit": "audit_documents.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 9.09,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/rechecks/audit_documents.py.log",
+      "status": "PASS",
+      "run": "rechecks",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\rechecks\\audit_documents.py.log"
+    },
+    {
+      "audit": "audit_domains.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 41.77,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/rechecks/audit_domains.py.log",
+      "status": "PASS",
+      "run": "rechecks",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\rechecks\\audit_domains.py.log"
+    },
+    {
+      "audit": "audit_export_options.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 19.49,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_export_options.py.log",
+      "status": "PASS",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_export_options.py.log"
+    },
+    {
+      "audit": "audit_formula_features.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 3.63,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_formula_features.py.log",
+      "status": "PASS",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_formula_features.py.log"
+    },
+    {
+      "audit": "audit_json_annotation_export.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 4.84,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_json_annotation_export.py.log",
+      "status": "PASS",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_json_annotation_export.py.log"
+    },
+    {
+      "audit": "audit_layer_analysis.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 7.49,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_layer_analysis.py.log",
+      "status": "PASS",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_layer_analysis.py.log"
+    },
+    {
+      "audit": "audit_layers.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 15.73,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/rechecks/audit_layers.py.log",
+      "status": "PASS",
+      "run": "rechecks",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\rechecks\\audit_layers.py.log"
+    },
+    {
+      "audit": "audit_manual_language.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 21.21,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_manual_language.py.log",
+      "status": "PASS",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_manual_language.py.log"
+    },
+    {
+      "audit": "audit_matrix.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 13.62,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_matrix.py.log",
+      "status": "PASS",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_matrix.py.log"
+    },
+    {
+      "audit": "audit_matrix_actions.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 17.18,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_matrix_actions.py.log",
+      "status": "PASS",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_matrix_actions.py.log"
+    },
+    {
+      "audit": "audit_matrix_display.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 4.53,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_matrix_display.py.log",
+      "status": "PASS",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_matrix_display.py.log"
+    },
+    {
+      "audit": "audit_navigator.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 35.04,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/rechecks/audit_navigator.py.log",
+      "status": "PASS",
+      "run": "rechecks",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\rechecks\\audit_navigator.py.log"
+    },
+    {
+      "audit": "audit_navigator_bundle.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 15.23,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_navigator_bundle.py.log",
+      "status": "PASS",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_navigator_bundle.py.log"
+    },
+    {
+      "audit": "audit_navigator_parity.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 5.39,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_navigator_parity.py.log",
+      "status": "PASS",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_navigator_parity.py.log"
+    },
+    {
+      "audit": "audit_overlay.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 29.53,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/color-rechecks/audit_overlay.py.log",
+      "status": "PASS",
+      "run": "color-rechecks",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\color-rechecks\\audit_overlay.py.log"
+    },
+    {
+      "audit": "audit_related_ttps.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 12.91,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_related_ttps.py.log",
+      "status": "PASS",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_related_ttps.py.log"
+    },
+    {
+      "audit": "audit_selection_search.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 8.2,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/rechecks/audit_selection_search.py.log",
+      "status": "PASS",
+      "run": "rechecks",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\rechecks\\audit_selection_search.py.log"
+    },
+    {
+      "audit": "audit_source_preview.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 8.24,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_source_preview.py.log",
+      "status": "PASS",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_source_preview.py.log"
+    },
+    {
+      "audit": "audit_source_selection.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 7.19,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_source_selection.py.log",
+      "status": "PASS",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_source_selection.py.log"
+    },
+    {
+      "audit": "audit_studio_lifecycle.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 79.32,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_studio_lifecycle.py.log",
+      "status": "PASS",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_studio_lifecycle.py.log"
+    },
+    {
+      "audit": "audit_versions.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 1.02,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/version-recheck/audit_versions.py.log",
+      "status": "PASS",
+      "run": "version-recheck",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\version-recheck\\audit_versions.py.log"
+    },
+    {
+      "audit": "audit_visibility_presets.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 7.25,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_visibility_presets.py.log",
+      "status": "PASS",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_visibility_presets.py.log"
+    },
+    {
+      "audit": "audit_workspace.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 9.9,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_workspace.py.log",
+      "status": "PASS",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_workspace.py.log"
+    }
+  ],
+  "attempt_history": [
+    {
+      "audit": "audit_catalog.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 53.68,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_catalog.py.log",
+      "status": "PASS",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_catalog.py.log"
+    },
+    {
+      "audit": "audit_documents.py",
+      "exit_code": 1,
+      "timed_out": false,
+      "seconds": 5.18,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_documents.py.log",
+      "status": "FAIL",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_documents.py.log"
+    },
+    {
+      "audit": "audit_comments.py",
+      "exit_code": -15,
+      "timed_out": true,
+      "seconds": 240.04,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_comments.py.log",
+      "status": "FAIL",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_comments.py.log"
+    },
+    {
+      "audit": "audit_domains.py",
+      "exit_code": 1,
+      "timed_out": false,
+      "seconds": 33.6,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_domains.py.log",
+      "status": "FAIL",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_domains.py.log"
+    },
+    {
+      "audit": "audit_workspace.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 9.9,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_workspace.py.log",
+      "status": "PASS",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_workspace.py.log"
+    },
+    {
+      "audit": "audit_matrix.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 13.62,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_matrix.py.log",
+      "status": "PASS",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_matrix.py.log"
+    },
+    {
+      "audit": "audit_matrix_actions.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 17.18,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_matrix_actions.py.log",
+      "status": "PASS",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_matrix_actions.py.log"
+    },
+    {
+      "audit": "audit_layers.py",
+      "exit_code": 1,
+      "timed_out": false,
+      "seconds": 3.68,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_layers.py.log",
+      "status": "FAIL",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_layers.py.log"
+    },
+    {
+      "audit": "audit_clear_colors.py",
+      "exit_code": 1,
+      "timed_out": false,
+      "seconds": 4.98,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_clear_colors.py.log",
+      "status": "FAIL",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_clear_colors.py.log"
+    },
+    {
+      "audit": "audit_overlay.py",
+      "exit_code": 1,
+      "timed_out": false,
+      "seconds": 3.03,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_overlay.py.log",
+      "status": "FAIL",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_overlay.py.log"
+    },
+    {
+      "audit": "audit_navigator.py",
+      "exit_code": 1,
+      "timed_out": false,
+      "seconds": 3.53,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_navigator.py.log",
+      "status": "FAIL",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_navigator.py.log"
+    },
+    {
+      "audit": "audit_navigator_bundle.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 15.23,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_navigator_bundle.py.log",
+      "status": "PASS",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_navigator_bundle.py.log"
+    },
+    {
+      "audit": "audit_custom_domains.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 4.64,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_custom_domains.py.log",
+      "status": "PASS",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_custom_domains.py.log"
+    },
+    {
+      "audit": "audit_custom_data_url.py",
+      "exit_code": 1,
+      "timed_out": false,
+      "seconds": 6.59,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_custom_data_url.py.log",
+      "status": "FAIL",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_custom_data_url.py.log"
+    },
+    {
+      "audit": "audit_related_ttps.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 12.91,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_related_ttps.py.log",
+      "status": "PASS",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_related_ttps.py.log"
+    },
+    {
+      "audit": "audit_batch_operations.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 21.29,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_batch_operations.py.log",
+      "status": "PASS",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_batch_operations.py.log"
+    },
+    {
+      "audit": "audit_advanced_navigator.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 18.64,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_advanced_navigator.py.log",
+      "status": "PASS",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_advanced_navigator.py.log"
+    },
+    {
+      "audit": "audit_layer_analysis.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 7.49,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_layer_analysis.py.log",
+      "status": "PASS",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_layer_analysis.py.log"
+    },
+    {
+      "audit": "audit_formula_features.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 3.63,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_formula_features.py.log",
+      "status": "PASS",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_formula_features.py.log"
+    },
+    {
+      "audit": "audit_export_options.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 19.49,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_export_options.py.log",
+      "status": "PASS",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_export_options.py.log"
+    },
+    {
+      "audit": "audit_json_annotation_export.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 4.84,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_json_annotation_export.py.log",
+      "status": "PASS",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_json_annotation_export.py.log"
+    },
+    {
+      "audit": "audit_matrix_display.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 4.53,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_matrix_display.py.log",
+      "status": "PASS",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_matrix_display.py.log"
+    },
+    {
+      "audit": "audit_selection_search.py",
+      "exit_code": 1,
+      "timed_out": false,
+      "seconds": 98.39,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_selection_search.py.log",
+      "status": "FAIL",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_selection_search.py.log"
+    },
+    {
+      "audit": "audit_source_selection.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 7.19,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_source_selection.py.log",
+      "status": "PASS",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_source_selection.py.log"
+    },
+    {
+      "audit": "audit_source_preview.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 8.24,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_source_preview.py.log",
+      "status": "PASS",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_source_preview.py.log"
+    },
+    {
+      "audit": "audit_studio_lifecycle.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 79.32,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_studio_lifecycle.py.log",
+      "status": "PASS",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_studio_lifecycle.py.log"
+    },
+    {
+      "audit": "audit_visibility_presets.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 7.25,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_visibility_presets.py.log",
+      "status": "PASS",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_visibility_presets.py.log"
+    },
+    {
+      "audit": "audit_detection_interaction.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 12.01,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_detection_interaction.py.log",
+      "status": "PASS",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_detection_interaction.py.log"
+    },
+    {
+      "audit": "audit_navigator_parity.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 5.39,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_navigator_parity.py.log",
+      "status": "PASS",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_navigator_parity.py.log"
+    },
+    {
+      "audit": "audit_manual_language.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 21.21,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_manual_language.py.log",
+      "status": "PASS",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_manual_language.py.log"
+    },
+    {
+      "audit": "audit_versions.py",
+      "exit_code": 1,
+      "timed_out": false,
+      "seconds": 1.37,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_versions.py.log",
+      "status": "FAIL",
+      "run": "offscreen",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\offscreen\\audit_versions.py.log"
+    },
+    {
+      "audit": "audit_documents.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 9.09,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/rechecks/audit_documents.py.log",
+      "status": "PASS",
+      "run": "rechecks",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\rechecks\\audit_documents.py.log"
+    },
+    {
+      "audit": "audit_comments.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 10.0,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/rechecks/audit_comments.py.log",
+      "status": "PASS",
+      "run": "rechecks",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\rechecks\\audit_comments.py.log"
+    },
+    {
+      "audit": "audit_domains.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 41.77,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/rechecks/audit_domains.py.log",
+      "status": "PASS",
+      "run": "rechecks",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\rechecks\\audit_domains.py.log"
+    },
+    {
+      "audit": "audit_layers.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 15.73,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/rechecks/audit_layers.py.log",
+      "status": "PASS",
+      "run": "rechecks",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\rechecks\\audit_layers.py.log"
+    },
+    {
+      "audit": "audit_clear_colors.py",
+      "exit_code": 1,
+      "timed_out": false,
+      "seconds": 8.06,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/rechecks/audit_clear_colors.py.log",
+      "status": "FAIL",
+      "run": "rechecks",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\rechecks\\audit_clear_colors.py.log"
+    },
+    {
+      "audit": "audit_overlay.py",
+      "exit_code": 1,
+      "timed_out": false,
+      "seconds": 9.8,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/rechecks/audit_overlay.py.log",
+      "status": "FAIL",
+      "run": "rechecks",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\rechecks\\audit_overlay.py.log"
+    },
+    {
+      "audit": "audit_navigator.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 35.04,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/rechecks/audit_navigator.py.log",
+      "status": "PASS",
+      "run": "rechecks",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\rechecks\\audit_navigator.py.log"
+    },
+    {
+      "audit": "audit_custom_data_url.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 9.51,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/rechecks/audit_custom_data_url.py.log",
+      "status": "PASS",
+      "run": "rechecks",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\rechecks\\audit_custom_data_url.py.log"
+    },
+    {
+      "audit": "audit_selection_search.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 8.2,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/rechecks/audit_selection_search.py.log",
+      "status": "PASS",
+      "run": "rechecks",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\rechecks\\audit_selection_search.py.log"
+    },
+    {
+      "audit": "audit_clear_colors.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 8.5,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/color-rechecks/audit_clear_colors.py.log",
+      "status": "PASS",
+      "run": "color-rechecks",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\color-rechecks\\audit_clear_colors.py.log"
+    },
+    {
+      "audit": "audit_overlay.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 29.53,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/color-rechecks/audit_overlay.py.log",
+      "status": "PASS",
+      "run": "color-rechecks",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\color-rechecks\\audit_overlay.py.log"
+    },
+    {
+      "audit": "audit_versions.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 1.02,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/version-recheck/audit_versions.py.log",
+      "status": "PASS",
+      "run": "version-recheck",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\version-recheck\\audit_versions.py.log"
+    },
+    {
+      "audit": "audit_custom_data_url.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 9.3,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/source-path-final/audit_custom_data_url.py.log",
+      "status": "PASS",
+      "run": "source-path-final",
+      "exported_log": "D:\\MITREATTACK_SIMULATOR\\artifacts\\linux-wsl\\source-path-final\\audit_custom_data_url.py.log"
+    }
+  ],
+  "official_pointers_unchanged": true,
+  "native_gui_smoke_backends": [
+    "xcb through WSLg",
+    "native Wayland through WSLg",
+    "automatic Qt backend"
+  ],
+  "real_xcb_gui_audits": [
+    {
+      "audit": "audit_manual_language.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 23.4,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/xcb/audit_manual_language.py.log",
+      "status": "PASS"
+    },
+    {
+      "audit": "audit_custom_data_url.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 9.05,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/xcb/audit_custom_data_url.py.log",
+      "status": "PASS"
+    }
+  ],
+  "manual_feature_language_cases": 30,
+  "windows_source_regression_checks": 70,
+  "fix": "Explicit local Path identity for cached, browsed and typed absolute Bundle alternatives with a remote layer origin; remote-declared relative URLs retain URL semantics.",
+  "test_maintenance": [
+    "v20 catalog metadata",
+    "final test-draft cleanup",
+    "asynchronous import waits",
+    "current menu action lookup",
+    "saved expansion and inclusion markers",
+    "cached version-picker mode"
+  ],
+  "limitations": [
+    "Other Linux distributions, architectures and standalone desktop environments were not exercised.",
+    "Full feature suite ran with Qt offscreen; real xcb GUI coverage includes startup, 30 manual feature/language cases and the custom source workflow; Wayland coverage is a startup smoke check.",
+    "External website opening requires a configured system browser; the minimal WSL environment has none, so browser launch was not verified.",
+    "Release picker offline behavior was verified; the complete MITRE release downloader and all historical releases were not exercised."
+  ],
+  "notes": "Final results use the most recent targeted recheck per case. The first sweep had 21/31 passes; initial failures and logs remain preserved. A separate native Linux copy excluded Windows settings and recovery files."
+}

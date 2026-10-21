@@ -1,0 +1,978 @@
+Input directory: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack
+Output directory: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url
+[Custom URL Audit 1/6] Starting isolated HTTP fixtures (0/6)
+Input fixture URL: http://127.0.0.1:34527
+Input bundle: validated JSON in memory; output files: None (custom catalog in memory)
+[Source 3/4] Validating ATT&CK-compatible STIX (0/4)
+[Source 3/4] Resolving dataset-scoped domain definitions and matrices (1/4)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/87)
+[3/4 Procedures] Complete: Enterprise 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/87)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 16 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing Mobile procedure examples (0/87)
+[3/4 Procedures] Complete: Mobile 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Mobile objects in memory)
+[3/4 Related TTPs] Indexing Mobile direct source relationships (0/87)
+[3/4 Related TTPs] Resolving Mobile strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Mobile 16 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing ICS procedure examples (0/87)
+[3/4 Procedures] Complete: ICS 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships (0/87)
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 16 direct/derived mappings (1/1)
+[Custom URL Audit 2/6] Transport, validation and explicit consent (1/6)
+Input source: http://127.0.0.1:34527/redirect
+Output files: None (custom source review in memory; cache only after acceptance)
+[Custom Data 1/5] Acquiring the selected source (0/5)
+Input URL: http://127.0.0.1:34527/redirect
+Output files: None (source validation in memory)
+[Source 1/4] Reading bounded JSON (0/134217728)
+Input resolved URL: http://127.0.0.1:34527/final/bundle.json
+[Source 1/4] Reading JSON bytes (48065/134217728)
+[Source 2/4] Parsing JSON (1/4)
+[Custom Data 2/5] Checking source type and dataset identity (1/5)
+Input bundle: validated JSON in memory; output files: None (custom catalog in memory)
+[Source 3/4] Validating ATT&CK-compatible STIX (0/4)
+[Source 3/4] Resolving dataset-scoped domain definitions and matrices (1/4)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/87)
+[3/4 Procedures] Complete: Enterprise 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/87)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 16 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing Mobile procedure examples (0/87)
+[3/4 Procedures] Complete: Mobile 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Mobile objects in memory)
+[3/4 Related TTPs] Indexing Mobile direct source relationships (0/87)
+[3/4 Related TTPs] Resolving Mobile strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Mobile 16 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing ICS procedure examples (0/87)
+[3/4 Procedures] Complete: ICS 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships (0/87)
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 16 direct/derived mappings (1/1)
+[Custom Data 3/5] Validating domain, release, annotations and selection (2/5)
+[Custom Data 3/5] Candidate verified; awaiting explicit acceptance (3/5)
+Input source: http://127.0.0.1:34527/missing
+Output files: None (custom source review in memory; cache only after acceptance)
+[Custom Data 1/5] Acquiring the selected source (0/5)
+Input URL: http://127.0.0.1:34527/missing
+Output files: None (source validation in memory)
+[Source 1/4] Reading bounded JSON (0/134217728)
+Input source: http://127.0.0.1:34527/bad
+Output files: None (custom source review in memory; cache only after acceptance)
+[Custom Data 1/5] Acquiring the selected source (0/5)
+Input URL: http://127.0.0.1:34527/bad
+Output files: None (source validation in memory)
+[Source 1/4] Reading bounded JSON (0/134217728)
+Input resolved URL: http://127.0.0.1:34527/bad
+[Source 1/4] Reading JSON bytes (8/134217728)
+[Source 2/4] Parsing JSON (1/4)
+Input source: http://127.0.0.1:34527/loop
+Output files: None (custom source review in memory; cache only after acceptance)
+[Custom Data 1/5] Acquiring the selected source (0/5)
+Input URL: http://127.0.0.1:34527/loop
+Output files: None (source validation in memory)
+[Source 1/4] Reading bounded JSON (0/134217728)
+Input source: http://127.0.0.1:34527/bad-redirect
+Output files: None (custom source review in memory; cache only after acceptance)
+[Custom Data 1/5] Acquiring the selected source (0/5)
+Input URL: http://127.0.0.1:34527/bad-redirect
+Output files: None (source validation in memory)
+[Source 1/4] Reading bounded JSON (0/134217728)
+Input source: http://127.0.0.1:34527/oversize
+Output files: None (custom source review in memory; cache only after acceptance)
+[Custom Data 1/5] Acquiring the selected source (0/5)
+Input URL: http://127.0.0.1:34527/oversize
+Output files: None (source validation in memory)
+[Source 1/4] Reading bounded JSON (0/134217728)
+Input resolved URL: http://127.0.0.1:34527/oversize
+Input source: http://127.0.0.1:34527/wrong-version
+Output files: None (custom source review in memory; cache only after acceptance)
+[Custom Data 1/5] Acquiring the selected source (0/5)
+Input URL: http://127.0.0.1:34527/wrong-version
+Output files: None (source validation in memory)
+[Source 1/4] Reading bounded JSON (0/134217728)
+Input resolved URL: http://127.0.0.1:34527/wrong-version
+[Source 1/4] Reading JSON bytes (48065/134217728)
+[Source 2/4] Parsing JSON (1/4)
+[Custom Data 2/5] Checking source type and dataset identity (1/5)
+Input bundle: validated JSON in memory; output files: None (custom catalog in memory)
+[Source 3/4] Validating ATT&CK-compatible STIX (0/4)
+[Source 3/4] Resolving dataset-scoped domain definitions and matrices (1/4)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/87)
+[3/4 Procedures] Complete: Enterprise 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/87)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 16 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing Mobile procedure examples (0/87)
+[3/4 Procedures] Complete: Mobile 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Mobile objects in memory)
+[3/4 Related TTPs] Indexing Mobile direct source relationships (0/87)
+[3/4 Related TTPs] Resolving Mobile strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Mobile 16 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing ICS procedure examples (0/87)
+[3/4 Procedures] Complete: ICS 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships (0/87)
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 16 direct/derived mappings (1/1)
+Input source: http://127.0.0.1:34527/stream-size
+Output files: None (custom source review in memory; cache only after acceptance)
+[Custom Data 1/5] Acquiring the selected source (0/5)
+Input URL: http://127.0.0.1:34527/stream-size
+Output files: None (source validation in memory)
+[Source 1/4] Reading bounded JSON (0/128)
+Input resolved URL: http://127.0.0.1:34527/stream-size
+Input source: http://127.0.0.1:34527/enterprise
+Output files: None (custom source review in memory; cache only after acceptance)
+[Custom Data 1/5] Acquiring the selected source (0/5)
+Input URL: http://127.0.0.1:34527/enterprise
+Output files: None (source validation in memory)
+[Source 1/4] Reading bounded JSON (0/134217728)
+Input resolved URL: http://127.0.0.1:34527/enterprise
+[Source 1/4] Reading JSON bytes (15353/134217728)
+[Source 2/4] Parsing JSON (1/4)
+[Custom Data 2/5] Checking source type and dataset identity (1/5)
+Input bundle: validated JSON in memory; output files: None (custom catalog in memory)
+[Source 3/4] Validating ATT&CK-compatible STIX (0/4)
+[Source 3/4] Resolving dataset-scoped domain definitions and matrices (1/4)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/42)
+[3/4 Procedures] Complete: Enterprise 2 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/42)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 14 direct/derived mappings (1/1)
+Input source: http://127.0.0.1:34527/index
+Output files: None (custom source review in memory; cache only after acceptance)
+[Custom Data 1/5] Acquiring the selected source (0/5)
+Input URL: http://127.0.0.1:34527/index
+Output files: None (source validation in memory)
+[Source 1/4] Reading bounded JSON (0/134217728)
+Input resolved URL: http://127.0.0.1:34527/index
+[Source 1/4] Reading JSON bytes (146/134217728)
+[Source 2/4] Parsing JSON (1/4)
+[Custom Data 2/5] Checking source type and dataset identity (1/5)
+[Custom Data 2/5] Collection Index ready; choose a Bundle explicitly (2/5)
+Input source: http://127.0.0.1:34527/changed
+Output files: None (custom source review in memory; cache only after acceptance)
+[Custom Data 1/5] Acquiring the selected source (0/5)
+Input URL: http://127.0.0.1:34527/changed
+Output files: None (source validation in memory)
+[Source 1/4] Reading bounded JSON (0/134217728)
+Input resolved URL: http://127.0.0.1:34527/changed
+[Source 1/4] Reading JSON bytes (48117/134217728)
+[Source 2/4] Parsing JSON (1/4)
+[Custom Data 2/5] Checking source type and dataset identity (1/5)
+Input bundle: validated JSON in memory; output files: None (custom catalog in memory)
+[Source 3/4] Validating ATT&CK-compatible STIX (0/4)
+[Source 3/4] Resolving dataset-scoped domain definitions and matrices (1/4)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/87)
+[3/4 Procedures] Complete: Enterprise 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/87)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 16 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing Mobile procedure examples (0/87)
+[3/4 Procedures] Complete: Mobile 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Mobile objects in memory)
+[3/4 Related TTPs] Indexing Mobile direct source relationships (0/87)
+[3/4 Related TTPs] Resolving Mobile strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Mobile 16 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing ICS procedure examples (0/87)
+[3/4 Procedures] Complete: ICS 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships (0/87)
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 16 direct/derived mappings (1/1)
+[Custom Data 3/5] Validating domain, release, annotations and selection (2/5)
+[Custom Data 3/5] Candidate verified; awaiting explicit acceptance (3/5)
+Input files: None (verified candidate bytes in memory)
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/cache/custom/71e8153632f638081c9a80262cb699fff70ee19dfceebc35a76ee20855421e56.json
+[Custom Data 4/5] Caching the accepted Bundle by SHA-256 (3/5)
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/cache/custom/71e8153632f638081c9a80262cb699fff70ee19dfceebc35a76ee20855421e56.json
+[Source 4/4] Caching validated input (3/4)
+Output temporary file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/cache/custom/.source-951f9bada26a43e989082ddba7d6dcc3.tmp
+[Source 4/4] Validated source cached (4/4)
+[Custom Data 5/5] Source accepted for this layer; no workspace documents added (5/5)
+Input files: None (verified candidate bytes in memory)
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/cache/custom/0e930662f2ca7c4e195384f5f846fa25cfe840fba2854aea73f08abbad782779.json
+[Custom Data 4/5] Caching the accepted Bundle by SHA-256 (3/5)
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/cache/custom/0e930662f2ca7c4e195384f5f846fa25cfe840fba2854aea73f08abbad782779.json
+[Source 4/4] Caching validated input (3/4)
+Output temporary file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/cache/custom/.source-20642091ea9b49389e3f9bd87588c8a5.tmp
+[Source 4/4] Validated source cached (4/4)
+[Custom Data 5/5] Source accepted for this layer; no workspace documents added (5/5)
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/bundle.json
+Input source: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/bundle.json
+Output files: None (custom source review in memory; cache only after acceptance)
+[Custom Data 1/5] Acquiring the selected source (0/5)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/bundle.json
+Output files: None (source validation in memory)
+[Source 1/4] Reading bounded JSON (0/134217728)
+Input resolved file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/bundle.json
+[Source 1/4] Reading JSON bytes (61325/134217728)
+[Source 2/4] Parsing JSON (1/4)
+[Custom Data 2/5] Checking source type and dataset identity (1/5)
+Input bundle: validated JSON in memory; output files: None (custom catalog in memory)
+[Source 3/4] Validating ATT&CK-compatible STIX (0/4)
+[Source 3/4] Resolving dataset-scoped domain definitions and matrices (1/4)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/87)
+[3/4 Procedures] Complete: Enterprise 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/87)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 16 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing Mobile procedure examples (0/87)
+[3/4 Procedures] Complete: Mobile 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Mobile objects in memory)
+[3/4 Related TTPs] Indexing Mobile direct source relationships (0/87)
+[3/4 Related TTPs] Resolving Mobile strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Mobile 16 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing ICS procedure examples (0/87)
+[3/4 Procedures] Complete: ICS 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships (0/87)
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 16 direct/derived mappings (1/1)
+[Custom Data 3/5] Validating domain, release, annotations and selection (2/5)
+[Custom Data 3/5] Candidate verified; awaiting explicit acceptance (3/5)
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/cache/custom/0000000000000000000000000000000000000000000000000000000000000000.json
+Input source: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/cache/custom/0000000000000000000000000000000000000000000000000000000000000000.json
+Output files: None (custom source review in memory; cache only after acceptance)
+[Custom Data 1/5] Acquiring the selected source (0/5)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/cache/custom/0000000000000000000000000000000000000000000000000000000000000000.json
+Output files: None (source validation in memory)
+[Source 1/4] Reading bounded JSON (0/134217728)
+Input resolved file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/cache/custom/0000000000000000000000000000000000000000000000000000000000000000.json
+[Source 1/4] Reading JSON bytes (48065/134217728)
+[Source 2/4] Parsing JSON (1/4)
+[Custom Data 2/5] Checking source type and dataset identity (1/5)
+[Custom URL Audit 3/6] Exact binding and persistence (2/6)
+Input files: None (validated layers in memory; exact catalog inputs follow)
+Output files: None (independent layer previews in memory)
+[Layer Batch 2/5] Resolving layer 1: Remote source layer (0/1)
+[Studio Open 2/4] Resolving exact dataset 19.2 (1/4)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/cache/custom/0e930662f2ca7c4e195384f5f846fa25cfe840fba2854aea73f08abbad782779.json
+Output files: None (validated draft in memory)
+[Studio Open 1/4] Reading bounded UTF-8 JSON (0/4)
+Input bundle: validated JSON in memory; output files: None (custom catalog in memory)
+[Source 3/4] Validating ATT&CK-compatible STIX (0/4)
+[Source 3/4] Resolving dataset-scoped domain definitions and matrices (1/4)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/87)
+[3/4 Procedures] Complete: Enterprise 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/87)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 16 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing Mobile procedure examples (0/87)
+[3/4 Procedures] Complete: Mobile 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Mobile objects in memory)
+[3/4 Related TTPs] Indexing Mobile direct source relationships (0/87)
+[3/4 Related TTPs] Resolving Mobile strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Mobile 16 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing ICS procedure examples (0/87)
+[3/4 Procedures] Complete: ICS 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships (0/87)
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 16 direct/derived mappings (1/1)
+[Layer Batch 3/5] Layer 1: Ready (1/1)
+Input files: None; output files: None (selected Navigator layers in memory)
+[Layer Batch 4/5] Validating complete draft 1/1 (0/1)
+[Layer Batch 4/5] All selected drafts validated; no workspace changes yet (1/1)
+Input files: None (document draft in memory)
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/reviewed.studio.json
+[Studio Save 1/3] Checking saved-file baseline (0/3)
+[Studio Save 2/3] Writing complete document atomically (1/3)
+Input files: None (validated in-memory data)
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/reviewed.studio.json
+Temporary output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/reviewed.studio.json.4b49c159ae2d4c51bd34219d76e5f755.tmp
+[Studio Save 1/3] Serializing data (0/3)
+[Studio Save 2/3] Writing UTF-8 JSON (1/3)
+[Studio Save 3/3] Publishing file (2/3)
+[Studio Save 3/3] Complete: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/reviewed.studio.json (3/3)
+[Studio Save 3/3] Complete; source draft unchanged until accepted (3/3)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/reviewed.studio.json
+Output files: None (validated draft in memory)
+[Studio Open 1/4] Reading bounded UTF-8 JSON (0/4)
+[Studio Open 2/4] Resolving exact dataset 19.2 (1/4)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/cache/custom/0e930662f2ca7c4e195384f5f846fa25cfe840fba2854aea73f08abbad782779.json
+Output files: None (validated draft in memory)
+[Studio Open 1/4] Reading bounded UTF-8 JSON (0/4)
+Input bundle: validated JSON in memory; output files: None (custom catalog in memory)
+[Source 3/4] Validating ATT&CK-compatible STIX (0/4)
+[Source 3/4] Resolving dataset-scoped domain definitions and matrices (1/4)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/87)
+[3/4 Procedures] Complete: Enterprise 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/87)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 16 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing Mobile procedure examples (0/87)
+[3/4 Procedures] Complete: Mobile 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Mobile objects in memory)
+[3/4 Related TTPs] Indexing Mobile direct source relationships (0/87)
+[3/4 Related TTPs] Resolving Mobile strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Mobile 16 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing ICS procedure examples (0/87)
+[3/4 Procedures] Complete: ICS 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships (0/87)
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 16 direct/derived mappings (1/1)
+[Studio Open 3/4] Validating annotations and domain/version/migration archives (2/4)
+[Studio Open 4/4] Complete; validated document ready in memory (4/4)
+Input files: None (open document layers in memory)
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/reviewed.navigator.json
+[Layers 1/2] Validating open layers (0/1)
+Input files: None (document/catalog and matrix visibility in memory)
+Output files: None (immutable JSON export preview)
+[JSON Preview 1/3] Validating complete annotations (0/3)
+[JSON Preview 2/3] Resolving technique / tactic annotations (5/5)
+[JSON Preview 3/3] Hidden modified annotation cells: 1 (3/3)
+[Layers Export] Remote source layer: hidden modified annotation cells: 1; preserving all annotations (1/1)
+Input files: None (validated in-memory data)
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/reviewed.navigator.json
+Temporary output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/reviewed.navigator.json.2ec0e887e8bb4af1acf261642a8e746d.tmp
+[All Layers Export 1/3] Serializing data (0/3)
+[All Layers Export 2/3] Writing UTF-8 JSON (1/3)
+[All Layers Export 3/3] Publishing file (2/3)
+[All Layers Export 3/3] Complete: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/reviewed.navigator.json (3/3)
+[Layers 2/2] Complete; document names and save states preserved (2/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/reviewed.navigator.json
+Output files: None (import preview in memory)
+[Navigator Import 1/4] Reading and validating layer file (0/1)
+[Navigator Import 1/4] Layer validated by mitreattack-python (1/1)
+Input files: None (immutable workspace snapshot in memory)
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/session.json
+[Session 1/3] Preparing recovery checkpoint (0/3)
+Input files: None (validated in-memory data)
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/session.json
+Temporary output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/session.json.2474e3669c7b429bae5f96dd0556ecd5.tmp
+[Session 1/3] Serializing data (0/3)
+[Session 2/3] Writing UTF-8 JSON (1/3)
+[Session 3/3] Publishing file (2/3)
+[Session 3/3] Complete: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/session.json (3/3)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/session.json
+Output files: None (validated draft in memory)
+[Studio Open 1/4] Reading bounded UTF-8 JSON (0/4)
+[Studio Open 2/4] Resolving exact dataset 19.2 (1/4)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/cache/custom/0e930662f2ca7c4e195384f5f846fa25cfe840fba2854aea73f08abbad782779.json
+Output files: None (validated draft in memory)
+[Studio Open 1/4] Reading bounded UTF-8 JSON (0/4)
+Input bundle: validated JSON in memory; output files: None (custom catalog in memory)
+[Source 3/4] Validating ATT&CK-compatible STIX (0/4)
+[Source 3/4] Resolving dataset-scoped domain definitions and matrices (1/4)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/87)
+[3/4 Procedures] Complete: Enterprise 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/87)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 16 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing Mobile procedure examples (0/87)
+[3/4 Procedures] Complete: Mobile 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Mobile objects in memory)
+[3/4 Related TTPs] Indexing Mobile direct source relationships (0/87)
+[3/4 Related TTPs] Resolving Mobile strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Mobile 16 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing ICS procedure examples (0/87)
+[3/4 Procedures] Complete: ICS 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships (0/87)
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 16 direct/derived mappings (1/1)
+[Studio Open 3/4] Validating annotations and domain/version/migration archives (2/4)
+[Studio Open 4/4] Complete; validated document ready in memory (4/4)
+[Session 2/3] Validating recoverable documents (1/1)
+[Session 3/3] All documents validated; workspace ready for atomic restore (3/3)
+Output cache directory: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/cache/custom
+Input URL: http://127.0.0.1:34527/layer-redirect
+Output files: None (source validation in memory)
+[Source 1/4] Reading bounded JSON (0/10485760)
+Input resolved URL: http://127.0.0.1:34527/final/layer.json
+[Source 1/4] Reading JSON bytes (880/10485760)
+[Source 2/4] Parsing JSON (1/4)
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/cache/custom/68112df34e190be80d1627230ae4af3527b417f8b2a1079c73399c1c8fd6766c.json
+[Source 4/4] Caching validated input (3/4)
+Output temporary file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/cache/custom/.source-26754ef8ad3d4e01bb0fde77181b2eef.tmp
+[Source 4/4] Validated source cached (4/4)
+[Custom URL Audit 4/6] Native import review, failure and cancellation (3/6)
+[Application icon 1/2] Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/assets/ttp-selection-studio-icon-pixel.png
+[Application icon 1/2] Output files: None (application/window icon in memory)
+[Application icon 2/2] Complete: pixel icon applied to application and windows
+[UI settings 1/2] Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/settings.ini
+[UI settings 1/2] Output files: None (reading preferences)
+[UI settings 2/2] Complete: navigation labels shown
+[Language 1/2] Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/locales/zh_TW.json
+Output files: None (translation catalog in memory)
+[Language 2/2] Ready: 644 Taiwan translations
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/info/attack-release-notes.json
+Output files: None (Info menu in memory)
+[Info history 1/2] Reading offline release introductions
+[Info history 2/2] Complete: 20 official release entries
+[Navigation icons 1/3] Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/assets/ttp-selection-studio-icon-pixel.png
+[Navigation icons 1/3] Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/assets/navigation/mitigations.png
+[Navigation icons 1/3] Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/assets/navigation/assets.png
+[Navigation icons 1/3] Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/assets/navigation/detections.png
+[Navigation icons 1/3] Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/assets/navigation/groups.png
+[Navigation icons 1/3] Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/assets/navigation/software.png
+[Navigation icons 1/3] Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/assets/navigation/campaigns.png
+[Navigation icons 1/3] Output files: None (button icons in memory)
+[Navigation icons 2/3] Loading TTP (1/7)
+[Navigation icons 2/3] Loading Mitigations (2/7)
+[Navigation icons 2/3] Loading Assets (3/7)
+[Navigation icons 2/3] Loading Detections (4/7)
+[Navigation icons 2/3] Loading Groups (5/7)
+[Navigation icons 2/3] Loading Software (6/7)
+[Navigation icons 2/3] Loading Campaigns (7/7)
+[Navigation icons 3/3] Complete: 7/7 icons ready
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/latest.json
+Output files: None (catalog is loaded into memory)
+[1/4 Resolve] Reading snapshot pointer
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/v20.0/manifest.json
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/v20.0/enterprise-attack-20.0.json
+[1/4 Resolve] Complete: Enterprise ATT&CK v20.0 (1/1)
+[2/4 Read] Reading and checking bundle (4194304/55271014)
+[2/4 Read] Reading and checking bundle (8388608/55271014)
+[2/4 Read] Reading and checking bundle (12582912/55271014)
+[2/4 Read] Reading and checking bundle (16777216/55271014)
+[2/4 Read] Reading and checking bundle (20971520/55271014)
+[2/4 Read] Reading and checking bundle (25165824/55271014)
+[2/4 Read] Reading and checking bundle (29360128/55271014)
+[2/4 Read] Reading and checking bundle (33554432/55271014)
+[2/4 Read] Reading and checking bundle (37748736/55271014)
+[2/4 Read] Reading and checking bundle (41943040/55271014)
+[2/4 Read] Reading and checking bundle (46137344/55271014)
+[2/4 Read] Reading and checking bundle (50331648/55271014)
+[2/4 Read] Reading and checking bundle (54525952/55271014)
+[2/4 Read] Reading and checking bundle (55271014/55271014)
+[2/4 Read] Parsing JSON
+[3/4 Index] Indexing active ATT&CK objects (2000/26690)
+[3/4 Index] Indexing active ATT&CK objects (4000/26690)
+[3/4 Index] Indexing active ATT&CK objects (6000/26690)
+[3/4 Index] Indexing active ATT&CK objects (8000/26690)
+[3/4 Index] Indexing active ATT&CK objects (10000/26690)
+[3/4 Index] Indexing active ATT&CK objects (12000/26690)
+[3/4 Index] Indexing active ATT&CK objects (14000/26690)
+[3/4 Index] Indexing active ATT&CK objects (16000/26690)
+[3/4 Index] Indexing active ATT&CK objects (18000/26690)
+[3/4 Index] Indexing active ATT&CK objects (20000/26690)
+[3/4 Index] Indexing active ATT&CK objects (22000/26690)
+[3/4 Index] Indexing active ATT&CK objects (24000/26690)
+[3/4 Index] Indexing active ATT&CK objects (26000/26690)
+[3/4 Index] Mapping platforms and tactics (100/706)
+[3/4 Index] Mapping platforms and tactics (200/706)
+[3/4 Index] Mapping platforms and tactics (300/706)
+[3/4 Index] Mapping platforms and tactics (400/706)
+[3/4 Index] Mapping platforms and tactics (500/706)
+[3/4 Index] Mapping platforms and tactics (600/706)
+[3/4 Index] Mapping platforms and tactics (700/706)
+[3/4 Index] Complete: 706 active techniques/sub-techniques, 11 platforms (706/706)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/26690)
+[3/4 Procedures] Reading Enterprise relationships (4000/26690)
+[3/4 Procedures] Reading Enterprise relationships (8000/26690)
+[3/4 Procedures] Reading Enterprise relationships (12000/26690)
+[3/4 Procedures] Reading Enterprise relationships (16000/26690)
+[3/4 Procedures] Reading Enterprise relationships (20000/26690)
+[3/4 Procedures] Reading Enterprise relationships (24000/26690)
+[3/4 Procedures] Complete: Enterprise 17636 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/26690)
+[3/4 Related TTPs] Reading relationships (4000/26690)
+[3/4 Related TTPs] Reading relationships (8000/26690)
+[3/4 Related TTPs] Reading relationships (12000/26690)
+[3/4 Related TTPs] Reading relationships (16000/26690)
+[3/4 Related TTPs] Reading relationships (20000/26690)
+[3/4 Related TTPs] Reading relationships (24000/26690)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 23980 direct/derived mappings (1/1)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/v20.0/mobile-attack-20.0.json
+[3/4 Library] Reading and checking Mobile (4194304/6095145)
+[3/4 Library] Reading and checking Mobile (6095145/6095145)
+[3/4 Library] Parsing Mobile JSON
+[3/4 Procedures] Indexing Mobile procedure examples (0/2684)
+[3/4 Procedures] Complete: Mobile 1522 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Mobile objects in memory)
+[3/4 Related TTPs] Indexing Mobile direct source relationships (0/2684)
+[3/4 Related TTPs] Resolving Mobile strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Mobile 2419 direct/derived mappings (1/1)
+[3/4 Library] Complete: Mobile (1/1)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/v20.0/ics-attack-20.0.json
+[3/4 Library] Reading and checking ICS (4194304/5266683)
+[3/4 Library] Reading and checking ICS (5266683/5266683)
+[3/4 Library] Parsing ICS JSON
+[3/4 Procedures] Indexing ICS procedure examples (0/2566)
+[3/4 Procedures] Complete: ICS 307 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships (0/2566)
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 2185 direct/derived mappings (1/1)
+[3/4 Library] Complete: ICS (1/1)
+[3/4 Library] Complete: six navigation categories indexed across all three domains (1/1)
+[4/4 Tree] Complete: 706 unique selectable technique IDs
+Input files: None (exact domain/version catalog in memory); output files: None
+[Search Index 1/3] Reading legacy data sources and active detection mappings (0/3)
+[Search Index 2/3] Building name/ID/description/data-source/detection-strategy fields (1/3)
+[Search Index 3/3] Ready: 706 techniques in enterprise-attack v20.0 (3/3)
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/layers.json
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/cache/versions-cache.json
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/layers.json
+Output files: None (multi-layer import preview in memory)
+[Layer Batch 1/5] Reading and validating every layer in the JSON file (0/5)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/layers.json
+Output files: None (import preview in memory)
+[Navigator Import 1/4] Reading and validating layer file (0/1)
+[Navigator Import 1/4] Layer validated by mitreattack-python (1/2)
+[Navigator Import 1/4] Layer validated by mitreattack-python (2/2)
+Input files: None (validated layers in memory; exact catalog inputs follow)
+Output files: None (independent layer previews in memory)
+[Layer Batch 2/5] Resolving layer 1: Remote source layer (0/2)
+[Layer Batch 3/5] Layer 1: Custom URL needs one matching loaded dataset at this version/domain. Choose Resolve custom data… to fetch, validate or choose the matching Bundle. Custom URLs are not fetched automatically. (1/2)
+[Layer Batch 2/5] Resolving layer 2: Remote source layer (1/2)
+[Studio Open 2/4] Resolving exact dataset 19.2 (1/4)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/cache/custom/71e8153632f638081c9a80262cb699fff70ee19dfceebc35a76ee20855421e56.json
+Output files: None (validated draft in memory)
+[Studio Open 1/4] Reading bounded UTF-8 JSON (0/4)
+Input bundle: validated JSON in memory; output files: None (custom catalog in memory)
+[Source 3/4] Validating ATT&CK-compatible STIX (0/4)
+[Source 3/4] Resolving dataset-scoped domain definitions and matrices (1/4)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/87)
+[3/4 Procedures] Complete: Enterprise 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/87)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 16 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing Mobile procedure examples (0/87)
+[3/4 Procedures] Complete: Mobile 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Mobile objects in memory)
+[3/4 Related TTPs] Indexing Mobile direct source relationships (0/87)
+[3/4 Related TTPs] Resolving Mobile strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Mobile 16 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing ICS procedure examples (0/87)
+[3/4 Procedures] Complete: ICS 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships (0/87)
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 16 direct/derived mappings (1/1)
+[Layer Batch 3/5] Layer 2: Ready (2/2)
+[Layer Batch 3/5] Preview complete; no documents have been added (3/5)
+Input cache directory: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/cache/custom
+Output files: None (available cache paths only; contents validated on request)
+Input source: http://127.0.0.1:34527/final/bundle.json
+Output files: None (custom source review in memory; cache only after acceptance)
+[Custom Data 1/5] Acquiring the selected source (0/5)
+Input URL: http://127.0.0.1:34527/final/bundle.json
+Output files: None (source validation in memory)
+[Source 1/4] Reading bounded JSON (0/134217728)
+Input resolved URL: http://127.0.0.1:34527/final/bundle.json
+[Source 1/4] Reading JSON bytes (48065/134217728)
+[Source 2/4] Parsing JSON (1/4)
+[Custom Data 2/5] Checking source type and dataset identity (1/5)
+Input bundle: validated JSON in memory; output files: None (custom catalog in memory)
+[Source 3/4] Validating ATT&CK-compatible STIX (0/4)
+[Source 3/4] Resolving dataset-scoped domain definitions and matrices (1/4)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/87)
+[3/4 Procedures] Complete: Enterprise 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/87)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 16 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing Mobile procedure examples (0/87)
+[3/4 Procedures] Complete: Mobile 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Mobile objects in memory)
+[3/4 Related TTPs] Indexing Mobile direct source relationships (0/87)
+[3/4 Related TTPs] Resolving Mobile strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Mobile 16 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing ICS procedure examples (0/87)
+[3/4 Procedures] Complete: ICS 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships (0/87)
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 16 direct/derived mappings (1/1)
+[Custom Data 3/5] Validating domain, release, annotations and selection (2/5)
+[Custom Data 3/5] Candidate verified; awaiting explicit acceptance (3/5)
+Input files: None (verified candidate bytes in memory)
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/cache/custom/71e8153632f638081c9a80262cb699fff70ee19dfceebc35a76ee20855421e56.json
+[Custom Data 4/5] Caching the accepted Bundle by SHA-256 (3/5)
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/cache/custom/71e8153632f638081c9a80262cb699fff70ee19dfceebc35a76ee20855421e56.json
+[Source 4/4] Caching validated input (3/4)
+Output temporary file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/cache/custom/.source-997dbb5f0f9b4ba4aebde3ff0b23e04d.tmp
+[Source 4/4] Validated source cached (4/4)
+[Custom Data 5/5] Source accepted for this layer; no workspace documents added (5/5)
+[Custom Data 5/5] Verified Bundle bound to this layer preview (5/5)
+Input cache directory: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/cache/custom
+Output files: None (available cache paths only; contents validated on request)
+Input source: http://127.0.0.1:34527/changed
+Output files: None (custom source review in memory; cache only after acceptance)
+[Custom Data 1/5] Acquiring the selected source (0/5)
+Input URL: http://127.0.0.1:34527/changed
+Output files: None (source validation in memory)
+[Source 1/4] Reading bounded JSON (0/134217728)
+Input resolved URL: http://127.0.0.1:34527/changed
+[Source 1/4] Reading JSON bytes (48117/134217728)
+[Source 2/4] Parsing JSON (1/4)
+[Custom Data 2/5] Checking source type and dataset identity (1/5)
+Input bundle: validated JSON in memory; output files: None (custom catalog in memory)
+[Source 3/4] Validating ATT&CK-compatible STIX (0/4)
+[Source 3/4] Resolving dataset-scoped domain definitions and matrices (1/4)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/87)
+[3/4 Procedures] Complete: Enterprise 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/87)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 16 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing Mobile procedure examples (0/87)
+[3/4 Procedures] Complete: Mobile 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Mobile objects in memory)
+[3/4 Related TTPs] Indexing Mobile direct source relationships (0/87)
+[3/4 Related TTPs] Resolving Mobile strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Mobile 16 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing ICS procedure examples (0/87)
+[3/4 Procedures] Complete: ICS 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships (0/87)
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 16 direct/derived mappings (1/1)
+[Custom Data 3/5] Validating domain, release, annotations and selection (2/5)
+[Custom Data 3/5] Candidate verified; awaiting explicit acceptance (3/5)
+Source content differs from the recorded SHA-256. Approve replacement explicitly or choose the original Bundle. (3/5)
+Input cache directory: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/cache/custom
+Output files: None (available cache paths only; contents validated on request)
+Input source: http://127.0.0.1:34527/changed
+Output files: None (custom source review in memory; cache only after acceptance)
+[Custom Data 1/5] Acquiring the selected source (0/5)
+Input URL: http://127.0.0.1:34527/changed
+Output files: None (source validation in memory)
+[Source 1/4] Reading bounded JSON (0/134217728)
+Input resolved URL: http://127.0.0.1:34527/changed
+[Source 1/4] Reading JSON bytes (48117/134217728)
+[Source 2/4] Parsing JSON (1/4)
+[Custom Data 2/5] Checking source type and dataset identity (1/5)
+Input bundle: validated JSON in memory; output files: None (custom catalog in memory)
+[Source 3/4] Validating ATT&CK-compatible STIX (0/4)
+[Source 3/4] Resolving dataset-scoped domain definitions and matrices (1/4)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/87)
+[3/4 Procedures] Complete: Enterprise 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/87)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 16 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing Mobile procedure examples (0/87)
+[3/4 Procedures] Complete: Mobile 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Mobile objects in memory)
+[3/4 Related TTPs] Indexing Mobile direct source relationships (0/87)
+[3/4 Related TTPs] Resolving Mobile strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Mobile 16 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing ICS procedure examples (0/87)
+[3/4 Procedures] Complete: ICS 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships (0/87)
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 16 direct/derived mappings (1/1)
+[Custom Data 3/5] Validating domain, release, annotations and selection (2/5)
+[Custom Data 3/5] Candidate verified; awaiting explicit acceptance (3/5)
+Source content differs from the recorded SHA-256. Approve replacement explicitly or choose the original Bundle. (3/5)
+Input files: None (verified candidate bytes in memory)
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/cache/custom/0e930662f2ca7c4e195384f5f846fa25cfe840fba2854aea73f08abbad782779.json
+[Custom Data 4/5] Caching the accepted Bundle by SHA-256 (3/5)
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/cache/custom/0e930662f2ca7c4e195384f5f846fa25cfe840fba2854aea73f08abbad782779.json
+[Source 4/4] Caching validated input (3/4)
+Output temporary file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/cache/custom/.source-84f72e80efe9430a976b46107a106d01.tmp
+[Source 4/4] Validated source cached (4/4)
+[Custom Data 5/5] Source accepted for this layer; no workspace documents added (5/5)
+[Custom Data 5/5] Verified Bundle bound to this layer preview (5/5)
+Input files: None; output files: None (selected Navigator layers in memory)
+[Layer Batch 4/5] Validating complete draft 1/2 (0/2)
+[Layer Batch 4/5] Validating complete draft 2/2 (1/2)
+[Layer Batch 4/5] All selected drafts validated; no workspace changes yet (2/2)
+Input files: None; output files: None (validated Navigator drafts in memory)
+[Layer Batch 5/5] Installed all validated documents in file order (2/2)
+[Document 1/2] Input files: None; output files: None; activating Remote source layer (0/2)
+[Layer Batch 5/5] All selected layers opened as independent documents (2/2)
+[4/4 Tree] Complete: 5 unique selectable technique IDs
+Input files: None (exact domain/version catalog in memory); output files: None
+[Search Index 1/3] Reading legacy data sources and active detection mappings (0/3)
+[Search Index 2/3] Building name/ID/description/data-source/detection-strategy fields (1/3)
+[Search Index 3/3] Ready: 5 techniques in enterprise-attack v19.2 (3/3)
+[Custom URL Audit 5/6] Stale completion and cache choices (4/6)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/cache/versions-cache.json
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/layers.json
+Output files: None (multi-layer import preview in memory)
+[Layer Batch 1/5] Reading and validating every layer in the JSON file (0/5)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/layers.json
+Output files: None (import preview in memory)
+[Navigator Import 1/4] Reading and validating layer file (0/1)
+[Navigator Import 1/4] Layer validated by mitreattack-python (1/2)
+[Navigator Import 1/4] Layer validated by mitreattack-python (2/2)
+Input files: None (validated layers in memory; exact catalog inputs follow)
+Output files: None (independent layer previews in memory)
+[Layer Batch 2/5] Resolving layer 1: Remote source layer (0/2)
+[Layer Batch 3/5] Layer 1: Custom URL needs one matching loaded dataset at this version/domain. Choose Resolve custom data… to fetch, validate or choose the matching Bundle. Custom URLs are not fetched automatically. (1/2)
+[Layer Batch 2/5] Resolving layer 2: Remote source layer (1/2)
+[Layer Batch 3/5] Layer 2: Ready (2/2)
+[Layer Batch 3/5] Preview complete; no documents have been added (3/5)
+Input cache directory: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/cache/custom
+Output files: None (available cache paths only; contents validated on request)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/cache/versions-cache.json
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/layers.json
+Output files: None (multi-layer import preview in memory)
+[Layer Batch 1/5] Reading and validating every layer in the JSON file (0/5)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/layers.json
+Output files: None (import preview in memory)
+[Navigator Import 1/4] Reading and validating layer file (0/1)
+[Navigator Import 1/4] Layer validated by mitreattack-python (1/2)
+[Navigator Import 1/4] Layer validated by mitreattack-python (2/2)
+Input files: None (validated layers in memory; exact catalog inputs follow)
+Output files: None (independent layer previews in memory)
+[Layer Batch 2/5] Resolving layer 1: Remote source layer (0/2)
+[Layer Batch 3/5] Layer 1: Custom URL needs one matching loaded dataset at this version/domain. Choose Resolve custom data… to fetch, validate or choose the matching Bundle. Custom URLs are not fetched automatically. (1/2)
+[Layer Batch 2/5] Resolving layer 2: Remote source layer (1/2)
+[Layer Batch 3/5] Layer 2: Ready (2/2)
+[Layer Batch 3/5] Preview complete; no documents have been added (3/5)
+Input cache directory: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/cache/custom
+Output files: None (available cache paths only; contents validated on request)
+Input source: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/cache/custom/71e8153632f638081c9a80262cb699fff70ee19dfceebc35a76ee20855421e56.json
+Output files: None (custom source review in memory; cache only after acceptance)
+[Custom Data 1/5] Acquiring the selected source (0/5)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/cache/custom/71e8153632f638081c9a80262cb699fff70ee19dfceebc35a76ee20855421e56.json
+Output files: None (source validation in memory)
+[Source 1/4] Reading bounded JSON (0/134217728)
+Input resolved file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/cache/custom/71e8153632f638081c9a80262cb699fff70ee19dfceebc35a76ee20855421e56.json
+[Source 1/4] Reading JSON bytes (48065/134217728)
+[Source 2/4] Parsing JSON (1/4)
+[Custom Data 2/5] Checking source type and dataset identity (1/5)
+Input bundle: validated JSON in memory; output files: None (custom catalog in memory)
+[Source 3/4] Validating ATT&CK-compatible STIX (0/4)
+[Source 3/4] Resolving dataset-scoped domain definitions and matrices (1/4)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/87)
+[3/4 Procedures] Complete: Enterprise 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/87)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 16 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing Mobile procedure examples (0/87)
+[3/4 Procedures] Complete: Mobile 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Mobile objects in memory)
+[3/4 Related TTPs] Indexing Mobile direct source relationships (0/87)
+[3/4 Related TTPs] Resolving Mobile strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Mobile 16 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing ICS procedure examples (0/87)
+[3/4 Procedures] Complete: ICS 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships (0/87)
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 16 direct/derived mappings (1/1)
+[Custom Data 3/5] Validating domain, release, annotations and selection (2/5)
+[Custom Data 3/5] Candidate verified; awaiting explicit acceptance (3/5)
+Input source: http://127.0.0.1:34527/missing
+Output files: None (custom source review in memory; cache only after acceptance)
+[Custom Data 1/5] Acquiring the selected source (0/5)
+Input URL: http://127.0.0.1:34527/missing
+Output files: None (source validation in memory)
+[Source 1/4] Reading bounded JSON (0/134217728)
+Failed: HTTPError: HTTP Error 404: Not Found (1/1)
+Input source: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/cache/custom/71e8153632f638081c9a80262cb699fff70ee19dfceebc35a76ee20855421e56.json
+Output files: None (custom source review in memory; cache only after acceptance)
+[Custom Data 1/5] Acquiring the selected source (0/5)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/cache/custom/71e8153632f638081c9a80262cb699fff70ee19dfceebc35a76ee20855421e56.json
+Output files: None (source validation in memory)
+[Source 1/4] Reading bounded JSON (0/134217728)
+Input resolved file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/cache/custom/71e8153632f638081c9a80262cb699fff70ee19dfceebc35a76ee20855421e56.json
+[Source 1/4] Reading JSON bytes (48065/134217728)
+[Source 2/4] Parsing JSON (1/4)
+[Custom Data 2/5] Checking source type and dataset identity (1/5)
+Input bundle: validated JSON in memory; output files: None (custom catalog in memory)
+[Source 3/4] Validating ATT&CK-compatible STIX (0/4)
+[Source 3/4] Resolving dataset-scoped domain definitions and matrices (1/4)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/87)
+[3/4 Procedures] Complete: Enterprise 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/87)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 16 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing Mobile procedure examples (0/87)
+[3/4 Procedures] Complete: Mobile 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Mobile objects in memory)
+[3/4 Related TTPs] Indexing Mobile direct source relationships (0/87)
+[3/4 Related TTPs] Resolving Mobile strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Mobile 16 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing ICS procedure examples (0/87)
+[3/4 Procedures] Complete: ICS 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships (0/87)
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 16 direct/derived mappings (1/1)
+[Custom Data 3/5] Validating domain, release, annotations and selection (2/5)
+[Custom Data 3/5] Candidate verified; awaiting explicit acceptance (3/5)
+Input source: http://127.0.0.1:34527/index
+Output files: None (custom source review in memory; cache only after acceptance)
+[Custom Data 1/5] Acquiring the selected source (0/5)
+Input URL: http://127.0.0.1:34527/index
+Output files: None (source validation in memory)
+[Source 1/4] Reading bounded JSON (0/134217728)
+Input resolved URL: http://127.0.0.1:34527/index
+[Source 1/4] Reading JSON bytes (146/134217728)
+[Source 2/4] Parsing JSON (1/4)
+[Custom Data 2/5] Checking source type and dataset identity (1/5)
+[Custom Data 2/5] Collection Index ready; choose a Bundle explicitly (2/5)
+Input source: http://127.0.0.1:34527/final/bundle.json
+Output files: None (custom source review in memory; cache only after acceptance)
+[Custom Data 1/5] Acquiring the selected source (0/5)
+Input URL: http://127.0.0.1:34527/final/bundle.json
+Output files: None (source validation in memory)
+[Source 1/4] Reading bounded JSON (0/134217728)
+Input resolved URL: http://127.0.0.1:34527/final/bundle.json
+[Source 1/4] Reading JSON bytes (48065/134217728)
+[Source 2/4] Parsing JSON (1/4)
+[Custom Data 2/5] Checking source type and dataset identity (1/5)
+Input bundle: validated JSON in memory; output files: None (custom catalog in memory)
+[Source 3/4] Validating ATT&CK-compatible STIX (0/4)
+[Source 3/4] Resolving dataset-scoped domain definitions and matrices (1/4)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/87)
+[3/4 Procedures] Complete: Enterprise 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/87)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 16 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing Mobile procedure examples (0/87)
+[3/4 Procedures] Complete: Mobile 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Mobile objects in memory)
+[3/4 Related TTPs] Indexing Mobile direct source relationships (0/87)
+[3/4 Related TTPs] Resolving Mobile strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Mobile 16 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing ICS procedure examples (0/87)
+[3/4 Procedures] Complete: ICS 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships (0/87)
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 16 direct/derived mappings (1/1)
+[Custom Data 3/5] Validating domain, release, annotations and selection (2/5)
+[Custom Data 3/5] Candidate verified; awaiting explicit acceptance (3/5)
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/legacy.json
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/cache/versions-cache.json
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/legacy.json
+Output files: None (multi-layer import preview in memory)
+[Layer Batch 1/5] Reading and validating every layer in the JSON file (0/5)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/legacy.json
+Output files: None (import preview in memory)
+[Navigator Import 1/4] Reading and validating layer file (0/1)
+[Navigator Import 1/4] Layer validated by mitreattack-python (1/1)
+Input files: None (validated layers in memory; exact catalog inputs follow)
+Output files: None (independent layer previews in memory)
+[Layer Batch 2/5] Resolving layer 1: Remote source layer (0/1)
+[Layer Batch 3/5] Layer 1: Ready (1/1)
+[Layer Batch 3/5] Preview complete; no documents have been added (3/5)
+Input cache directory: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/cache/custom
+Output files: None (available cache paths only; contents validated on request)
+Input source: http://127.0.0.1:34527/changed
+Output files: None (custom source review in memory; cache only after acceptance)
+[Custom Data 1/5] Acquiring the selected source (0/5)
+Input URL: http://127.0.0.1:34527/changed
+Output files: None (source validation in memory)
+[Source 1/4] Reading bounded JSON (0/134217728)
+Input resolved URL: http://127.0.0.1:34527/changed
+[Source 1/4] Reading JSON bytes (48117/134217728)
+[Source 2/4] Parsing JSON (1/4)
+[Custom Data 2/5] Checking source type and dataset identity (1/5)
+Input bundle: validated JSON in memory; output files: None (custom catalog in memory)
+[Source 3/4] Validating ATT&CK-compatible STIX (0/4)
+[Source 3/4] Resolving dataset-scoped domain definitions and matrices (1/4)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/87)
+[3/4 Procedures] Complete: Enterprise 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/87)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 16 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing Mobile procedure examples (0/87)
+[3/4 Procedures] Complete: Mobile 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Mobile objects in memory)
+[3/4 Related TTPs] Indexing Mobile direct source relationships (0/87)
+[3/4 Related TTPs] Resolving Mobile strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Mobile 16 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing ICS procedure examples (0/87)
+[3/4 Procedures] Complete: ICS 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships (0/87)
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 16 direct/derived mappings (1/1)
+[Custom Data 3/5] Validating domain, release, annotations and selection (2/5)
+[Custom Data 3/5] Candidate verified; awaiting explicit acceptance (3/5)
+Source content differs from the recorded SHA-256. Approve replacement explicitly or choose the original Bundle. (3/5)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/cache/versions-cache.json
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/layers.json
+Output files: None (multi-layer import preview in memory)
+[Layer Batch 1/5] Reading and validating every layer in the JSON file (0/5)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/layers.json
+Output files: None (import preview in memory)
+[Navigator Import 1/4] Reading and validating layer file (0/1)
+[Navigator Import 1/4] Layer validated by mitreattack-python (1/2)
+[Navigator Import 1/4] Layer validated by mitreattack-python (2/2)
+Input files: None (validated layers in memory; exact catalog inputs follow)
+Output files: None (independent layer previews in memory)
+[Layer Batch 2/5] Resolving layer 1: Remote source layer (0/2)
+[Layer Batch 3/5] Layer 1: Custom URL needs one matching loaded dataset at this version/domain. Choose Resolve custom data… to fetch, validate or choose the matching Bundle. Custom URLs are not fetched automatically. (1/2)
+[Layer Batch 2/5] Resolving layer 2: Remote source layer (1/2)
+[Layer Batch 3/5] Layer 2: Ready (2/2)
+[Layer Batch 3/5] Preview complete; no documents have been added (3/5)
+Input cache directory: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/cache/custom
+Output files: None (available cache paths only; contents validated on request)
+Input source: http://127.0.0.1:34527/final/bundle.json
+Output files: None (custom source review in memory; cache only after acceptance)
+[Custom Data 1/5] Acquiring the selected source (0/5)
+Input URL: http://127.0.0.1:34527/final/bundle.json
+Output files: None (source validation in memory)
+[Source 1/4] Reading bounded JSON (0/134217728)
+Input resolved URL: http://127.0.0.1:34527/final/bundle.json
+[Source 1/4] Reading JSON bytes (48065/134217728)
+[Source 2/4] Parsing JSON (1/4)
+[Custom Data 2/5] Checking source type and dataset identity (1/5)
+Input bundle: validated JSON in memory; output files: None (custom catalog in memory)
+[Source 3/4] Validating ATT&CK-compatible STIX (0/4)
+[Source 3/4] Resolving dataset-scoped domain definitions and matrices (1/4)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/87)
+[3/4 Procedures] Complete: Enterprise 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/87)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 16 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing Mobile procedure examples (0/87)
+[3/4 Procedures] Complete: Mobile 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Mobile objects in memory)
+[3/4 Related TTPs] Indexing Mobile direct source relationships (0/87)
+[3/4 Related TTPs] Resolving Mobile strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Mobile 16 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing ICS procedure examples (0/87)
+[3/4 Procedures] Complete: ICS 4 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships (0/87)
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 16 direct/derived mappings (1/1)
+[Custom Data 3/5] Validating domain, release, annotations and selection (2/5)
+[Custom Data 3/5] Candidate verified; awaiting explicit acceptance (3/5)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/cache/versions-cache.json
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/layers.json
+Output files: None (multi-layer import preview in memory)
+[Layer Batch 1/5] Reading and validating every layer in the JSON file (0/5)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/layers.json
+Output files: None (import preview in memory)
+[Navigator Import 1/4] Reading and validating layer file (0/1)
+[Navigator Import 1/4] Layer validated by mitreattack-python (1/2)
+[Navigator Import 1/4] Layer validated by mitreattack-python (2/2)
+Input files: None (validated layers in memory; exact catalog inputs follow)
+Output files: None (independent layer previews in memory)
+[Layer Batch 2/5] Resolving layer 1: Remote source layer (0/2)
+[Layer Batch 3/5] Layer 1: Custom URL needs one matching loaded dataset at this version/domain. Choose Resolve custom data… to fetch, validate or choose the matching Bundle. Custom URLs are not fetched automatically. (1/2)
+[Layer Batch 2/5] Resolving layer 2: Remote source layer (1/2)
+[Layer Batch 3/5] Layer 2: Ready (2/2)
+[Layer Batch 3/5] Preview complete; no documents have been added (3/5)
+Input cache directory: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/cache/custom
+Output files: None (available cache paths only; contents validated on request)
+[Custom URL Audit 6/6] Writing verification report (5/6)
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/custom-data-url/audit.json
+[Custom URL Audit] PASS: 70 checks (6/6)

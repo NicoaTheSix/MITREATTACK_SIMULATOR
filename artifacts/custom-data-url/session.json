@@ -1,0 +1,163 @@
+{
+  "checksum": "6c39cf87b79c87288abd0048e59bf971b48f8a5f48d5bb9f92a41b9e58325282",
+  "workspace": {
+    "studio_session_version": "1.0",
+    "updated_at_utc": "2026-10-20T03:03:38.081016+00:00",
+    "clean_exit": false,
+    "documents": [
+      {
+        "document": {
+          "schema_version": "1.0",
+          "document_id": "e7ef4cb4-a0cd-440c-a417-5d48464ecc9e",
+          "name": "Remote source layer",
+          "created_at_utc": "2026-10-20T03:03:37.961957+00:00",
+          "exported_at_utc": "2026-10-20T03:03:38.081016+00:00",
+          "attack": {
+            "domain": "enterprise-attack",
+            "version": "19.2",
+            "source_url": "http://127.0.0.1:50267/bundle",
+            "dataset_sha256": "0e930662f2ca7c4e195384f5f846fa25cfe840fba2854aea73f08abbad782779",
+            "custom": true
+          },
+          "selected_count": 1,
+          "selected_technique_ids": [
+            "T1000"
+          ],
+          "selected_ttps": [
+            {
+              "technique_id": "T1000",
+              "stix_id": "attack-pattern--c4f9279a-9bbb-54ad-ab31-3fca5363870c",
+              "name": "Alpha",
+              "is_subtechnique": false,
+              "parent_technique_id": null,
+              "parent_technique_name": null,
+              "platforms": [
+                "Linux",
+                "Windows"
+              ],
+              "tactics": [
+                {
+                  "tactic_id": null,
+                  "name": "Execution",
+                  "shortname": "execution"
+                },
+                {
+                  "tactic_id": null,
+                  "name": "Initial-Access",
+                  "shortname": "initial-access"
+                }
+              ],
+              "comment": "Keep annotation\nsecond line",
+              "tactic_comments": [],
+              "enabled": false,
+              "tactic_enabled": [
+                {
+                  "tactic": "execution",
+                  "enabled": false
+                },
+                {
+                  "tactic": "initial-access",
+                  "enabled": false
+                }
+              ],
+              "selected_tactics": [
+                "execution",
+                "initial-access"
+              ]
+            }
+          ],
+          "navigator_import_selected": [
+            "T1000"
+          ],
+          "selection_scopes": {},
+          "selection_preferences": {
+            "across_tactics": true,
+            "with_family": false,
+            "visible_only": false
+          },
+          "search_fields": [
+            "name",
+            "id"
+          ],
+          "navigator_layer": {
+            "name": "Remote source layer",
+            "domain": "enterprise-attack",
+            "description": "Keep description enterprise-attack",
+            "techniques": [
+              {
+                "techniqueID": "T1000",
+                "enabled": false,
+                "score": 2.75,
+                "color": "#2277aa",
+                "comment": "Keep annotation\nsecond line",
+                "metadata": [
+                  {
+                    "name": "Owner",
+                    "value": "Research"
+                  },
+                  {
+                    "name": "TTP Selection Studio selected",
+                    "value": "true"
+                  }
+                ],
+                "links": [
+                  {
+                    "label": "Reference",
+                    "url": "https://example.org/"
+                  }
+                ],
+                "x_fixture": {
+                  "keep": true
+                }
+              },
+              {
+                "techniqueID": "T9999",
+                "comment": "Unresolved row retained",
+                "enabled": false,
+                "metadata": [
+                  {
+                    "name": "TTP Selection Studio selected",
+                    "value": "false"
+                  }
+                ]
+              }
+            ],
+            "selectTechniquesAcrossTactics": true,
+            "selectSubtechniquesWithParent": false,
+            "selectVisibleTechniques": false,
+            "x_ttp_studio_search_fields": [
+              "name",
+              "id"
+            ],
+            "versions": {
+              "attack": "19.2",
+              "navigator": "5.2.0",
+              "layer": "4.5"
+            },
+            "customDataURL": "http://127.0.0.1:50267/bundle",
+            "x_ttp_studio_dataset": "0e930662f2ca7c4e195384f5f846fa25cfe840fba2854aea73f08abbad782779",
+            "x_ttp_studio_source_review": {
+              "declared_source": "http://127.0.0.1:50267/bundle",
+              "resolved_source": "http://127.0.0.1:50267/bundle",
+              "acquired_from": "http://127.0.0.1:50267/changed",
+              "final_source": "http://127.0.0.1:50267/changed",
+              "previous_dataset_sha256": "71e8153632f638081c9a80262cb699fff70ee19dfceebc35a76ee20855421e56",
+              "dataset_sha256": "0e930662f2ca7c4e195384f5f846fa25cfe840fba2854aea73f08abbad782779",
+              "changed_dataset_accepted": true
+            }
+          }
+        },
+        "initial_name": "Remote source layer",
+        "save_path": null,
+        "saved_fingerprint": null,
+        "saved_file_sha256": null,
+        "content_token_version": 2,
+        "dirty": true
+      }
+    ],
+    "active_index": 0,
+    "view": {
+      "page": "selected"
+    }
+  }
+}

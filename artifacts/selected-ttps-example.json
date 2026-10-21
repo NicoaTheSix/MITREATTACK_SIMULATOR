@@ -1,9 +1,9 @@
 {
   "schema_version": "1.0",
-  "document_id": "c31b278f-085e-44f6-8e5c-1a4410b57f6f",
+  "document_id": "cf64d75c-553d-4bea-a009-bfa0d2000e06",
   "name": "selected-ttps-example",
-  "created_at_utc": "2026-10-15T07:29:35.830246+00:00",
-  "exported_at_utc": "2026-10-15T07:29:37.028108+00:00",
+  "created_at_utc": "2026-10-15T10:14:40.734854+00:00",
+  "exported_at_utc": "2026-10-15T10:14:47.482501+00:00",
   "attack": {
     "domain": "enterprise-attack",
     "version": "19.2",
@@ -58,6 +58,11 @@
           "tactic": "privilege-escalation",
           "enabled": true
         }
+      ],
+      "selected_tactics": [
+        "execution",
+        "persistence",
+        "privilege-escalation"
       ]
     },
     {
@@ -85,7 +90,20 @@
           "tactic": "execution",
           "enabled": true
         }
+      ],
+      "selected_tactics": [
+        "execution"
       ]
     }
+  ],
+  "navigator_import_selected": [],
+  "selection_scopes": {},
+  "selection_preferences": {
+    "across_tactics": true,
+    "with_family": false
+  },
+  "search_fields": [
+    "name",
+    "id"
   ]
 }

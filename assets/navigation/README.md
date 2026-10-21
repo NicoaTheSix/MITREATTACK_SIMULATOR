@@ -1,5 +1,11 @@
 # ATT&CK Navigation Icons
 
+## Workplace / ATLAS monochrome vector icons
+
+`workplace.svg`, `atlas.svg`, `atlas-mitigations.svg`, and `atlas-cases.svg` are original code-native SVG drawings using white strokes and black interiors. They represent a selected workspace, AI processor, protective control, and case-study document respectively. They are application symbols, not official MITRE branding. The existing ATT&CK blue artwork is retained.
+
+Absolute input files: `D:\MITREATTACK_SIMULATOR\assets\navigation\workplace.svg`, `atlas.svg`, `atlas-mitigations.svg`, and `atlas-cases.svg` in the same directory. Runtime output: in-memory Qt icons only. `main.py::load_navigation_icons()` prints each absolute input and **1/3** path reporting, **2/3** per-icon loading, **3/3** ready count. The rail places Workplace first, followed by independent ATT&CK/ATLAS TTP entries; ATLAS Mitigations and Case Studies have their own entries. Multiline ATLAS labels and rail scrolling keep entries accessible at smaller heights. Labels/tooltips use the existing language preference. The integrated `audit_atlas.py` checks loading and records previews under `D:\MITREATTACK_SIMULATOR\artifacts\atlas-workplace`.
+
 此套圖示以現有 TTP 點陣 Icon 為風格參考，使用內建 image_gen 工具逐一生成六個新圖示；TTP 沿用現有圖像。藍色、深灰與白色點綴延續專案的視覺風格，所有 PNG 外部背景透明。各造型為本專案依 ATT&CK 分類含義設計的視覺比喻，非 MITRE 官方圖示。
 
 ## 圖示與定義

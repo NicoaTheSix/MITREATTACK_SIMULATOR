@@ -1,0 +1,139 @@
+{
+  "schema_version": "1.0",
+  "document_id": "fec1b8aa-479b-4b8f-b937-22b3d44dfaf4",
+  "name": "navigator.studio",
+  "created_at_utc": "2026-10-20T07:46:09.154471+00:00",
+  "exported_at_utc": "2026-10-20T07:46:09.165491+00:00",
+  "attack": {
+    "domain": "enterprise-attack",
+    "version": "20.0",
+    "source_url": "https://github.com/mitre-attack/attack-stix-data"
+  },
+  "selected_count": 1,
+  "selected_technique_ids": [
+    "T1055.011"
+  ],
+  "selected_ttps": [
+    {
+      "technique_id": "T1055.011",
+      "stix_id": "attack-pattern--0042a9f5-f053-4769-b3ef-9ad018dfa298",
+      "name": "Extra Window Memory Injection",
+      "is_subtechnique": true,
+      "parent_technique_id": "T1055",
+      "parent_technique_name": "Process Injection",
+      "platforms": [
+        "Windows"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0004",
+          "name": "Privilege Escalation",
+          "shortname": "privilege-escalation"
+        },
+        {
+          "tactic_id": "TA0005",
+          "name": "Stealth",
+          "shortname": "stealth"
+        }
+      ],
+      "comment": "",
+      "tactic_comments": [],
+      "enabled": true,
+      "tactic_enabled": [
+        {
+          "tactic": "privilege-escalation",
+          "enabled": true
+        },
+        {
+          "tactic": "stealth",
+          "enabled": true
+        }
+      ],
+      "selected_tactics": [
+        "privilege-escalation"
+      ]
+    }
+  ],
+  "navigator_import_selected": [
+    "T1055.011"
+  ],
+  "selection_scopes": {
+    "attack-pattern--0042a9f5-f053-4769-b3ef-9ad018dfa298": [
+      "privilege-escalation"
+    ]
+  },
+  "selection_preferences": {
+    "across_tactics": true,
+    "with_family": false,
+    "visible_only": false
+  },
+  "search_fields": [
+    "name",
+    "id"
+  ],
+  "navigator_layer": {
+    "name": "Navigator syntax",
+    "domain": "enterprise-attack",
+    "versions": {
+      "attack": "20.0",
+      "layer": "4.5",
+      "navigator": "5.2.0"
+    },
+    "description": "Score expression: ROUND(a/2)+sin(pi/2)",
+    "techniques": [
+      {
+        "techniqueID": "T1055.011",
+        "tactic": "privilege-escalation",
+        "enabled": true,
+        "score": 1.0
+      }
+    ],
+    "gradient": {
+      "colors": [
+        "#ff6666",
+        "#ffe766",
+        "#8ec843"
+      ],
+      "minValue": 0,
+      "maxValue": 1
+    },
+    "selectSubtechniquesWithParent": false,
+    "metadata": [
+      {
+        "name": "Score expression",
+        "value": "ROUND(a/2)+sin(pi/2)"
+      },
+      {
+        "name": "Calculation mode",
+        "value": "studio"
+      },
+      {
+        "name": "Missing scores",
+        "value": "unscored"
+      },
+      {
+        "name": "Calculation scope",
+        "value": "selected"
+      },
+      {
+        "name": "Source a",
+        "value": "Source a (cd3a1736-2873-451e-a1b7-c4a2ea299afc)"
+      }
+    ],
+    "x_ttp_studio_formula": {
+      "expression": "ROUND(a/2)+sin(pi/2)",
+      "missing": "unscored",
+      "scope": "selected",
+      "inheritance": {},
+      "sources": {
+        "a": {
+          "name": "Source a",
+          "document_id": "cd3a1736-2873-451e-a1b7-c4a2ea299afc"
+        }
+      },
+      "syntax": "navigator",
+      "mode": "studio",
+      "gradient_mode": "studio"
+    }
+  }
+}

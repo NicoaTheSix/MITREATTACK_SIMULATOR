@@ -1,0 +1,10 @@
+Input project: /home/kali/.local/share/ttp-selection-studio-wsl-test/project
+Input Python: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/.venv/bin/python
+Input dataset pointer: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/active.json
+Output report: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/version-recheck/audit.json
+Output feature artifacts: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts
+Input audit: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/audit_versions.py
+Output audit log: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/version-recheck/audit_versions.py.log
+[Linux audit 1/1] Running audit_versions.py (offscreen)
+[Linux audit 1/1] PASS: audit_versions.py (1.02s)
+[Linux audit complete] PASS: 1/1; /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/version-recheck/audit.json

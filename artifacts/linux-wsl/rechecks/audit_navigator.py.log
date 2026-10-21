@@ -1,0 +1,797 @@
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/latest.json
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit.json
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-import-preview.png
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-version-comparison-preview.png
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/fixture.json
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/fixture-utf16.json
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/roundtrip.json
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/plain.json
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/list.csv
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/annotated.json
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/selection-comparison.json
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/version-comparison.json
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/invalid.json
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/multi.json
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/old-layer.json
+[Application icon 1/2] Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/assets/ttp-selection-studio-icon-pixel.png
+[Application icon 1/2] Output files: None (application/window icon in memory)
+[Application icon 2/2] Complete: pixel icon applied to application and windows
+[Preview fonts] Complete
+[UI settings 1/2] Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/ui-settings.ini
+[UI settings 1/2] Output files: None (reading preferences)
+[UI settings 2/2] Complete: navigation labels shown
+[Language 1/2] Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/locales/zh_TW.json
+Output files: None (translation catalog in memory)
+[Language 2/2] Ready: 644 Taiwan translations
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/info/attack-release-notes.json
+Output files: None (Info menu in memory)
+[Info history 1/2] Reading offline release introductions
+[Info history 2/2] Complete: 20 official release entries
+[Navigation icons 1/3] Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/assets/ttp-selection-studio-icon-pixel.png
+[Navigation icons 1/3] Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/assets/navigation/mitigations.png
+[Navigation icons 1/3] Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/assets/navigation/assets.png
+[Navigation icons 1/3] Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/assets/navigation/detections.png
+[Navigation icons 1/3] Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/assets/navigation/groups.png
+[Navigation icons 1/3] Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/assets/navigation/software.png
+[Navigation icons 1/3] Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/assets/navigation/campaigns.png
+[Navigation icons 1/3] Output files: None (button icons in memory)
+[Navigation icons 2/3] Loading TTP (1/7)
+[Navigation icons 2/3] Loading Mitigations (2/7)
+[Navigation icons 2/3] Loading Assets (3/7)
+[Navigation icons 2/3] Loading Detections (4/7)
+[Navigation icons 2/3] Loading Groups (5/7)
+[Navigation icons 2/3] Loading Software (6/7)
+[Navigation icons 2/3] Loading Campaigns (7/7)
+[Navigation icons 3/3] Complete: 7/7 icons ready
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/latest.json
+Output files: None (catalog is loaded into memory)
+[1/4 Resolve] Reading snapshot pointer
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/v20.0/manifest.json
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/v20.0/enterprise-attack-20.0.json
+[1/4 Resolve] Complete: Enterprise ATT&CK v20.0 (1/1)
+[2/4 Read] Reading and checking bundle (4194304/55271014)
+[2/4 Read] Reading and checking bundle (8388608/55271014)
+[2/4 Read] Reading and checking bundle (12582912/55271014)
+[2/4 Read] Reading and checking bundle (16777216/55271014)
+[2/4 Read] Reading and checking bundle (20971520/55271014)
+[2/4 Read] Reading and checking bundle (25165824/55271014)
+[2/4 Read] Reading and checking bundle (29360128/55271014)
+[2/4 Read] Reading and checking bundle (33554432/55271014)
+[2/4 Read] Reading and checking bundle (37748736/55271014)
+[2/4 Read] Reading and checking bundle (41943040/55271014)
+[2/4 Read] Reading and checking bundle (46137344/55271014)
+[2/4 Read] Reading and checking bundle (50331648/55271014)
+[2/4 Read] Reading and checking bundle (54525952/55271014)
+[2/4 Read] Reading and checking bundle (55271014/55271014)
+[2/4 Read] Parsing JSON
+[3/4 Index] Indexing active ATT&CK objects (2000/26690)
+[3/4 Index] Indexing active ATT&CK objects (4000/26690)
+[3/4 Index] Indexing active ATT&CK objects (6000/26690)
+[3/4 Index] Indexing active ATT&CK objects (8000/26690)
+[3/4 Index] Indexing active ATT&CK objects (10000/26690)
+[3/4 Index] Indexing active ATT&CK objects (12000/26690)
+[3/4 Index] Indexing active ATT&CK objects (14000/26690)
+[3/4 Index] Indexing active ATT&CK objects (16000/26690)
+[3/4 Index] Indexing active ATT&CK objects (18000/26690)
+[3/4 Index] Indexing active ATT&CK objects (20000/26690)
+[3/4 Index] Indexing active ATT&CK objects (22000/26690)
+[3/4 Index] Indexing active ATT&CK objects (24000/26690)
+[3/4 Index] Indexing active ATT&CK objects (26000/26690)
+[3/4 Index] Mapping platforms and tactics (100/706)
+[3/4 Index] Mapping platforms and tactics (200/706)
+[3/4 Index] Mapping platforms and tactics (300/706)
+[3/4 Index] Mapping platforms and tactics (400/706)
+[3/4 Index] Mapping platforms and tactics (500/706)
+[3/4 Index] Mapping platforms and tactics (600/706)
+[3/4 Index] Mapping platforms and tactics (700/706)
+[3/4 Index] Complete: 706 active techniques/sub-techniques, 11 platforms (706/706)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/26690)
+[3/4 Procedures] Reading Enterprise relationships (4000/26690)
+[3/4 Procedures] Reading Enterprise relationships (8000/26690)
+[3/4 Procedures] Reading Enterprise relationships (12000/26690)
+[3/4 Procedures] Reading Enterprise relationships (16000/26690)
+[3/4 Procedures] Reading Enterprise relationships (20000/26690)
+[3/4 Procedures] Reading Enterprise relationships (24000/26690)
+[3/4 Procedures] Complete: Enterprise 17636 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/26690)
+[3/4 Related TTPs] Reading relationships (4000/26690)
+[3/4 Related TTPs] Reading relationships (8000/26690)
+[3/4 Related TTPs] Reading relationships (12000/26690)
+[3/4 Related TTPs] Reading relationships (16000/26690)
+[3/4 Related TTPs] Reading relationships (20000/26690)
+[3/4 Related TTPs] Reading relationships (24000/26690)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 23980 direct/derived mappings (1/1)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/v20.0/mobile-attack-20.0.json
+[3/4 Library] Reading and checking Mobile (4194304/6095145)
+[3/4 Library] Reading and checking Mobile (6095145/6095145)
+[3/4 Library] Parsing Mobile JSON
+[3/4 Procedures] Indexing Mobile procedure examples (0/2684)
+[3/4 Procedures] Complete: Mobile 1522 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Mobile objects in memory)
+[3/4 Related TTPs] Indexing Mobile direct source relationships (0/2684)
+[3/4 Related TTPs] Resolving Mobile strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Mobile 2419 direct/derived mappings (1/1)
+[3/4 Library] Complete: Mobile (1/1)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/v20.0/ics-attack-20.0.json
+[3/4 Library] Reading and checking ICS (4194304/5266683)
+[3/4 Library] Reading and checking ICS (5266683/5266683)
+[3/4 Library] Parsing ICS JSON
+[3/4 Procedures] Indexing ICS procedure examples (0/2566)
+[3/4 Procedures] Complete: ICS 307 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships (0/2566)
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 2185 direct/derived mappings (1/1)
+[3/4 Library] Complete: ICS (1/1)
+[3/4 Library] Complete: six navigation categories indexed across all three domains (1/1)
+[4/4 Tree] Complete: 706 unique selectable technique IDs
+Input files: None (exact domain/version catalog in memory); output files: None
+[Search Index 1/3] Reading legacy data sources and active detection mappings (0/3)
+[Search Index 2/3] Building name/ID/description/data-source/detection-strategy fields (1/3)
+[Search Index 3/3] Ready: 706 techniques in enterprise-attack v20.0 (3/3)
+[Navigator audit 1/7] Official SDK validation and fractional/Unicode annotation preservation
+Input files: None (validated in-memory data)
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/fixture.json
+Temporary output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/fixture.json.5b7667f2bd2a411cbf1e33ddacbd46dd.tmp
+[Audit fixture 1/3] Serializing data (0/3)
+[Audit fixture 2/3] Writing UTF-8 JSON (1/3)
+[Audit fixture 3/3] Publishing file (2/3)
+[Audit fixture 3/3] Complete: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/fixture.json (3/3)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/fixture.json
+Output files: None (import preview in memory)
+[Navigator Import 1/4] Reading and validating layer file (0/1)
+[Navigator Import 1/4] Layer validated by mitreattack-python (1/1)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/fixture-utf16.json
+Output files: None (import preview in memory)
+[Navigator Import 1/4] Reading and validating layer file (0/1)
+[Navigator Import 1/4] Layer validated by mitreattack-python (1/1)
+Input files: None (validated in-memory data)
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/fixture.json
+Temporary output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/fixture.json.1de5588bd1f24d81a598c4ab867972e8.tmp
+[Official audit fixture 1/3] Serializing data (0/3)
+[Official audit fixture 2/3] Writing UTF-8 JSON (1/3)
+[Official audit fixture 3/3] Publishing file (2/3)
+[Official audit fixture 3/3] Complete: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/fixture.json (3/3)
+[Navigator audit 2/7] Native import preview, cancellation and independent documents
+[Navigator Import] Cancelled; no output files written (1/1)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/versions-cache.json
+This plugin does not support propagateSizeHints()
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/fixture.json
+Output files: None (multi-layer import preview in memory)
+[Layer Batch 1/5] Reading and validating every layer in the JSON file (0/5)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/fixture.json
+Output files: None (import preview in memory)
+[Navigator Import 1/4] Reading and validating layer file (0/1)
+[Navigator Import 1/4] Layer validated by mitreattack-python (1/1)
+This plugin does not support propagateSizeHints()
+Input files: None (validated layers in memory; exact catalog inputs follow)
+Output files: None (independent layer previews in memory)
+[Layer Batch 2/5] Resolving layer 1: Research Layer (0/1)
+[Layer Batch 3/5] Layer 1: Ready (1/1)
+[Layer Batch 3/5] Preview complete; no documents have been added (3/5)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/versions-cache.json
+This plugin does not support propagateSizeHints()
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/fixture.json
+Output files: None (multi-layer import preview in memory)
+[Layer Batch 1/5] Reading and validating every layer in the JSON file (0/5)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/fixture.json
+Output files: None (import preview in memory)
+[Navigator Import 1/4] Reading and validating layer file (0/1)
+[Navigator Import 1/4] Layer validated by mitreattack-python (1/1)
+This plugin does not support propagateSizeHints()
+Input files: None (validated layers in memory; exact catalog inputs follow)
+Output files: None (independent layer previews in memory)
+[Layer Batch 2/5] Resolving layer 1: Research Layer (0/1)
+[Layer Batch 3/5] Layer 1: Ready (1/1)
+[Layer Batch 3/5] Preview complete; no documents have been added (3/5)
+Input files: None; output files: None (selected Navigator layers in memory)
+[Layer Batch 4/5] Validating complete draft 1/1 (0/1)
+[Layer Batch 4/5] All selected drafts validated; no workspace changes yet (1/1)
+Input files: None; output files: None (validated Navigator drafts in memory)
+[Layer Batch 5/5] Installed all validated documents in file order (1/1)
+[Document 1/2] Input files: None; output files: None; activating Research Layer (0/2)
+[Document 2/2] Ready: Research Layer; 1 selected TTPs (2/2)
+[Layer Batch 5/5] All selected layers opened as independent documents (1/1)
+Input files: None (document and matrix visibility in memory)
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/roundtrip.json
+Input files: None (document and annotation data in memory)
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/roundtrip.json
+[Navigator Export Prepare] Validating with the official SDK (0/1)
+Input files: None (document/catalog and matrix visibility in memory)
+Output files: None (immutable JSON export preview)
+[JSON Preview 1/3] Validating complete annotations (0/3)
+[JSON Preview 2/3] Resolving technique / tactic annotations (100/706)
+[JSON Preview 2/3] Resolving technique / tactic annotations (200/706)
+[JSON Preview 2/3] Resolving technique / tactic annotations (300/706)
+[JSON Preview 2/3] Resolving technique / tactic annotations (400/706)
+[JSON Preview 2/3] Resolving technique / tactic annotations (500/706)
+[JSON Preview 2/3] Resolving technique / tactic annotations (600/706)
+[JSON Preview 2/3] Resolving technique / tactic annotations (700/706)
+[JSON Preview 2/3] Resolving technique / tactic annotations (706/706)
+[JSON Preview 3/3] Hidden modified annotation cells: 5 (3/3)
+[Navigator Export] Hidden modified annotation cells: 5; preserving all annotations (1/1)
+Input files: None (validated in-memory data)
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/roundtrip.json
+Temporary output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/roundtrip.json.1c7a31008b32432f9983e523457104a8.tmp
+[Navigator Export 1/3] Serializing data (0/3)
+[Navigator Export 2/3] Writing UTF-8 JSON (1/3)
+[Navigator Export 3/3] Publishing file (2/3)
+[Navigator Export 3/3] Complete: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/roundtrip.json (3/3)
+[Navigator Export] Exchange file written; use Save / Save As to mark the complete Studio document saved. (1/1)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/roundtrip.json
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/roundtrip.json
+Output files: None (import preview in memory)
+[Navigator Import 1/4] Reading and validating layer file (0/1)
+[Navigator Import 1/4] Layer validated by mitreattack-python (1/1)
+Input files: None (active document and verified catalog in memory)
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/plain.json
+Temporary output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/plain.json.8592ae9e1fb9438ea505e5f2001dadea.tmp
+[Export 1/3 Prepare] Validating and serializing selected TTPs (0/3)
+[Export 2/3 Write] Writing 1 selected TTPs (1/3)
+[Export 3/3 Publish] Publishing JSON file (2/3)
+[Export 3/3 Publish] Complete: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/plain.json (3/3)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/plain.json
+Input files: None (active document and verified catalog in memory)
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/list.csv
+Temporary output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/list.csv.13a0cf0948474511b5fda82d095dda01.tmp
+[Export 1/3 Prepare] Validating and serializing selected TTPs (0/3)
+[Export 2/3 Write] Writing 1 selected TTPs (1/3)
+[Export 3/3 Publish] Publishing CSV file (2/3)
+[Export] CSV is an exchange file; use Save / Save As for a complete editable Studio document. (1/1)
+[Export 3/3 Publish] Complete: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/list.csv (3/3)
+Output directory: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/blocked.json
+Input files: None (document and annotation data in memory)
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/blocked.json
+[Navigator Export Prepare] Validating with the official SDK (0/1)
+Input files: None (document/catalog and matrix visibility in memory)
+Output files: None (immutable JSON export preview)
+[JSON Preview 1/3] Validating complete annotations (0/3)
+[JSON Preview 2/3] Resolving technique / tactic annotations (100/706)
+[JSON Preview 2/3] Resolving technique / tactic annotations (200/706)
+[JSON Preview 2/3] Resolving technique / tactic annotations (300/706)
+[JSON Preview 2/3] Resolving technique / tactic annotations (400/706)
+[JSON Preview 2/3] Resolving technique / tactic annotations (500/706)
+[JSON Preview 2/3] Resolving technique / tactic annotations (600/706)
+[JSON Preview 2/3] Resolving technique / tactic annotations (700/706)
+[JSON Preview 2/3] Resolving technique / tactic annotations (706/706)
+[JSON Preview 3/3] Hidden modified annotation cells: 5 (3/3)
+[Navigator Export] Hidden modified annotation cells: 5; preserving all annotations (1/1)
+Input files: None (validated in-memory data)
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/blocked.json
+Temporary output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/blocked.json.904f4e0837c84b4687f1c144546e6622.tmp
+[Navigator Export 1/3] Serializing data (0/3)
+[Navigator Export 2/3] Writing UTF-8 JSON (1/3)
+[Navigator Export 3/3] Publishing file (2/3)
+[Navigator audit 3/7] Native annotation editor and saved-format default
+Input files: None; output files: None (document annotations in memory)
+[Annotation 1/2] Editing technique annotation (0/2)
+This plugin does not support propagateSizeHints()
+[Annotation 2/2] Saved in active document (2/2)
+Input files: None (document and matrix visibility in memory)
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/annotated.json
+Input files: None (open layers and matrix visibility in memory)
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/annotated.json
+Input files: None (document/catalog and matrix visibility in memory)
+Output files: None (immutable JSON export preview)
+[JSON Preview 1/3] Validating complete annotations (0/3)
+[JSON Preview 2/3] Resolving technique / tactic annotations (100/706)
+[JSON Preview 2/3] Resolving technique / tactic annotations (200/706)
+[JSON Preview 2/3] Resolving technique / tactic annotations (300/706)
+[JSON Preview 2/3] Resolving technique / tactic annotations (400/706)
+[JSON Preview 2/3] Resolving technique / tactic annotations (500/706)
+[JSON Preview 2/3] Resolving technique / tactic annotations (600/706)
+[JSON Preview 2/3] Resolving technique / tactic annotations (700/706)
+[JSON Preview 2/3] Resolving technique / tactic annotations (706/706)
+[JSON Preview 3/3] Hidden modified annotation cells: 6 (3/3)
+This plugin does not support propagateSizeHints()
+Input files: None (document and annotation data in memory)
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/annotated.json
+[Navigator Export Prepare] Validating with the official SDK (0/1)
+Input files: None (document/catalog and matrix visibility in memory)
+Output files: None (immutable JSON export preview)
+[JSON Preview 1/3] Validating complete annotations (0/3)
+[JSON Preview 2/3] Resolving technique / tactic annotations (100/706)
+[JSON Preview 2/3] Resolving technique / tactic annotations (200/706)
+[JSON Preview 2/3] Resolving technique / tactic annotations (300/706)
+[JSON Preview 2/3] Resolving technique / tactic annotations (400/706)
+[JSON Preview 2/3] Resolving technique / tactic annotations (500/706)
+[JSON Preview 2/3] Resolving technique / tactic annotations (600/706)
+[JSON Preview 2/3] Resolving technique / tactic annotations (700/706)
+[JSON Preview 2/3] Resolving technique / tactic annotations (706/706)
+[JSON Preview 3/3] Hidden modified annotation cells: 6 (3/3)
+[Navigator Export] Hidden modified annotation cells: 6; preserving all annotations (1/1)
+Input files: None (validated in-memory data)
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/annotated.json
+Temporary output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/annotated.json.3f316aa8907441098ac94f0b54ca71fd.tmp
+[Navigator Export 1/3] Serializing data (0/3)
+[Navigator Export 2/3] Writing UTF-8 JSON (1/3)
+[Navigator Export 3/3] Publishing file (2/3)
+[Navigator Export 3/3] Complete: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/annotated.json (3/3)
+[Navigator Export] Exchange file written; use Save / Save As to mark the complete Studio document saved. (1/1)
+[Export] Cancelled; no output files written (1/1)
+[Navigator audit 4/7] Selection comparison and exact version isolation
+[New File 1/2] Input files: None; output files: None (document in memory) (0/2)
+[Document 1/2] Input files: None; output files: None; activating Untitled-2 (0/2)
+[Document 2/2] Ready: Untitled-2; 0 selected TTPs (2/2)
+[New File 2/2] Created Untitled-2 (2/2)
+Input files: None; output files: None (selected TTP occurrences in memory)
+[Select TTP 1/2] Resolving tactic/family preferences (0/2)
+[Select TTP 2/2] Ready; enabled states and annotations preserved (2/2)
+Input files: None; output files: None (selected TTP occurrences in memory)
+[Select TTP 1/2] Resolving tactic/family preferences (0/2)
+[Select TTP 2/2] Ready; enabled states and annotations preserved (2/2)
+Input files: None (validated in-memory data)
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/selection-comparison.json
+Temporary output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/selection-comparison.json.5bcc35a840e64c39b014d9ca79572f4a.tmp
+[Navigator Export 1/3] Serializing data (0/3)
+[Navigator Export 2/3] Writing UTF-8 JSON (1/3)
+[Navigator Export 3/3] Publishing file (2/3)
+[Navigator Export 3/3] Complete: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/selection-comparison.json (3/3)
+Input files: None; output files: None (open documents in memory)
+[Selection Compare 1/2] Comparing selected TTPs (0/1)
+[Selection Compare 2/2] Both: 0; Left only: 0; Right only: 1 (1/1)
+This plugin does not support propagateSizeHints()
+Input files: None; output files: None (open documents in memory)
+[Selection Compare 1/2] Comparing selected TTPs (0/1)
+[Selection Compare 2/2] Both: 1; Left only: 0; Right only: 0 (1/1)
+Input files: None; output files: None (open documents in memory)
+[Selection Compare 1/2] Comparing selected TTPs (0/1)
+[Selection Compare 2/2] Both: 1; Left only: 0; Right only: 1 (1/1)
+Input pointer: in memory (validated version selection)
+Output files: None (catalog is loaded into memory)
+[1/4 Resolve] Reading snapshot pointer
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/v11.2/manifest.json
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/v11.2/enterprise-attack-11.2.json
+[1/4 Resolve] Complete: Enterprise ATT&CK v11.2 (1/1)
+[2/4 Read] Reading and checking bundle (4194304/35075701)
+[2/4 Read] Reading and checking bundle (8388608/35075701)
+[2/4 Read] Reading and checking bundle (12582912/35075701)
+[2/4 Read] Reading and checking bundle (16777216/35075701)
+[2/4 Read] Reading and checking bundle (20971520/35075701)
+[2/4 Read] Reading and checking bundle (25165824/35075701)
+[2/4 Read] Reading and checking bundle (29360128/35075701)
+[2/4 Read] Reading and checking bundle (33554432/35075701)
+[2/4 Read] Reading and checking bundle (35075701/35075701)
+[2/4 Read] Parsing JSON
+[3/4 Index] Indexing active ATT&CK objects (2000/17672)
+[3/4 Index] Indexing active ATT&CK objects (4000/17672)
+[3/4 Index] Indexing active ATT&CK objects (6000/17672)
+[3/4 Index] Indexing active ATT&CK objects (8000/17672)
+[3/4 Index] Indexing active ATT&CK objects (10000/17672)
+[3/4 Index] Indexing active ATT&CK objects (12000/17672)
+[3/4 Index] Indexing active ATT&CK objects (14000/17672)
+[3/4 Index] Indexing active ATT&CK objects (16000/17672)
+[3/4 Index] Mapping platforms and tactics (100/576)
+[3/4 Index] Mapping platforms and tactics (200/576)
+[3/4 Index] Mapping platforms and tactics (300/576)
+[3/4 Index] Mapping platforms and tactics (400/576)
+[3/4 Index] Mapping platforms and tactics (500/576)
+[3/4 Index] Complete: 576 active techniques/sub-techniques, 11 platforms (576/576)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/17672)
+[3/4 Procedures] Reading Enterprise relationships (4000/17672)
+[3/4 Procedures] Reading Enterprise relationships (8000/17672)
+[3/4 Procedures] Reading Enterprise relationships (12000/17672)
+[3/4 Procedures] Reading Enterprise relationships (16000/17672)
+[3/4 Procedures] Complete: Enterprise 10359 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/17672)
+[3/4 Related TTPs] Reading relationships (4000/17672)
+[3/4 Related TTPs] Reading relationships (8000/17672)
+[3/4 Related TTPs] Reading relationships (12000/17672)
+[3/4 Related TTPs] Reading relationships (16000/17672)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 14988 direct/derived mappings (1/1)
+[3/4 Library] Mobile is not available in this historical version (1/1)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/v11.2/ics-attack-11.2.json
+[3/4 Library] Reading and checking ICS (2037451/2037451)
+[3/4 Library] Parsing ICS JSON
+[3/4 Procedures] Indexing ICS procedure examples (0/1106)
+[3/4 Procedures] Complete: ICS 169 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships (0/1106)
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 883 direct/derived mappings (1/1)
+[3/4 Library] Complete: ICS (1/1)
+[3/4 Library] Complete: six navigation categories indexed across all three domains (1/1)
+Input pointer: in memory (validated version selection)
+Output files: None (catalog is loaded into memory)
+[1/4 Resolve] Reading snapshot pointer
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/v1.0/manifest.json
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/v1.0/enterprise-attack-1.0.json
+[1/4 Resolve] Complete: Enterprise ATT&CK v1.0 (1/1)
+[2/4 Read] Reading and checking bundle (4194304/5320883)
+[2/4 Read] Reading and checking bundle (5320883/5320883)
+[2/4 Read] Parsing JSON
+[3/4 Index] Indexing active ATT&CK objects (2000/2781)
+[3/4 Index] Derived 10 historical phase headings from this release (no tactic IDs provided) (1/1)
+[3/4 Index] Mapping platforms and tactics (100/188)
+[3/4 Index] Complete: 188 active techniques/sub-techniques, 3 platforms (188/188)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/2781)
+[3/4 Procedures] Complete: Enterprise 1748 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/2781)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 1931 direct/derived mappings (1/1)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/v1.0/mobile-attack-1.0.json
+[3/4 Library] Reading and checking Mobile (671518/671518)
+[3/4 Library] Parsing Mobile JSON
+[3/4 Procedures] Indexing Mobile procedure examples (0/375)
+[3/4 Procedures] Complete: Mobile 122 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Mobile objects in memory)
+[3/4 Related TTPs] Indexing Mobile direct source relationships (0/375)
+[3/4 Related TTPs] Resolving Mobile strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Mobile 244 direct/derived mappings (1/1)
+[3/4 Library] Complete: Mobile (1/1)
+[3/4 Library] ICS is not available in this historical version (1/1)
+[3/4 Library] Complete: six navigation categories indexed across all three domains (1/1)
+Input files: None (validated in-memory data)
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/old-layer.json
+Temporary output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/old-layer.json.69f8c78fa8ec4ef9b285a256b3761872.tmp
+[Navigator Export 1/3] Serializing data (0/3)
+[Navigator Export 2/3] Writing UTF-8 JSON (1/3)
+[Navigator Export 3/3] Publishing file (2/3)
+[Navigator Export 3/3] Complete: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/old-layer.json (3/3)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/versions-cache.json
+This plugin does not support propagateSizeHints()
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/old-layer.json
+Output files: None (multi-layer import preview in memory)
+[Layer Batch 1/5] Reading and validating every layer in the JSON file (0/5)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/old-layer.json
+Output files: None (import preview in memory)
+[Navigator Import 1/4] Reading and validating layer file (0/1)
+[Navigator Import 1/4] Layer validated by mitreattack-python (1/1)
+This plugin does not support propagateSizeHints()
+Input files: None (validated layers in memory; exact catalog inputs follow)
+Output files: None (independent layer previews in memory)
+[Layer Batch 2/5] Resolving layer 1: Research Layer (0/1)
+[Studio Open 2/4] Resolving exact dataset 11.2 (1/4)
+Input pointer: in memory (validated version selection)
+Output files: None (catalog is loaded into memory)
+[1/4 Resolve] Reading snapshot pointer
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/v11.2/manifest.json
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/v11.2/enterprise-attack-11.2.json
+[1/4 Resolve] Complete: Enterprise ATT&CK v11.2 (1/1)
+[2/4 Read] Reading and checking bundle (4194304/35075701)
+[2/4 Read] Reading and checking bundle (8388608/35075701)
+[2/4 Read] Reading and checking bundle (12582912/35075701)
+[2/4 Read] Reading and checking bundle (16777216/35075701)
+[2/4 Read] Reading and checking bundle (20971520/35075701)
+[2/4 Read] Reading and checking bundle (25165824/35075701)
+[2/4 Read] Reading and checking bundle (29360128/35075701)
+[2/4 Read] Reading and checking bundle (33554432/35075701)
+[2/4 Read] Reading and checking bundle (35075701/35075701)
+[2/4 Read] Parsing JSON
+[3/4 Index] Indexing active ATT&CK objects (2000/17672)
+[3/4 Index] Indexing active ATT&CK objects (4000/17672)
+[3/4 Index] Indexing active ATT&CK objects (6000/17672)
+[3/4 Index] Indexing active ATT&CK objects (8000/17672)
+[3/4 Index] Indexing active ATT&CK objects (10000/17672)
+[3/4 Index] Indexing active ATT&CK objects (12000/17672)
+[3/4 Index] Indexing active ATT&CK objects (14000/17672)
+[3/4 Index] Indexing active ATT&CK objects (16000/17672)
+[3/4 Index] Mapping platforms and tactics (100/576)
+[3/4 Index] Mapping platforms and tactics (200/576)
+[3/4 Index] Mapping platforms and tactics (300/576)
+[3/4 Index] Mapping platforms and tactics (400/576)
+[3/4 Index] Mapping platforms and tactics (500/576)
+[3/4 Index] Complete: 576 active techniques/sub-techniques, 11 platforms (576/576)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/17672)
+[3/4 Procedures] Reading Enterprise relationships (4000/17672)
+[3/4 Procedures] Reading Enterprise relationships (8000/17672)
+[3/4 Procedures] Reading Enterprise relationships (12000/17672)
+[3/4 Procedures] Reading Enterprise relationships (16000/17672)
+[3/4 Procedures] Complete: Enterprise 10359 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/17672)
+[3/4 Related TTPs] Reading relationships (4000/17672)
+[3/4 Related TTPs] Reading relationships (8000/17672)
+[3/4 Related TTPs] Reading relationships (12000/17672)
+[3/4 Related TTPs] Reading relationships (16000/17672)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 14988 direct/derived mappings (1/1)
+[3/4 Library] Mobile is not available in this historical version (1/1)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/v11.2/ics-attack-11.2.json
+[3/4 Library] Reading and checking ICS (2037451/2037451)
+[3/4 Library] Parsing ICS JSON
+[3/4 Procedures] Indexing ICS procedure examples (0/1106)
+[3/4 Procedures] Complete: ICS 169 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships (0/1106)
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 883 direct/derived mappings (1/1)
+[3/4 Library] Complete: ICS (1/1)
+[3/4 Library] Complete: six navigation categories indexed across all three domains (1/1)
+[Layer Batch 3/5] Layer 1: Ready (1/1)
+[Layer Batch 3/5] Preview complete; no documents have been added (3/5)
+[Navigator audit 5/7] Official SDK STIX 2.1 version comparison in background
+Input files: None; output files: None (selected TTP occurrences in memory)
+[Select TTP 1/2] Resolving tactic/family preferences (0/2)
+[Select TTP 2/2] Ready; enabled states and annotations preserved (2/2)
+This plugin does not support propagateSizeHints()
+Input files: None; output files: None (SDK initialization)
+[Version Compare Prepare] Loading official SDK (0/1)
+Input files: None (validated layers in memory; exact catalog inputs follow)
+Output files: None (independent layer previews in memory)
+[Layer Batch 2/5] Resolving layer 1: Research Layer (0/1)
+[Layer Batch 3/5] Layer 1: Ready (1/1)
+Output files: None (report in memory; SDK staging files are temporary)
+[Version Compare 1/4] Verifying both local snapshots (0/2)
+Input pointer: in memory (validated version selection)
+Output files: None (catalog is loaded into memory)
+[1/4 Resolve] Reading snapshot pointer
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/v20.0/manifest.json
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/v20.0/enterprise-attack-20.0.json
+[1/4 Resolve] Complete: Enterprise ATT&CK v20.0 (1/1)
+[2/4 Read] Reading and checking bundle (4194304/55271014)
+[2/4 Read] Reading and checking bundle (8388608/55271014)
+[2/4 Read] Reading and checking bundle (12582912/55271014)
+[2/4 Read] Reading and checking bundle (16777216/55271014)
+[2/4 Read] Reading and checking bundle (20971520/55271014)
+[2/4 Read] Reading and checking bundle (25165824/55271014)
+[2/4 Read] Reading and checking bundle (29360128/55271014)
+[2/4 Read] Reading and checking bundle (33554432/55271014)
+[2/4 Read] Reading and checking bundle (37748736/55271014)
+[2/4 Read] Reading and checking bundle (41943040/55271014)
+[2/4 Read] Reading and checking bundle (46137344/55271014)
+[2/4 Read] Reading and checking bundle (50331648/55271014)
+[2/4 Read] Reading and checking bundle (54525952/55271014)
+[2/4 Read] Reading and checking bundle (55271014/55271014)
+[2/4 Read] Parsing JSON
+[3/4 Index] Indexing active ATT&CK objects (2000/26690)
+[3/4 Index] Indexing active ATT&CK objects (4000/26690)
+[3/4 Index] Indexing active ATT&CK objects (6000/26690)
+[3/4 Index] Indexing active ATT&CK objects (8000/26690)
+[3/4 Index] Indexing active ATT&CK objects (10000/26690)
+[3/4 Index] Indexing active ATT&CK objects (12000/26690)
+[3/4 Index] Indexing active ATT&CK objects (14000/26690)
+[3/4 Index] Indexing active ATT&CK objects (16000/26690)
+[3/4 Index] Indexing active ATT&CK objects (18000/26690)
+[3/4 Index] Indexing active ATT&CK objects (20000/26690)
+[3/4 Index] Indexing active ATT&CK objects (22000/26690)
+[3/4 Index] Indexing active ATT&CK objects (24000/26690)
+[3/4 Index] Indexing active ATT&CK objects (26000/26690)
+[3/4 Index] Mapping platforms and tactics (100/706)
+[3/4 Index] Mapping platforms and tactics (200/706)
+[3/4 Index] Mapping platforms and tactics (300/706)
+[3/4 Index] Mapping platforms and tactics (400/706)
+[3/4 Index] Mapping platforms and tactics (500/706)
+[3/4 Index] Mapping platforms and tactics (600/706)
+[3/4 Index] Mapping platforms and tactics (700/706)
+[3/4 Index] Complete: 706 active techniques/sub-techniques, 11 platforms (706/706)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/26690)
+[3/4 Procedures] Reading Enterprise relationships (4000/26690)
+[3/4 Procedures] Reading Enterprise relationships (8000/26690)
+[3/4 Procedures] Reading Enterprise relationships (12000/26690)
+[3/4 Procedures] Reading Enterprise relationships (16000/26690)
+[3/4 Procedures] Reading Enterprise relationships (20000/26690)
+[3/4 Procedures] Reading Enterprise relationships (24000/26690)
+[3/4 Procedures] Complete: Enterprise 17636 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/26690)
+[3/4 Related TTPs] Reading relationships (4000/26690)
+[3/4 Related TTPs] Reading relationships (8000/26690)
+[3/4 Related TTPs] Reading relationships (12000/26690)
+[3/4 Related TTPs] Reading relationships (16000/26690)
+[3/4 Related TTPs] Reading relationships (20000/26690)
+[3/4 Related TTPs] Reading relationships (24000/26690)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 23980 direct/derived mappings (1/1)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/v20.0/mobile-attack-20.0.json
+[3/4 Library] Reading and checking Mobile (4194304/6095145)
+[3/4 Library] Reading and checking Mobile (6095145/6095145)
+[3/4 Library] Parsing Mobile JSON
+[3/4 Procedures] Indexing Mobile procedure examples (0/2684)
+[3/4 Procedures] Complete: Mobile 1522 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Mobile objects in memory)
+[3/4 Related TTPs] Indexing Mobile direct source relationships (0/2684)
+[3/4 Related TTPs] Resolving Mobile strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Mobile 2419 direct/derived mappings (1/1)
+[3/4 Library] Complete: Mobile (1/1)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/v20.0/ics-attack-20.0.json
+[3/4 Library] Reading and checking ICS (4194304/5266683)
+[3/4 Library] Reading and checking ICS (5266683/5266683)
+[3/4 Library] Parsing ICS JSON
+[3/4 Procedures] Indexing ICS procedure examples (0/2566)
+[3/4 Procedures] Complete: ICS 307 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships (0/2566)
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 2185 direct/derived mappings (1/1)
+[3/4 Library] Complete: ICS (1/1)
+[3/4 Library] Complete: six navigation categories indexed across all three domains (1/1)
+[Version Compare 1/4] Snapshot verified (1/2)
+Input pointer: in memory (validated version selection)
+Output files: None (catalog is loaded into memory)
+[1/4 Resolve] Reading snapshot pointer
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/v11.2/manifest.json
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/v11.2/enterprise-attack-11.2.json
+[1/4 Resolve] Complete: Enterprise ATT&CK v11.2 (1/1)
+[2/4 Read] Reading and checking bundle (4194304/35075701)
+[2/4 Read] Reading and checking bundle (8388608/35075701)
+[2/4 Read] Reading and checking bundle (12582912/35075701)
+[2/4 Read] Reading and checking bundle (16777216/35075701)
+[2/4 Read] Reading and checking bundle (20971520/35075701)
+[2/4 Read] Reading and checking bundle (25165824/35075701)
+[2/4 Read] Reading and checking bundle (29360128/35075701)
+[2/4 Read] Reading and checking bundle (33554432/35075701)
+[2/4 Read] Reading and checking bundle (35075701/35075701)
+[2/4 Read] Parsing JSON
+[3/4 Index] Indexing active ATT&CK objects (2000/17672)
+[3/4 Index] Indexing active ATT&CK objects (4000/17672)
+[3/4 Index] Indexing active ATT&CK objects (6000/17672)
+[3/4 Index] Indexing active ATT&CK objects (8000/17672)
+[3/4 Index] Indexing active ATT&CK objects (10000/17672)
+[3/4 Index] Indexing active ATT&CK objects (12000/17672)
+[3/4 Index] Indexing active ATT&CK objects (14000/17672)
+[3/4 Index] Indexing active ATT&CK objects (16000/17672)
+[3/4 Index] Mapping platforms and tactics (100/576)
+[3/4 Index] Mapping platforms and tactics (200/576)
+[3/4 Index] Mapping platforms and tactics (300/576)
+[3/4 Index] Mapping platforms and tactics (400/576)
+[3/4 Index] Mapping platforms and tactics (500/576)
+[3/4 Index] Complete: 576 active techniques/sub-techniques, 11 platforms (576/576)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/17672)
+[3/4 Procedures] Reading Enterprise relationships (4000/17672)
+[3/4 Procedures] Reading Enterprise relationships (8000/17672)
+[3/4 Procedures] Reading Enterprise relationships (12000/17672)
+[3/4 Procedures] Reading Enterprise relationships (16000/17672)
+[3/4 Procedures] Complete: Enterprise 10359 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/17672)
+[3/4 Related TTPs] Reading relationships (4000/17672)
+[3/4 Related TTPs] Reading relationships (8000/17672)
+[3/4 Related TTPs] Reading relationships (12000/17672)
+[3/4 Related TTPs] Reading relationships (16000/17672)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 14988 direct/derived mappings (1/1)
+[3/4 Library] Mobile is not available in this historical version (1/1)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/v11.2/ics-attack-11.2.json
+[3/4 Library] Reading and checking ICS (2037451/2037451)
+[3/4 Library] Parsing ICS JSON
+[3/4 Procedures] Indexing ICS procedure examples (0/1106)
+[3/4 Procedures] Complete: ICS 169 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships (0/1106)
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 883 direct/derived mappings (1/1)
+[3/4 Library] Complete: ICS (1/1)
+[3/4 Library] Complete: six navigation categories indexed across all three domains (1/1)
+[Version Compare 1/4] Snapshot verified (2/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/v20.0/enterprise-attack-20.0.json
+Temporary output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/sdk-diff-wha6sj6u/old/enterprise-attack.json
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/v11.2/enterprise-attack-11.2.json
+Temporary output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/sdk-diff-wha6sj6u/new/enterprise-attack.json
+[Version Compare 2/4] Official SDK comparing STIX 2.1 bundles
+2026-10-20 10:58:02.480 | WARNING  | mitreattack.release_info:get_attack_version:330 - Unknown ATT&CK version for file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/sdk-diff-wha6sj6u/old/enterprise-attack.json
+2026-10-20 10:58:11.360 | WARNING  | mitreattack.release_info:get_attack_version:330 - Unknown ATT&CK version for file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/sdk-diff-wha6sj6u/new/enterprise-attack.json
+Loading domains ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:15
+Finding changes by domain ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:08
+[Version Compare 3/4] Building report and selection impact (0/1)
+[Version Compare 4/4] Complete; temporary files removed (1/1)
+Input files: None (validated in-memory data)
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/version-comparison.json
+Temporary output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/version-comparison.json.36b89b8a42634584bdcca3afae010b05.tmp
+[Version Compare Export 1/3] Serializing data (0/3)
+[Version Compare Export 2/3] Writing UTF-8 JSON (1/3)
+[Version Compare Export 3/3] Publishing file (2/3)
+[Version Compare Export 3/3] Complete: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/version-comparison.json (3/3)
+This plugin does not support propagateSizeHints()
+[Navigator audit 6/7] Invalid and multiple-layer inputs
+Input files: None (validated in-memory data)
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/invalid.json
+Temporary output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/invalid.json.c722403598a64e54988b80974e69eafd.tmp
+[Navigator Export 1/3] Serializing data (0/3)
+[Navigator Export 2/3] Writing UTF-8 JSON (1/3)
+[Navigator Export 3/3] Publishing file (2/3)
+[Navigator Export 3/3] Complete: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/invalid.json (3/3)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/invalid.json
+Output files: None (import preview in memory)
+[Navigator Import 1/4] Reading and validating layer file (0/1)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/versions-cache.json
+This plugin does not support propagateSizeHints()
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/invalid.json
+Output files: None (multi-layer import preview in memory)
+[Layer Batch 1/5] Reading and validating every layer in the JSON file (0/5)
+Input files: None (validated in-memory data)
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/multi.json
+Temporary output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/multi.json.5e4ddb422b8a4bb7aa50216d8ba82d83.tmp
+[Navigator Export 1/3] Serializing data (0/3)
+[Navigator Export 2/3] Writing UTF-8 JSON (1/3)
+[Navigator Export 3/3] Publishing file (2/3)
+[Navigator Export 3/3] Complete: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/multi.json (3/3)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/multi.json
+Output files: None (import preview in memory)
+[Navigator Import 1/4] Reading and validating layer file (0/1)
+[Navigator Import 1/4] Layer validated by mitreattack-python (1/2)
+[Navigator Import 1/4] Layer validated by mitreattack-python (2/2)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/versions-cache.json
+This plugin does not support propagateSizeHints()
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/invalid.json
+Output files: None (import preview in memory)
+[Navigator Import 1/4] Reading and validating layer file (0/1)
+Failed: ValueError: Unknown Navigator domain. (1/1)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/multi.json
+Output files: None (multi-layer import preview in memory)
+[Layer Batch 1/5] Reading and validating every layer in the JSON file (0/5)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit-9331831b42c3407980c3cfa0f9023694/multi.json
+Output files: None (import preview in memory)
+[Navigator Import 1/4] Reading and validating layer file (0/1)
+[Navigator Import 1/4] Layer validated by mitreattack-python (1/2)
+[Navigator Import 1/4] Layer validated by mitreattack-python (2/2)
+This plugin does not support propagateSizeHints()
+Input files: None (validated layers in memory; exact catalog inputs follow)
+Output files: None (independent layer previews in memory)
+[Layer Batch 2/5] Resolving layer 1: Research Layer (0/2)
+[Layer Batch 3/5] Layer 1: Ready (1/2)
+[Layer Batch 2/5] Resolving layer 2: Research Layer (1/2)
+[Studio Open 2/4] Resolving exact dataset 11.2 (1/4)
+Input pointer: in memory (validated version selection)
+Output files: None (catalog is loaded into memory)
+[1/4 Resolve] Reading snapshot pointer
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/v11.2/manifest.json
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/v11.2/enterprise-attack-11.2.json
+[1/4 Resolve] Complete: Enterprise ATT&CK v11.2 (1/1)
+[2/4 Read] Reading and checking bundle (4194304/35075701)
+[2/4 Read] Reading and checking bundle (8388608/35075701)
+[2/4 Read] Reading and checking bundle (12582912/35075701)
+[2/4 Read] Reading and checking bundle (16777216/35075701)
+[2/4 Read] Reading and checking bundle (20971520/35075701)
+[2/4 Read] Reading and checking bundle (25165824/35075701)
+[2/4 Read] Reading and checking bundle (29360128/35075701)
+[2/4 Read] Reading and checking bundle (33554432/35075701)
+[2/4 Read] Reading and checking bundle (35075701/35075701)
+[2/4 Read] Parsing JSON
+[3/4 Index] Indexing active ATT&CK objects (2000/17672)
+[3/4 Index] Indexing active ATT&CK objects (4000/17672)
+[3/4 Index] Indexing active ATT&CK objects (6000/17672)
+[3/4 Index] Indexing active ATT&CK objects (8000/17672)
+[3/4 Index] Indexing active ATT&CK objects (10000/17672)
+[3/4 Index] Indexing active ATT&CK objects (12000/17672)
+[3/4 Index] Indexing active ATT&CK objects (14000/17672)
+[3/4 Index] Indexing active ATT&CK objects (16000/17672)
+[3/4 Index] Mapping platforms and tactics (100/576)
+[3/4 Index] Mapping platforms and tactics (200/576)
+[3/4 Index] Mapping platforms and tactics (300/576)
+[3/4 Index] Mapping platforms and tactics (400/576)
+[3/4 Index] Mapping platforms and tactics (500/576)
+[3/4 Index] Complete: 576 active techniques/sub-techniques, 11 platforms (576/576)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/17672)
+[3/4 Procedures] Reading Enterprise relationships (4000/17672)
+[3/4 Procedures] Reading Enterprise relationships (8000/17672)
+[3/4 Procedures] Reading Enterprise relationships (12000/17672)
+[3/4 Procedures] Reading Enterprise relationships (16000/17672)
+[3/4 Procedures] Complete: Enterprise 10359 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/17672)
+[3/4 Related TTPs] Reading relationships (4000/17672)
+[3/4 Related TTPs] Reading relationships (8000/17672)
+[3/4 Related TTPs] Reading relationships (12000/17672)
+[3/4 Related TTPs] Reading relationships (16000/17672)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 14988 direct/derived mappings (1/1)
+[3/4 Library] Mobile is not available in this historical version (1/1)
+Input file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/data/attack/v11.2/ics-attack-11.2.json
+[3/4 Library] Reading and checking ICS (2037451/2037451)
+[3/4 Library] Parsing ICS JSON
+[3/4 Procedures] Indexing ICS procedure examples (0/1106)
+[3/4 Procedures] Complete: ICS 169 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships (0/1106)
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 883 direct/derived mappings (1/1)
+[3/4 Library] Complete: ICS (1/1)
+[3/4 Library] Complete: six navigation categories indexed across all three domains (1/1)
+[Layer Batch 3/5] Layer 2: Ready (2/2)
+[Layer Batch 3/5] Preview complete; no documents have been added (3/5)
+[Navigator audit 7/7] Publishing report
+Input files: None (validated in-memory data)
+Output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit.json
+Temporary output file: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit.json.640e9979edd74fd2bc0ee4063985760a.tmp
+[Navigator Audit Report 1/3] Serializing data (0/3)
+[Navigator Audit Report 2/3] Writing UTF-8 JSON (1/3)
+[Navigator Audit Report 3/3] Publishing file (2/3)
+[Navigator Audit Report 3/3] Complete: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/navigator-audit.json (3/3)
+[Navigator audit] PASS: 64 checks

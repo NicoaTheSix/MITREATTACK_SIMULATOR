@@ -9,6 +9,7 @@ from urllib.parse import urljoin
 
 from attack_catalog import Catalog, DOMAIN_LABELS, external_id, index_procedures, index_source_techniques, tactic_phases
 from navigator_fields import web_url
+from domain_model import bundle_definitions, CatalogRecord, identifier_pattern
 
 
 class WebRedirect(HTTPRedirectHandler):
@@ -17,18 +18,25 @@ class WebRedirect(HTTPRedirectHandler):
         return super().redirect_request(req, fp, code, msg, headers, newurl)
 
 
-def read_source(location, notify, limit=128 * 1024 * 1024):
+def read_source(location, notify, limit=128 * 1024 * 1024, details=None):
     remote = str(location).lower().startswith(('https://', 'http://'))
     source = web_url(str(location)) if remote else str(Path(location).expanduser().resolve())
     notify(f'Input {"URL" if remote else "file"}: {source}', 0, 0)
     notify('Output files: None (source validation in memory)', 0, 0)
     notify('[Source 1/4] Reading bounded JSON', 0, limit)
     if remote:
-        stream = build_opener(WebRedirect()).open(Request(source, headers={'User-Agent': 'TTP-Selection-Studio'}), timeout=20)
+        stream = build_opener(WebRedirect()).open(Request(source, headers={'User-Agent': 'Fusion-Studio'}), timeout=20)
     else:
         stream = Path(source).open('rb')
     data = bytearray()
     with stream:
+        final = web_url(stream.geturl()) if remote else source
+        if details is not None:
+            details.update(source=source, final=final)
+        notify(f'Input resolved {"URL" if remote else "file"}: {final}', 0, 0)
+        length = stream.headers.get('Content-Length') if remote else None
+        if length and length.isdigit() and int(length) > limit:
+            raise ValueError(f'Source exceeds {limit // 1024 // 1024} MiB.')
         while chunk := stream.read(min(1024 * 1024, limit + 1 - len(data))):
             data.extend(chunk)
             if len(data) > limit:
@@ -113,16 +121,16 @@ def custom_catalog(payload, digest, source, version, notify):
             uuid.UUID(identity.split('--', 1)[1])
         except ValueError as error:
             raise ValueError('STIX object id must end in a UUID: ' + identity) from error
-        for field in ('name', 'description', 'modified', 'x_mitre_shortname', 'x_mitre_version'):
+        for field in ('name', 'description', 'modified', 'x_mitre_shortname', 'x_mitre_version','x_mitre_data_source_ref'):
             if field in obj and not isinstance(obj[field], str):
                 raise ValueError(f'{identity}: {field} must be text.')
         for field in ('revoked', 'x_mitre_deprecated', 'x_mitre_is_subtechnique'):
             if field in obj and type(obj[field]) is not bool:
                 raise ValueError(f'{identity}: {field} must be a boolean.')
-        for field in ('x_mitre_domains', 'x_mitre_platforms', 'tactic_refs', 'aliases'):
+        for field in ('x_mitre_domains', 'x_mitre_platforms', 'tactic_refs', 'aliases','x_mitre_analytic_refs'):
             if field in obj and (not isinstance(obj[field], list) or any(not isinstance(v, str) for v in obj[field])):
                 raise ValueError(f'{identity}: {field} must be a list of text.')
-        for field in ('kill_chain_phases', 'external_references'):
+        for field in ('kill_chain_phases', 'external_references','x_mitre_log_source_references'):
             if field in obj and (not isinstance(obj[field], list) or any(not isinstance(v, dict) for v in obj[field])):
                 raise ValueError(f'{identity}: {field} must be an object list.')
         for phase in obj.get('kill_chain_phases', []):
@@ -131,6 +139,10 @@ def custom_catalog(payload, digest, source, version, notify):
         for ref in obj.get('external_references', []):
             if any(k in ref and not isinstance(ref[k], str) for k in ('source_name', 'external_id', 'url', 'description')):
                 raise ValueError('Invalid external reference.')
+        for field in ('x_mitre_log_source_references',):
+            if any('x_mitre_data_component_ref' in row and not isinstance(row['x_mitre_data_component_ref'],str)
+                   for row in obj.get(field,[])):
+                raise ValueError('Log source data component references must be text.')
         if obj['type'] == 'relationship' and any(not isinstance(obj.get(k), str) for k in ('source_ref', 'target_ref', 'relationship_type')):
             raise ValueError('Invalid STIX relationship.')
         old = latest.get(identity)
@@ -145,36 +157,54 @@ def custom_catalog(payload, digest, source, version, notify):
     if len(versions) > 1:
         raise ValueError('Collections must have a single common release version.')
     version = next(iter(versions), version).removeprefix('v')
-    if not re.fullmatch(r'\d+(?:\.\d+)?', version):
+    if not re.fullmatch(r'\d+(?:\.\d+){0,2}', version):
         raise ValueError('Enter a numeric release version for this custom Bundle (for example 19.2).')
     if '.' not in version:
         version += '.0'
-    active = [o for o in objects if not o.get('revoked') and not o.get('x_mitre_deprecated')]
+    definitions = bundle_definitions(payload, objects)
+    notify('[Source 3/4] Resolving dataset-scoped domain definitions and matrices', 1, 4)
     stores, procedures, source_rows, parents, raw = {}, {}, {}, {}, {}
+    matrices_by_domain = {}
     domains = []
-    for domain in DOMAIN_LABELS:
-        scoped = [o for o in objects if domain in o.get('x_mitre_domains', []) or o['type'] == 'relationship']
-        mapped = [o for o in active if domain in o.get('x_mitre_domains', []) or o['type'] == 'relationship']
+    for domain, definition in definitions.items():
+        scoped = [CatalogRecord(o, definition) for o in objects if domain in o.get('x_mitre_domains', []) or
+                  (o['type'] == 'relationship' and not o.get('x_mitre_domains'))]
+        mapped = [o for o in scoped if not o.get('revoked') and not o.get('x_mitre_deprecated')]
         records = {o['id']: o for o in mapped if o['type'] == 'attack-pattern'}
         if records:
             ids = [external_id(o) for o in records.values()]
-            if any(not re.fullmatch(r'T\d{4}(?:\.\d{3})?', value) for value in ids) or len(ids) != len(set(ids)):
-                raise ValueError('Custom techniques require unique ATT&CK-compatible T#### or T####.### external IDs per domain.')
-            if any(('.' in external_id(o)) != bool(o.get('x_mitre_is_subtechnique')) for o in records.values()):
+            if any(not re.fullmatch(identifier_pattern(bool(definition.reference_source)), value) for value in ids) or len(ids) != len(set(ids)):
+                raise ValueError('Custom techniques require unique external IDs from their configured source (1–128 letters/digits/underscore/hyphen/dot).')
+            if not definition.reference_source and any(re.fullmatch(identifier_pattern(False), external_id(o)) and
+                    (('.' in external_id(o)) != bool(o.get('x_mitre_is_subtechnique'))) for o in records.values()):
                 raise ValueError('Sub-technique ID format must match x_mitre_is_subtechnique.')
             tactics = {o['x_mitre_shortname']: o for o in mapped if o['type'] == 'x-mitre-tactic' and o.get('x_mitre_shortname')}
             if len(tactics) != sum(o['type'] == 'x-mitre-tactic' for o in mapped):
                 raise ValueError('Tactic short names must be non-empty and unique within each domain.')
+            if any(not re.fullmatch(r'[A-Za-z][A-Za-z0-9_-]{0,127}', slug) for slug in tactics):
+                raise ValueError('Custom tactic short names must be bounded letter/digit/underscore/hyphen identifiers.')
             matrices = [o for o in mapped if o['type'] == 'x-mitre-matrix']
             if not tactics or not matrices:
                 raise ValueError(domain + ' needs x-mitre-tactic and x-mitre-matrix objects with x_mitre_domains.')
             tactic_ids = {o['id'] for o in tactics.values()}
             if any(set(o.get('tactic_refs', [])) - tactic_ids for o in matrices):
                 raise ValueError('Matrix tactic_refs must resolve within the custom domain.')
+            if any(not o.get('tactic_refs') or len(o['tactic_refs']) != len(set(o['tactic_refs'])) for o in matrices):
+                raise ValueError('Every custom Matrix needs distinct, non-empty tactic_refs.')
+            covered = set().union(*(set(o['tactic_refs']) for o in matrices))
+            if any(tactics[slug]['id'] not in covered for o in records.values() for slug in tactic_phases(o, domain)
+                   if slug in tactics):
+                raise ValueError('Every mapped tactic must occur in at least one Matrix in its domain.')
             if any(not tactic_phases(o, domain) or tactic_phases(o, domain) - tactics.keys() or not o.get('name') for o in records.values()):
                 raise ValueError('Every custom technique needs a name and valid domain tactic mappings.')
-            if any(not o.get('name') for o in mapped if o['type'] != 'relationship'):
+            # STIX Notes use abstract/content, not the name field required by browser entries.
+            if any(not o.get('name') for o in mapped if o['type'] not in ('relationship','note')):
                 raise ValueError('Custom catalog objects need names for browsing.')
+            for obj in mapped:
+                if obj['type'] not in ('relationship', 'note'):
+                    identity = external_id(obj)
+                    if identity and not re.fullmatch(identifier_pattern(True), identity):
+                        raise ValueError('Catalog external IDs must be bounded safe tokens from the configured source.')
             family_refs = {}
             for relation in mapped:
                 if relation['type'] == 'relationship' and relation.get('relationship_type') == 'subtechnique-of':
@@ -184,6 +214,7 @@ def custom_catalog(payload, digest, source, version, notify):
                             raise ValueError('Every active sub-technique must resolve to exactly one active parent.')
                         family_refs[child] = parent
             domains.append(domain)
+        matrices_by_domain[domain] = [o for o in mapped if o['type'] == 'x-mitre-matrix']
         raw[domain] = {o['id']: o for o in scoped}
         stores[domain] = {o['id']: o for o in mapped if o['type'] != 'relationship'}
         procedures[domain] = index_procedures(scoped, stores[domain], notify, domain)
@@ -198,7 +229,8 @@ def custom_catalog(payload, digest, source, version, notify):
     if not domains:
         raise ValueError('No active ATT&CK-compatible techniques found.')
     catalog = Catalog(version, {}, {}, [], {}, {}, stores, procedures, source_rows, parents, domain='',
-                      all_objects_by_domain=raw, dataset_id=digest, custom_source=source)
+                      all_objects_by_domain=raw, dataset_id=digest, custom_source=source,
+                      domain_definitions=definitions, matrices_by_domain=matrices_by_domain)
     return catalog.for_domain(domains[0])
 
 
@@ -216,10 +248,11 @@ def load_custom(root, location, version, notify):
 def load_layer_url(root, location, notify):
     notify(f'Output cache directory: {Path(root).resolve() / "custom"}', 0, 0)
     from navigator_integration import validate_layer
-    payload, data, _ = read_source(web_url(location), notify, 10 * 1024 * 1024)
+    details = {}
+    payload, data, _ = read_source(web_url(location), notify, 10 * 1024 * 1024, details)
     layers = payload if isinstance(payload, list) else [payload]
     if not 1 <= len(layers) <= 20:
         raise ValueError('Use 1–20 Navigator layers.')
     for layer in layers:
         validate_layer(layer)
-    return {'path': cache_source(root, data, notify)}
+    return {'path': cache_source(root, data, notify), 'origin': details['final']}

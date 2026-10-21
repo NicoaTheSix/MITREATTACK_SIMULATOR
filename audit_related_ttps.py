@@ -108,7 +108,9 @@ def main():
     log("[Related audit 2/7] Checking every source/target edge, description and reference")
     for domain, rows in expected.items():
         actual = catalog.techniques_by_source[domain]
-        check(set(actual) == set(rows), f"{domain}: exact source membership")
+        legacy = {key for key in actual if source_records[domain][key].get('type') in
+                  {'course-of-action','intrusion-set','malware','tool','campaign'}}
+        check(legacy == set(rows), f"{domain}: exact legacy source membership (new source kinds audited separately)")
         for key, edges in rows.items():
             check({row["relationship_id"]: row for row in actual[key]} == edges,
                   f"{domain}: complete relationships for {external_id(source_records[domain][key])}")
@@ -302,10 +304,16 @@ def main():
         check(window.selected == first_selection, f"{domain}: no cross-domain selection")
     key = preview_keys["Mitigations"]
     window.open_detail_link(QtCore.QUrl(f"library:enterprise-attack/{key}"))
-    check(window.bulk_action_bar.isHidden(), "mitigations have no bulk source action")
+    check(window.bulk_action_bar.isVisible() and window.bulk_add_button.isEnabled() and window.bulk_remove_button.isEnabled(), "mitigations expose add/remove source actions")
     window.add_source_ttps("enterprise-attack", key)
+    mitigation_targets = {row['target_ref'] for row in expected['enterprise-attack'][key].values()}
+    check(window.selected == first_selection | mitigation_targets, 'mitigation addition keeps existing selections')
+    window.change_source_ttps('enterprise-attack',key,'remove')
+    check(window.selected == first_selection - mitigation_targets, 'mitigation removal affects only mapped targets')
+    window.selected = set(first_selection)
+    window.refresh_selection()
     window.add_source_ttps("enterprise-attack", "missing-entry")
-    check(window.selected == first_selection, "unsupported/missing sources preserve selection")
+    check(window.selected == first_selection, "missing sources preserve selection")
     window.open_detail_link(QtCore.QUrl(f"library:enterprise-attack/{bulk_sources['campaign']}"))
     window.show_record(task)
     check(window.bulk_add_button.isHidden() and window.bulk_source_context is None, "technique navigation clears stale source action")
@@ -324,6 +332,7 @@ def main():
         QtTest.QTest.qWait(160)
         check(window.grab().save(str(SCREENS[category])), f"{category}: screenshot saved")
     check(window.selected == first_selection, "browsing leaves bulk selection intact")
+    window.confirm_studio_changes = lambda *_: "discard"
     window.close()
     log("[Related audit 7/7] Writing report")
     write_json(REPORT, {"status": "PASS", "attack_version": catalog.version, "checks": checks,

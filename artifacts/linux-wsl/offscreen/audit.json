@@ -1,0 +1,266 @@
+{
+  "status": "FAIL",
+  "started_at_utc": "2026-10-20T02:45:33.268259+00:00",
+  "system": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.42",
+  "python": "3.14.7 (main, Sep  5 2026, 05:55:41) [GCC 16.2.0]",
+  "executable": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/.venv/bin/python",
+  "qt_platform": "offscreen",
+  "project": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project",
+  "packages": {
+    "PySide6": "6.12.0",
+    "mitreattack-python": "6.2.1",
+    "openpyxl": "3.1.5"
+  },
+  "results": [
+    {
+      "audit": "audit_catalog.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 53.68,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_catalog.py.log",
+      "status": "PASS"
+    },
+    {
+      "audit": "audit_documents.py",
+      "exit_code": 1,
+      "timed_out": false,
+      "seconds": 5.18,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_documents.py.log",
+      "status": "FAIL"
+    },
+    {
+      "audit": "audit_comments.py",
+      "exit_code": -15,
+      "timed_out": true,
+      "seconds": 240.04,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_comments.py.log",
+      "status": "FAIL"
+    },
+    {
+      "audit": "audit_domains.py",
+      "exit_code": 1,
+      "timed_out": false,
+      "seconds": 33.6,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_domains.py.log",
+      "status": "FAIL"
+    },
+    {
+      "audit": "audit_workspace.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 9.9,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_workspace.py.log",
+      "status": "PASS"
+    },
+    {
+      "audit": "audit_matrix.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 13.62,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_matrix.py.log",
+      "status": "PASS"
+    },
+    {
+      "audit": "audit_matrix_actions.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 17.18,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_matrix_actions.py.log",
+      "status": "PASS"
+    },
+    {
+      "audit": "audit_layers.py",
+      "exit_code": 1,
+      "timed_out": false,
+      "seconds": 3.68,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_layers.py.log",
+      "status": "FAIL"
+    },
+    {
+      "audit": "audit_clear_colors.py",
+      "exit_code": 1,
+      "timed_out": false,
+      "seconds": 4.98,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_clear_colors.py.log",
+      "status": "FAIL"
+    },
+    {
+      "audit": "audit_overlay.py",
+      "exit_code": 1,
+      "timed_out": false,
+      "seconds": 3.03,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_overlay.py.log",
+      "status": "FAIL"
+    },
+    {
+      "audit": "audit_navigator.py",
+      "exit_code": 1,
+      "timed_out": false,
+      "seconds": 3.53,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_navigator.py.log",
+      "status": "FAIL"
+    },
+    {
+      "audit": "audit_navigator_bundle.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 15.23,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_navigator_bundle.py.log",
+      "status": "PASS"
+    },
+    {
+      "audit": "audit_custom_domains.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 4.64,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_custom_domains.py.log",
+      "status": "PASS"
+    },
+    {
+      "audit": "audit_custom_data_url.py",
+      "exit_code": 1,
+      "timed_out": false,
+      "seconds": 6.59,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_custom_data_url.py.log",
+      "status": "FAIL"
+    },
+    {
+      "audit": "audit_related_ttps.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 12.91,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_related_ttps.py.log",
+      "status": "PASS"
+    },
+    {
+      "audit": "audit_batch_operations.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 21.29,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_batch_operations.py.log",
+      "status": "PASS"
+    },
+    {
+      "audit": "audit_advanced_navigator.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 18.64,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_advanced_navigator.py.log",
+      "status": "PASS"
+    },
+    {
+      "audit": "audit_layer_analysis.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 7.49,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_layer_analysis.py.log",
+      "status": "PASS"
+    },
+    {
+      "audit": "audit_formula_features.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 3.63,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_formula_features.py.log",
+      "status": "PASS"
+    },
+    {
+      "audit": "audit_export_options.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 19.49,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_export_options.py.log",
+      "status": "PASS"
+    },
+    {
+      "audit": "audit_json_annotation_export.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 4.84,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_json_annotation_export.py.log",
+      "status": "PASS"
+    },
+    {
+      "audit": "audit_matrix_display.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 4.53,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_matrix_display.py.log",
+      "status": "PASS"
+    },
+    {
+      "audit": "audit_selection_search.py",
+      "exit_code": 1,
+      "timed_out": false,
+      "seconds": 98.39,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_selection_search.py.log",
+      "status": "FAIL"
+    },
+    {
+      "audit": "audit_source_selection.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 7.19,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_source_selection.py.log",
+      "status": "PASS"
+    },
+    {
+      "audit": "audit_source_preview.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 8.24,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_source_preview.py.log",
+      "status": "PASS"
+    },
+    {
+      "audit": "audit_studio_lifecycle.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 79.32,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_studio_lifecycle.py.log",
+      "status": "PASS"
+    },
+    {
+      "audit": "audit_visibility_presets.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 7.25,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_visibility_presets.py.log",
+      "status": "PASS"
+    },
+    {
+      "audit": "audit_detection_interaction.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 12.01,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_detection_interaction.py.log",
+      "status": "PASS"
+    },
+    {
+      "audit": "audit_navigator_parity.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 5.39,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_navigator_parity.py.log",
+      "status": "PASS"
+    },
+    {
+      "audit": "audit_manual_language.py",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 21.21,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_manual_language.py.log",
+      "status": "PASS"
+    },
+    {
+      "audit": "audit_versions.py",
+      "exit_code": 1,
+      "timed_out": false,
+      "seconds": 1.37,
+      "log": "/home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-wsl/offscreen/audit_versions.py.log",
+      "status": "FAIL"
+    }
+  ],
+  "official_pointers_unchanged": true,
+  "finished_at_utc": "2026-10-20T02:58:01.360862+00:00"
+}

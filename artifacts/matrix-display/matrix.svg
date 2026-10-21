@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="557" viewBox="0 0 500 557"><rect x="0" y="0" width="500" height="557" fill="#1e1e1e" /><text x="18" y="28" fill="#dddddd" font-size="20" font-family="Arial, sans-serif">state</text><text x="18" y="51" fill="#dddddd" font-size="12" font-family="Arial, sans-serif">Enterprise v19.2 · All Platforms</text><text x="18" y="73" fill="#dddddd" font-size="12" font-family="Arial, sans-serif">Active layer · All matching sub-techniques expanded</text><rect x="18" y="88" width="12" height="12" fill="#ff6666" /><text x="36" y="99" fill="#dddddd" font-size="11" font-family="Arial, sans-serif">Gradient 0–100: #ff6666<title>Gradient 0–100: #ff6666</title></text><rect x="18" y="110" width="12" height="12" fill="#ffe766" /><text x="36" y="121" fill="#dddddd" font-size="11" font-family="Arial, sans-serif">Gradient 0–100: #ffe766<title>Gradient 0–100: #ffe766</title></text><rect x="18" y="132" width="12" height="12" fill="#8ec843" /><text x="36" y="143" fill="#dddddd" font-size="11" font-family="Arial, sans-serif">Gradient 0–100: #8ec843<title>Gradient 0–100: #8ec843</title></text><rect x="18" y="166" width="224" height="44" fill="#f0c040"><title>TA0002  Execution</title></rect><text x="22" y="184" fill="#000000" font-size="13" font-family="Arial, sans-serif">TA0002  Execution</text><rect x="18" y="226" width="224" height="40" fill="#222526" stroke="#41484d"><title>T1000  Alpha
+T1000  Alpha
+Selected: False
+Enabled: True</title></rect><text x="25" y="244" fill="#6caedf" font-size="12" font-family="Arial, sans-serif">T1000  Alpha</text><rect x="18" y="266" width="224" height="44" fill="#113355" stroke="#41484d"><title>T1000.001  Child
+&gt; T1000.001  Child
+Score: 7
+Selected: True
+Enabled: True
+Source STIX Note: Evidence
+Read-only source note Evidence
+Annotation indicators: #ffcc00, #4daafc
+Analyst note
+Analyst: Team
+Evidence: https://example.com/evidence</title></rect><line x1="21" y1="307" x2="239" y2="307" stroke="#ffcc00" stroke-width="2" /><line x1="21" y1="304" x2="239" y2="304" stroke="#4daafc" stroke-width="2" /><text x="33" y="284" fill="#ffffff" font-size="12" font-family="Arial, sans-serif">&gt; T1000.001  Child</text><text x="33" y="299" fill="#ffffff" font-size="12" font-family="Arial, sans-serif">Score: 7</text><rect x="18" y="310" width="224" height="40" fill="#113355" stroke="#41484d"><title>T1000.002  Sibling
+&gt; T1000.002  Sibling
+Selected: False
+Enabled: True</title></rect><text x="33" y="328" fill="#ffffff" font-size="12" font-family="Arial, sans-serif">&gt; T1000.002  Sibling</text><rect x="18" y="350" width="224" height="40" fill="#222526" stroke="#41484d"><title>T1001  Beta
+T1001  Beta
+Selected: False
+Enabled: True</title></rect><text x="25" y="368" fill="#6caedf" font-size="12" font-family="Arial, sans-serif">T1001  Beta</text><rect x="18" y="390" width="224" height="59" fill="#ff6666" stroke="#41484d"><title>T1001.001  Zero score child
+&gt; T1001.001  Zero score child
+Score: 0
+Selected: False
+Enabled: True</title></rect><text x="33" y="408" fill="#000000" font-size="12" font-family="Arial, sans-serif">&gt; T1001.001  Zero score</text><text x="33" y="423" fill="#000000" font-size="12" font-family="Arial, sans-serif">child</text><text x="33" y="438" fill="#000000" font-size="12" font-family="Arial, sans-serif">Score: 0</text><rect x="18" y="449" width="224" height="40" fill="#222526" stroke="#41484d"><title>T1002  Legacy
+T1002  Legacy
+Selected: False
+Enabled: True
+Annotation indicators: #ffcc00
+Parent annotation only</title></rect><line x1="21" y1="486" x2="239" y2="486" stroke="#ffcc00" stroke-width="2" /><text x="25" y="467" fill="#6caedf" font-size="12" font-family="Arial, sans-serif">T1002  Legacy</text><rect x="18" y="489" width="224" height="44" fill="#222526" stroke="#41484d"><title>T1002.001  Unannotated child
+&gt; T1002.001  Unannotated child
+Selected: False
+Enabled: True</title></rect><text x="33" y="507" fill="#6caedf" font-size="12" font-family="Arial, sans-serif">&gt; T1002.001  Unannotated</text><text x="33" y="522" fill="#6caedf" font-size="12" font-family="Arial, sans-serif">child</text><rect x="250" y="166" width="224" height="44" fill="#f0c040"><title>TA0001  Initial-Access</title></rect><text x="254" y="184" fill="#000000" font-size="13" font-family="Arial, sans-serif">TA0001  Initial-Access</text><rect x="250" y="226" width="224" height="40" fill="#222526" stroke="#41484d"><title>T1000  Alpha
+T1000  Alpha
+Selected: False
+Enabled: True</title></rect><text x="257" y="244" fill="#6caedf" font-size="12" font-family="Arial, sans-serif">T1000  Alpha</text><rect x="250" y="266" width="224" height="40" fill="#222526" stroke="#41484d"><title>T1000.001  Child
+&gt; T1000.001  Child
+Selected: True
+Enabled: True
+Source STIX Note: Evidence
+Read-only source note Evidence
+Annotation indicators: #ffcc00</title></rect><line x1="253" y1="303" x2="471" y2="303" stroke="#ffcc00" stroke-width="2" /><text x="265" y="284" fill="#6caedf" font-size="12" font-family="Arial, sans-serif">&gt; T1000.001  Child</text><rect x="250" y="306" width="224" height="40" fill="#222526" stroke="#41484d"><title>T1000.002  Sibling
+&gt; T1000.002  Sibling
+Selected: False
+Enabled: True</title></rect><text x="265" y="324" fill="#6caedf" font-size="12" font-family="Arial, sans-serif">&gt; T1000.002  Sibling</text><rect x="250" y="346" width="224" height="40" fill="#222526" stroke="#41484d"><title>T1001  Beta
+T1001  Beta
+Selected: False
+Enabled: True</title></rect><text x="257" y="364" fill="#6caedf" font-size="12" font-family="Arial, sans-serif">T1001  Beta</text><rect x="250" y="386" width="224" height="44" fill="#222526" stroke="#41484d"><title>T1001.001  Zero score child
+&gt; T1001.001  Zero score child
+Selected: False
+Enabled: True</title></rect><text x="265" y="404" fill="#6caedf" font-size="12" font-family="Arial, sans-serif">&gt; T1001.001  Zero score</text><text x="265" y="419" fill="#6caedf" font-size="12" font-family="Arial, sans-serif">child</text><rect x="250" y="430" width="224" height="40" fill="#222526" stroke="#41484d"><title>T1002  Legacy
+T1002  Legacy
+Selected: False
+Enabled: True
+Annotation indicators: #ffcc00
+Parent annotation only</title></rect><line x1="253" y1="467" x2="471" y2="467" stroke="#ffcc00" stroke-width="2" /><text x="257" y="448" fill="#6caedf" font-size="12" font-family="Arial, sans-serif">T1002  Legacy</text><rect x="250" y="470" width="224" height="44" fill="#222526" stroke="#41484d"><title>T1002.001  Unannotated child
+&gt; T1002.001  Unannotated child
+Selected: False
+Enabled: True</title></rect><text x="265" y="488" fill="#6caedf" font-size="12" font-family="Arial, sans-serif">&gt; T1002.001  Unannotated</text><text x="265" y="503" fill="#6caedf" font-size="12" font-family="Arial, sans-serif">child</text></svg>

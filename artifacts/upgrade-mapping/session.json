@@ -1,0 +1,585 @@
+{
+  "checksum": "c3a00c14b1fa2230652f1a2a6ee9e7d8472f668e2b932588cc403a02f3f7f7c5",
+  "workspace": {
+    "studio_session_version": "1.0",
+    "updated_at_utc": "2026-10-21T02:54:46.587263+00:00",
+    "clean_exit": false,
+    "documents": [
+      {
+        "document": {
+          "schema_version": "1.0",
+          "document_id": "8c477870-9cb5-42f7-b67a-52c824118450",
+          "name": "Mapping source-upgraded",
+          "created_at_utc": "2026-10-21T02:54:46.203338+00:00",
+          "exported_at_utc": "2026-10-21T02:54:46.587263+00:00",
+          "attack": {
+            "domain": "enterprise-attack",
+            "version": "19.3",
+            "source_url": "D:\\MITREATTACK_SIMULATOR\\artifacts\\upgrade-mapping\\target.json",
+            "dataset_sha256": "875a6efb59beda4a6eb9f8890953302e9531cb02f1d891e60b082cb646437856",
+            "custom": true
+          },
+          "selected_count": 1,
+          "selected_technique_ids": [
+            "T1000"
+          ],
+          "selected_ttps": [
+            {
+              "technique_id": "T1000",
+              "stix_id": "attack-pattern--c4f9279a-9bbb-54ad-ab31-3fca5363870c",
+              "name": "Alpha changed",
+              "is_subtechnique": false,
+              "parent_technique_id": null,
+              "parent_technique_name": null,
+              "platforms": [
+                "Linux",
+                "Windows"
+              ],
+              "tactics": [
+                {
+                  "tactic_id": null,
+                  "name": "Execution",
+                  "shortname": "execution"
+                },
+                {
+                  "tactic_id": null,
+                  "name": "Initial-Access",
+                  "shortname": "initial-access"
+                },
+                {
+                  "tactic_id": null,
+                  "name": "Persistence",
+                  "shortname": "persistence"
+                }
+              ],
+              "comment": "",
+              "tactic_comments": [
+                {
+                  "tactic": "execution",
+                  "comment": "Common note\n\n[T1000.001/execution] Other note"
+                },
+                {
+                  "tactic": "initial-access",
+                  "comment": "Second target only"
+                }
+              ],
+              "enabled": true,
+              "tactic_enabled": [
+                {
+                  "tactic": "execution",
+                  "enabled": true
+                },
+                {
+                  "tactic": "initial-access",
+                  "enabled": false
+                },
+                {
+                  "tactic": "persistence",
+                  "enabled": true
+                }
+              ],
+              "selected_tactics": [
+                "execution",
+                "initial-access"
+              ]
+            }
+          ],
+          "navigator_import_selected": [
+            "T1000"
+          ],
+          "selection_scopes": {
+            "attack-pattern--c4f9279a-9bbb-54ad-ab31-3fca5363870c": [
+              "execution",
+              "initial-access"
+            ]
+          },
+          "selection_preferences": {
+            "across_tactics": true,
+            "with_family": false,
+            "visible_only": false
+          },
+          "search_fields": [
+            "name",
+            "id"
+          ],
+          "navigator_layer": {
+            "name": "Mapping source-upgraded",
+            "domain": "enterprise-attack",
+            "versions": {
+              "attack": "19.3",
+              "navigator": "5.2.0",
+              "layer": "4.5"
+            },
+            "techniques": [
+              {
+                "techniqueID": "T1000",
+                "tactic": "execution",
+                "enabled": true,
+                "color": "#112233",
+                "score": 6.75,
+                "links": [
+                  {
+                    "label": "Common evidence",
+                    "url": "https://example.org/evidence",
+                    "extra": "preserved"
+                  },
+                  {
+                    "label": "Child evidence",
+                    "url": "https://example.org/child"
+                  }
+                ],
+                "metadata": [
+                  {
+                    "name": "Owner",
+                    "value": "Shared",
+                    "extra": 123
+                  },
+                  {
+                    "name": "Case",
+                    "value": "Child"
+                  }
+                ],
+                "comment": "Common note\n\n[T1000.001/execution] Other note"
+              },
+              {
+                "techniqueID": "T1000",
+                "tactic": "initial-access",
+                "enabled": false,
+                "color": "#112233",
+                "x_audit_note": {
+                  "origin": "Parent"
+                },
+                "score": 42.0,
+                "links": [
+                  {
+                    "extra": "preserved",
+                    "label": "Common evidence",
+                    "url": "https://example.org/evidence"
+                  }
+                ],
+                "metadata": [
+                  {
+                    "extra": 123,
+                    "name": "Owner",
+                    "value": "Shared"
+                  }
+                ],
+                "comment": "Second target only"
+              },
+              {
+                "techniqueID": "T1003",
+                "score": 4,
+                "comment": "Legacy annotation"
+              }
+            ],
+            "customDataURL": "D:\\MITREATTACK_SIMULATOR\\artifacts\\upgrade-mapping\\target.json",
+            "x_ttp_studio_dataset": "875a6efb59beda4a6eb9f8890953302e9531cb02f1d891e60b082cb646437856",
+            "selectTechniquesAcrossTactics": true,
+            "selectSubtechniquesWithParent": false,
+            "selectVisibleTechniques": false,
+            "x_ttp_studio_search_fields": [
+              "name",
+              "id"
+            ],
+            "x_ttp_studio_upgrade": {
+              "source_version": "19.2",
+              "source_dataset": "977dc5129c7f794f99e31111488e5ea661dee911066a8b2d03e4c27215d56b95",
+              "target_dataset": "875a6efb59beda4a6eb9f8890953302e9531cb02f1d891e60b082cb646437856",
+              "decisions": [
+                {
+                  "source_id": "T1000",
+                  "source_scope": "",
+                  "status": "Changed",
+                  "changed_fields": [
+                    "kill_chain_phases",
+                    "name"
+                  ],
+                  "action": "Copy",
+                  "target_id": "T1000",
+                  "target_scope": "execution",
+                  "reviewed": true,
+                  "targets": [
+                    {
+                      "target_id": "T1000",
+                      "target_scope": "execution",
+                      "annotation_patch": {}
+                    },
+                    {
+                      "target_id": "T1000",
+                      "target_scope": "initial-access",
+                      "annotation_patch": {
+                        "links": [
+                          {
+                            "extra": "preserved",
+                            "label": "Common evidence",
+                            "url": "https://example.org/evidence"
+                          }
+                        ],
+                        "enabled": false,
+                        "comment": "Second target only",
+                        "metadata": [
+                          {
+                            "extra": 123,
+                            "name": "Owner",
+                            "value": "Shared"
+                          }
+                        ],
+                        "color": "#112233",
+                        "score": 42.0
+                      }
+                    }
+                  ]
+                },
+                {
+                  "source_id": "T1000.001",
+                  "source_scope": "execution",
+                  "status": "Changed · tactic removed",
+                  "changed_fields": [
+                    "kill_chain_phases"
+                  ],
+                  "action": "Copy",
+                  "target_id": "T1000",
+                  "target_scope": "execution",
+                  "reviewed": true,
+                  "targets": [
+                    {
+                      "target_id": "T1000",
+                      "target_scope": "execution",
+                      "annotation_patch": {}
+                    }
+                  ]
+                },
+                {
+                  "source_id": "T1002",
+                  "source_scope": "",
+                  "status": "Replaced",
+                  "changed_fields": [
+                    "external_references",
+                    "id",
+                    "name",
+                    "revoked"
+                  ],
+                  "action": "Copy",
+                  "target_id": "T1003",
+                  "target_scope": "",
+                  "reviewed": true,
+                  "targets": [
+                    {
+                      "target_id": "T1003",
+                      "target_scope": "",
+                      "annotation_patch": {}
+                    }
+                  ]
+                }
+              ],
+              "review_schema": 2,
+              "technique_reviews": [
+                {
+                  "id": "T1000",
+                  "category": "Changed",
+                  "reviewed": true,
+                  "action": "Reviewed",
+                  "annotation_rows": [],
+                  "selected_scopes": []
+                },
+                {
+                  "id": "T1000.001",
+                  "category": "Changed",
+                  "reviewed": true,
+                  "action": "Reviewed",
+                  "annotation_rows": [],
+                  "selected_scopes": []
+                },
+                {
+                  "id": "T1001",
+                  "category": "Unchanged",
+                  "reviewed": true,
+                  "action": "Reviewed",
+                  "annotation_rows": [],
+                  "selected_scopes": []
+                },
+                {
+                  "id": "T1002",
+                  "category": "Replaced",
+                  "reviewed": true,
+                  "action": "Reviewed",
+                  "annotation_rows": [],
+                  "selected_scopes": []
+                },
+                {
+                  "id": "T1003",
+                  "category": "Added",
+                  "reviewed": true,
+                  "action": "Skip added",
+                  "annotation_rows": [],
+                  "selected_scopes": [],
+                  "skip_reason": ""
+                },
+                {
+                  "id": "T1004",
+                  "category": "Added",
+                  "reviewed": true,
+                  "action": "Skip added",
+                  "annotation_rows": [],
+                  "selected_scopes": [],
+                  "skip_reason": ""
+                }
+              ],
+              "category_counts": {
+                "Added": 2,
+                "Changed": 2,
+                "Removed": 0,
+                "Replaced": 1,
+                "Unchanged": 1
+              },
+              "conflict_resolutions": [
+                {
+                  "target_id": "T1000",
+                  "target_scope": "execution",
+                  "field": "color",
+                  "fingerprint": "ad5ab91a1a4a5d3bef0876ffc43870f365c03b1858c8adfa985cc63f6f36d3aa",
+                  "action": "candidate",
+                  "reviewed": true,
+                  "origin": "source:0:0",
+                  "resolved_value": "#112233"
+                },
+                {
+                  "target_id": "T1000",
+                  "target_scope": "execution",
+                  "field": "enabled",
+                  "fingerprint": "ad5ab91a1a4a5d3bef0876ffc43870f365c03b1858c8adfa985cc63f6f36d3aa",
+                  "action": "candidate",
+                  "reviewed": true,
+                  "origin": "source:1:0",
+                  "resolved_value": true
+                },
+                {
+                  "target_id": "T1000",
+                  "target_scope": "execution",
+                  "field": "score",
+                  "fingerprint": "ad5ab91a1a4a5d3bef0876ffc43870f365c03b1858c8adfa985cc63f6f36d3aa",
+                  "action": "custom",
+                  "reviewed": true,
+                  "value": 6.75,
+                  "resolved_value": 6.75
+                },
+                {
+                  "target_id": "T1000",
+                  "target_scope": "execution",
+                  "field": "x_audit_note",
+                  "fingerprint": "ad5ab91a1a4a5d3bef0876ffc43870f365c03b1858c8adfa985cc63f6f36d3aa",
+                  "action": "clear",
+                  "reviewed": true,
+                  "resolved_value": null
+                }
+              ],
+              "final_summary": {
+                "schema": 1,
+                "source": {
+                  "domain": "enterprise-attack",
+                  "version": "19.2",
+                  "dataset_id": "977dc5129c7f794f99e31111488e5ea661dee911066a8b2d03e4c27215d56b95",
+                  "custom_source": "D:\\MITREATTACK_SIMULATOR\\artifacts\\upgrade-mapping\\source.json"
+                },
+                "target": {
+                  "domain": "enterprise-attack",
+                  "version": "19.3",
+                  "dataset_id": "875a6efb59beda4a6eb9f8890953302e9531cb02f1d891e60b082cb646437856",
+                  "custom_source": "D:\\MITREATTACK_SIMULATOR\\artifacts\\upgrade-mapping\\target.json"
+                },
+                "source_name": "Mapping source",
+                "result_name": "Mapping source-upgraded",
+                "categories": [
+                  {
+                    "category": "Added",
+                    "total": 2,
+                    "reviewed": 2,
+                    "skipped": 2,
+                    "state": "Skipped"
+                  },
+                  {
+                    "category": "Changed",
+                    "total": 2,
+                    "reviewed": 2,
+                    "skipped": 0,
+                    "state": "Complete"
+                  },
+                  {
+                    "category": "Removed",
+                    "total": 0,
+                    "reviewed": 0,
+                    "skipped": 0,
+                    "state": "Empty"
+                  },
+                  {
+                    "category": "Replaced",
+                    "total": 1,
+                    "reviewed": 1,
+                    "skipped": 0,
+                    "state": "Complete"
+                  },
+                  {
+                    "category": "Unchanged",
+                    "total": 1,
+                    "reviewed": 1,
+                    "skipped": 0,
+                    "state": "Complete"
+                  }
+                ],
+                "total": 6,
+                "reviewed": 6,
+                "source_rows": 3,
+                "copy_rows": 3,
+                "drop_rows": 0,
+                "skips": [
+                  {
+                    "key": "added:T1003",
+                    "kind": "Skip Added annotation",
+                    "identity": "T1003",
+                    "category": "Added",
+                    "scope": "",
+                    "reason": ""
+                  },
+                  {
+                    "key": "added:T1004",
+                    "kind": "Skip Added annotation",
+                    "identity": "T1004",
+                    "category": "Added",
+                    "scope": "",
+                    "reason": ""
+                  }
+                ],
+                "issues": [],
+                "can_submit": true,
+                "output_rows": 3,
+                "selected_techniques": 1,
+                "selected_occurrences": 2,
+                "conflicts": 4,
+                "resolved_conflicts": 4,
+                "input_token": "4860ef88ac9b1e66d46ee6d703e4de69efa447e92042f4612265ba8c55029680"
+              }
+            }
+          },
+          "migration_archives": [
+            {
+              "domain": "enterprise-attack",
+              "version": "19.2",
+              "dataset_id": "977dc5129c7f794f99e31111488e5ea661dee911066a8b2d03e4c27215d56b95",
+              "custom_source": "D:\\MITREATTACK_SIMULATOR\\artifacts\\upgrade-mapping\\source.json",
+              "layer": {
+                "name": "Mapping source",
+                "domain": "enterprise-attack",
+                "versions": {
+                  "attack": "19.2",
+                  "navigator": "5.2.0",
+                  "layer": "4.5"
+                },
+                "techniques": [
+                  {
+                    "techniqueID": "T1000",
+                    "links": [
+                      {
+                        "label": "Common evidence",
+                        "url": "https://example.org/evidence",
+                        "extra": "preserved"
+                      }
+                    ],
+                    "metadata": [
+                      {
+                        "name": "Owner",
+                        "value": "Shared",
+                        "extra": 123
+                      },
+                      {
+                        "name": "TTP Selection Studio selected",
+                        "value": "true"
+                      }
+                    ],
+                    "comment": "Common note",
+                    "score": 2,
+                    "color": "#112233",
+                    "enabled": false,
+                    "x_audit_note": {
+                      "origin": "Parent"
+                    }
+                  },
+                  {
+                    "techniqueID": "T1000.001",
+                    "tactic": "execution",
+                    "links": [
+                      {
+                        "label": "Common evidence",
+                        "url": "https://example.org/evidence",
+                        "extra": "preserved"
+                      },
+                      {
+                        "label": "Child evidence",
+                        "url": "https://example.org/child"
+                      }
+                    ],
+                    "metadata": [
+                      {
+                        "name": "Owner",
+                        "value": "Shared",
+                        "extra": 123
+                      },
+                      {
+                        "name": "Case",
+                        "value": "Child"
+                      },
+                      {
+                        "name": "TTP Selection Studio selected",
+                        "value": "true"
+                      }
+                    ],
+                    "comment": "Other note",
+                    "score": 8,
+                    "color": "#aabbcc",
+                    "enabled": true,
+                    "x_audit_note": {
+                      "origin": "Child"
+                    }
+                  },
+                  {
+                    "techniqueID": "T1002",
+                    "comment": "Legacy annotation",
+                    "score": 4,
+                    "metadata": [
+                      {
+                        "name": "TTP Selection Studio selected",
+                        "value": "false"
+                      }
+                    ]
+                  }
+                ],
+                "customDataURL": "D:\\MITREATTACK_SIMULATOR\\artifacts\\upgrade-mapping\\source.json",
+                "x_ttp_studio_dataset": "977dc5129c7f794f99e31111488e5ea661dee911066a8b2d03e4c27215d56b95",
+                "selectTechniquesAcrossTactics": true,
+                "selectSubtechniquesWithParent": false,
+                "selectVisibleTechniques": false,
+                "x_ttp_studio_search_fields": [
+                  "name",
+                  "id"
+                ]
+              },
+              "selected_stix_ids": [
+                "attack-pattern--c4f9279a-9bbb-54ad-ab31-3fca5363870c",
+                "attack-pattern--ed916fd4-fcaf-5dc7-bf2b-7ee009355824"
+              ],
+              "import_selected": [],
+              "selection_scopes": {}
+            }
+          ]
+        },
+        "initial_name": "Mapping source-upgraded",
+        "save_path": null,
+        "saved_fingerprint": null,
+        "saved_file_sha256": null,
+        "content_token_version": 2,
+        "dirty": true
+      }
+    ],
+    "active_index": 0,
+    "view": {}
+  }
+}

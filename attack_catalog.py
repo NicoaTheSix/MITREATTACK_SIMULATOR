@@ -7,21 +7,25 @@ import hashlib
 import json
 from pathlib import Path
 from typing import Callable
+from domain_model import OFFICIAL_LABELS, OFFICIAL_CHAINS, domain_label
 
 Progress = Callable[[str, int, int], None]
 
-DOMAIN_LABELS = {"enterprise-attack": "Enterprise", "mobile-attack": "Mobile", "ics-attack": "ICS"}
-DOMAIN_KILL_CHAINS = {"enterprise-attack": "mitre-attack", "mobile-attack": "mitre-mobile-attack", "ics-attack": "mitre-ics-attack"}
+DOMAIN_LABELS = OFFICIAL_LABELS
+DOMAIN_KILL_CHAINS = OFFICIAL_CHAINS
 
 
 def tactic_phases(record, domain):
+    definition = getattr(record, 'definition', None)
+    chain = definition.kill_chain_name if definition and definition.id == domain else DOMAIN_KILL_CHAINS.get(domain, domain)
     return {phase["phase_name"] for phase in record.get("kill_chain_phases", [])
-            if phase.get("kill_chain_name") == DOMAIN_KILL_CHAINS[domain]}
+            if phase.get("kill_chain_name") == chain}
 BROWSE_CATEGORIES = {
     "Mitigations": {"course-of-action": "Mitigations"},
     "Assets": {"x-mitre-asset": "Assets"},
     "Detections": {"x-mitre-detection-strategy": "Detection Strategies",
-                   "x-mitre-analytic": "Analytics", "x-mitre-data-component": "Data Components"},
+                   "x-mitre-analytic": "Analytics", "x-mitre-data-component": "Data Components",
+                   "x-mitre-data-source": "Data Sources"},
     "Groups": {"intrusion-set": "Groups"},
     "Software": {"malware": "Malware", "tool": "Tools"},
     "Campaigns": {"campaign": "Campaigns"},
@@ -44,10 +48,16 @@ class Catalog:
     all_objects_by_domain: dict = field(default_factory=dict)
     dataset_id: str = ''
     custom_source: str = ''
+    domain_definitions: dict = field(default_factory=dict)
+    matrices_by_domain: dict = field(default_factory=dict)
+
+    @property
+    def domain_labels(self):
+        return {domain: domain_label(domain, self) for domain in self.objects_by_domain}
 
     def for_domain(self, domain):
         """Project one verified domain while retaining cross-domain reference libraries."""
-        if domain not in DOMAIN_LABELS:
+        if domain not in self.objects_by_domain:
             raise ValueError("Unknown ATT&CK domain")
         if domain == self.domain:
             return self
@@ -55,11 +65,12 @@ class Catalog:
         records = {key: obj for key, obj in objects.items() if obj.get("type") == "attack-pattern"
                    and domain in obj.get("x_mitre_domains", [])}
         if not records:
-            raise ValueError(f"{DOMAIN_LABELS[domain]} is not available in ATT&CK v{self.version}")
+            raise ValueError(f"{domain_label(domain, self)} is not available in ATT&CK v{self.version}")
         tactics = {obj["x_mitre_shortname"]: obj for obj in objects.values()
                    if obj.get("type") == "x-mitre-tactic"}
-        matrix = next((obj.get("tactic_refs", []) for obj in objects.values()
-                       if obj.get("type") == "x-mitre-matrix"), [])
+        matrices = [obj for obj in objects.values() if obj.get('type') == 'x-mitre-matrix']
+        matrix = (list(dict.fromkeys(ref for obj in matrices for ref in obj.get('tactic_refs', []))) if self.dataset_id else
+                  next((obj.get('tactic_refs', []) for obj in matrices), []))
         historical_order = ["reconnaissance", "resource-development", "initial-access", "execution", "persistence",
                             "privilege-escalation", "defense-evasion", "credential-access", "discovery",
                             "lateral-movement", "collection", "command-and-control", "exfiltration", "impact"]
@@ -82,6 +93,8 @@ class Catalog:
 
 
 def external_id(record: dict) -> str:
+    if hasattr(type(record), 'catalog_external_id'):
+        return record.catalog_external_id
     return next((ref.get("external_id", "") for ref in record.get("external_references", [])
                  if ref.get("source_name") in {"mitre-attack", "mitre-mobile-attack", "mitre-ics-attack"}), "")
 
@@ -99,10 +112,11 @@ def index_procedures(objects: list[dict], records: dict[str, dict], notify: Prog
     """Index described uses relationships from groups, software and campaigns to active techniques."""
     examples = defaultdict(list)
     source_types = {"intrusion-set", "malware", "tool", "campaign"}
-    notify(f"[3/4 Procedures] Indexing {DOMAIN_LABELS[domain]} procedure examples", 0, len(objects))
+    label = domain_label(domain)
+    notify(f"[3/4 Procedures] Indexing {label} procedure examples", 0, len(objects))
     for number, relationship in enumerate(objects, 1):
         if number % 4000 == 0:
-            notify(f"[3/4 Procedures] Reading {DOMAIN_LABELS[domain]} relationships", number, len(objects))
+            notify(f"[3/4 Procedures] Reading {label} relationships", number, len(objects))
         if (relationship.get("type") != "relationship" or relationship.get("relationship_type") != "uses"
                 or relationship.get("revoked") or relationship.get("x_mitre_deprecated")):
             continue
@@ -118,37 +132,14 @@ def index_procedures(objects: list[dict], records: dict[str, dict], notify: Prog
         })
     for rows in examples.values():
         rows.sort(key=lambda row: (row["source_id"], row["source_name"], row["relationship_id"]))
-    notify(f"[3/4 Procedures] Complete: {DOMAIN_LABELS[domain]} "
+    notify(f"[3/4 Procedures] Complete: {label} "
            f"{sum(len(rows) for rows in examples.values())} procedure examples", 1, 1)
     return dict(examples)
 
 def index_source_techniques(objects, records, notify, domain):
-    """Keep exact active mitigates/uses edges, with their original use descriptions."""
-    rows = defaultdict(list)
-    parents = {obj["source_ref"]: obj["target_ref"] for obj in objects
-               if obj.get("type") == "relationship" and obj.get("relationship_type") == "subtechnique-of"
-               and not obj.get("revoked") and not obj.get("x_mitre_deprecated")
-               and obj.get("source_ref") in records and obj.get("target_ref") in records}
-    notify(f"[3/4 Related TTPs] Indexing {DOMAIN_LABELS[domain]}", 0, len(objects))
-    for number, edge in enumerate(objects, 1):
-        if number % 4000 == 0:
-            notify(f"[3/4 Related TTPs] Reading {DOMAIN_LABELS[domain]} relationships", number, len(objects))
-        if edge.get("type") != "relationship" or edge.get("revoked") or edge.get("x_mitre_deprecated"):
-            continue
-        source = records.get(edge.get("source_ref"), {})
-        target = records.get(edge.get("target_ref"), {})
-        expected = "mitigates" if source.get("type") == "course-of-action" else "uses"
-        if (source.get("type") not in {"course-of-action", "intrusion-set", "malware", "tool", "campaign"}
-                or target.get("type") != "attack-pattern" or edge.get("relationship_type") != expected):
-            continue
-        rows[source["id"]].append({"relationship_id": edge["id"], "target_ref": target["id"],
-                                   "description": edge.get("description", ""),
-                                   "references": edge.get("external_references", [])})
-    for entries in rows.values():
-        entries.sort(key=lambda row: (external_id(records[row["target_ref"]]), row["relationship_id"]))
-    notify(f"[3/4 Related TTPs] Complete: {DOMAIN_LABELS[domain]} "
-           f"{sum(map(len, rows.values()))} relationships", 1, 1)
-    return dict(rows), parents
+    """Index exact direct mappings and explicit detection paths for one catalog."""
+    from ttp_sources import build_source_rows
+    return build_source_rows(objects,records,notify,domain)
 
 
 def load_catalog(root: Path, notify: Progress, pointer=None) -> Catalog:

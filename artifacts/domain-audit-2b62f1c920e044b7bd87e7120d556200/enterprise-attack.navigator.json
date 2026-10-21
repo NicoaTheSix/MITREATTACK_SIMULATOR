@@ -1,0 +1,30 @@
+{
+  "name": "enterprise-attack.navigator",
+  "domain": "enterprise-attack",
+  "versions": {
+    "attack": "19.2",
+    "navigator": "5.2.0",
+    "layer": "4.5"
+  },
+  "techniques": [
+    {
+      "techniqueID": "T1055.011",
+      "tactic": "privilege-escalation",
+      "comment": "enterprise-attack research",
+      "score": 1.25,
+      "color": "#123456",
+      "metadata": [
+        {
+          "name": "TTP Selection Studio selected",
+          "value": "true"
+        }
+      ]
+    }
+  ],
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false,
+  "x_ttp_studio_search_fields": [
+    "name",
+    "id"
+  ]
+}

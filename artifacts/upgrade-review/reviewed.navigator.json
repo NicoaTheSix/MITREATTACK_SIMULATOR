@@ -1,0 +1,372 @@
+[
+  {
+    "name": "Reviewed result",
+    "domain": "enterprise-attack",
+    "versions": {
+      "attack": "19.3",
+      "navigator": "5.2.0",
+      "layer": "4.5"
+    },
+    "techniques": [
+      {
+        "techniqueID": "T1000",
+        "color": "#334455",
+        "score": 0,
+        "comment": "Keep annotation",
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "false"
+          }
+        ]
+      },
+      {
+        "techniqueID": "T1000.001",
+        "tactic": "initial-access",
+        "score": 2,
+        "comment": "Child tactic changed",
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "false"
+          }
+        ]
+      },
+      {
+        "techniqueID": "T1003",
+        "score": 4,
+        "comment": "Replacement annotation",
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "false"
+          }
+        ]
+      },
+      {
+        "techniqueID": "T1001",
+        "metadata": [
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "true"
+          }
+        ]
+      },
+      {
+        "techniqueID": "T1004",
+        "tactic": "execution",
+        "color": "#abcdef",
+        "score": 0,
+        "enabled": false,
+        "links": [
+          {
+            "label": "Evidence",
+            "url": "https://example.org/evidence"
+          }
+        ],
+        "metadata": [
+          {
+            "name": "Owner",
+            "value": "Analyst"
+          },
+          {
+            "name": "TTP Selection Studio selected",
+            "value": "true"
+          }
+        ],
+        "comment": "New observation"
+      }
+    ],
+    "customDataURL": "D:\\MITREATTACK_SIMULATOR\\artifacts\\upgrade-review\\target.json",
+    "x_ttp_studio_dataset": "45fc68e668cfe1adc62e9d6c607e74a1203d6af6e99fde9e99b8f8b06860301e",
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false,
+    "selectVisibleTechniques": false,
+    "x_ttp_studio_search_fields": [
+      "name",
+      "id"
+    ],
+    "x_ttp_studio_upgrade": {
+      "source_version": "19.2",
+      "source_dataset": "1e2c8b19416ec7f49da575d1689294753fa5c3600fe89f8d9d592231eb89e6ef",
+      "target_dataset": "45fc68e668cfe1adc62e9d6c607e74a1203d6af6e99fde9e99b8f8b06860301e",
+      "decisions": [
+        {
+          "source_id": "T1000",
+          "source_scope": "",
+          "status": "Changed",
+          "changed_fields": [
+            "name"
+          ],
+          "action": "Copy",
+          "reviewed": true,
+          "target_id": "T1000",
+          "target_scope": "",
+          "targets": [
+            {
+              "target_id": "T1000",
+              "target_scope": "",
+              "annotation_patch": {}
+            }
+          ]
+        },
+        {
+          "source_id": "T1000.001",
+          "source_scope": "execution",
+          "status": "Changed · tactic removed",
+          "changed_fields": [
+            "kill_chain_phases"
+          ],
+          "action": "Copy",
+          "reviewed": true,
+          "target_id": "T1000.001",
+          "target_scope": "initial-access",
+          "targets": [
+            {
+              "target_id": "T1000.001",
+              "target_scope": "initial-access",
+              "annotation_patch": {}
+            }
+          ]
+        },
+        {
+          "source_id": "T1002",
+          "source_scope": "",
+          "status": "Replaced",
+          "changed_fields": [
+            "external_references",
+            "id",
+            "name",
+            "revoked"
+          ],
+          "action": "Copy",
+          "reviewed": true,
+          "target_id": "T1003",
+          "target_scope": "",
+          "targets": [
+            {
+              "target_id": "T1003",
+              "target_scope": "",
+              "annotation_patch": {}
+            }
+          ]
+        },
+        {
+          "source_id": "T1005",
+          "source_scope": "",
+          "status": "Removed",
+          "changed_fields": [
+            "external_references",
+            "id",
+            "kill_chain_phases",
+            "name",
+            "type",
+            "x_mitre_deprecated",
+            "x_mitre_domains",
+            "x_mitre_platforms"
+          ],
+          "action": "Drop",
+          "reviewed": true,
+          "target_id": "",
+          "target_scope": "initial-access",
+          "targets": [],
+          "skip_reason": ""
+        },
+        {
+          "source_id": "T1001",
+          "source_scope": "",
+          "status": "Unchanged",
+          "changed_fields": [],
+          "action": "Copy",
+          "reviewed": true,
+          "target_id": "T1001",
+          "target_scope": "",
+          "targets": [
+            {
+              "target_id": "T1001",
+              "target_scope": "",
+              "annotation_patch": {}
+            }
+          ]
+        }
+      ],
+      "review_schema": 2,
+      "technique_reviews": [
+        {
+          "id": "T1000",
+          "category": "Changed",
+          "reviewed": true,
+          "action": "Reviewed",
+          "annotation_rows": [],
+          "selected_scopes": []
+        },
+        {
+          "id": "T1000.001",
+          "category": "Changed",
+          "reviewed": true,
+          "action": "Reviewed",
+          "annotation_rows": [],
+          "selected_scopes": []
+        },
+        {
+          "id": "T1001",
+          "category": "Unchanged",
+          "reviewed": true,
+          "action": "Reviewed",
+          "annotation_rows": [],
+          "selected_scopes": []
+        },
+        {
+          "id": "T1002",
+          "category": "Replaced",
+          "reviewed": true,
+          "action": "Reviewed",
+          "annotation_rows": [],
+          "selected_scopes": []
+        },
+        {
+          "id": "T1003",
+          "category": "Added",
+          "reviewed": true,
+          "action": "Skip added",
+          "annotation_rows": [],
+          "selected_scopes": [],
+          "skip_reason": ""
+        },
+        {
+          "id": "T1004",
+          "category": "Added",
+          "reviewed": true,
+          "action": "Annotate / include",
+          "annotation_rows": [
+            {
+              "techniqueID": "T1004",
+              "tactic": "execution",
+              "comment": "New observation",
+              "score": 0,
+              "color": "#abcdef",
+              "enabled": false,
+              "links": [
+                {
+                  "label": "Evidence",
+                  "url": "https://example.org/evidence"
+                }
+              ],
+              "metadata": [
+                {
+                  "name": "Owner",
+                  "value": "Analyst"
+                }
+              ]
+            }
+          ],
+          "selected_scopes": [
+            "execution"
+          ]
+        },
+        {
+          "id": "T1005",
+          "category": "Removed",
+          "reviewed": true,
+          "action": "Reviewed",
+          "annotation_rows": [],
+          "selected_scopes": []
+        }
+      ],
+      "category_counts": {
+        "Added": 2,
+        "Changed": 2,
+        "Removed": 1,
+        "Replaced": 1,
+        "Unchanged": 1
+      },
+      "conflict_resolutions": [],
+      "final_summary": {
+        "schema": 1,
+        "source": {
+          "domain": "enterprise-attack",
+          "version": "19.2",
+          "dataset_id": "1e2c8b19416ec7f49da575d1689294753fa5c3600fe89f8d9d592231eb89e6ef",
+          "custom_source": "D:\\MITREATTACK_SIMULATOR\\artifacts\\upgrade-review\\source.json"
+        },
+        "target": {
+          "domain": "enterprise-attack",
+          "version": "19.3",
+          "dataset_id": "45fc68e668cfe1adc62e9d6c607e74a1203d6af6e99fde9e99b8f8b06860301e",
+          "custom_source": "D:\\MITREATTACK_SIMULATOR\\artifacts\\upgrade-review\\target.json"
+        },
+        "source_name": "Review source",
+        "result_name": "Reviewed result",
+        "categories": [
+          {
+            "category": "Added",
+            "total": 2,
+            "reviewed": 2,
+            "skipped": 1,
+            "state": "Complete"
+          },
+          {
+            "category": "Changed",
+            "total": 2,
+            "reviewed": 2,
+            "skipped": 0,
+            "state": "Complete"
+          },
+          {
+            "category": "Removed",
+            "total": 1,
+            "reviewed": 1,
+            "skipped": 1,
+            "state": "Skipped"
+          },
+          {
+            "category": "Replaced",
+            "total": 1,
+            "reviewed": 1,
+            "skipped": 0,
+            "state": "Complete"
+          },
+          {
+            "category": "Unchanged",
+            "total": 1,
+            "reviewed": 1,
+            "skipped": 0,
+            "state": "Complete"
+          }
+        ],
+        "total": 7,
+        "reviewed": 7,
+        "source_rows": 5,
+        "copy_rows": 4,
+        "drop_rows": 1,
+        "skips": [
+          {
+            "key": "source:3",
+            "kind": "Drop source",
+            "identity": "T1005",
+            "source_index": 3,
+            "scope": "",
+            "category": "Removed",
+            "reason": ""
+          },
+          {
+            "key": "added:T1003",
+            "kind": "Skip Added annotation",
+            "identity": "T1003",
+            "category": "Added",
+            "scope": "",
+            "reason": ""
+          }
+        ],
+        "issues": [],
+        "can_submit": true,
+        "output_rows": 5,
+        "selected_techniques": 2,
+        "selected_occurrences": 2,
+        "conflicts": 0,
+        "resolved_conflicts": 0,
+        "input_token": "2eeb9d4befba781273a3bd4101ae1f950f6049043288dda01258e2f5a2ba6140"
+      }
+    }
+  }
+]

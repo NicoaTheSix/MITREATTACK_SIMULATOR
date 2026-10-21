@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "checks": [
+    "Manual is a peer file-level tab",
+    "Repeated open reuses tab",
+    "11-section clickable outline",
+    "Actual rendered guide link navigation",
+    "Actual rendered Matrix action navigation",
+    "Read-only document state",
+    "Manual context menu",
+    "Document insert/remove preserves tab mapping",
+    "Catalog rebuild preserves manual",
+    "Close and reopen",
+    "Every bundled Markdown guide renders",
+    "Outside paths rejected"
+  ]
+}

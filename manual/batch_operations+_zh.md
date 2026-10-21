@@ -13,8 +13,10 @@
 打開矩陣，選擇 **Selection scope**：
 
 - **Platform scope · includes hidden**：目前平台聯集中的技術，包含收合的子技術及被隱藏的停用技術，忽略搜尋文字。
-- **Search matches · excludes hidden**：直接比對名稱／ID，不分大小寫、可輸入空格，排除隱藏的停用技術；不會自動勾選僅供祖先脈絡的父技術。
+- **Search matches · excludes hidden**：直接比對已開啟的 TTP 搜尋欄位，不分大小寫、可輸入空格，排除隱藏的停用技術；不會自動勾選僅供祖先脈絡的父技術。
 - **Visible / expanded cells**：篩選後顯示的矩陣格，包含已展開子技術；不是只計算捲動視窗內的像素。
+
+**Selection behavior… → Select visible techniques only** 會在父子／跨 Tactic 連動後限制所有範圍，包含來源 Add／Remove。開啟後，即使選平台範圍，也不會選到收合或隱藏的格子。預設關閉，切換時不清除既有勾選。詳見[可見選取與展開範例](visibility_expansion_presets+_zh.md)。
 
 可再限定一個 Tactic。純分組用途、未映射到範圍的父技術不會被勾選。按 **Select…**：
 
@@ -24,13 +26,13 @@
 - Invert scope：只反轉此範圍的勾選。
 - Select annotated only／Select unannotated only：用範圍內已註解／未註解的子集合取代整份選取清單。
 
-「已註解」指非空註解／顏色／Links、有分數（包括零）、使用者 Metadata／分隔線，或停用狀態。程式維護的選取 Metadata 與展開偏好不計入。限定單一 Tactic 時檢查該範圍的有效註解；所有 Tactic 時任一有效範圍有註解即符合。Tactic 標題右鍵也可加入、取消或反轉該平台／Tactic 範圍。選取仍以技術 ID 跨 Tactic 同步，不改變註解或啟用狀態。
+「已註解」指非空註解／顏色／Links、有分數（包括零）、使用者 Metadata／分隔線，或停用狀態。程式維護的選取 Metadata 與展開偏好不計入。限定單一 Tactic 時檢查該範圍的有效註解；所有 Tactic 時任一有效範圍有註解即符合。Tactic 標題右鍵也可加入、取消或反轉該平台／Tactic 範圍。選取遵守跨 Tactic／父子連動偏好；關閉跨 Tactic 同步時可逐格選取，不改變註解或啟用狀態。詳見[選取與搜尋手冊](selection_and_search+_zh.md)。
 
 ## 批次編輯
 
 使用矩陣 **Batch edit selected…**、Selected Techniques 的 **Batch edit included TTPs…** 或 **Navigator → Batch edit selected TTPs…**。目標是目前文件全部已納入 TTP，包括矩陣篩選外的項目。開啟時每個欄位都預設 **Keep unchanged**。
 
-範圍可選 **Entire technique · all mapped scopes**，或顯示受影響數量的單一 Tactic；不映射到該 Tactic 的 TTP 會略過。各欄位獨立選擇設定或清除：
+有部分選取時預設為 **Selected tactic occurrences only**；範圍也可選 **Entire technique · all mapped scopes**，或顯示受影響數量的單一 Tactic；不映射到該 Tactic 的 TTP 會略過。各欄位獨立選擇設定或清除：
 
 目標清單會列出確切技術 ID／名稱；滑鼠停留可先檢查目前全域或指定 Tactic 的值。切換範圍時，受影響與略過數量也會更新。
 
@@ -49,6 +51,6 @@
 
 ## 處理進度與保存
 
-執行前 Output 顯示輸入／輸出都在記憶體，不寫檔；進度依序為驗證、逐項修改草稿、完整驗證。批次編輯使用背景工作，成功後才一次套用；無效分數／顏色／URL、取消或中斷都不改變原文件。狀態與選取操作也會顯示階段。直到 Export 才寫檔，屆時先顯示輸出與暫存檔的絕對路徑。
+執行前 Output 顯示輸入／輸出都在記憶體，不寫檔；進度依序為驗證、逐項修改草稿、完整驗證。批次編輯使用背景工作，成功後才一次套用；無效分數／顏色／URL、取消或中斷都不改變原文件。狀態與選取操作也會顯示階段。Save／Export 會明確寫入文件，自動工作階段檢查點則可另行保存記憶體草稿；每次寫入都先顯示輸出與暫存檔絕對路徑。
 
-修改只屬於目前文件／領域／版本／資料集，複製圖層及記憶體領域／版本封存會保留獨立狀態。Session 復原與 Studio JSON 重開仍是另外的未完成功能；需要完整註解及封存時，關閉前請匯出 Studio JSON。啟動與驗證命令見 [README](../README.md)。
+修改只屬於目前文件／領域／版本／資料集，複製圖層及記憶體領域／版本封存會保留獨立狀態。Save／Save As 保存完整註解與封存，Open Studio JSON 與工作階段復原可還原這些內容，詳見[文件操作手冊](studio_files+_zh.md)。啟動與驗證命令見 [README](../README.md)。

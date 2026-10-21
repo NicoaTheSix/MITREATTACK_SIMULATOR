@@ -1,0 +1,41 @@
+Input installer: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/scripts/install_linux_command.py
+Input project: /home/kali/.local/share/ttp-selection-studio-wsl-test/project
+Input launcher: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/start-ttpselecter.sh
+Output command: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-command-setup/ac7eaac0ce454b9c8786d7c351ef0c1e/home with spaces 測試 'quote/.local/bin/ttpselecter
+Output temporary command: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-command-setup/ac7eaac0ce454b9c8786d7c351ef0c1e/home with spaces 測試 'quote/.local/bin/.ttpselecter-20261020T074659Z-1fe8c5c9.tmp
+Input/output shell profile: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-command-setup/ac7eaac0ce454b9c8786d7c351ef0c1e/home with spaces 測試 'quote/.profile
+Input/output shell profile: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-command-setup/ac7eaac0ce454b9c8786d7c351ef0c1e/home with spaces 測試 'quote/.bashrc
+Input/output shell profile: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-command-setup/ac7eaac0ce454b9c8786d7c351ef0c1e/home with spaces 測試 'quote/zsh-config/.zprofile
+Input/output shell profile: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-command-setup/ac7eaac0ce454b9c8786d7c351ef0c1e/home with spaces 測試 'quote/zsh-config/.zshrc
+Input/output shell profile: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-command-setup/ac7eaac0ce454b9c8786d7c351ef0c1e/home with spaces 測試 'quote/.bash_profile
+[Linux command setup 1/4] Checking the installed Linux application
+Input program: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/main.py
+Input Python: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/.venv/bin/python
+Input requirements: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/requirements.txt
+Output files: main.py reports application input/output paths before loading
+[Linux launch 1/3] Checking Linux and the local Python environment
+[Linux launch 2/3] Checking installed dependencies
+[Linux launch 3/3] Ready; no window opened and no files written
+[Linux command setup 2/4] Checking command ownership and planning profile updates
+Output profile backup: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-command-setup/ac7eaac0ce454b9c8786d7c351ef0c1e/home with spaces 測試 'quote/.profile.ttpselecter-backup-20261020T074659Z-1fe8c5c9
+Output profile backup: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-command-setup/ac7eaac0ce454b9c8786d7c351ef0c1e/home with spaces 測試 'quote/.bashrc.ttpselecter-backup-20261020T074659Z-1fe8c5c9
+Output profile backup: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-command-setup/ac7eaac0ce454b9c8786d7c351ef0c1e/home with spaces 測試 'quote/zsh-config/.zprofile.ttpselecter-backup-20261020T074659Z-1fe8c5c9
+Output profile backup: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-command-setup/ac7eaac0ce454b9c8786d7c351ef0c1e/home with spaces 測試 'quote/zsh-config/.zshrc.ttpselecter-backup-20261020T074659Z-1fe8c5c9
+Output profile backup: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-command-setup/ac7eaac0ce454b9c8786d7c351ef0c1e/home with spaces 測試 'quote/.bash_profile.ttpselecter-backup-20261020T074659Z-1fe8c5c9
+[Linux command setup 3/4] Installing the user command and backed-up PATH blocks
+[Profiles 1/5] Update: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-command-setup/ac7eaac0ce454b9c8786d7c351ef0c1e/home with spaces 測試 'quote/.profile
+[Profiles 2/5] Update: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-command-setup/ac7eaac0ce454b9c8786d7c351ef0c1e/home with spaces 測試 'quote/.bashrc
+[Profiles 3/5] Update: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-command-setup/ac7eaac0ce454b9c8786d7c351ef0c1e/home with spaces 測試 'quote/zsh-config/.zprofile
+[Profiles 4/5] Update: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-command-setup/ac7eaac0ce454b9c8786d7c351ef0c1e/home with spaces 測試 'quote/zsh-config/.zshrc
+[Profiles 5/5] Update: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/artifacts/linux-command-setup/ac7eaac0ce454b9c8786d7c351ef0c1e/home with spaces 測試 'quote/.bash_profile
+[Linux command setup 4/4] Verifying command forwarding and persistent PATH blocks
+Input program: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/main.py
+Input Python: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/.venv/bin/python
+Input requirements: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/requirements.txt
+Output files: main.py reports application input/output paths before loading
+[Linux launch 1/3] Checking Linux and the local Python environment
+[Linux launch 2/3] Checking installed dependencies
+[Linux launch 3/3] Ready; no window opened and no files written
+Setup complete. Close and reopen your Bash/Zsh terminal, then run ttpselecter from any directory.
+For this terminal now: export PATH="$HOME/.local/bin:$PATH"
+The command uses this project folder. After moving the project, rerun setup from its new location.

@@ -13,8 +13,10 @@ Example: include T1053.005, add a comment and score, then Disable it. Its inclus
 Open the matrix and choose **Selection scope**:
 
 - **Platform scope · includes hidden**: all techniques mapped to the current platform union, including collapsed/hidden disabled ones. Search text is ignored.
-- **Search matches · excludes hidden**: direct name/ID matches, case insensitive and supporting spaces; hidden disabled rows are excluded. Ancestor context headings are not automatically selected.
+- **Search matches · excludes hidden**: direct matches in enabled TTP search fields, case insensitive and supporting spaces; hidden disabled rows are excluded. Ancestor context headings are not automatically selected.
 - **Visible / expanded cells**: currently displayed matrix cells, including expanded children. This refers to filtered/expanded content, not just the pixels inside the scroll viewport.
+
+**Selection behavior… → Select visible techniques only** limits every scope after family/cross-tactic linking, including source Add/Remove. When On, platform scope cannot select collapsed or hidden cells. It defaults Off and does not clear existing choices when toggled. See [visibility and expansion examples](visibility_expansion_presets_en.md).
 
 Optionally choose one tactic. Structural grouping-only parents are not selectable. Click **Select…**:
 
@@ -24,13 +26,13 @@ Optionally choose one tactic. Structural grouping-only parents are not selectabl
 - Invert scope: toggle membership only inside the scope.
 - Select annotated only / Select unannotated only: replace the included set with the matching subset in scope.
 
-Annotated means a non-empty comment/color/Links, a score including zero, user Metadata/dividers, or disabled state. The app's reserved inclusion metadata and expansion preferences do not count. For one tactic the effective annotation is checked; for all tactics any mapped annotation qualifies. Right-click a tactic header for Select/Deselect/Invert in that platform/tactic scope. Selection is still per technique ID across tactics; it never changes annotations or enabled state.
+Annotated means a non-empty comment/color/Links, a score including zero, user Metadata/dividers, or disabled state. The app's reserved inclusion metadata and expansion preferences do not count. For one tactic the effective annotation is checked; for all tactics any mapped annotation qualifies. Right-click a tactic header for Select/Deselect/Invert in that platform/tactic scope. Selection follows cross-tactic/family preferences, including individual tactic occurrences when cross-tactic synchronization is off; it never changes annotations or enabled state. See the [selection/search guide](selection_and_search_en.md).
 
 ## Batch editing
 
 Use **Batch edit selected…** in the matrix, **Batch edit included TTPs…** on Selected Techniques, or **Navigator → Batch edit selected TTPs…**. Targets are all included TTPs in the active document, including those outside matrix filters. The dialog starts with every field set to **Keep unchanged**.
 
-Choose a scope: **Entire technique · all mapped scopes**, or one tactic with the affected count. TTPs not mapped to that tactic are skipped. Each field can be set or cleared independently:
+For partial selection, **Selected tactic occurrences only** is the default. Choose **Entire technique · all mapped scopes**, or one tactic with the affected count. TTPs not mapped to that tactic are skipped. Each field can be set or cleared independently:
 
 The target list shows exact technique IDs/names; hover an entry to inspect its current global or chosen-tactic values before editing. The affected/skipped counts update when you change scope.
 
@@ -49,6 +51,6 @@ Example: select 20 TTPs, set Comment to `Validated in lab`, set Score to `0`, an
 
 ## Processing and preservation
 
-Before editing, Output reports in-memory inputs and no output files. Progress covers validation, per-target draft updates and final validation. Batch dialogs run the update in a worker. Changes commit only after success; invalid scores/colors/URLs, Cancel or interrupted workers preserve the original document. State and selection actions also report their stages. No files are written until Export; those operations show resolved absolute output and temporary paths before writing.
+Before editing, Output reports in-memory inputs and no output files. Progress covers validation, per-target draft updates and final validation. Batch dialogs run the update in a worker. Changes commit only after success; invalid scores/colors/URLs, Cancel or interrupted workers preserve the original document. State and selection actions also report their stages. Save/Export explicitly writes document files, and automatic session checkpoints can retain the in-memory drafts independently. Each write announces absolute final/temporary paths.
 
-Changes belong to one document/domain/version/dataset. Duplicates and in-memory domain/version archives preserve independent states. Session recovery and reopening Studio JSON remain separate unfinished features; export Studio JSON before closing when you need full annotations and archives. See [README](../README.md) for startup and the audit command.
+Changes belong to one document/domain/version/dataset. Duplicates and in-memory domain/version archives preserve independent states. Save/Save As preserves full annotations and archives; Open Studio JSON and session recovery restore them. See the [file/recovery guide](studio_files_en.md). See [README](../README.md) for startup and the audit command.

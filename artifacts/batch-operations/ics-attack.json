@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0",
-  "document_id": "d9e02fce-4a50-4a5d-b0de-abe74b21f16b",
+  "document_id": "8c684484-0182-47da-bfef-73bdb0e26115",
   "name": "ics-attack",
-  "created_at_utc": "2026-10-15T07:34:22.886107+00:00",
-  "exported_at_utc": "2026-10-15T07:34:32.235365+00:00",
+  "created_at_utc": "2026-10-20T02:46:22.220552+00:00",
+  "exported_at_utc": "2026-10-20T02:46:53.964574+00:00",
   "attack": {
     "domain": "ics-attack",
-    "version": "19.2",
+    "version": "20.0",
     "source_url": "https://github.com/mitre-attack/attack-stix-data"
   },
   "selected_count": 1,
@@ -22,7 +22,10 @@
       "parent_technique_id": null,
       "parent_technique_name": null,
       "platforms": [
-        "None"
+        "Embedded",
+        "Linux",
+        "Network Devices",
+        "Windows"
       ],
       "tactics": [
         {
@@ -39,14 +42,28 @@
           "tactic": "inhibit-response-function",
           "enabled": false
         }
+      ],
+      "selected_tactics": [
+        "inhibit-response-function"
       ]
     }
+  ],
+  "navigator_import_selected": [],
+  "selection_scopes": {},
+  "selection_preferences": {
+    "across_tactics": true,
+    "with_family": false,
+    "visible_only": false
+  },
+  "search_fields": [
+    "name",
+    "id"
   ],
   "navigator_layer": {
     "name": "mobile-attack",
     "domain": "ics-attack",
     "versions": {
-      "attack": "19.2",
+      "attack": "20.0",
       "layer": "4.5",
       "navigator": "5.2.0"
     },
@@ -59,12 +76,12 @@
   },
   "domain_snapshots": {
     "enterprise-attack": {
-      "version": "19.2",
+      "version": "20.0",
       "selected_stix_ids": [
         "attack-pattern--005a06c6-14bf-4118-afa0-ebcd8aebb0c9"
       ],
       "navigator_layer": {
-        "name": "state.navigator",
+        "name": "state",
         "domain": "enterprise-attack",
         "techniques": [
           {
@@ -88,13 +105,19 @@
         "selectTechniquesAcrossTactics": true,
         "selectSubtechniquesWithParent": false,
         "hideDisabled": false,
+        "selectVisibleTechniques": false,
+        "x_ttp_studio_search_fields": [
+          "name",
+          "id"
+        ],
         "versions": {
-          "attack": "19.2",
+          "attack": "20.0",
           "navigator": "5.2.0",
           "layer": "4.5"
         },
         "layout": {
-          "layout": "mini"
+          "layout": "mini",
+          "expandedSubtechniques": "all"
         },
         "sorting": 0,
         "filters": {
@@ -104,18 +127,19 @@
         }
       },
       "navigator_import_selected": [],
+      "selection_scopes": {},
       "navigator_snapshots": {}
     },
     "mobile-attack": {
-      "version": "19.2",
+      "version": "20.0",
       "selected_stix_ids": [
         "attack-pattern--00290ac5-551e-44aa-bbd8-c4b913488a6d"
       ],
       "navigator_layer": {
-        "name": "state.navigator",
+        "name": "state",
         "domain": "mobile-attack",
         "versions": {
-          "attack": "19.2",
+          "attack": "20.0",
           "layer": "4.5",
           "navigator": "5.2.0"
         },
@@ -127,6 +151,7 @@
         ]
       },
       "navigator_import_selected": [],
+      "selection_scopes": {},
       "navigator_snapshots": {}
     }
   }

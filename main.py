@@ -1,4 +1,4 @@
-"""VS Code-inspired ATT&CK desktop explorer. See README.md for workflow and paths."""
+"""Fusion Studio: a community toolkit for MITRE ATT&CK® and ATLAS. See README.md."""
 from __future__ import annotations
 
 import argparse
@@ -11,8 +11,9 @@ import subprocess
 import sys
 
 from PySide6 import QtCore, QtGui, QtWidgets
+from app_identity import APP_NAME, APP_TAGLINE, APP_USER_MODEL_ID
 
-from attack_catalog import BROWSE_CATEGORIES, DOMAIN_LABELS, Catalog, external_id, load_catalog, tactic_phases, catalog_identity, supports_navigator
+from attack_catalog import BROWSE_CATEGORIES, DOMAIN_LABELS, Catalog, external_id, load_catalog, tactic_phases, catalog_identity, supports_navigator, domain_label
 from version_dialog import VersionDialog
 from ttp_documents import TTPDocument, export_document_json, export_document_csv, validate_document_name, technique_comments, technique_states
 from attack_matrix import AttackMatrix
@@ -21,16 +22,40 @@ from navigator_integration import export_layer, document_layer, export_layers, u
 from navigator_dialogs import ImportLayerDialog, AnnotationDialog, LayerSettingsDialog, SelectionCompareDialog, VersionCompareDialog
 from navigator_visuals import DEFAULT_GRADIENT
 from layer_analysis_dialogs import FormulaDialog, MatrixExportDialog
+from export_dialogs import AllLayersExcelDialog
+from json_annotation_export import annotation_export_plan, matrix_visibility
+from json_export_dialog import JSONAnnotationExportDialog
 from navigator_fields import set_presentation
 from source_dialogs import SourceDialog, UpgradeDialog
 from batch_dialogs import BatchEditDialog
 from ttp_operations import batch_patch, annotated_keys, apply_selection, rows_by_scope
+from studio_workspace import StudioWorkspace
+from selection_workspace import SelectionWorkspace
+from ttp_selection import is_selected, selected_cells, expand_cells
+from ttp_operations import is_annotated, effective_row
+from ttp_search import search_index
+from stix_clipboard import ObjectCopyBar
+from info_menu import build_info_menu
+from manual_page import ManualWorkspace, MANUAL_TAB
+from localization import LanguageWorkspace, LocalizedTextBrowser, language_manager, tr
+from atlas_workspace import AtlasWorkspace
+from atlas_catalog import load_atlas_catalog
+from car_workspace import CarWorkspace
+from car_catalog import load_car
+from framework_dialog import choose_frameworks
+from framework_io import selection, FrameworkSelection, framework_documents
 
 ROLE_ID = int(QtCore.Qt.ItemDataRole.UserRole) + 1
 ROLE_CONTEXT = ROLE_ID + 1
 ROLE_SEARCH = ROLE_ID + 2
-APP_USER_MODEL_ID = "TTPSelectionStudio.Desktop"
 NAVIGATION_ICON_FILES = {
+    "CAR Analytics": "navigation/car-analytics.svg",
+    "CAR Data Model": "navigation/car-data-model.svg",
+    "CAR Sensors": "navigation/car-sensors.svg",
+    "Workplace": "navigation/workplace.svg",
+    "ATLAS TTP": "navigation/atlas.svg",
+    "ATLAS Mitigations": "navigation/atlas-mitigations.svg",
+    "ATLAS Case Studies": "navigation/atlas-cases.svg",
     "TTP": "ttp-selection-studio-icon-pixel.png",
     "Mitigations": "navigation/mitigations.png",
     "Assets": "navigation/assets.png",
@@ -75,7 +100,7 @@ QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical { height: 0; }
 """
 
 
-class DetailBrowser(QtWidgets.QTextBrowser):
+class DetailBrowser(LocalizedTextBrowser):
     """Native copy buttons follow their rich-text headings while the document scrolls."""
     copied = QtCore.Signal(str)
 
@@ -120,7 +145,7 @@ class DetailBrowser(QtWidgets.QTextBrowser):
 
     def position_copy_buttons(self):
         for section, button in self.copy_buttons.items():
-            needle = self.copy_content.get("Title", "") if section == "Title" else "Description"
+            needle = self.copy_content.get("Title", "") if section == "Title" else tr("Description")
             if not self.copy_content or not needle:
                 button.hide()
                 continue
@@ -157,6 +182,9 @@ class CatalogLoader(QtCore.QThread):
     progress = QtCore.Signal(str, int, int)
     loaded = QtCore.Signal(object)
     failed = QtCore.Signal(str)
+    atlas_loaded = QtCore.Signal(object)
+    car_loaded = QtCore.Signal(object)
+    car_failed = QtCore.Signal(str)
 
     def __init__(self, root: Path, parent=None, pointer_path=None):
         super().__init__(parent)
@@ -180,6 +208,19 @@ class CatalogLoader(QtCore.QThread):
                     raise
                 self.report("Saved version unavailable; loading latest.json instead", 0, 0)
                 catalog = load_catalog(self.root, self.report)
+            try:
+                self.atlas_loaded.emit(load_atlas_catalog(self.root, self.report))
+            except InterruptedError:
+                raise
+            except Exception as error:
+                self.report('[ATLAS] Unable to load local snapshot: ' + str(error), 1, 1)
+            try:
+                self.car_loaded.emit(load_car(notify=self.report))
+            except InterruptedError:
+                raise
+            except Exception as error:
+                self.report('[CAR] Unable to load local snapshot: ' + str(error), 1, 1)
+                self.car_failed.emit(str(error))
             self.loaded.emit(catalog)
         except Exception as error:
             self.failed.emit(f"{type(error).__name__}: {error}")
@@ -209,15 +250,16 @@ def load_navigation_icons():
     return icons
 
 
-class MainWindow(QtWidgets.QMainWindow):
+class MainWindow(QtWidgets.QMainWindow, AtlasWorkspace, CarWorkspace, StudioWorkspace, SelectionWorkspace, ManualWorkspace, LanguageWorkspace):
     ready = QtCore.Signal()
 
-    def __init__(self, data_root: Path, pointer_path=None, settings_path=None):
+    def __init__(self, data_root: Path, pointer_path=None, settings_path=None, session_path=None):
         super().__init__()
         self.data_root = data_root.resolve()
         self.settings_path = (Path(settings_path) if settings_path is not None else
                               Path(__file__).resolve().parent / "data" / "ui-settings.ini").resolve()
         self.ui_settings, self.navigation_labels_visible = self.load_ui_settings()
+        self.init_language()
         self.version_dialog = None
         self.integration_dialog = None
         self.documents = []
@@ -231,7 +273,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.retained_selection = set()
         self.removed_selection_count = 0
         pointer_path = pointer_path or (self.data_root / "active.json" if (self.data_root / "active.json").exists() else self.data_root / "latest.json")
-        self.setWindowTitle("TTP Selection Studio")
+        self.setWindowTitle(APP_NAME)
         self.resize(1440, 920)
         self.setMinimumSize(900, 600)
         self.catalog: Catalog | None = None
@@ -251,8 +293,19 @@ class MainWindow(QtWidgets.QMainWindow):
         self.build_timer = QtCore.QTimer(self)
         self.build_timer.timeout.connect(self.build_batch)
         self.build_ui()
+        self.init_studio_workspace(session_path)
+        self.init_selection_tools(ROLE_ID,ROLE_CONTEXT,ROLE_SEARCH)
+        self.init_atlas_workspace()
+        self.init_car_workspace()
+        self.workspace.currentChanged.connect(self.schedule_session_checkpoint)
+        self.tabs.currentChanged.connect(self.schedule_session_checkpoint)
+        self.matrix_view.show_colors.toggled.connect(self.schedule_session_checkpoint)
+        self.matrix_view.show_all_layers.toggled.connect(self.schedule_session_checkpoint)
         self.loader = CatalogLoader(self.data_root, self, pointer_path)
         self.loader.progress.connect(self.report)
+        self.loader.atlas_loaded.connect(self.set_atlas_catalog)
+        self.loader.car_loaded.connect(self.set_car_catalog)
+        self.loader.car_failed.connect(self.car_catalog_failed)
         self.loader.loaded.connect(self.begin_tree)
         self.loader.failed.connect(self.load_failed)
         self.loader.finished.connect(self.loader_finished)
@@ -264,7 +317,7 @@ class MainWindow(QtWidgets.QMainWindow):
     def configure_native_taskbar(self):
         if sys.platform != "win32" or QtWidgets.QApplication.instance().platformName() != "windows":
             return
-        icon_path = Path(__file__).resolve().parent / "assets" / "ttp-selection-studio-icon-pixel.ico"
+        icon_path = Path(__file__).resolve().parent / "assets" / "fusion-studio-icon-pixel-v2.ico"
         python_path = Path(sys.executable).resolve()
         pythonw_path = python_path.with_name("pythonw.exe")
         if pythonw_path.is_file():
@@ -317,7 +370,9 @@ class MainWindow(QtWidgets.QMainWindow):
             # Missing artwork must retain a visible category label.
             button.setToolButtonStyle(style if not button.icon().isNull() else
                                       QtCore.Qt.ToolButtonStyle.ToolButtonTextOnly)
-            button.setFixedSize(width, height)
+            button.setFixedSize(width, height + (14 if self.navigation_labels_visible and '\n' in button.text() else 0))
+        if hasattr(self, 'navigation_scroll'):
+            self.navigation_scroll.setFixedWidth(width + 10)
 
     def build_ui(self):
         file_menu = self.menuBar().addMenu("File")
@@ -325,6 +380,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.new_action.setShortcut(QtGui.QKeySequence.StandardKey.New)
         self.new_action.setEnabled(False)
         self.new_action.triggered.connect(self.new_document)
+        self.add_studio_actions(file_menu)
         self.export_action = file_menu.addAction("Export…")
         self.export_action.setShortcut("Ctrl+Shift+E")
         self.export_action.setEnabled(False)
@@ -333,7 +389,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.export_csv_action.setEnabled(False)
         self.export_csv_action.triggered.connect(lambda: self.export_current_document(file_format="csv"))
         self.import_layer_action = file_menu.addAction("Import Navigator Layer…")
-        self.import_layer_action.setShortcut("Ctrl+O")
+        self.import_layer_action.setShortcut("Ctrl+Alt+O")
         self.import_layer_action.setEnabled(False)
         self.import_layer_action.triggered.connect(lambda: self.import_navigator_layer())
         self.load_source_action = file_menu.addAction('Load layer URL / custom STIX…')
@@ -366,6 +422,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.version_action.triggered.connect(self.open_versions)
 
         navigator_menu = self.menuBar().addMenu("Navigator")
+        self.navigator_menu = navigator_menu
         self.new_layer_action = navigator_menu.addAction("New layer")
         self.new_layer_action.triggered.connect(self.new_navigator_layer)
         self.duplicate_layer_action = navigator_menu.addAction("Duplicate active layer")
@@ -381,7 +438,9 @@ class MainWindow(QtWidgets.QMainWindow):
         self.matrix_svg_action.triggered.connect(lambda: self.export_matrix_view('svg'))
         self.matrix_excel_action = navigator_menu.addAction('Export matrix Excel…')
         self.matrix_excel_action.triggered.connect(lambda: self.export_matrix_view('xlsx'))
-        self.layer_actions += (self.formula_action, self.matrix_svg_action, self.matrix_excel_action)
+        self.all_layers_excel_action = navigator_menu.addAction('Export all open layers to Excel…')
+        self.all_layers_excel_action.triggered.connect(lambda: self.export_all_layers_workbook())
+        self.layer_actions += (self.formula_action, self.matrix_svg_action, self.matrix_excel_action, self.all_layers_excel_action)
         self.upgrade_layer_action = navigator_menu.addAction('Review and upgrade layer…')
         self.upgrade_layer_action.triggered.connect(self.open_upgrade_dialog)
         self.layer_actions += (self.upgrade_layer_action,)
@@ -390,9 +449,9 @@ class MainWindow(QtWidgets.QMainWindow):
         self.clear_annotations_action = navigator_menu.addAction('Clear selected annotations…')
         self.clear_annotations_action.triggered.connect(lambda: self.edit_ttp_batch(clear=True))
         self.enable_selected_action = navigator_menu.addAction('Enable selected TTPs')
-        self.enable_selected_action.triggered.connect(lambda: self.set_technique_states(set(self.selected), True))
+        self.enable_selected_action.triggered.connect(lambda: self.set_technique_states(set(self.selected), True, respect_selection=True))
         self.disable_selected_action = navigator_menu.addAction('Disable selected TTPs')
-        self.disable_selected_action.triggered.connect(lambda: self.set_technique_states(set(self.selected), False))
+        self.disable_selected_action.triggered.connect(lambda: self.set_technique_states(set(self.selected), False, respect_selection=True))
         selection_tools = navigator_menu.addAction('Batch selection tools')
         selection_tools.triggered.connect(self.open_matrix)
         self.batch_actions = (self.batch_edit_action, self.clear_annotations_action, self.enable_selected_action, self.disable_selected_action)
@@ -411,10 +470,12 @@ class MainWindow(QtWidgets.QMainWindow):
             QtCore.QUrl("https://mitre-attack.github.io/attack-navigator/")))
 
         settings_menu = self.menuBar().addMenu("Settings")
+        self.add_language_menu(settings_menu)
         self.show_navigation_labels_action = settings_menu.addAction("Show navigation labels")
         self.show_navigation_labels_action.setCheckable(True)
         self.show_navigation_labels_action.setChecked(self.navigation_labels_visible)
         self.show_navigation_labels_action.toggled.connect(self.set_navigation_labels_visible)
+        build_info_menu(self)
 
         central = QtWidgets.QWidget()
         layout = QtWidgets.QHBoxLayout(central)
@@ -430,10 +491,13 @@ class MainWindow(QtWidgets.QMainWindow):
         self.navigation_group.setExclusive(True)
         self.navigation_buttons = {}
         navigation_icons = load_navigation_icons()
-        for category in ("TTP", *BROWSE_CATEGORIES):
+        for category in ("Workplace", "TTP", "ATLAS TTP", *BROWSE_CATEGORIES, "ATLAS Mitigations", "ATLAS Case Studies",
+                         "CAR Analytics", "CAR Data Model", "CAR Sensors"):
             button = QtWidgets.QToolButton()
-            button.setText(category)
-            button.setAccessibleName(category)
+            button.setText({'TTP':'ATT&CK TTP', 'ATLAS Mitigations':'ATLAS\nMitigations',
+                            'ATLAS Case Studies':'ATLAS\nCase Studies','CAR Analytics':'CAR\nAnalytics',
+                            'CAR Data Model':'CAR\nData Model','CAR Sensors':'CAR\nSensors'}.get(category,category))
+            button.setAccessibleName('ATT&CK TTP' if category == 'TTP' else category)
             button.setIconSize(QtCore.QSize(32, 32))
             if category in navigation_icons:
                 button.setIcon(navigation_icons[category])
@@ -451,7 +515,14 @@ class MainWindow(QtWidgets.QMainWindow):
         self.rail_button.setChecked(True)
         self.apply_navigation_label_layout()
         rail_layout.addStretch()
-        layout.addWidget(rail)
+        rail_scroll = QtWidgets.QScrollArea()
+        self.navigation_scroll = rail_scroll
+        rail_scroll.setWidgetResizable(True)
+        rail_scroll.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
+        rail_scroll.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
+        rail_scroll.setWidget(rail)
+        rail_scroll.setFixedWidth(rail.width() + 10)
+        layout.addWidget(rail_scroll)
         self.horizontal = QtWidgets.QSplitter(QtCore.Qt.Orientation.Horizontal)
         layout.addWidget(self.horizontal)
         self.sidebar = QtWidgets.QWidget()
@@ -517,7 +588,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.explorer_stack.addWidget(self.library_tree)
         side_layout.addWidget(self.explorer_stack)
         collapse = QtWidgets.QPushButton("Collapse all")
-        collapse.clicked.connect(lambda: (self.tree if self.active_category == "TTP" else self.library_tree).collapseAll())
+        collapse.clicked.connect(lambda: self.explorer_stack.currentWidget().collapseAll())
         side_layout.addWidget(collapse)
         self.horizontal.addWidget(self.sidebar)
         self.search_timer = QtCore.QTimer(self)
@@ -539,7 +610,8 @@ class MainWindow(QtWidgets.QMainWindow):
         editor_layout.setContentsMargins(0, 0, 0, 0)
         editor_layout.setSpacing(0)
         self.document_tabs = QtWidgets.QTabBar()
-        self.document_tabs.setAccessibleName("Workspace files and details")
+        self.document_tabs.setProperty('documentTabs', True)
+        self.document_tabs.setAccessibleName("Workspace files, details and manual")
         self.document_tabs.setExpanding(False)
         self.document_tabs.setUsesScrollButtons(True)
         self.document_tabs.setElideMode(QtCore.Qt.TextElideMode.ElideRight)
@@ -565,6 +637,9 @@ class MainWindow(QtWidgets.QMainWindow):
         self.bulk_add_button.setAccessibleName("Add all source TTPs to active document")
         self.bulk_add_button.clicked.connect(self.add_current_source_ttps)
         bulk_layout.addWidget(self.bulk_add_button)
+        self.bulk_remove_button = QtWidgets.QPushButton('Remove all TTPs')
+        self.bulk_remove_button.clicked.connect(lambda:self.change_source_ttps(*self.bulk_source_context,'remove') if self.bulk_source_context else None)
+        bulk_layout.addWidget(self.bulk_remove_button)
         self.annotation_context = None
         self.annotation_button = QtWidgets.QPushButton("Edit Navigator annotation…")
         self.annotation_button.clicked.connect(self.edit_navigator_annotation)
@@ -573,7 +648,10 @@ class MainWindow(QtWidgets.QMainWindow):
         bulk_layout.addStretch()
         self.bulk_action_bar.hide()
         details_layout.addWidget(self.bulk_action_bar)
+        self.object_copy_bar = ObjectCopyBar(self.operation_report,self.details_page)
+        details_layout.addWidget(self.object_copy_bar)
         self.details = DetailBrowser()
+        self.details.textChanged.connect(self.object_copy_bar.clear_context)
         self.details.textChanged.connect(self.hide_bulk_action)
         self.details.copied.connect(lambda section: self.state.setText(f"Copied {section.lower()} to clipboard"))
         self.details.setOpenExternalLinks(False)
@@ -584,6 +662,7 @@ class MainWindow(QtWidgets.QMainWindow):
                              "<p style='color:#999999'>Loading the local Enterprise catalog…</p>")
         details_layout.addWidget(self.details)
         selection_page = QtWidgets.QWidget()
+        self.selection_page = selection_page
         selection_layout = QtWidgets.QVBoxLayout(selection_page)
         self.selection_summary = QtWidgets.QLabel("Selected TTPs · active document")
         selection_layout.addWidget(self.selection_summary)
@@ -592,7 +671,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.selection_export_button.clicked.connect(lambda: self.export_current_document())
         selection_layout.addWidget(self.selection_export_button)
         self.selection_list = QtWidgets.QListWidget()
-        self.selection_list.itemClicked.connect(self.show_selected)
+        self.selection_list.setSelectionMode(QtWidgets.QAbstractItemView.SelectionMode.ExtendedSelection)
         self.selection_list.setContextMenuPolicy(QtCore.Qt.ContextMenuPolicy.CustomContextMenu)
         self.selection_list.customContextMenuRequested.connect(self.show_selected_context_menu)
         selection_layout.addWidget(self.selection_list)
@@ -614,7 +693,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.selection_state_button.setPopupMode(QtWidgets.QToolButton.ToolButtonPopupMode.InstantPopup)
         state_menu = QtWidgets.QMenu(self.selection_state_button)
         for label, state in [('Enable included TTPs', True), ('Disable included TTPs', False), ('Toggle included states', 'toggle')]:
-            state_menu.addAction(label, lambda checked=False, value=state: self.set_technique_states(set(self.selected), value))
+            state_menu.addAction(label, lambda checked=False, value=state: self.set_technique_states(set(self.selected), value, respect_selection=True))
         state_menu.addAction('Clear all included annotations…', lambda: self.edit_ttp_batch(clear=True))
         self.selection_state_button.setMenu(state_menu)
         batch_row.addWidget(self.selection_state_button)
@@ -622,24 +701,29 @@ class MainWindow(QtWidgets.QMainWindow):
         self.selection_tab_index = self.tabs.addTab(selection_page, "Selected Techniques (0)")
         self.matrix_view = AttackMatrix()
         self.matrix_view.progress.connect(self.operation_report)
-        self.matrix_view.selection_requested.connect(self.select_matrix_ttp)
+        self.matrix_view.scoped_selection_requested.connect(lambda key,slug,checked:self.select_matrix_ttp(key,checked,slug))
+        self.matrix_view.mouse_selection_requested.connect(self.select_mouse_occurrence)
+        self.matrix_view.family_expansion_requested.connect(self.change_family_expansion)
         self.matrix_view.detail_requested.connect(self.show_matrix_detail)
         self.matrix_view.layer_requested.connect(self.select_navigator_layer)
         self.matrix_view.overlay_requested.connect(self.toggle_all_layers)
         self.matrix_view.new_layer_requested.connect(self.new_navigator_layer)
         self.matrix_view.duplicate_layer_requested.connect(self.duplicate_navigator_layer)
         self.matrix_view.layer_settings_requested.connect(self.edit_layer_settings)
-        self.matrix_view.color_selected_requested.connect(lambda: self.choose_technique_color(set(self.selected)))
-        self.matrix_view.clear_selected_color_requested.connect(lambda: self.apply_technique_fields(set(self.selected), {'color': ''}, include=False))
+        self.matrix_view.color_selected_requested.connect(lambda: self.choose_technique_color(set(self.selected), respect_selection=True))
+        self.matrix_view.clear_selected_color_requested.connect(lambda: self.apply_technique_fields(set(self.selected), {'color': ''}, include=False, respect_selection=True))
         self.matrix_view.score_selected_requested.connect(self.score_selected_techniques)
         self.matrix_view.annotation_requested.connect(lambda key, slug: self.edit_navigator_annotation(key, '', True))
         self.matrix_view.cell_color_requested.connect(lambda key, slug: self.choose_technique_color({key}))
         self.matrix_view.cell_clear_color_requested.connect(lambda key, slug: self.apply_technique_fields({key}, {'color': ''}, include=False))
-        self.matrix_view.source_requested.connect(self.add_source_ttps)
+        self.matrix_view.source_operation_requested.connect(self.change_source_ttps)
+        self.matrix_view.source_batch_requested.connect(self.change_sources_ttps)
+        self.matrix_view.source_detail_requested.connect(lambda domain,key:self.open_detail_link(QtCore.QUrl(f'library:{domain}/{key}')))
         self.matrix_view.presentation_requested.connect(self.change_matrix_presentation)
+        self.matrix_view.display_requested.connect(self.change_matrix_display)
         self.matrix_view.bulk_selection_requested.connect(self.select_ttp_batch)
         self.matrix_view.batch_edit_requested.connect(lambda clear: self.edit_ttp_batch(clear=clear))
-        self.matrix_view.enabled_requested.connect(lambda value: self.set_technique_states(set(self.selected), value))
+        self.matrix_view.enabled_requested.connect(lambda value: self.set_technique_states(set(self.selected), value, respect_selection=True))
         self.matrix_view.cell_enabled_requested.connect(lambda key, slug, value: self.set_technique_states({key}, value, slug or None))
         self.matrix_tab_index = self.tabs.addTab(self.matrix_view, "ATT&CK Matrix")
         self.tabs.setTabEnabled(self.matrix_tab_index, False)
@@ -693,8 +777,12 @@ class MainWindow(QtWidgets.QMainWindow):
         self.report(message, current, total)
 
     def editor_tab_changed(self, index):
+        if self.restoring_workspace:
+            return
         if index == self.matrix_tab_index and self.loaded_ok and self.workspace.currentWidget() is self.tabs:
             self.open_matrix()
+        elif hasattr(self, 'atlas_matrix') and self.tabs.widget(index) is self.atlas_matrix:
+            self.open_atlas_matrix()
 
     @property
     def details_tab_index(self):
@@ -727,7 +815,9 @@ class MainWindow(QtWidgets.QMainWindow):
             self.document_tabs.setTabText(self.details_tab_index, title)
 
     def workspace_tab_changed(self, index):
-        if self.document_tabs.tabData(index) == "__details__":
+        if self.document_tabs.tabData(index) == MANUAL_TAB:
+            self.workspace.setCurrentWidget(self.manual_page)
+        elif self.document_tabs.tabData(index) == "__details__":
             self.workspace.setCurrentWidget(self.details_page)
         else:
             self.activate_document(index)
@@ -771,6 +861,7 @@ class MainWindow(QtWidgets.QMainWindow):
     def open_matrix(self):
         if not self.loaded_ok:
             return
+        self.ensure_attack_matrix_tab()
         if self.active_category != "TTP":
             self.switch_category("TTP")
         self.matrix_view.set_catalog(self.catalog, self.selected)
@@ -778,11 +869,10 @@ class MainWindow(QtWidgets.QMainWindow):
         self.show_document_page()
         self.tabs.setCurrentIndex(self.matrix_tab_index)
 
-    def select_matrix_ttp(self, key, checked):
+    def select_matrix_ttp(self, key, checked, tactic=None):
         if not self.loaded_ok or key not in self.items_by_id:
             return
-        item = self.items_by_id[key][0]
-        item.setCheckState(QtCore.Qt.CheckState.Checked if checked else QtCore.Qt.CheckState.Unchecked)
+        return self.choose_technique_occurrence(key,checked,tactic)
 
     def show_matrix_detail(self, key, slug):
         if not self.loaded_ok or key not in self.items_by_id:
@@ -808,19 +898,27 @@ class MainWindow(QtWidgets.QMainWindow):
     def sync_active_document(self):
         document = self.current_document
         if document and self.catalog and self.loaded_ok:
+            previous_scoped = set(document.selection_scopes)
             document.set_catalog(self.catalog)
+            lost_scopes = previous_scoped - document.selected
+            self.selected -= lost_scopes
+            if lost_scopes:
+                self.operation_report(f'[Selection Scopes] {len(lost_scopes)} TTPs have no selected tactic left in this version; removed without widening selection.',1,1)
             document.selected = set(self.selected)
+            document.normalize_selection_scopes()
+            self.selected = set(document.selected)
         self.update_document_labels()
 
     def update_document_labels(self):
         for number, document in enumerate(self.documents):
             self.document_tabs.setTabText(number, document.name + (" *" if document.dirty else ""))
-            self.document_tabs.setTabToolTip(number, f"{document.name}\n{DOMAIN_LABELS[document.catalog.domain]} · ATT&CK v{document.catalog.version}\n"
-                                                + (str(document.export_path) if document.export_path else "Not exported"))
+            self.document_tabs.setTabToolTip(number, f"{document.name}\n{domain_label(document.catalog.domain, document.catalog)} · ATT&CK v{document.catalog.version}\n"
+                                                + (f"Saved: {document.save_path}" if document.save_path else "Not saved as Studio JSON")
+                                                + (f"\nLast export: {document.export_path}" if document.export_path else ""))
         document = self.current_document
         if document:
-            self.setWindowTitle(document.name + (" *" if document.dirty else "") + " — TTP Selection Studio")
-            self.selection_summary.setText(f"{document.name} · {DOMAIN_LABELS[document.catalog.domain]} · ATT&CK v{document.catalog.version} · {len(document.selected)} selected TTPs")
+            self.setWindowTitle(document.name + (" *" if document.dirty else "") + " — " + APP_NAME)
+            self.selection_summary.setText(f"{document.name} · {domain_label(document.catalog.domain, document.catalog)} · ATT&CK v{document.catalog.version} · {len(document.selected)} selected TTPs")
         self.matrix_view.update_layers(self.documents, document)
         for number, candidate in enumerate(self.documents):
             if candidate.catalog.dataset_id:
@@ -835,6 +933,12 @@ class MainWindow(QtWidgets.QMainWindow):
         self.selection_state_button.setEnabled(supported and bool(self.selected))
         if self.matrix_view.show_all_layers.isChecked():
             self.refresh_layer_appearance()
+        self.schedule_session_checkpoint()
+        self.sync_selection_tools()
+        if self.loaded_ok:
+            self.refresh_search_roles()
+        if hasattr(self, 'atlas_matrix'):
+            self.refresh_atlas_workspace()
 
     def refresh_layer_appearance(self, report_overlay=False):
         document = self.current_document
@@ -848,7 +952,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 if report_overlay:
                     self.operation_report('[Overlay 2/3] Reading compatible layer colors', number - 1, len(compatible))
                 layers.append((candidate.name, document_layer(candidate, validate=False)))
-            scope = f"{DOMAIN_LABELS[document.catalog.domain]} v{document.catalog.version}"
+            scope = f"{domain_label(document.catalog.domain, document.catalog)} v{document.catalog.version}"
             self.matrix_view.set_overlay(layers, active_layer, len(self.documents), scope, document.name, document.catalog)
         else:
             if report_overlay:
@@ -920,9 +1024,48 @@ class MainWindow(QtWidgets.QMainWindow):
         options = {'platform': matrix.platform_scope(), 'query': matrix.search.text(),
                    'colors': matrix.show_colors.isChecked(),
                    'sources': list(self.documents) if matrix.show_all_layers.isChecked() else None}
+        if kind == 'svg':
+            options['expanded']=matrix.expansion_snapshot()
         self.operation_report('Input files: None (matrix/layer snapshots in memory)')
         self.operation_report(f'Output file: {Path(target).expanduser().resolve()}')
         dialog = MatrixExportDialog(self.current_document, target, kind, options, self)
+        if kind == 'svg' and matrix.building:
+            dialog.export_button.setEnabled(False)
+            dialog.preview_button.setEnabled(False)
+            dialog.status.setText('Waiting for matrix layout to capture expanded sub-techniques…')
+            def capture_expansion():
+                matrix.ready.disconnect(capture_expansion)
+                if dialog.closing:
+                    return
+                dialog.options['expanded']=matrix.expansion_snapshot()
+                dialog.export_button.setEnabled(True)
+                dialog.preview_button.setEnabled(True)
+                dialog.status.setText('Ready')
+            matrix.ready.connect(capture_expansion)
+        self.show_integration_dialog(dialog)
+        return dialog
+
+    def export_all_layers_workbook(self,target=None,*,frameworks=None):
+        if not self.loaded_ok or not self.documents: return None
+        if self.integration_dialog and self.integration_dialog.isVisible():
+            self.integration_dialog.raise_()
+            return None
+        self.sync_active_document()
+        interactive = target is None and frameworks is None
+        if target is None:
+            target,_=QtWidgets.QFileDialog.getSaveFileName(self,'Export all open layers to Excel',
+                str(Path.home()/'all-layers.xlsx'),'Excel workbooks (*.xlsx)')
+        if not target:
+            self.operation_report('[Workbook] Cancelled; no output files written',1,1)
+            return None
+        frameworks = choose_frameworks(self,'write',target) if interactive else selection(frameworks)
+        if frameworks is None:
+            return None
+        self.operation_report('Input files: None (all open layer snapshots in memory)')
+        self.operation_report(f'Output file: {Path(target).expanduser().resolve()}')
+        output_documents = [part for document in self.documents
+                            for part in framework_documents(document, frameworks, self.current_atlas_catalog)]
+        dialog=AllLayersExcelDialog(output_documents,target,self)
         self.show_integration_dialog(dialog)
         return dialog
 
@@ -946,6 +1089,13 @@ class MainWindow(QtWidgets.QMainWindow):
                                navigator_snapshots=deepcopy(source.navigator_snapshots),
                                domain_snapshots=deepcopy(source.domain_snapshots),
                                migration_archives=deepcopy(source.migration_archives))
+        document.selection_scopes = deepcopy(source.selection_scopes)
+        document.selection_preferences = dict(source.selection_preferences)
+        document.search_fields = list(source.search_fields)
+        document.car_workspace = deepcopy(source.car_workspace)
+        if source.atlas_document:
+            from layer_analysis import snapshot_document
+            document.atlas_document = snapshot_document(source.atlas_document)
         self.install_imported_document(document)
         if self.loaded_ok:
             self.open_matrix()
@@ -968,7 +1118,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.refresh_selection()
         self.operation_report("[Layer Settings 2/2] Saved; native matrix colors updated", 2, 2)
 
-    def choose_technique_color(self, keys, tactic=None):
+    def choose_technique_color(self, keys, tactic=None, respect_selection=False):
         if not self.loaded_ok or not keys:
             return
         self.operation_report("Input files: None; output files: None (technique colors in memory)")
@@ -977,7 +1127,7 @@ class MainWindow(QtWidgets.QMainWindow):
         if not color.isValid():
             self.operation_report("[Color] Cancelled; document preserved", 1, 1)
             return
-        self.apply_technique_fields(keys, {'color': color.name()}, tactic)
+        self.apply_technique_fields(keys, {'color': color.name()}, tactic, respect_selection=respect_selection)
 
     def score_selected_techniques(self):
         if not self.loaded_ok or not self.selected:
@@ -996,16 +1146,20 @@ class MainWindow(QtWidgets.QMainWindow):
             QtWidgets.QMessageBox.warning(self, 'Invalid score', str(error))
             self.operation_report(f"[Score] Failed: {error}", 1, 1)
             return
-        self.apply_technique_fields(set(self.selected), {'score': score})
+        self.apply_technique_fields(set(self.selected), {'score': score}, respect_selection=True)
 
-    def apply_technique_fields(self, keys, fields, tactic=None, include=True):
+    def apply_technique_fields(self, keys, fields, tactic=None, include=True, respect_selection=False):
         if not self.loaded_ok or not keys:
             return False
         self.sync_active_document()
         self.operation_report("Input files: None; output files: None (active layer in memory)")
         self.operation_report("[Layer Color/Score 1/3] Validating technique annotations", 0, 3)
         try:
-            changed = update_technique_fields(self.current_document, keys, fields, tactic)
+            if respect_selection and set(keys) & self.current_document.selection_scopes.keys():
+                patch = {field: None if field == 'color' and value == '' else value for field,value in fields.items()}
+                changed = batch_patch(self.current_document, keys, patch, '__selected__', self.operation_report)['changed']
+            else:
+                changed = update_technique_fields(self.current_document, keys, fields, tactic)
         except Exception as error:
             self.operation_report(f"[Layer Color/Score] Failed: {error}", 1, 1)
             QtWidgets.QMessageBox.warning(self, 'Invalid annotation', str(error))
@@ -1026,12 +1180,12 @@ class MainWindow(QtWidgets.QMainWindow):
         self.operation_report("[Layer Color/Score 3/3] Ready; native colors and exports synchronized", 3, 3)
         return True
 
-    def set_technique_states(self, keys, value, tactic=None):
+    def set_technique_states(self, keys, value, tactic=None, respect_selection=False):
         if not self.loaded_ok or not keys or not supports_navigator(self.catalog):
             return False
         self.sync_active_document()
         try:
-            result = batch_patch(self.current_document, keys, {'enabled': value}, tactic, self.operation_report)
+            result = batch_patch(self.current_document, keys, {'enabled': value}, '__selected__' if respect_selection and tactic is None else tactic, self.operation_report)
         except Exception as error:
             self.operation_report(f'[State] Failed: {error}', 1, 1)
             return False
@@ -1045,25 +1199,20 @@ class MainWindow(QtWidgets.QMainWindow):
         self.operation_report('Input files: None; output files: None (selection in memory)')
         self.operation_report('[Batch Selection 1/3] Resolving platform/search/tactic scope', 0, 3)
         try:
-            keys = matrix.scope_keys(scope, tactic)
-            annotations = annotated_keys(self.current_document, keys, tactic or None)
-            selected = apply_selection(self.selected, keys, action, annotations)
+            cells = matrix.scope_cells(scope,tactic)
+            targets = expand_cells(self.current_document,cells)
+            if self.current_document.selection_preferences.get('visible_only',False):
+                targets.intersection_update(self.visible_selection_cells())
+            annotations = {cell for cell in targets if is_annotated(effective_row(self.current_document,*cell))}
+            if self.current_document.selection_preferences['across_tactics']:
+                annotated_ids = {key for key,slug in annotations}
+                annotations = {cell for cell in targets if cell[0] in annotated_ids}
         except ValueError as error:
             self.operation_report(f'[Batch Selection] Failed: {error}', 1, 1)
             return False
         self.operation_report('[Batch Selection 2/3] Synchronizing inclusion checkboxes', 1, 3)
-        changed = self.selected ^ selected
-        self.syncing = True
-        try:
-            for key in changed:
-                state = QtCore.Qt.CheckState.Checked if key in selected else QtCore.Qt.CheckState.Unchecked
-                for item in self.items_by_id.get(key, []):
-                    item.setCheckState(state)
-            self.selected = selected
-        finally:
-            self.syncing = False
-        self.refresh_selection()
-        self.operation_report(f'[Batch Selection 3/3] {len(keys)} in scope; {len(selected)} included TTPs; states unchanged', 3, 3)
+        self.commit_selection_cells(targets,action,annotations,expand=False)
+        self.operation_report(f'[Batch Selection 3/3] {len(targets)} tactic occurrences; {len(self.selected)} included TTPs; states unchanged', 3, 3)
         return True
 
     def edit_ttp_batch(self, clear=False):
@@ -1088,17 +1237,62 @@ class MainWindow(QtWidgets.QMainWindow):
         self.refresh_selection()
         self.operation_report('[Batch Edit] Applied; inclusion checkboxes preserved', 3, 3)
 
-    def export_all_layers(self, target=None):
+    def json_visibility_contexts(self, documents):
+        matrix = self.matrix_view
+        contexts = []
+        for document in documents:
+            context = None
+            if (document is self.current_document and matrix.catalog is document.catalog
+                    and matrix.expansion_document_id == document.document_id):
+                context = {'platform': matrix.platform_scope(), 'query': matrix.search.text()}
+                if not matrix.building:
+                    context = {'visible_cells': matrix_visibility(matrix)}
+            contexts.append(context)
+        return contexts
+
+    def review_json_annotations(self, documents, contexts, target):
+        self.operation_report('Input files: None (open layers and matrix visibility in memory)', 0, 0)
+        self.operation_report(f'Output file: {Path(target).expanduser().resolve()}', 0, 0)
+        plans = [annotation_export_plan(doc, context, self.operation_report) for doc, context in zip(documents, contexts)]
+        dialog = JSONAnnotationExportDialog(plans, target, self)
+        accepted = dialog.exec() == QtWidgets.QDialog.DialogCode.Accepted
+        result = dialog.visible_only.isChecked() if accepted else None
+        dialog.deleteLater()
+        if not accepted:
+            self.operation_report('[JSON Export] Cancelled; no output files written', 1, 1)
+        return result
+
+    def export_all_layers(self, target=None, *, visible_only=None, frameworks=None):
         if not self.loaded_ok:
             return None
         self.sync_active_document()
+        interactive = target is None and frameworks is None
+        review = target is None and visible_only is None
         if target is None:
             target, _ = QtWidgets.QFileDialog.getSaveFileName(self, 'Export all open Navigator layers', str(Path.home() / 'layers.navigator.json'), 'JSON files (*.json)')
         if not target:
             self.operation_report('[Layers Export] Cancelled; no output files written', 1, 1)
             return None
+        target = Path(target).expanduser().resolve()
+        if target.suffix.casefold() != '.json':
+            target = target.with_name(target.name + '.json')
+        if not self.allow_studio_output(target):
+            return None
+        frameworks = choose_frameworks(self, 'write', target) if interactive else selection(frameworks)
+        if frameworks is None:
+            return None
         try:
-            return export_layers(self.documents, target, self.operation_report)
+            self.operation_report('Input files: None (open layers and matrix visibility in memory)', 0, 0)
+            self.operation_report(f'Output file: {target}', 0, 0)
+            output_documents = [part for document in self.documents
+                                for part in framework_documents(document, frameworks, self.current_atlas_catalog)]
+            contexts = self.json_visibility_contexts(output_documents)
+            if review:
+                visible_only = self.review_json_annotations(output_documents, contexts, target)
+                if visible_only is None:
+                    return None
+            return export_layers(output_documents, target, self.operation_report,
+                                 visible_only=False if visible_only is None else visible_only, visibility_contexts=contexts)
         except Exception as error:
             self.operation_report(f'[Layers Export] Failed: {error}', 1, 1)
             QtWidgets.QMessageBox.critical(self, 'Layer export failed', str(error))
@@ -1131,6 +1325,10 @@ class MainWindow(QtWidgets.QMainWindow):
             self.document_context_menu.deleteLater()
         menu = QtWidgets.QMenu(self.document_tabs)
         self.document_context_menu = menu
+        if self.document_tabs.tabData(index) == MANUAL_TAB:
+            menu.addAction("Close Manual", self.close_manual)
+            menu.popup(self.document_tabs.mapToGlobal(position))
+            return
         if self.document_tabs.tabData(index) == "__details__":
             menu.addAction("Close Details", self.close_details_page)
             menu.popup(self.document_tabs.mapToGlobal(position))
@@ -1144,7 +1342,7 @@ class MainWindow(QtWidgets.QMainWindow):
         domain_group = QtGui.QActionGroup(domain_menu)
         domain_group.setExclusive(True)
         document = self.documents[index]
-        for domain, label in DOMAIN_LABELS.items():
+        for domain, label in document.catalog.domain_labels.items():
             action = domain_menu.addAction(label)
             action.setCheckable(True)
             action.setChecked(domain == document.catalog.domain)
@@ -1167,7 +1365,7 @@ class MainWindow(QtWidgets.QMainWindow):
         if document.catalog.domain == domain:
             return True
         self.operation_report("Input files: None (verified catalog in memory); output files: None")
-        self.operation_report(f"[Domain 1/3] Resolving {DOMAIN_LABELS.get(domain, domain)}", 0, 3)
+        self.operation_report(f"[Domain 1/3] Resolving {domain_label(domain, document.catalog)}", 0, 3)
         try:
             catalog = document.catalog.for_domain(domain)
         except ValueError as error:
@@ -1182,7 +1380,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.apply_version((catalog, None))
         else:
             self.update_document_labels()
-            self.operation_report(f"[Domain 3/3] {document.name}: {DOMAIN_LABELS[domain]}", 3, 3)
+            self.operation_report(f"[Domain 3/3] {document.name}: {domain_label(domain, document.catalog)}", 3, 3)
         return True
 
     def rename_document(self, index):
@@ -1214,26 +1412,19 @@ class MainWindow(QtWidgets.QMainWindow):
         self.sync_active_document()
         document = self.documents[index]
         if document.dirty:
-            answer = QtWidgets.QMessageBox.question(
-                self, "Close file", f'Export changes to "{document.name}" before closing?',
-                QtWidgets.QMessageBox.StandardButton.Save | QtWidgets.QMessageBox.StandardButton.Discard
-                | QtWidgets.QMessageBox.StandardButton.Cancel, QtWidgets.QMessageBox.StandardButton.Cancel)
-            if answer == QtWidgets.QMessageBox.StandardButton.Cancel:
-                return False
-            if answer == QtWidgets.QMessageBox.StandardButton.Save and self.export_document_at_index(index) is None:
-                return False
-            if answer == QtWidgets.QMessageBox.StandardButton.Save and document.dirty:
-                self.operation_report("[Close File] Kept open: export Studio JSON to preserve all document annotations.", 1, 1)
+            if self.confirm_studio_changes([document], 'Close file') == 'cancel':
                 return False
         self.operation_report("[Close File 1/2] Input files: None; output files: None (closing in-memory document)", 0, 2)
         previous_active = self.active_document_index
         keep_details = self.workspace.currentWidget() is self.details_page
+        keep_manual = self.workspace.currentWidget() is getattr(self, 'manual_page', None)
         self.document_tabs.blockSignals(True)
         self.documents.pop(index)
         self.document_tabs.removeTab(index)
         if index != previous_active:
             self.active_document_index = previous_active - int(index < previous_active)
-            self.document_tabs.setCurrentIndex(self.details_tab_index if keep_details else self.active_document_index)
+            self.document_tabs.setCurrentIndex(self.manual_tab_index if keep_manual else
+                                              self.details_tab_index if keep_details else self.active_document_index)
             self.document_tabs.blockSignals(False)
             self.update_document_labels()
         else:
@@ -1246,7 +1437,10 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.activate_document(next_index)
             else:
                 self.new_document()
+        if keep_manual:
+            self.open_manual()
         self.operation_report(f"[Close File 2/2] Closed {document.name}", 2, 2)
+        self.checkpoint_session()
         return True
 
     def activate_document(self, index):
@@ -1277,13 +1471,15 @@ class MainWindow(QtWidgets.QMainWindow):
         self.refresh_selection()
         self.operation_report(f"[Document 2/2] Ready: {document.name}; {len(self.selected)} selected TTPs", 2, 2)
 
-    def export_current_document(self, target=None, file_format=None):
-        return self.export_document_at_index(self.active_document_index, target, file_format)
+    def export_current_document(self, target=None, file_format=None, *, visible_only=None, frameworks=None):
+        return self.export_document_at_index(self.active_document_index, target, file_format, visible_only=visible_only, frameworks=frameworks)
 
-    def export_document_at_index(self, index, target=None, file_format=None):
+    def export_document_at_index(self, index, target=None, file_format=None, *, visible_only=None, frameworks=None):
         if not self.loaded_ok or not 0 <= index < len(self.documents):
             return None
         self.sync_active_document()
+        interactive = target is None and frameworks is None
+        review = target is None and visible_only is None
         document = self.documents[index]
         if target is None:
             folder = document.export_path.parent if document.export_path else Path.home()
@@ -1304,9 +1500,34 @@ class MainWindow(QtWidgets.QMainWindow):
                 file_format = ("navigator" if chosen_filter.startswith("Navigator") else "csv"
                                if chosen_filter.startswith("CSV") or (not chosen_filter and target.suffix.casefold() == ".csv") else "json")
         file_format = file_format or ("csv" if Path(target).suffix.casefold() == ".csv" else "json")
+        target = Path(target).expanduser().resolve()
+        suffix = '.csv' if file_format == 'csv' else '.json'
+        if target.suffix.casefold() != suffix:
+            target = target.with_name(target.name + suffix)
+        if not self.allow_studio_output(target, document):
+            return None
+        frameworks = choose_frameworks(self, 'write', target) if interactive else selection(frameworks)
+        if frameworks is None:
+            return None
         try:
             exporter = export_layer if file_format == "navigator" else export_document_csv if file_format == "csv" else export_document_json
-            path = exporter(document, Path(target), self.operation_report)
+            if file_format == 'navigator':
+                self.operation_report('Input files: None (document and matrix visibility in memory)', 0, 0)
+                self.operation_report(f'Output file: {target}', 0, 0)
+                output_documents = framework_documents(document, frameworks, self.current_atlas_catalog)
+                contexts = self.json_visibility_contexts(output_documents)
+                if review:
+                    visible_only = self.review_json_annotations(output_documents, contexts, target)
+                    if visible_only is None:
+                        return None
+                if len(output_documents) == 1:
+                    path = exporter(output_documents[0], Path(target), self.operation_report,
+                                    visible_only=False if visible_only is None else visible_only, visibility=contexts[0])
+                else:
+                    path = export_layers(output_documents, Path(target), self.operation_report,
+                                         visible_only=False if visible_only is None else visible_only, visibility_contexts=contexts)
+            else:
+                path = exporter(document, Path(target), self.operation_report, frameworks)
         except Exception as error:
             self.operation_report(f"[Export] Failed: {type(error).__name__}: {error}", 1, 1)
             QtWidgets.QMessageBox.critical(self, "Export failed", str(error))
@@ -1324,7 +1545,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.integration_dialog = dialog
         dialog.show()
 
-    def import_navigator_layer(self, path=None):
+    def import_navigator_layer(self, path=None, origin=''):
         if not self.loaded_ok:
             return
         if self.integration_dialog and self.integration_dialog.isVisible():
@@ -1335,26 +1556,64 @@ class MainWindow(QtWidgets.QMainWindow):
         if not path:
             self.operation_report("[Navigator Import] Cancelled; no output files written", 1, 1)
             return
-        dialog = ImportLayerDialog(self.data_root, path, self.catalog, self)
-        dialog.imported.connect(self.install_imported_document)
+        dialog = ImportLayerDialog(self.data_root, path, self.catalog, self, install=self.install_imported_documents, origin=origin)
         self.show_integration_dialog(dialog)
 
     def install_imported_document(self, document):
+        return self.install_imported_documents([document])
+
+    def install_imported_documents(self, documents):
+        from navigator_import import validate_import_documents
+        self.operation_report('Input files: None; output files: None (validated Navigator drafts in memory)', 0, 0)
+        if not self.loaded_ok:
+            self.operation_report('[Layer Batch] Workspace is busy; no layers were added', 1, 1)
+            return False
+        normalized = []
+        for candidate in documents:
+            if candidate.catalog.domain == 'atlas-atlas':
+                anchor = TTPDocument(candidate.name, self.catalog, document_id=candidate.document_id,
+                                     created_at_utc=candidate.created_at_utc, atlas_document=candidate)
+                normalized.append(anchor)
+            else:
+                normalized.append(candidate)
+        documents = normalized
+        try:
+            validate_import_documents(documents, self.documents)
+        except (ValueError, TypeError, KeyError) as error:
+            self.operation_report('[Layer Batch] ' + str(error), 1, 1)
+            return False
         self.sync_active_document()
-        self.documents.append(document)
-        self.document_tabs.blockSignals(True)
-        index = self.document_tabs.insertTab(len(self.documents) - 1, document.name)
-        self.document_tabs.setTabData(index, document.document_id)
-        self.document_tabs.setCurrentIndex(index)
-        self.document_tabs.blockSignals(False)
-        self.activate_document(index)
+        previous_documents, previous_tab = self.documents, self.document_tabs.currentIndex()
+        first = len(previous_documents)
+        inserted = []
+        blocked = self.document_tabs.blockSignals(True)
+        try:
+            self.documents = previous_documents + list(documents)
+            for offset, document in enumerate(documents):
+                index = self.document_tabs.insertTab(first + offset, document.name)
+                inserted.append(index)
+                self.document_tabs.setTabData(index, document.document_id)
+            self.document_tabs.setCurrentIndex(first)
+        except Exception as error:
+            for index in reversed(inserted):
+                self.document_tabs.removeTab(index)
+            self.documents = previous_documents
+            self.document_tabs.setCurrentIndex(previous_tab)
+            self.operation_report('[Layer Batch] Tab installation failed; batch rolled back: ' + str(error), 1, 1)
+            return False
+        finally:
+            self.document_tabs.blockSignals(blocked)
+        self.operation_report('[Layer Batch 5/5] Installed all validated documents in file order', len(documents), len(documents))
+        self.activate_document(first)
+        self.schedule_session_checkpoint()
+        return True
 
     def open_source_dialog(self):
         if not self.loaded_ok:
             return
         dialog = SourceDialog(self.data_root, self.catalog.version, self)
         dialog.imported.connect(self.install_imported_document)
-        dialog.layer_ready.connect(lambda path: QtCore.QTimer.singleShot(0, lambda: self.import_navigator_layer(path)))
+        dialog.layer_ready.connect(lambda path: QtCore.QTimer.singleShot(0, lambda: self.import_navigator_layer(path, dialog.layer_origin)))
         self.show_integration_dialog(dialog)
 
     def open_upgrade_dialog(self):
@@ -1379,6 +1638,46 @@ class MainWindow(QtWidgets.QMainWindow):
         self.refresh_layer_appearance()
         self.operation_report('[Presentation 2/2] Saved to the active layer', 2, 2)
 
+    def change_matrix_display(self,fields):
+        if not self.loaded_ok or not supports_navigator(self.catalog): return
+        self.operation_report('Input files: None; output files: None (display settings in memory)')
+        self.operation_report('[Matrix Display 1/2] Validating the active layer display settings',0,2)
+        try:
+            if not isinstance(fields,dict) or set(fields)-{'showID','showName','showTacticRowBackground','tacticRowBackground','expandedSubtechniques'}:
+                raise ValueError('Unknown matrix display field.')
+            layer=document_layer(self.current_document,validate=False)
+            for field,value in fields.items():
+                if field == 'expandedSubtechniques' and value is None:
+                    layer.setdefault('layout',{}).pop(field,None)
+                elif field in ('showID','showName','expandedSubtechniques'): layer.setdefault('layout',{})[field]=value
+                else: layer[field]=value
+            self.current_document.navigator_layer=validate_layer(layer)
+        except ValueError as error:
+            self.operation_report('[Matrix Display] Failed: '+str(error),1,1)
+            self.refresh_layer_appearance()
+            return
+        self.refresh_layer_appearance()
+        self.update_document_labels()
+        self.schedule_session_checkpoint()
+        self.operation_report('[Matrix Display 2/2] Applied; selection and annotations preserved',2,2)
+
+    def change_family_expansion(self,key,slug,expanded,observed):
+        if not self.loaded_ok or not supports_navigator(self.catalog): return
+        from matrix_expansion import save_family_expansion
+        self.operation_report('Input files: None; output files: None (per-family expansion draft in memory)')
+        self.operation_report('[Family Expansion 1/3] Capturing global and individual states',0,3)
+        try:
+            save_family_expansion(self.current_document,key,slug,expanded,observed,
+                                  self.matrix_view.view_layout.currentText()=='Mini',self.operation_report)
+        except ValueError as error:
+            self.operation_report('[Family Expansion] Failed: '+str(error),1,1)
+            self.refresh_layer_appearance()
+            return
+        self.refresh_layer_appearance()
+        self.update_document_labels()
+        self.schedule_session_checkpoint()
+        self.operation_report('[Family Expansion 3/3] Individual states saved in the active layer',3,3)
+
     def open_selection_comparison(self):
         if self.loaded_ok:
             self.sync_active_document()
@@ -1399,6 +1698,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.sync_active_document()
         self.operation_report("Input files: None; output files: None (document annotations in memory)")
         self.operation_report("[Annotation 1/2] Editing technique annotation", 0, 2)
+        was_included = key in self.selected
         dialog = AnnotationDialog(self.current_document, key, self)
         if tactic is not None:
             dialog.scope.setCurrentIndex(dialog.scope.findData(tactic))
@@ -1406,8 +1706,8 @@ class MainWindow(QtWidgets.QMainWindow):
             self.operation_report("[Annotation 2/2] Cancelled; document unchanged", 2, 2)
             return
         self.current_document.navigator_layer = dialog.result_layer
-        item = self.items_by_id[key][0]
-        item.setCheckState(QtCore.Qt.CheckState.Checked if dialog.include.isChecked() else QtCore.Qt.CheckState.Unchecked)
+        if was_included != dialog.include.isChecked():
+            self.choose_technique_occurrence(key, dialog.include.isChecked(), dialog.scope.currentData() or None)
         self.refresh_selection()
         if return_matrix:
             self.open_matrix()
@@ -1449,6 +1749,8 @@ class MainWindow(QtWidgets.QMainWindow):
             action.setEnabled(False)
         for action in self.layer_actions:
             action.setEnabled(False)
+        for action in self.studio_actions:
+            action.setEnabled(False)
         self.selection_export_button.setEnabled(False)
         self.document_tabs.setEnabled(False)
         self.details_action.setEnabled(False)
@@ -1472,11 +1774,13 @@ class MainWindow(QtWidgets.QMainWindow):
                              "<p>Check data/attack/latest.json and the downloaded snapshot. See README.md.</p>")
 
     def begin_tree(self, catalog):
+        self.ensure_attack_matrix_tab(reveal=False)
         if not catalog.dataset_id:
             self.official_catalog = catalog
         if self.closing:
             return
         self.restore_details_view = self.workspace.currentWidget() is self.details_page
+        self.restore_manual_view = self.workspace.currentWidget() is getattr(self, 'manual_page', None)
         self.restore_matrix_view = self.workspace.currentWidget() is self.tabs and self.tabs.currentIndex() == self.matrix_tab_index
         self.restoring_workspace = True
         self.matrix_button.setEnabled(False)
@@ -1489,6 +1793,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.selected = set()
         self.loaded_ok = False
         self.search_timer.stop()
+        self.refresh_source_result_tools()
         self.ttp_search_timer.stop()
         self.ttp_search.setEnabled(False)
         self.ttp_search.blockSignals(True)
@@ -1523,14 +1828,14 @@ class MainWindow(QtWidgets.QMainWindow):
             model = QtGui.QStandardItemModel(self)
             self.library_models[category] = model
             self.library_items[category] = []
-            for domain, domain_label in DOMAIN_LABELS.items():
+            for domain, label in catalog.domain_labels.items():
                 records = catalog.objects_by_domain[domain]
                 found = [(kind, label, sorted((obj for obj in records.values() if obj.get("type") == kind),
                                               key=lambda obj: (external_id(obj), obj.get("name", "").casefold())))
                          for kind, label in kinds.items()]
                 if not any(objects for _, _, objects in found):
                     continue
-                domain_item = self.make_item(domain_label, context=(domain, "", ""))
+                domain_item = self.make_item(label, context=(domain, "", ""))
                 model.appendRow(domain_item)
                 for kind, label, objects in found:
                     if not objects:
@@ -1612,6 +1917,10 @@ class MainWindow(QtWidgets.QMainWindow):
                 key = obj["id"]
                 label = f"{external_id(obj)}  {obj.get('name', key)}".strip()
                 item = self.make_item(label, context=(domain, kind, key))
+                from ttp_search import source_search_text
+                from navigator_preferences import source_fields
+                fields = source_fields(self.current_document.navigator_layer if self.current_document else {})
+                item.setData(source_search_text(obj, fields=fields), ROLE_SEARCH)
                 item.setData(key, ROLE_ID)
                 item.setToolTip(label)
                 group.appendRow(item)
@@ -1627,8 +1936,10 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ttp_search.setEnabled(True)
         for button in self.navigation_buttons.values():
             button.setEnabled(True)
-        self.summary.setText(f"{DOMAIN_LABELS[self.catalog.domain]} v{self.catalog.version} · {len(self.catalog.groups)} platforms")
-        self.version_label.setText(f"ATT&CK v{self.catalog.version}  |  {DOMAIN_LABELS[self.catalog.domain]}")
+        for category in ('ATLAS TTP', 'ATLAS Mitigations', 'ATLAS Case Studies'):
+            self.navigation_buttons[category].setEnabled(self.atlas_catalog is not None)
+        self.summary.setText(f"{domain_label(self.catalog.domain, self.catalog)} v{self.catalog.version} · {len(self.catalog.groups)} platforms")
+        self.version_label.setText(f"ATT&CK v{self.catalog.version}  |  {domain_label(self.catalog.domain, self.catalog)}")
         self.report("[4/4 Tree] Complete", 1, 1)
         print(f"[4/4 Tree] Complete: {len(self.items_by_id)} unique selectable technique IDs", flush=True)
         windows = self.platform_items.get("Windows", next(iter(self.platform_items.values()), None))
@@ -1670,7 +1981,9 @@ class MainWindow(QtWidgets.QMainWindow):
         self.refresh_selection()
         self.switch_category(self.restore_category)
         self.restoring_workspace = False
-        if self.restore_matrix_view:
+        if self.restore_manual_view:
+            self.open_manual()
+        elif self.restore_matrix_view:
             self.open_matrix()
         elif self.restore_details_view:
             self.open_details_page()
@@ -1683,15 +1996,21 @@ class MainWindow(QtWidgets.QMainWindow):
         self.report(f"[Version 4/4 Switch] Ready: v{self.catalog.version}; {len(self.selected)} selections retained", 1, 1)
         if getattr(self, "pending_domain_report", False):
             self.pending_domain_report = False
-            self.operation_report(f"[Domain 3/3] Ready: {DOMAIN_LABELS[self.catalog.domain]} · {len(self.selected)} selected TTPs", 3, 3)
+            self.operation_report(f"[Domain 3/3] Ready: {domain_label(self.catalog.domain, self.catalog)} · {len(self.selected)} selected TTPs", 3, 3)
         if getattr(self, 'layer_matrix_pending', False):
             self.layer_matrix_pending = False
             self.open_matrix()
+        self.finish_studio_startup()
         self.ready.emit()
 
     def switch_category(self, category):
         if not self.loaded_ok:
             return
+        if category.startswith('CAR '):
+            return self.switch_car_category(category)
+        if category in ('Workplace', 'ATLAS TTP', 'ATLAS Mitigations', 'ATLAS Case Studies'):
+            return self.switch_atlas_category(category)
+        self.matrix_view.clear_source_preview()
         self.active_category = category
         self.matrix_button.setVisible(category == "TTP")
         self.navigation_buttons[category].setChecked(True)
@@ -1702,6 +2021,9 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ttp_search.clear()
         self.ttp_search.blockSignals(False)
         self.ttp_search.setVisible(category == "TTP")
+        self.ttp_search_fields_button.setVisible(category == 'TTP')
+        self.source_search_fields_button.setVisible(category != 'TTP')
+        self.source_results_bar.setVisible(category != 'TTP')
         self.search.setVisible(category != "TTP")
         self.search.blockSignals(True)
         self.search.clear()
@@ -1713,15 +2035,16 @@ class MainWindow(QtWidgets.QMainWindow):
             self.explorer_stack.setCurrentIndex(0)
             self.sidebar_title.setText("ATT&CK EXPLORER")
             self.search.setPlaceholderText("Search technique name or ID…")
-            self.summary.setText(f"{DOMAIN_LABELS[self.catalog.domain]} v{self.catalog.version} · {len(self.catalog.groups)} platforms")
-            self.version_label.setText(f"ATT&CK v{self.catalog.version}  |  {DOMAIN_LABELS[self.catalog.domain]}")
+            self.summary.setText(f"{domain_label(self.catalog.domain, self.catalog)} v{self.catalog.version} · {len(self.catalog.groups)} platforms")
+            self.version_label.setText(f"ATT&CK v{self.catalog.version}  |  {domain_label(self.catalog.domain, self.catalog)}")
             if self.tree.currentIndex().isValid():
                 self.show_index(self.tree.currentIndex())
         else:
             self.library_proxy.setSourceModel(self.library_models[category])
             self.explorer_stack.setCurrentIndex(1)
             self.sidebar_title.setText(category.upper())
-            self.search.setPlaceholderText(f"Search {category.lower()} name or ID…")
+            from navigator_preferences import source_fields
+            self.search.setPlaceholderText(f"Search {category.lower()} · {', '.join(source_fields(self.current_document.navigator_layer))}…")
             count = len(self.library_items[category])
             self.summary.setText(f"ATT&CK v{self.catalog.version} · {count} entries across domains")
             self.version_label.setText(f"ATT&CK v{self.catalog.version}  |  {category}")
@@ -1732,6 +2055,9 @@ class MainWindow(QtWidgets.QMainWindow):
                                  + ("<p>Assets describe ICS devices and systems.</p>" if category == "Assets" else ""))
             self.library_tree.expandToDepth(0)
         self.state.setText(f"Ready  |  {category}  |  {len(self.selected)} techniques selected")
+        self.refresh_source_result_tools()
+        self.restore_attack_sidebar()
+        self.schedule_session_checkpoint()
 
     def show_library_index(self, index, previous=None):
         if not index.isValid() or not self.catalog or self.active_category == "TTP":
@@ -1739,14 +2065,14 @@ class MainWindow(QtWidgets.QMainWindow):
         item = self.library_proxy.sourceModel().itemFromIndex(self.library_proxy.mapToSource(index))
         self.open_details_page(f"{self.active_category} Details")
         domain, kind, key = item.data(ROLE_CONTEXT)
-        self.crumb.setText(f"{DOMAIN_LABELS[domain]}  /  {self.active_category}  /  {external_id(self.catalog.objects_by_domain[domain][key]) if key else item.text()}")
+        self.crumb.setText(f"{domain_label(domain, self.catalog)}  /  {self.active_category}  /  {external_id(self.catalog.objects_by_domain[domain][key]) if key else item.text()}")
         if not key:
             self.details.setHtml(f"<h1>{html.escape(item.text())}</h1><p>Expand this branch to browse its entries.</p>")
             return
         obj = self.catalog.objects_by_domain[domain][key]
         self.library_detail_context = (domain, key)
         kind_label = BROWSE_CATEGORIES[self.active_category][kind]
-        metadata = [("Domain", DOMAIN_LABELS[domain]), ("Type", kind_label)]
+        metadata = [("Domain", domain_label(domain, self.catalog)), ("Type", kind_label)]
         for name, field in (("Platforms", "x_mitre_platforms"), ("Aliases", "aliases"),
                             ("Version", "x_mitre_version"), ("Created", "created"), ("Modified", "modified")):
             value = obj.get(field)
@@ -1763,6 +2089,7 @@ class MainWindow(QtWidgets.QMainWindow):
                              + (f"<p><a href='{html.escape(url, quote=True)}'>Open official ATT&CK reference ↗</a></p>" if url else "")
                              + self.source_techniques_html(domain, key))
         self.details.set_copy_content(obj.get("name", key), obj.get("description", ""))
+        self.object_copy_bar.set_context(self.catalog,domain,key)
         self.configure_bulk_action(domain, key)
 
     def hide_bulk_action(self):
@@ -1772,18 +2099,22 @@ class MainWindow(QtWidgets.QMainWindow):
         self.bulk_action_bar.hide()
 
     def configure_bulk_action(self, domain, key):
+        from ttp_sources import SOURCE_TYPES
         obj = self.catalog.objects_by_domain[domain][key]
-        if obj.get("type") not in {"intrusion-set", "malware", "tool", "campaign"}:
+        if obj.get("type") not in SOURCE_TYPES:
             return
         keys = {row["target_ref"] for row in self.catalog.techniques_by_source[domain].get(key, [])}
         self.bulk_source_context = (domain, key)
         self.bulk_add_button.show()
+        self.bulk_remove_button.show()
         self.annotation_button.hide()
         self.bulk_add_button.setText(f"Add all TTPs ({len(keys)})")
         self.bulk_add_button.setEnabled(self.loaded_ok and domain == self.catalog.domain and bool(keys))
+        self.bulk_remove_button.setText(f'Remove all TTPs ({len(keys)})')
+        self.bulk_remove_button.setEnabled(self.loaded_ok and domain == self.catalog.domain and bool(keys))
         self.bulk_add_button.setToolTip(
-            f"Change this document's ATT&CK Domain to {DOMAIN_LABELS[domain]} to add these TTPs." if domain != self.catalog.domain else
-            "Add the entry's directly related techniques to the active document; existing selections are kept."
+            f"Change this document's ATT&CK Domain to {domain_label(domain, self.catalog)} to add these TTPs." if domain != self.catalog.domain else
+            "Add the entry's exact direct or explicit detection-path techniques; existing selections are kept."
             if keys else "No active related TTPs in this snapshot.")
         self.bulk_action_bar.show()
 
@@ -1792,37 +2123,12 @@ class MainWindow(QtWidgets.QMainWindow):
             self.add_source_ttps(*self.bulk_source_context)
 
     def add_source_ttps(self, domain, key):
-        if not self.loaded_ok or not self.current_document:
-            return
-        obj = self.catalog.objects_by_domain.get(domain, {}).get(key, {})
-        if domain != self.catalog.domain or obj.get("type") not in {"intrusion-set", "malware", "tool", "campaign"}:
-            return
-        self.operation_report("Input files: None (source relationships and active document in memory)")
-        self.operation_report("Output files: None (selection only; use Export to write JSON/CSV)")
-        self.operation_report(f"[Add all TTPs 1/3] Resolving {external_id(obj)} in v{self.catalog.version}", 0, 1)
-        keys = {row["target_ref"] for row in self.catalog.techniques_by_source[domain].get(key, [])}
-        selectable = keys.intersection(self.items_by_id)
-        added = selectable - self.selected
-        self.operation_report("[Add all TTPs 2/3] Updating checkboxes", 0, len(added))
-        self.syncing = True
-        try:
-            for number, target in enumerate(sorted(added), 1):
-                for item in self.items_by_id[target]:
-                    item.setCheckState(QtCore.Qt.CheckState.Checked)
-                if number % 100 == 0:
-                    self.operation_report("[Add all TTPs 2/3] Updating checkboxes", number, len(added))
-            self.selected.update(added)
-        finally:
-            self.syncing = False
-        self.refresh_selection()
-        self.operation_report(f"[Add all TTPs 3/3] Added {len(added)}; already selected {len(selectable - added)}; "
-                              f"unavailable {len(keys - selectable)}; total {len(self.selected)}", 1, 1)
+        return self.change_source_ttps(domain,key,'add')
 
     def source_techniques_html(self, domain, key):
+        from ttp_sources import SOURCE_HEADINGS
         obj = self.catalog.objects_by_domain[domain][key]
-        headings = {"course-of-action": "Techniques Addressed by Mitigation",
-                    "malware": "Techniques Used by Software", "tool": "Techniques Used by Software",
-                    "campaign": "Techniques Used by Campaign", "intrusion-set": "Techniques Used by Group"}
+        headings = SOURCE_HEADINGS
         if obj.get("type") not in headings:
             return ""
         entries = self.catalog.techniques_by_source[domain].get(key, [])
@@ -1837,9 +2143,17 @@ class MainWindow(QtWidgets.QMainWindow):
             parent_html = (f"<br><span style='color:#aaaaaa'>Parent: {html.escape(external_id(parent))} "
                            f"{html.escape(parent['name'])}</span>" if parent else "")
             use = html.escape(entry["description"] or "No use description in this source relationship.").replace(chr(10), "<br>")
+            if entry.get('mapping_type') in ('strategy-analytic-component','data-source-component'):
+                use = '<b>Explicit reference path (derived mapping)</b><br>'+use
+            paths=[]
+            for ref in dict.fromkeys(entry.get('via_refs',[])):
+                record=self.catalog.objects_by_domain[domain].get(ref)
+                if record and record.get('type')!='attack-pattern':
+                    paths.append(f"<a href='library:{domain}/{html.escape(ref,quote=True)}'>{html.escape(record.get('name',ref))}</a>")
+            if paths: use += '<br>Path: '+' → '.join(paths)
             refs = [f"<a href='{html.escape(ref['url'], quote=True)}'>{html.escape(ref.get('source_name', 'Reference'))}</a>"
                     for ref in entry["references"] if ref.get("url", "").startswith("https://")]
-            rows.append(f"<tr><td valign='top'>{DOMAIN_LABELS[domain]}</td>"
+            rows.append(f"<tr><td valign='top'>{html.escape(domain_label(domain, self.catalog))}</td>"
                         f"<td valign='top'><a href='{link}'>{html.escape(external_id(target))}</a></td>"
                         f"<td valign='top'><a href='{link}'>{html.escape(target['name'])}</a>{parent_html}</td>"
                         f"<td>{use}" + ("<br>" + " · ".join(refs) if refs else "") + "</td></tr>")
@@ -1847,6 +2161,10 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.operation_report("[Related TTPs 1/2] Rendering rows", number, len(entries))
         self.operation_report(f"[Related TTPs 2/2] Ready: {len(entries)} relationships", 1, 1)
         heading = f"<hr><a name='related-ttps'></a><h2>{headings[obj['type']]} ({len(entries)})</h2>"
+        if obj.get('type')=='x-mitre-data-component':
+            parent=self.catalog.objects_by_domain[domain].get(obj.get('x_mitre_data_source_ref'),{})
+            if parent.get('type')=='x-mitre-data-source':
+                heading += f"<p>Data Source: <a href='library:{domain}/{html.escape(parent['id'],quote=True)}'>{html.escape(parent['name'])}</a></p>"
         if not rows:
             return heading + "<p>No active related techniques in this domain/version snapshot.</p>"
         return (heading + "<table cellspacing='0' cellpadding='6' border='1' width='100%'><tr>"
@@ -1864,7 +2182,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.search.blockSignals(True)
         self.search.setText(query)
         self.search.blockSignals(False)
-        self.operation_report(f"Input files: None (TTP search uses the in-memory {DOMAIN_LABELS[self.catalog.domain]} catalog)")
+        self.operation_report(f"Input files: None (TTP search uses the in-memory {domain_label(self.catalog.domain, self.catalog)} catalog)")
         self.operation_report("Output files: None (sidebar filtering only)")
         self.operation_report("[TTP Search 1/2] Filtering technique names and IDs", 0, 1)
         self.apply_search()
@@ -1873,6 +2191,7 @@ class MainWindow(QtWidgets.QMainWindow):
     def apply_search(self):
         if self.active_category != "TTP":
             self.library_proxy.setFilterFixedString(self.search.text().strip())
+            self.refresh_source_result_tools()
             if self.search.text().strip():
                 self.library_tree.expandAll()
             else:
@@ -1883,6 +2202,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ttp_search.blockSignals(True)
             self.ttp_search.setText(self.search.text())
             self.ttp_search.blockSignals(False)
+        self.refresh_search_roles()
         self.proxy.setFilterFixedString(self.search.text().strip())
         if self.search.text().strip():
             self.tree.expandAll()
@@ -1902,9 +2222,11 @@ class MainWindow(QtWidgets.QMainWindow):
         if key:
             self.show_record(key, platform, slug)
         else:
-            self.crumb.setText(DOMAIN_LABELS[self.catalog.domain] + "  /  " + platform + ("  /  " + self.catalog.tactics[slug]["name"] if slug else ""))
+            self.crumb.setText(domain_label(self.catalog.domain, self.catalog) + "  /  " + platform + ("  /  " + self.catalog.tactics[slug]["name"] if slug else ""))
             self.details.setHtml(f"<h1>{html.escape(item.text())}</h1>"
                                  "<p>Expand this branch to browse its mapped techniques.</p>")
+            if slug:
+                self.object_copy_bar.set_context(self.catalog,self.catalog.domain,self.catalog.tactics[slug]['id'])
 
     def show_record(self, key, platform="", slug=""):
         self.open_details_page("Technique Details")
@@ -1915,7 +2237,7 @@ class MainWindow(QtWidgets.QMainWindow):
                        f"{html.escape(parent['name'])}</p>" if parent else "")
         self.detail_context = (platform, slug)
         related = self.related_techniques_html(key, platform, slug)
-        self.crumb.setText("  /  ".join(part for part in (DOMAIN_LABELS[self.catalog.domain], platform,
+        self.crumb.setText("  /  ".join(part for part in (domain_label(self.catalog.domain, self.catalog), platform,
                            self.catalog.tactics[slug]["name"] if slug else "", external_id(record)) if part))
         phases = [self.catalog.tactics[slug]["name"] for slug in self.catalog.tactic_order
                   if slug in tactic_phases(record, self.catalog.domain)]
@@ -1933,10 +2255,13 @@ class MainWindow(QtWidgets.QMainWindow):
                              f"{related}<hr><h2>Description</h2>"
                              f"<p>{html.escape(record.get('description', '')).replace(chr(10), '<br>')}</p>"
                              f"<p><a href='{html.escape(url, quote=True)}'>Open official ATT&CK reference ↗</a></p>"
-                             + self.procedure_examples_html(key, self.catalog.domain))
+                             + self.procedure_examples_html(key, self.catalog.domain)
+                             + self.related_car_html(external_id(record)))
         self.details.set_copy_content(record["name"], record.get("description", ""))
+        self.object_copy_bar.set_context(self.catalog,self.catalog.domain,key)
         self.annotation_context = key
         self.bulk_add_button.hide()
+        self.bulk_remove_button.hide()
         self.annotation_button.show()
         self.bulk_action_bar.show()
 
@@ -1991,6 +2316,10 @@ class MainWindow(QtWidgets.QMainWindow):
                 + "</tr>" + "".join(rows) + "</table>")
 
     def open_detail_link(self, url):
+        if self.open_car_link(url):
+            return
+        if self.open_atlas_link(url):
+            return
         if url.scheme() == "technique":
             domain, separator, key = url.path().partition("/")
             obj = self.catalog.objects_by_domain.get(domain, {}).get(key)
@@ -2051,36 +2380,32 @@ class MainWindow(QtWidgets.QMainWindow):
         """Inspect a library link belonging to a different domain from this file."""
         obj = self.catalog.objects_by_domain[domain][key]
         parent = self.catalog.objects_by_domain[domain].get(self.catalog.parents_by_domain[domain].get(key))
-        self.crumb.setText(f"{DOMAIN_LABELS[domain]}  /  Techniques  /  {external_id(obj)}")
-        self.open_details_page(f"{DOMAIN_LABELS[domain]} Technique Details")
+        self.crumb.setText(f"{domain_label(domain, self.catalog)}  /  Techniques  /  {external_id(obj)}")
+        self.open_details_page(f"{domain_label(domain, self.catalog)} Technique Details")
         parent_html = (f"<p><b>Parent technique</b> <a href='technique:{domain}/{parent['id']}'>"
                        f"{html.escape(external_id(parent) + ' ' + parent['name'])}</a></p>" if parent else "")
         source_domain, source_key = getattr(self, "library_detail_context", ("", ""))
         back = (f"<p><a href='library:{source_domain}/{source_key}'>Back to source entry</a></p>"
                 if source_domain == domain else "")
-        self.details.setHtml(f"<p style='color:#4daafc'>{html.escape(external_id(obj))} · {DOMAIN_LABELS[domain]}</p>"
+        self.details.setHtml(f"<p style='color:#4daafc'>{html.escape(external_id(obj))} · {html.escape(domain_label(domain, self.catalog))}</p>"
                              f"<h1>{html.escape(obj['name'])}</h1>{back}{parent_html}"
                              f"<p><b>Platforms</b> {html.escape(', '.join(obj.get('x_mitre_platforms', [])))}</p>"
-                             f"<p>To select this TTP, change this document's ATT&CK Domain to {DOMAIN_LABELS[domain]}.</p>"
+                             f"<p>To select this TTP, change this document's ATT&CK Domain to {html.escape(domain_label(domain, self.catalog))}.</p>"
                              "<hr><h2>Description</h2>"
                              f"<p>{html.escape(obj.get('description', '')).replace(chr(10), '<br>')}</p>"
                              + self.procedure_examples_html(key, domain))
         self.details.set_copy_content(obj["name"], obj.get("description", ""))
+        self.object_copy_bar.set_context(self.catalog,domain,key)
 
     def check_changed(self, item):
-        if self.syncing or not item.isCheckable():
+        if self.syncing or not self.loaded_ok or not item.isCheckable():
             return
         key = item.data(ROLE_ID)
-        checked = item.checkState() == QtCore.Qt.CheckState.Checked
-        self.syncing = True
-        for duplicate in self.items_by_id[key]:
-            duplicate.setCheckState(item.checkState())
-        self.syncing = False
-        if checked:
-            self.selected.add(key)
-        else:
-            self.selected.discard(key)
-        self.refresh_selection()
+        if key not in self.catalog.records:
+            return
+        context = item.data(ROLE_CONTEXT)
+        self.choose_technique_occurrence(key, item.checkState() == QtCore.Qt.CheckState.Checked,
+                                        context[1] if context else None, surface='sidebar')
 
     def refresh_selection(self):
         self.sync_active_document()
@@ -2093,16 +2418,23 @@ class MainWindow(QtWidgets.QMainWindow):
                 context = item.data(ROLE_CONTEXT)
                 slug = context[1] if context else ''
                 enabled = state_rows.get((attack_id, slug), state_rows.get((attack_id, ''), {})).get('enabled', True)
-                item.setForeground(QtGui.QBrush() if enabled else QtGui.QBrush(QtGui.QColor('#858585')))
+                item.setForeground(QtGui.QBrush(QtGui.QColor('#cccccc' if enabled else '#858585')))
+                item.setCheckState(QtCore.Qt.CheckState.Checked if is_selected(self.selected,self.current_document.selection_scopes,key,slug) else QtCore.Qt.CheckState.Unchecked)
         self.syncing = previous_syncing
-        self.matrix_view.update_selection(self.selected)
+        self.matrix_view.update_selection(self.selected,self.current_document.selection_scopes)
         self.refresh_layer_appearance()
         previous = self.selection_list.currentItem()
         previous_key = previous.data(ROLE_ID) if previous else None
+        highlighted = {item.data(ROLE_ID) for item in self.selection_list.selectedItems()}
+        if self.selection_list.property('selectionOwner') != self.current_document.document_id:
+            previous_key, highlighted = None, set()
+        self.selection_list.setProperty('selectionOwner', self.current_document.document_id)
         self.selection_list.clear()
         for key in sorted(self.selected, key=lambda key: external_id(self.catalog.records[key])):
             record = self.catalog.records[key]
             label = f"{external_id(record)}  {record['name']}"
+            if key in self.current_document.selection_scopes:
+                label += '\n    Selected tactics: ' + ', '.join(self.current_document.selection_scopes[key])
             enabled, tactic_states = technique_states(self.current_document, key, state_rows)
             values = {entry['enabled'] for entry in tactic_states} or {enabled}
             label += '  [' + ('Mixed tactic states' if len(values) > 1 else 'Enabled' if True in values else 'Disabled') + ']'
@@ -2121,12 +2453,14 @@ class MainWindow(QtWidgets.QMainWindow):
             item.setToolTip('\n\n'.join(([comment] if comment else []) +
                             [f"{entry['tactic']}: {entry['comment']}" for entry in scoped]))
             self.selection_list.addItem(item)
+            item.setSelected(key in highlighted)
             if key == previous_key:
-                self.selection_list.setCurrentItem(item)
+                self.selection_list.setCurrentItem(item, QtCore.QItemSelectionModel.SelectionFlag.NoUpdate)
         if self.selection_list.count() and self.selection_list.currentItem() is None:
-            self.selection_list.setCurrentRow(0)
+            self.selection_list.setCurrentRow(0, QtCore.QItemSelectionModel.SelectionFlag.NoUpdate)
         self.tabs.setTabText(self.selection_tab_index, f"Selected Techniques ({len(self.selected)})")
         self.state.setText(f"Ready  |  {self.current_document.name if self.current_document else 'TTP'}  |  {len(self.selected)} selected")
+        self.refresh_atlas_workspace()
 
     def show_selected(self, item):
         self.switch_category("TTP")
@@ -2134,12 +2468,21 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def show_selected_context_menu(self, position):
         item = self.selection_list.itemAt(position)
-        if not self.loaded_ok or item is None:
+        if not self.loaded_ok:
             return
-        self.selection_list.setCurrentItem(item)
-        key = item.data(ROLE_ID)
         menu = QtWidgets.QMenu(self.selection_list)
-        menu.addAction("Edit TTP annotation…", lambda: self.edit_selected_annotation(key))
+        self.add_matrix_open_actions(menu)
+        if item is not None:
+            self.selection_list.setCurrentItem(item, QtCore.QItemSelectionModel.SelectionFlag.NoUpdate
+                if item.isSelected() else QtCore.QItemSelectionModel.SelectionFlag.ClearAndSelect)
+            key = item.data(ROLE_ID)
+            menu.addSeparator()
+            menu.addAction("View TTP information", lambda: self.open_detail_link(QtCore.QUrl(f'attack:{key}')))
+            menu.addAction("Edit TTP annotation…", lambda: self.edit_selected_annotation(key))
+        keys = {row.data(ROLE_ID) for row in self.selection_list.selectedItems()}
+        owner = self.current_document
+        remove = menu.addAction('Remove selected TTPs', lambda:self.remove_highlighted_ttps('attack', keys, owner))
+        remove.setEnabled(bool(keys))
         self.selected_context_menu = menu
         menu.aboutToHide.connect(menu.deleteLater)
         menu.popup(self.selection_list.viewport().mapToGlobal(position))
@@ -2159,6 +2502,7 @@ class MainWindow(QtWidgets.QMainWindow):
             for item in self.items_by_id[key]:
                 item.setCheckState(QtCore.Qt.CheckState.Unchecked)
         self.selected.clear()
+        self.current_document.selection_scopes = {}
         self.syncing = False
         self.refresh_selection()
 
@@ -2167,14 +2511,10 @@ class MainWindow(QtWidgets.QMainWindow):
             self.close()
 
     def closeEvent(self, event):
-        self.search_timer.stop()
-        self.ttp_search_timer.stop()
-        self.matrix_view.timer.stop()
-        self.build_timer.stop()
-        if self.integration_dialog and getattr(self.integration_dialog, "worker", None) and self.integration_dialog.worker.isRunning():
-            self.closing = True
+        integration_worker = self.integration_dialog.running_worker() if self.integration_dialog else None
+        if integration_worker:
             self.integration_dialog.reject()
-            self.integration_dialog.worker.finished.connect(self.close, QtCore.Qt.ConnectionType.SingleShotConnection)
+            integration_worker.finished.connect(lambda: QtCore.QTimer.singleShot(0, self.close), QtCore.Qt.ConnectionType.SingleShotConnection)
             event.ignore()
             return
         if self.version_dialog and self.version_dialog.worker and self.version_dialog.worker.isRunning():
@@ -2188,6 +2528,14 @@ class MainWindow(QtWidgets.QMainWindow):
             self.loader.requestInterruption()
             event.ignore()
             return
+        if not self.finish_studio_exit():
+            self.closing = False
+            event.ignore()
+            return
+        self.search_timer.stop()
+        self.ttp_search_timer.stop()
+        self.matrix_view.timer.stop()
+        self.build_timer.stop()
         event.accept()
 
 
@@ -2277,7 +2625,13 @@ def configure_windows_taskbar():
 
 def configure_application(app):
     """Use explicit colors for consistent text contrast on Windows and offscreen previews."""
-    icon_path = Path(__file__).resolve().parent / "assets" / "ttp-selection-studio-icon-pixel.png"
+    print(f"Input file: {Path(__file__).resolve().parent / 'app_identity.py'}", flush=True)
+    print("Output files: None (application display identity in memory)", flush=True)
+    print(f"[Application identity 1/2] Applying {APP_NAME} name and display name", flush=True)
+    app.setApplicationName(APP_NAME)
+    app.setApplicationDisplayName(APP_NAME)
+    print(f"[Application identity 2/2] Complete: {APP_NAME} display identity ready", flush=True)
+    icon_path = Path(__file__).resolve().parent / "assets" / "fusion-studio-icon-pixel-v2.png"
     print(f"[Application icon 1/2] Input file: {icon_path}", flush=True)
     print("[Application icon 1/2] Output files: None (application/window icon in memory)", flush=True)
     icon_pixmap = QtGui.QPixmap(str(icon_path))
@@ -2308,7 +2662,7 @@ def configure_application(app):
     app.setPalette(palette)
     if app.platformName() == "offscreen":
         font_root = Path(os.environ.get("WINDIR", r"C:\Windows")) / "Fonts"
-        for name in ("segoeui.ttf", "segoeuib.ttf", "consola.ttf", "msjh.ttc", "msjhbd.ttc"):
+        for name in ("segoeui.ttf", "segoeuib.ttf", "consola.ttf", "georgia.ttf", "msjh.ttc", "msjhbd.ttc"):
             font_path = font_root / name
             if font_path.is_file():
                 print(f"[Preview fonts] Input file: {font_path}", flush=True)
@@ -2322,10 +2676,13 @@ def configure_application(app):
     app.setStyleSheet(STYLE)
 
 def main():
-    parser = argparse.ArgumentParser(description=__doc__)
+    parser = argparse.ArgumentParser(description=APP_NAME + ': ' + APP_TAGLINE.replace('®', ''))
     parser.add_argument("--data-dir", type=Path, default=Path(__file__).resolve().parent / "data" / "attack")
     parser.add_argument("--smoke-test", action="store_true", help="Verify UI behavior and exit")
     parser.add_argument("--screenshot", type=Path, help="Save a preview during --smoke-test")
+    parser.add_argument('--session-file', type=Path, default=Path(__file__).resolve().parent / 'data' / 'workspace-session.json',
+                        help='Local recovery checkpoint (default: project data/workspace-session.json)')
+    parser.add_argument('--no-session', action='store_true', help='Disable automatic workspace checkpoints and recovery')
     args = parser.parse_args()
     if args.screenshot and not args.smoke_test:
         parser.error("--screenshot requires --smoke-test")
@@ -2338,7 +2695,7 @@ def main():
     configure_windows_taskbar()
     app = QtWidgets.QApplication(sys.argv[:1])
     configure_application(app)
-    window = MainWindow(root)
+    window = MainWindow(root, session_path=None if args.no_session or args.smoke_test else args.session_file)
     window.show()
     if args.smoke_test:
         window.ready.connect(lambda: smoke_test(window, screenshot))

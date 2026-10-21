@@ -1,0 +1,458 @@
+{
+  "schema_version": "1.0",
+  "document_id": "de44b9eb-a03e-43db-b5c9-7f400092ddef",
+  "name": "edited.studio",
+  "created_at_utc": "2026-10-21T02:55:00.044503+00:00",
+  "exported_at_utc": "2026-10-21T02:55:00.301282+00:00",
+  "attack": {
+    "domain": "enterprise-attack",
+    "version": "19.3",
+    "source_url": "D:\\MITREATTACK_SIMULATOR\\artifacts\\upgrade-content\\target.json",
+    "dataset_sha256": "4656a61e3fe747790dc893000680ff115ab41e6b658c6f5c283802ae436fdfca",
+    "custom": true
+  },
+  "selected_count": 1,
+  "selected_technique_ids": [
+    "T1000"
+  ],
+  "selected_ttps": [
+    {
+      "technique_id": "T1000",
+      "stix_id": "attack-pattern--c4f9279a-9bbb-54ad-ab31-3fca5363870c",
+      "name": "Alpha changed",
+      "is_subtechnique": false,
+      "parent_technique_id": null,
+      "parent_technique_name": null,
+      "platforms": [
+        "Linux",
+        "Windows"
+      ],
+      "tactics": [
+        {
+          "tactic_id": null,
+          "name": "Execution",
+          "shortname": "execution"
+        }
+      ],
+      "comment": "Native reviewed target",
+      "tactic_comments": [],
+      "enabled": false,
+      "tactic_enabled": [
+        {
+          "tactic": "execution",
+          "enabled": false
+        }
+      ],
+      "selected_tactics": [
+        "execution"
+      ]
+    }
+  ],
+  "navigator_import_selected": [
+    "T1000"
+  ],
+  "selection_scopes": {},
+  "selection_preferences": {
+    "across_tactics": true,
+    "with_family": false,
+    "visible_only": false
+  },
+  "search_fields": [
+    "name",
+    "id"
+  ],
+  "navigator_layer": {
+    "name": "Full content source-upgraded",
+    "domain": "enterprise-attack",
+    "versions": {
+      "attack": "19.3",
+      "navigator": "5.2.0",
+      "layer": "4.5"
+    },
+    "techniques": [
+      {
+        "techniqueID": "T1000",
+        "color": "#445566",
+        "x_custom_annotation": {
+          "preserved": true
+        },
+        "score": 1.5,
+        "enabled": false,
+        "links": [
+          {
+            "label": "Native link",
+            "url": "https://example.org/native"
+          }
+        ],
+        "metadata": [
+          {
+            "name": "Case",
+            "value": "Native review"
+          }
+        ],
+        "comment": "Native reviewed target"
+      },
+      {
+        "techniqueID": "T1000.001",
+        "tactic": "initial-access",
+        "score": 2,
+        "comment": "Scoped child"
+      },
+      {
+        "techniqueID": "T1003",
+        "score": 3,
+        "comment": "Revoked source annotation"
+      },
+      {
+        "techniqueID": "T1001",
+        "comment": "New existing-target annotation"
+      }
+    ],
+    "customDataURL": "D:\\MITREATTACK_SIMULATOR\\artifacts\\upgrade-content\\target.json",
+    "x_ttp_studio_dataset": "4656a61e3fe747790dc893000680ff115ab41e6b658c6f5c283802ae436fdfca",
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false,
+    "selectVisibleTechniques": false,
+    "x_ttp_studio_search_fields": [
+      "name",
+      "id"
+    ],
+    "x_ttp_studio_upgrade": {
+      "source_version": "19.2",
+      "source_dataset": "9f1f9b54f4e0befabd92cf8dbdda4c4cdb38aecb80348763d2490b79258c2859",
+      "target_dataset": "4656a61e3fe747790dc893000680ff115ab41e6b658c6f5c283802ae436fdfca",
+      "decisions": [
+        {
+          "source_id": "T1000",
+          "source_scope": "",
+          "status": "Changed",
+          "changed_fields": [
+            "description",
+            "name"
+          ],
+          "action": "Copy",
+          "target_id": "T1000",
+          "target_scope": "",
+          "reviewed": true,
+          "annotation_patch": {
+            "links": [
+              {
+                "label": "Native link",
+                "url": "https://example.org/native"
+              }
+            ],
+            "color": "#445566",
+            "score": 1.5,
+            "comment": "Native reviewed target",
+            "metadata": [
+              {
+                "name": "Case",
+                "value": "Native review"
+              }
+            ],
+            "enabled": false
+          },
+          "targets": [
+            {
+              "target_id": "T1000",
+              "target_scope": "",
+              "annotation_patch": {
+                "links": [
+                  {
+                    "label": "Native link",
+                    "url": "https://example.org/native"
+                  }
+                ],
+                "color": "#445566",
+                "score": 1.5,
+                "comment": "Native reviewed target",
+                "metadata": [
+                  {
+                    "name": "Case",
+                    "value": "Native review"
+                  }
+                ],
+                "enabled": false
+              }
+            }
+          ]
+        },
+        {
+          "source_id": "T1000.001",
+          "source_scope": "execution",
+          "status": "Changed · tactic removed",
+          "changed_fields": [
+            "kill_chain_phases"
+          ],
+          "action": "Copy",
+          "target_id": "T1000.001",
+          "target_scope": "initial-access",
+          "reviewed": true,
+          "targets": [
+            {
+              "target_id": "T1000.001",
+              "target_scope": "initial-access",
+              "annotation_patch": {}
+            }
+          ]
+        },
+        {
+          "source_id": "T1002",
+          "source_scope": "",
+          "status": "Replaced",
+          "changed_fields": [
+            "external_references",
+            "id",
+            "name",
+            "revoked"
+          ],
+          "action": "Copy",
+          "target_id": "T1003",
+          "target_scope": "",
+          "reviewed": true,
+          "targets": [
+            {
+              "target_id": "T1003",
+              "target_scope": "",
+              "annotation_patch": {}
+            }
+          ]
+        }
+      ],
+      "review_schema": 2,
+      "technique_reviews": [
+        {
+          "id": "T1000",
+          "category": "Changed",
+          "reviewed": true,
+          "action": "Reviewed",
+          "annotation_rows": [],
+          "selected_scopes": []
+        },
+        {
+          "id": "T1000.001",
+          "category": "Changed",
+          "reviewed": true,
+          "action": "Reviewed",
+          "annotation_rows": [],
+          "selected_scopes": []
+        },
+        {
+          "id": "T1001",
+          "category": "Unchanged",
+          "reviewed": true,
+          "action": "Edited target",
+          "annotation_rows": [
+            {
+              "techniqueID": "T1001",
+              "comment": "New existing-target annotation"
+            }
+          ],
+          "selected_scopes": []
+        },
+        {
+          "id": "T1002",
+          "category": "Replaced",
+          "reviewed": true,
+          "action": "Reviewed",
+          "annotation_rows": [],
+          "selected_scopes": []
+        },
+        {
+          "id": "T1003",
+          "category": "Added",
+          "reviewed": true,
+          "action": "Skip added",
+          "annotation_rows": [],
+          "selected_scopes": [],
+          "skip_reason": ""
+        },
+        {
+          "id": "T1004",
+          "category": "Added",
+          "reviewed": true,
+          "action": "Skip added",
+          "annotation_rows": [],
+          "selected_scopes": [],
+          "skip_reason": ""
+        }
+      ],
+      "category_counts": {
+        "Added": 2,
+        "Changed": 2,
+        "Removed": 0,
+        "Replaced": 1,
+        "Unchanged": 1
+      },
+      "conflict_resolutions": [],
+      "final_summary": {
+        "schema": 1,
+        "source": {
+          "domain": "enterprise-attack",
+          "version": "19.2",
+          "dataset_id": "9f1f9b54f4e0befabd92cf8dbdda4c4cdb38aecb80348763d2490b79258c2859",
+          "custom_source": "D:\\MITREATTACK_SIMULATOR\\artifacts\\upgrade-content\\source.json"
+        },
+        "target": {
+          "domain": "enterprise-attack",
+          "version": "19.3",
+          "dataset_id": "4656a61e3fe747790dc893000680ff115ab41e6b658c6f5c283802ae436fdfca",
+          "custom_source": "D:\\MITREATTACK_SIMULATOR\\artifacts\\upgrade-content\\target.json"
+        },
+        "source_name": "Full content source",
+        "result_name": "Full content source-upgraded",
+        "categories": [
+          {
+            "category": "Added",
+            "total": 2,
+            "reviewed": 2,
+            "skipped": 2,
+            "state": "Skipped"
+          },
+          {
+            "category": "Changed",
+            "total": 2,
+            "reviewed": 2,
+            "skipped": 0,
+            "state": "Complete"
+          },
+          {
+            "category": "Removed",
+            "total": 0,
+            "reviewed": 0,
+            "skipped": 0,
+            "state": "Empty"
+          },
+          {
+            "category": "Replaced",
+            "total": 1,
+            "reviewed": 1,
+            "skipped": 0,
+            "state": "Complete"
+          },
+          {
+            "category": "Unchanged",
+            "total": 1,
+            "reviewed": 1,
+            "skipped": 0,
+            "state": "Complete"
+          }
+        ],
+        "total": 6,
+        "reviewed": 6,
+        "source_rows": 3,
+        "copy_rows": 3,
+        "drop_rows": 0,
+        "skips": [
+          {
+            "key": "added:T1003",
+            "kind": "Skip Added annotation",
+            "identity": "T1003",
+            "category": "Added",
+            "scope": "",
+            "reason": ""
+          },
+          {
+            "key": "added:T1004",
+            "kind": "Skip Added annotation",
+            "identity": "T1004",
+            "category": "Added",
+            "scope": "",
+            "reason": ""
+          }
+        ],
+        "issues": [],
+        "can_submit": true,
+        "output_rows": 4,
+        "selected_techniques": 1,
+        "selected_occurrences": 1,
+        "conflicts": 0,
+        "resolved_conflicts": 0,
+        "input_token": "e1f439370d3636eb8702971dfb4598f4cbe623ebd07b19498c73de82fae28944"
+      }
+    }
+  },
+  "migration_archives": [
+    {
+      "domain": "enterprise-attack",
+      "version": "19.2",
+      "dataset_id": "9f1f9b54f4e0befabd92cf8dbdda4c4cdb38aecb80348763d2490b79258c2859",
+      "custom_source": "D:\\MITREATTACK_SIMULATOR\\artifacts\\upgrade-content\\source.json",
+      "layer": {
+        "name": "Full content source",
+        "domain": "enterprise-attack",
+        "versions": {
+          "attack": "19.2",
+          "navigator": "5.2.0",
+          "layer": "4.5"
+        },
+        "techniques": [
+          {
+            "techniqueID": "T1000",
+            "links": [
+              {
+                "label": "Old link",
+                "url": "https://example.org/old",
+                "extra": "keep"
+              }
+            ],
+            "metadata": [
+              {
+                "name": "Owner",
+                "value": "Original",
+                "extra": 42
+              },
+              {
+                "name": "TTP Selection Studio selected",
+                "value": "true"
+              }
+            ],
+            "comment": "Original comment",
+            "score": 9,
+            "color": "#112233",
+            "x_custom_annotation": {
+              "preserved": true
+            }
+          },
+          {
+            "techniqueID": "T1000.001",
+            "tactic": "execution",
+            "comment": "Scoped child",
+            "score": 2,
+            "metadata": [
+              {
+                "name": "TTP Selection Studio selected",
+                "value": "false"
+              }
+            ]
+          },
+          {
+            "techniqueID": "T1002",
+            "comment": "Revoked source annotation",
+            "score": 3,
+            "metadata": [
+              {
+                "name": "TTP Selection Studio selected",
+                "value": "false"
+              }
+            ]
+          }
+        ],
+        "customDataURL": "D:\\MITREATTACK_SIMULATOR\\artifacts\\upgrade-content\\source.json",
+        "x_ttp_studio_dataset": "9f1f9b54f4e0befabd92cf8dbdda4c4cdb38aecb80348763d2490b79258c2859",
+        "selectTechniquesAcrossTactics": true,
+        "selectSubtechniquesWithParent": false,
+        "selectVisibleTechniques": false,
+        "x_ttp_studio_search_fields": [
+          "name",
+          "id"
+        ]
+      },
+      "selected_stix_ids": [
+        "attack-pattern--c4f9279a-9bbb-54ad-ab31-3fca5363870c"
+      ],
+      "import_selected": [],
+      "selection_scopes": {}
+    }
+  ]
+}

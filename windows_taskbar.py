@@ -5,6 +5,7 @@ import ctypes
 from pathlib import Path
 import sys
 from uuid import UUID
+from app_identity import APP_NAME
 
 
 class GUID(ctypes.Structure):
@@ -103,7 +104,7 @@ def set_window_taskbar_properties(hwnd, app_id, icon_path: Path, relaunch_comman
     try:
         store = WindowPropertyStore(hwnd)
         # Set relaunch metadata before ID, which triggers the taskbar grouping refresh.
-        properties = [(2, relaunch_command), (4, "TTP Selection Studio"),
+        properties = [(2, relaunch_command), (4, APP_NAME),
                       (3, f"{icon_path},0"), (5, app_id)]
         for index, (pid, value) in enumerate(properties, 1):
             report(f"[Taskbar window 2/3] Setting property {pid} ({index}/{len(properties)})")

@@ -1,0 +1,15 @@
+{
+  "commit": "3259f388d19cbcca11bacf12a0ef97f4198f711b",
+  "release": "2026.09",
+  "format_version": "6.0.0",
+  "files": {
+    "ATLAS-2026.09.yaml": {
+      "url": "https://raw.githubusercontent.com/mitre-atlas/atlas-data/3259f388d19cbcca11bacf12a0ef97f4198f711b/dist/v6/ATLAS-2026.09.yaml",
+      "sha256": "935efa93e28294432d3e2f537eb94991ef8d1f8c58341cd360ea3321ddb66688"
+    },
+    "LICENSE": {
+      "url": "https://raw.githubusercontent.com/mitre-atlas/atlas-data/3259f388d19cbcca11bacf12a0ef97f4198f711b/LICENSE",
+      "sha256": "fa6c92ab3dc75d41413884e8b38cc54cd4e72f4c8f68fc7e77824e48e3047d40"
+    }
+  }
+}
