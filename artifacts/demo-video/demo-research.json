@@ -1,0 +1,283 @@
+{
+  "schema_version": "1.0",
+  "document_id": "d1aaf3bb-936f-49fc-855c-44d4740bf9ee",
+  "name": "demo-research",
+  "created_at_utc": "2026-10-22T04:06:07.492428+00:00",
+  "exported_at_utc": "2026-10-22T04:06:34.706002+00:00",
+  "attack": {
+    "domain": "enterprise-attack",
+    "version": "20.0",
+    "source_url": "https://github.com/mitre-attack/attack-stix-data"
+  },
+  "selected_count": 2,
+  "selected_technique_ids": [
+    "T1053.005",
+    "T1059.001"
+  ],
+  "selected_ttps": [
+    {
+      "technique_id": "T1053.005",
+      "stix_id": "attack-pattern--005a06c6-14bf-4118-afa0-ebcd8aebb0c9",
+      "name": "Scheduled Task",
+      "is_subtechnique": true,
+      "parent_technique_id": "T1053",
+      "parent_technique_name": "Scheduled Task/Job",
+      "platforms": [
+        "Windows"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0002",
+          "name": "Execution",
+          "shortname": "execution"
+        },
+        {
+          "tactic_id": "TA0003",
+          "name": "Persistence",
+          "shortname": "persistence"
+        },
+        {
+          "tactic_id": "TA0004",
+          "name": "Privilege Escalation",
+          "shortname": "privilege-escalation"
+        }
+      ],
+      "comment": "",
+      "tactic_comments": [],
+      "enabled": true,
+      "tactic_enabled": [
+        {
+          "tactic": "execution",
+          "enabled": true
+        },
+        {
+          "tactic": "persistence",
+          "enabled": true
+        },
+        {
+          "tactic": "privilege-escalation",
+          "enabled": true
+        }
+      ],
+      "selected_tactics": [
+        "execution",
+        "persistence",
+        "privilege-escalation"
+      ]
+    },
+    {
+      "technique_id": "T1059.001",
+      "stix_id": "attack-pattern--970a3432-3237-47ad-bcca-7d8cbb217736",
+      "name": "PowerShell",
+      "is_subtechnique": true,
+      "parent_technique_id": "T1059",
+      "parent_technique_name": "Command and Scripting Interpreter",
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0002",
+          "name": "Execution",
+          "shortname": "execution"
+        }
+      ],
+      "comment": "",
+      "tactic_comments": [],
+      "enabled": true,
+      "tactic_enabled": [
+        {
+          "tactic": "execution",
+          "enabled": true
+        }
+      ],
+      "selected_tactics": [
+        "execution"
+      ]
+    }
+  ],
+  "navigator_import_selected": [],
+  "selection_scopes": {},
+  "selection_preferences": {
+    "across_tactics": true,
+    "with_family": false,
+    "visible_only": false
+  },
+  "search_fields": [
+    "name",
+    "id"
+  ],
+  "atlas_workspace": {
+    "schema_version": "1.0",
+    "document_id": "04381e27-0935-4100-a9e8-5330f8ed9f88",
+    "name": "ATLAS",
+    "created_at_utc": "2026-10-22T04:06:28.696122+00:00",
+    "exported_at_utc": "2026-10-22T04:06:34.706002+00:00",
+    "attack": {
+      "domain": "atlas-atlas",
+      "version": "2026.09",
+      "source_url": "https://raw.githubusercontent.com/mitre-atlas/atlas-data/3259f388d19cbcca11bacf12a0ef97f4198f711b/dist/v6/ATLAS-2026.09.yaml",
+      "dataset_sha256": "afb2753e405f5b4b370bf585702ffbbe99071af946a4bc60624f373086e0a117",
+      "custom": true
+    },
+    "selected_count": 1,
+    "selected_technique_ids": [
+      "AML.T0051"
+    ],
+    "selected_ttps": [
+      {
+        "technique_id": "AML.T0051",
+        "stix_id": "attack-pattern--6ff098e9-2864-579e-bebb-a0f1c92ec772",
+        "name": "LLM Prompt Injection",
+        "is_subtechnique": false,
+        "parent_technique_id": null,
+        "parent_technique_name": null,
+        "platforms": [
+          "Agentic AI",
+          "Generative AI"
+        ],
+        "tactics": [
+          {
+            "tactic_id": "AML.TA0005",
+            "name": "Execution",
+            "shortname": "aml-ta0005"
+          }
+        ],
+        "comment": "",
+        "tactic_comments": [],
+        "enabled": true,
+        "tactic_enabled": [
+          {
+            "tactic": "aml-ta0005",
+            "enabled": true
+          }
+        ],
+        "selected_tactics": [
+          "aml-ta0005"
+        ]
+      }
+    ],
+    "navigator_import_selected": [],
+    "selection_scopes": {},
+    "selection_preferences": {
+      "across_tactics": true,
+      "with_family": false,
+      "visible_only": false
+    },
+    "search_fields": [
+      "name",
+      "id"
+    ]
+  },
+  "car_workspace": {
+    "schema": 1,
+    "entries": {
+      "17ce7482f4396492aba8e7c18cb7df54093eec6b65742d2fd64462efc9badc63:CAR-2014-04-003": {
+        "id": "CAR-2014-04-003",
+        "title": "Powershell Execution",
+        "source": {
+          "repository": "https://github.com/mitre-attack/car",
+          "commit": "1b922fe1527d956e222a99473472e594f10f610b",
+          "dataset_sha256": "17ce7482f4396492aba8e7c18cb7df54093eec6b65742d2fd64462efc9badc63"
+        },
+        "record": {
+          "title": "Powershell Execution",
+          "submission_date": "2014/04/11",
+          "information_domain": "Host",
+          "platforms": [
+            "Windows"
+          ],
+          "subtypes": [
+            "Process"
+          ],
+          "analytic_types": [
+            "TTP"
+          ],
+          "contributors": [
+            "MITRE"
+          ],
+          "id": "CAR-2014-04-003",
+          "description": "[PowerShell](https://attack.mitre.org/techniques/T1059/001/) is a scripting environment included with Windows that is used by both attackers and administrators. Execution of PowerShell scripts in most Windows versions is opaque and not typically secured by antivirus which makes using PowerShell an easy way to circumvent security measures. This analytic detects execution of PowerShell scripts.\n\nPowershell can be used to hide monitored command line execution such as:\n-   `net use`\n-   `sc start`\n",
+          "coverage": [
+            {
+              "technique": "T1059",
+              "tactics": [
+                "TA0002"
+              ],
+              "subtechniques": [
+                "T1059.001"
+              ],
+              "coverage": "High"
+            },
+            {
+              "technique": "T1059",
+              "tactics": [
+                "TA0005"
+              ],
+              "subtechniques": [
+                "T1059.001"
+              ],
+              "coverage": "Moderate"
+            }
+          ],
+          "implementations": [
+            {
+              "description": "Look for versions of `PowerShell` that were not launched interactively.",
+              "code": "process = search Process:Create\npowershell = filter process where (exe == \"powershell.exe\" AND parent_exe != \"explorer.exe\" )\noutput powershell\n",
+              "type": "pseudocode"
+            },
+            {
+              "description": "Splunk version of the above pseudocode.",
+              "code": "index=__your_sysmon_index__ EventCode=1 Image=\"C:\\\\Windows\\\\*\\\\powershell.exe\" ParentImage!=\"C:\\\\Windows\\\\explorer.exe\"|stats values(CommandLine) as \"Command Lines\" values(ParentImage) as \"Parent Images\" by ComputerName\n",
+              "type": "Splunk",
+              "data_model": "Sysmon native"
+            },
+            {
+              "description": "EQL version of the above pseudocode.",
+              "code": "process where subtype.create and\n  (process_name == \"powershell.exe\" and parent_process_name != \"explorer.exe\")\n",
+              "type": "EQL",
+              "data_model": "EQL native"
+            },
+            {
+              "description": "DNIF version of the above pseudocode.",
+              "code": "_fetch * from event where $LogName=WINDOWS-SYSMON AND $EventID=1 AND $App=powershell.exe NOT $ParentProcess=regex(.*explorer.exe.*)i limit 30\n",
+              "type": "DNIF",
+              "data_model": "Sysmon native"
+            },
+            {
+              "description": "LogPoint version of the above pseudocode.",
+              "code": "norm_id=WindowsSysmon event_id=1 image=\"*\\powershell.exe\" -parent_image=\"C:\\Windows\\explorer.exe\"\n",
+              "type": "LogPoint",
+              "data_model": "LogPoint native"
+            }
+          ],
+          "data_model_references": [
+            "process/create/exe",
+            "process/create/parent_exe"
+          ],
+          "true_positives": [
+            {
+              "source": "Mordor (Sysmon)",
+              "description": "Sysmon event from the Mordor [Empire Userland Registry dataset](https://github.com/hunters-forge/mordor/blob/master/small_datasets/windows/persistence/registry_run_keys_startup_folder_T1060/empire_userland_registry.md).",
+              "event_snippet": "CAR-2014-04-003-mordor-01-snippet.json",
+              "full_event": "CAR-2014-04-003-mordor-01.json"
+            }
+          ],
+          "d3fend_mappings": [
+            {
+              "iri": "d3f:ProcessSpawnAnalysis",
+              "id": "D3-PSA",
+              "label": "Process Spawn Analysis"
+            }
+          ],
+          "_source_path": "analytics/CAR-2014-04-003.yaml",
+          "_source_sha256": "1c704066cd143a1ca7c18c4f8cfbbaa5d58e4df46937047d7d1744e280260ab7"
+        },
+        "included": true,
+        "annotations": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,588 @@
+{
+  "schema_version": "1.0",
+  "document_id": "f9fc3166-5d39-4450-8911-5f2fd2bd00e0",
+  "name": "scope-101",
+  "created_at_utc": "2026-10-21T13:53:17.983483+00:00",
+  "exported_at_utc": "2026-10-21T13:53:38.361229+00:00",
+  "attack": {
+    "domain": "enterprise-attack",
+    "version": "20.0",
+    "source_url": "https://github.com/mitre-attack/attack-stix-data"
+  },
+  "selected_count": 1,
+  "selected_technique_ids": [
+    "T1055.011"
+  ],
+  "selected_ttps": [
+    {
+      "technique_id": "T1055.011",
+      "stix_id": "attack-pattern--0042a9f5-f053-4769-b3ef-9ad018dfa298",
+      "name": "Extra Window Memory Injection",
+      "is_subtechnique": true,
+      "parent_technique_id": "T1055",
+      "parent_technique_name": "Process Injection",
+      "platforms": [
+        "Windows"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0004",
+          "name": "Privilege Escalation",
+          "shortname": "privilege-escalation"
+        },
+        {
+          "tactic_id": "TA0005",
+          "name": "Stealth",
+          "shortname": "stealth"
+        }
+      ],
+      "comment": "Keep ATT&CK annotation",
+      "tactic_comments": [],
+      "enabled": true,
+      "tactic_enabled": [
+        {
+          "tactic": "privilege-escalation",
+          "enabled": true
+        },
+        {
+          "tactic": "stealth",
+          "enabled": true
+        }
+      ],
+      "selected_tactics": [
+        "privilege-escalation",
+        "stealth"
+      ]
+    }
+  ],
+  "navigator_import_selected": [],
+  "selection_scopes": {},
+  "selection_preferences": {
+    "across_tactics": true,
+    "with_family": false,
+    "visible_only": false
+  },
+  "search_fields": [
+    "name",
+    "id"
+  ],
+  "navigator_layer": {
+    "name": "Untitled-1",
+    "domain": "enterprise-attack",
+    "versions": {
+      "attack": "20.0",
+      "layer": "4.5",
+      "navigator": "5.2.0"
+    },
+    "techniques": [
+      {
+        "techniqueID": "T1055.011",
+        "comment": "Keep ATT&CK annotation",
+        "score": 3,
+        "color": "#112233"
+      }
+    ]
+  },
+  "car_workspace": {
+    "schema": 1,
+    "entries": {
+      "17ce7482f4396492aba8e7c18cb7df54093eec6b65742d2fd64462efc9badc63:CAR-2013-02-003": {
+        "id": "CAR-2013-02-003",
+        "title": "Processes Spawning cmd.exe",
+        "source": {
+          "repository": "https://github.com/mitre-attack/car",
+          "commit": "1b922fe1527d956e222a99473472e594f10f610b",
+          "dataset_sha256": "17ce7482f4396492aba8e7c18cb7df54093eec6b65742d2fd64462efc9badc63"
+        },
+        "record": {
+          "title": "Processes Spawning cmd.exe",
+          "submission_date": "2013/02/05",
+          "information_domain": "Host",
+          "platforms": [
+            "Windows"
+          ],
+          "subtypes": [
+            "Process"
+          ],
+          "analytic_types": [
+            "Situational Awareness"
+          ],
+          "contributors": [
+            "MITRE"
+          ],
+          "id": "CAR-2013-02-003",
+          "description": "The Windows [Command Prompt](https://en.wikipedia.org/wiki/cmd.exe) (`cmd.exe`) is a utility that provides a command line interface to Windows operating systems. It provides the ability to run additional programs and also has several built-in commands such as `dir`, `copy`, `mkdir`, and `type`, as well as batch scripts (`.bat`). Typically, when a user runs a command prompt, the parent process is `explorer.exe` or another instance of the prompt. There may be automated programs, logon scripts, or administrative tools that launch instances of the command prompt in order to run scripts or other built-in commands. Spawning the process `cmd.exe` from certain parents may be more indicative of malice. For example, if Adobe Reader or Outlook launches a command shell, this may suggest that a malicious document has been loaded and should be investigated. Thus, by looking for abnormal parent processes of `cmd.exe`, it may be possible to detect adversaries.",
+          "coverage": [
+            {
+              "technique": "T1059",
+              "tactics": [
+                "TA0002"
+              ],
+              "subtechniques": [
+                "T1059.003"
+              ],
+              "coverage": "Moderate"
+            }
+          ],
+          "implementations": [
+            {
+              "code": "process = search Process:Create\ncmd = filter process where (exe == \"cmd.exe\")\noutput cmd",
+              "type": "pseudocode"
+            },
+            {
+              "description": "DNIF version of the above pseudocode.",
+              "code": "_fetch * from event where $LogName=WINDOWS-SYSMON AND $EventID=1 AND $Process=regex(.*cmd\\.exe.*)i limit 100",
+              "type": "DNIF",
+              "data_model": "Sysmon native"
+            },
+            {
+              "description": "LogPoint version of the above pseudocode.",
+              "code": "norm_id=WindowsSysmon event_id=1 image=\"*\\cmd.exe\"",
+              "type": "LogPoint",
+              "data_model": "LogPoint native"
+            }
+          ],
+          "data_model_references": [
+            "process/create/exe",
+            "process/create/parent_exe"
+          ],
+          "unit_tests": [
+            {
+              "configurations": [
+                "Windows 7"
+              ],
+              "description": "Within a command prompt or powershell, run cmd.exe"
+            }
+          ],
+          "d3fend_mappings": [
+            {
+              "iri": "d3f:ProcessLineageAnalysis",
+              "id": "D3-PLA",
+              "label": "Process Lineage Analysis"
+            }
+          ],
+          "_source_path": "analytics/CAR-2013-02-003.yaml",
+          "_source_sha256": "9982c3706457d076704f443ed5da2311ab862ce9c6f1e07b092e9bf939ae1c53"
+        },
+        "included": false,
+        "annotations": {}
+      },
+      "17ce7482f4396492aba8e7c18cb7df54093eec6b65742d2fd64462efc9badc63:CAR-2013-03-001": {
+        "id": "CAR-2013-03-001",
+        "title": "Reg.exe called from Command Shell",
+        "source": {
+          "repository": "https://github.com/mitre-attack/car",
+          "commit": "1b922fe1527d956e222a99473472e594f10f610b",
+          "dataset_sha256": "17ce7482f4396492aba8e7c18cb7df54093eec6b65742d2fd64462efc9badc63"
+        },
+        "record": {
+          "title": "Reg.exe called from Command Shell",
+          "submission_date": "2013/03/28",
+          "information_domain": "Host",
+          "platforms": [
+            "Windows"
+          ],
+          "subtypes": [
+            "Process"
+          ],
+          "analytic_types": [
+            "TTP"
+          ],
+          "contributors": [
+            "MITRE"
+          ],
+          "id": "CAR-2013-03-001",
+          "description": "Registry modifications are often essential in establishing persistence via known Windows mechanisms. Many legitimate modifications are done graphically via `regedit.exe` or by using the corresponding channels, or even calling the Registry APIs directly. The built-in utility `reg.exe` provides a [command-line interface](https://en.wikipedia.org/wiki/Command-line_interface) to the registry, so that queries and modifications can be performed from a shell, such as `cmd.exe`. When a user is responsible for these actions, the parent of `cmd.exe` will likely be `explorer.exe`. Occasionally, power users and administrators write scripts that do this behavior as well, but likely from a different process tree. These background scripts must be learned so they can be tuned out accordingly.\n\n### Output Description\n\nThe sequence of processes that resulted in `reg.exe` being started from a shell. That is, a hierarchy that looks like\n\n-   `great-grand_parent.exe`\n-   `grand_parent.exe`\n-   `parent.exe`\n-   `reg.exe`\n",
+          "coverage": [
+            {
+              "technique": "T1012",
+              "tactics": [
+                "TA0007"
+              ],
+              "coverage": "Moderate"
+            },
+            {
+              "technique": "T1112",
+              "tactics": [
+                "TA0005"
+              ],
+              "coverage": "Moderate"
+            },
+            {
+              "technique": "T1547",
+              "tactics": [
+                "TA0003"
+              ],
+              "subtechniques": [
+                "T1547.001"
+              ],
+              "coverage": "Moderate"
+            },
+            {
+              "technique": "T1574",
+              "tactics": [
+                "TA0003",
+                "TA0004"
+              ],
+              "subtechniques": [
+                "T1574.011"
+              ],
+              "coverage": "Moderate"
+            }
+          ],
+          "implementations": [
+            {
+              "description": "To gain better context, it may be useful to also get information about the cmd process to know its parent. This may be helpful when tuning the analytic to an environment, if this behavior happens frequently. This may also help to rule out instances of users running ",
+              "code": "processes = search Process:Create\nreg = filter processes where (exe == \"reg.exe\" and parent_exe == \"cmd.exe\")\ncmd = filter processes where (exe == \"cmd.exe\" and parent_exe != \"explorer.exe\"\")\nreg_and_cmd = join (reg, cmd) where (reg.ppid == cmd.pid and reg.hostname == cmd.hostname)\noutput reg_and_cmd\n",
+              "type": "pseudocode"
+            },
+            {
+              "description": "DNIF version of the above pseudocode.",
+              "code": "_fetch * from event where $LogName=WINDOWS-SYSMON AND $EventID=1 AND $Process=regex(.*reg\\.exe.*)i AND $ParentProcess=regex(.*cmd\\.exe.*)i as #A limit 100\n>>_fetch * from event where $LogName=WINDOWS-SYSMON AND $EventID=1 AND $Process=regex(.*cmd\\.exe.*)i NOT $ParentProcess=regex(.*explorer\\.exe.*)i as #B limit 100\n>>_checkif sjoin #B.$PPID = #A.$CPID str_compare #B.$SystemName eq #A.$SystemName include\n",
+              "type": "DNIF",
+              "data_model": "Sysmon native"
+            }
+          ],
+          "data_model_references": [
+            "process/create/command_line",
+            "process/create/hostname",
+            "process/create/exe",
+            "process/create/parent_exe",
+            "process/create/pid",
+            "process/create/ppid"
+          ],
+          "unit_tests": [
+            {
+              "configurations": [
+                "Windows 7"
+              ],
+              "description": "Execute reg.exe from cmd.exe. Note that the analytic joins back to the grandparent process, which in this case is explorer.exe. The query time window must include the user log on. For example, if you logged in at 8am and tested the analytic at 10am, the query needs to search from 8am to 10am, not just at 10am. Within a command window, run the command.",
+              "commands": [
+                "reg.exe QUERY HKLM\\Software\\Microsoft"
+              ]
+            }
+          ],
+          "d3fend_mappings": [
+            {
+              "iri": "d3f:ProcessLineageAnalysis",
+              "id": "D3-PLA",
+              "label": "Process Lineage Analysis"
+            }
+          ],
+          "_source_path": "analytics/CAR-2013-03-001.yaml",
+          "_source_sha256": "b1dd4d81d588a475aedff64669db60a8c324ed6c2002e55c3873760e575277e9"
+        },
+        "included": false,
+        "annotations": {}
+      },
+      "17ce7482f4396492aba8e7c18cb7df54093eec6b65742d2fd64462efc9badc63:CAR-2013-01-002": {
+        "id": "CAR-2013-01-002",
+        "title": "Autorun Differences",
+        "source": {
+          "repository": "https://github.com/mitre-attack/car",
+          "commit": "1b922fe1527d956e222a99473472e594f10f610b",
+          "dataset_sha256": "17ce7482f4396492aba8e7c18cb7df54093eec6b65742d2fd64462efc9badc63"
+        },
+        "record": {
+          "title": "Autorun Differences",
+          "submission_date": "2013/01/25",
+          "information_domain": "Analytic, Host",
+          "platforms": [
+            "Windows"
+          ],
+          "subtypes": [
+            "Registry"
+          ],
+          "analytic_types": [
+            "Situational Awareness",
+            "TTP"
+          ],
+          "contributors": [
+            "MITRE"
+          ],
+          "id": "CAR-2013-01-002",
+          "description": "The Sysinternals tool [Autoruns](../sensors/autoruns) checks the registry and file system for known identify persistence mechanisms. It will output any tools identified, including built-in or added-on Microsoft functionality and third party software. Many of these locations are known by adversaries and used to obtain [Persistence](https://attack.mitre.org/tactics/TA0003). Running Autoruns periodically in an environment makes it possible to collect and monitor its output for differences, which may include the removal or addition of persistent tools. Depending on the persistence mechanism and location, legitimate software may be more likely to make changes than an adversary tool. Thus, this analytic may result in significant noise in a highly dynamic environment. While Autoruns is a convenient method to scan for programs using persistence mechanisms its scanning nature does not conform well to streaming based analytics. This analytic could be replaced with one that draws from sensors that collect registry and file information if streaming analytics are desired.\n\nUtilizes the Sysinternals autoruns tool (ignoring validated Microsoft entries). Primarily not a detection analytic by itself but through analysis of results by an analyst can be used for such. Building another analytic on top of this one identifying unusual entries would likely be a beneficial alternative.\n",
+          "coverage": [
+            {
+              "technique": "T1543",
+              "tactics": [
+                "TA0003"
+              ],
+              "subtechniques": [
+                "T1543.003"
+              ],
+              "coverage": "Moderate"
+            },
+            {
+              "technique": "T1053",
+              "tactics": [
+                "TA0003"
+              ],
+              "subtechniques": [
+                "T1053.005"
+              ],
+              "coverage": "Moderate"
+            },
+            {
+              "technique": "T1547",
+              "tactics": [
+                "TA0003"
+              ],
+              "subtechniques": [
+                "T1547.001",
+                "T1547.010",
+                "T1547.004"
+              ],
+              "coverage": "Moderate"
+            },
+            {
+              "technique": "T1574",
+              "tactics": [
+                "TA0003",
+                "TA0004"
+              ],
+              "subtechniques": [
+                "T1574.007",
+                "T1574.008",
+                "T1574.009",
+                "T1574.010",
+                "T1574.011"
+              ],
+              "coverage": "Moderate"
+            },
+            {
+              "technique": "T1546",
+              "tactics": [
+                "TA0004",
+                "TA0003"
+              ],
+              "subtechniques": [
+                "T1546.001",
+                "T1546.003",
+                "T1546.008",
+                "T1546.010"
+              ],
+              "coverage": "Moderate"
+            },
+            {
+              "technique": "T1112",
+              "tactics": [
+                "TA0003",
+                "TA0002"
+              ],
+              "coverage": "Moderate"
+            },
+            {
+              "technique": "T1037",
+              "tactics": [
+                "TA0003"
+              ],
+              "subtechniques": [
+                "T1037.001"
+              ],
+              "coverage": "Moderate"
+            }
+          ],
+          "d3fend_mappings": [
+            {
+              "iri": "d3f:SystemInitConfigAnalysis",
+              "id": "D3-SICA",
+              "label": "System Init Config Analysis"
+            }
+          ],
+          "_source_path": "analytics/CAR-2013-01-002.yaml",
+          "_source_sha256": "6f49a68377df61575ec2937ec14963b5ebd7a3fef87fb43b43b171d23bd8b71a"
+        },
+        "included": false,
+        "annotations": {}
+      },
+      "17ce7482f4396492aba8e7c18cb7df54093eec6b65742d2fd64462efc9badc63:CAR-2013-05-009": {
+        "id": "CAR-2013-05-009",
+        "title": "Running executables with same hash and different names",
+        "source": {
+          "repository": "https://github.com/mitre-attack/car",
+          "commit": "1b922fe1527d956e222a99473472e594f10f610b",
+          "dataset_sha256": "17ce7482f4396492aba8e7c18cb7df54093eec6b65742d2fd64462efc9badc63"
+        },
+        "record": {
+          "title": "Running executables with same hash and different names",
+          "submission_date": "2013/05/23",
+          "information_domain": "Host",
+          "platforms": [
+            "Windows",
+            "Linux",
+            "macOS"
+          ],
+          "subtypes": [
+            "Process"
+          ],
+          "analytic_types": [
+            "TTP"
+          ],
+          "contributors": [
+            "MITRE"
+          ],
+          "id": "CAR-2013-05-009",
+          "description": "Executables are generally not renamed, thus a given hash of an executable should only have ever one name. Identifying instances where multiple process names share the same hash may find cases where tools are copied by attackers to different folders or hosts to [avoid detection](https://attack.mitre.org/tactics/TA0005).\n\nAlthough this analytic was initially based on MD5 hashes, it is equally applicable to any hashing convention.\n\n### Output Description\n\nA list of hashes and the different executables associated with each one",
+          "coverage": [
+            {
+              "technique": "T1036",
+              "tactics": [
+                "TA0005"
+              ],
+              "subtechniques": [
+                "T1036.003"
+              ],
+              "coverage": "Moderate"
+            }
+          ],
+          "implementations": [
+            {
+              "name": "Basic Query",
+              "description": "This is a basic Splunk search that will output all of the sysmon-reported process images and their respective hashes, for cases where an image has more than one set of hashes. Thus, this will output a large amount of data and should be filtered by the analyst in order to make the results more useful.",
+              "code": "index=__your_sysmon_index__ EventCode=1|stats dc(Hashes) as Num_Hashes values(Hashes) as \"Hashes\" by Image|where Num_Hashes > 1",
+              "type": "splunk",
+              "data_model": "Sysmon native"
+            },
+            {
+              "name": "Sigma/Sysmon",
+              "description": "[Sigma includes](https://github.com/Neo23x0/sigma/blob/master/rules/windows/process_creation/win_renamed_binary.yml) a Sysmon-specific rule for detecting this, using the OriginalFilename field.",
+              "type": "Sigma"
+            },
+            {
+              "name": "Sigma (renamed powershell)",
+              "description": "[Sigma includes](https://github.com/Neo23x0/sigma/blob/master/rules/windows/process_creation/win_powershell_renamed_ps.yml) a rule specifically for detecting instances of Powershell being renamed.",
+              "type": "Sigma"
+            },
+            {
+              "name": "Sigma (renamed paexec)",
+              "description": "[Sigma includes](https://github.com/Neo23x0/sigma/blob/master/rules/windows/process_creation/win_renamed_paexec.yml) a rule specifically for detecting instances of paexec being renamed.",
+              "type": "Sigma"
+            },
+            {
+              "description": "DNIF version of the above pseudocode.",
+              "code": "_fetch * from event where $LogName=WINDOWS-SYSMON AND $EventID=1 group count_unique $App, $HashMD5 limit 100\n>>_agg count_unique $HashMD5\n>>_checkif int_compare count_unique > 1 include",
+              "type": "DNIF",
+              "data_model": "Sysmon native"
+            },
+            {
+              "description": "LogPoint version of the above pseudocode.",
+              "code": "norm_id=WindowsSysmon event_id=1\n| chart distinct_count(hash) as cnt by image\n| search cnt > 1",
+              "type": "LogPoint",
+              "data_model": "LogPoint native"
+            }
+          ],
+          "data_model_references": [
+            "process/create/exe",
+            "process/create/md5_hash"
+          ],
+          "d3fend_mappings": [
+            {
+              "iri": "d3f:ServiceBinaryVerification",
+              "id": "D3-SBV",
+              "label": "Service Binary Verification"
+            },
+            {
+              "iri": "d3f:SystemFileAnalysis",
+              "id": "D3-SFA",
+              "label": "System File Analysis"
+            }
+          ],
+          "_source_path": "analytics/CAR-2013-05-009.yaml",
+          "_source_sha256": "e89d69475fa22a1949da2b164ee7a8f3cbae394eaf60fd1bd56e0711aa7a1e5e"
+        },
+        "included": true,
+        "annotations": {
+          "note": "Retained analyst note"
+        }
+      },
+      "17ce7482f4396492aba8e7c18cb7df54093eec6b65742d2fd64462efc9badc63:CAR-2013-05-002": {
+        "id": "CAR-2013-05-002",
+        "title": "Suspicious Run Locations",
+        "source": {
+          "repository": "https://github.com/mitre-attack/car",
+          "commit": "1b922fe1527d956e222a99473472e594f10f610b",
+          "dataset_sha256": "17ce7482f4396492aba8e7c18cb7df54093eec6b65742d2fd64462efc9badc63"
+        },
+        "record": {
+          "title": "Suspicious Run Locations",
+          "submission_date": "2013/05/07",
+          "information_domain": "Host",
+          "platforms": [
+            "Windows"
+          ],
+          "subtypes": [
+            "Process"
+          ],
+          "analytic_types": [
+            "TTP"
+          ],
+          "contributors": [
+            "MITRE"
+          ],
+          "id": "CAR-2013-05-002",
+          "description": "In Windows, files should never execute out of certain directory locations. Any of these locations may exist for a variety of reasons, and executables may be present in the directory but should not execute. As a result, some defenders make the mistake of ignoring these directories and assuming that a process will never run from one. There are known TTPs that have taken advantage of this fact to go undetected. This fact should inform defenders to monitor these directories more closely, knowing that they should never contain running processes.\n\nMonitors the directories\n\n-   `*:\\RECYCLER`\n-   `*:\\SystemVolumeInformation`\n-   `%systemroot%\\Tasks`\n-   `%systemroot%\\debug`",
+          "coverage": [
+            {
+              "technique": "T1036",
+              "tactics": [
+                "TA0005"
+              ],
+              "coverage": "Low"
+            }
+          ],
+          "implementations": [
+            {
+              "description": "The RECYCLER and SystemVolumeInformation directories will be present on every drive. Replace %systemroot% and %windir% with the actual paths as configured by the endpoints. ",
+              "code": "processes = search Process:Create\nsuspicious_locations = filter process where (\n image_path == \"*:\\RECYCLER\\*\" or\n image_path == \"*:\\SystemVolumeInformation\\*\" or\n image_path == \"%windir%\\Tasks\\*\" or\n image_path == \"%systemroot%\\debug\\*\"\n)\noutput suspicious_locations",
+              "type": "pseudocode"
+            },
+            {
+              "description": "DNIF version of the above pseudocode.",
+              "code": "_fetch * from event where $LogName=WINDOWS-SYSMON AND $EventID=1 AND $Process=regex(.*(\\:\\\\recycler\\\\|\\:\\\\systemvolumeinformation\\\\|\\%windir\\%\\\\tasks\\\\|\\%systemroot\\%\\\\debug\\\\).*)i group count_unique $App limit 100",
+              "type": "DNIF",
+              "data_model": "Sysmon native"
+            },
+            {
+              "description": "[Sigma version](https://github.com/Neo23x0/sigma/blob/master/rules/windows/process_creation/win_susp_run_locations.yml) of the above pseudocode, with some modifications.",
+              "type": "Sigma"
+            },
+            {
+              "description": "LogPoint version of the above pseudocode.",
+              "code": "norm_id=WindowsSysmon event_id=1 image IN [\"*:\\RECYCLER\\*\", \"*:\\SystemVolumeInformation\\*\", \"C:\\Windows\\Tasks\\*\", \"C:\\Windows\\System32\\debug\\*\"]",
+              "type": "LogPoint",
+              "data_model": "LogPoint native"
+            }
+          ],
+          "data_model_references": [
+            "process/create/image_path"
+          ],
+          "unit_tests": [
+            {
+              "configurations": [
+                "Windows 7"
+              ],
+              "description": "-   Typically %systemroot% is C:\\\\Windows but you can check this by running \"echo %systemdrive%\" at the command line.\n-   Copy C:\\\\Windows\\\\system32\\\\notepad to C:\\\\Windows\\\\Tasks.\n-   Run notepad. The analytic should fire.\n-   Delete the executable to clean up from the test.",
+              "commands": [
+                "copy C:\\windows\\system32\\notepad.exe C:\\windows\\tasks",
+                "start C:\\windows\\tasks\\notepad.exe",
+                "del C:\\windows\\tasks\\notepad.exe"
+              ]
+            }
+          ],
+          "d3fend_mappings": [
+            {
+              "iri": "d3f:ProcessSpawnAnalysis",
+              "id": "D3-PSA",
+              "label": "Process Spawn Analysis"
+            }
+          ],
+          "_source_path": "analytics/CAR-2013-05-002.yaml",
+          "_source_sha256": "df7a789a7b288aace1bda7acfc7d077b9f659fa01a3aa5b415f967e5973624e6"
+        },
+        "included": true,
+        "annotations": {}
+      }
+    }
+  }
+}

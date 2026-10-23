@@ -6,6 +6,7 @@ from hashlib import sha256
 import csv
 import io
 import json
+import uuid
 from pathlib import Path
 from unittest.mock import patch
 
@@ -19,7 +20,7 @@ from car_views import REF, SORT, row_values
 from framework_dialog import FrameworkOptionsDialog
 from framework_io import selection, framework_payload, framework_documents, read_framework_document
 from layer_analysis import snapshot_document
-from main import MainWindow, configure_application
+from main import MainWindow, configure_application, CatalogLoader
 from navigator_integration import document_layer, update_annotation, export_layers
 from studio_files import save_studio, open_studio, session_payload, write_session, read_session, StudioReader
 from ttp_documents import TTPDocument, export_document_csv, document_payload
@@ -46,10 +47,27 @@ def bad(task,label):
     else: raise AssertionError(label)
 
 
+def capture(window,path):
+    QtTest.QTest.qWait(40)
+    return window.grab().save(str(path))
+
+
 def click_row(listing,row,modifier=QtCore.Qt.KeyboardModifier.NoModifier):
     listing.scrollToItem(listing.item(row)); QtWidgets.QApplication.processEvents()
     QtTest.QTest.mouseClick(listing.viewport(),QtCore.Qt.MouseButton.LeftButton,modifier,listing.visualItemRect(listing.item(row)).center())
     QtWidgets.QApplication.processEvents()
+
+
+def content_choices(choices, cancel=False):
+    def act():
+        dialog=QtWidgets.QApplication.activeModalWidget()
+        if not isinstance(dialog,FrameworkOptionsDialog):
+            QtCore.QTimer.singleShot(20,act); return
+        check(dialog.choices()==(True,True,True),'CAR-007 actual read/write dialog defaults all three on')
+        if cancel: dialog.reject(); return
+        for box,value in zip((dialog.attack,dialog.atlas,dialog.car),choices): box.setChecked(value)
+        dialog.buttons.button(QtWidgets.QDialogButtonBox.StandardButton.Ok).click()
+    QtCore.QTimer.singleShot(0,act)
 
 
 def main():
@@ -84,6 +102,7 @@ def main():
     check(any(scope=='T1036.003' and a=='CAR-2013-05-009' for scope,a in related_analytics(car,'T1036')),'CAR-003 parent aggregate identifies sub-technique source')
     check(('T1021','') in car.groups and sum(p=='T1021' and bool(s) for p,s in car.groups)>1,'CAR-003 T1021 retains direct and multiple sub-technique buckets')
     check(car.candidates(car.analytics['CAR-2013-01-002'])=={},'CAR-005 absent data requirements do not imply sensor readiness')
+    check(not car.reference_known('process/create/proto_info') and car.reference_known('process/create/exe'),'CAR-005 native unknown data references remain distinguishable')
     matches=car.candidates(analytic)
     check('sysmon_13' in matches and matches['sysmon_13']==sorted(set(analytic['data_model_references']) & car.sensor_fields['sysmon_13']), 'CAR-005 sensor candidate is exact native triple intersection')
     fixture=OUT/'schema-fixture'; fixture.mkdir(exist_ok=True)
@@ -98,6 +117,8 @@ def main():
     bad(lambda:load_car(fixture),'CAR-001 corrupt source cannot publish partial index')
     log('[CAR acceptance B2/4] Real Qt lists, sorting, links, icons and independent inclusion',1,4)
     app=QtWidgets.QApplication.instance() or QtWidgets.QApplication([]); configure_application(app)
+    for isolated in (OUT/'recovery.json', OUT/'settings.ini'):
+        isolated.unlink(missing_ok=True)
     window=MainWindow(DATA,settings_path=OUT/'settings.ini',session_path=OUT/'recovery.json')
     window.show(); wait(lambda:window.loaded_ok and not window.loader.isRunning())
     check(window.windowTitle().endswith(' — Fusion Studio'),'CAR-008 product rename retained')
@@ -107,8 +128,29 @@ def main():
         button=window.navigation_buttons[category]
         check(not button.icon().isNull() and bool(button.toolTip()) and button.accessibleName()==category,'CAR-005 rail icon/label/tooltip/accessibility: '+category)
         check(QtSvg.QSvgRenderer(str(ROOT/'assets/navigation'/name)).isValid(),'CAR-005 delivered usable SVG: '+name)
-        button.click(); check(window.workspace.currentWidget() is browser,'CAR-005 rail opens native CAR page: '+category)
+        page=window.workspace.currentWidget()
+        button.click(); check(window.sidebar.isVisible() and window.workspace.currentWidget() is page,'CAR-005 rail opens sidebar only: '+category)
+        window.switch_category('Workplace');window.open_car_browser_button.click()
+        check(window.workspace.currentWidget() is browser,'CAR-005 Workplace opens native CAR page: '+category)
     window.navigation_buttons['CAR Analytics'].click()
+    window.switch_category('Workplace');window.open_car_browser_button.click()
+    # Synthetic edge cases complement the fixed data: equal names, missing values,
+    # multi-value summaries and real dates spanning a year boundary.
+    ids=[f'CAR-2099-01-{i:03}' for i in range(1,5)]
+    synthetic={k:{'id':k,'title':title,**extra} for k,title,extra in [
+        (ids[0],'alpha',{'submission_date':'2020/12/31','platforms':['Windows'],'implementations':[{'type':'splunk'}]}),
+        (ids[1],'Alpha',{'submission_date':'2021/01/01','platforms':['Windows','Linux'],'implementations':[{'type':'Sigma'}]}),
+        (ids[2],'beta',{'submission_date':'2020/01/01'}),(ids[3],'beta',{})]}
+    fixture_car=replace(car,source={**car.source,'dataset_sha256':'c'*64},analytics=synthetic,groups={})
+    browser.set_catalog(fixture_car); browser.refresh()
+    for column,ascending,descending in [(2,ids,[ids[2],ids[3],ids[0],ids[1]]),
+            (3,[ids[2],ids[0],ids[1],ids[3]],[ids[1],ids[0],ids[2],ids[3]]),
+            (5,[ids[1],ids[0],ids[2],ids[3]],[ids[0],ids[1],ids[2],ids[3]]),
+            (6,[ids[1],ids[0],ids[2],ids[3]],[ids[0],ids[1],ids[2],ids[3]])]:
+        for order,expected in [(QtCore.Qt.SortOrder.AscendingOrder,ascending),(QtCore.Qt.SortOrder.DescendingOrder,descending)]:
+            browser.table.sortByColumn(column,order); app.processEvents()
+            check([browser.proxy.index(i,1).data(REF) for i in range(4)]==expected,'CAR-002 synthetic dates/ties/missing/multivalue order '+str((column,order)))
+    browser.set_catalog(car); browser.refresh()
     check(browser.model.columnCount()==7 and [browser.model.headerData(i,QtCore.Qt.Orientation.Horizontal) for i in range(1,7)]==
           ['ID','Name','Submission Date','ATT&CK Techniques','Implementations','Applicable Platforms'],'CAR-002 official six attributes plus independent include column')
     before=window.current_document.content_token()
@@ -125,8 +167,26 @@ def main():
             present.sort(key=lambda a:a['id']); present.sort(key=lambda a:row_values(a,window.catalog)[1][column-1],reverse=descending)
             expected_ids=[a['id'] for a in present]+sorted(a['id'] for a in missing)
             actual=[browser.proxy.index(i,1).data(REF) for i in range(browser.proxy.rowCount())]
+            if actual!=expected_ids: log({'actual':actual[:8], 'expected':expected_ids[:8], 'proxy_column':browser.proxy.sortColumn(), 'proxy_order':str(browser.proxy.sortOrder()), 'search':browser.search.text(), 'platform':browser.platform.currentData(),'tool':browser.tool.currentData(),'included':browser.only_included.isChecked()})
             check(actual==expected_ids,'CAR-002 real header sorts complete filtered data, stable ID ties/missing bottom: '+str((column,turn,descending)))
     check(window.current_document.content_token()==before,'CAR-002 sorting is read-only')
+    browser.platform.setCurrentIndex(browser.platform.findData('Windows')); browser.tool.setCurrentIndex(browser.tool.findData('splunk')); app.processEvents()
+    actual={browser.proxy.index(i,1).data(REF) for i in range(browser.proxy.rowCount())}
+    check(actual=={k for k,a in car.analytics.items() if 'Windows' in a.get('platforms',[]) and any(i['type']=='splunk' for i in a.get('implementations',[]))},'CAR-002 platform and tool filters combine without changing inclusion')
+    browser.platform.setCurrentIndex(0); browser.tool.setCurrentIndex(0)
+    # Real extended row selection and batch commands after descending sorting.
+    browser.table.scrollTo(browser.proxy.index(0,1)); app.processEvents()
+    for row,modifier in [(0,QtCore.Qt.KeyboardModifier.NoModifier),(1,QtCore.Qt.KeyboardModifier.ShiftModifier),
+                         (2,QtCore.Qt.KeyboardModifier.ControlModifier)]:
+        index=browser.proxy.index(row,1)
+        QtTest.QTest.mouseClick(browser.table.viewport(),QtCore.Qt.MouseButton.LeftButton,modifier,browser.table.visualRect(index).center())
+    batch_ids=browser.highlighted()
+    check(len(batch_ids)==3,'CAR-006 real Analytics Ctrl/Shift highlights three sorted IDs')
+    buttons=browser.findChildren(QtWidgets.QPushButton)
+    next(b for b in buttons if b.text()=='Add highlighted Analytics to Workplace').click()
+    check({e['id'] for e in included(window.current_document).values()}==batch_ids,'CAR-006 sorted-row batch Add targets exact highlighted IDs')
+    next(b for b in buttons if b.text()=='Remove highlighted Analytics from Workplace').click()
+    check(not included(window.current_document) and not window.current_document.selected,'CAR-006 batch Remove preserves TTP state')
     browser.search.setText('CAR-2013-05-009'); app.processEvents()
     check(browser.proxy.rowCount()==1,'CAR-002 ID search narrows Analytics')
     index=browser.proxy.index(0,0); browser.table.setCurrentIndex(index); browser.table.scrollTo(index); app.processEvents()
@@ -146,19 +206,21 @@ def main():
     check(window.workspace.currentWidget() is browser and 'CAR-2013-05-009' in browser.details.toPlainText(),'CAR-004 technique reverse link returns to same analytic detail')
     browser.navigate('car:model/process/create/md5_hash')
     check('CAR-2013-05-009' in browser.details.toPlainText(),'CAR-005 exact Data Model reference finds analytic')
+    browser.navigate('car:model/process/create/proto_info')
+    check('Unresolved data model reference' in browser.details.toPlainText() and 'CAR-' in browser.details.toPlainText(),'CAR-005 unknown native field visibly unresolved with exact reverse references retained')
     browser.navigate('car:sensor/sysmon_13')
     check('Mapped to Event' in browser.details.toPlainText() and 'partial field intersections' in browser.details.toPlainText(),'CAR-005 sensor version/native mapping notes/candidate qualification visible')
     browser.show_list(); check(browser.search.text()=='CAR-2013-05-009' and browser.proxy.rowCount()==1,'CAR-004 Back retains source search/filter/sort state')
     browser.search.clear(); browser.only_included.setChecked(True); app.processEvents()
     check(browser.proxy.rowCount()==2,'CAR-006 included-only filter synchronizes check state')
     browser.only_included.setChecked(False)
-    check(window.grab().save(str(OUT/'analytics-sort.png')),'CAR-002 Analytics sort screenshot')
+    check(capture(window,OUT/'analytics-sort.png'),'CAR-002 Analytics sort screenshot')
     browser.table.sortByColumn(3,QtCore.Qt.SortOrder.DescendingOrder); app.processEvents()
-    check(window.grab().save(str(OUT/'analytics-date.png')),'CAR-002 second date sort screenshot')
-    browser.tabs.setCurrentIndex(1); check(window.grab().save(str(OUT/'by-technique.png')),'CAR-003 three-column native by-technique screenshot')
-    window.switch_category('CAR Data Model'); browser.models.expandToDepth(1)
-    check(window.grab().save(str(OUT/'data-model.png')),'CAR-005 Data Model screenshot')
-    window.switch_category('CAR Sensors'); check(window.grab().save(str(OUT/'sensors.png')),'CAR-005 Sensors screenshot')
+    check(capture(window,OUT/'analytics-date.png'),'CAR-002 second date sort screenshot')
+    browser.tabs.setCurrentIndex(1); check(capture(window,OUT/'by-technique.png'),'CAR-003 three-column native by-technique screenshot')
+    window.switch_category('CAR Data Model'); window.open_car_browser_button.click(); browser.models.expandToDepth(1)
+    check(capture(window,OUT/'data-model.png'),'CAR-005 Data Model screenshot')
+    window.switch_category('CAR Sensors'); window.open_car_browser_button.click(); check(capture(window,OUT/'sensors.png'),'CAR-005 Sensors screenshot')
     source=window.current_document
     owner=source.document_id
     window.change_car_inclusion({'CAR-2013-05-002'},True,owner)
@@ -167,13 +229,14 @@ def main():
     check(len(window.car_selection_list.selectedItems())==3,'CAR-006 native Shift selects a range without inclusion changes')
     click_row(window.car_selection_list,1,QtCore.Qt.KeyboardModifier.ControlModifier)
     check(len(window.car_selection_list.selectedItems())==2 and len(included(source))==count,'CAR-006 native Ctrl toggles highlight without changing inclusion')
-    check(window.grab().save(str(OUT/'workplace.png')),'CAR-006 independent Workplace CAR section screenshot')
+    check(capture(window,OUT/'workplace.png'),'CAR-006 independent Workplace CAR section screenshot')
     target_ids={i.data(REF) for i in window.car_selection_list.selectedItems()}
+    included_before=set(included(source))
     pos=window.car_selection_list.visualItemRect(window.car_selection_list.selectedItems()[0]).center()
     window.car_selected_menu(pos); menu=window.workplace_context_menu
     menu.close(); check(len(included(source))==count,'CAR-006 cancelling right-click preserves document')
     window.car_selected_menu(pos); remove=window.workplace_context_menu.actions()[-1]; remove.trigger(); window.workplace_context_menu.close()
-    check(set(included(source))==set(source.car_workspace['entries'])-target_ids,'CAR-006 context removal only deselects highlighted analytics')
+    check(set(included(source))==included_before-target_ids,'CAR-006 context removal only deselects highlighted analytics')
     check(all(not source.car_workspace['entries'][k]['included'] for k in target_ids),'CAR-006 removal retains analytic records and annotations')
     # Two documents, duplicate, and stale menu command ownership.
     source_key=next(iter(source.catalog.records)); window.choose_technique_occurrence(source_key,True)
@@ -194,6 +257,19 @@ def main():
     check(source.car_workspace['entries'][selected_ref]['included'] and not duplicate.car_workspace['entries'][selected_ref]['included'],'CAR-007 duplicate edits do not affect source')
     check(ttp_state==(set(source.selected),source.navigator_layer,source.atlas_document.content_token()),'CAR-006 CAR operations preserve all ATT&CK/ATLAS inclusion and annotations')
     log('[CAR acceptance C3/4] Native Save/Open, seven content scopes, CSV/Navigator and recovery',2,4)
+    window.activate_document(window.documents.index(source)); wait(lambda:window.loaded_ok)
+    ui_path=OUT/'ui-native.json'; content_choices((True,True,True))
+    with patch.object(QtWidgets.QFileDialog,'getSaveFileName',return_value=(str(ui_path),'Studio JSON (*.json)')):
+        check(window.save_studio_document(save_as=True)==ui_path.resolve(),'CAR-007 actual Save As writes complete CAR document')
+    check(not source.dirty and json.loads(ui_path.read_text(encoding='utf-8'))['car_workspace']==source.car_workspace,'CAR-007 actual Save As establishes full native baseline')
+    unchanged=(source.content_token(),source.saved_fingerprint,ui_path.read_bytes()); content_choices((True,True,True),cancel=True)
+    check(window.save_studio_document() is None and unchanged==(source.content_token(),source.saved_fingerprint,ui_path.read_bytes()),'CAR-007 cancelled Save keeps CAR state, baseline and file intact')
+    content_choices((False,False,True))
+    with patch.object(QtWidgets.QFileDialog,'getOpenFileName',return_value=(str(ui_path),'Studio JSON (*.json)')):
+        imported=window.open_studio_document()
+    wait(lambda:window.loaded_ok)
+    check(imported.car_workspace==source.car_workspace and not imported.selected and imported.atlas_document is None,'CAR-007 actual filtered Open independently restores CAR only')
+    window.activate_document(window.documents.index(source)); wait(lambda:window.loaded_ok)
     for attack,atlas,include_car in [(a,b,c) for a in (False,True) for b in (False,True) for c in (False,True) if a or b or c]:
         opts=(attack,atlas,include_car); label=''.join('1' if x else '0' for x in opts); path=OUT/('scope-'+label+'.json')
         saved=save_studio(source,path,log,save_as=True,frameworks=opts)
@@ -218,6 +294,7 @@ def main():
     missing_path=OUT/'missing-snapshot.json'; save_studio(missing,missing_path,log)
     recovered=open_studio(DATA,missing_path,log)
     check(recovered.car_workspace==missing.car_workspace,'CAR-007 missing exact CAR snapshot retains complete native reference')
+    recovered.document_id=str(uuid.uuid4())
     window.install_imported_document(recovered); wait(lambda:window.loaded_ok)
     check(any('Unresolved snapshot' in window.car_selection_list.item(i).text() for i in range(window.car_selection_list.count())),'CAR-007 missing snapshot is visibly unresolved, never replaced')
     browser.open_analytic(unknown_key)
@@ -245,16 +322,43 @@ def main():
     log('[CAR acceptance D4/4] Bilingual UI, small rail, checkpoint and regression evidence',3,4)
     window.activate_document(window.documents.index(source)); wait(lambda:window.loaded_ok)
     manager=language_manager(); manager.set_language('zh_TW'); manager.refresh_all(); app.processEvents()
-    window.switch_category('CAR Analytics'); browser.tabs.setCurrentIndex(0)
-    check(window.grab().save(str(OUT/'analytics-zh.png')),'CAR-008 Traditional Chinese Analytics screenshot')
+    window.switch_category('CAR Analytics'); window.open_car_browser_button.click(); browser.tabs.setCurrentIndex(0)
+    check(browser.model.headerData(3,QtCore.Qt.Orientation.Horizontal)=='提交日期' and browser.search.placeholderText()=='搜尋 CAR 名稱或 ID…','CAR-008 actual header and search labels switch to Traditional Chinese')
+    check(capture(window,OUT/'analytics-zh.png'),'CAR-008 Traditional Chinese Analytics screenshot')
     manager.set_language('en')
+    browser.open_analytic('CAR-2013-05-009'); manager.set_language('zh_TW'); manager.refresh_all()
+    check('完整原生紀錄' in browser.details.toPlainText(),'CAR-008 open analytic detail translates presentation without translating native record')
+    manager.set_language('en'); browser.show_list()
     window.resize(950,650); window.set_navigation_labels_visible(False); app.processEvents()
     check(all(not window.navigation_buttons[k].icon().isNull() for k in ('CAR Analytics','CAR Data Model','CAR Sensors')),'CAR-005 small-window label toggle retains separate icons')
     window.set_navigation_labels_visible(True); window.resize(1440,920)
     window.checkpoint_session(); wait(lambda:not window.session_worker or not window.session_worker.isRunning())
     check(window.session_path.exists() and any(d.car_workspace for d in read_session(DATA,window.session_path,log)['documents']),'CAR-007 actual application automatic checkpoint includes CAR')
-    window.session_stopping=True
+    failure_loader=CatalogLoader(DATA); loaded=[]; failed=[]; car_errors=[]
+    failure_loader.loaded.connect(loaded.append); failure_loader.failed.connect(failed.append); failure_loader.car_failed.connect(car_errors.append)
+    with patch('main.load_catalog',return_value=source.catalog), patch('main.load_atlas_catalog',return_value=window.atlas_catalog), patch('main.load_car',side_effect=ValueError('Fixture manifest mismatch')):
+        failure_loader.run()
+    check(loaded==[source.catalog] and not failed and len(car_errors)==1,'CAR-008 CAR load failure still publishes ATT&CK with separate diagnostic')
+    window.car_catalog_failed(car_errors[0])
+    check('unavailable' in browser.status.text(),'CAR-008 failed snapshot status is visible instead of stuck loading')
+    # Simulate an interrupted process, preserving its checkpoint rather than
+    # invoking Exit/Discard (which intentionally invalidates rejected drafts).
+    window.session_timer.stop(); window.session_stopping=True
+    if window.session_worker and window.session_worker.isRunning(): window.session_worker.wait()
+    window.session_lock.unlock(); window.hide()
+    restarted=MainWindow(DATA,settings_path=OUT/'restart-settings.ini',session_path=OUT/'recovery.json'); restarted.show()
+    wait(lambda:restarted.loaded_ok and restarted.session_initialized and not restarted.loader.isRunning())
+    check(any(d.car_workspace==source.car_workspace for d in restarted.documents),'CAR-007 real application restart automatically restores exact CAR state')
+    restarted.session_stopping=True
+    with patch.object(restarted,'confirm_studio_changes',return_value='discard'): restarted.close()
+    window.session_path=None; window.session_lock=None
     with patch.object(window,'confirm_studio_changes',return_value='discard'): window.close()
+    offline=MainWindow(OUT/'no-attack-files',settings_path=OUT/'offline-settings.ini',session_path=None); offline.show()
+    wait(lambda:offline.loaded_ok and not offline.loader.isRunning())
+    opened=offline.open_studio_document(car_only)
+    wait(lambda:offline.loaded_ok)
+    check(opened is not None and offline.current_document is opened and opened.car_workspace==source.car_workspace and not offline.catalog.records,'CAR-007 actual CAR-only Open installs a real tab when the application has no ATT&CK disk data')
+    with patch.object(offline,'confirm_studio_changes',return_value='discard'): offline.close()
     check(all(p.read_bytes()==v for p,v in protected.items()),'CAR-008 user settings/session and ATT&CK pointers preserved')
     report={'passed':True,'count':len(CHECKS),'checks':CHECKS,'requirements':{f'CAR-{i:03}':'PASS' for i in range(1,9)},'source':car.source,'native_group_count':len(car.groups)}
     (OUT/'acceptance.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')

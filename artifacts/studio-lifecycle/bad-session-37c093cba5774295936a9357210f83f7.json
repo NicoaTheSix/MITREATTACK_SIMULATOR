@@ -1,0 +1,61 @@
+{
+  "checksum": "18e9be9dd34969fab51de0e65fe5ae6d0feab71cbcdd3172d5bda49f8818fcfd",
+  "workspace": {
+    "studio_session_version": "1.0",
+    "updated_at_utc": "2026-10-21T09:26:12.940892+00:00",
+    "clean_exit": true,
+    "documents": [
+      {
+        "document": {
+          "schema_version": "1.0",
+          "document_id": "6412d9f0-a340-4e7f-8755-0500d38e6770",
+          "name": "Untitled-1",
+          "created_at_utc": "2026-10-21T09:26:06.894853+00:00",
+          "exported_at_utc": "2026-10-21T09:26:12.940892+00:00",
+          "attack": {
+            "domain": "enterprise-attack",
+            "version": "20.0",
+            "source_url": "https://github.com/mitre-attack/attack-stix-data"
+          },
+          "selected_count": 0,
+          "selected_technique_ids": [],
+          "selected_ttps": [],
+          "navigator_import_selected": [],
+          "selection_scopes": {},
+          "selection_preferences": {
+            "across_tactics": true,
+            "with_family": false,
+            "visible_only": false
+          },
+          "search_fields": [
+            "name",
+            "id"
+          ]
+        },
+        "initial_name": "Untitled-1",
+        "save_path": null,
+        "saved_fingerprint": null,
+        "saved_file_sha256": null,
+        "content_token_version": 2,
+        "dirty": false
+      }
+    ],
+    "active_index": 0,
+    "view": {
+      "page": "details",
+      "details_open": true,
+      "category": "TTP",
+      "overlay": false,
+      "show_colors": true,
+      "matrix_framework": "attack",
+      "attack_matrix_open": true,
+      "atlas_matrix_open": true,
+      "atlas_cases_open": true,
+      "atlas_case_key": null,
+      "atlas_cases_query": "",
+      "attack_expanded": true,
+      "atlas_expanded": true,
+      "car_expanded": true
+    }
+  }
+}

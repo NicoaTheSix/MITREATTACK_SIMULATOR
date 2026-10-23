@@ -1,0 +1,134 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "passed": true,
+      "label": "excluded icons hidden: attack"
+    },
+    {
+      "passed": true,
+      "label": "excluded icons removed from rail: attack"
+    },
+    {
+      "passed": true,
+      "label": "allowed/shared icons restored: attack"
+    },
+    {
+      "passed": true,
+      "label": "excluded icons hidden: atlas"
+    },
+    {
+      "passed": true,
+      "label": "excluded icons removed from rail: atlas"
+    },
+    {
+      "passed": true,
+      "label": "allowed/shared icons restored: atlas"
+    },
+    {
+      "passed": true,
+      "label": "excluded icons hidden: both"
+    },
+    {
+      "passed": true,
+      "label": "excluded icons removed from rail: both"
+    },
+    {
+      "passed": true,
+      "label": "allowed/shared icons restored: both"
+    },
+    {
+      "passed": true,
+      "label": "mitigation rail is sidebar-only"
+    },
+    {
+      "passed": true,
+      "label": "TTP query cannot mask the mitigation list"
+    },
+    {
+      "passed": true,
+      "label": "mitigation Workplace opener is available without prior selection"
+    },
+    {
+      "passed": true,
+      "label": "Workplace opens mitigation details"
+    },
+    {
+      "passed": true,
+      "label": "mitigation details retain mitigation list in sidebar"
+    },
+    {
+      "passed": true,
+      "label": "CAR sidebar opens: CAR Analytics"
+    },
+    {
+      "passed": true,
+      "label": "CAR rail retains current full page: CAR Analytics"
+    },
+    {
+      "passed": true,
+      "label": "CAR sidebar opens: CAR Data Model"
+    },
+    {
+      "passed": true,
+      "label": "CAR rail retains current full page: CAR Data Model"
+    },
+    {
+      "passed": true,
+      "label": "CAR sidebar opens: CAR Sensors"
+    },
+    {
+      "passed": true,
+      "label": "CAR rail retains current full page: CAR Sensors"
+    },
+    {
+      "passed": true,
+      "label": "CAR sidebar has actual entries"
+    },
+    {
+      "passed": true,
+      "label": "CAR row click opens its full detail page"
+    },
+    {
+      "passed": true,
+      "label": "Workplace has a CAR full-page opener"
+    },
+    {
+      "passed": true,
+      "label": "Workplace opens full CAR page"
+    },
+    {
+      "passed": true,
+      "label": "case details remain an upper reference page"
+    },
+    {
+      "passed": true,
+      "label": "case results are in sidebar"
+    },
+    {
+      "passed": true,
+      "label": "case results are outside the detail page"
+    },
+    {
+      "passed": true,
+      "label": "sidebar case click populates case details"
+    },
+    {
+      "passed": true,
+      "label": "all browsing retains document content"
+    },
+    {
+      "passed": true,
+      "label": "scope remains enforced with a case page open"
+    },
+    {
+      "passed": true,
+      "label": "Workplace opens the chosen CAR analytic"
+    },
+    {
+      "passed": true,
+      "label": "document switch cannot reopen cached CAR detail in the background"
+    }
+  ],
+  "count": 32
+}

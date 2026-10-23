@@ -322,8 +322,16 @@ def read_session(root, path, notify):
     if not isinstance(entries, list) or len(entries) > 50 or type(active) is not int or (
             entries and not 0 <= active < len(entries)) or (not entries and active != -1):
         raise ValueError('Invalid recovery document list/active tab.')
-    if not isinstance(view, dict) or view.get('page', 'selected') not in ('selected', 'matrix', 'details'):
+    if not isinstance(view, dict) or view.get('page', 'selected') not in ('selected', 'matrix', 'details','cases','car'):
         raise ValueError('Invalid recovery view.')
+    if (type(view.get('car_browser_open',False)) is not bool or
+            view.get('car_browser_kind','CAR Analytics') not in ('CAR Analytics','CAR Data Model','CAR Sensors')):
+        raise ValueError('Invalid CAR browser recovery view.')
+    if 'matrix_controls_expanded' in view and type(view['matrix_controls_expanded']) is not bool:
+        raise ValueError('Invalid matrix controls recovery state.')
+    if (not isinstance(view.get('atlas_cases_query',''),str) or len(view.get('atlas_cases_query',''))>10000
+            or view.get('atlas_case_key') is not None and (not isinstance(view['atlas_case_key'],str) or len(view['atlas_case_key'])>500)):
+        raise ValueError('Invalid case-study recovery view.')
     reader, documents = StudioReader(root, notify), []
     for index, entry in enumerate(entries, 1):
         if not isinstance(entry, dict) or type(entry.get('dirty')) is not bool:

@@ -1,0 +1,69 @@
+{
+  "studio_frameworks_version": "1.0",
+  "name": "scope-010",
+  "document_id": "f9fc3166-5d39-4450-8911-5f2fd2bd00e0",
+  "created_at_utc": "2026-10-21T13:53:17.983483+00:00",
+  "frameworks": {
+    "atlas": {
+      "schema_version": "1.0",
+      "document_id": "687f88f9-2a15-40d2-b1e8-7aad8dd3add0",
+      "name": "ATLAS",
+      "created_at_utc": "2026-10-21T13:53:33.306778+00:00",
+      "exported_at_utc": "2026-10-21T13:53:36.473018+00:00",
+      "attack": {
+        "domain": "atlas-atlas",
+        "version": "2026.09",
+        "source_url": "https://raw.githubusercontent.com/mitre-atlas/atlas-data/3259f388d19cbcca11bacf12a0ef97f4198f711b/dist/v6/ATLAS-2026.09.yaml",
+        "dataset_sha256": "afb2753e405f5b4b370bf585702ffbbe99071af946a4bc60624f373086e0a117",
+        "custom": true
+      },
+      "selected_count": 1,
+      "selected_technique_ids": [
+        "AML.T0000"
+      ],
+      "selected_ttps": [
+        {
+          "technique_id": "AML.T0000",
+          "stix_id": "attack-pattern--c02f812d-59cc-5366-b1aa-7eb05154b772",
+          "name": "Search Open Technical Databases",
+          "is_subtechnique": false,
+          "parent_technique_id": null,
+          "parent_technique_name": null,
+          "platforms": [
+            "Enterprise"
+          ],
+          "tactics": [
+            {
+              "tactic_id": "AML.TA0002",
+              "name": "Reconnaissance",
+              "shortname": "aml-ta0002"
+            }
+          ],
+          "comment": "",
+          "tactic_comments": [],
+          "enabled": true,
+          "tactic_enabled": [
+            {
+              "tactic": "aml-ta0002",
+              "enabled": true
+            }
+          ],
+          "selected_tactics": [
+            "aml-ta0002"
+          ]
+        }
+      ],
+      "navigator_import_selected": [],
+      "selection_scopes": {},
+      "selection_preferences": {
+        "across_tactics": true,
+        "with_family": false,
+        "visible_only": false
+      },
+      "search_fields": [
+        "name",
+        "id"
+      ]
+    }
+  }
+}

@@ -10,12 +10,15 @@ from attack_matrix import matrix_columns
 from navigator_dialogs import AnnotationDialog
 from ttp_documents import TTPDocument, technique_comments
 from ttp_selection import change_cells, phases
+from atlas_cases import AtlasCasesPage
 
 
 class AtlasWorkspace:
     def init_atlas_workspace(self):
         self.atlas_catalog = None
         self.atlas_sidebar_signature = None
+        self.pending_atlas_mitigation = None
+        self.atlas_sidebar_queries={}
         self.atlas_matrix = AtlasMatrix()
         self.atlas_detail_bar = QtWidgets.QWidget()
         detail_layout = QtWidgets.QHBoxLayout(self.atlas_detail_bar)
@@ -51,6 +54,8 @@ class AtlasWorkspace:
         self.atlas_matrix.detail_requested.connect(self.show_atlas_record)
         self.atlas_matrix_tab_index = self.tabs.addTab(self.atlas_matrix, 'ATLAS Matrix')
         self.tabs.setTabEnabled(self.atlas_matrix_tab_index, False)
+        self.atlas_cases_page=AtlasCasesPage(self)
+        self.workspace.addWidget(self.atlas_cases_page)
         self.tabs.tabBar().setContextMenuPolicy(QtCore.Qt.ContextMenuPolicy.CustomContextMenu)
         self.tabs.tabBar().customContextMenuRequested.connect(self.matrix_tab_menu)
 
@@ -62,8 +67,10 @@ class AtlasWorkspace:
         self.atlas_sidebar.itemChanged.connect(lambda item, column:self.choose_atlas_technique(
             item.data(0, KEY), item.data(0, TACTIC), item.checkState(0) == QtCore.Qt.CheckState.Checked)
             if item.data(0, KEY) and item.flags() & QtCore.Qt.ItemFlag.ItemIsUserCheckable else None)
-        self.atlas_sidebar.itemClicked.connect(lambda item, column:self.show_atlas_record(item.data(0, KEY))
-            if item.data(0, KEY) else None)
+        self.atlas_sidebar.itemClicked.connect(self.atlas_sidebar_clicked)
+        self.atlas_sidebar.itemActivated.connect(self.atlas_sidebar_clicked)
+        self.atlas_sidebar.currentItemChanged.connect(lambda item,previous:self.select_atlas_mitigation(item)
+            if self.active_category=='ATLAS Mitigations' else None)
         self.workplace_tree = QtWidgets.QTreeWidget()
         self.workplace_tree.setHeaderHidden(True)
         self.workplace_tree.setAccessibleName('Workplace selected techniques')
@@ -90,8 +97,22 @@ class AtlasWorkspace:
         self.open_atlas_matrix_button.clicked.connect(self.open_atlas_matrix)
         matrix_buttons.addWidget(self.open_attack_matrix_button)
         matrix_buttons.addWidget(self.open_atlas_matrix_button)
+        self.open_atlas_cases_button=QtWidgets.QToolButton()
+        self.open_atlas_cases_button.setText('Open ATLAS Case Studies')
+        self.open_atlas_cases_button.clicked.connect(lambda:self.open_atlas_cases())
+        matrix_buttons.addWidget(self.open_atlas_cases_button)
         matrix_buttons.addStretch()
         layout.insertLayout(1, matrix_buttons)
+        mitigation_actions=QtWidgets.QHBoxLayout()
+        self.open_atlas_mitigation_button=QtWidgets.QPushButton('Open ATLAS Mitigation Details')
+        self.open_atlas_mitigation_button.setEnabled(False)
+        self.open_atlas_mitigation_button.clicked.connect(self.open_selected_atlas_mitigation)
+        mitigation_actions.addWidget(self.open_atlas_mitigation_button)
+        self.atlas_mitigation_choice=QtWidgets.QLabel('Select an ATLAS mitigation in the sidebar first.')
+        self.atlas_mitigation_choice.setTextFormat(QtCore.Qt.TextFormat.PlainText)
+        self.atlas_mitigation_choice.setWordWrap(True)
+        mitigation_actions.addWidget(self.atlas_mitigation_choice,1)
+        layout.insertLayout(2,mitigation_actions)
         self.attack_selection_toggle = QtWidgets.QToolButton()
         self.attack_selection_toggle.setCheckable(True)
         self.attack_selection_toggle.setChecked(True)
@@ -134,6 +155,65 @@ class AtlasWorkspace:
     def set_atlas_catalog(self, catalog):
         self.atlas_catalog = catalog
         self.tabs.setTabEnabled(self.atlas_matrix_tab_index, True)
+
+    @property
+    def atlas_cases_tab_index(self):
+        return next((i for i in range(self.document_tabs.count())
+                     if self.document_tabs.tabData(i)=='__atlas_cases__'), -1)
+
+    def ensure_atlas_cases_tab(self):
+        index=self.atlas_cases_tab_index
+        if index>=0: return index
+        with QtCore.QSignalBlocker(self.document_tabs):
+            index=self.document_tabs.addTab('ATLAS Case Studies Details')
+            self.document_tabs.setTabData(index,'__atlas_cases__')
+            self.document_tabs.setTabIcon(index,self.navigation_icons['ATLAS Case Studies'])
+            self.document_tabs.setTabEnabled(index,bool(self.current_atlas_catalog) and self.loaded_ok)
+            close=QtWidgets.QToolButton(self.document_tabs)
+            close.setText('×')
+            close.setAccessibleName('Close Case Studies')
+            close.setToolTip('Close Case Studies')
+            close.setAutoRaise(True)
+            close.setFixedSize(22,22)
+            close.clicked.connect(self.close_atlas_cases)
+            self.document_tabs.setTabButton(index,QtWidgets.QTabBar.ButtonPosition.RightSide,close)
+        return index
+
+    def open_atlas_cases(self,key=None):
+        if not self.loaded_ok or not self.current_atlas_catalog: return
+        self.operation_report('Input files: None; output files: None (ATLAS case studies in memory)')
+        self.operation_report('[ATLAS cases 1/2] Opening reference tab and refreshing the source list',0,2)
+        self.atlas_cases_page.refresh()
+        if key: self.atlas_cases_page.show_record(key)
+        with QtCore.QSignalBlocker(self.document_tabs):
+            self.document_tabs.setCurrentIndex(self.ensure_atlas_cases_tab())
+        self.workspace.setCurrentWidget(self.atlas_cases_page)
+        self.show_atlas_cases_sidebar()
+        self.hide_atlas_source_actions(); self.atlas_detail_bar.hide()
+        self.operation_report('[ATLAS cases 2/2] Ready; selections and annotations retained',2,2)
+        self.schedule_session_checkpoint()
+
+    def show_atlas_cases_sidebar(self):
+        self.sidebar.show()
+        self.sidebar_title.setText('ATLAS Case Studies')
+        if self.current_atlas_catalog:
+            self.summary.setText('ATLAS '+self.current_atlas_catalog.version)
+        for widget in (self.ttp_search,self.search,self.ttp_search_fields_button,self.source_search_fields_button,
+                       self.source_results_bar,self.matrix_button,self.atlas_search,self.atlas_open_button):
+            widget.hide()
+        self.explorer_stack.setCurrentWidget(self.atlas_cases_page.sidebar)
+
+    def close_atlas_cases(self):
+        index=self.atlas_cases_tab_index
+        if index<0: return
+        self.operation_report('Input files: None; output files: None (case-study tab visibility in memory)')
+        self.operation_report('[ATLAS cases 1/2] Closing reference tab',0,2)
+        was_visible=self.workspace.currentWidget() is self.atlas_cases_page
+        with QtCore.QSignalBlocker(self.document_tabs):
+            self.document_tabs.removeTab(index)
+        if was_visible: self.show_document_page()
+        self.schedule_session_checkpoint()
+        self.operation_report('[ATLAS cases 2/2] Closed; case-study state retained',2,2)
 
     def atlas_document(self, create=False):
         document = self.current_document
@@ -184,6 +264,8 @@ class AtlasWorkspace:
         menu.addAction('Open ATT&CK Matrix', self.open_matrix)
         action = menu.addAction('Open ATLAS Matrix', self.open_atlas_matrix)
         action.setEnabled(bool(self.current_atlas_catalog))
+        action=menu.addAction('Open ATLAS Case Studies',lambda:self.open_atlas_cases())
+        action.setEnabled(bool(self.current_atlas_catalog))
 
     def matrix_tab_menu(self, position):
         index = self.tabs.tabBar().tabAt(position)
@@ -206,7 +288,17 @@ class AtlasWorkspace:
         self.show_workplace_menu(menu, self.selection_page.mapToGlobal(position))
 
     def switch_atlas_category(self, category):
+        previous=self.active_category
+        if previous in ('ATLAS TTP','ATLAS Mitigations'):
+            self.atlas_sidebar_queries[previous]=self.atlas_search.text()
+        sidebar_only=category=='ATLAS Mitigations'
+        if sidebar_only:
+            self.operation_report('Input files: None; output files: None (ATLAS mitigation explorer in memory)')
+            self.operation_report('[ATLAS explorer 1/2] Updating the mitigation sidebar',0,2)
         self.active_category = category
+        if category in ('ATLAS TTP','ATLAS Mitigations') and category!=previous:
+            with QtCore.QSignalBlocker(self.atlas_search):
+                self.atlas_search.setText(self.atlas_sidebar_queries.get(category,''))
         self.navigation_buttons[category].setChecked(True)
         self.sidebar.setVisible(True)
         for widget in (self.ttp_search, self.search, self.ttp_search_fields_button,
@@ -222,14 +314,81 @@ class AtlasWorkspace:
             self.tabs.setCurrentIndex(self.selection_tab_index)
         else:
             self.rebuild_atlas_sidebar()
-            self.open_details_page(category + ' Details')
-            self.details.setHtml('<h1>' + html.escape(category) + '</h1><p>Select an entry in the sidebar.</p>')
+            if not sidebar_only:
+                self.open_details_page(category + ' Details')
+                self.details.setHtml('<h1>' + html.escape(category) + '</h1><p>Select an entry in the sidebar.</p>')
         self.refresh_atlas_workspace()
+        if sidebar_only:
+            self.operation_report('[ATLAS explorer 2/2] Sidebar ready; current workspace page retained',2,2)
         self.schedule_session_checkpoint()
 
     def restore_attack_sidebar(self):
         self.atlas_search.hide()
         self.atlas_open_button.hide()
+
+    def atlas_sidebar_clicked(self,item,column):
+        if self.active_category=='ATLAS Mitigations':
+            self.select_atlas_mitigation(item)
+            obj=self.selected_atlas_mitigation()
+            if obj and obj['id']==item.data(0,KEY):
+                self.operation_report('Input files: None; output files: None (ATLAS mitigation details in memory)')
+                self.operation_report('[ATLAS mitigation 1/2] Opening the selected sidebar entry',0,2)
+                self.show_atlas_record(obj['id'])
+                self.operation_report('[ATLAS mitigation 2/2] Details ready; document content retained',2,2)
+        elif item.data(0,KEY):
+            self.show_atlas_record(item.data(0,KEY))
+
+    def selected_atlas_mitigation(self):
+        catalog=self.current_atlas_catalog
+        document=self.current_document
+        context=self.pending_atlas_mitigation
+        if not context or not catalog or not document:
+            return None
+        owner,identity,key=context
+        if owner!=document.document_id or identity!=catalog_identity(catalog):
+            return None
+        obj=catalog.objects_by_domain[DOMAIN].get(key)
+        return obj if obj and obj.get('type')=='course-of-action' else None
+
+    def update_atlas_mitigation_action(self):
+        obj=self.selected_atlas_mitigation()
+        catalog=self.current_atlas_catalog
+        available=bool(catalog) and any(o.get('type')=='course-of-action' for o in catalog.objects_by_domain[DOMAIN].values())
+        self.open_atlas_mitigation_button.setEnabled(available and self.loaded_ok)
+        if obj:
+            self.atlas_mitigation_choice.setText(external_id(obj)+'  '+obj['name'])
+        else:
+            self.pending_atlas_mitigation=None
+            self.atlas_mitigation_choice.setText('Open to browse ATLAS mitigations.')
+
+    def select_atlas_mitigation(self,item):
+        catalog=self.current_atlas_catalog
+        document=self.current_document
+        if not item or not catalog or not document: return
+        key=item.data(0,KEY)
+        obj=catalog.objects_by_domain[DOMAIN].get(key)
+        if not obj or obj.get('type')!='course-of-action': return
+        context=(document.document_id,catalog_identity(catalog),key)
+        if context==self.pending_atlas_mitigation: return
+        self.operation_report('Input files: None; output files: None (ATLAS mitigation choice in memory)')
+        self.operation_report('[ATLAS mitigation 1/2] Selecting a mitigation for Workplace',0,2)
+        self.pending_atlas_mitigation=context
+        self.update_atlas_mitigation_action()
+        self.operation_report('[ATLAS mitigation 2/2] Selected; details available from sidebar or Workplace',2,2)
+
+    def open_selected_atlas_mitigation(self):
+        if not self.loaded_ok or not self.current_atlas_catalog: return
+        obj=self.selected_atlas_mitigation()
+        if not obj:
+            objects=self.current_atlas_catalog.objects_by_domain[DOMAIN].values()
+            obj=next(iter(sorted((o for o in objects if o.get('type')=='course-of-action'),key=external_id)),None)
+            if not obj: return
+            self.pending_atlas_mitigation=(self.current_document.document_id,catalog_identity(self.current_atlas_catalog),obj['id'])
+        self.switch_atlas_category('ATLAS Mitigations')
+        self.operation_report('Input files: None; output files: None (ATLAS mitigation details in memory)')
+        self.operation_report('[ATLAS mitigation 1/2] Opening the selected mitigation from Workplace',0,2)
+        self.show_atlas_record(obj['id'])
+        self.operation_report('[ATLAS mitigation 2/2] Details ready; selections and annotations retained',2,2)
 
     def rebuild_atlas_sidebar(self, *_):
         catalog = self.current_atlas_catalog
@@ -266,6 +425,8 @@ class AtlasWorkspace:
                 node.setData(0, KEY, obj['id'])
                 node.setFlags(node.flags() & ~QtCore.Qt.ItemFlag.ItemIsUserCheckable)
                 self.atlas_sidebar.addTopLevelItem(node)
+                if self.pending_atlas_mitigation and obj['id']==self.pending_atlas_mitigation[2]:
+                    self.atlas_sidebar.setCurrentItem(node)
         self.atlas_sidebar.blockSignals(False)
         sync_checks(self.atlas_sidebar, self.atlas_document())
 
@@ -281,6 +442,7 @@ class AtlasWorkspace:
         self.operation_report('[ATLAS selection 2/2] Workplace updated; ATT&CK selection retained', 2, 2)
 
     def refresh_atlas_workspace(self):
+        self.update_atlas_mitigation_action()
         if not self.current_document:
             return
         doc, catalog = self.atlas_document(), self.current_atlas_catalog
@@ -308,6 +470,11 @@ class AtlasWorkspace:
         self.tabs.setTabText(self.selection_tab_index, f'Selected Techniques ({len(self.selected) + count})')
         self.selection_summary.setText(f'{self.current_document.name} · Workplace · ATT&CK {len(self.selected)} · ATLAS {count}')
         self.open_atlas_matrix_button.setEnabled(bool(catalog) and self.loaded_ok)
+        self.open_atlas_cases_button.setEnabled(bool(catalog) and self.loaded_ok)
+        self.atlas_cases_action.setEnabled(bool(catalog) and self.loaded_ok)
+        if self.atlas_cases_tab_index>=0:
+            self.document_tabs.setTabEnabled(self.atlas_cases_tab_index,bool(catalog) and self.loaded_ok)
+        self.atlas_cases_page.refresh()
         self.tabs.setTabEnabled(self.atlas_matrix_tab_index, bool(catalog) and self.loaded_ok)
         if catalog:
             self.atlas_matrix.set_document(catalog, doc)
@@ -396,9 +563,30 @@ class AtlasWorkspace:
         if not catalog or key not in catalog.objects_by_domain[DOMAIN]:
             return
         obj = catalog.objects_by_domain[DOMAIN][key]
+        if obj['type']=='x-atlas-case-study':
+            return self.open_atlas_cases(key)
         native = obj.get('x_atlas_native', {})
         self.open_details_page('ATLAS Details')
         self.crumb.setText('ATLAS ' + catalog.version + ' / ' + external_id(obj))
+        self.details.setHtml(self.atlas_record_html(catalog,obj))
+        self.details.set_copy_content(obj['name'], obj.get('description', ''))
+        if obj['type'] == 'attack-pattern':
+            self.atlas_detail_key = key
+            self.atlas_detail_bar.show()
+        else:
+            self.atlas_detail_bar.hide()
+        if obj['type'] in ('course-of-action', 'x-atlas-case-study'):
+            self.atlas_source_context = (catalog_identity(catalog), key)
+            keys = self.atlas_source_techniques(catalog, key)
+            self.atlas_source_count.setText(f'{len(keys)} related ATLAS TTPs')
+            self.atlas_add_all_button.setEnabled(bool(keys) and self.loaded_ok)
+            self.atlas_remove_all_button.setEnabled(bool(keys) and self.loaded_ok)
+            self.atlas_source_bar.show()
+        self.object_copy_bar.set_context(catalog, DOMAIN, key)
+
+    @staticmethod
+    def atlas_record_html(catalog,obj):
+        native=obj.get('x_atlas_native',{})
         esc = lambda value:html.escape(str(value))
         parts = [f'<p>ATLAS {esc(catalog.version)} · {esc(external_id(obj))}</p>',
                  f'<h1>{esc(obj["name"])}</h1>', '<h2>Description</h2>',
@@ -425,21 +613,7 @@ class AtlasWorkspace:
                         + (f' · {esc(edge["tactic"])}' if edge.get('tactic') else '') + '<br>'
                         + esc(edge.get('description', '')).replace('\n', '<br>')
                         + ('<br>Leads to: ' + esc(', '.join(edge['leads-to'])) if edge.get('leads-to') else '') + '</p>')
-        self.details.setHtml(''.join(parts))
-        self.details.set_copy_content(obj['name'], obj.get('description', ''))
-        if obj['type'] == 'attack-pattern':
-            self.atlas_detail_key = key
-            self.atlas_detail_bar.show()
-        else:
-            self.atlas_detail_bar.hide()
-        if obj['type'] in ('course-of-action', 'x-atlas-case-study'):
-            self.atlas_source_context = (catalog_identity(catalog), key)
-            keys = self.atlas_source_techniques(catalog, key)
-            self.atlas_source_count.setText(f'{len(keys)} related ATLAS TTPs')
-            self.atlas_add_all_button.setEnabled(bool(keys) and self.loaded_ok)
-            self.atlas_remove_all_button.setEnabled(bool(keys) and self.loaded_ok)
-            self.atlas_source_bar.show()
-        self.object_copy_bar.set_context(catalog, DOMAIN, key)
+        return ''.join(parts)
 
     def hide_atlas_source_actions(self):
         self.atlas_source_context = None
@@ -462,11 +636,13 @@ class AtlasWorkspace:
     def remove_all_atlas_source_ttps(self):
         self.change_all_atlas_source_ttps('remove')
 
-    def change_all_atlas_source_ttps(self, action):
+    def change_all_atlas_source_ttps(self, action, context=None, owner_id=None):
         catalog = self.current_atlas_catalog
-        if not self.loaded_ok or not catalog or not self.current_document or not self.atlas_source_context:
+        context=context or self.atlas_source_context
+        if not self.loaded_ok or not catalog or not self.current_document or not context:
             return
-        identity, key = self.atlas_source_context
+        if owner_id is not None and owner_id!=self.current_document.document_id: return
+        identity, key = context
         if catalog_identity(catalog) != identity:
             self.hide_atlas_source_actions()
             return

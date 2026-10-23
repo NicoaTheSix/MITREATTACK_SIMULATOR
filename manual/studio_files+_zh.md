@@ -1,5 +1,7 @@
 # Studio 文件儲存與工作階段復原操作手冊
 
+CAR 整合新增第三個預設勾選的內容選項、獨立分析 inclusion、七種非空內容組合及 CAR-only 文件。完整 Save／recovery 包含三種內容；Navigator 與矩陣 Excel 仍只投影 TTP。格式、封存快照與讀寫限制請見 [CAR 操作手冊](car_integration+_zh.md)。
+
 ## 開啟與儲存
 
 | 操作 | 選單／快捷鍵 | 行為 |

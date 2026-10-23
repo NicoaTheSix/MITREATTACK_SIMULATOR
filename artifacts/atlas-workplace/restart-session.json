@@ -1,8 +1,8 @@
 {
-  "checksum": "d309c0dffb58feb267d90bb0979c365bce202a7d360d14b44fa2f5c65d7f039d",
+  "checksum": "0076d5d3f88015e94ce1e66308887aca9165e476b0486126697c0345a40bdba6",
   "workspace": {
     "studio_session_version": "1.0",
-    "updated_at_utc": "2026-10-20T16:12:18.561773+00:00",
+    "updated_at_utc": "2026-10-21T11:01:22.086402+00:00",
     "clean_exit": true,
     "documents": [],
     "active_index": -1,
@@ -15,8 +15,13 @@
       "matrix_framework": "attack",
       "attack_matrix_open": false,
       "atlas_matrix_open": false,
+      "atlas_cases_open": true,
+      "matrix_controls_expanded": true,
+      "atlas_case_key": "x-atlas-case-study--861228c8-adac-54d6-9fa9-cb6523848fac",
+      "atlas_cases_query": "",
       "attack_expanded": true,
-      "atlas_expanded": false
+      "atlas_expanded": false,
+      "car_expanded": true
     }
   }
 }

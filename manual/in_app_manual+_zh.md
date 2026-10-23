@@ -126,3 +126,13 @@ Session checkpoint 可協助復原工作階段，但仍應主動儲存 Studio �
 **Info** 內可查看作者資訊、MITRE 簡介、ATT&CK 簡介與版本更新紀錄。滑鼠懸停 **Version update history** 可展開版本列表；點擊版本閱讀短摘錄，再由網址開啟完整官方更新日誌。
 
 [全部中英文操作指南](README.md) · [安裝與啟動說明](../README.md) · [MITRE ATT&CK 官方網站](https://attack.mitre.org/)
+
+## CAR 研究內容
+
+CAR 分析、CAR 資料模型與 CAR 感測器導覽圖示只開側邊清單；選好後透過 **Workplace → 開啟 CAR 完整介面** 開啟完整頁。分析可獨立納入目前 Workplace；請用 Studio JSON 與預設勾選的 CAR 內容選項完整保存。Navigator 僅保存 TTP。[CAR 操作手冊](car_integration+_zh.md)。
+
+## 工作區頁籤與側邊欄顯示
+
+ATLAS 案例詳細頁位於上層參考頁籤，搜尋／清單位於左側。**Workplace → 開啟 ATLAS 緩解措施詳細資料** 不需先選項目；點緩解措施圖示／清單不切換右頁。Settings → 側邊欄顯示提供 ATT&CK、ATLAS、CAR 三個獨立開關，預設全開，Workplace 永遠保留。全部收合選取清單時，摘要與控制列維持正常高度。 [操作說明](workspace_layout+_zh.md).
+
+**CAR 瀏覽器** 與 **Technique Details** 並列為上層獨立參考頁籤，可用 × 或右鍵關閉，再由 Workplace 開啟；Recovery 保存頁籤是否開啟、目前頁面及類別。另見[工作區操作說明](workspace_layout+_zh.md#car-瀏覽器)。

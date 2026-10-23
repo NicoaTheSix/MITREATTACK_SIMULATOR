@@ -1,0 +1,153 @@
+{
+  "schema_version": "1.0",
+  "document_id": "6bc0b76d-a41b-46c5-a517-d09a60dfa510",
+  "name": "workspace-ttps-example",
+  "created_at_utc": "2026-10-21T10:24:55.676699+00:00",
+  "exported_at_utc": "2026-10-21T10:25:06.190864+00:00",
+  "attack": {
+    "domain": "ics-attack",
+    "version": "20.0",
+    "source_url": "https://github.com/mitre-attack/attack-stix-data"
+  },
+  "selected_count": 3,
+  "selected_technique_ids": [
+    "T0811",
+    "T0882",
+    "T0893"
+  ],
+  "selected_ttps": [
+    {
+      "technique_id": "T0811",
+      "stix_id": "attack-pattern--3405891b-16aa-4bd7-bd7c-733501f9b20f",
+      "name": "Data from Information Repositories",
+      "is_subtechnique": false,
+      "parent_technique_id": null,
+      "parent_technique_name": null,
+      "platforms": [
+        "Embedded",
+        "Linux",
+        "Windows"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0100",
+          "name": "Collection",
+          "shortname": "collection"
+        }
+      ],
+      "comment": "",
+      "tactic_comments": [],
+      "enabled": true,
+      "tactic_enabled": [
+        {
+          "tactic": "collection",
+          "enabled": true
+        }
+      ],
+      "selected_tactics": [
+        "collection"
+      ]
+    },
+    {
+      "technique_id": "T0882",
+      "stix_id": "attack-pattern--b7e13ee8-182c-4f19-92a4-a88d7d855d54",
+      "name": "Theft of Operational Information",
+      "is_subtechnique": false,
+      "parent_technique_id": null,
+      "parent_technique_name": null,
+      "platforms": [
+        "None"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0105",
+          "name": "Impact",
+          "shortname": "impact"
+        }
+      ],
+      "comment": "",
+      "tactic_comments": [],
+      "enabled": true,
+      "tactic_enabled": [
+        {
+          "tactic": "impact",
+          "enabled": true
+        }
+      ],
+      "selected_tactics": [
+        "impact"
+      ]
+    },
+    {
+      "technique_id": "T0893",
+      "stix_id": "attack-pattern--fa3aa267-da22-4bdd-961f-03223322a8d5",
+      "name": "Data from Local System",
+      "is_subtechnique": false,
+      "parent_technique_id": null,
+      "parent_technique_name": null,
+      "platforms": [
+        "Embedded",
+        "Linux",
+        "Network Devices",
+        "Windows"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0100",
+          "name": "Collection",
+          "shortname": "collection"
+        }
+      ],
+      "comment": "",
+      "tactic_comments": [],
+      "enabled": true,
+      "tactic_enabled": [
+        {
+          "tactic": "collection",
+          "enabled": true
+        }
+      ],
+      "selected_tactics": [
+        "collection"
+      ]
+    }
+  ],
+  "navigator_import_selected": [],
+  "selection_scopes": {},
+  "selection_preferences": {
+    "across_tactics": true,
+    "with_family": false,
+    "visible_only": false
+  },
+  "search_fields": [
+    "name",
+    "id"
+  ],
+  "domain_snapshots": {
+    "enterprise-attack": {
+      "version": "20.0",
+      "selected_stix_ids": [],
+      "navigator_layer": {
+        "name": "Untitled-2",
+        "domain": "enterprise-attack",
+        "techniques": [],
+        "selectTechniquesAcrossTactics": true,
+        "selectSubtechniquesWithParent": false,
+        "hideDisabled": false,
+        "selectVisibleTechniques": false,
+        "x_ttp_studio_search_fields": [
+          "name",
+          "id"
+        ],
+        "versions": {
+          "attack": "20.0",
+          "navigator": "5.2.0",
+          "layer": "4.5"
+        }
+      },
+      "navigator_import_selected": [],
+      "selection_scopes": {},
+      "navigator_snapshots": {}
+    }
+  }
+}

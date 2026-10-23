@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "count": 16,
+  "checks": [
+    "navigation opens mitigation sidebar",
+    "navigation does not create or activate Details",
+    "Workplace button can browse without a prior choice",
+    "single click selects a mitigation for Workplace",
+    "item click opens matching mitigation Details",
+    "navigation and choice do not edit the document",
+    "Workplace shows chosen mitigation and open button",
+    "Workplace button opens selected mitigation details",
+    "source actions and copy controls remain available",
+    "navigation preserves an existing reference page and title",
+    "keyboard choice does not replace existing details",
+    "filtering preserves choice and reference content",
+    "Workplace opens latest choice without changing selections",
+    "button localizes while chosen ID remains literal",
+    "new document clears the previous choice and keeps browsing available",
+    "fresh browse resolves against the new document"
+  ]
+}

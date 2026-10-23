@@ -71,14 +71,16 @@ def main():
     log('[Framework audit 1/5] Defaults and independent choices')
     for mode in ('read','write'):
         dialog=FrameworkOptionsDialog(mode,OUT/'sample.json')
-        check(dialog.choices()==(True,True),mode+' defaults to both frameworks')
+        check(dialog.choices()==(True,True,True),mode+' defaults to all three content types')
         dialog.attack.setChecked(False)
-        check(dialog.choices()==(False,True),mode+' supports ATLAS only')
+        check(dialog.choices()==(False,True,True),mode+' supports ATLAS and CAR without ATT&CK')
         dialog.atlas.setChecked(False)
+        check(dialog.choices()==(False,False,True),mode+' supports CAR only')
+        dialog.car.setChecked(False)
         check(not dialog.buttons.button(QtWidgets.QDialogButtonBox.StandardButton.Ok).isEnabled(),mode+' prevents empty choice')
         dialog.reject()
     try:
-        selection((False,False))
+        selection((False,False,False))
     except ValueError:
         check(True,'empty choice rejected by file IO as well as UI')
     else:
@@ -198,7 +200,7 @@ def main():
     dialog.show()
     language_manager().set_language('zh_TW')
     app.processEvents()
-    check('輸出' in dialog.windowTitle() and dialog.choices()==(True,True),'framework dialog localizes while preserving default choices')
+    check('輸出' in dialog.windowTitle() and dialog.choices()==(True,True,True),'content dialog localizes while preserving all default choices')
     dialog.grab().save(str(OUT/'framework-options.png'))
     dialog.reject()
     language_manager().set_language('en')

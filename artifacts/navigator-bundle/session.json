@@ -1,17 +1,17 @@
 {
-  "checksum": "f5f5bad6aa03848b773e85d861af64d4f052440fb719374e5dffdebe6c03ad5d",
+  "checksum": "989feb12de84a6e92aecd70269165d1597f0af32929646e3ee78dac2d6f766b0",
   "workspace": {
     "studio_session_version": "1.0",
-    "updated_at_utc": "2026-10-20T15:28:46.698938+00:00",
+    "updated_at_utc": "2026-10-21T08:47:17.704958+00:00",
     "clean_exit": false,
     "documents": [
       {
         "document": {
           "schema_version": "1.0",
-          "document_id": "7dc06f21-7d5e-4575-8b45-cae0896f16ad",
+          "document_id": "81c73ee1-2db5-4e8a-8725-890dcdd92ac9",
           "name": "Shared layer name",
-          "created_at_utc": "2026-10-20T15:28:34.870360+00:00",
-          "exported_at_utc": "2026-10-20T15:28:46.698938+00:00",
+          "created_at_utc": "2026-10-21T08:46:59.263727+00:00",
+          "exported_at_utc": "2026-10-21T08:47:17.704958+00:00",
           "attack": {
             "domain": "enterprise-attack",
             "version": "20.0",
@@ -153,10 +153,10 @@
       {
         "document": {
           "schema_version": "1.0",
-          "document_id": "7fa393cb-8487-434c-a087-916d801deb8e",
+          "document_id": "e9af5929-a986-4635-b879-622dee5f24e4",
           "name": "Shared layer name",
-          "created_at_utc": "2026-10-20T15:28:34.879522+00:00",
-          "exported_at_utc": "2026-10-20T15:28:46.698938+00:00",
+          "created_at_utc": "2026-10-21T08:46:59.276203+00:00",
+          "exported_at_utc": "2026-10-21T08:47:17.704958+00:00",
           "attack": {
             "domain": "mobile-attack",
             "version": "11.3",
@@ -289,10 +289,10 @@
       {
         "document": {
           "schema_version": "1.0",
-          "document_id": "7804e7e4-6889-4c92-afee-c07d433b18dd",
+          "document_id": "758a86a4-9702-45e4-8e84-ec0b9eef2075",
           "name": "Shared layer name",
-          "created_at_utc": "2026-10-20T15:28:34.886039+00:00",
-          "exported_at_utc": "2026-10-20T15:28:46.698938+00:00",
+          "created_at_utc": "2026-10-21T08:46:59.284724+00:00",
+          "exported_at_utc": "2026-10-21T08:47:17.704958+00:00",
           "attack": {
             "domain": "ics-attack",
             "version": "19.2",
@@ -418,10 +418,10 @@
       {
         "document": {
           "schema_version": "1.0",
-          "document_id": "e42efbf4-73f8-4c88-8a92-3ec2e188b832",
+          "document_id": "8fa5fc96-774c-4c06-bc07-fe1a7b1af0b9",
           "name": "Shared layer name",
-          "created_at_utc": "2026-10-20T15:28:34.892043+00:00",
-          "exported_at_utc": "2026-10-20T15:28:46.698938+00:00",
+          "created_at_utc": "2026-10-21T08:46:59.292223+00:00",
+          "exported_at_utc": "2026-10-21T08:47:17.704958+00:00",
           "attack": {
             "domain": "mobile-attack",
             "version": "20.0",
@@ -558,10 +558,10 @@
       {
         "document": {
           "schema_version": "1.0",
-          "document_id": "b86aa5ff-afb5-4ed5-b302-4c0c7ef7a744",
+          "document_id": "30dc7f84-f962-46e2-ad56-5d84c09f074f",
           "name": "Shared layer name",
-          "created_at_utc": "2026-10-20T15:28:34.898555+00:00",
-          "exported_at_utc": "2026-10-20T15:28:46.698938+00:00",
+          "created_at_utc": "2026-10-21T08:46:59.298382+00:00",
+          "exported_at_utc": "2026-10-21T08:47:17.704958+00:00",
           "attack": {
             "domain": "enterprise-attack",
             "version": "19.2",

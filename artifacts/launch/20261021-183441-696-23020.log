@@ -1,0 +1,509 @@
+Python executable: D:\MITREATTACK_SIMULATOR\.venv\Scripts\pythonw.exe
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\active.json
+Output files: None (in-memory UI)
+[Windows taskbar 1/2] Input files: None (application identity in memory)
+[Windows taskbar 1/2] Output files: None (current process identity)
+[Windows taskbar 2/2] Complete: FusionStudio.Desktop
+Input file: D:\MITREATTACK_SIMULATOR\app_identity.py
+Output files: None (application display identity in memory)
+[Application identity 1/2] Applying Fusion Studio name and display name
+[Application identity 2/2] Complete: Fusion Studio display identity ready
+[Application icon 1/2] Input file: D:\MITREATTACK_SIMULATOR\assets\fusion-studio-icon-pixel-v2.png
+[Application icon 1/2] Output files: None (application/window icon in memory)
+[Application icon 2/2] Complete: pixel icon applied to application and windows
+[UI settings 1/2] Input file: D:\MITREATTACK_SIMULATOR\data\ui-settings.ini
+[UI settings 1/2] Output files: None (reading preferences)
+[UI settings 2/2] Complete: navigation labels hidden
+Input settings file: D:\MITREATTACK_SIMULATOR\data\ui-settings.ini
+Output files: None (sidebar preference in memory)
+[Sidebar content 1/2] Reading framework visibility
+[Sidebar content 2/2] ATLAS only
+[Language 1/2] Input file: D:\MITREATTACK_SIMULATOR\locales\zh_TW.json
+Output files: None (translation catalog in memory)
+[Language 2/2] Ready: 900 Taiwan translations
+Input file: D:\MITREATTACK_SIMULATOR\data\info\attack-release-notes.json
+Output files: None (Info menu in memory)
+[Info history 1/2] Reading offline release introductions
+[Info history 2/2] Complete: 20 official release entries
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\car-analytics.svg
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\car-data-model.svg
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\car-sensors.svg
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\workplace.svg
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\atlas.svg
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\atlas-mitigations.svg
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\atlas-cases.svg
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\ttp-selection-studio-icon-pixel.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\mitigations.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\assets.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\detections.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\groups.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\software.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\campaigns.png
+[Navigation icons 1/3] Output files: None (button icons in memory)
+[Navigation icons 2/3] Loading CAR Analytics (1/14)
+[Navigation icons 2/3] Loading CAR Data Model (2/14)
+[Navigation icons 2/3] Loading CAR Sensors (3/14)
+[Navigation icons 2/3] Loading Workplace (4/14)
+[Navigation icons 2/3] Loading ATLAS TTP (5/14)
+[Navigation icons 2/3] Loading ATLAS Mitigations (6/14)
+[Navigation icons 2/3] Loading ATLAS Case Studies (7/14)
+[Navigation icons 2/3] Loading TTP (8/14)
+[Navigation icons 2/3] Loading Mitigations (9/14)
+[Navigation icons 2/3] Loading Assets (10/14)
+[Navigation icons 2/3] Loading Detections (11/14)
+[Navigation icons 2/3] Loading Groups (12/14)
+[Navigation icons 2/3] Loading Software (13/14)
+[Navigation icons 2/3] Loading Campaigns (14/14)
+[Navigation icons 3/3] Complete: 14/14 icons ready
+Input files: None (recovery ownership check)
+Output session file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+Output lock file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json.lock
+[Taskbar window 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\fusion-studio-icon-pixel-v2.ico
+[Taskbar window 1/3] Output files: None (Windows window properties in memory)
+[Taskbar window 2/3] Setting property 2 (1/4)
+[Taskbar window 2/3] Setting property 4 (2/4)
+[Taskbar window 2/3] Setting property 3 (3/4)
+[Taskbar window 2/3] Setting property 5 (4/4)
+[Taskbar window 3/3] Complete: window identity and pixel relaunch icon verified
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\active.json
+Output files: None (catalog is loaded into memory)
+[1/4 Resolve] Reading snapshot pointer
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v20.0\manifest.json
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v20.0\enterprise-attack-20.0.json
+[1/4 Resolve] Complete: Enterprise ATT&CK v20.0 (1/1)
+[2/4 Read] Reading and checking bundle (4194304/55271014)
+[2/4 Read] Reading and checking bundle (8388608/55271014)
+[2/4 Read] Reading and checking bundle (12582912/55271014)
+[2/4 Read] Reading and checking bundle (16777216/55271014)
+[2/4 Read] Reading and checking bundle (20971520/55271014)
+[2/4 Read] Reading and checking bundle (25165824/55271014)
+[2/4 Read] Reading and checking bundle (29360128/55271014)
+[2/4 Read] Reading and checking bundle (33554432/55271014)
+[2/4 Read] Reading and checking bundle (37748736/55271014)
+[2/4 Read] Reading and checking bundle (41943040/55271014)
+[2/4 Read] Reading and checking bundle (46137344/55271014)
+[2/4 Read] Reading and checking bundle (50331648/55271014)
+[2/4 Read] Reading and checking bundle (54525952/55271014)
+[2/4 Read] Reading and checking bundle (55271014/55271014)
+[2/4 Read] Parsing JSON
+[3/4 Index] Indexing active ATT&CK objects (2000/26690)
+[3/4 Index] Indexing active ATT&CK objects (4000/26690)
+[3/4 Index] Indexing active ATT&CK objects (6000/26690)
+[3/4 Index] Indexing active ATT&CK objects (8000/26690)
+[3/4 Index] Indexing active ATT&CK objects (10000/26690)
+[3/4 Index] Indexing active ATT&CK objects (12000/26690)
+[3/4 Index] Indexing active ATT&CK objects (14000/26690)
+[3/4 Index] Indexing active ATT&CK objects (16000/26690)
+[3/4 Index] Indexing active ATT&CK objects (18000/26690)
+[3/4 Index] Indexing active ATT&CK objects (20000/26690)
+[3/4 Index] Indexing active ATT&CK objects (22000/26690)
+[3/4 Index] Indexing active ATT&CK objects (24000/26690)
+[3/4 Index] Indexing active ATT&CK objects (26000/26690)
+[3/4 Index] Mapping platforms and tactics (100/706)
+[3/4 Index] Mapping platforms and tactics (200/706)
+[3/4 Index] Mapping platforms and tactics (300/706)
+[3/4 Index] Mapping platforms and tactics (400/706)
+[3/4 Index] Mapping platforms and tactics (500/706)
+[3/4 Index] Mapping platforms and tactics (600/706)
+[3/4 Index] Mapping platforms and tactics (700/706)
+[3/4 Index] Complete: 706 active techniques/sub-techniques, 11 platforms (706/706)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/26690)
+[3/4 Procedures] Reading Enterprise relationships (4000/26690)
+[3/4 Procedures] Reading Enterprise relationships (8000/26690)
+[3/4 Procedures] Reading Enterprise relationships (12000/26690)
+[3/4 Procedures] Reading Enterprise relationships (16000/26690)
+[3/4 Procedures] Reading Enterprise relationships (20000/26690)
+[3/4 Procedures] Reading Enterprise relationships (24000/26690)
+[3/4 Procedures] Complete: Enterprise 17636 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/26690)
+[3/4 Related TTPs] Reading relationships (4000/26690)
+[3/4 Related TTPs] Reading relationships (8000/26690)
+[3/4 Related TTPs] Reading relationships (12000/26690)
+[3/4 Related TTPs] Reading relationships (16000/26690)
+[3/4 Related TTPs] Reading relationships (20000/26690)
+[3/4 Related TTPs] Reading relationships (24000/26690)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 23980 direct/derived mappings (1/1)
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v20.0\mobile-attack-20.0.json
+[3/4 Library] Reading and checking Mobile (4194304/6095145)
+[3/4 Library] Reading and checking Mobile (6095145/6095145)
+[3/4 Library] Parsing Mobile JSON
+[3/4 Procedures] Indexing Mobile procedure examples (0/2684)
+[3/4 Procedures] Complete: Mobile 1522 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Mobile objects in memory)
+[3/4 Related TTPs] Indexing Mobile direct source relationships (0/2684)
+[3/4 Related TTPs] Resolving Mobile strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Mobile 2419 direct/derived mappings (1/1)
+[3/4 Library] Complete: Mobile (1/1)
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v20.0\ics-attack-20.0.json
+[3/4 Library] Reading and checking ICS (4194304/5266683)
+[3/4 Library] Reading and checking ICS (5266683/5266683)
+[3/4 Library] Parsing ICS JSON
+[3/4 Procedures] Indexing ICS procedure examples (0/2566)
+[3/4 Procedures] Complete: ICS 307 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships (0/2566)
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 2185 direct/derived mappings (1/1)
+[3/4 Library] Complete: ICS (1/1)
+[3/4 Library] Complete: six navigation categories indexed across all three domains (1/1)
+Input file: D:\MITREATTACK_SIMULATOR\data\atlas\ATLAS-2026.09.yaml
+Input provenance: D:\MITREATTACK_SIMULATOR\data\atlas\source.json
+Output cache directory: D:\MITREATTACK_SIMULATOR\data\attack\custom
+[ATLAS 1/3] Verifying pinned source checksum (0/3)
+[ATLAS 2/3] Reading native tactics, techniques, mitigations and case studies (1/3)
+Input bundle: validated JSON in memory; output files: None (custom catalog in memory)
+[Source 3/4] Validating ATT&CK-compatible STIX (0/4)
+[Source 3/4] Resolving dataset-scoped domain definitions and matrices (1/4)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/449)
+[3/4 Procedures] Complete: Enterprise 0 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/449)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 0 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing Mobile procedure examples (0/449)
+[3/4 Procedures] Complete: Mobile 0 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Mobile objects in memory)
+[3/4 Related TTPs] Indexing Mobile direct source relationships (0/449)
+[3/4 Related TTPs] Resolving Mobile strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Mobile 0 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing ICS procedure examples (0/449)
+[3/4 Procedures] Complete: ICS 0 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships (0/449)
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 0 direct/derived mappings (1/1)
+[3/4 Procedures] Indexing atlas-atlas procedure examples (0/787)
+[3/4 Procedures] Complete: atlas-atlas 0 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (atlas-atlas objects in memory)
+[3/4 Related TTPs] Indexing atlas-atlas direct source relationships (0/787)
+[3/4 Related TTPs] Resolving atlas-atlas strategy/analytic/component paths
+[3/4 Related TTPs] Complete: atlas-atlas 361 direct/derived mappings (1/1)
+Output file: D:\MITREATTACK_SIMULATOR\data\attack\custom\afb2753e405f5b4b370bf585702ffbbe99071af946a4bc60624f373086e0a117.json
+[ATLAS 3/3] Ready: native metadata preserved; matrix projection cached (3/3)
+Input file: D:\MITREATTACK_SIMULATOR\data\car\source.json
+Output files: None (CAR catalog in memory)
+[CAR 1/4] Verifying fixed manifest and source hashes (0/4)
+Input file: D:\MITREATTACK_SIMULATOR\data\car\CONTRIBUTING.md
+Input file: D:\MITREATTACK_SIMULATOR\data\car\LICENSE.txt
+Input file: D:\MITREATTACK_SIMULATOR\data\car\NOTICE.txt
+Input file: D:\MITREATTACK_SIMULATOR\data\car\README.md
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2013-01-002.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2013-01-003.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2013-02-003.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2013-02-008.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2013-02-012.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2013-03-001.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2013-04-002.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2013-05-002.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2013-05-003.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2013-05-004.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2013-05-005.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2013-05-009.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2013-07-001.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2013-07-002.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2013-07-005.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2013-08-001.yaml
+[CAR 1/4] Verified source files (20/136)
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2013-09-003.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2013-09-005.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2013-10-001.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2013-10-002.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2014-02-001.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2014-03-001.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2014-03-005.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2014-03-006.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2014-04-003.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2014-05-001.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2014-05-002.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2014-07-001.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2014-11-002.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2014-11-003.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2014-11-004.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2014-11-005.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2014-11-006.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2014-11-007.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2014-11-008.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2014-12-001.yaml
+[CAR 1/4] Verified source files (40/136)
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2015-04-001.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2015-04-002.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2015-07-001.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2016-03-001.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2016-03-002.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2016-04-002.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2016-04-003.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2016-04-004.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2016-04-005.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2019-04-001.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2019-04-002.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2019-04-003.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2019-04-004.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2019-07-001.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2019-07-002.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2019-08-001.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2019-08-002.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2020-04-001.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2020-05-001.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2020-05-003.yaml
+[CAR 1/4] Verified source files (60/136)
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2020-08-001.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2020-08-002.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2020-09-001.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2020-09-002.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2020-09-003.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2020-09-004.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2020-09-005.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2020-11-001.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2020-11-002.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2020-11-003.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2020-11-004.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2020-11-005.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2020-11-006.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2020-11-007.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2020-11-008.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2020-11-009.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2020-11-010.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2020-11-011.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-01-001.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-01-002.yaml
+[CAR 1/4] Verified source files (80/136)
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-01-003.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-01-004.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-01-006.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-01-007.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-01-008.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-01-009.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-02-001.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-02-002.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-04-001.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-05-001.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-05-002.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-05-003.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-05-004.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-05-005.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-05-006.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-05-007.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-05-008.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-05-009.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-05-010.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-05-011.yaml
+[CAR 1/4] Verified source files (100/136)
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-05-012.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-11-001.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-11-002.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-12-001.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-12-002.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2022-03-001.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\data_model\authentication.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\data_model\driver.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\data_model\email.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\data_model\file.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\data_model\flow.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\data_model\http.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\data_model\module.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\data_model\process.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\data_model\registry.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\data_model\service.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\data_model\socket.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\data_model\thread.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\data_model\user_session.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\docs\analytics\by_technique\index.md
+[CAR 1/4] Verified source files (120/136)
+Input file: D:\MITREATTACK_SIMULATOR\data\car\scripts\analytic_schema.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\scripts\datamodel_schema.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\scripts\generate_analytics.py
+Input file: D:\MITREATTACK_SIMULATOR\data\car\scripts\generate_attack_nav_layer.py
+Input file: D:\MITREATTACK_SIMULATOR\data\car\scripts\generate_datamodels.py
+Input file: D:\MITREATTACK_SIMULATOR\data\car\scripts\generate_sensors.py
+Input file: D:\MITREATTACK_SIMULATOR\data\car\scripts\redirects.py
+Input file: D:\MITREATTACK_SIMULATOR\data\car\scripts\sensor_schema.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\scripts\splunk_security_content_to_car.py
+Input file: D:\MITREATTACK_SIMULATOR\data\car\sensors\auditd_2.8.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\sensors\autoruns_13.98.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\sensors\osquery_4.1.2.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\sensors\osquery_4.6.0.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\sensors\sysmon_10.4.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\sensors\sysmon_11.0.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\sensors\sysmon_13.yaml
+[CAR 2/4] Parsing native Analytics, Data Model and Sensors (1/4)
+[CAR 3/4] Indexing official by-technique buckets and exact data references (2/4)
+[CAR 4/4] Ready: verified native catalog published (4/4)
+[4/4 Tree] Complete: 706 unique selectable technique IDs
+Input files: None (exact domain/version catalog in memory); output files: None
+[Search Index 1/3] Reading legacy data sources and active detection mappings (0/3)
+[Search Index 2/3] Building name/ID/description/data-source/detection-strategy fields (1/3)
+[Search Index 3/3] Ready: 706 techniques in enterprise-attack v20.0 (3/3)
+Input files: None; output files: None (verified ATLAS catalog in memory)
+[ATLAS matrix 1/2] Building tactic columns (0/16)
+[ATLAS matrix 1/2] Building tactic columns (1/16)
+[ATLAS matrix 1/2] Building tactic columns (2/16)
+[ATLAS matrix 1/2] Building tactic columns (3/16)
+[ATLAS matrix 1/2] Building tactic columns (4/16)
+[ATLAS matrix 1/2] Building tactic columns (5/16)
+[ATLAS matrix 1/2] Building tactic columns (6/16)
+[ATLAS matrix 1/2] Building tactic columns (7/16)
+[ATLAS matrix 1/2] Building tactic columns (8/16)
+[ATLAS matrix 1/2] Building tactic columns (9/16)
+[ATLAS matrix 1/2] Building tactic columns (10/16)
+[ATLAS matrix 1/2] Building tactic columns (11/16)
+[ATLAS matrix 1/2] Building tactic columns (12/16)
+[ATLAS matrix 1/2] Building tactic columns (13/16)
+[ATLAS matrix 1/2] Building tactic columns (14/16)
+[ATLAS matrix 1/2] Building tactic columns (15/16)
+[ATLAS matrix 1/2] Building tactic columns (16/16)
+[ATLAS matrix 2/2] Ready; double-click a technique for details (2/2)
+Input file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+Output files: None (workspace restoration in memory)
+[Session Restore 1/3] Automatically validating the previous session (0/3)
+Input file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+Output files: None (validated draft in memory)
+[Studio Open 1/4] Reading bounded UTF-8 JSON (0/4)
+[Studio Open 2/4] Resolving exact dataset 20.0 (1/4)
+Input pointer: in memory (validated version selection)
+Output files: None (catalog is loaded into memory)
+[1/4 Resolve] Reading snapshot pointer
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v20.0\manifest.json
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v20.0\enterprise-attack-20.0.json
+[1/4 Resolve] Complete: Enterprise ATT&CK v20.0 (1/1)
+[2/4 Read] Reading and checking bundle (4194304/55271014)
+[2/4 Read] Reading and checking bundle (8388608/55271014)
+[2/4 Read] Reading and checking bundle (12582912/55271014)
+[2/4 Read] Reading and checking bundle (16777216/55271014)
+[2/4 Read] Reading and checking bundle (20971520/55271014)
+[2/4 Read] Reading and checking bundle (25165824/55271014)
+[2/4 Read] Reading and checking bundle (29360128/55271014)
+[2/4 Read] Reading and checking bundle (33554432/55271014)
+[2/4 Read] Reading and checking bundle (37748736/55271014)
+[2/4 Read] Reading and checking bundle (41943040/55271014)
+[2/4 Read] Reading and checking bundle (46137344/55271014)
+[2/4 Read] Reading and checking bundle (50331648/55271014)
+[2/4 Read] Reading and checking bundle (54525952/55271014)
+[2/4 Read] Reading and checking bundle (55271014/55271014)
+[2/4 Read] Parsing JSON
+[3/4 Index] Indexing active ATT&CK objects (2000/26690)
+[3/4 Index] Indexing active ATT&CK objects (4000/26690)
+[3/4 Index] Indexing active ATT&CK objects (6000/26690)
+[3/4 Index] Indexing active ATT&CK objects (8000/26690)
+[3/4 Index] Indexing active ATT&CK objects (10000/26690)
+[3/4 Index] Indexing active ATT&CK objects (12000/26690)
+[3/4 Index] Indexing active ATT&CK objects (14000/26690)
+[3/4 Index] Indexing active ATT&CK objects (16000/26690)
+[3/4 Index] Indexing active ATT&CK objects (18000/26690)
+[3/4 Index] Indexing active ATT&CK objects (20000/26690)
+[3/4 Index] Indexing active ATT&CK objects (22000/26690)
+[3/4 Index] Indexing active ATT&CK objects (24000/26690)
+[3/4 Index] Indexing active ATT&CK objects (26000/26690)
+[3/4 Index] Mapping platforms and tactics (100/706)
+[3/4 Index] Mapping platforms and tactics (200/706)
+[3/4 Index] Mapping platforms and tactics (300/706)
+[3/4 Index] Mapping platforms and tactics (400/706)
+[3/4 Index] Mapping platforms and tactics (500/706)
+[3/4 Index] Mapping platforms and tactics (600/706)
+[3/4 Index] Mapping platforms and tactics (700/706)
+[3/4 Index] Complete: 706 active techniques/sub-techniques, 11 platforms (706/706)
+[3/4 Procedures] Indexing Enterprise procedure examples (0/26690)
+[3/4 Procedures] Reading Enterprise relationships (4000/26690)
+[3/4 Procedures] Reading Enterprise relationships (8000/26690)
+[3/4 Procedures] Reading Enterprise relationships (12000/26690)
+[3/4 Procedures] Reading Enterprise relationships (16000/26690)
+[3/4 Procedures] Reading Enterprise relationships (20000/26690)
+[3/4 Procedures] Reading Enterprise relationships (24000/26690)
+[3/4 Procedures] Complete: Enterprise 17636 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Enterprise objects in memory)
+[3/4 Related TTPs] Indexing Enterprise direct source relationships (0/26690)
+[3/4 Related TTPs] Reading relationships (4000/26690)
+[3/4 Related TTPs] Reading relationships (8000/26690)
+[3/4 Related TTPs] Reading relationships (12000/26690)
+[3/4 Related TTPs] Reading relationships (16000/26690)
+[3/4 Related TTPs] Reading relationships (20000/26690)
+[3/4 Related TTPs] Reading relationships (24000/26690)
+[3/4 Related TTPs] Resolving Enterprise strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Enterprise 23980 direct/derived mappings (1/1)
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v20.0\mobile-attack-20.0.json
+[3/4 Library] Reading and checking Mobile (4194304/6095145)
+[3/4 Library] Reading and checking Mobile (6095145/6095145)
+[3/4 Library] Parsing Mobile JSON
+[3/4 Procedures] Indexing Mobile procedure examples (0/2684)
+[3/4 Procedures] Complete: Mobile 1522 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (Mobile objects in memory)
+[3/4 Related TTPs] Indexing Mobile direct source relationships (0/2684)
+[3/4 Related TTPs] Resolving Mobile strategy/analytic/component paths
+[3/4 Related TTPs] Complete: Mobile 2419 direct/derived mappings (1/1)
+[3/4 Library] Complete: Mobile (1/1)
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\v20.0\ics-attack-20.0.json
+[3/4 Library] Reading and checking ICS (4194304/5266683)
+[3/4 Library] Reading and checking ICS (5266683/5266683)
+[3/4 Library] Parsing ICS JSON
+[3/4 Procedures] Indexing ICS procedure examples (0/2566)
+[3/4 Procedures] Complete: ICS 307 procedure examples (1/1)
+[3/4 Related TTPs] Input files: None; output files: None (ICS objects in memory)
+[3/4 Related TTPs] Indexing ICS direct source relationships (0/2566)
+[3/4 Related TTPs] Resolving ICS strategy/analytic/component paths
+[3/4 Related TTPs] Complete: ICS 2185 direct/derived mappings (1/1)
+[3/4 Library] Complete: ICS (1/1)
+[3/4 Library] Complete: six navigation categories indexed across all three domains (1/1)
+[Studio Open 3/4] Validating annotations and domain/version/migration archives (2/4)
+[Studio Open 4/4] Complete; validated document ready in memory (4/4)
+[Session 2/3] Validating recoverable documents (1/1)
+[Session 3/3] All documents validated; workspace ready for atomic restore (3/3)
+[Session Restore 2/3] Installing validated tabs and restoring the workspace view (1/3)
+Input files: None; output files: None (closing reference page)
+[Details 1/2] Closing reference tab (0/2)
+[Details 2/2] Closed; document and selected TTPs preserved (2/2)
+[Session] Installing all validated tabs; original checkpoint retained until the next successful checkpoint (1/1)
+[4/4 Tree] Complete: 706 unique selectable technique IDs
+Input files: None (exact domain/version catalog in memory); output files: None
+[Search Index 1/3] Reading legacy data sources and active detection mappings (0/3)
+[Search Index 2/3] Building name/ID/description/data-source/detection-strategy fields (1/3)
+[Search Index 3/3] Ready: 706 techniques in enterprise-attack v20.0 (3/3)
+Input files: None; output files: None (matrix controls in memory) (0/2)
+[Matrix controls 1/2] Updating control panel visibility (1/2)
+[Matrix controls 2/2] Ready; filters, selections and annotations retained (2/2)
+Input files: None; output files: None (ATLAS case studies in memory)
+[ATLAS cases 1/2] Opening reference tab and refreshing the source list (0/2)
+[ATLAS cases 2/2] Ready; selections and annotations retained (2/2)
+[Session Restore 3/3] Automatically restored the previous session: 1 tabs (1 with unsaved changes). Checkpoint: D:\MITREATTACK_SIMULATOR\data\workspace-session.json (3/3)
+Input files: None (immutable workspace snapshot in memory)
+Output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+[Session 1/3] Preparing recovery checkpoint (0/3)
+Input files: None (validated in-memory data)
+Output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json.eccb69f9b11043c98e4996a4cefb87c1.tmp
+[Session 1/3] Serializing data (0/3)
+[Session 2/3] Writing UTF-8 JSON (1/3)
+[Session 3/3] Publishing file (2/3)
+[Session 3/3] Complete: D:\MITREATTACK_SIMULATOR\data\workspace-session.json (3/3)
+Input files: None (sidebar choice in memory)
+Output settings file: D:\MITREATTACK_SIMULATOR\data\ui-settings.ini
+[Sidebar content 1/3] Validating visibility preference (0/3)
+[Sidebar content 2/3] Updating navigation and saving preference (1/3)
+[Sidebar content 3/3] Saved (3/3)
+Input files: None (sidebar choice in memory)
+Output settings file: D:\MITREATTACK_SIMULATOR\data\ui-settings.ini
+[Sidebar content 1/3] Validating visibility preference (0/3)
+[Sidebar content 2/3] Updating navigation and saving preference (1/3)
+[Sidebar content 3/3] Saved (3/3)
+Input file: D:\MITREATTACK_SIMULATOR\data\attack\versions-cache.json
+[Version 1/4 Discover] Input files: None (official HTTPS metadata)
+Output file: D:\MITREATTACK_SIMULATOR\data\attack\versions-cache.json; temporary: D:\MITREATTACK_SIMULATOR\data\attack\versions-cache.json.part
+[Version transfer] Input URL: https://api.github.com/repos/mitre-attack/attack-stix-data/commits/master
+Output file: None (metadata in memory)
+[Version transfer] 17,883 bytes
+[Version transfer] Complete: 17,883 bytes (1/1)
+[Version transfer] Input URL: https://raw.githubusercontent.com/mitre-attack/attack-stix-data/c2494b29dd268c46a5d0ea0990553e4327cd2253/index.json
+Output file: None (metadata in memory)
+[Version transfer] 33,164 bytes (33164/33164)
+[Version transfer] Complete: 33,164 bytes (1/1)
+[Version 1/4 Discover] Complete: 42 available Enterprise versions (1/1)
+Input files: None (immutable workspace snapshot in memory)
+Output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+[Session 1/3] Preparing recovery checkpoint (0/3)
+Input files: None (validated in-memory data)
+Output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json
+Temporary output file: D:\MITREATTACK_SIMULATOR\data\workspace-session.json.21af99a6d7ba4f0f8e4cb58cc447e27e.tmp
+[Session 1/3] Serializing data (0/3)
+[Session 2/3] Writing UTF-8 JSON (1/3)
+[Session 3/3] Publishing file (2/3)
+[Session 3/3] Complete: D:\MITREATTACK_SIMULATOR\data\workspace-session.json (3/3)

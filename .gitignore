@@ -6,3 +6,7 @@
 __pycache__/
 /scripts/formula-reference/node_modules/
 /artifacts/formula-compatibility/npm-cache/
+
+# Linux command audits retain reports/logs, but generated HOME/project fixtures
+# contain machine-specific wrappers and WSL links that Windows Git cannot read.
+/artifacts/linux-command-setup/*/*/

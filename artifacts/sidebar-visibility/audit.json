@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "count": 17,
+  "checks": [
+    "mouse menu applies requested mode: attack",
+    "Settings hides excluded icons: attack",
+    "later widget show cannot reveal excluded icons: attack",
+    "included and shared icons remain visible: attack",
+    "mouse menu applies requested mode: atlas",
+    "Settings hides excluded icons: atlas",
+    "later widget show cannot reveal excluded icons: atlas",
+    "included and shared icons remain visible: atlas",
+    "mouse menu applies requested mode: both",
+    "Settings hides excluded icons: both",
+    "later widget show cannot reveal excluded icons: both",
+    "included and shared icons remain visible: both",
+    "label layout preserves ATT&CK only: False",
+    "label layout preserves ATT&CK only: True",
+    "label layout preserves ATT&CK only: False",
+    "repeated selection remains synchronized",
+    "restart restores ATT&CK only"
+  ]
+}

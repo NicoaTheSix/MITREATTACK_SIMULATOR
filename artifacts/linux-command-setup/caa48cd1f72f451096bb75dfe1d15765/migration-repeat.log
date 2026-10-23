@@ -1,0 +1,36 @@
+Input installer: /mnt/d/MITREATTACK_SIMULATOR/scripts/install_linux_command.py
+Input project: /mnt/d/MITREATTACK_SIMULATOR
+Input launcher: /mnt/d/MITREATTACK_SIMULATOR/start-fusionstudio.sh
+Output command: /mnt/d/MITREATTACK_SIMULATOR/artifacts/linux-command-setup/caa48cd1f72f451096bb75dfe1d15765/legacy-migration-home/.local/bin/fusionstudio
+Output temporary command: /mnt/d/MITREATTACK_SIMULATOR/artifacts/linux-command-setup/caa48cd1f72f451096bb75dfe1d15765/legacy-migration-home/.local/bin/.fusionstudio-20261022T081451Z-5ae15cbd.tmp
+Input legacy command / output removal if managed: /mnt/d/MITREATTACK_SIMULATOR/artifacts/linux-command-setup/caa48cd1f72f451096bb75dfe1d15765/legacy-migration-home/.local/bin/ttpselecter
+Input/output shell profile: /mnt/d/MITREATTACK_SIMULATOR/artifacts/linux-command-setup/caa48cd1f72f451096bb75dfe1d15765/legacy-migration-home/.profile
+Input/output shell profile: /mnt/d/MITREATTACK_SIMULATOR/artifacts/linux-command-setup/caa48cd1f72f451096bb75dfe1d15765/legacy-migration-home/.bashrc
+Input/output shell profile: /mnt/d/MITREATTACK_SIMULATOR/artifacts/linux-command-setup/caa48cd1f72f451096bb75dfe1d15765/legacy-migration-home/zsh-config/.zprofile
+Input/output shell profile: /mnt/d/MITREATTACK_SIMULATOR/artifacts/linux-command-setup/caa48cd1f72f451096bb75dfe1d15765/legacy-migration-home/zsh-config/.zshrc
+[Linux command setup 1/4] Checking the installed Linux application
+Input program: /mnt/d/MITREATTACK_SIMULATOR/main.py
+Input Python: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/.venv/bin/python
+Input requirements: /mnt/d/MITREATTACK_SIMULATOR/requirements.txt
+Output files: main.py reports application input/output paths before loading
+[Linux launch 1/3] Checking Linux and the local Python environment
+[Linux launch 2/3] Checking installed dependencies
+[Linux launch 3/3] Ready; no window opened and no files written
+[Linux command setup 2/4] Checking command ownership and planning profile updates
+[Linux command setup 3/4] Installing the user command and backed-up PATH blocks
+[Profiles 1/4] Already configured: /mnt/d/MITREATTACK_SIMULATOR/artifacts/linux-command-setup/caa48cd1f72f451096bb75dfe1d15765/legacy-migration-home/.profile
+[Profiles 2/4] Already configured: /mnt/d/MITREATTACK_SIMULATOR/artifacts/linux-command-setup/caa48cd1f72f451096bb75dfe1d15765/legacy-migration-home/.bashrc
+[Profiles 3/4] Already configured: /mnt/d/MITREATTACK_SIMULATOR/artifacts/linux-command-setup/caa48cd1f72f451096bb75dfe1d15765/legacy-migration-home/zsh-config/.zprofile
+[Profiles 4/4] Already configured: /mnt/d/MITREATTACK_SIMULATOR/artifacts/linux-command-setup/caa48cd1f72f451096bb75dfe1d15765/legacy-migration-home/zsh-config/.zshrc
+[Linux command setup 4/4] Verifying command forwarding and persistent PATH blocks
+Input program: /mnt/d/MITREATTACK_SIMULATOR/main.py
+Input Python: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/.venv/bin/python
+Input requirements: /mnt/d/MITREATTACK_SIMULATOR/requirements.txt
+Output files: main.py reports application input/output paths before loading
+[Linux launch 1/3] Checking Linux and the local Python environment
+[Linux launch 2/3] Checking installed dependencies
+[Linux launch 3/3] Ready; no window opened and no files written
+Setup complete. Close and reopen your Bash/Zsh terminal, then run fusionstudio from any directory.
+If this shell cached the old command, run hash -r (Bash) or rehash (Zsh).
+For this terminal now: export PATH="$HOME/.local/bin:$PATH"
+The command uses this project folder. After moving the project, rerun setup from its new location.

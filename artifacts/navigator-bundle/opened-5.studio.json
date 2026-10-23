@@ -1,9 +1,9 @@
 {
   "schema_version": "1.0",
-  "document_id": "b86aa5ff-afb5-4ed5-b302-4c0c7ef7a744",
+  "document_id": "30dc7f84-f962-46e2-ad56-5d84c09f074f",
   "name": "opened-5.studio",
-  "created_at_utc": "2026-10-20T15:28:34.898555+00:00",
-  "exported_at_utc": "2026-10-20T15:28:46.623557+00:00",
+  "created_at_utc": "2026-10-21T08:46:59.298382+00:00",
+  "exported_at_utc": "2026-10-21T08:47:17.598164+00:00",
   "attack": {
     "domain": "enterprise-attack",
     "version": "19.2",

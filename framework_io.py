@@ -98,7 +98,7 @@ def read_framework_document(reader, payload, frameworks=None, fallback_catalog=N
     else:
         # The UI still needs its current catalog for an empty ATT&CK surface.
         # This is an in-memory anchor, never a dataset from the skipped file.
-        if fallback_catalog is None and opts.car and atlas is None and 'car_workspace' in payload:
+        if fallback_catalog is None and opts.car and 'car_workspace' in payload:
             from car_documents import empty_catalog
             catalog = empty_catalog()
         else:

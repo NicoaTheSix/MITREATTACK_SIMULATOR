@@ -1,0 +1,224 @@
+Input verified CAR manifest: D:\MITREATTACK_SIMULATOR\data\car\source.json
+Output previews/report: D:\MITREATTACK_SIMULATOR\artifacts\code-blocks
+Settings/session outputs: None (isolated Qt fixture; no production window)
+Input file: D:\MITREATTACK_SIMULATOR\app_identity.py
+Output files: None (application display identity in memory)
+[Application identity 1/2] Applying Fusion Studio name and display name
+[Application identity 2/2] Complete: Fusion Studio display identity ready
+[Application icon 1/2] Input file: D:\MITREATTACK_SIMULATOR\assets\fusion-studio-icon-pixel-v2.png
+[Application icon 1/2] Output files: None (application/window icon in memory)
+[Application icon 2/2] Complete: pixel icon applied to application and windows
+[Preview fonts] Input file: C:\WINDOWS\Fonts\segoeui.ttf
+[Preview fonts] Input file: C:\WINDOWS\Fonts\segoeuib.ttf
+[Preview fonts] Input file: C:\WINDOWS\Fonts\consola.ttf
+[Preview fonts] Input file: C:\WINDOWS\Fonts\georgia.ttf
+[Preview fonts] Input file: C:\WINDOWS\Fonts\msjh.ttc
+[Preview fonts] Input file: C:\WINDOWS\Fonts\msjhbd.ttc
+[Preview fonts] Complete
+[Code panels 1/4] Native frame defaults, exact clipboard and bounded geometry
+Input files: None (original code block in memory); output files: None (system clipboard)
+[Code copy 1/2] Copying complete original text
+[Language 1/2] Input file: D:\MITREATTACK_SIMULATOR\locales\zh_TW.json
+Output files: None (translation catalog in memory)
+[Language 2/2] Ready: 907 Taiwan translations
+[Code copy 2/2] Complete
+Input files: None (original code block in memory); output files: None (system clipboard)
+[Code copy 1/2] Copying complete original text
+[Code copy 2/2] Complete
+Input files: None; output files: None (code block visibility in memory)
+[Code block 1/2] Updating expanded state
+[Code block 2/2] Expanded
+Input files: None (original code block in memory); output files: None (system clipboard)
+[Code copy 1/2] Copying complete original text
+[Code copy 2/2] Complete
+Input files: None; output files: None (code block visibility in memory)
+[Code block 1/2] Updating expanded state
+[Code block 2/2] Collapsed
+Input files: None; output files: None (code block visibility in memory)
+[Code block 1/2] Updating expanded state
+[Code block 2/2] Expanded
+Input files: None; output files: None (code block visibility in memory)
+[Code block 1/2] Updating expanded state
+[Code block 2/2] Collapsed
+Input files: None; output files: None (code block visibility in memory)
+[Code block 1/2] Updating expanded state
+[Code block 2/2] Expanded
+[Code panels 2/4] Bilingual state, empty/long text and re-entry defaults
+Input files: None (original code block in memory); output files: None (system clipboard)
+[Code copy 1/2] Copying complete original text
+[Code copy 2/2] Complete
+Input files: None (original code block in memory); output files: None (system clipboard)
+[Code copy 1/2] Copying complete original text
+[Code copy 2/2] Complete
+Input files: None; output files: None (code block visibility in memory)
+[Code block 1/2] Updating expanded state
+[Code block 2/2] Expanded
+Input files: None (original code block in memory); output files: None (system clipboard)
+[Code copy 1/2] Copying complete original text
+[Code copy 2/2] Complete
+[Code panels 3/4] Real CAR analytic, model, sensor and archived native records
+Input file: D:\MITREATTACK_SIMULATOR\data\car\source.json
+Output files: None (CAR catalog in memory)
+[CAR 1/4] Verifying fixed manifest and source hashes
+Input file: D:\MITREATTACK_SIMULATOR\data\car\CONTRIBUTING.md
+Input file: D:\MITREATTACK_SIMULATOR\data\car\LICENSE.txt
+Input file: D:\MITREATTACK_SIMULATOR\data\car\NOTICE.txt
+Input file: D:\MITREATTACK_SIMULATOR\data\car\README.md
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2013-01-002.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2013-01-003.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2013-02-003.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2013-02-008.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2013-02-012.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2013-03-001.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2013-04-002.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2013-05-002.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2013-05-003.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2013-05-004.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2013-05-005.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2013-05-009.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2013-07-001.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2013-07-002.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2013-07-005.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2013-08-001.yaml
+[CAR 1/4] Verified source files
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2013-09-003.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2013-09-005.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2013-10-001.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2013-10-002.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2014-02-001.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2014-03-001.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2014-03-005.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2014-03-006.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2014-04-003.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2014-05-001.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2014-05-002.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2014-07-001.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2014-11-002.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2014-11-003.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2014-11-004.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2014-11-005.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2014-11-006.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2014-11-007.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2014-11-008.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2014-12-001.yaml
+[CAR 1/4] Verified source files
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2015-04-001.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2015-04-002.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2015-07-001.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2016-03-001.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2016-03-002.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2016-04-002.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2016-04-003.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2016-04-004.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2016-04-005.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2019-04-001.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2019-04-002.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2019-04-003.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2019-04-004.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2019-07-001.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2019-07-002.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2019-08-001.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2019-08-002.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2020-04-001.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2020-05-001.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2020-05-003.yaml
+[CAR 1/4] Verified source files
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2020-08-001.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2020-08-002.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2020-09-001.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2020-09-002.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2020-09-003.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2020-09-004.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2020-09-005.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2020-11-001.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2020-11-002.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2020-11-003.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2020-11-004.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2020-11-005.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2020-11-006.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2020-11-007.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2020-11-008.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2020-11-009.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2020-11-010.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2020-11-011.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-01-001.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-01-002.yaml
+[CAR 1/4] Verified source files
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-01-003.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-01-004.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-01-006.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-01-007.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-01-008.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-01-009.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-02-001.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-02-002.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-04-001.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-05-001.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-05-002.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-05-003.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-05-004.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-05-005.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-05-006.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-05-007.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-05-008.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-05-009.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-05-010.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-05-011.yaml
+[CAR 1/4] Verified source files
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-05-012.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-11-001.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-11-002.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-12-001.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2021-12-002.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\analytics\CAR-2022-03-001.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\data_model\authentication.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\data_model\driver.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\data_model\email.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\data_model\file.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\data_model\flow.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\data_model\http.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\data_model\module.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\data_model\process.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\data_model\registry.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\data_model\service.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\data_model\socket.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\data_model\thread.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\data_model\user_session.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\docs\analytics\by_technique\index.md
+[CAR 1/4] Verified source files
+Input file: D:\MITREATTACK_SIMULATOR\data\car\scripts\analytic_schema.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\scripts\datamodel_schema.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\scripts\generate_analytics.py
+Input file: D:\MITREATTACK_SIMULATOR\data\car\scripts\generate_attack_nav_layer.py
+Input file: D:\MITREATTACK_SIMULATOR\data\car\scripts\generate_datamodels.py
+Input file: D:\MITREATTACK_SIMULATOR\data\car\scripts\generate_sensors.py
+Input file: D:\MITREATTACK_SIMULATOR\data\car\scripts\redirects.py
+Input file: D:\MITREATTACK_SIMULATOR\data\car\scripts\sensor_schema.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\scripts\splunk_security_content_to_car.py
+Input file: D:\MITREATTACK_SIMULATOR\data\car\sensors\auditd_2.8.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\sensors\autoruns_13.98.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\sensors\osquery_4.1.2.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\sensors\osquery_4.6.0.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\sensors\sysmon_10.4.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\sensors\sysmon_11.0.yaml
+Input file: D:\MITREATTACK_SIMULATOR\data\car\sensors\sysmon_13.yaml
+[CAR 2/4] Parsing native Analytics, Data Model and Sensors
+[CAR 3/4] Indexing official by-technique buckets and exact data references
+[CAR 4/4] Ready: verified native catalog published
+Input files: None (original code block in memory); output files: None (system clipboard)
+[Code copy 1/2] Copying complete original text
+[Code copy 2/2] Complete
+Input files: None (original code block in memory); output files: None (system clipboard)
+[Code copy 1/2] Copying complete original text
+[Code copy 2/2] Complete
+Input files: None (original code block in memory); output files: None (system clipboard)
+[Code copy 1/2] Copying complete original text
+[Code copy 2/2] Complete
+Input files: None (original code block in memory); output files: None (system clipboard)
+[Code copy 1/2] Copying complete original text
+[Code copy 2/2] Complete
+Input files: None; output files: None (code block visibility in memory)
+[Code block 1/2] Updating expanded state
+[Code block 2/2] Expanded
+[Code panels 4/4] Read-only state and source preservation
+[Code panels] PASS: 36 checks

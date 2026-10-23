@@ -1,0 +1,182 @@
+{
+  "status": "PASS",
+  "checks": [
+    "first-install: expected exit code",
+    "user command is executable",
+    ".profile: existing bytes preserved",
+    ".profile: exact original backup",
+    ".profile: single PATH block",
+    ".bashrc: existing bytes preserved",
+    ".bashrc: exact original backup",
+    ".bashrc: single PATH block",
+    ".bash_profile: existing bytes preserved",
+    ".bash_profile: exact original backup",
+    ".bash_profile: single PATH block",
+    ".zprofile: existing bytes preserved",
+    ".zprofile: exact original backup",
+    ".zprofile: single PATH block",
+    ".zshrc: existing bytes preserved",
+    ".zshrc: exact original backup",
+    ".zshrc: single PATH block",
+    "bash-interactive: expected exit code",
+    "bash-interactive: command resolves and reaches the real dependency check",
+    "bash-interactive: no traceback",
+    "bash-login: expected exit code",
+    "bash-login: command resolves and reaches the real dependency check",
+    "bash-login: no traceback",
+    "zsh-interactive: expected exit code",
+    "zsh-interactive: command resolves and reaches the real dependency check",
+    "zsh-interactive: no traceback",
+    "zsh-login: expected exit code",
+    "zsh-login: command resolves and reaches the real dependency check",
+    "zsh-login: no traceback",
+    "repeat-install: expected exit code",
+    "repeat setup preserves installed contents",
+    "repeat setup creates no extra backups",
+    "unmanaged-command: expected exit code",
+    "unrelated command and absent profiles preserved on preflight failure",
+    "edited-managed-block: expected exit code",
+    "edited PATH block is retained without installing a command",
+    "missing-environment: expected exit code",
+    "missing environment fails before user command/profile writes",
+    "quoted-project-install: expected exit code",
+    "quoted-project-command: expected exit code",
+    "project paths with spaces, Unicode and apostrophes are forwarded correctly",
+    "fallback-environment: expected exit code",
+    "shared checkout uses .venv-linux and accepts -Check",
+    "argument-forwarding: expected exit code",
+    "launcher forwards arguments and starts in the project directory",
+    "legacy-migration: expected exit code",
+    "intact old wrapper replaced by new command",
+    "migration reports old command removal",
+    "legacy PATH blocks and all profile bytes reused unchanged",
+    "migration needs no profile backups when blocks exist",
+    "migration-repeat: expected exit code",
+    "repeated migration does not recreate old command",
+    "migration-shell: expected exit code",
+    "fresh shell resolves only the new managed entry",
+    "unrelated-legacy: expected exit code",
+    "unrelated-legacy: old entry preserved",
+    "unrelated-legacy: correct preflight/install outcome",
+    "edited-legacy: expected exit code",
+    "edited-legacy: old entry preserved",
+    "edited-legacy: correct preflight/install outcome",
+    "legacy-symlink: expected exit code",
+    "legacy symlink is retained without following or removing it",
+    "blocked-migration: expected exit code",
+    "conflicting new command leaves intact legacy entry and profiles unchanged",
+    "path-conflict: expected exit code",
+    "conflicting command elsewhere on PATH prevents user command/profile writes"
+  ],
+  "count": 66,
+  "results": [
+    {
+      "case": "first-install",
+      "exit_code": 0,
+      "log": "/mnt/d/MITREATTACK_SIMULATOR/artifacts/linux-command-setup/caa48cd1f72f451096bb75dfe1d15765/first-install.log"
+    },
+    {
+      "case": "bash-interactive",
+      "exit_code": 0,
+      "log": "/mnt/d/MITREATTACK_SIMULATOR/artifacts/linux-command-setup/caa48cd1f72f451096bb75dfe1d15765/bash-interactive.log"
+    },
+    {
+      "case": "bash-login",
+      "exit_code": 0,
+      "log": "/mnt/d/MITREATTACK_SIMULATOR/artifacts/linux-command-setup/caa48cd1f72f451096bb75dfe1d15765/bash-login.log"
+    },
+    {
+      "case": "zsh-interactive",
+      "exit_code": 0,
+      "log": "/mnt/d/MITREATTACK_SIMULATOR/artifacts/linux-command-setup/caa48cd1f72f451096bb75dfe1d15765/zsh-interactive.log"
+    },
+    {
+      "case": "zsh-login",
+      "exit_code": 0,
+      "log": "/mnt/d/MITREATTACK_SIMULATOR/artifacts/linux-command-setup/caa48cd1f72f451096bb75dfe1d15765/zsh-login.log"
+    },
+    {
+      "case": "repeat-install",
+      "exit_code": 0,
+      "log": "/mnt/d/MITREATTACK_SIMULATOR/artifacts/linux-command-setup/caa48cd1f72f451096bb75dfe1d15765/repeat-install.log"
+    },
+    {
+      "case": "unmanaged-command",
+      "exit_code": 1,
+      "log": "/mnt/d/MITREATTACK_SIMULATOR/artifacts/linux-command-setup/caa48cd1f72f451096bb75dfe1d15765/unmanaged-command.log"
+    },
+    {
+      "case": "edited-managed-block",
+      "exit_code": 1,
+      "log": "/mnt/d/MITREATTACK_SIMULATOR/artifacts/linux-command-setup/caa48cd1f72f451096bb75dfe1d15765/edited-managed-block.log"
+    },
+    {
+      "case": "missing-environment",
+      "exit_code": 1,
+      "log": "/mnt/d/MITREATTACK_SIMULATOR/artifacts/linux-command-setup/caa48cd1f72f451096bb75dfe1d15765/missing-environment.log"
+    },
+    {
+      "case": "quoted-project-install",
+      "exit_code": 0,
+      "log": "/mnt/d/MITREATTACK_SIMULATOR/artifacts/linux-command-setup/caa48cd1f72f451096bb75dfe1d15765/quoted-project-install.log"
+    },
+    {
+      "case": "quoted-project-command",
+      "exit_code": 0,
+      "log": "/mnt/d/MITREATTACK_SIMULATOR/artifacts/linux-command-setup/caa48cd1f72f451096bb75dfe1d15765/quoted-project-command.log"
+    },
+    {
+      "case": "fallback-environment",
+      "exit_code": 0,
+      "log": "/mnt/d/MITREATTACK_SIMULATOR/artifacts/linux-command-setup/caa48cd1f72f451096bb75dfe1d15765/fallback-environment.log"
+    },
+    {
+      "case": "argument-forwarding",
+      "exit_code": 0,
+      "log": "/mnt/d/MITREATTACK_SIMULATOR/artifacts/linux-command-setup/caa48cd1f72f451096bb75dfe1d15765/argument-forwarding.log"
+    },
+    {
+      "case": "legacy-migration",
+      "exit_code": 0,
+      "log": "/mnt/d/MITREATTACK_SIMULATOR/artifacts/linux-command-setup/caa48cd1f72f451096bb75dfe1d15765/legacy-migration.log"
+    },
+    {
+      "case": "migration-repeat",
+      "exit_code": 0,
+      "log": "/mnt/d/MITREATTACK_SIMULATOR/artifacts/linux-command-setup/caa48cd1f72f451096bb75dfe1d15765/migration-repeat.log"
+    },
+    {
+      "case": "migration-shell",
+      "exit_code": 0,
+      "log": "/mnt/d/MITREATTACK_SIMULATOR/artifacts/linux-command-setup/caa48cd1f72f451096bb75dfe1d15765/migration-shell.log"
+    },
+    {
+      "case": "unrelated-legacy",
+      "exit_code": 0,
+      "log": "/mnt/d/MITREATTACK_SIMULATOR/artifacts/linux-command-setup/caa48cd1f72f451096bb75dfe1d15765/unrelated-legacy.log"
+    },
+    {
+      "case": "edited-legacy",
+      "exit_code": 1,
+      "log": "/mnt/d/MITREATTACK_SIMULATOR/artifacts/linux-command-setup/caa48cd1f72f451096bb75dfe1d15765/edited-legacy.log"
+    },
+    {
+      "case": "legacy-symlink",
+      "exit_code": 0,
+      "log": "/mnt/d/MITREATTACK_SIMULATOR/artifacts/linux-command-setup/caa48cd1f72f451096bb75dfe1d15765/legacy-symlink.log"
+    },
+    {
+      "case": "blocked-migration",
+      "exit_code": 1,
+      "log": "/mnt/d/MITREATTACK_SIMULATOR/artifacts/linux-command-setup/caa48cd1f72f451096bb75dfe1d15765/blocked-migration.log"
+    },
+    {
+      "case": "path-conflict",
+      "exit_code": 1,
+      "log": "/mnt/d/MITREATTACK_SIMULATOR/artifacts/linux-command-setup/caa48cd1f72f451096bb75dfe1d15765/path-conflict.log"
+    }
+  ],
+  "gui_smoke": false,
+  "isolated_home": "/mnt/d/MITREATTACK_SIMULATOR/artifacts/linux-command-setup/caa48cd1f72f451096bb75dfe1d15765/home with spaces 測試 'quote",
+  "project": "/mnt/d/MITREATTACK_SIMULATOR"
+}

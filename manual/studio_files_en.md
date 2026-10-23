@@ -1,5 +1,7 @@
 # Studio Files, Saving and Session Recovery
 
+CAR integration adds a third default-on content choice, independent analytic inclusion, seven nonempty content combinations and CAR-only files. Full Save/recovery includes all three content types. Navigator and matrix Excel remain TTP-only projections. See the [CAR operating guide](car_integration_en.md) for the schema, archived snapshots and IO limits.
+
 ## Open and Save
 
 | Operation | Menu / shortcut | Behavior |

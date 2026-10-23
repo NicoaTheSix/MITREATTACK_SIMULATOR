@@ -1,5 +1,7 @@
 # Linux Command Setup Evidence
 
+Generated HOME/project fixture subdirectories under each run are excluded by the root `.gitignore`. They contain machine-specific command wrappers, profile backups and WSL symbolic links that Windows Git cannot read. Run-level JSON reports and logs remain tracked; rerun `scripts/audit_linux_command.py` in Linux to recreate the fixtures.
+
 Verified on 2026-10-20 in Kali WSL2 with native Linux Python. `audit.json` records **43 passing assertions**, including a real WSLg/xcb GUI smoke test launched by the bare `ttpselecter` command from `/tmp`.
 
 The source test is `scripts/audit_linux_command.py`; operation flow and reproduction commands are in [scripts/README.md](../../scripts/README.md#linux-command-setup). It creates isolated HOME directories under the native Linux test project, preserves fixture profile prefixes, checks exact backups, exercises Bash/Zsh interactive and login startup, verifies repeat setup, rejects unmanaged commands/edited blocks, tests missing dependencies and quoted paths, and launches the actual GUI with recovery disabled. It prints absolute inputs/outputs and six-stage progress; the JSON is published only after assertions pass.

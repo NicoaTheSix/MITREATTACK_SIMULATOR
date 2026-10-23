@@ -1,0 +1,7 @@
+Input program: /mnt/d/MITREATTACK_SIMULATOR/artifacts/linux-command-setup/6cb2fcfdaf3840468989a72115dfe814/project with spaces 測試 'quote/main.py
+Input Python: /mnt/d/MITREATTACK_SIMULATOR/artifacts/linux-command-setup/6cb2fcfdaf3840468989a72115dfe814/project with spaces 測試 'quote/.venv/bin/python
+Input requirements: /mnt/d/MITREATTACK_SIMULATOR/artifacts/linux-command-setup/6cb2fcfdaf3840468989a72115dfe814/project with spaces 測試 'quote/requirements.txt
+Output files: main.py reports application input/output paths before loading
+[Linux launch 1/3] Checking Linux and the local Python environment
+[Linux launch 2/3] Checking installed dependencies
+[Linux launch 3/3] Ready; no window opened and no files written

@@ -1,9 +1,9 @@
 {
   "schema_version": "1.0",
-  "document_id": "58dcaf2c-92a4-44d7-ba6a-cf5f31e8dad8",
+  "document_id": "00df5142-6f35-47dd-9e30-6a6808a90789",
   "name": "exchange.studio",
-  "created_at_utc": "2026-10-20T15:30:28.711463+00:00",
-  "exported_at_utc": "2026-10-20T15:30:28.743295+00:00",
+  "created_at_utc": "2026-10-21T10:26:20.739315+00:00",
+  "exported_at_utc": "2026-10-21T10:26:20.813247+00:00",
   "attack": {
     "domain": "enterprise-attack",
     "version": "20.0",

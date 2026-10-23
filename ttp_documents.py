@@ -302,7 +302,8 @@ def _export_document(document: TTPDocument, target: Path, notify, file_format, f
     else:
         content = json.dumps(payload, ensure_ascii=False, indent=2) + '\n'
     count = sum(len(part['selected_ttps']) + len(part.get('atlas_workspace', {}).get('selected_ttps', [])) for part in parts)
-    notify(f'[Export 2/3 Write] Writing {count} selected TTPs (ATT&CK={opts.attack}; ATLAS={opts.atlas})', 1, 3)
+    car_count = sum(sum(bool(e['included']) for e in part.get('car_workspace',{}).get('entries',{}).values()) for part in parts)
+    notify(f'[Export 2/3 Write] Writing {count} selected TTPs; {car_count} CAR Analytics (ATT&CK={opts.attack}; ATLAS={opts.atlas}; CAR={opts.car})', 1, 3)
     try:
         # The temporary file is unique, and resides beside the requested export.
         with temporary.open('x', encoding='utf-8-sig' if file_format == 'csv' else 'utf-8', newline='') as stream:

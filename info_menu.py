@@ -14,6 +14,7 @@ ROOT = Path(__file__).resolve().parent
 RELEASE_CACHE = ROOT / 'data' / 'info' / 'attack-release-notes.json'
 REPOSITORY_URL = 'https://github.com/NicoaTheSix/MITREATTACK_SIMULATOR'
 AUTHOR_MESSAGE = 'Hi this is Nicoa. Thank you for using this tool. If you like it,you can give me a star in github'
+AUTHOR_IMAGE = ROOT / 'assets' / 'nicoa-hackmd-cover-under-1mb.png'
 MITRE_URL = 'https://www.mitre.org/who-we-are'
 ATTACK_URL = 'https://attack.mitre.org/'
 HISTORY_URL = 'https://attack.mitre.org/resources/versions/'
@@ -27,8 +28,35 @@ def link(url, label=None):
     return '<p><a href="' + html.escape(url, quote=True) + '">' + html.escape(label or url) + '</a></p>'
 
 
-def show_information(window, title, body):
+class InformationImage(QtWidgets.QWidget):
+    """Fit the complete pixel illustration without stretching or cropping."""
+
+    def __init__(self, pixmap, parent=None):
+        super().__init__(parent)
+        self.pixmap = pixmap
+        self.setObjectName('infoIllustration')
+        self.setAccessibleName('Nicoa author illustration')
+        self.setMinimumSize(160, 90)
+        self.setSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding,
+                           QtWidgets.QSizePolicy.Policy.Expanding)
+
+    def sizeHint(self):
+        return QtCore.QSize(760, 428)
+
+    def paintEvent(self, event):
+        painter = QtGui.QPainter(self)
+        painter.fillRect(self.rect(), QtCore.Qt.GlobalColor.black)
+        size = self.pixmap.size().scaled(self.size(), QtCore.Qt.AspectRatioMode.KeepAspectRatio)
+        target = QtCore.QRect(QtCore.QPoint(), size)
+        target.moveCenter(self.rect().center())
+        painter.drawPixmap(target, self.pixmap)
+
+
+def show_information(window, title, body, image_path=None):
     window.operation_report(f'Input file: {Path(__file__).resolve()}', 0, 0)
+    if image_path is not None:
+        image_path = Path(image_path).resolve()
+        window.operation_report(f'Input image: {image_path}', 0, 0)
     window.operation_report('Output files: None (read-only information dialog)', 0, 0)
     window.operation_report('[Info 1/2] Preparing ' + title, 0, 2)
     dialog = QtWidgets.QDialog(window)
@@ -36,11 +64,20 @@ def show_information(window, title, body):
     dialog.setWindowTitle(title)
     dialog.resize(720, 490)
     layout = QtWidgets.QVBoxLayout(dialog)
+    if image_path is not None:
+        pixmap = QtGui.QPixmap(str(image_path))
+        if pixmap.isNull():
+            window.operation_report('[Info image] Image unavailable: ' + str(image_path), 1, 2)
+        else:
+            dialog.resize(900, 700)
+            layout.addWidget(InformationImage(pixmap, dialog), 3)
     browser = LocalizedTextBrowser()
     browser.setObjectName('infoContent')
     browser.setOpenLinks(False)
     browser.setOpenExternalLinks(False)
     browser.setHtml('<h1>' + html.escape(title) + '</h1>' + body)
+    if image_path is not None:
+        browser.setMinimumHeight(140)
 
     def open_link(url):
         window.operation_report('Input URL: ' + url.toString(), 0, 0)
@@ -107,7 +144,7 @@ def build_info_menu(window):
     menu.addSeparator()
     author = menu.addAction('Author information')
     author.triggered.connect(lambda: show_information(window, 'Author information',
-        paragraph(AUTHOR_MESSAGE) + link(REPOSITORY_URL)))
+        paragraph(AUTHOR_MESSAGE) + link(REPOSITORY_URL), image_path=AUTHOR_IMAGE))
     mitre = menu.addAction('MITRE information')
     mitre.triggered.connect(lambda: show_information(window, 'MITRE information',
         paragraph('MITRE is a nonprofit organization established to advance national security and serve the public interest as an independent adviser. It applies systems thinking and technical research to complex public-interest challenges.')

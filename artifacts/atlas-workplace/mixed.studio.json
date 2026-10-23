@@ -1,9 +1,9 @@
 {
   "schema_version": "1.0",
-  "document_id": "2c88ec4d-47d4-40f5-8342-31d48a322d5f",
+  "document_id": "afdc9de1-7e9c-403f-896e-4c2858f3a00a",
   "name": "mixed.studio",
-  "created_at_utc": "2026-10-20T16:11:50.768806+00:00",
-  "exported_at_utc": "2026-10-20T16:12:00.386454+00:00",
+  "created_at_utc": "2026-10-21T11:00:50.426757+00:00",
+  "exported_at_utc": "2026-10-21T11:01:00.712829+00:00",
   "attack": {
     "domain": "enterprise-attack",
     "version": "20.0",
@@ -68,10 +68,10 @@
   ],
   "atlas_workspace": {
     "schema_version": "1.0",
-    "document_id": "3f49cd9d-357d-4682-9bf5-ee3fe2ccbe87",
+    "document_id": "a04bff75-b263-4771-a28b-47ddaf8b676a",
     "name": "ATLAS",
-    "created_at_utc": "2026-10-20T16:11:52.260068+00:00",
-    "exported_at_utc": "2026-10-20T16:12:00.386454+00:00",
+    "created_at_utc": "2026-10-21T11:00:52.508205+00:00",
+    "exported_at_utc": "2026-10-21T11:01:00.712829+00:00",
     "attack": {
       "domain": "atlas-atlas",
       "version": "2026.09",

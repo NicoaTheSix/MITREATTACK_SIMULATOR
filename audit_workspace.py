@@ -13,7 +13,7 @@ from navigator_integration import document_layer, imported_document
 
 ROOT = Path(__file__).resolve().parent
 DATA = ROOT / "data" / "attack"
-OUT = ROOT / "artifacts"
+OUT = ROOT / "artifacts" / "workspace-layout" / "reference-regression"
 REPORT = OUT / "workspace-audit.json"
 PREVIEW = OUT / "independent-details-preview.png"
 CLOSED = OUT / "closed-details-preview.png"
@@ -45,12 +45,13 @@ def fingerprints(window):
 
 
 def main():
+    OUT.mkdir(parents=True,exist_ok=True)
     log(f"Input file: {DATA / 'latest.json'}")
     for path in (REPORT, PREVIEW, CLOSED, EXPORT):
         log(f"Output file: {path}")
     app = QtWidgets.QApplication(sys.argv[:1])
     configure_application(app)
-    window = MainWindow(DATA, DATA / "latest.json")
+    window = MainWindow(DATA, DATA / "latest.json",settings_path=OUT/'settings.ini',session_path=None)
     window.show()
     wait(lambda: window.loaded_ok and not window.loader.isRunning(), "startup")
     catalog = window.catalog
@@ -62,8 +63,8 @@ def main():
     check(window.details_tab_index == len(window.documents), "reference tab sits beside filenames in the same tab bar")
     check(window.workspace.currentWidget() is window.details_page, "reference content is a separate workspace page")
     check(window.tabs.indexOf(window.details_page) == -1 and window.tabs.count() == 3
-          and window.tabs.indexOf(window.atlas_matrix) >= 0,
-          "document page contains selection and peer ATT&CK/ATLAS matrices")
+          and window.tabs.indexOf(window.atlas_matrix) >= 0 and window.workspace.indexOf(window.atlas_cases_page)>=0 and window.tabs.indexOf(window.atlas_cases_page)==-1,
+          "document page contains selection, peer matrices and independent case studies")
     check(window.document_tabs.tabText(window.details_tab_index) == 'Technique Details', "reference tab uses Technique Details title")
     before = fingerprints(window)
     with patch.object(QtWidgets.QMessageBox, 'question') as question:

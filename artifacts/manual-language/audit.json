@@ -182,11 +182,11 @@
       "status": "PASS"
     }
   ],
-  "fixture_directory": "D:\\MITREATTACK_SIMULATOR\\artifacts\\manual-language\\run-ad5314b106b74befa2fafb7e89a2fa7b",
+  "fixture_directory": "D:\\MITREATTACK_SIMULATOR\\artifacts\\manual-language\\run-1d9167559a5342d2b83ebfdb73cb1ba7",
   "source_data_modified": false,
   "documents_modified_by_manual_or_language": false,
   "preference_restored": true,
   "canonical_combo_values_preserved": true,
   "file_picker_boundary": "real Qt file pickers in an isolated fixture directory; cancelled or fixture selected; real downstream dialogs exercised",
-  "untranslated_candidates": 0
+  "untranslated_candidates": 221
 }

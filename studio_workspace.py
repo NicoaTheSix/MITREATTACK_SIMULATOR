@@ -96,8 +96,7 @@ class StudioWorkspace:
             QtWidgets.QMessageBox.warning(self, 'Document already open',
                 'Another file with this document UUID is already open. Close that tab first, or use Duplicate active layer.')
             return None
-        self.install_imported_document(document)
-        return document
+        return document if self.install_imported_document(document) else None
 
     def save_studio_document(self, save_as=False, target=None, index=None, *, frameworks=None):
         if not self.loaded_ok:
@@ -175,6 +174,8 @@ class StudioWorkspace:
 
     def studio_view(self):
         page = ('details' if self.workspace.currentWidget() is self.details_page else
+                'cases' if self.workspace.currentWidget() is self.atlas_cases_page else
+                'car' if self.workspace.currentWidget() is self.car_browser else
                 'matrix' if self.tabs.currentIndex() in (self.matrix_tab_index, self.atlas_matrix_tab_index) else 'selected')
         return {'page': page, 'details_open': self.details_tab_index >= 0,
                 'category': self.active_category, 'overlay': self.matrix_view.show_all_layers.isChecked(),
@@ -182,8 +183,15 @@ class StudioWorkspace:
                 'matrix_framework': 'atlas' if self.tabs.currentIndex() == self.atlas_matrix_tab_index else 'attack',
                 'attack_matrix_open': self.tabs.isTabVisible(self.matrix_tab_index),
                 'atlas_matrix_open': self.tabs.isTabVisible(self.atlas_matrix_tab_index),
+                'atlas_cases_open':self.atlas_cases_tab_index>=0,
+                'car_browser_open':self.car_browser_tab_index>=0,
+                'car_browser_kind':self.car_browser.kind,
+                'matrix_controls_expanded':self.matrix_view.controls_toggle.isChecked(),
+                'atlas_case_key':self.atlas_cases_page.key,
+                'atlas_cases_query':self.atlas_cases_page.search.text(),
                 'attack_expanded': self.attack_selection_toggle.isChecked(),
-                'atlas_expanded': self.atlas_selection_toggle.isChecked()}
+                'atlas_expanded': self.atlas_selection_toggle.isChecked(),
+                'car_expanded':self.car_selection_toggle.isChecked()}
 
     def workspace_signature(self):
         values = [(doc.document_id, doc.content_token(), doc.dirty, str(doc.save_path), doc.saved_fingerprint,
@@ -225,10 +233,29 @@ class StudioWorkspace:
             view, self.pending_session_view = self.pending_session_view, None
             self.matrix_view.show_all_layers.setChecked(bool(view.get('overlay', False)))
             self.matrix_view.show_colors.setChecked(bool(view.get('show_colors', True)))
+            self.matrix_view.set_controls_expanded(view.get('matrix_controls_expanded', True))
+            if view.get('car_browser_open',False) or view.get('page')=='car':
+                self.ensure_car_browser_tab()
+            else:
+                self.close_car_browser()
+            self.car_browser.kind=view.get('car_browser_kind','CAR Analytics')
+            self.car_browser.show_list(reveal=False)
+            if view.get('atlas_cases_open',True) or view.get('page')=='cases':
+                self.ensure_atlas_cases_tab()
+            else:
+                self.close_atlas_cases()
             self.switch_category(view.get('category') if view.get('category') in self.navigation_buttons else 'TTP')
             if not view.get('details_open', True):
                 self.close_details_page()
-            if view.get('page') == 'matrix':
+            self.atlas_cases_page.search.setText(view.get('atlas_cases_query',''))
+            self.atlas_cases_page.refresh()
+            if view.get('atlas_case_key'):
+                self.atlas_cases_page.show_record(view['atlas_case_key'])
+            if view.get('page')=='car':
+                self.reveal_car_browser()
+            elif view.get('page')=='cases' or view.get('category')=='ATLAS Case Studies':
+                self.open_atlas_cases(view.get('atlas_case_key'))
+            elif view.get('page') == 'matrix':
                 if view.get('matrix_framework') == 'atlas':
                     self.open_atlas_matrix()
                 else:
@@ -244,6 +271,7 @@ class StudioWorkspace:
             self.tabs.blockSignals(False)
             self.attack_selection_toggle.setChecked(view.get('attack_expanded', True))
             self.atlas_selection_toggle.setChecked(view.get('atlas_expanded', True))
+            self.car_selection_toggle.setChecked(view.get('car_expanded',True))
         if self.pending_session_notice is not None:
             if self.matrix_view.building:
                 self.matrix_view.ready.connect(self.report_session_restore_complete,

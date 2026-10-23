@@ -124,3 +124,13 @@ Session checkpoints help recover work but do not replace deliberate Studio saves
 Info contains author information, official MITRE and ATT&CK introductions, and version history. Hover over **Version update history** to see the release list. Select a version for a short source excerpt and a link to the full official changelog.
 
 [All operating guides](in_app_index_en.md) · [Installation and startup](../README.md) · [Official MITRE ATT&CK website](https://attack.mitre.org/)
+
+## CAR research content
+
+Use the CAR Analytics, CAR Data Model and CAR Sensors activity icons to open sidebar lists. Select an entry, then use **Workplace → Open CAR Browser** for its full page. Include analytics independently in the current Workplace; use Studio JSON for complete preservation and the default-on CAR content option. Navigator stores TTPs only. [CAR operating guide](car_integration_en.md).
+
+## Workspace tabs and sidebar visibility
+
+ATLAS case details use an upper reference tab with search/results in the left sidebar. **Workplace → Open ATLAS Mitigation Details** also works without a prior choice; mitigation rail/item clicks retain the current right page. Settings → Sidebar content independently toggles ATT&CK, ATLAS and CAR, with all three on by default; Workplace always remains. Collapsed selection groups keep the summary and controls compact. [Guide](workspace_layout_en.md).
+
+**CAR Browser** opens beside **Technique Details** as an independent upper reference tab. Close it with × or its context menu; Workplace reopens it. Recovery retains tab visibility, active page and category. See the [workspace guide](workspace_layout_en.md#car-browser).

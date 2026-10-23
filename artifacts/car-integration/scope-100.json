@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0",
+  "document_id": "f9fc3166-5d39-4450-8911-5f2fd2bd00e0",
+  "name": "scope-100",
+  "created_at_utc": "2026-10-21T13:53:17.983483+00:00",
+  "exported_at_utc": "2026-10-21T13:53:37.127345+00:00",
+  "attack": {
+    "domain": "enterprise-attack",
+    "version": "20.0",
+    "source_url": "https://github.com/mitre-attack/attack-stix-data"
+  },
+  "selected_count": 1,
+  "selected_technique_ids": [
+    "T1055.011"
+  ],
+  "selected_ttps": [
+    {
+      "technique_id": "T1055.011",
+      "stix_id": "attack-pattern--0042a9f5-f053-4769-b3ef-9ad018dfa298",
+      "name": "Extra Window Memory Injection",
+      "is_subtechnique": true,
+      "parent_technique_id": "T1055",
+      "parent_technique_name": "Process Injection",
+      "platforms": [
+        "Windows"
+      ],
+      "tactics": [
+        {
+          "tactic_id": "TA0004",
+          "name": "Privilege Escalation",
+          "shortname": "privilege-escalation"
+        },
+        {
+          "tactic_id": "TA0005",
+          "name": "Stealth",
+          "shortname": "stealth"
+        }
+      ],
+      "comment": "Keep ATT&CK annotation",
+      "tactic_comments": [],
+      "enabled": true,
+      "tactic_enabled": [
+        {
+          "tactic": "privilege-escalation",
+          "enabled": true
+        },
+        {
+          "tactic": "stealth",
+          "enabled": true
+        }
+      ],
+      "selected_tactics": [
+        "privilege-escalation",
+        "stealth"
+      ]
+    }
+  ],
+  "navigator_import_selected": [],
+  "selection_scopes": {},
+  "selection_preferences": {
+    "across_tactics": true,
+    "with_family": false,
+    "visible_only": false
+  },
+  "search_fields": [
+    "name",
+    "id"
+  ],
+  "navigator_layer": {
+    "name": "Untitled-1",
+    "domain": "enterprise-attack",
+    "versions": {
+      "attack": "20.0",
+      "layer": "4.5",
+      "navigator": "5.2.0"
+    },
+    "techniques": [
+      {
+        "techniqueID": "T1055.011",
+        "comment": "Keep ATT&CK annotation",
+        "score": 3,
+        "color": "#112233"
+      }
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "checksum": "1b61efcd327045b8150e19fb81c15e0b67ebf5d1d44bf5e1cde5b254aac0434f",
+  "workspace": {
+    "studio_session_version": "1.0",
+    "updated_at_utc": "2026-10-21T13:54:17.587967+00:00",
+    "clean_exit": true,
+    "documents": [],
+    "active_index": -1,
+    "view": {
+      "page": "car",
+      "details_open": false,
+      "category": "CAR Analytics",
+      "overlay": false,
+      "show_colors": true,
+      "matrix_framework": "attack",
+      "attack_matrix_open": true,
+      "atlas_matrix_open": true,
+      "atlas_cases_open": false,
+      "car_browser_open": true,
+      "car_browser_kind": "CAR Analytics",
+      "matrix_controls_expanded": true,
+      "atlas_case_key": null,
+      "atlas_cases_query": "",
+      "attack_expanded": true,
+      "atlas_expanded": true,
+      "car_expanded": true
+    }
+  }
+}

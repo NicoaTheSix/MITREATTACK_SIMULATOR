@@ -1,9 +1,9 @@
 {
   "schema_version": "1.0",
-  "document_id": "0d96e3aa-e204-4484-9896-14558f172e99",
+  "document_id": "887dbf3a-b583-405c-ac78-de900fcea954",
   "name": "ics-attack",
-  "created_at_utc": "2026-10-20T15:30:24.114337+00:00",
-  "exported_at_utc": "2026-10-20T15:30:24.115338+00:00",
+  "created_at_utc": "2026-10-21T10:26:14.925547+00:00",
+  "exported_at_utc": "2026-10-21T10:26:14.926546+00:00",
   "attack": {
     "domain": "ics-attack",
     "version": "20.0",

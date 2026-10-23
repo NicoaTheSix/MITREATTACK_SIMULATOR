@@ -1,0 +1,29 @@
+{
+  "checksum": "5f490fcfb88e2facd9736f39540cdddd9aee93fcaa3f3a3af41de66df13fddc4",
+  "workspace": {
+    "studio_session_version": "1.0",
+    "updated_at_utc": "2026-10-23T04:55:11.484142+00:00",
+    "clean_exit": true,
+    "documents": [],
+    "active_index": -1,
+    "view": {
+      "page": "car",
+      "details_open": false,
+      "category": "Workplace",
+      "overlay": false,
+      "show_colors": true,
+      "matrix_framework": "attack",
+      "attack_matrix_open": true,
+      "atlas_matrix_open": true,
+      "atlas_cases_open": false,
+      "car_browser_open": true,
+      "car_browser_kind": "CAR Sensors",
+      "matrix_controls_expanded": true,
+      "atlas_case_key": null,
+      "atlas_cases_query": "",
+      "attack_expanded": true,
+      "atlas_expanded": true,
+      "car_expanded": true
+    }
+  }
+}

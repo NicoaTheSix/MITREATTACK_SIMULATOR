@@ -40,6 +40,13 @@ class CarCatalog:
         refs = set(analytic.get('data_model_references', []))
         return {key: sorted(refs & fields) for key, fields in self.sensor_fields.items() if refs & fields}
 
+    def reference_known(self, reference):
+        parts = reference.split('/')
+        if len(parts) != 3 or parts[0] not in self.models:
+            return False
+        model = self.models[parts[0]]
+        return parts[1] in {v['name'] for v in model['actions']} and parts[2] in {v['name'] for v in model['fields']}
+
 
 def load_car(root=ROOT, notify=lambda *args: None):
     root = Path(root).resolve()

@@ -109,7 +109,7 @@ class SelectionWorkspace:
         self.matrix_source_fields_button.setMenu(source_menu)
         tools.addWidget(self.matrix_source_fields_button)
         tools.addStretch()
-        self.matrix_view.layout().insertLayout(4, tools)
+        self.matrix_view.controls_layout.insertLayout(4, tools)
         self.sync_selection_tools()
 
     def sync_selection_tools(self):

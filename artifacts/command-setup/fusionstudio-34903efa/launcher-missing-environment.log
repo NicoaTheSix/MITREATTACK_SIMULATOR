@@ -1,0 +1,18 @@
+Input program: D:\MITREATTACK_SIMULATOR\artifacts\command-setup\fusionstudio-34903efa\launcher-missing-environment with spaces 皜祈岫 'quote\main.py
+Input Python: D:\MITREATTACK_SIMULATOR\artifacts\command-setup\fusionstudio-34903efa\launcher-missing-environment with spaces 皜祈岫 'quote\.venv\Scripts\pythonw.exe
+Input dataset pointer: D:\MITREATTACK_SIMULATOR\artifacts\command-setup\fusionstudio-34903efa\launcher-missing-environment with spaces 皜祈岫 'quote\data\attack\latest.json
+Input/output settings: D:\MITREATTACK_SIMULATOR\artifacts\command-setup\fusionstudio-34903efa\launcher-missing-environment with spaces 皜祈岫 'quote\data\ui-settings.ini
+Input/output session: D:\MITREATTACK_SIMULATOR\artifacts\command-setup\fusionstudio-34903efa\launcher-missing-environment with spaces 皜祈岫 'quote\data\workspace-session.json
+Output files: None (launcher check only)
+[fusionstudio 1/3] Checking application, environment and dataset paths
+D:\MITREATTACK_SIMULATOR\artifacts\command-setup\fusionstudio-34903efa\launcher-missing-environment with spaces 皜祈岫 
+'quote\scripts\Start-FusionStudio.ps1 : fusionstudio failed: Required file missing: 
+D:\MITREATTACK_SIMULATOR\artifacts\command-setup\fusionstudio-34903efa\launcher-missing-environment with spaces 皜祈岫 
+'quote\.venv\Scripts\pythonw.exe. See the project README setup instructions.
+At D:\MITREATTACK_SIMULATOR\artifacts\command-setup\fusionstudio-34903efa\launcher-missing-environment with spaces 皜祈岫 
+'quote\scripts\Start-FusionStudio.ps1:58 char:41
++     Write-Error "fusionstudio failed: $($_.Exception.Message)"
++                                         ~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Write-Error], WriteErrorException
+    + FullyQualifiedErrorId : Microsoft.PowerShell.Commands.WriteErrorException,Start-FusionStudio.ps1
+ 

@@ -1,0 +1,125 @@
+Input catalog: None (worker paused)
+Input/output settings: D:\MITREATTACK_SIMULATOR\artifacts\sidebar-visibility\probe.ini
+Output log: console
+Input file: D:\MITREATTACK_SIMULATOR\app_identity.py
+Output files: None (application display identity in memory)
+[Application identity 1/2] Applying Fusion Studio name and display name
+[Application identity 2/2] Complete: Fusion Studio display identity ready
+[Application icon 1/2] Input file: D:\MITREATTACK_SIMULATOR\assets\fusion-studio-icon-pixel-v2.png
+[Application icon 1/2] Output files: None (application/window icon in memory)
+[Application icon 2/2] Complete: pixel icon applied to application and windows
+[Preview fonts] Input file: C:\WINDOWS\Fonts\segoeui.ttf
+[Preview fonts] Input file: C:\WINDOWS\Fonts\segoeuib.ttf
+[Preview fonts] Input file: C:\WINDOWS\Fonts\consola.ttf
+[Preview fonts] Input file: C:\WINDOWS\Fonts\georgia.ttf
+[Preview fonts] Input file: C:\WINDOWS\Fonts\msjh.ttc
+[Preview fonts] Input file: C:\WINDOWS\Fonts\msjhbd.ttc
+[Preview fonts] Complete
+[UI settings 1/2] Input file: D:\MITREATTACK_SIMULATOR\artifacts\sidebar-visibility\probe.ini
+[UI settings 1/2] Output files: None (reading preferences)
+[UI settings 2/2] Complete: navigation labels shown
+Input settings file: D:\MITREATTACK_SIMULATOR\artifacts\sidebar-visibility\probe.ini
+Output files: None (sidebar preference in memory)
+[Sidebar content 1/2] Reading framework visibility
+[Sidebar content 2/2] ATT&CK and ATLAS
+[Language 1/2] Input file: D:\MITREATTACK_SIMULATOR\locales\zh_TW.json
+Output files: None (translation catalog in memory)
+[Language 2/2] Ready: 900 Taiwan translations
+Input file: D:\MITREATTACK_SIMULATOR\data\info\attack-release-notes.json
+Output files: None (Info menu in memory)
+[Info history 1/2] Reading offline release introductions
+[Info history 2/2] Complete: 20 official release entries
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\car-analytics.svg
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\car-data-model.svg
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\car-sensors.svg
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\workplace.svg
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\atlas.svg
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\atlas-mitigations.svg
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\atlas-cases.svg
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\ttp-selection-studio-icon-pixel.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\mitigations.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\assets.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\detections.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\groups.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\software.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\campaigns.png
+[Navigation icons 1/3] Output files: None (button icons in memory)
+[Navigation icons 2/3] Loading CAR Analytics (1/14)
+[Navigation icons 2/3] Loading CAR Data Model (2/14)
+[Navigation icons 2/3] Loading CAR Sensors (3/14)
+[Navigation icons 2/3] Loading Workplace (4/14)
+[Navigation icons 2/3] Loading ATLAS TTP (5/14)
+[Navigation icons 2/3] Loading ATLAS Mitigations (6/14)
+[Navigation icons 2/3] Loading ATLAS Case Studies (7/14)
+[Navigation icons 2/3] Loading TTP (8/14)
+[Navigation icons 2/3] Loading Mitigations (9/14)
+[Navigation icons 2/3] Loading Assets (10/14)
+[Navigation icons 2/3] Loading Detections (11/14)
+[Navigation icons 2/3] Loading Groups (12/14)
+[Navigation icons 2/3] Loading Software (13/14)
+[Navigation icons 2/3] Loading Campaigns (14/14)
+[Navigation icons 3/3] Complete: 14/14 icons ready
+[Probe 1/4] Actual settings action
+Input files: None (sidebar choice in memory)
+Output settings file: D:\MITREATTACK_SIMULATOR\artifacts\sidebar-visibility\probe.ini
+[Sidebar content 1/3] Validating visibility preference (0/3)
+[Sidebar content 2/3] Updating navigation and saving preference (1/3)
+[Sidebar content 3/3] Saved (3/3)
+after menu scope=attack visible ATLAS=[]
+[Probe 2/4] Label toggles
+[UI settings 1/3] Input files: None (menu preference in memory) (0/3)
+[UI settings 1/3] Output file: D:\MITREATTACK_SIMULATOR\artifacts\sidebar-visibility\probe.ini (0/3)
+[UI settings 2/3] Navigation layout updated; saving preference (1/3)
+[UI settings 3/3] Complete: navigation labels hidden (3/3)
+after labels scope=attack visible ATLAS=[]
+[UI settings 1/3] Input files: None (menu preference in memory) (0/3)
+[UI settings 1/3] Output file: D:\MITREATTACK_SIMULATOR\artifacts\sidebar-visibility\probe.ini (0/3)
+[UI settings 2/3] Navigation layout updated; saving preference (1/3)
+[UI settings 3/3] Complete: navigation labels shown (3/3)
+after labels scope=attack visible ATLAS=[]
+[Probe 3/4] Language refresh
+after language scope=attack visible ATLAS=[]
+after language scope=attack visible ATLAS=[]
+[Probe 4/4] Reopen window with persisted mode
+[UI settings 1/2] Input file: D:\MITREATTACK_SIMULATOR\artifacts\sidebar-visibility\probe.ini
+[UI settings 1/2] Output files: None (reading preferences)
+[UI settings 2/2] Complete: navigation labels shown
+Input settings file: D:\MITREATTACK_SIMULATOR\artifacts\sidebar-visibility\probe.ini
+Output files: None (sidebar preference in memory)
+[Sidebar content 1/2] Reading framework visibility
+[Sidebar content 2/2] ATT&CK only
+Input file: D:\MITREATTACK_SIMULATOR\data\info\attack-release-notes.json
+Output files: None (Info menu in memory)
+[Info history 1/2] Reading offline release introductions
+[Info history 2/2] Complete: 20 official release entries
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\car-analytics.svg
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\car-data-model.svg
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\car-sensors.svg
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\workplace.svg
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\atlas.svg
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\atlas-mitigations.svg
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\atlas-cases.svg
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\ttp-selection-studio-icon-pixel.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\mitigations.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\assets.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\detections.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\groups.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\software.png
+[Navigation icons 1/3] Input file: D:\MITREATTACK_SIMULATOR\assets\navigation\campaigns.png
+[Navigation icons 1/3] Output files: None (button icons in memory)
+[Navigation icons 2/3] Loading CAR Analytics (1/14)
+[Navigation icons 2/3] Loading CAR Data Model (2/14)
+[Navigation icons 2/3] Loading CAR Sensors (3/14)
+[Navigation icons 2/3] Loading Workplace (4/14)
+[Navigation icons 2/3] Loading ATLAS TTP (5/14)
+[Navigation icons 2/3] Loading ATLAS Mitigations (6/14)
+[Navigation icons 2/3] Loading ATLAS Case Studies (7/14)
+[Navigation icons 2/3] Loading TTP (8/14)
+[Navigation icons 2/3] Loading Mitigations (9/14)
+[Navigation icons 2/3] Loading Assets (10/14)
+[Navigation icons 2/3] Loading Detections (11/14)
+[Navigation icons 2/3] Loading Groups (12/14)
+[Navigation icons 2/3] Loading Software (13/14)
+[Navigation icons 2/3] Loading Campaigns (14/14)
+[Navigation icons 3/3] Complete: 14/14 icons ready
+PASS

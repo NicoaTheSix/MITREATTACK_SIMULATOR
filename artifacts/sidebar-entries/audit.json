@@ -1,0 +1,117 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "passed": true,
+      "label": "ATLAS Mitigations: rail only opens sidebar"
+    },
+    {
+      "passed": true,
+      "label": "ATLAS Mitigations: real records available"
+    },
+    {
+      "passed": true,
+      "label": "ATLAS Mitigations: click opens AML.M0000  Limit Public Release of Information"
+    },
+    {
+      "passed": true,
+      "label": "ATLAS Mitigations: click opens AML.M0001  Limit Model Artifact Release"
+    },
+    {
+      "passed": true,
+      "label": "ATLAS Mitigations: Enter opens AML.M0001  Limit Model Artifact Release"
+    },
+    {
+      "passed": true,
+      "label": "ATLAS Mitigations: repeated click opens AML.M0001  Limit Model Artifact Release"
+    },
+    {
+      "passed": true,
+      "label": "ATLAS Mitigations: browsing preserves document"
+    },
+    {
+      "passed": true,
+      "label": "CAR Analytics: rail only opens sidebar"
+    },
+    {
+      "passed": true,
+      "label": "CAR Analytics: real records available"
+    },
+    {
+      "passed": true,
+      "label": "CAR Analytics: click opens CAR-2013-01-002  Autorun Differences"
+    },
+    {
+      "passed": true,
+      "label": "CAR Analytics: click opens CAR-2013-01-003  SMB Events Monitoring"
+    },
+    {
+      "passed": true,
+      "label": "CAR Analytics: Enter opens CAR-2013-01-003  SMB Events Monitoring"
+    },
+    {
+      "passed": true,
+      "label": "CAR Analytics: repeated click opens CAR-2013-01-003  SMB Events Monitoring"
+    },
+    {
+      "passed": true,
+      "label": "CAR Analytics: browsing preserves document"
+    },
+    {
+      "passed": true,
+      "label": "CAR Data Model: rail only opens sidebar"
+    },
+    {
+      "passed": true,
+      "label": "CAR Data Model: real records available"
+    },
+    {
+      "passed": true,
+      "label": "CAR Data Model: click opens Authentication"
+    },
+    {
+      "passed": true,
+      "label": "CAR Data Model: click opens Driver"
+    },
+    {
+      "passed": true,
+      "label": "CAR Data Model: Enter opens Driver"
+    },
+    {
+      "passed": true,
+      "label": "CAR Data Model: repeated click opens Driver"
+    },
+    {
+      "passed": true,
+      "label": "CAR Data Model: browsing preserves document"
+    },
+    {
+      "passed": true,
+      "label": "CAR Sensors: rail only opens sidebar"
+    },
+    {
+      "passed": true,
+      "label": "CAR Sensors: real records available"
+    },
+    {
+      "passed": true,
+      "label": "CAR Sensors: click opens auditd 2.8"
+    },
+    {
+      "passed": true,
+      "label": "CAR Sensors: click opens Autoruns 13.98"
+    },
+    {
+      "passed": true,
+      "label": "CAR Sensors: Enter opens Autoruns 13.98"
+    },
+    {
+      "passed": true,
+      "label": "CAR Sensors: repeated click opens Autoruns 13.98"
+    },
+    {
+      "passed": true,
+      "label": "CAR Sensors: browsing preserves document"
+    }
+  ]
+}

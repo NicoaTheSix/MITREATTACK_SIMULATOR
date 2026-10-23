@@ -1,0 +1,68 @@
+{
+  "passed": true,
+  "application": "Fusion Studio",
+  "width": 1920,
+  "height": 1080,
+  "fps": 24,
+  "frames": 1872,
+  "duration_seconds": 78.0,
+  "language": "zh-TW",
+  "audio": false,
+  "real_ui": true,
+  "preview_only": false,
+  "protected_user_files_unchanged": true,
+  "scenes": [
+    {
+      "id": "intro",
+      "title": "把威脅知識，整理成可交付的研究工作區",
+      "seconds": 5
+    },
+    {
+      "id": "workspace",
+      "title": "01  建立獨立研究文件",
+      "seconds": 8
+    },
+    {
+      "id": "search",
+      "title": "02  搜尋並納入 ATT&CK 技術",
+      "seconds": 13
+    },
+    {
+      "id": "details",
+      "title": "03  查閱技術與實際案例",
+      "seconds": 9
+    },
+    {
+      "id": "matrix",
+      "title": "04  以矩陣檢視研究範圍",
+      "seconds": 9
+    },
+    {
+      "id": "atlas",
+      "title": "05  加入 AI 威脅研究",
+      "seconds": 10
+    },
+    {
+      "id": "car",
+      "title": "06  參考 CAR 偵測分析",
+      "seconds": 8
+    },
+    {
+      "id": "export",
+      "title": "07  保存專案、匯出研究清單",
+      "seconds": 10
+    },
+    {
+      "id": "outro",
+      "title": "讓資安研究，有一個共同的工作台",
+      "seconds": 6
+    }
+  ],
+  "video": "D:\\MITREATTACK_SIMULATOR\\artifacts\\demo-video\\fusion-studio-demo-zh-TW.mp4",
+  "exports": [
+    "D:\\MITREATTACK_SIMULATOR\\artifacts\\demo-video\\demo-research.json",
+    "D:\\MITREATTACK_SIMULATOR\\artifacts\\demo-video\\demo-research.csv"
+  ],
+  "video_decode_passed": true,
+  "video_sha256": "09bdd879bf2ddf567529ecca17c00c8671ddbcbf696cd78693732c681cf3012b"
+}

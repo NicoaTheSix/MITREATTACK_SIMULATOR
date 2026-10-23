@@ -1,0 +1,21 @@
+Input installer: /mnt/d/MITREATTACK_SIMULATOR/scripts/install_linux_command.py
+Input project: /mnt/d/MITREATTACK_SIMULATOR
+Input launcher: /mnt/d/MITREATTACK_SIMULATOR/start-fusionstudio.sh
+Output command: /mnt/d/MITREATTACK_SIMULATOR/artifacts/linux-command-setup/caa48cd1f72f451096bb75dfe1d15765/edited-legacy-home/.local/bin/fusionstudio
+Output temporary command: /mnt/d/MITREATTACK_SIMULATOR/artifacts/linux-command-setup/caa48cd1f72f451096bb75dfe1d15765/edited-legacy-home/.local/bin/.fusionstudio-20261022T081455Z-b82cb776.tmp
+Input legacy command / output removal if managed: /mnt/d/MITREATTACK_SIMULATOR/artifacts/linux-command-setup/caa48cd1f72f451096bb75dfe1d15765/edited-legacy-home/.local/bin/ttpselecter
+Input/output shell profile: /mnt/d/MITREATTACK_SIMULATOR/artifacts/linux-command-setup/caa48cd1f72f451096bb75dfe1d15765/edited-legacy-home/.profile
+Input/output shell profile: /mnt/d/MITREATTACK_SIMULATOR/artifacts/linux-command-setup/caa48cd1f72f451096bb75dfe1d15765/edited-legacy-home/.bashrc
+Input/output shell profile: /mnt/d/MITREATTACK_SIMULATOR/artifacts/linux-command-setup/caa48cd1f72f451096bb75dfe1d15765/edited-legacy-home/zsh-config/.zprofile
+Input/output shell profile: /mnt/d/MITREATTACK_SIMULATOR/artifacts/linux-command-setup/caa48cd1f72f451096bb75dfe1d15765/edited-legacy-home/zsh-config/.zshrc
+[Linux command setup 1/4] Checking the installed Linux application
+Input program: /mnt/d/MITREATTACK_SIMULATOR/main.py
+Input Python: /home/kali/.local/share/ttp-selection-studio-wsl-test/project/.venv/bin/python
+Input requirements: /mnt/d/MITREATTACK_SIMULATOR/requirements.txt
+Output files: main.py reports application input/output paths before loading
+[Linux launch 1/3] Checking Linux and the local Python environment
+[Linux launch 2/3] Checking installed dependencies
+[Linux launch 3/3] Ready; no window opened and no files written
+[Linux command setup 2/4] Checking command ownership and planning profile updates
+Linux command setup failed: Legacy managed command was modified; retained without editing: /mnt/d/MITREATTACK_SIMULATOR/artifacts/linux-command-setup/caa48cd1f72f451096bb75dfe1d15765/edited-legacy-home/.local/bin/ttpselecter
+Preflight failures do not replace the command or profiles. For a write/verification failure, review completed steps and the listed backups.

@@ -1,9 +1,9 @@
 {
   "schema_version": "1.0",
-  "document_id": "2c13908b-16ae-46eb-bf24-8593789e08e5",
+  "document_id": "f80834af-7c8f-4de2-b527-5a6a5d5f1512",
   "name": "Exit first",
-  "created_at_utc": "2026-10-20T15:31:47.705649+00:00",
-  "exported_at_utc": "2026-10-20T15:31:49.493544+00:00",
+  "created_at_utc": "2026-10-21T10:28:36.747917+00:00",
+  "exported_at_utc": "2026-10-21T10:28:40.174394+00:00",
   "attack": {
     "domain": "enterprise-attack",
     "version": "20.0",

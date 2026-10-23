@@ -26,7 +26,7 @@ AUDITS = {name: [] for name in (
     'audit_json_annotation_export.py', 'audit_matrix_display.py', 'audit_selection_search.py',
     'audit_source_selection.py', 'audit_source_preview.py', 'audit_studio_lifecycle.py',
     'audit_visibility_presets.py', 'audit_detection_interaction.py', 'audit_navigator_parity.py',
-    'audit_manual_language.py',
+    'audit_manual_language.py', 'audit_car_integration.py', 'audit_workspace_layout.py', 'audit_code_blocks.py', 'audit_matrix_controls.py', 'audit_sidebar_visibility.py', 'audit_mitigation_navigation.py', 'audit_library_navigation.py', 'audit_car_tabs.py',
 )}
 AUDITS['audit_versions.py'] = ['--picker-only']
 

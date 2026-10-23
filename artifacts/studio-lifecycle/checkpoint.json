@@ -1,17 +1,17 @@
 {
-  "checksum": "c5ab0380ac822511694427463c6e8e18641d9e52762a2dff26c38a40a16fa0c0",
+  "checksum": "4fdc431cdafcc6869498f93c63b36cdd147521e8d2e80a3a1e37accb8b7bf7d7",
   "workspace": {
     "studio_session_version": "1.0",
-    "updated_at_utc": "2026-10-20T15:30:28.745302+00:00",
+    "updated_at_utc": "2026-10-21T10:26:20.842470+00:00",
     "clean_exit": false,
     "documents": [
       {
         "document": {
           "schema_version": "1.0",
-          "document_id": "2202b99b-2bd4-443f-87e4-6c130fdd265e",
+          "document_id": "834976f1-d99a-4462-8f50-a194b42adec8",
           "name": "New Name",
-          "created_at_utc": "2026-10-20T15:30:17.128369+00:00",
-          "exported_at_utc": "2026-10-20T15:30:28.745302+00:00",
+          "created_at_utc": "2026-10-21T10:26:05.529177+00:00",
+          "exported_at_utc": "2026-10-21T10:26:20.841469+00:00",
           "attack": {
             "domain": "enterprise-attack",
             "version": "20.0",
@@ -234,17 +234,17 @@
         "initial_name": "Research 中文",
         "save_path": "D:\\MITREATTACK_SIMULATOR\\artifacts\\studio-lifecycle\\New Name.json",
         "saved_fingerprint": "07f852d9c98454f1cb0fd1dd99e7a58316fb05b676458c6a468df7b2ffe91e91",
-        "saved_file_sha256": "5e62d7fb0aa0dc4845728ba672990fe34dd5c0731349e86da404367338a0da4a",
+        "saved_file_sha256": "64bc61fedbf93638a87a8fed554db2e0fa90b7c45875e27d7e3f2151fc2bb4d9",
         "content_token_version": 2,
         "dirty": false
       },
       {
         "document": {
           "schema_version": "1.0",
-          "document_id": "991d7911-c257-42ec-a0f5-bf46e3a5b9c1",
+          "document_id": "16048c57-761f-429c-a713-91a55d0fa01e",
           "name": "New unsaved",
-          "created_at_utc": "2026-10-20T15:30:28.745302+00:00",
-          "exported_at_utc": "2026-10-20T15:30:28.745302+00:00",
+          "created_at_utc": "2026-10-21T10:26:20.841469+00:00",
+          "exported_at_utc": "2026-10-21T10:26:20.842470+00:00",
           "attack": {
             "domain": "enterprise-attack",
             "version": "20.0",
@@ -328,10 +328,10 @@
       {
         "document": {
           "schema_version": "1.0",
-          "document_id": "183ba98e-b948-4b52-b87f-aa9e01678db0",
+          "document_id": "ddb7e336-fa1c-4705-8211-cdcad6964314",
           "name": "Untitled-9",
-          "created_at_utc": "2026-10-20T15:30:28.745302+00:00",
-          "exported_at_utc": "2026-10-20T15:30:28.745302+00:00",
+          "created_at_utc": "2026-10-21T10:26:20.841469+00:00",
+          "exported_at_utc": "2026-10-21T10:26:20.842470+00:00",
           "attack": {
             "domain": "enterprise-attack",
             "version": "20.0",
@@ -362,10 +362,10 @@
       {
         "document": {
           "schema_version": "1.0",
-          "document_id": "93c59df0-0efc-478b-8831-41b243375663",
+          "document_id": "6a8d9ba0-84ca-4871-942f-dc5c08b768c4",
           "name": "custom",
-          "created_at_utc": "2026-10-20T15:30:26.008691+00:00",
-          "exported_at_utc": "2026-10-20T15:30:28.745302+00:00",
+          "created_at_utc": "2026-10-21T10:26:17.361729+00:00",
+          "exported_at_utc": "2026-10-21T10:26:20.842470+00:00",
           "attack": {
             "domain": "enterprise-attack",
             "version": "19.2",
@@ -425,7 +425,7 @@
         "initial_name": "Custom",
         "save_path": "D:\\MITREATTACK_SIMULATOR\\artifacts\\studio-lifecycle\\custom.json",
         "saved_fingerprint": "1c55ffa66fa9449d5edd82de3fefe30d658c316d9680584610f134829c2859b8",
-        "saved_file_sha256": "138aee27938f227fec87b1d9c38a5adb537c64caf6c8a4d7506576c2f8a72ca5",
+        "saved_file_sha256": "10df6f71713450cfc6d7352ad9f33cad1b37abcff373ea41952b2d77d41c1af9",
         "content_token_version": 2,
         "dirty": false
       }

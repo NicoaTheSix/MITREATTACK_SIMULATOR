@@ -1,5 +1,27 @@
 # Fusion Studio Icon
 
+## Nicoa HackMD 黑白像素封面
+
+**1 MB 以內版本**：`D:\MITREATTACK_SIMULATOR\assets\nicoa-hackmd-cover-under-1mb.png`，實際 **604,557 bytes（604.6 KB）**，低於 1,000,000 bytes。維持原圖 **1672 × 941** 尺寸。壓縮流程先顯示原圖與輸出圖的絕對路徑，再依 **1/3 讀取 → 2/3 PNG 最佳化 → 3/3 尺寸及大小驗證** 處理。原圖 1,862,926 bytes；RGB 最佳化仍超限，因此使用灰階 PNG 最佳化，保留黑白像素與抖色構圖、不縮放，並另存新檔。已重新開啟檔案驗證尺寸與大小。
+
+此圖由黑白融合構圖延伸為 HackMD 文章使用的橫式封面。螢幕中的兩個人物、復古電腦及 `I DON'T CARE`／`1925` 塗鴉保留；網路地球與節點移除，改為實際書桌場景，旁邊新增正面標示 **Nicoa** 的直立式桌上型主機。桌面包含鍵盤與滑鼠，維持黑白像素、抖色網點及清楚的階梯輪廓，使用完整不透明背景。
+
+- 輸入設計：`D:\MITREATTACK_SIMULATOR\assets\fusion-studio-monochrome-composite-v1.png`
+- 封面 PNG：`D:\MITREATTACK_SIMULATOR\assets\nicoa-hackmd-cover-v1.png`
+- 完整提示詞：`D:\MITREATTACK_SIMULATOR\assets\nicoa-hackmd-cover-v1-prompt.txt`
+
+流程：**1/3 確認前版與修改要求 → 2/3 使用內建 image_gen 編輯為橫式書桌場景 → 3/3 儲存及驗證**。工具輸出以新版檔名複製至專案，複製前顯示絕對來源及輸出路徑，同名目標已存在時停止。已檢視人物、無網路地球、獨立主機、Nicoa 拼字與橫式構圖，再讀取檔案尺寸確認為橫向封面。原版設計保留。
+
+## 黑白像素融合構圖
+
+以使用者提供的五張參考圖融合製作：第一張的塗鴉文字與顆粒感、兩張照片中的人物表情及姿態、復古桌上型電腦，以及網路地球與節點。構圖以電腦螢幕容納兩個人物形象，右上連接網路地球，機殼融入 `I DON'T CARE` 與 `1925` 塗鴉。採黑白像素與抖色網點視覺，外部背景透明，提供為獨立融合設計圖。
+
+- 圖檔：`D:\MITREATTACK_SIMULATOR\assets\fusion-studio-monochrome-composite-v1.png`
+- 完整提示詞：`D:\MITREATTACK_SIMULATOR\assets\fusion-studio-monochrome-composite-v1-prompt.txt`
+- 生成工具：內建 image_gen；五張圖片皆作為視覺參考，兩張人物照片另作為人物外觀與姿態參考。
+
+製作流程與進度：**1/3 檢視五張參考圖 → 2/3 一次融合生成單一構圖 → 3/3 複製到專案並驗證尺寸及透明背景**。複製與驗證前先顯示來源及輸出圖片的絕對路徑；同名輸出已存在時停止以保留既有設計。檢視生成結果，確認人物、電腦、網路地球、連線節點與塗鴉元素均呈現，再讀取 PNG 尺寸及角落 Alpha 作檔案驗證。
+
 ## Fusion Studio v2：ATT&CK 與 ATLAS 融合圖示
 
 此新版以目前 Fusion Studio 的雙框架 Workplace 為設計依據，延續藍色點陣與透明背景。盾牌代表資安研究與防護；三個技術關聯節點連入中央 AI 晶片，表達 ATT&CK 與 ATLAS 在同一工作空間融合。亮色晶片核心提供小尺寸辨識重點。這些是專案自己的視覺比喻，並非 MITRE 官方標誌。

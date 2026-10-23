@@ -2,6 +2,10 @@
 
 點擊指南即可在此分頁開啟，左側大綱也會同步更新。[回操作手冊首頁](in_app_manual+_zh.md)。
 
+## CAR 研究內容
+
+- [CAR 分析、資料模型、感測器及獨立工作區選取](car_integration+_zh.md)
+
 ## 文件與復原
 
 - [Studio 文件儲存與工作階段復原](studio_files+_zh.md)
@@ -42,3 +46,9 @@
 
 - [分數公式操作手冊與範例](layer_score_formulas+_zh.md)
 - [分數彙總與矩陣匯出](aggregation_and_exports+_zh.md)
+
+## 工作區頁籤與側邊欄顯示
+
+ATLAS 案例研究已改為同層工作區頁籤。Settings → 側邊欄顯示提供 ATT&CK、ATLAS、CAR 三個獨立開關，預設全開，Workplace 永遠保留。全部收合選取清單時，摘要與控制列維持正常高度。 [操作說明](workspace_layout+_zh.md).
+
+**CAR 瀏覽器** 與 **Technique Details** 並列為上層獨立參考頁籤，可用 × 或右鍵關閉，再由 Workplace 開啟；Recovery 保存頁籤是否開啟、目前頁面及類別。另見[工作區操作說明](workspace_layout+_zh.md#car-瀏覽器)。

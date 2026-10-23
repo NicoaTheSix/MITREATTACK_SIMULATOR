@@ -1,9 +1,9 @@
 {
   "schema_version": "1.0",
-  "document_id": "7804e7e4-6889-4c92-afee-c07d433b18dd",
+  "document_id": "758a86a4-9702-45e4-8e84-ec0b9eef2075",
   "name": "opened-3.studio",
-  "created_at_utc": "2026-10-20T15:28:34.886039+00:00",
-  "exported_at_utc": "2026-10-20T15:28:46.429285+00:00",
+  "created_at_utc": "2026-10-21T08:46:59.284724+00:00",
+  "exported_at_utc": "2026-10-21T08:47:17.295093+00:00",
   "attack": {
     "domain": "ics-attack",
     "version": "19.2",

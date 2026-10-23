@@ -2,6 +2,10 @@
 
 Choose a guide below. Each guide opens here with a clickable heading outline. [Return to the manual home](in_app_manual_en.md).
 
+## CAR research content
+
+- [CAR Analytics, Data Model, Sensors and independent Workplace inclusion](car_integration_en.md)
+
 ## Documents and recovery
 
 - [Studio files, saving and session recovery](studio_files_en.md)
@@ -42,3 +46,9 @@ Choose a guide below. Each guide opens here with a clickable heading outline. [R
 
 - [Score formulas: manual and examples](layer_score_formulas_en.md)
 - [Aggregation and matrix exports](aggregation_and_exports_en.md)
+
+## Workspace tabs and sidebar visibility
+
+ATLAS case studies now use a peer workspace tab. Settings → Sidebar content independently toggles ATT&CK, ATLAS and CAR, with all three enabled by default; Workplace always remains. Collapsed selection groups keep the summary and controls compact. [Guide](workspace_layout_en.md).
+
+**CAR Browser** opens beside **Technique Details** as an independent upper reference tab. Close it with × or its context menu; Workplace reopens it. Recovery retains tab visibility, active page and category. See the [workspace guide](workspace_layout_en.md#car-browser).

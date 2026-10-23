@@ -219,6 +219,20 @@ class AttackMatrix(QtWidgets.QWidget):
         self.presentation_syncing = False
         layout = QtWidgets.QVBoxLayout(self)
         layout.setContentsMargins(12, 10, 12, 8)
+        self.controls_toggle = QtWidgets.QToolButton()
+        self.controls_toggle.setText('Matrix controls')
+        self.controls_toggle.setCheckable(True)
+        self.controls_toggle.setChecked(True)
+        self.controls_toggle.setArrowType(QtCore.Qt.ArrowType.DownArrow)
+        self.controls_toggle.setToolButtonStyle(QtCore.Qt.ToolButtonStyle.ToolButtonTextBesideIcon)
+        layout.addWidget(self.controls_toggle, 0, QtCore.Qt.AlignmentFlag.AlignLeft)
+        self.controls_panel = QtWidgets.QWidget()
+        self.controls_layout = QtWidgets.QVBoxLayout(self.controls_panel)
+        self.controls_layout.setContentsMargins(0, 0, 0, 0)
+        layout.addWidget(self.controls_panel)
+        outer_layout = layout
+        layout = self.controls_layout
+        self.controls_toggle.toggled.connect(self.set_controls_expanded)
         layers = QtWidgets.QHBoxLayout()
         layers.addWidget(QtWidgets.QLabel("Layer"))
         self.layer_selector = QtWidgets.QComboBox()
@@ -392,6 +406,7 @@ class AttackMatrix(QtWidgets.QWidget):
         batch.addWidget(self.state_button)
         batch.addStretch()
         layout.addLayout(batch)
+        layout = outer_layout
         self.summary = QtWidgets.QLabel("Open the matrix after the local catalog loads.")
         self.summary.setWordWrap(True)
         layout.addWidget(self.summary)
@@ -424,6 +439,19 @@ class AttackMatrix(QtWidgets.QWidget):
         layout.addWidget(hint)
         self.timer = QtCore.QTimer(self)
         self.timer.timeout.connect(self.build_column)
+
+    def set_controls_expanded(self, expanded):
+        self.progress.emit('Input files: None; output files: None (matrix controls in memory)', 0, 2)
+        self.progress.emit('[Matrix controls 1/2] Updating control panel visibility', 1, 2)
+        if not expanded:
+            self.clear_source_preview()
+            self.source_picker.hidePopup()
+            self.source_completer.popup().hide()
+        with QtCore.QSignalBlocker(self.controls_toggle):
+            self.controls_toggle.setChecked(bool(expanded))
+        self.controls_panel.setVisible(bool(expanded))
+        self.controls_toggle.setArrowType(QtCore.Qt.ArrowType.DownArrow if expanded else QtCore.Qt.ArrowType.RightArrow)
+        self.progress.emit('[Matrix controls 2/2] Ready; filters, selections and annotations retained', 2, 2)
 
     def invalidate(self):
         self.clear_source_preview()

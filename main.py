@@ -18,6 +18,7 @@ from version_dialog import VersionDialog
 from ttp_documents import TTPDocument, export_document_json, export_document_csv, validate_document_name, technique_comments, technique_states
 from attack_matrix import AttackMatrix
 from windows_taskbar import set_window_taskbar_properties
+from windows_frame import install_fixed_windows_frame
 from navigator_integration import export_layer, document_layer, export_layers, update_technique_fields, validate_layer
 from navigator_dialogs import ImportLayerDialog, AnnotationDialog, LayerSettingsDialog, SelectionCompareDialog, VersionCompareDialog
 from navigator_visuals import DEFAULT_GRADIENT
@@ -42,6 +43,7 @@ from atlas_workspace import AtlasWorkspace
 from atlas_catalog import load_atlas_catalog
 from car_workspace import CarWorkspace
 from car_catalog import load_car
+from navigation_scope import NavigationScope
 from framework_dialog import choose_frameworks
 from framework_io import selection, FrameworkSelection, framework_documents
 
@@ -200,14 +202,19 @@ class CatalogLoader(QtCore.QThread):
     def run(self):
         try:
             try:
-                catalog = load_catalog(self.root, self.report, self.pointer_path)
-            except InterruptedError:
-                raise
-            except Exception:
-                if self.pointer_path.name != "active.json":
+                try:
+                    catalog = load_catalog(self.root, self.report, self.pointer_path)
+                except InterruptedError:
                     raise
-                self.report("Saved version unavailable; loading latest.json instead", 0, 0)
-                catalog = load_catalog(self.root, self.report)
+                except Exception:
+                    if self.pointer_path.name != "active.json":
+                        raise
+                    self.report("Saved version unavailable; loading latest.json instead", 0, 0)
+                    catalog = load_catalog(self.root, self.report)
+            except FileNotFoundError as error:
+                from car_documents import empty_catalog
+                self.report('[ATT&CK] Local data unavailable; opening an empty TTP surface for independent CAR content: '+str(error),1,1)
+                catalog = empty_catalog()
             try:
                 self.atlas_loaded.emit(load_atlas_catalog(self.root, self.report))
             except InterruptedError:
@@ -250,7 +257,7 @@ def load_navigation_icons():
     return icons
 
 
-class MainWindow(QtWidgets.QMainWindow, AtlasWorkspace, CarWorkspace, StudioWorkspace, SelectionWorkspace, ManualWorkspace, LanguageWorkspace):
+class MainWindow(QtWidgets.QMainWindow, AtlasWorkspace, CarWorkspace, StudioWorkspace, SelectionWorkspace, ManualWorkspace, LanguageWorkspace, NavigationScope):
     ready = QtCore.Signal()
 
     def __init__(self, data_root: Path, pointer_path=None, settings_path=None, session_path=None):
@@ -259,6 +266,7 @@ class MainWindow(QtWidgets.QMainWindow, AtlasWorkspace, CarWorkspace, StudioWork
         self.settings_path = (Path(settings_path) if settings_path is not None else
                               Path(__file__).resolve().parent / "data" / "ui-settings.ini").resolve()
         self.ui_settings, self.navigation_labels_visible = self.load_ui_settings()
+        self.init_navigation_scope()
         self.init_language()
         self.version_dialog = None
         self.integration_dialog = None
@@ -297,9 +305,11 @@ class MainWindow(QtWidgets.QMainWindow, AtlasWorkspace, CarWorkspace, StudioWork
         self.init_selection_tools(ROLE_ID,ROLE_CONTEXT,ROLE_SEARCH)
         self.init_atlas_workspace()
         self.init_car_workspace()
+        self.apply_navigation_scope()
         self.workspace.currentChanged.connect(self.schedule_session_checkpoint)
         self.tabs.currentChanged.connect(self.schedule_session_checkpoint)
         self.matrix_view.show_colors.toggled.connect(self.schedule_session_checkpoint)
+        self.matrix_view.controls_toggle.toggled.connect(self.schedule_session_checkpoint)
         self.matrix_view.show_all_layers.toggled.connect(self.schedule_session_checkpoint)
         self.loader = CatalogLoader(self.data_root, self, pointer_path)
         self.loader.progress.connect(self.report)
@@ -415,6 +425,9 @@ class MainWindow(QtWidgets.QMainWindow, AtlasWorkspace, CarWorkspace, StudioWork
         self.details_action = view_menu.addAction("Technique Details")
         self.details_action.setEnabled(False)
         self.details_action.triggered.connect(lambda: self.open_details_page())
+        self.atlas_cases_action=view_menu.addAction('ATLAS Case Studies Details')
+        self.atlas_cases_action.setEnabled(False)
+        self.atlas_cases_action.triggered.connect(lambda:self.open_atlas_cases())
 
         self.version_action = self.menuBar().addAction("Version")
         self.version_action.setToolTip("Choose an official ATT&CK version")
@@ -471,6 +484,7 @@ class MainWindow(QtWidgets.QMainWindow, AtlasWorkspace, CarWorkspace, StudioWork
 
         settings_menu = self.menuBar().addMenu("Settings")
         self.add_language_menu(settings_menu)
+        self.add_navigation_scope_menu(settings_menu)
         self.show_navigation_labels_action = settings_menu.addAction("Show navigation labels")
         self.show_navigation_labels_action.setCheckable(True)
         self.show_navigation_labels_action.setChecked(self.navigation_labels_visible)
@@ -491,7 +505,8 @@ class MainWindow(QtWidgets.QMainWindow, AtlasWorkspace, CarWorkspace, StudioWork
         self.navigation_group.setExclusive(True)
         self.navigation_buttons = {}
         navigation_icons = load_navigation_icons()
-        for category in ("Workplace", "TTP", "ATLAS TTP", *BROWSE_CATEGORIES, "ATLAS Mitigations", "ATLAS Case Studies",
+        self.navigation_icons=navigation_icons
+        for category in ("Workplace", "TTP", "ATLAS TTP", *BROWSE_CATEGORIES, "ATLAS Mitigations",
                          "CAR Analytics", "CAR Data Model", "CAR Sensors"):
             button = QtWidgets.QToolButton()
             button.setText({'TTP':'ATT&CK TTP', 'ATLAS Mitigations':'ATLAS\nMitigations',
@@ -698,6 +713,9 @@ class MainWindow(QtWidgets.QMainWindow, AtlasWorkspace, CarWorkspace, StudioWork
         self.selection_state_button.setMenu(state_menu)
         batch_row.addWidget(self.selection_state_button)
         selection_layout.addLayout(batch_row)
+        # The spacer takes unused height when every selection list is collapsed.
+        # Expanded lists already have stretch priority, so they retain the space.
+        selection_layout.addStretch(0)
         self.selection_tab_index = self.tabs.addTab(selection_page, "Selected Techniques (0)")
         self.matrix_view = AttackMatrix()
         self.matrix_view.progress.connect(self.operation_report)
@@ -819,6 +837,10 @@ class MainWindow(QtWidgets.QMainWindow, AtlasWorkspace, CarWorkspace, StudioWork
             self.workspace.setCurrentWidget(self.manual_page)
         elif self.document_tabs.tabData(index) == "__details__":
             self.workspace.setCurrentWidget(self.details_page)
+        elif self.document_tabs.tabData(index) == '__atlas_cases__':
+            self.open_atlas_cases()
+        elif self.document_tabs.tabData(index) == '__car_browser__':
+            self.reveal_car_browser()
         else:
             self.activate_document(index)
 
@@ -1333,6 +1355,14 @@ class MainWindow(QtWidgets.QMainWindow, AtlasWorkspace, CarWorkspace, StudioWork
             menu.addAction("Close Details", self.close_details_page)
             menu.popup(self.document_tabs.mapToGlobal(position))
             return
+        if self.document_tabs.tabData(index) == '__atlas_cases__':
+            menu.addAction('Close Case Studies', self.close_atlas_cases)
+            menu.popup(self.document_tabs.mapToGlobal(position))
+            return
+        if self.document_tabs.tabData(index) == '__car_browser__':
+            menu.addAction('Close CAR Browser',self.close_car_browser)
+            menu.popup(self.document_tabs.mapToGlobal(position))
+            return
         document_id = self.documents[index].document_id
         close_action = menu.addAction("Close File")
         close_action.triggered.connect(lambda: self.close_document(self.document_index(document_id)))
@@ -1418,13 +1448,17 @@ class MainWindow(QtWidgets.QMainWindow, AtlasWorkspace, CarWorkspace, StudioWork
         previous_active = self.active_document_index
         keep_details = self.workspace.currentWidget() is self.details_page
         keep_manual = self.workspace.currentWidget() is getattr(self, 'manual_page', None)
+        keep_cases = self.workspace.currentWidget() is self.atlas_cases_page
+        keep_car = self.workspace.currentWidget() is self.car_browser
         self.document_tabs.blockSignals(True)
         self.documents.pop(index)
         self.document_tabs.removeTab(index)
         if index != previous_active:
             self.active_document_index = previous_active - int(index < previous_active)
             self.document_tabs.setCurrentIndex(self.manual_tab_index if keep_manual else
-                                              self.details_tab_index if keep_details else self.active_document_index)
+                                              self.details_tab_index if keep_details else
+                                              self.atlas_cases_tab_index if keep_cases else
+                                              self.car_browser_tab_index if keep_car else self.active_document_index)
             self.document_tabs.blockSignals(False)
             self.update_document_labels()
         else:
@@ -1439,6 +1473,10 @@ class MainWindow(QtWidgets.QMainWindow, AtlasWorkspace, CarWorkspace, StudioWork
                 self.new_document()
         if keep_manual:
             self.open_manual()
+        elif keep_cases:
+            self.open_atlas_cases()
+        elif keep_car:
+            self.reveal_car_browser()
         self.operation_report(f"[Close File 2/2] Closed {document.name}", 2, 2)
         self.checkpoint_session()
         return True
@@ -1780,6 +1818,8 @@ class MainWindow(QtWidgets.QMainWindow, AtlasWorkspace, CarWorkspace, StudioWork
         if self.closing:
             return
         self.restore_details_view = self.workspace.currentWidget() is self.details_page
+        self.restore_cases_view = self.workspace.currentWidget() is getattr(self,'atlas_cases_page',None)
+        self.restore_car_view = self.workspace.currentWidget() is getattr(self,'car_browser',None)
         self.restore_manual_view = self.workspace.currentWidget() is getattr(self, 'manual_page', None)
         self.restore_matrix_view = self.workspace.currentWidget() is self.tabs and self.tabs.currentIndex() == self.matrix_tab_index
         self.restoring_workspace = True
@@ -1936,8 +1976,9 @@ class MainWindow(QtWidgets.QMainWindow, AtlasWorkspace, CarWorkspace, StudioWork
         self.ttp_search.setEnabled(True)
         for button in self.navigation_buttons.values():
             button.setEnabled(True)
-        for category in ('ATLAS TTP', 'ATLAS Mitigations', 'ATLAS Case Studies'):
+        for category in ('ATLAS TTP', 'ATLAS Mitigations'):
             self.navigation_buttons[category].setEnabled(self.atlas_catalog is not None)
+        self.apply_navigation_scope()
         self.summary.setText(f"{domain_label(self.catalog.domain, self.catalog)} v{self.catalog.version} · {len(self.catalog.groups)} platforms")
         self.version_label.setText(f"ATT&CK v{self.catalog.version}  |  {domain_label(self.catalog.domain, self.catalog)}")
         self.report("[4/4 Tree] Complete", 1, 1)
@@ -1981,7 +2022,11 @@ class MainWindow(QtWidgets.QMainWindow, AtlasWorkspace, CarWorkspace, StudioWork
         self.refresh_selection()
         self.switch_category(self.restore_category)
         self.restoring_workspace = False
-        if self.restore_manual_view:
+        if self.restore_car_view:
+            self.reveal_car_browser()
+        elif self.restore_cases_view:
+            self.open_atlas_cases()
+        elif self.restore_manual_view:
             self.open_manual()
         elif self.restore_matrix_view:
             self.open_matrix()
@@ -2006,6 +2051,10 @@ class MainWindow(QtWidgets.QMainWindow, AtlasWorkspace, CarWorkspace, StudioWork
     def switch_category(self, category):
         if not self.loaded_ok:
             return
+        if category=='ATLAS Case Studies':
+            return self.open_atlas_cases()
+        if not self.navigation_category_visible(category):
+            category='Workplace'
         if category.startswith('CAR '):
             return self.switch_car_category(category)
         if category in ('Workplace', 'ATLAS TTP', 'ATLAS Mitigations', 'ATLAS Case Studies'):
@@ -2674,6 +2723,7 @@ def configure_application(app):
         font.setFamilies(["Segoe UI", "Microsoft JhengHei"])
     app.setFont(font)
     app.setStyleSheet(STYLE)
+    install_fixed_windows_frame(app)
 
 def main():
     parser = argparse.ArgumentParser(description=APP_NAME + ': ' + APP_TAGLINE.replace('®', ''))

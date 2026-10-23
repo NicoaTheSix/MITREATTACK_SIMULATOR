@@ -114,4 +114,10 @@ def validate_import_documents(documents, existing):
         if layer and (layer['domain'] != doc.catalog.domain or layer_version(layer, doc.catalog.version) != doc.catalog.version
                       or layer.get('x_ttp_studio_dataset', doc.catalog.dataset_id) != doc.catalog.dataset_id):
             raise ValueError('Imported annotations belong to another domain, version or dataset.')
-        document_layer(doc)
+        from car_documents import is_empty_catalog, validate_workspace
+        if is_empty_catalog(doc.catalog):
+            if doc.navigator_layer or doc.selected or doc.selection_scopes:
+                raise ValueError('An empty CAR-only surface cannot contain ATT&CK annotations or selections.')
+            validate_workspace(doc.car_workspace)
+        else:
+            document_layer(doc)

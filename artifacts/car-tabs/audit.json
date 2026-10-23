@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "count": 25,
+  "checks": [
+    "CAR tab starts closed",
+    "CAR reference shares filenames/Technique Details tab bar",
+    "CAR is independent of lower matrix tabs",
+    "Technique Details and CAR coexist",
+    "repeated Workplace opening reuses one CAR tab",
+    "direct analytic opens in CAR reference",
+    "Technique Details tab activates its own page",
+    "returning to CAR preserves its detail",
+    "CAR close returns to active document",
+    "closing CAR retains document and Technique Details",
+    "Workplace reopening preserves query and current detail",
+    "closing inactive CAR leaves Technique Details active",
+    "direct analytic recreates a closed CAR tab",
+    "closing inactive Technique Details leaves CAR active",
+    "CAR context menu has no file rename/domain actions",
+    "context action closes CAR",
+    "model/sensor links reuse the same CAR reference",
+    "file insertion moves reference index without activating it",
+    "closing another file retains CAR reference",
+    "session view identifies CAR separately",
+    "session restores CAR tab and category",
+    "fresh window automatically restores the CAR reference and owning document",
+    "inactive open CAR reference restores without taking focus",
+    "old sessions do not create a CAR tab",
+    "CAR reference title localizes"
+  ]
+}

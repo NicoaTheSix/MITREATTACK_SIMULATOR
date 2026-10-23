@@ -1,15 +1,15 @@
 {
   "studio_frameworks_version": "1.0",
   "name": "ui-atlas",
-  "document_id": "812605ca-ce20-4e09-9ff5-6b86b7f4119e",
-  "created_at_utc": "2026-10-20T15:30:20.129694+00:00",
+  "document_id": "555528d7-174f-4519-bb62-c97143847032",
+  "created_at_utc": "2026-10-21T08:46:40.111745+00:00",
   "frameworks": {
     "atlas": {
       "schema_version": "1.0",
-      "document_id": "bf6b7d6a-4def-4125-847f-1baf460d35aa",
+      "document_id": "14633897-8d44-48bd-8f1c-fae2f9359e73",
       "name": "ATLAS",
-      "created_at_utc": "2026-10-20T15:30:21.716401+00:00",
-      "exported_at_utc": "2026-10-20T15:30:30.656117+00:00",
+      "created_at_utc": "2026-10-21T08:46:43.088670+00:00",
+      "exported_at_utc": "2026-10-21T08:46:56.241368+00:00",
       "attack": {
         "domain": "atlas-atlas",
         "version": "2026.09",
@@ -90,5 +90,6 @@
         }
       }
     }
-  }
+  },
+  "car_workspace": {}
 }

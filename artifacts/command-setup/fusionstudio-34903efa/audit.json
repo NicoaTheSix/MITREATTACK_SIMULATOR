@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "case": "missing-launcher",
+      "status": "PASS",
+      "exit_code": 1
+    },
+    {
+      "case": "missing-environment",
+      "status": "PASS",
+      "exit_code": 1
+    },
+    {
+      "case": "launcher-missing-environment",
+      "status": "PASS",
+      "exit_code": 1
+    }
+  ],
+  "notes": "Only isolated project fixtures used; missing-file/environment failures exit before PATH registration or launch logs."
+}

@@ -1,17 +1,17 @@
 {
-  "checksum": "e6ab86843e210adcf6b8750687c91f0693c1f7368a55b138bb6b08cd0e1f110a",
+  "checksum": "e0f64e60d8e027ef27d33cdfc0da6bf79f51d9582b4a4447a4dacca438de6e55",
   "workspace": {
     "studio_session_version": "1.0",
-    "updated_at_utc": "2026-10-20T16:12:04.699533+00:00",
+    "updated_at_utc": "2026-10-21T11:01:05.410330+00:00",
     "clean_exit": false,
     "documents": [
       {
         "document": {
           "schema_version": "1.0",
-          "document_id": "2c88ec4d-47d4-40f5-8342-31d48a322d5f",
+          "document_id": "afdc9de1-7e9c-403f-896e-4c2858f3a00a",
           "name": "Untitled-1",
-          "created_at_utc": "2026-10-20T16:11:50.768806+00:00",
-          "exported_at_utc": "2026-10-20T16:12:04.699533+00:00",
+          "created_at_utc": "2026-10-21T11:00:50.426757+00:00",
+          "exported_at_utc": "2026-10-21T11:01:05.409333+00:00",
           "attack": {
             "domain": "enterprise-attack",
             "version": "20.0",
@@ -76,10 +76,10 @@
           ],
           "atlas_workspace": {
             "schema_version": "1.0",
-            "document_id": "3f49cd9d-357d-4682-9bf5-ee3fe2ccbe87",
+            "document_id": "a04bff75-b263-4771-a28b-47ddaf8b676a",
             "name": "ATLAS",
-            "created_at_utc": "2026-10-20T16:11:52.260068+00:00",
-            "exported_at_utc": "2026-10-20T16:12:04.699533+00:00",
+            "created_at_utc": "2026-10-21T11:00:52.508205+00:00",
+            "exported_at_utc": "2026-10-21T11:01:05.409333+00:00",
             "attack": {
               "domain": "atlas-atlas",
               "version": "2026.09",
@@ -171,10 +171,10 @@
       {
         "document": {
           "schema_version": "1.0",
-          "document_id": "21bb5fe8-0a0c-4836-b146-022f41b5832b",
+          "document_id": "e0906c3d-e6c1-4670-9ce2-85101a11ed81",
           "name": "Untitled-2",
-          "created_at_utc": "2026-10-20T16:12:03.397696+00:00",
-          "exported_at_utc": "2026-10-20T16:12:04.699533+00:00",
+          "created_at_utc": "2026-10-21T11:01:03.746223+00:00",
+          "exported_at_utc": "2026-10-21T11:01:05.409333+00:00",
           "attack": {
             "domain": "enterprise-attack",
             "version": "20.0",
@@ -205,10 +205,10 @@
       {
         "document": {
           "schema_version": "1.0",
-          "document_id": "c2277666-8714-4f49-8463-b9c590625a14",
+          "document_id": "8446da73-310f-492b-882d-df90257dcc7f",
           "name": "Untitled-1-copy",
-          "created_at_utc": "2026-10-20T16:12:03.902131+00:00",
-          "exported_at_utc": "2026-10-20T16:12:04.699533+00:00",
+          "created_at_utc": "2026-10-21T11:01:04.346103+00:00",
+          "exported_at_utc": "2026-10-21T11:01:05.410330+00:00",
           "attack": {
             "domain": "enterprise-attack",
             "version": "20.0",
@@ -301,10 +301,10 @@
           },
           "atlas_workspace": {
             "schema_version": "1.0",
-            "document_id": "3f49cd9d-357d-4682-9bf5-ee3fe2ccbe87",
+            "document_id": "a04bff75-b263-4771-a28b-47ddaf8b676a",
             "name": "ATLAS",
-            "created_at_utc": "2026-10-20T16:11:52.260068+00:00",
-            "exported_at_utc": "2026-10-20T16:12:04.699533+00:00",
+            "created_at_utc": "2026-10-21T11:00:52.508205+00:00",
+            "exported_at_utc": "2026-10-21T11:01:05.410330+00:00",
             "attack": {
               "domain": "atlas-atlas",
               "version": "2026.09",
@@ -371,8 +371,13 @@
       "matrix_framework": "attack",
       "attack_matrix_open": false,
       "atlas_matrix_open": false,
+      "atlas_cases_open": true,
+      "matrix_controls_expanded": true,
+      "atlas_case_key": "x-atlas-case-study--861228c8-adac-54d6-9fa9-cb6523848fac",
+      "atlas_cases_query": "",
       "attack_expanded": true,
-      "atlas_expanded": false
+      "atlas_expanded": false,
+      "car_expanded": true
     }
   }
 }

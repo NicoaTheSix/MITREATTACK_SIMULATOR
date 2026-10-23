@@ -5,6 +5,7 @@ from dataclasses import replace
 import io
 import json
 from pathlib import Path
+from atlas_cases import CASE_KEY
 import time
 from unittest.mock import patch
 
@@ -177,8 +178,9 @@ def main():
     catalog = window.atlas_catalog
     check((len(catalog.tactics),len(catalog.records),len(catalog.parents)) == (16,208,88), 'official ATLAS counts')
     check(list(window.navigation_buttons)[0] == 'Workplace', 'Workplace is the top navigation entry')
-    for name in ('Workplace','ATLAS TTP','ATLAS Mitigations','ATLAS Case Studies'):
+    for name in ('Workplace','ATLAS TTP','ATLAS Mitigations'):
         check(not window.navigation_buttons[name].icon().isNull(), name + ' icon loads')
+    check(not window.document_tabs.tabIcon(window.ensure_atlas_cases_tab()).isNull() and 'ATLAS Case Studies' not in window.navigation_buttons,'case-study icon appears on the upper reference tab')
     check(window.tabs.indexOf(window.matrix_view) != window.tabs.indexOf(window.atlas_matrix), 'matrix views are peer tabs')
     attack_key = next(iter(window.catalog.records))
     window.choose_technique_occurrence(attack_key, True)
@@ -247,17 +249,23 @@ def main():
           'actual matrix tab context action closes without changing selection')
     for category, kind, count in [('ATLAS Mitigations','course-of-action',40),('ATLAS Case Studies','x-atlas-case-study',73)]:
         window.switch_category(category)
-        check(window.atlas_sidebar.topLevelItemCount()==count, category + ' library count')
-        node = window.atlas_sidebar.topLevelItem(0)
+        cases=kind=='x-atlas-case-study'
+        tree=window.atlas_cases_page.listing if cases else window.atlas_sidebar
+        role=CASE_KEY if cases else KEY
+        source_bar=window.atlas_cases_page if cases else window.atlas_source_bar
+        add_button=window.atlas_cases_page.add if cases else window.atlas_add_all_button
+        remove_button=window.atlas_cases_page.remove if cases else window.atlas_remove_all_button
+        check(tree.topLevelItemCount()==count, category + ' library count')
+        node = tree.topLevelItem(0)
         check(not node.flags() & QtCore.Qt.ItemFlag.ItemIsUserCheckable, category + ' entries are references, not selectable techniques')
-        window.show_atlas_record(node.data(0,KEY))
-        text = window.details.toPlainText()
-        check(external_id(catalog.objects_by_domain[DOMAIN][node.data(0,KEY)]) in text, category + ' detail renders')
+        window.show_atlas_record(node.data(0,role))
+        text = (window.atlas_cases_page.details if cases else window.details).toPlainText()
+        check(external_id(catalog.objects_by_domain[DOMAIN][node.data(0,role)]) in text, category + ' detail renders')
         if kind=='x-atlas-case-study':
             check('S00' in text and 'Leads to:' in text and 'Exercise' in text, 'case steps, graph edges and native type are retained')
-        check(window.atlas_source_bar.isVisible() and window.atlas_add_all_button.isEnabled(),
+        check(source_bar.isVisible() and add_button.isEnabled(),
               category + ' shows Add all ATLAS TTPs above the content')
-        source = catalog.objects_by_domain[DOMAIN][node.data(0,KEY)]
+        source = catalog.objects_by_domain[DOMAIN][node.data(0,role)]
         relation = 'mitigates' if kind == 'course-of-action' else 'employs'
         ids = {edge['target'] for edge in source['x_atlas_relationships'][relation]}
         expected = {k for k,obj in catalog.records.items() if external_id(obj) in ids}
@@ -266,14 +274,14 @@ def main():
         layer_before = deepcopy(atlas.navigator_layer)
         update_annotation(atlas,key,'','Preserve bulk-add annotation',1,'#ffffff')
         layer_with_note = deepcopy(atlas.navigator_layer)
-        window.atlas_add_all_button.click()
+        add_button.click()
         check(atlas.selected == selected_before | expected, category + ' real button adds exactly its official related techniques')
         check(doc.selected == {attack_key} and atlas.navigator_layer == layer_with_note,
               category + ' preserves ATT&CK selections and ATLAS annotations')
         check(window.atlas_selection_list.count() == len(atlas.selected) and window.atlas_matrix.document is atlas,
               category + ' updates selected list and matrix')
         token = doc.content_token()
-        window.atlas_add_all_button.click()
+        add_button.click()
         check(doc.content_token() == token, category + ' repeated bulk add is idempotent')
         unrelated = next(k for k in catalog.records if k not in expected and k != key)
         atlas.selected.add(unrelated)
@@ -281,9 +289,9 @@ def main():
         annotated = deepcopy(atlas.navigator_layer)
         remaining = atlas.selected - expected
         window.update_document_labels()
-        check(window.atlas_remove_all_button.isVisible() and window.atlas_remove_all_button.isEnabled(),
+        check(remove_button.isVisible() and remove_button.isEnabled(),
               category + ' shows Remove all ATLAS TTPs above the content')
-        window.atlas_remove_all_button.click()
+        remove_button.click()
         check(atlas.selected == remaining and unrelated in atlas.selected and doc.selected == {attack_key},
               category + ' removes only its related ATLAS TTPs')
         check(atlas.navigator_layer == annotated, category + ' retains annotations on removed and remaining techniques')
@@ -293,9 +301,9 @@ def main():
                       if (item := tree_item_safe(tree,target)) is not None),
               category + ' removal synchronizes selected list and matrix checkboxes')
         token = doc.content_token()
-        window.atlas_remove_all_button.click()
+        remove_button.click()
         check(doc.content_token()==token,category + ' repeated removal is idempotent')
-        window.atlas_add_all_button.click()
+        add_button.click()
         check(atlas.selected==remaining|expected and atlas.navigator_layer==annotated,
               category + ' re-add restores selection with retained annotations')
         atlas.selected, atlas.selection_scopes, atlas.navigator_layer = selected_before, scopes_before, layer_before
@@ -304,33 +312,33 @@ def main():
     steps = repeated_case['x_atlas_relationships']['employs']
     window.show_atlas_record(repeated_case['id'])
     before_selected = set(doc.atlas_document.selected)
-    window.atlas_add_all_button.click()
+    window.atlas_cases_page.add.click()
     expected = {k for k,obj in catalog.records.items() if external_id(obj) in {step['target'] for step in steps}}
     check(len(steps) > len(expected) and doc.atlas_document.selected == before_selected | expected,
           'case with repeated technique steps adds each TTP only once')
     doc.atlas_document.selected = before_selected
     window.update_document_labels()
-    window.atlas_source_context = (('stale-catalog',), repeated_case['id'])
+    window.atlas_cases_page.context = (('stale-catalog',), repeated_case['id'])
     token = doc.content_token()
-    window.atlas_add_all_button.click()
-    check(doc.content_token() == token and not window.atlas_source_bar.isVisible(),
+    window.atlas_cases_page.add.click()
+    check(doc.content_token() == token and not window.atlas_cases_page.add.isEnabled(),
           'stale source context cannot add to another dataset')
     empty = deepcopy(repeated_case)
     empty['x_atlas_relationships'] = {}
     store = {**catalog.objects_by_domain[DOMAIN], empty['id']:empty}
     doc.atlas_document.catalog = replace(catalog, objects_by_domain={**catalog.objects_by_domain, DOMAIN:store})
     window.show_atlas_record(empty['id'])
-    check(window.atlas_source_bar.isVisible() and not window.atlas_add_all_button.isEnabled()
-          and not window.atlas_remove_all_button.isEnabled(),
+    check(window.atlas_cases_page.isVisible() and not window.atlas_cases_page.add.isEnabled()
+          and not window.atlas_cases_page.remove.isEnabled(),
           'source without mapped TTPs disables both source actions')
     doc.atlas_document.catalog = catalog
     window.show_atlas_record(key)
     check(not window.atlas_source_bar.isVisible() and window.atlas_source_context is None,
           'technique navigation clears the source bulk-add context')
     check(window.atlas_detail_bar.isVisible(), 'ATLAS technique detail has selection/annotation controls')
-    window.atlas_search.setText('AML.CS0000')
-    check(window.atlas_sidebar.topLevelItemCount()==1,'ATLAS library search')
-    window.atlas_search.clear()
+    window.atlas_cases_page.search.setText('AML.CS0000')
+    check(sum(not window.atlas_cases_page.listing.topLevelItem(i).isHidden() for i in range(window.atlas_cases_page.listing.topLevelItemCount()))==1,'ATLAS case library search')
+    window.atlas_cases_page.search.clear()
 
     print('[ATLAS audit 3/5] Mixed saves, multiline CSV, snapshots and exact-source validation', flush=True)
     atlas = doc.atlas_document
@@ -420,7 +428,7 @@ def main():
     window.open_atlas_matrix()
     window.grab().save(str(OUT/'atlas-matrix.png'))
     window.switch_category('ATLAS Case Studies')
-    window.show_atlas_record(window.atlas_sidebar.topLevelItem(0).data(0,KEY))
+    window.show_atlas_record(window.atlas_cases_page.listing.topLevelItem(0).data(0,CASE_KEY))
     window.grab().save(str(OUT/'case-study.png'))
     manager.set_language('en')
     print('[ATLAS audit 5/5] Complete', flush=True)

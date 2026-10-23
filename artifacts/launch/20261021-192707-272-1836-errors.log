@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "D:\MITREATTACK_SIMULATOR\main.py", line 605, in <lambda>
+    collapse.clicked.connect(lambda: self.explorer_stack.currentWidget().collapseAll())
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'PySide6.QtWidgets.QWidget' object has no attribute 'collapseAll'

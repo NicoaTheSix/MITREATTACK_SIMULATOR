@@ -1,11 +1,13 @@
 {
-  "passed": 62,
+  "passed": 64,
   "checks": [
-    "read defaults to both frameworks",
-    "read supports ATLAS only",
+    "read defaults to all three content types",
+    "read supports ATLAS and CAR without ATT&CK",
+    "read supports CAR only",
     "read prevents empty choice",
-    "write defaults to both frameworks",
-    "write supports ATLAS only",
+    "write defaults to all three content types",
+    "write supports ATLAS and CAR without ATT&CK",
+    "write supports CAR only",
     "write prevents empty choice",
     "empty choice rejected by file IO as well as UI",
     "both Studio payload framework layout",
@@ -62,6 +64,6 @@
     "Navigator import excludes ATT&CK when unchecked",
     "Navigator import blocks both frameworks off",
     "ATLAS Navigator imports into the ATLAS group of its Workplace",
-    "framework dialog localizes while preserving default choices"
+    "content dialog localizes while preserving all default choices"
   ]
 }

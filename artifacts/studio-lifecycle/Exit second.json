@@ -1,9 +1,9 @@
 {
   "schema_version": "1.0",
-  "document_id": "f8511217-3f1e-4379-98c6-16228ffcb541",
+  "document_id": "720dc83a-9afe-424b-8cf1-da72286ab262",
   "name": "Exit second",
-  "created_at_utc": "2026-10-20T15:31:49.112073+00:00",
-  "exported_at_utc": "2026-10-20T15:31:49.711141+00:00",
+  "created_at_utc": "2026-10-21T10:28:39.135058+00:00",
+  "exported_at_utc": "2026-10-21T10:28:40.667661+00:00",
   "attack": {
     "domain": "enterprise-attack",
     "version": "20.0",

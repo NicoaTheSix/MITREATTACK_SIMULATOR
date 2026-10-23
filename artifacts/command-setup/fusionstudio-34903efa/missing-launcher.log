@@ -1,0 +1,13 @@
+Input project: D:\MITREATTACK_SIMULATOR\artifacts\command-setup\fusionstudio-34903efa\missing-launcher with spaces 皜祈岫 'quote
+Input launcher: D:\MITREATTACK_SIMULATOR\artifacts\command-setup\fusionstudio-34903efa\missing-launcher with spaces 皜祈岫 'quote\scripts\Start-FusionStudio.ps1
+Input command: D:\MITREATTACK_SIMULATOR\artifacts\command-setup\fusionstudio-34903efa\missing-launcher with spaces 皜祈岫 'quote\fusionstudio.cmd
+Input/output setting: HKEY_CURRENT_USER\Environment\Path
+Output files: None (register existing command files in the user PATH)
+[Command setup 1/4] Checking downloaded project files
+D:\MITREATTACK_SIMULATOR\artifacts\command-setup\fusionstudio-34903efa\missing-launcher with spaces 皜祈岫 
+'quote\scripts\Install-FusionStudioCommand.ps1 : Command setup failed: Required file missing: 
+D:\MITREATTACK_SIMULATOR\artifacts\command-setup\fusionstudio-34903efa\missing-launcher with spaces 皜祈岫 
+'quote\scripts\Start-FusionStudio.ps1. Extract the complete project before running setup.
+    + CategoryInfo          : NotSpecified: (:) [Write-Error], WriteErrorException
+    + FullyQualifiedErrorId : Microsoft.PowerShell.Commands.WriteErrorException,Install-FusionStudioCommand.ps1
+ 

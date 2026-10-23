@@ -6,7 +6,7 @@ The application subtitle is *A community toolkit for MITRE ATT&CK® and ATLAS*. 
 
 `installation_en.md` and `installation+_zh.md` cover Windows and Linux/WSL2 startup. Keep their Linux system packages, separate-venv instructions and Bash launcher flags aligned with the root README. They describe the same resolve inputs → validate environment/imports → launch → dataset loading workflow; package and application commands display absolute input/output paths and stage progress. Linux tests use an isolated source copy so existing Windows settings and recovery documents are not overwritten.
 
-The installation guides also describe `setup-ttpselecter.sh`: validate the installed Linux application → preflight command/profile ownership → install a user wrapper and backed-up Bash/Zsh PATH blocks → verify forwarding. Reopen the terminal before using bare `ttpselecter`; repeat setup after moving the project. Keep these steps aligned with `scripts/install_linux_command.py` and the root command-setup instructions.
+The installation guides describe Windows `setup-fusionstudio.cmd` and noninteractive `scripts/Install-FusionStudioCommand.ps1`: validate project → check environment → register user PATH → verify, then launch with `fusionstudio` in PowerShell/cmd. Existing project PATH entries support the renamed command; the old Windows command files are removed. Linux uses `setup-fusionstudio.sh`: validate the installed Linux application → preflight command/profile ownership → install a user wrapper and backed-up Bash/Zsh PATH blocks → verify forwarding. Reopen the terminal before using bare `fusionstudio` on Linux; repeat setup after moving the project. Linux migration removes only the intact former managed wrapper after the new command passes verification, and retains existing PATH blocks and historical backups. Keep these steps aligned with the platform installers and the root command-setup instructions.
 
 Open **Info → Manual** or **F1** for the [in-app operating manual](in_app_manual_en.md). It appears beside file tabs, with a clickable heading outline, links to the guides below, page search, and explicit feature links that open existing application controls. Reading does not edit TTP documents; the Manual tab can be closed and reopened. Feature links in this guide are handled by the desktop's fixed `studio://` action list, rather than by a web browser.
 
@@ -14,6 +14,8 @@ The default in-app manual is [English](in_app_manual_en.md), with an [English gu
 
 | Topic | Traditional Chinese | English |
 | --- | --- | --- |
+| Peer ATLAS case-study tab, framework sidebar preferences and compact collapsed selections | [工作區頁籤與側邊欄顯示](workspace_layout+_zh.md) | [Workspace Tabs and Sidebar Visibility](workspace_layout_en.md) |
+| CAR inclusion, sorting, native relationships, Data Model/Sensors, collapsible copyable code and complete IO | [CAR 分析、資料模型與感測器](car_integration+_zh.md) | [CAR Analytics, Data Model and Sensors](car_integration_en.md) |
 | Dataset-scoped custom domains, external-ID sources, ordered Matrix unions and a loadable Bundle example | [自訂 Domain 與資料模型](custom_domains+_zh.md) | [Custom Domains and Catalog Models](custom_domains_en.md) |
 | In-import customDataURL acquisition, relative references, Bundle validation and changed-source review | [解析圖層的 customDataURL](custom_data_url_import+_zh.md) | [Resolve a Layer's customDataURL](custom_data_url_import_en.md) |
 | Open all/subsets of Navigator arrays with independent versions/sources and atomic installation | [一次開啟多個 Navigator JSON 圖層](navigator_bundle_import+_zh.md) | [Open Multiple Navigator JSON Layers](navigator_bundle_import_en.md) |
@@ -42,3 +44,9 @@ These guides describe native desktop formulas, full-matrix calculations, per-pro
 Documentation workflow: add the operating guide and its examples here, maintain equivalent Chinese/English versions, update this index, and link the index from the project README. Use project-relative example locations rather than a specific user's computer paths. Describe actual file inputs/outputs and progress wherever a guide includes file operations.
 
 For installation and startup, see the [project README](../README.md).
+
+The workspace-layout guides also cover the collapsible **Matrix controls** panel and the upper **ATLAS Case Studies Details** reference tab beside **Technique Details**, including independent close/reopen and recovery defaults.
+
+Library rail icons open searchable sidebars. Clicking a CAR or ATLAS mitigation row, or pressing Enter, opens the matching full detail page; the Workplace openers remain available. Case Studies search/results live in the Explorer. Three independent ATT&CK/ATLAS/CAR switches remove excluded buttons from the rail layout; fresh settings enable all three and Workplace always remains. See the workspace-layout and CAR guides above. The root README documents click/activation routing and the real-Qt sidebar regression workflow.
+
+CAR Browser is now an independent upper reference tab beside Technique Details, with close/reopen actions and recovery of visibility, active page and category. The workspace-layout and CAR guides cover the same behavior.

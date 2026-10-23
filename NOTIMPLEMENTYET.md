@@ -17,6 +17,12 @@ Enterprise／Mobile／ICS、歷史版本、平台聯集、Flat／Side／Mini、�
 
 **已完成：NAV-001～026、NAV-030，共 27 項。** 本輪完成 NAV-026；下方保留固定 ID 與驗收範圍供追溯，不再當成待辦。其餘 **8 項**仍分別標示未實作／部分實作／桌面範圍差異，另外保留 8 項待核實與 7 項非 Navigator 產品待辦。完整升級審核見[中文手冊](manual/upgrade_review+_zh.md)／[英文手冊](manual/upgrade_review_en.md)，並排內容與目標編輯見[中文手冊](manual/upgrade_content+_zh.md)／[英文手冊](manual/upgrade_content_en.md)，一對多映射與衝突見[中文手冊](manual/upgrade_mapping+_zh.md)／[英文手冊](manual/upgrade_mapping_en.md)，最後摘要與理由見[中文手冊](manual/upgrade_summary+_zh.md)／[英文手冊](manual/upgrade_summary_en.md)，SVG 主題見[中文手冊](manual/svg_themes+_zh.md)／[英文手冊](manual/svg_themes_en.md)，SVG 紙張與方向見[中文手冊](manual/svg_paper+_zh.md)／[英文手冊](manual/svg_paper_en.md)；純量公式見[中文手冊](manual/layer_score_formulas+_zh.md)／[英文手冊](manual/layer_score_formulas_en.md)與[固定參考測例](scripts/formula-reference/README.md)。自訂領域見[中文手冊](manual/custom_domains+_zh.md)／[英文手冊](manual/custom_domains_en.md)與[可載入範例](manual/examples/README.md)，自訂來源取得見[來源手冊](manual/custom_data_url_import+_zh.md)，多圖層開啟見[開啟手冊](manual/navigator_bundle_import+_zh.md)，JSON 註記匯出見[匯出手冊](manual/json_annotation_export+_zh.md)，來源選取見[批次操作手冊](manual/source_relationship_selection+_zh.md)。完成本組不代表全部 Navigator 功能已對齊。
 
+## CAR 整合（獨立於 Navigator 對齊）
+
+CAR-001～008 的原生分析瀏覽、六欄排序、技術精確關聯、資料模型／感測器入口、Workplace 獨立選取及 Studio／CSV／recovery 流程已實作。驗收與已知範圍見 [CAR_REQUIREMENTS.md](CAR_REQUIREMENTS.md)、[英文手冊](manual/car_integration_en.md)／[中文手冊](manual/car_integration+_zh.md)；來源 manifest、授權與候選感測器語意見 [provenance](data/car/PROVENANCE.md)。CAR 不是第三個 ATT&CK 矩陣，不會自動把分析變成所選 TTP。
+
+仍未實作：SIEM 查詢執行、部署環境管理、自動執行上游 unit tests、感測器完整性／偵測效果驗證、Detection Plan 證據評分、可攜完整 CAR 來源封裝，以及 ATLAS 間接 CAR 偵測推論。這些保留後續範圍，不列為已完成 Navigator 功能。NAV-027 等既有未完成項目保持原狀。
+
 ## P1：搜尋、選取與視覺控制
 
 ### NAV-001 — 來源搜尋的欄位開關

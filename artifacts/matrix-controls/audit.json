@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "count": 22,
+  "checks": [
+    "expanded controls available (1440, 920)",
+    "collapse reclaims matrix height (1440, 920)",
+    "summary and reopen control remain visible (1440, 920)",
+    "all control rows, including injected search preferences, collapse (1440, 920)",
+    "queries retained (1440, 920)",
+    "reopen preserves controls (1440, 920)",
+    "expanded controls available (1000, 650)",
+    "collapse reclaims matrix height (1000, 650)",
+    "summary and reopen control remain visible (1000, 650)",
+    "all control rows, including injected search preferences, collapse (1000, 650)",
+    "queries retained (1000, 650)",
+    "reopen preserves controls (1000, 650)",
+    "reference tabs have separate stable identities",
+    "case page is at the same stack level as technique details",
+    "repeated ensure does not duplicate case tab",
+    "reference index follows file insertion",
+    "closing inactive case reference preserves active technique details",
+    "closing inactive technique reference preserves case page",
+    "closing active case returns to document area",
+    "Traditional Chinese label retains collapsed state",
+    "English switch retains collapsed state",
+    "production settings and session preserved"
+  ]
+}

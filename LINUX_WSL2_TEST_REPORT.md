@@ -4,6 +4,8 @@
 
 這份結論針對下列環境與案例，不代表所有 Linux 發行版、桌面環境或全部可能操作都已驗證。
 
+2026-10-22 補充：Linux 啟動與安裝入口已統一為 `fusionstudio`、`start-fusionstudio.sh` 與 `setup-fusionstudio.sh`；環境變數改為 `FUSIONSTUDIO_PYTHON`。下方 2026-10-20 的舊指令、舊副本與圖形測試紀錄保留為歷史證據；目前安裝方式請依 [README](README.md#linux--wsl2-installation)。新版安裝／遷移另於 Kali WSL2 的隔離 HOME 通過 [69 項檢查](artifacts/linux-command-setup/6cb2fcfdaf3840468989a72115dfe814/audit.json)，涵蓋 Bash／Zsh、新舊入口遷移及驗證失敗時保留舊入口；本次未開啟 GUI，也未修改個人 shell 設定檔。
+
 ## 環境與資料隔離
 
 | 項目 | 實測內容 |
@@ -90,7 +92,7 @@
 - **外部網站開啟**：此最小 WSL 環境沒有設定預設瀏覽器，因此尚未驗證 MITRE／GitHub 等外部網址能否透過系統瀏覽器開啟。內部 Manual 功能連結已驗證；兩者不能混為一談。使用者需先配置可用的預設瀏覽器與桌面 URL 開啟工具。
 - **完整網路下載與歷史版本**：驗證了快取版本及離線失敗回復，尚未完整執行所有版本下載與所有歷史快照的操作。
 - **長時間與桌面整合**：大型使用者資料、長時間穩定性、效能、多螢幕／HiDPI，以及 `.desktop`／AppImage／deb 等發佈方式尚未驗證。
-- **其他 shell 的指令設定**：Bash／Zsh 的 `ttpselecter` 設定已驗證；Fish 等其他 shell 的 PATH 啟動格式尚未配置或驗證。Windows 的 `setup-ttpselecter.cmd` 仍不負責 Linux shell。
+- **其他 shell 的指令設定**：Bash／Zsh 的 `ttpselecter` 設定已驗證；Fish 等其他 shell 的 PATH 啟動格式尚未配置或驗證。Windows 安裝器不負責 Linux shell；目前 Windows 入口已改名為 `setup-fusionstudio.cmd`，啟動指令為 `fusionstudio`，不影響本報告的 Linux 測試紀錄。
 
 ## 重現與啟動方式
 

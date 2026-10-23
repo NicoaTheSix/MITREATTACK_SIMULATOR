@@ -235,7 +235,7 @@ class LanguageManager(QtCore.QObject):
         if isinstance(widget, QtWidgets.QTabBar):
             for index in range(widget.count()):
                 identity = widget.tabData(index)
-                if widget.property('documentTabs') and identity not in ('__manual__', '__details__'):
+                if widget.property('documentTabs') and identity not in ('__manual__', '__details__', '__atlas_cases__','__car_browser__'):
                     continue
                 key = 'tab:' + str(identity if identity is not None else index)
                 self.property_text(widget, key, lambda i=index: widget.tabText(i), lambda text, i=index: widget.setTabText(i, text))

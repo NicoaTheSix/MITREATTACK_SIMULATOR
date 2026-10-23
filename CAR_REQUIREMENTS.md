@@ -1,6 +1,6 @@
 # Fusion Studio：CAR 整合需求規格
 
-日期：2026-10-21。規格版本：1.0。需求提出者：專案使用者。實作負責對話：**工程部門**。狀態：已派工，工程對話已啟動執行；本文不代表功能已完成。
+日期：2026-10-21。規格版本：1.0。需求提出者：專案使用者。實作負責對話：**工程部門**。狀態：CAR-001～008／A～D 已完成並驗收（2026-10-21）；詳細結果見文末驗收證據。
 
 產品名稱：**Fusion Studio**。副標：*A community toolkit for MITRE ATT&CK® and ATLAS*。
 
@@ -170,20 +170,20 @@
 
 ## 13. 驗收清單
 
-- [ ] 六個屬性欄逐一升／降冪驗證；包括日期跨月／年、同名、缺值、多值、排序後選取正確與語言切換。
-- [ ] Native coverage 與同快照 by-technique 生成語意一致；`T1036`／`.003`／`.005` 與 `T1021` 案例不發生父層擴張或兄弟關聯污染。
-- [ ] 父技術、子技術、CAR 分析三種詳細頁可雙向導覽；返回保留來源狀態；導覽不改 inclusion。
-- [ ] 最左側 Data Model、Sensors 各有自己的可辨識圖示、標籤、tooltip／無障礙名稱；小視窗與標籤開關正常。
-- [ ] Data Model 引用與 sensor 版本／notes 保留，sensor 部分交集僅顯示候選，不誤標齊備／驗證。
-- [ ] Analytics 勾選、排序、搜尋、多列加入與已納入區同步；無 coverage／無 code 的分析仍可選。
-- [ ] Workplace 含獨立 CAR Analytics 區塊與計數；Ctrl／Shift／右鍵移除只影響目標分析，保留所有 TTP 與註記。
-- [ ] 多文件隔離、文件複製、舊右鍵 action、重複加入／移除、關閉視圖再開皆正確。
-- [ ] 原生 JSON／Save／Open／Save As／recovery 能往返還原 CAR 選取、快照及必要顯示資訊；舊文件仍可用。
-- [ ] 三種內容預設都包含；ATT&CK／ATLAS／CAR 各種範圍、CAR-only、略過缺失快照、部分輸出 dirty 與取消均驗證。
-- [ ] Navigator／CSV 不混淆 CAR 與 TTP，不靜默丟失原生儲存內容；來源版本差異及失效技術有可見診斷。
-- [ ] 實際 Qt 控制項互動測試、代表性解析與關聯案例、文件生命週期回歸通過；不要只驗證函式存在或硬編碼樣本。
-- [ ] 每階段進度、所有實際檔案絕對路徑、原子失敗保護符合規則；中英文 README／手冊及來源聲明同步。
-- [ ] 保留 Fusion Studio 名稱、副標與目前既有功能；使用隔離 settings／session／artifacts 驗證，不覆寫使用者工作階段與未提交變更。
+- [x] 六個屬性欄逐一升／降冪驗證；包括日期跨月／年、同名、缺值、多值、排序後選取正確與語言切換。
+- [x] Native coverage 與同快照 by-technique 生成語意一致；`T1036`／`.003`／`.005` 與 `T1021` 案例不發生父層擴張或兄弟關聯污染。
+- [x] 父技術、子技術、CAR 分析三種詳細頁可雙向導覽；返回保留來源狀態；導覽不改 inclusion。
+- [x] 最左側 Data Model、Sensors 各有自己的可辨識圖示、標籤、tooltip／無障礙名稱；小視窗與標籤開關正常。
+- [x] Data Model 引用與 sensor 版本／notes 保留，sensor 部分交集僅顯示候選，不誤標齊備／驗證。
+- [x] Analytics 勾選、排序、搜尋、多列加入與已納入區同步；無 coverage／無 code 的分析仍可選。
+- [x] Workplace 含獨立 CAR Analytics 區塊與計數；Ctrl／Shift／右鍵移除只影響目標分析，保留所有 TTP 與註記。
+- [x] 多文件隔離、文件複製、舊右鍵 action、重複加入／移除、關閉視圖再開皆正確。
+- [x] 原生 JSON／Save／Open／Save As／recovery 能往返還原 CAR 選取、快照及必要顯示資訊；舊文件仍可用。
+- [x] 三種內容預設都包含；ATT&CK／ATLAS／CAR 各種範圍、CAR-only、略過缺失快照、部分輸出 dirty 與取消均驗證。
+- [x] Navigator／CSV 不混淆 CAR 與 TTP，不靜默丟失原生儲存內容；來源版本差異及失效技術有可見診斷。
+- [x] 實際 Qt 控制項互動測試、代表性解析與關聯案例、文件生命週期回歸通過；不要只驗證函式存在或硬編碼樣本。
+- [x] 每階段進度、所有實際檔案絕對路徑、原子失敗保護符合規則；中英文 README／手冊及來源聲明同步。
+- [x] 保留 Fusion Studio 名稱、副標與目前既有功能；使用隔離 settings／session／artifacts 驗證，不覆寫使用者工作階段與未提交變更。
 
 交付證據放在 `artifacts/car-integration/`，至少有分項結果／日誌、Analytics 清單（兩種排序）、By Technique、Data Model、Sensors、Workplace CAR 區塊及中英文代表性截圖，並在根 README 記錄實際操作入口、資料流程、測試方式與已知限制。
 
@@ -194,3 +194,13 @@
 派工紀錄：2026-10-21，已將完整工程指令傳送至對話 `01a1200d-92ae-7c42-8038-700f04cfe496`；派工後狀態確認為 active／inProgress。工程實際完成與測試證據由工程部門後續填寫，不以派工成功代替功能驗收。
 
 本規格的模組名稱與欄位名可在符合行為及相容性的前提下調整，但工程須在 README 記錄實際責任與格式。任何必做項目無法達成時，應具體列出阻礙與受影響的驗收項，不能默默降為後續。
+
+## 15. 工程完成與驗收證據（2026-10-21）
+
+A～D 已交付。固定來源 102 Analytics／13 Data Model／7 Sensors，逐檔來源雜湊與原 LICENSE／NOTICE 均保留。實際模組、JSON schema、操作入口與進度流程見 [README](README.md#car-integration)，雙語操作見[中文](manual/car_integration+_zh.md)／[英文](manual/car_integration_en.md)。
+
+CAR 專項通過 **133** 項，完整結果為 [acceptance.json](artifacts/car-integration/acceptance.json) 與 [acceptance-final.log](artifacts/car-integration/acceptance-final.log)。既有 ATLAS **116**、Studio lifecycle **113**、content IO **64**、Navigator bundle **93** 均通過，合計 **519** 項；分項日誌、範例與截圖見[驗收索引](artifacts/car-integration/README.md)。
+
+覆蓋六欄雙向排序（日期跨年、同名、缺值、多值）、實際 Ctrl／Shift／checkbox／批次及右鍵行為、官方固定生成迴圈的完整分組對照、精確欄位交集與未解析引用、文件隔離與獨立複本、七種非空範圍、真實 Save As／取消／Open、無 ATT&CK 磁碟資料的 CAR-only 分頁安裝、實際程式重啟復原、壞來源錯誤隔離及原子發布失敗保護。根目錄使用者 settings／session 與官方 pointers 逐位元保留。Windows Qt offscreen 驗證；已登錄 Linux runner，尚未聲稱原生 Linux CAR 驗收。
+
+本次未部署／執行查詢、上游測試或 SIEM，也未實作環境管理、證據評分、可攜完整來源封裝與 ATLAS 間接偵測推論。這些仍屬第 1 節後續範圍。CAR-only 的 v0.0 僅是缺少 ATT&CK 時的內部空白介面標記，不是 MITRE 發行版本。

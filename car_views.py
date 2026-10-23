@@ -8,7 +8,8 @@ from PySide6 import QtCore, QtGui, QtWidgets
 from attack_catalog import external_id
 from car_mapping import resolve_technique
 from car_documents import included
-from localization import tr
+from localization import tr, language_manager
+from code_blocks import CodeDetailView, code_html
 
 REF = int(QtCore.Qt.ItemDataRole.UserRole) + 110
 SORT = REF + 1
@@ -94,6 +95,9 @@ class CarBrowser(QtWidgets.QWidget):
         self.table.setSelectionMode(QtWidgets.QAbstractItemView.SelectionMode.ExtendedSelection)
         self.table.setEditTriggers(QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers)
         self.table.setSortingEnabled(True); self.table.setWordWrap(True)
+        self.table.setStyleSheet('QTableView::indicator { width: 13px; height: 13px; } '
+            'QTableView::indicator:unchecked { border: 1px solid #858585; background: #252526; } '
+            'QTableView::indicator:checked { border: 1px solid #3794ff; background: #007acc; }')
         self.table.horizontalHeader().setSectionResizeMode(QtWidgets.QHeaderView.ResizeMode.Interactive)
         self.model = QtGui.QStandardItemModel(0, 7, self)
         self.model.setHorizontalHeaderLabels(['Include', *HEADERS])
@@ -127,12 +131,17 @@ class CarBrowser(QtWidgets.QWidget):
         self.add = QtWidgets.QPushButton('Add Analytic to Workplace'); self.remove = QtWidgets.QPushButton('Remove Analytic from Workplace')
         self.add.clicked.connect(lambda:self.change_detail(True)); self.remove.clicked.connect(lambda:self.change_detail(False))
         bar.addWidget(self.add); bar.addWidget(self.remove); details.addLayout(bar)
-        self.details = QtWidgets.QTextBrowser(); self.details.setOpenLinks(False); self.details.anchorClicked.connect(lambda url:self.navigate(url.toString()))
+        self.details = CodeDetailView(owner.operation_report); self.details.anchorClicked.connect(lambda url:self.navigate(url.toString()))
         details.addWidget(self.details, 1); self.stack.addWidget(self.detail_page)
         self.detail_ref = None
+        language_manager().changed.connect(self.translate_headers)
+        self.translate_headers()
         self.search.textChanged.connect(self.refilter)
         self.platform.currentIndexChanged.connect(self.refilter); self.tool.currentIndexChanged.connect(self.refilter)
         self.only_included.toggled.connect(self.refilter)
+
+    def translate_headers(self, *_):
+        self.model.setHorizontalHeaderLabels([tr(v) for v in ['Include', *HEADERS]])
 
     def set_catalog(self, car):
         if self.car and self.car.dataset_id==car.dataset_id:
@@ -164,13 +173,13 @@ class CarBrowser(QtWidgets.QWidget):
             self.detail_ref = None
             self.table.clearSelection()
             if self.stack.currentWidget() is self.detail_page:
-                self.show_list()
+                self.show_list(reveal=False)
         self.owner_id, self.catalog = document.document_id, document.catalog
         if not self.car: return
         signature = self.car.dataset_id, document.catalog.domain, document.catalog.version, document.catalog.dataset_id
         if signature != self.source_signature:
             self.source_signature = signature
-            self.model.blockSignals(True); self.model.removeRows(0,self.model.rowCount())
+            self.model.removeRows(0,self.model.rowCount())
             for identity, record in sorted(self.car.analytics.items()):
                 values, keys = row_values(record,self.catalog)
                 check = QtGui.QStandardItem(); check.setCheckable(True)
@@ -179,7 +188,6 @@ class CarBrowser(QtWidgets.QWidget):
                     item.setData(identity,REF); item.setData(self.car.dataset_id,SNAPSHOT); item.setData(keys[column-1] if column else None,SORT)
                     item.setToolTip(values[column-1] if column else identity)
                 self.model.appendRow(items)
-            self.model.blockSignals(False)
             self.rebuild_groups()
         self.sync_checks()
 
@@ -226,9 +234,10 @@ class CarBrowser(QtWidgets.QWidget):
         menu.addAction('Remove highlighted Analytics from Workplace',lambda:self.owner.change_car_inclusion(identities,False,owner))
         self.owner.show_workplace_menu(menu,self.table.viewport().mapToGlobal(position))
 
-    def label(self, identity):
-        record = resolve_technique(self.catalog,identity)
-        return identity+' '+record['name']+' ['+record['status']+']'
+    def label(self, identity, tactics=()):
+        record = resolve_technique(self.catalog,identity,tactics)
+        mismatch = '; tactic mismatch: '+', '.join(record['tactic_mismatch']) if record['tactic_mismatch'] else ''
+        return identity+' '+record['name']+' ['+record['status']+mismatch+']'
 
     def rich_cell(self,text):
         label = QtWidgets.QLabel(text); label.setWordWrap(True); label.setOpenExternalLinks(False)
@@ -246,9 +255,9 @@ class CarBrowser(QtWidgets.QWidget):
     def show_category(self,category):
         self.kind=category; self.show_list()
 
-    def show_list(self):
+    def show_list(self,reveal=True):
         self.stack.setCurrentIndex({'CAR Analytics':0,'CAR Data Model':1,'CAR Sensors':2}[self.kind])
-        self.owner.workspace.setCurrentWidget(self)
+        if reveal: self.owner.reveal_car_browser()
 
     def change_detail(self,include):
         if self.detail_ref: self.owner.change_car_inclusion({self.detail_ref},include,self.owner_id)
@@ -267,36 +276,45 @@ class CarBrowser(QtWidgets.QWidget):
         rows=[]
         for cov in record.get('coverage',[]):
             parent=cov['technique']; scopes=cov.get('subtechniques',[])
-            rows.append('<p>'+link('technique',parent,self.label(parent))+': '+
-                        (', '.join(link('technique',v,self.label(v)) for v in scopes) if scopes else
+            rows.append('<p>'+link('technique',parent,self.label(parent,cov.get('tactics',[])))+': '+
+                        (', '.join(link('technique',v,self.label(v,cov.get('tactics',[]))) for v in scopes) if scopes else
                          esc('No listed sub-techniques' if 'subtechniques' in cov else 'N/A — technique only'))+
-                        '<br>'+esc(json.dumps(cov,ensure_ascii=False))+'</p>')
+                        '</p>'+code_html('Coverage (JSON)',json.dumps(cov,indent=2,ensure_ascii=False)))
         refs=record.get('data_model_references',[])
-        rows.append('<h2>'+esc(tr('CAR Data Model'))+'</h2>'+('<br>'.join(link('model',r,r) for r in refs) or esc(tr('Not provided'))))
+        rows.append('<h2>'+esc('CAR Data Model')+'</h2>'+('<br>'.join(link('model',r,r)+
+            ('' if exact and self.car.reference_known(r) else ' ['+esc('Unresolved data model reference')+']') for r in refs) or esc('Not provided')))
         candidates=self.car.candidates(record) if exact else {}
-        rows.append('<h2>'+esc(tr('Sensor candidates — partial field intersections, not validation'))+'</h2>'+ '<br>'.join(
+        rows.append('<h2>'+esc('Sensor candidates — partial field intersections, not validation')+'</h2>'+ '<br>'.join(
             link('sensor',k,k)+': '+esc(', '.join(v)) for k,v in candidates.items()))
         if not refs:
-            rows.append('<p>'+esc(tr('Unknown — data requirements not provided'))+'</p>')
+            rows.append('<p>'+esc('Unknown — data requirements not provided')+'</p>')
         elif not candidates:
-            rows.append('<p>'+esc(tr('No candidate in this snapshot'))+'</p>')
-        rows.append('<h2>'+esc(tr('Implementations'))+'</h2>')
+            rows.append('<p>'+esc('No candidate in this snapshot')+'</p>')
+        rows.append('<h2>'+esc('Implementations')+'</h2>')
         for number,implementation in enumerate(record.get('implementations',[]),1):
-            rows.append('<h3>'+esc(str(number)+' · '+implementation['type'])+'</h3><pre>'+esc(json.dumps(implementation,indent=2,ensure_ascii=False))+'</pre>')
+            rows.append('<h3>'+esc(str(number)+' · '+implementation['type']+
+                (' · '+str(implementation['name']) if implementation.get('name') else ''))+'</h3>')
+            if implementation.get('description'):
+                rows.append('<p>'+esc(implementation['description']).replace('\n','<br>')+'</p>')
+            if isinstance(implementation.get('code'),str):
+                rows.append(code_html('Implementation code',implementation['code'],implementation['type']))
+            rows.append(code_html('Implementation metadata (JSON)',json.dumps(
+                {k:v for k,v in implementation.items() if k!='code'},indent=2,ensure_ascii=False)))
             for url in re.findall(r'https?://[^\s\)<>\"\]]+',json.dumps(implementation,ensure_ascii=False)):
-                rows.append('<p><a href="'+esc(url.rstrip('.,'))+'">'+esc(tr('Open implementation reference'))+'</a></p>')
+                rows.append('<p><a href="'+esc(url.rstrip('.,'))+'">'+esc('Open implementation reference')+'</a></p>')
         source=self.car.source if exact else saved['source']
-        body='<h1>'+esc(record.get('id','')+' '+record.get('title',''))+'</h1><p>'+esc(tr('Resolved snapshot') if exact else tr('Unresolved snapshot — saved analytic retained'))+'</p>'
-        body+='<p>'+esc(source['commit'])+'</p><p>'+esc(record.get('submission_date',tr('Not provided')))+'</p>'
-        body+='<h2>'+esc(tr('Description'))+'</h2><p>'+esc(record.get('description','')).replace('\n','<br>')+'</p>'
-        body+='<h2>'+esc(tr('Native coverage'))+'</h2>'+''.join(rows)
-        body+='<h2>'+esc(tr('Complete native record — tests are reference text only'))+'</h2><pre>'+esc(json.dumps(record,indent=2,ensure_ascii=False))+'</pre>'
+        body='<h1>'+esc(record.get('id','')+' '+record.get('title',''))+'</h1><p>'+esc('Resolved snapshot' if exact else 'Unresolved snapshot — saved analytic retained')+'</p>'
+        body+='<p>'+esc(source['commit'])+'</p><p>'+esc(record.get('submission_date','Not provided'))+'</p>'
+        body+='<p>'+esc('ATT&CK resolution dataset')+': '+esc(self.catalog.domain+' v'+self.catalog.version+' '+self.catalog.dataset_id)+'</p>'
+        body+='<h2>'+esc('Description')+'</h2><p>'+esc(record.get('description','')).replace('\n','<br>')+'</p>'
+        body+='<h2>'+esc('Native coverage')+'</h2>'+''.join(rows)
+        body+=code_html('Complete native record — tests are reference text only',json.dumps(record,indent=2,ensure_ascii=False))
         self.render_detail(body,True)
 
     def render_detail(self,body,analytic=False):
         self.add.setVisible(analytic); self.remove.setVisible(analytic)
         self.details.setHtml(body); self.stack.setCurrentWidget(self.detail_page)
-        self.owner.workspace.setCurrentWidget(self); self.sync_checks()
+        self.owner.reveal_car_browser(); self.sync_checks()
 
     def navigate(self,target):
         text=unquote(target); url=QtCore.QUrl(text)
@@ -313,20 +331,22 @@ class CarBrowser(QtWidgets.QWidget):
 
     def show_model(self,reference):
         if not self.car: return
-        parts=reference.split('/'); key=parts[0]; model=self.car.models.get(key)
-        if not model: return
+        parts=reference.split('/'); key=parts[0]; model=self.car.models.get(key,{})
         action=parts[1] if len(parts)>1 else ''; field=parts[2] if len(parts)>2 else ''
         refs=[r for r in self.car.references if len(r.split('/'))==3 and r.split('/')[0]==key and (not action or r.split('/')[1]==action)
               and (not field or r.split('/')[-1]==field)]
         analytic_ids=sorted({a for r in refs for a in self.car.references[r]})
         body='<h1>'+esc(reference)+'</h1><p>'+esc(model.get('description',''))+'</p>'
+        if (not model or action and action not in {v['name'] for v in model['actions']}
+                or field and field not in {v['name'] for v in model['fields']}):
+            body+='<p>'+esc('Unresolved data model reference')+'</p>'
         for category in ('actions','fields'):
             body+='<h2>'+esc(category.title())+'</h2>'
-            for entry in model[category]:
+            for entry in model.get(category,[]):
                 route=key+'/'+entry['name'] if category=='actions' else key+'//'+entry['name']
                 body+='<p>'+link('model',route,entry['name'])+' '+esc(entry.get('description',''))+'</p>'
-        body+='<h2>'+esc(tr('Exact referencing Analytics'))+'</h2>'+'<br>'.join(link('analytic',a,a+' '+self.car.analytics[a]['title']) for a in analytic_ids)
-        body+='<pre>'+esc(json.dumps(model,indent=2,ensure_ascii=False))+'</pre>'
+        body+='<h2>'+esc('Exact referencing Analytics')+'</h2>'+'<br>'.join(link('analytic',a,a+' '+self.car.analytics[a]['title']) for a in analytic_ids)
+        body+=code_html('Native data model (JSON)',json.dumps(model,indent=2,ensure_ascii=False))
         self.detail_ref=None; self.render_detail(body)
 
     def show_sensor(self,key):
@@ -335,13 +355,13 @@ class CarBrowser(QtWidgets.QWidget):
         if not record: return
         fields=self.car.sensor_fields[key]
         body='<h1>'+esc(record.get('sensor_name',key)+' '+str(record.get('sensor_version','')))+'</h1><p>'+esc(record.get('sensor_description',''))+'</p>'
-        body+='<h2>'+esc(tr('Native mappings and notes'))+'</h2>'
+        body+='<h2>'+esc('Native mappings and notes')+'</h2>'
         for mapping in record['mappings']:
             body+='<p>'+esc(mapping['object']+'/'+mapping['action'])+'<br>'+esc(mapping.get('notes',''))+'<br>'+', '.join(
                 link('model',mapping['object']+'/'+mapping['action']+'/'+f,f) for f in mapping['fields'])+'</p>'
-        body+='<h2>'+esc(tr('Sensor candidates — partial field intersections, not validation'))+'</h2>'
+        body+='<h2>'+esc('Sensor candidates — partial field intersections, not validation')+'</h2>'
         for identity,analytic in sorted(self.car.analytics.items()):
             intersection=sorted(fields & set(analytic.get('data_model_references',[])))
             if intersection: body+='<p>'+link('analytic',identity,identity+' '+analytic['title'])+'<br>'+esc(', '.join(intersection))+'</p>'
-        body+='<pre>'+esc(json.dumps(record,indent=2,ensure_ascii=False))+'</pre>'
+        body+=code_html('Native sensor record (JSON)',json.dumps(record,indent=2,ensure_ascii=False))
         self.detail_ref=None; self.render_detail(body)

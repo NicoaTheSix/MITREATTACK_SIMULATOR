@@ -1,9 +1,9 @@
 {
   "schema_version": "1.0",
-  "document_id": "2202b99b-2bd4-443f-87e4-6c130fdd265e",
+  "document_id": "834976f1-d99a-4462-8f50-a194b42adec8",
   "name": "New Name",
-  "created_at_utc": "2026-10-20T15:30:17.128369+00:00",
-  "exported_at_utc": "2026-10-20T15:30:28.702506+00:00",
+  "created_at_utc": "2026-10-21T10:26:05.529177+00:00",
+  "exported_at_utc": "2026-10-21T10:26:20.731315+00:00",
   "attack": {
     "domain": "enterprise-attack",
     "version": "20.0",
