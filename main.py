@@ -327,7 +327,7 @@ class MainWindow(QtWidgets.QMainWindow, AtlasWorkspace, CarWorkspace, StudioWork
     def configure_native_taskbar(self):
         if sys.platform != "win32" or QtWidgets.QApplication.instance().platformName() != "windows":
             return
-        icon_path = Path(__file__).resolve().parent / "assets" / "fusion-studio-icon-pixel-v2.ico"
+        icon_path = Path(__file__).resolve().parent / "assets" / "fusion-studio-icon-monochrome-v3.ico"
         python_path = Path(sys.executable).resolve()
         pythonw_path = python_path.with_name("pythonw.exe")
         if pythonw_path.is_file():
@@ -2680,7 +2680,7 @@ def configure_application(app):
     app.setApplicationName(APP_NAME)
     app.setApplicationDisplayName(APP_NAME)
     print(f"[Application identity 2/2] Complete: {APP_NAME} display identity ready", flush=True)
-    icon_path = Path(__file__).resolve().parent / "assets" / "fusion-studio-icon-pixel-v2.png"
+    icon_path = Path(__file__).resolve().parent / "assets" / "fusion-studio-icon-monochrome-v3.png"
     print(f"[Application icon 1/2] Input file: {icon_path}", flush=True)
     print("[Application icon 1/2] Output files: None (application/window icon in memory)", flush=True)
     icon_pixmap = QtGui.QPixmap(str(icon_path))

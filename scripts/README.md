@@ -60,7 +60,7 @@ Run the commands below from your own project root (the folder containing `main.p
 & '.\.venv\Scripts\python.exe' -B '.\scripts\build_windows_icon.py'
 ```
 
-Input: `<project-root>\assets\fusion-studio-icon-pixel-v2.png`. Output: `<project-root>\assets\fusion-studio-icon-pixel-v2.ico`. Both absolute paths are printed before processing. **1/3 read** validates the image; **2/3 encode** reports each of the 16/32/48/64/128/256-pixel frames, preserving alpha and using nearest-neighbor scaling; **3/3 publish** writes the ICO directory and PNG payloads and reports completion. Missing/unreadable input, encoding failure or write failure raises an error and exits nonzero. The source PNG remains intact. Regeneration replaces only this ICO. Root README documents how the application reads the ICO into native taskbar properties.
+Input: `<project-root>\assets\fusion-studio-icon-monochrome-v3.png`. Output: `<project-root>\assets\fusion-studio-icon-monochrome-v3.ico`. Both absolute paths are printed before processing. **1/3 read** validates the image; **2/3 encode** reports each of the 16/32/48/64/128/256-pixel frames, preserving alpha and using nearest-neighbor scaling; **3/3 publish** writes the ICO directory and PNG payloads and reports completion. Missing/unreadable input, encoding failure or write failure raises an error and exits nonzero. The source PNG remains intact. Regeneration replaces only this ICO. Root README documents how the application reads the ICO into native taskbar properties. `make_demo_video.py` reads this same approved PNG for its logo and announces its absolute input path before rendering; applying the icon does not regenerate existing demo videos.
 
 ## Official Data Download
 

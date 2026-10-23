@@ -80,7 +80,7 @@ class Recorder:
         self.elapsed = 0.0
         self.proc = None
         self.log_stream = None
-        self.logo = QtGui.QImage(str(ROOT / "assets/fusion-studio-icon-pixel-v2.png"))
+        self.logo = QtGui.QImage(str(ROOT / "assets/fusion-studio-icon-monochrome-v3.png"))
         if not preview_only:
             self.log_stream = (output / "encoder.log").open("wb")
             self.proc = subprocess.Popen([
@@ -305,7 +305,7 @@ def main():
     if not args.preview_only and not args.ffmpeg:
         parser.error("Install ffmpeg or supply --ffmpeg ABSOLUTE_PATH")
     for path in (ROOT / "main.py", ROOT / "data/attack/latest.json", ROOT / "data/atlas",
-                 ROOT / "data/car", ROOT / "locales/zh_TW.json", ROOT / "assets/fusion-studio-icon-pixel-v2.png"):
+                 ROOT / "data/car", ROOT / "locales/zh_TW.json", ROOT / "assets/fusion-studio-icon-monochrome-v3.png"):
         log(f"Input path: {path.resolve()}")
     log(f"Input encoder: {Path(args.ffmpeg).resolve() if args.ffmpeg else 'None (preview only)'}")
     log(f"Output directory: {output}")

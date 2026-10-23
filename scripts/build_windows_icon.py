@@ -7,7 +7,7 @@ from PySide6 import QtCore, QtGui
 
 def main():
     root = Path(__file__).resolve().parents[1]
-    source = root / "assets" / "fusion-studio-icon-pixel-v2.png"
+    source = root / "assets" / "fusion-studio-icon-monochrome-v3.png"
     target = source.with_suffix(".ico")
     print(f"Input file: {source}", flush=True)
     print(f"Output file: {target}", flush=True)

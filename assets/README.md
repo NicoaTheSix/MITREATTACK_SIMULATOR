@@ -1,5 +1,20 @@
 # Fusion Studio Icon
 
+## 目前使用：黑白像素 v3（ATT&CK／ATLAS／CAR）
+
+此版為使用者確認套用的最後預覽：左側三個簡潔節點連向右側較大的橫向長方形，框內保留偵測波形；黑白像素風格，無盾牌、無針腳，外部背景透明。三個元素分別表達技術關聯、AI 研究與偵測分析，是專案自己的視覺比喻。
+
+- 已確認預覽來源：`C:\Users\nick5\.codex\generated_images\01a12ebb-9961-7a90-a586-51dd4683493c\exec-afa6b689-a1b8-496d-a0d4-b84d1f521229.png`
+- 專案 PNG：`D:\MITREATTACK_SIMULATOR\assets\fusion-studio-icon-monochrome-v3.png`（1254 × 1254，RGBA，394,208 bytes）
+- Windows ICO：`D:\MITREATTACK_SIMULATOR\assets\fusion-studio-icon-monochrome-v3.ico`（16／32／48／64／128／256 像素）
+- 最後一輪生成提示詞：`D:\MITREATTACK_SIMULATOR\assets\fusion-studio-icon-monochrome-v3-prompt.txt`
+
+<img src="fusion-studio-icon-monochrome-v3.png" alt="Fusion Studio ATT&CK ATLAS CAR monochrome pixel icon" width="192">
+
+流程：原設計透過內建 image_gen 逐步重繪，最後依要求放大右側並改成橫向長方形；此次套用不重新生成。先顯示來源與輸出絕對位址，再依 **1/3 檢查 → 2/3 複製 → 3/3 雜湊驗證** 將已確認預覽原封不動複製至版本化檔名。`scripts/build_windows_icon.py` 再依 **1/3 讀取 → 2/3 六尺寸編碼 → 3/3 發布** 產生透明 ICO。`main.py::configure_application` 載入 PNG，`MainWindow.configure_native_taskbar` 載入 ICO 並讀回 Windows 工作列屬性驗證；專案 README 開頭及 `scripts/make_demo_video.py` 使用同一 PNG。各程式保留絕對輸入／輸出位置及階段進度；舊 v2 與 ATT&CK 導覽圖示保留。重新啟動程式套用；若 Windows 已釘選捷徑保留舊快取，可取消釘選後重新釘選。
+
+套用驗證（2026-10-23）：PNG 與已確認預覽的 SHA-256 完全一致，透明 Alpha 保留；六個 ICO 內嵌 PNG 的尺寸、Alpha 及 Windows 原生 `LoadImageW` 載入均通過。以隔離設定、停用 recovery 的隱藏 Windows Qt 主視窗，逐像素確認應用程式／主視窗／對話框的 64px 圖示來自 v3 且不同於 v2；工作列屬性讀回為 v3 ICO 與既有 AppUserModelID，README 開頭亦使用 v3。未啟動資料載入或改動使用者文件。差異空白檢查通過。
+
 ## Nicoa HackMD 黑白像素封面
 
 **1 MB 以內版本**：`D:\MITREATTACK_SIMULATOR\assets\nicoa-hackmd-cover-under-1mb.png`，實際 **604,557 bytes（604.6 KB）**，低於 1,000,000 bytes。維持原圖 **1672 × 941** 尺寸。壓縮流程先顯示原圖與輸出圖的絕對路徑，再依 **1/3 讀取 → 2/3 PNG 最佳化 → 3/3 尺寸及大小驗證** 處理。原圖 1,862,926 bytes；RGB 最佳化仍超限，因此使用灰階 PNG 最佳化，保留黑白像素與抖色構圖、不縮放，並另存新檔。已重新開啟檔案驗證尺寸與大小。
@@ -22,7 +37,7 @@
 
 製作流程與進度：**1/3 檢視五張參考圖 → 2/3 一次融合生成單一構圖 → 3/3 複製到專案並驗證尺寸及透明背景**。複製與驗證前先顯示來源及輸出圖片的絕對路徑；同名輸出已存在時停止以保留既有設計。檢視生成結果，確認人物、電腦、網路地球、連線節點與塗鴉元素均呈現，再讀取 PNG 尺寸及角落 Alpha 作檔案驗證。
 
-## Fusion Studio v2：ATT&CK 與 ATLAS 融合圖示
+## 歷史版本 Fusion Studio v2：ATT&CK 與 ATLAS 融合圖示
 
 此新版以目前 Fusion Studio 的雙框架 Workplace 為設計依據，延續藍色點陣與透明背景。盾牌代表資安研究與防護；三個技術關聯節點連入中央 AI 晶片，表達 ATT&CK 與 ATLAS 在同一工作空間融合。亮色晶片核心提供小尺寸辨識重點。這些是專案自己的視覺比喻，並非 MITRE 官方標誌。
 
@@ -36,7 +51,7 @@
 
 製作流程：**1/3 理解專案與設計 → 2/3 內建 image_gen 繪製 → 3/3 儲存、打包及驗證**。內建工具以舊圖作為風格參考，生成單一新版 PNG。將生成結果複製到上述版本化檔名，再使用 PySide6 的 QImage 將同一 PNG 以最近鄰方式縮放為 16、32、48、64、128、256 像素；各尺寸保留透明 PNG 資料，依 ICO 標頭與目錄格式打包。處理前列印絕對輸入及輸出路徑，每個尺寸編碼時顯示進度，最後驗證 PNG 尺寸、Alpha 及 ICO 目錄。讀取、編碼或寫入失敗會回報錯誤並以非零狀態結束。這次交付以新版 PNG 與 ICO 檔案提供。
 
-應用程式顯示名稱已統一為 **Fusion Studio**；目前主要圖示使用上述 `fusion-studio-icon-pixel-v2.png` 與 `.ico`。`app_identity.py` 提供工作列與視窗顯示名稱；`main.py::configure_application()` 載入新版 PNG，`MainWindow.configure_native_taskbar()` 使用新版 ICO 設定 Windows 工作列圖示，`scripts/build_windows_icon.py` 也以新版 PNG 為來源。各流程保留絕對輸入輸出路徑與分階段進度。根目錄 README 開頭已同步套用新版。舊圖仍用於專屬 ATT&CK TTP 分類及設計紀錄。完整品牌套用順序見根目錄 [README.md](../README.md#application-name-and-startup-flow)。
+應用程式顯示名稱為 **Fusion Studio**；此段記錄 v2 的歷史套用流程，目前主要圖示已改用上方黑白 v3。`app_identity.py` 提供工作列與視窗顯示名稱；`main.py::configure_application()` 載入目前 PNG，`MainWindow.configure_native_taskbar()` 使用目前 ICO 設定 Windows 工作列圖示，`scripts/build_windows_icon.py` 也以目前 PNG 為來源。各流程保留絕對輸入輸出路徑與分階段進度。完整品牌套用順序見根目錄 [README.md](../README.md#application-name-and-startup-flow)。
 
 套用驗證：使用隔離設定檔與停用工作階段回復的隱藏原生 Qt 視窗，逐像素確認應用程式、主視窗及對話框的 64 像素圖示符合新版 PNG，且不同於舊版。Windows 視窗屬性讀回的 ICO 路徑、顯示名稱與 `FusionStudio.Desktop` 識別均正確；`LoadImageW` 成功載入 16、32、48、64、128、256 六種 ICO 尺寸。另確認 README 圖片使用新版、ATT&CK TTP 分類維持原圖。這些檢查均通過，沒有改動使用者的設定或文件。
 
@@ -53,9 +68,9 @@
 
 ### 應用程式圖示整合
 
-`D:\MITREATTACK_SIMULATOR\main.py` 的 `configure_application()` 目前載入新版 `fusion-studio-icon-pixel-v2.png`，透過 `QApplication.setWindowIcon()` 設定主視窗及對話框的預設圖示。啟動時先顯示圖片的絕對輸入路徑及無輸出檔案狀態，再顯示載入（1/2）與套用（2/2）進度。路徑依程式位置解析，不受目前工作目錄影響；讀取失敗時顯示訊息並使用系統預設圖示。重新啟動應用程式即可生效。
+`D:\MITREATTACK_SIMULATOR\main.py` 的 `configure_application()` 目前載入 `fusion-studio-icon-monochrome-v3.png`，透過 `QApplication.setWindowIcon()` 設定主視窗及對話框的預設圖示。啟動時先顯示圖片的絕對輸入路徑及無輸出檔案狀態，再顯示載入（1/2）與套用（2/2）進度。路徑依程式位置解析，不受目前工作目錄影響；讀取失敗時顯示訊息並使用系統預設圖示。重新啟動應用程式即可生效。
 
-Windows 工作列使用 `D:\MITREATTACK_SIMULATOR\assets\fusion-studio-icon-pixel-v2.ico`，包含 16、32、48、64、128、256 像素透明圖像，由 `scripts/build_windows_icon.py` 將既有 PNG 包裝而成。`main.py` 先設定行程 AppUserModelID，再由 `windows_taskbar.py` 將視窗 AppUserModelID、ICO 圖示資源、應用程式名稱與完整重新啟動命令寫入 Windows 視窗屬性並讀回驗證。這補足 Microsoft Store Python 僅設定行程識別或 Qt 視窗 Icon 時仍沿用 Python 工作列圖示的情況。啟動時顯示絕對 ICO 輸入路徑、無輸出檔案狀態及三階段進度；失敗時顯示訊息並繼續。完整流程及驗證結果見根目錄 README。既有釘選捷徑若仍顯示 Python 圖示，可取消釘選後重新釘選執行中的 TTP 程式。
+Windows 工作列使用 `D:\MITREATTACK_SIMULATOR\assets\fusion-studio-icon-monochrome-v3.ico`，包含 16、32、48、64、128、256 像素透明圖像，由 `scripts/build_windows_icon.py` 將既有 PNG 包裝而成。`main.py` 先設定行程 AppUserModelID，再由 `windows_taskbar.py` 將視窗 AppUserModelID、ICO 圖示資源、應用程式名稱與完整重新啟動命令寫入 Windows 視窗屬性並讀回驗證。這補足 Microsoft Store Python 僅設定行程識別或 Qt 視窗 Icon 時仍沿用 Python 工作列圖示的情況。啟動時顯示絕對 ICO 輸入路徑、無輸出檔案狀態及三階段進度；失敗時顯示訊息並繼續。完整流程及驗證結果見根目錄 README。既有釘選捷徑若仍顯示 Python 圖示，可取消釘選後重新釘選執行中的程式。
 
 ### 像素版本完整提示詞
 
