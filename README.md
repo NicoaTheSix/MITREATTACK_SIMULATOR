@@ -4,16 +4,37 @@
 
 # Fusion Studio
 
-*A community toolkit for MITRE ATT&CK® and ATLAS*
+*A free, open-source workspace for TTP-driven threat research.*
 
-Fusion Studio is a community-developed desktop workspace for exploring threat knowledge and building attack and defense plans. Browse ATT&CK and ATLAS, select techniques in independent matrices, retain annotations in a shared Workplace, and save or export your work. The interface supports English and Traditional Chinese.
+Fusion Studio helps security analysts turn threat knowledge into organized research. Explore MITRE ATT&CK®, ATLAS and CAR reference content, select the techniques relevant to your topic, record your analytical notes, and save or export your work for further analysis and reporting.
 
-- **Explore both frameworks:** ATT&CK techniques, mitigations, groups, software, campaigns and detection content, alongside ATLAS techniques, mitigations and case studies.
-- **Build a Workplace:** independent ATT&CK / ATLAS selections, Ctrl/Shift multi-selection, annotations and matrix tabs that can be closed and reopened.
-- **Analyze and exchange:** native Navigator views, layer analysis, JSON/CSV exchange, SVG and Excel exports, and reviewed version migration.
-- **Keep work recoverable:** Studio Save/Open, framework-specific file options and local workspace recovery.
+Built for CTI analysts, independent security researchers and small research teams, Fusion Studio brings reference browsing, technique selection and research notes into a VS Code-inspired desktop workspace. The interface and operating manuals support English and Traditional Chinese.
 
-CAR Analytics, Data Model and Sensors are integrated as independent Workplace research content. Use the [CAR English guide](manual/car_integration_en.md) or [繁體中文手冊](manual/car_integration+_zh.md); the [requirements specification](CAR_REQUIREMENTS.md) records the acceptance scope and the [integration plan](CAR_INTEGRATION_PLAN.md) retains later extensions. Start with [Installation](#installation) or the [operating manual](manual/README.md).
+## What you can do
+
+- **Research threats:** explore groups, software, campaigns, techniques and procedure examples, then assemble the TTPs relevant to your research topic.
+- **Keep your reasoning with your research:** add technique comments, reference links and metadata, and use supported layer scores and colors to express your own analysis.
+- **Explore detection and AI security references:** browse CAR analytics, data models and sensors, alongside ATLAS techniques, mitigations and case studies. ATT&CK and ATLAS selections remain independent; CAR analytics are separate research entries in the Workplace.
+- **Continue and deliver your work:** save and reopen research documents, compare supported ATT&CK layers and dataset versions, and export lists, matrices or tables for reports and presentations.
+
+## Typical use cases
+
+- Build a TTP research profile for a threat actor, malware family or campaign.
+- Organize analyst-mapped techniques, notes and evidence links for an incident research summary.
+- Prepare detection research or purple-team exercise scope and record items that need testing.
+- Collect ATLAS references for an AI security study, or create technique-based teaching materials.
+
+**Research workflow:** Explore → Select TTPs → Add notes and references → Compare → Save and export → Revisit and update.
+
+Use **Studio JSON** to preserve editable research, including the content types selected when saving. Use **Navigator JSON** for supported ATT&CK layer exchange, **CSV** for tabular exchange, and **SVG / Excel** for supported matrix and analysis outputs. Formats preserve different content; see the [operating manuals](manual/README.md) for details.
+
+## Free and open source
+
+Fusion Studio is free to use. The original project code is available under the [MIT License](LICENSE), and contributions and feedback are welcome. Third-party components and upstream datasets retain their respective licenses.
+
+The project is under active development and testing. Research notes, mappings and scores require analyst judgment; detection deployment, attack execution and effectiveness testing are performed with external tools and processes. Fusion Studio is an independent community project and does not imply MITRE endorsement.
+
+Start with [Installation](#installation) or the [operating manual](manual/README.md). CAR-specific workflows are covered in the [English guide](manual/car_integration_en.md) and [繁體中文手冊](manual/car_integration+_zh.md); the [requirements specification](CAR_REQUIREMENTS.md) and [integration plan](CAR_INTEGRATION_PLAN.md) document its accepted scope and later extensions.
 
 ## Application name and startup flow
 
